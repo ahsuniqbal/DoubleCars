@@ -15,7 +15,10 @@ function Slider(){
         <div>
             {
                 banners ? <div>{banners.bannerResult[0].bannerId} </div>: null
+                
             }
+
+            <h3>Say Hello to AB </h3>
         </div>
     )
 }
