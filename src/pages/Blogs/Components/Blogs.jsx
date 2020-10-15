@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Blogs(){
+const Blogs = () => {
     return(
         <div>
         <h3>Welcome Blog Page </h3>

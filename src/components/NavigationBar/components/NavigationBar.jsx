@@ -1,7 +1,7 @@
 import React from "react"
 import { NavLink } from "react-router-dom";
 
-function NavigationBar() {
+const NavigationBar = () => {
     return (
         <> 
             <div className = "container-fluid">
