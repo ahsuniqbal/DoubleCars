@@ -7,6 +7,8 @@ const loading = () => <div className="animated fadeIn pt-3 text-center">Loading.
 
 //Pages
 const Home = React.lazy(() => import('./pages/Home'));
+const About = React.lazy(() => import('./pages/About/Components/About'));
+const Blogs = React.lazy(() => import('./pages/Blogs/Components/Blogs'));
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
       <React.Suspense fallback={loading()}>
         <Switch>
           <Route exact path="/" name="Home" render={props => <Home {...props} />} />
-          
+          <Route exact path="/about" name="About" render={props => <About {...props} />} />
+          <Route exact path="/blogs" name="Blogs" render={props => <Blogs {...props} />} />
+
         </Switch>
       </React.Suspense>
     </BrowserRouter>
