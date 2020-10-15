@@ -1,23 +1,23 @@
-// import React, { useEffect, useState } from 'react';
-// import { Button } from 'reactstrap';
-// import { GetBannerResults } from '../api/GetRequests';
+import React, { useEffect, useState } from 'react';
+import { Button } from 'reactstrap';
+import { GetBannerResults } from '../api/GetRequests';
 
-// function Slider(){
-//     const [ banners, setBanners ] = useState(null);
+function Slider(){
+    const [ banners, setBanners ] = useState(null);
 
-//     useEffect(() => {
-//         GetBannerResults().then(value => {
-//             setBanners(value);
-//         })
-//     }, []);
+    useEffect(() => {
+        GetBannerResults().then(value => {
+            setBanners(value);
+        })
+    }, []);
 
-//     return(
-//         <div>
+    return(
+        <div>
             
 
-//             <h3>Say Hello to AB </h3>
-//         </div>
-//     )
-// }
+            <h3>Say Hello to AB </h3>
+        </div>
+    )
+}
 
-// export { Slider };
+export { Slider };
