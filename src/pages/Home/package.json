@@ -2,6 +2,6 @@
     "name": "Home",
     "version": "0.0.0",
     "private": true,
-    "main": "./components/index.js"
+    "main": "./components/Home.jsx"
   }
   
