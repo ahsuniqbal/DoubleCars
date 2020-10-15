@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-import { login } from '../../../../config/loginAuth';
+import { login } from '../../../../config/LoginAuth';
 
 
 const Login = (props) => {

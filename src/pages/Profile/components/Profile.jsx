@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-import { logout } from '../../../config/loginAuth';
+import { logout } from '../../../config/LoginAuth';
 
 const Profile = (props) => {
     const handleLogout = () => {
