@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'reactstrap';
 import { GetBannerResults } from '../api/GetRequests';
 
 function Slider(){
@@ -15,7 +14,7 @@ function Slider(){
         <div>
             
 
-            <h3>Say Hello to AB </h3>
+            
         </div>
     )
 }

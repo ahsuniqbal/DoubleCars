@@ -14,6 +14,7 @@ function App() {
       <React.Suspense fallback={loading()}>
         <Switch>
           <Route exact path="/" name="Home" render={props => <Home {...props} />} />
+          
         </Switch>
       </React.Suspense>
     </BrowserRouter>
