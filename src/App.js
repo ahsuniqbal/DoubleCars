@@ -6,7 +6,7 @@ import { PrivateRoute, PublicRoute } from './navigation/RouteTypes';
 import './App.css';
 
 //fallback loading
-const loading = () => <div className="animated fadeIn pt-3 text-center">Learn React</div>;
+const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 
 //components
 const NavigationBar = React.lazy(() => import('./components/NavigationBar'));
