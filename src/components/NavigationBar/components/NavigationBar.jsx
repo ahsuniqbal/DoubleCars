@@ -20,7 +20,7 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/home">New Cars</NavLink>
+                            <NavLink className="nav-link" to="/">New Cars</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/blogs">Used Cars</NavLink>
