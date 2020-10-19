@@ -1,4 +1,4 @@
-search bar in progressimport React from 'react';
+import React from 'react';
 import '../styles/Home.css'
 import search from '../../../assets/search.png'
 import {Button, Label, Row, Col, Input} from 'reactstrap'
