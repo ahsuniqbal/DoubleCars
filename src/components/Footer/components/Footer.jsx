@@ -115,8 +115,8 @@ const Footer = () => {
                         <Nav vertical>
                         <NavItem>
                                 <img className = "mr-2" src = {facebookicon} alt = "fb" width = "4%"/>
-                                <img className = "mr-2" src = {instaicon} alt = "fb" width = "4%"/>
-                                <img src = {twittericon} alt = "fb" width = "4%"/>
+                                <img className = "mr-2" src = {instaicon} alt = "insta" width = "4%"/>
+                                <img src = {twittericon} alt = "twitter" width = "4%"/>
                         </NavItem>
                             
                         </Nav>
