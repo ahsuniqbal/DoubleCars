@@ -12,7 +12,7 @@ const NavigationBar = () => {
                     data-toggle="collapse"
                     data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
+                    aria-expanded="true"
                     aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -34,9 +34,7 @@ const NavigationBar = () => {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/">Contact Us</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="">Contact Us</NavLink>
-                        </li>
+                       
                         <li className="nav-item">
                             <NavLink className="nav-link download-button" to="">Download App</NavLink>
                         </li>

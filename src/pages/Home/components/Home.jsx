@@ -1,10 +1,12 @@
 import React from 'react';
 // import { Slider } from './Slider';
-
+import Footer from '../../../components/Footer/components/Footer'
 const Home = () => {
     return(
         <div>
-        <h3>Welcome Home Page </h3>
+        
+        <Footer/>
+
     </div>
     )
 }

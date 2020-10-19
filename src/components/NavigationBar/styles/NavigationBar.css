@@ -8,7 +8,7 @@
 }
 
 .navbar a {
-    font-size: 1.3rem !important;
+    font-size: 16px !important;
     text-transform: capitalize !important;
     
 }
@@ -24,10 +24,11 @@
 }
 
 .download-button {
-    background-color: #3471eb !important;
+    background-color: #1C67CE !important;
     border-radius: 0.4rem !important;
     width: 100% !important;
     color: #ffffff !important;
     cursor: pointer;
     padding: 14px 28px !important;
+    font-size: 16px !important;
 }
