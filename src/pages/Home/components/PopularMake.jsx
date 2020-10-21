@@ -9,7 +9,7 @@ import Mitsubishi from '../../../assets/Mitsubishi.png'
 import Suzuki from '../../../assets/Suzuki.png'
 import Tesla from '../../../assets/Tesla.png'
 import Toyota from '../../../assets/Toyota.png'
-import {Row, Col, Button} from 'reactstrap'
+import {Row, Col, Label} from 'reactstrap'
 import { Link } from 'react-router-dom';
 
 
@@ -104,9 +104,11 @@ import { Link } from 'react-router-dom';
             var table = [];
             for (let i = index; i < index + 4; i++) {
                 table.push(
-                    <Col xs="12" md="3" className="text-center my-2">
+                    <Col xs="12" md="2" className="text-center my-2">
                         <img data-aos="flip-up" src={popularMakesImages[i]} alt="Our league person" className="img-fluid" />
+                        
                     </Col>
+                    
                 )
             }
             return table;
@@ -123,6 +125,7 @@ import { Link } from 'react-router-dom';
     
                     {
                         this.DrawRows()
+                        
                     }
     
                     
