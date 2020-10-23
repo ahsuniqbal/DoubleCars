@@ -15,3 +15,32 @@
 .input :focus {
     outline-offset: 0px !important;
 }
+
+.left-cover-section {
+  background-image: url("../../../assets/BlueCover.png"); 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cover-left-heading {
+width: 499px;
+height: 126px;
+margin-left: 120px;
+margin-top: 252px;
+color: #ffffff;
+font-size: 62px;
+line-height: 110%;
+font-weight: bold;
+}
+
+.download-button-cover {
+  background-color: #ffffff !important;
+    border-radius: 0.4rem !important;
+    width: 168px !important;
+    height: 56px;
+    color: #1C67CE !important;
+    cursor: pointer;
+    padding: 14px 28px !important;
+    font-size: 16px !important;
+}
