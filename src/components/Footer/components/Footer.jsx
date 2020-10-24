@@ -1,7 +1,6 @@
 import React from "react"
 import {Row, Col, Nav, NavItem, NavLink} from 'reactstrap'
 import '../styles/Footer.css'
-import FooterImage from '../../../assets/Footer-image.png'
 import facebookicon from '../../../assets/facebook-icon.png'
 import instaicon from '../../../assets/insta-icon.png'
 import twittericon from '../../../assets/twitter-icon.png'
@@ -9,8 +8,31 @@ import twittericon from '../../../assets/twitter-icon.png'
 const Footer = () => {
     return (
         <div> 
-            
-            <div className = "footer-image">
+            <section className = "d-flex align-items-center">
+                <div className = "container-fluid">
+                    <div className = "row">
+                        <div className = "col-12 footer-image">
+                            <div className = "row h-100">
+                                <div className = "col-md-6 my-auto">
+                                    <h1 className = "">
+                                        Find the most desireable car
+                                    </h1>
+                                    <h5 className = "my-1">
+                                        Buy and sell cars with ease using our app!
+                                    </h5>
+                                  
+                                </div>
+
+                                <div className = "col-md-2 offset-3 my-auto">
+                                <NavLink className="nav-link learn-more-button-cover mb-5 float-center" to="">Learn More</NavLink>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+            {/* <div className = "footer-image">
                 <Row>
                     <Col xs = "12">
                            <Row>
@@ -31,7 +53,7 @@ const Footer = () => {
                             </Col>
                     </Row>
                 
-            </div>
+            </div> */}
            
             
 

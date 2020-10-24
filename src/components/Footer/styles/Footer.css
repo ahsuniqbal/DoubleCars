@@ -11,3 +11,14 @@
     height: 254px;
     background-color: rgba(28,118,206,0.9); 
 }
+
+.learn-more-button-cover {
+    background-color: #ffffff !important;
+      border-radius: 0.4rem !important;
+      width: 168px !important;
+      height: 56px;
+      color: #1C67CE !important;
+      cursor: pointer;
+      padding: 14px 28px !important;
+      font-size: 16px !important;
+  }
