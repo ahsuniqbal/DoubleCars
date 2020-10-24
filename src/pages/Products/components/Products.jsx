@@ -5,7 +5,7 @@ import CarCard from '../../../components/CarCard';
 
 const Products = () => {
     return(
-        <Container fluid>
+        <Container>
             <Row>
                 <Col xs="12" md="3">
                     <Filters />
