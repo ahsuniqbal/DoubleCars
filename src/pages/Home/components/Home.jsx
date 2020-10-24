@@ -8,7 +8,7 @@ const Home = () => {
     return(
         <div>
             
-                <div className = "container-fluid">
+                <div className = "container">
                     <div className = "row">
                         <div className = "col-12">
                             <div className = "row">

@@ -1,0 +1,7 @@
+{
+    "name": "product-filters",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./components/Filters.jsx"
+}
+  

@@ -1,0 +1,7 @@
+{
+    "name": "products",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./components/Products.jsx"
+  }
+  
