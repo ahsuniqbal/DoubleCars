@@ -53,11 +53,7 @@ const DrawCols = () => {
 const Home = () => {
     return(
         <div className="container-fluid our-league-section">
-                <Row className="mx-0">
-                    <Col xs="12">
-                        <h1 className="text-center my-4">Our League</h1>
-                    </Col>
-                </Row>
+                
                 
 
                     

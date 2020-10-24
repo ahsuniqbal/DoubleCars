@@ -1,6 +1,7 @@
 import React from 'react';
 import Cover from '../../../assets/landingPageCover.png'
 import { NavLink } from "react-router-dom";
+import '../styles/Header.css'
 
 const Header = () => {
     return(
@@ -18,12 +19,13 @@ const Header = () => {
                                         Buy and sell cars with ease using our app!
                                     </h5>
                                     <div className = "mt-3">
-                                    <NavLink className="nav-link download-button-cover" to="">Download App</NavLink>
+                                    <NavLink className="nav-link download-button-cover mb-5" to="">Download App</NavLink>
                                     </div>
                                 </div>
 
-                                <div className = "col-lg-7  order-1 order-lg-2">
-                                    <img src = {Cover} alt = "Cover image" className = "img-fluid"/>
+                                <div className = "col-lg-7  order-1 order-lg-2 right-cover-section">
+                                    {/* <img src = {Cover} alt = "Cover image" className = "img-fluid" width = "100%"/> */}
+                                    
                                 </div>
                             </div>
                         </div>
