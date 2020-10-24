@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import CarCard from '../../../components/CarCard';
+import '../styles/Products.css'
 
 const Products = () => {
     return(
@@ -11,7 +12,7 @@ const Products = () => {
                     <Filters />
                 </Col>
 
-                <Col xs="12" md="9">
+                <Col xs="12" md="9" >
                     <Row>
                         <Col xs="12" sm="6" lg="4" xl="4">
                             <CarCard />

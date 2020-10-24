@@ -1,6 +1,7 @@
 import React from "react"
 import {Row, Col, Nav, NavItem, NavLink} from 'reactstrap'
 import '../styles/Footer.css'
+import FooterImage from '../../../assets/Footer-image.png'
 import facebookicon from '../../../assets/facebook-icon.png'
 import instaicon from '../../../assets/insta-icon.png'
 import twittericon from '../../../assets/twitter-icon.png'
@@ -8,7 +9,34 @@ import twittericon from '../../../assets/twitter-icon.png'
 const Footer = () => {
     return (
         <div> 
-            <div className="container-fluid">
+            
+            <div className = "footer-image">
+                <Row>
+                    <Col xs = "12">
+                           <Row>
+                               <Col className = "col-6 align-self-center">
+                               <h1 className = "">
+                                        Are you a car dealer?
+                                    </h1>
+                                    <h5 className = "my-3">
+                                        We bring you the opporitniy to sell your car on our platmore
+                                    </h5>
+                               </Col>
+                                
+
+                                <Col  className = "col-md-6">
+                                    <NavLink className="nav-link download-button-cover mb-5 float-center" to="">Learn More</NavLink>
+                                </Col>
+                            </Row>
+                            </Col>
+                    </Row>
+                
+            </div>
+           
+            
+
+
+            <div className="container-fluid ">
                 <Row>
                     <Col xs="12" md="3">
                         <Nav vertical>
@@ -16,7 +44,7 @@ const Footer = () => {
                                 <h4>Double Cars</h4>
                             </NavItem>
                             <NavItem>
-                                <p>Maecenas ante lacus, viverra is in, egestas tincidunt nulla. Aliquam mi lectus, eleifend eget felis eget,</p>
+                                <p>Maecenas ante lacus, viverra is in, egestas <br/>tincidunt nulla. Aliquam mi lectus, eleifend <br/> eget felis eget,</p>
                             </NavItem>
                             
                         </Nav>

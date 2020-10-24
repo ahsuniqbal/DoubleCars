@@ -1,3 +1,13 @@
 .reserved-text {
     font-size: 14px;
 }
+
+
+.footer-image {
+    background-image: url("../../../assets/Footer-image.png"); 
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 254px;
+    background-color: rgba(28,118,206,0.9); 
+}
