@@ -15,10 +15,24 @@
 .learn-more-button-cover {
     background-color: #ffffff !important;
       border-radius: 0.4rem !important;
-      width: 168px !important;
+      width: 160px !important;
       height: 56px;
       color: #1C67CE !important;
       cursor: pointer;
       padding: 14px 28px !important;
       font-size: 16px !important;
   }
+
+  .car-dealer-head {
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: bold;
+  }
+
+  .car-dealer-head5 {
+    font-weight: normal;
+    font-size: 18px;
+    color: #ffffff;
+  }
+
+

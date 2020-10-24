@@ -1,5 +1,5 @@
 import React from "react"
-import {Row, Col, Nav, NavItem, NavLink} from 'reactstrap'
+import {Row, Col, Nav, NavItem, Button, NavLink} from 'reactstrap'
 import '../styles/Footer.css'
 import facebookicon from '../../../assets/facebook-icon.png'
 import instaicon from '../../../assets/insta-icon.png'
@@ -8,23 +8,23 @@ import twittericon from '../../../assets/twitter-icon.png'
 const Footer = () => {
     return (
         <div> 
-            <section className = "d-flex align-items-center">
+            <section className = "">
                 <div className = "container-fluid">
                     <div className = "row">
                         <div className = "col-12 footer-image">
                             <div className = "row h-100">
-                                <div className = "col-md-6 my-auto">
-                                    <h1 className = "">
-                                        Find the most desireable car
+                                <div className = "col-md-4 offset-2 my-auto">
+                                    <h1 className = "car-dealer-head">
+                                    Are you a car dealer?
                                     </h1>
-                                    <h5 className = "my-1">
-                                        Buy and sell cars with ease using our app!
+                                    <h5 className = "my-1 car-dealer-head5">
+                                        We bring you the opporitniy to sell your car on our platmore
                                     </h5>
                                   
                                 </div>
 
                                 <div className = "col-md-2 offset-3 my-auto">
-                                <NavLink className="nav-link learn-more-button-cover mb-5 float-center" to="">Learn More</NavLink>
+                                <Button className=" learn-more-button-cover mb-5" to="">Learn More</Button>
                                     
                                 </div>
                             </div>
