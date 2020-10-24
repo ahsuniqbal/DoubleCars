@@ -24,8 +24,7 @@ const Footer = () => {
                                 </div>
 
                                 <div className = "col-md-2 offset-3 my-auto">
-                                <Button className=" learn-more-button-cover mb-5" to="">Learn More</Button>
-                                    
+                                <Button className=" learn-more-button-cover" to="">Learn More</Button>
                                 </div>
                             </div>
                         </div>
@@ -109,49 +108,7 @@ const Footer = () => {
             </div>
 
             <div className="container-fluid mt-3">
-                {/* <Row>
-                    <Col xs="12" md="2" className = "offset-1">
-                        <Nav vertical>
-                            <NavItem>
-                                <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
-                            </NavItem>
-                            
-                        </Nav>
-                    </Col>
-
-                    <Col xs="12" md="2" className = "offset-1">
-                        <Nav vertical>
-                            <NavItem>
-                                <NavLink className = "bootom-footer nav-text-color" href="#">Legal Information</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Col>
-
-                    <Col xs="12" md="2">
-                        <Nav vertical>
-                            <NavItem>
-                                <NavLink className = "bootom-footer nav-text-color" href="#">Privacy Policy</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Col>
-                    <Col xs="12" md="2">
-                        <Nav vertical>
-                            <NavItem>
-                                <NavLink className = "bootom-footer nav-text-color" href="#">Terms and Conditions</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Col>
-                    <Col xs="12" md="3">
-                        <Nav vertical>
-                        <NavItem>
-                                <img className = "mr-2" src = {facebookicon} alt = "fb" width = "5%"/>
-                                <img className = "mr-2" src = {instaicon} alt = "insta" width = "4%"/>
-                                <img src = {twittericon} alt = "twitter" width = "4%"/>
-                        </NavItem>
-                            
-                        </Nav>
-                    </Col>
-                </Row> */}
+                
 
                 <ul className = "bottom-footer-content">
                 <li>
