@@ -32,38 +32,17 @@ const Footer = () => {
                     </div>
                 </div>
                 </section>
-            {/* <div className = "footer-image">
-                <Row>
-                    <Col xs = "12">
-                           <Row>
-                               <Col className = "col-6 align-self-center">
-                               <h1 className = "">
-                                        Are you a car dealer?
-                                    </h1>
-                                    <h5 className = "my-3">
-                                        We bring you the opporitniy to sell your car on our platmore
-                                    </h5>
-                               </Col>
-                                
-
-                                <Col  className = "col-md-6">
-                                    <NavLink className="nav-link download-button-cover mb-5 float-center" to="">Learn More</NavLink>
-                                </Col>
-                            </Row>
-                            </Col>
-                    </Row>
-                
-            </div> */}
+            
            
             
 
 
-            <div className="container-fluid ">
+            <div className="container-fluid mt-5">
                 <Row>
                     <Col xs="12" md="3">
                         <Nav vertical>
                             <NavItem>
-                                <h4>Double Cars</h4>
+                                <h4 className = "footer-dc"><strong>Double Cars</strong></h4>
                             </NavItem>
                             <NavItem>
                                 <p>Maecenas ante lacus, viverra is in, egestas <br/>tincidunt nulla. Aliquam mi lectus, eleifend <br/> eget felis eget,</p>
@@ -75,13 +54,13 @@ const Footer = () => {
                     <Col xs="12" md="2">
                         <Nav vertical>
                             <NavItem>
-                                <NavLink href="#">New Cars</NavLink>
+                                <NavLink className = "nav-text-color" href="#">New Cars</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">Popular Cars</NavLink>
+                                <NavLink className = "nav-text-color" href="#">Popular Cars</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">Used Cars</NavLink>
+                                <NavLink className = "nav-text-color" href="#">Used Cars</NavLink>
                             </NavItem>
                         </Nav>
                     </Col>
@@ -89,33 +68,33 @@ const Footer = () => {
                     <Col xs="12" md="2">
                         <Nav vertical>
                             <NavItem>
-                                <NavLink href="#">Certified Cars</NavLink>
+                                <NavLink className = "nav-text-color" href="#">Certified Cars</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">Recommended</NavLink>
+                                <NavLink className = "nav-text-color" href="#">Recommended</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">Trending</NavLink>
+                                <NavLink className = "nav-text-color" href="#">Trending</NavLink>
                             </NavItem>
                         </Nav>
                     </Col>
                     <Col xs="12" md="2">
                         <Nav vertical>
                             <NavItem>
-                                <NavLink href="#">Categories</NavLink>
+                                <NavLink className = "nav-text-color" href="#">Categories</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">Best Manufacturers</NavLink>
+                                <NavLink className = "nav-text-color" href="#">Best Manufacturers</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">Best Offers</NavLink>
+                                <NavLink className = "nav-text-color" href="#">Best Offers</NavLink>
                             </NavItem>
                         </Nav>
                     </Col>
                     <Col xs="12" md="3">
                         <Nav vertical>
                             <NavItem>
-                                <h6>Contact Information</h6>
+                            <NavLink className = "nav-text-color" href="#"><strong>Contact Information</strong></NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href="#">support@doublecars.com</NavLink>
@@ -126,52 +105,73 @@ const Footer = () => {
                         </Nav>
                     </Col>
                 </Row>
+                <hr/>
             </div>
 
-            <div className="container">
-                <Row>
-                    <Col xs="6" md="3">
+            <div className="container-fluid mt-3">
+                {/* <Row>
+                    <Col xs="12" md="2" className = "offset-1">
                         <Nav vertical>
                             <NavItem>
-                                <p className = "reserved-text">© DoubleCars All Rights Reservered</p>
+                                <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
                             </NavItem>
                             
                         </Nav>
                     </Col>
 
-                    <Col xs="6" md="2">
+                    <Col xs="12" md="2" className = "offset-1">
                         <Nav vertical>
                             <NavItem>
-                                <NavLink className = "reserved-text" href="#">Legal Information</NavLink>
+                                <NavLink className = "bootom-footer nav-text-color" href="#">Legal Information</NavLink>
                             </NavItem>
                         </Nav>
                     </Col>
 
-                    <Col xs="6" md="2">
+                    <Col xs="12" md="2">
                         <Nav vertical>
                             <NavItem>
-                                <NavLink href="#">Privacy Policy</NavLink>
+                                <NavLink className = "bootom-footer nav-text-color" href="#">Privacy Policy</NavLink>
                             </NavItem>
                         </Nav>
                     </Col>
-                    <Col xs="6" md="2">
+                    <Col xs="12" md="2">
                         <Nav vertical>
                             <NavItem>
-                                <NavLink href="#">Terms and Conditions</NavLink>
+                                <NavLink className = "bootom-footer nav-text-color" href="#">Terms and Conditions</NavLink>
                             </NavItem>
                         </Nav>
                     </Col>
-                    <Col xs="6" md="3">
+                    <Col xs="12" md="3">
                         <Nav vertical>
                         <NavItem>
-                                <img className = "mr-2" src = {facebookicon} alt = "fb" width = "4%"/>
+                                <img className = "mr-2" src = {facebookicon} alt = "fb" width = "5%"/>
                                 <img className = "mr-2" src = {instaicon} alt = "insta" width = "4%"/>
                                 <img src = {twittericon} alt = "twitter" width = "4%"/>
                         </NavItem>
                             
                         </Nav>
                     </Col>
-                </Row>
+                </Row> */}
+
+                <ul className = "bottom-footer-content">
+                <li>
+                    <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
+                </li>
+                <li>
+                <NavLink className = "bootom-footer nav-text-color" href="#">Legal Information</NavLink>
+                </li>
+                <li>
+                <NavLink className = "bootom-footer nav-text-color" href="#">Privacy Policy</NavLink>
+                </li>
+                <li>
+                <NavLink className = "bootom-footer nav-text-color" href="#">Terms and Conditions</NavLink>
+                </li>
+                <li>
+                <img className = "mr-2" src = {facebookicon} alt = "fb" width = "5%"/>
+                <img className = "mr-2" src = {instaicon} alt = "insta" width = "5%"/>
+                <img src = {twittericon} alt = "twitter" width = "5%"/>
+                </li>
+                </ul>
             </div>
         </div>
     );

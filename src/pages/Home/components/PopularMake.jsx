@@ -52,21 +52,12 @@ const DrawCols = () => {
 
 const Home = () => {
     return(
-        <div className="container-fluid our-league-section">
-                
-                
-
-                    
+        <div className="container-fluid our-league-section"> 
                 <ul className = "client-list">
-                        
-                
                 {
-                    
                     DrawCols()
                 }
                 </ul>
-                
-                
             </div>
     )
 }
