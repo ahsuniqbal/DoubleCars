@@ -4,10 +4,10 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUser, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 
 
-
-library.add(faUser, faStar);
+library.add(faUser, faStar, faBookmark);
 
 //fallback loading
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;

@@ -17,3 +17,73 @@
     line-height: 23px;
     margin-top: 15px;
 }
+
+.product-card .product-img{
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.product-card .product-img span{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #1C67CE;
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 80px;
+    height: 26px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.product-card .bookmark{
+    border: 1px solid #DEDEDE;
+    border-radius: 10px;
+}
+
+.product-card .bookmark:active, .product-card .bookmark:focus{
+    box-shadow: 0 0 0 0.2rem rgb(86 86 86 / 25%);
+}
+
+.product-card .bookmark:hover{
+    background-color: #DEDEDE;
+}
+
+.product-card .bookmark svg{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.product-card .company-details .card-title{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 17px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-top: 12px;
+}
+
+.product-card .company-details .private-seller{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.45);
+    margin-top: 12px;
+}
+
+.product-card .company-details .company-rating{
+    margin-top: 10px;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .product-card .product-img{
+        max-height: 175px;
+        overflow: hidden;
+    }
+}

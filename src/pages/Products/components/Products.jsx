@@ -1,12 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Label, Input } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/CarCard/components/ProductCard';
 import '../styles/Products.css'
+import { GetSearchResult } from '../api/GetRequests';
+
+const ShowSearchResults = (products) => {
+    var table = [];
+    for (let i = 0; i < products.length; i++) {
+        table.push(
+            <Col key={products[i].productId} xs="12" sm="6" lg="4">
+                <ProductCard
+                    productTitle={products[i].carName}
+                    productSubtitle={products[i].mileage + " mileage . " + products[i].zipCode}
+                    productText={"$ " + products[i].price}
+                    productImg={products[i].coverPic}
+                    productName={products[i].carName}
+                    productBadge={"TRENDING"}
+                    privateSeller />
+            </Col>
+        );        
+    }
+    return table;
+}
 
 const Products = () => {
+    const [ products, setProducts ] = useState(null);
+    useEffect(() => {
+        GetSearchResult("range").then(doc => {
+            setProducts(doc);
+        })
+    }, [])
+
     return(
-        <Container>
+        <Container fluid>
             <Row>
                 <Col xs="12" md="3">
                     <Filters />
@@ -26,18 +53,9 @@ const Products = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs="12" sm="6" lg="4">
-                            <ProductCard />
-                        </Col>
-                        <Col xs="12" sm="6" lg="4">
-                            <ProductCard />
-                        </Col>
-                        <Col xs="12" sm="6" lg="4">
-                            <ProductCard />
-                        </Col>
-                        <Col xs="12" sm="6" lg="4">
-                            <ProductCard />
-                        </Col>
+                        {
+                            products ? ShowSearchResults(products) : "Loading..."
+                        }
                     </Row>
                 </Col>
             </Row>

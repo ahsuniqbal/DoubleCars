@@ -1,29 +1,49 @@
 import React from 'react';
-import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Row, Col, Label } from 'reactstrap';
-import Cover from '../../../assets/DummyCarCard.png';
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Row, Col, Label, Button, Badge } from 'reactstrap';
 import CompanyLogo from '../../../assets/company-logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/ProductCard.css'
 
-const ProductCard = () => {
+const ProductCard = (props) => {
   return (
     <Card className="product-card">
-        <CardImg src={Cover} alt="Product card image" />
+        <div className="product-img">
+            {
+                props.productBadge ? <Badge color="primary">{props.productBadge}</Badge> : null
+            }
+            <CardImg src={props.productImg} alt={props.productName} />
+        </div>
         <CardBody>
-            <CardTitle>2017 Mercedes Benz Hybrid</CardTitle>
-            <CardSubtitle>19,850 mileage · California </CardSubtitle>
-            <CardText>$32,000</CardText>
-            <hr />
             <Row>
+                <Col xs="9">
+                    <CardTitle>{props.productTitle}</CardTitle>
+                    <CardSubtitle>{props.productSubtitle}</CardSubtitle>
+                    <CardText>{props.productText}</CardText>
+                </Col>
+                <Col xs="3">
+                    <Button color="link" className="bookmark">
+                        <FontAwesomeIcon icon={["far", "bookmark"]} color="gray" />
+                    </Button>
+                </Col>
+            </Row>
+            <hr />
+            <Row className="company-details">
                 <Col xs="3">
                     <CardImg src={CompanyLogo} alt="Company logo" />
                 </Col>
                 <Col xs="5" className="px-0">
-                    <Label>Cooper Motors</Label>
+                    <CardTitle>Cooper Motors</CardTitle>
                 </Col>
-                <Col xs="4">
-                    <FontAwesomeIcon icon={"fas", "star"} color="#FFBB54" size="1x" />
-                    <Label>4.8</Label>
+                <Col xs="4" className="pl-0 text-right">
+                    {
+                        props.privateSeller ?
+                            <Label className="private-seller">Private Seller</Label> :
+                            <div className="company-rating">
+                                <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
+                                <Label>4.8</Label>
+                            </div>
+                    }
+                    
                 </Col>
             </Row>
         </CardBody>
