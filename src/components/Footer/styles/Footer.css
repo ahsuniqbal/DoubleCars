@@ -1,3 +1,99 @@
-.reserved-text {
-    font-size: 14px;
+.bootom-footer {
+    font-size: 14px !important;
 }
+
+
+.footer-image {
+    background-image: url("../../../assets/Footer-image.png"); 
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 254px;
+    background-color: rgba(28,118,206,0.9); 
+}
+
+.learn-more-button-cover {
+    background-color: #ffffff !important;
+      border-radius: 0.4rem !important;
+      width: 160px !important;
+      height: 56px;
+      color: #1C67CE !important;
+      cursor: pointer;
+      padding: 14px 28px !important;
+      font-size: 16px !important;
+  }
+
+  .car-dealer-head {
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: bold;
+  }
+
+  .car-dealer-head5 {
+    font-weight: normal;
+    font-size: 18px;
+    color: #ffffff;
+  }
+
+  .nav-text-color {
+    color: rgba(8, 11, 48, 0.65) !important;
+  }
+
+  .footer-dc {
+      color: black;
+  }
+
+
+  .bottom-footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 100px;
+    
+}
+
+.bottom-footer-content li {
+    /* border-top: 1px solid #e6e6e6; */
+    
+    width: 18%;
+    position: relative;
+    background: #ffffff;
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+
+@media (max-width: 767px) {
+  .bottom-footer-content {
+      border: none;
+      line-height: 0;
+      display: contents;
+      justify-content: center;
+      line-height: 20px;
+  }
+  .bottom-footer-content li {
+      display: contents !important;
+  
+  
+  }
+
+}
+@media (max-width: 980px) {
+  .bottom-footer-content li {
+      width: 115px;
+      line-height: 20px;
+      justify-content: center;
+  }
+}
+
+@media (max-width: 1050px) {
+  .bottom-footer-content li {
+      width: 148px;
+      height: 148px;
+      justify-content: center;
+      line-height: 20px;
+  }
+}
+

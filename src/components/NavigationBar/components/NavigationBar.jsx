@@ -1,12 +1,13 @@
 import React from "react"
 import { NavLink } from "react-router-dom";
 import "../styles/NavigationBar.css"
+import DCLogo from '../../../assets/DCLogo.jpg'
 
 const NavigationBar = () => {
     return (
         <> 
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <NavLink className="navbar-brand" to = "/">Double Cars</NavLink>
+                <img src = {DCLogo} alt = "Logo" width = "252px" height = "50px"/>
                 <button className="navbar-toggler"
                     type="button"
                     data-toggle="collapse"

@@ -8,22 +8,14 @@ const Filters = () => {
             <CardBody>
                 Filter (2)
                 <Button color="link" className="float-right" size="sm">Clear</Button>
-                <hr />
+                <hr/>
                 <h6>LOCATION</h6>
-                <InputGroup>
-                    <InputGroupAddon addonType="prepend" >
-                        <InputGroupText>
-                            <FontAwesomeIcon icon="fa-user" />
-                        </InputGroupText>
-                    </InputGroupAddon>
-                    <Input type="text"></Input>
-                </InputGroup>
-                <Label>Radius</Label>
                 <hr />
                 <h6>MAKE</h6>
                 <Input type="select">
                     <option>Model</option>
                 </Input>
+                <hr/>
                 <h6>PRICE</h6>
                 <hr />
                 <h6>MILEAGE</h6>
@@ -46,29 +38,49 @@ const Filters = () => {
 
                 <h6>TRANSMISSION</h6>
                 <InputGroup>
-                    <Label>
-                        <Input type="checkbox" />Manual
-                    </Label>
+                <Row>
+                    <Col xs = "12">
+                        <Label>
+                            <Input type="checkbox" />Manual
+                        </Label>
+                    </Col>
+                    <Col xs = "12">
                     <Label>
                         <Input type="checkbox" />Automatic
                     </Label>
+                    </Col>
+                    <Col xs = "12">
                     <Label>
                         <Input type="checkbox" />Electric
                     </Label>
+                    </Col>
+                    <Col xs = "12">
                     <Label>
                         <Input type="checkbox" />Random
                     </Label>
+                    </Col>
+
+                </Row>
+                   
                 </InputGroup>
 
                 <hr />
                 <h6>SELLER TYPE</h6>
                 <InputGroup>
+                <Row>
+                    <Col xs = "12">
                     <Label>
                         <Input type="checkbox" />Dealer
                     </Label>
+                    </Col>
+                    <Col xs = "12">
                     <Label>
                         <Input type="checkbox" />Private Seller
                     </Label>
+                    </Col>
+                </Row>
+                    
+                    
                 </InputGroup>
             </CardBody>
         </Card>

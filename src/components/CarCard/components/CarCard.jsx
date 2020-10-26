@@ -1,14 +1,15 @@
 import React from 'react';
 import { Row, Col, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
 import Cover from '../../../assets/DummyCarCard.png';
+import '../styles/CarCard.css'
 
 const CarCard = () => {
   return (
-    <div>
+    <div className = "car-image"> 
        {/* <Row>
                 <Col md = "4" lg="3"> */}
-                    <Card>
-                        <CardImg src={Cover} alt="Card image cap" />
+                    <Card className = "card mb-3">
+                        <CardImg src={Cover} alt="Card image cap car-card" />
                             <CardBody>
                                 <CardTitle>Card title</CardTitle>
                                 <CardSubtitle>Card subtitle</CardSubtitle>
