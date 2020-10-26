@@ -1,0 +1,19 @@
+.product-card .card-title{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.product-card .card-subtitle{
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 16px;
+    color: rgba(36, 39, 44, 0.5);;
+}
+
+.product-card .card-text{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    margin-top: 15px;
+}

@@ -7,11 +7,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faStar } from '@fortawesome/free-solid-svg-icons';
 
 
 
-library.add(faUser);
+library.add(faUser, faStar);
 
 ReactDOM.render(
   <React.StrictMode>

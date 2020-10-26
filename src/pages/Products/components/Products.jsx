@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Label, Input } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
-import CarCard from '../../../components/CarCard';
+import ProductCard from '../../../components/CarCard/components/ProductCard';
 import '../styles/Products.css'
 
 const Products = () => {
@@ -13,30 +13,30 @@ const Products = () => {
                 </Col>
                 <Col xs="12" md="9" >
                     <Row>
-                        <Col md = "6">
+                        <Col md="8">
                             <Label><strong>9 cars match your search...</strong></Label>
                         </Col>
-                        <Col md = "3">
-                            <Label className = "float-right">Sort by</Label>
+                        <Col md="2">
+                            <Label className="float-right">Sort by</Label>
                         </Col>
-                        <Col md = "3">
-                        <Input className = "sortbylabel" type="select">
+                        <Col md="2">
+                            <Input type="select">
                                 <option>Relevence</option>
                             </Input>
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs="12" sm="6" lg="4" xl="4">
-                            <CarCard />
+                        <Col xs="12" sm="6" lg="4">
+                            <ProductCard />
                         </Col>
-                        <Col xs="12" sm="6" lg="4" xl="4">
-                            <CarCard />
+                        <Col xs="12" sm="6" lg="4">
+                            <ProductCard />
                         </Col>
-                        <Col xs="12" sm="6" lg="4" xl="4">
-                            <CarCard />
+                        <Col xs="12" sm="6" lg="4">
+                            <ProductCard />
                         </Col>
-                        <Col xs="12" sm="6" lg="4" xl="4">
-                            <CarCard />
+                        <Col xs="12" sm="6" lg="4">
+                            <ProductCard />
                         </Col>
                     </Row>
                 </Col>
