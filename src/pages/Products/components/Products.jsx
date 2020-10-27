@@ -35,18 +35,18 @@ const Products = () => {
 
     return(
         <div>
-        <Container>
+        <Container fluid className="mt-5">
             <Row>
                 <Col xs="12" md="3">
                     <Filters />
                 </Col>
                 <Col xs="12" md="9" >
-                    <Row className = "mb-3">
+                    <Row className="search-heading mb-2">
                         <Col md="8">
-                            <Label><strong>9 cars match your search...</strong></Label>
+                            <Label className="output-num">9 cars match your search...</Label>
                         </Col>
                         <Col md="2">
-                            <Label className="float-right">Sort by</Label>
+                            <Label className="float-right mt-2">Sort by</Label>
                         </Col>
                         <Col md="2">
                             <Input type="select">

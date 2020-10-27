@@ -4,11 +4,26 @@
     color: rgba(0, 0, 0, 0.65);
 }
 
-.filters .WithStyles\(ForwardRef\(Slider\)\)-valueLabel-4{
+.filters .MuiSlider-valueLabel {
     left: calc(-50% + 0px);
 }
 
-.filters input, .filters select{
+.filters .MuiSlider-markLabel{
+    top: -22px;
+}
+
+.filters .MuiSlider-marked{
+    margin-bottom: 0;
+}
+
+
+.filters #continuous-slider{
+    margin-left: -5px;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 0.875rem;
+}
+
+.filters input[type="text"], .filters select{
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -17,4 +32,10 @@
     font-size: 14px;
     font-weight: 400;
     color: rgba(17, 0, 0, 0.65);
+}
+
+.filters .transmission label{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(17, 0, 0, 0.85);
 }
