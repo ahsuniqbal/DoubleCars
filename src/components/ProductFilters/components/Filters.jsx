@@ -4,6 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/Filters.css'
 import {Slider} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+
+   
+
 
 const Filters = () => {
     return(
@@ -20,26 +27,22 @@ const Filters = () => {
                 </Input>
                 <hr/>
                 <h6>PRICE</h6>
-
-                
+                <div>
+                    {/* Price slider will be here */}
+                   
+                </div>
                 <hr />
                 <h6>MILEAGE</h6>
-                <div>
-                <Typography id="continuous-slider" gutterBottom>
-                Any Km
-                </Typography>
-                
-                <Slider
-               
-                min={0}
-                max={2000}
-                valueLabelDisplay = "auto"
-                />
-                
-                </div>
-                
-            
-     
+                    <div>
+                        <Typography id="continuous-slider" gutterBottom>
+                            Any Km
+                        </Typography>
+                        <Slider
+                            min={0}
+                            max={2000}
+                            valueLabelDisplay = "auto"
+                        />
+                    </div>
                 <hr />
                 <h6>YEAR</h6>
                 <Row>
