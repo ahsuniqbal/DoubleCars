@@ -4,6 +4,7 @@ import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/CarCard/components/ProductCard';
 import '../styles/Products.css'
 import { GetSearchResult } from '../api/GetRequests';
+import Footer from '../../../components/Footer'
 
 const ShowSearchResults = (products) => {
     var table = [];
@@ -39,7 +40,7 @@ const Products = () => {
                     <Filters />
                 </Col>
                 <Col xs="12" md="9" >
-                    <Row>
+                    <Row className = "mb-3">
                         <Col md="8">
                             <Label><strong>9 cars match your search...</strong></Label>
                         </Col>
@@ -59,6 +60,7 @@ const Products = () => {
                     </Row>
                 </Col>
             </Row>
+            <Footer/>
         </Container>
     );
 }

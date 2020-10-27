@@ -1,6 +1,9 @@
 import React from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '../styles/Filters.css'
+import {Slider} from '@material-ui/core'
+import Typography from '@material-ui/core/Typography';
 
 const Filters = () => {
     return(
@@ -17,8 +20,26 @@ const Filters = () => {
                 </Input>
                 <hr/>
                 <h6>PRICE</h6>
+
+                
                 <hr />
                 <h6>MILEAGE</h6>
+                <div>
+                <Typography id="continuous-slider" gutterBottom>
+                Any Km
+                </Typography>
+                
+                <Slider
+               
+                min={0}
+                max={2000}
+                valueLabelDisplay = "auto"
+                />
+                
+                </div>
+                
+            
+     
                 <hr />
                 <h6>YEAR</h6>
                 <Row>
@@ -41,7 +62,7 @@ const Filters = () => {
                 <Row>
                     <Col xs = "12">
                         <Label>
-                            <Input type="checkbox" />Manual
+                            <Input className = "custom-checkbox" type="checkbox" />Manual
                         </Label>
                     </Col>
                     <Col xs = "12">

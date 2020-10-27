@@ -6,7 +6,7 @@ import '../styles/ProductCard.css'
 
 const ProductCard = (props) => {
   return (
-    <Card className="product-card">
+    <Card className="product-card mb-3">
         <div className="product-img">
             {
                 props.productBadge ? <Badge color="primary">{props.productBadge}</Badge> : null
