@@ -35,8 +35,6 @@ const Products = () => {
 
     return(
         <div>
-
-      
         <Container>
             <Row>
                 <Col xs="12" md="3">
@@ -63,7 +61,6 @@ const Products = () => {
                     </Row>
                 </Col>
             </Row>
-            
         </Container>
         <Footer/>
         </div>

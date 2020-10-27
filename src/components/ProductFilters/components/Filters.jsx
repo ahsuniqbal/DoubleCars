@@ -1,49 +1,106 @@
 import React from 'react';
-import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row } from 'reactstrap';
+import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/Filters.css'
-import {Slider} from '@material-ui/core'
+import { Slider } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import {  withStyles } from '@material-ui/core/styles';
 
 
 
-   
+
+const RadiusSlider = withStyles({
+    root: {
+        color: "#1C67CE",
+        height: 2,
+    },
+    thumb: {
+        height: 20,
+        width: 20,
+        backgroundColor: '#fff',
+        border: '2px solid currentColor',
+        marginTop: -10.5,
+        marginLeft: -12,
+        '&:focus, &:hover, &$active': {
+            boxShadow: 'inherit',
+        },
+    },
+    active: {},
+    valueLabel: {
+        left: 'calc(-50% + 4px)',
+      },
+      track: {
+        height: 2,
+        borderRadius: 4,
+      },
+      rail: {
+        height: 2,
+        borderRadius: 4,
+      },
+})(Slider);
+
+
 
 
 const Filters = () => {
     return(
-        <Card>
+        <Card className="filters">
             <CardBody>
-                Filter (2)
+                <Label><b>Filter</b> (2)</Label>
                 <Button color="link" className="float-right" size="sm">Clear</Button>
+                
                 <hr/>
-                <h6>LOCATION</h6>
+                
+                <div className="location">
+                    <h6>LOCATION</h6>
+                    <Input type="text" />
+
+                    <Row>
+                        <Col xs="3" sm="2" md="3">
+                            <Label>Radius</Label>
+                        </Col>
+                        <Col xs="6" sm="8" md="6">
+                            <RadiusSlider
+                                min={0}
+                                max={100}
+                                valueLabelDisplay = "auto" />
+                        </Col>
+                        <Col xs="3" sm="2" md="3" className="px-0">
+                            <Label>100km</Label>
+                        </Col>
+                    </Row>
+                </div>
+                
                 <hr />
+                
                 <h6>MAKE</h6>
-                <Input type="select">
+                <Input type="select" className="mb-4">
                     <option>Model</option>
                 </Input>
+                
                 <hr/>
+                
                 <h6>PRICE</h6>
                 <div>
                     {/* Price slider will be here */}
-                   
                 </div>
+                
                 <hr />
+                
                 <h6>MILEAGE</h6>
-                    <div>
-                        <Typography id="continuous-slider" gutterBottom>
-                            Any Km
-                        </Typography>
-                        <Slider
-                            min={0}
-                            max={2000}
-                            valueLabelDisplay = "auto"
-                        />
-                    </div>
+                <div>
+                    <Typography id="continuous-slider" gutterBottom>
+                        Any Km
+                    </Typography>
+                    <Slider
+                        min={0}
+                        max={2000}
+                        valueLabelDisplay="auto"
+                    />
+                </div>
+                
                 <hr />
+                
                 <h6>YEAR</h6>
                 <Row>
                     <Col xs="6">
@@ -61,51 +118,34 @@ const Filters = () => {
                 <hr />
 
                 <h6>TRANSMISSION</h6>
-                <InputGroup>
-                <Row>
-                    <Col xs = "12">
-                        <Label>
-                            <Input className = "custom-checkbox" type="checkbox" />Manual
-                        </Label>
-                    </Col>
-                    <Col xs = "12">
-                    <Label>
-                        <Input type="checkbox" />Automatic
-                    </Label>
-                    </Col>
-                    <Col xs = "12">
-                    <Label>
-                        <Input type="checkbox" />Electric
-                    </Label>
-                    </Col>
-                    <Col xs = "12">
-                    <Label>
-                        <Input type="checkbox" />Random
-                    </Label>
-                    </Col>
-
-                </Row>
-                   
-                </InputGroup>
+                <FormGroup check>
+                    <Input type="checkbox" id="manual" name="transmission" />
+                    <Label check htmlFor="manual">Manual</Label>
+                </FormGroup>
+                <FormGroup check>
+                    <Input type="checkbox" id="automatic" name="transmission" />
+                    <Label check htmlFor="automatic">Automatic</Label>
+                </FormGroup>
+                <FormGroup check>
+                    <Input type="checkbox" id="electric" name="transmission" />
+                    <Label check htmlFor="electric">Electric</Label>
+                </FormGroup>
+                <FormGroup check>
+                    <Input type="checkbox" id="random" name="transmission" />
+                    <Label check htmlFor="random">Random</Label>
+                </FormGroup>
 
                 <hr />
+
                 <h6>SELLER TYPE</h6>
-                <InputGroup>
-                <Row>
-                    <Col xs = "12">
-                    <Label>
-                        <Input type="checkbox" />Dealer
-                    </Label>
-                    </Col>
-                    <Col xs = "12">
-                    <Label>
-                        <Input type="checkbox" />Private Seller
-                    </Label>
-                    </Col>
-                </Row>
-                    
-                    
-                </InputGroup>
+                <FormGroup check>
+                    <Input type="checkbox" id="dealer" name="seller-type" />
+                    <Label check htmlFor="dealer">Dealer</Label>
+                </FormGroup>
+                <FormGroup check>
+                    <Input type="checkbox" id="private-seller" name="seller-type" />
+                    <Label check htmlFor="private-seller">Private Seller</Label>
+                </FormGroup>
             </CardBody>
         </Card>
     );
