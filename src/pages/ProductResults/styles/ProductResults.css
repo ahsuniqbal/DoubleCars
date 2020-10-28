@@ -7,3 +7,10 @@
 .back-button {
     cursor: pointer;
 }
+
+.contact-seller-button {
+    background-color: #1C67CE !important;
+    border-radius: 0.4rem !important;
+    color: #ffffff !important;
+  
+}
