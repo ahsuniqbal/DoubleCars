@@ -1,4 +1,4 @@
-import React,  { Component }from 'react';
+import React from 'react';
 import Audi from '../../../assets/Audi.png'
 import BMW from '../../../assets/BMW.png'
 import Ford from '../../../assets/Ford.png'

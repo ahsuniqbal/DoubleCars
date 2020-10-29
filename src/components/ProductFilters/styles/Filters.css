@@ -4,6 +4,8 @@
     color: rgba(0, 0, 0, 0.65);
 }
 
+
+
 .filters .MuiSlider-valueLabel {
     left: calc(-50% + 0px);
 }
@@ -26,6 +28,27 @@
 .filters input[type="text"], .filters select{
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+.filters .location-box{
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.filters .location h6{
+    margin-bottom: 15px;
+}
+
+.filters .radius{
+    margin-top: 15px;
+}
+
+.filters .location .input-group-text{
+    background-color: transparent;
+}
+
+.filters .location input{
+    border-right: 0;
 }
 
 .filters .location label{

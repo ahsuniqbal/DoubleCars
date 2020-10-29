@@ -171,9 +171,17 @@ const Filters = () => {
                 
                 <div className="location">
                     <h6>LOCATION</h6>
-                    <Input type="text" />
+                    <InputGroup>
+                    <Input type="text" className="location-box" />
+                        <InputGroupAddon addonType="append">
+                            <InputGroupText>
+                                <FontAwesomeIcon icon="map-pin" size="sm" color="#1C67CE" />
+                            </InputGroupText>
+                        </InputGroupAddon>
+                    </InputGroup>
+                    
 
-                    <Row>
+                    <Row className="radius">
                         <Col xs="3" sm="2" md="3">
                             <Label>Radius</Label>
                         </Col>
