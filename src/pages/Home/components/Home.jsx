@@ -1,20 +1,25 @@
 import React from 'react';
-import Cover from '../../../assets/DummyCarCard.png'
-import Footer from '../../../components/Footer/components/Footer'
-import { NavLink } from "react-router-dom";
-import PopularMake from './PopularMake';
-import SearchBox from './SearchBox';
+import { useHistory } from 'react-router-dom';
 
-import Header from './Header';
+
+
 const Home = () => {
+    const history = useHistory();
+
+    const Search = (e, searchInput) => {
+        e.preventDefault();
+        // sessionStorage.setItem('searchInput', searchInput);
+        history.push({
+            pathname: '/products',
+            search: '?search='+searchInput,
+        })
+    }
     return(
         <div className = "">
-            
-       
-            
-
-            <Footer/>
-      
+            <form onSubmit={(e) => Search(e, document.getElementById('search-input').value)}>
+                <input type="text" id="search-input" />
+                <button type="submit">Submit</button>
+            </form>      
         </div>
     )
 }

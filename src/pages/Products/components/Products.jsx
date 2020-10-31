@@ -19,6 +19,7 @@ const ShowSearchResults = (products) => {
         table.push(
             <Col key={products[i].productId} data-aos="fade-up" xs="12" sm="6" md="4">
                 <ProductCard
+                    productId={products[i].productId}
                     productTitle={products[i].carName}
                     productSubtitle={products[i].mileage + " mileage . " + products[i].zipCode}
                     productText={"$ " + products[i].price}
@@ -32,10 +33,16 @@ const ShowSearchResults = (products) => {
     return table;
 }
 
-const Products = () => {
-    const [ products, setProducts ] = useState(null);
+function GetSearchInput(searchInput){
+    var toSearch = searchInput.replaceAll('%20', ' ').split('=');
+    return toSearch[1];
+}
+
+const Products = ({location}) => {
+    const [products, setProducts] = useState(null);
+    
     useEffect(() => {
-        GetSearchResult("range").then(doc => {
+        GetSearchResult(GetSearchInput(location.search)).then(doc => {
             setProducts(doc);
         })
     }, [])
@@ -51,7 +58,7 @@ const Products = () => {
                         <Row className="search-heading mb-2">
                             <Col md="8">
                                 {
-                                    products ? <Label className="output-num">{products.length} cars match your search...</Label> : <Label className="output-num">Loading your interested result, please wait...</Label>
+                                    products ? <Label className="output-num">{products.length} cars match your search...</Label> : <Label className="output-num">Loading your interested results, please wait...</Label>
                                 }
                             </Col>
                             <Col md="2">

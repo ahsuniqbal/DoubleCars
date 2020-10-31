@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, NavLink, Row, Col, Input, Button, Card, CardBody, FormGroup, Label, CardImg} from 'reactstrap';
-import '../styles/ProductResults.css'
+import '../styles/ProductDetails.css'
 import CompanyLogo from '../../../assets/company-logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const ProductResults = () => {
+import DemoCar from '../../../assets/DemoCar.png';
+import Thumbnail from '../../../assets/thumbnail.png';
+import Gallery from './Gallery';
+
+const images = [
+    {
+        original: DemoCar,
+        thumbnail: Thumbnail,
+        originalAlt: 'Original',
+        thumbnailAlt: 'Thumbnail',
+        originalTitle: 'Original Title',
+        thumbnailTitle: 'Thumbnail Title',
+    },
+    {
+        original: DemoCar,
+        thumbnail: Thumbnail
+    },
+    {
+        original: DemoCar,
+        thumbnail: Thumbnail
+    }
+]
+
+const ProductResults = ({match}) => {
+    const productId = match.params.id;
     return(
         <Container>
             <Row>
@@ -19,6 +43,8 @@ const ProductResults = () => {
             <Row>
                 <Col md = "7">
                     <h3>Image gallery here</h3>
+                    <Gallery
+                        items={images} />
 
                     <h4>Information</h4>
                     <Row className = "mb-5">
