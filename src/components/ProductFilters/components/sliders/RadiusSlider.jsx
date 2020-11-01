@@ -1,9 +1,16 @@
 import React from 'react';
 import { Slider } from '@material-ui/core';
 
-const RadiusSlider = () => {
+const RadiusSlider = (props) => {
+    const handleChange = (event, newValue) => {
+        props.onHandleRadius(newValue);
+    };
+
     return(
-        <Slider />
+        <Slider 
+            min={props.min}
+            max={props.max}
+            onChange={handleChange} />
     )
 }
 

@@ -5,27 +5,54 @@ import '../styles/Filters.css'
 import Typography from '@material-ui/core/Typography';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
 
+function FilterQueryString(obj){
+    var str = "";
+    for(let i = 0; i < Object.keys(obj).length; i++){
+        str += Object.keys(obj)[i] + "=" + obj[Object.keys(obj)[i]];
 
-const Filters = () => {
+        if(i !== Object.keys(obj).length - 1){
+            str += "&";
+        }
+    }
+    console.log(str)
+}
+
+const Filters = (props) => {
+    const filters = {};
     const [isModelCollapseOpen, setisModelCollapseOpen] = useState(false);
     const [radius, setRadius] = useState(0);
-    const [minPrice, maxPrice, setPrice] = useState([0, 0]);
+    const [price, setPrice] = useState([1000, 2000]);
     const [mileage, setMileage] = useState(0);
-    const [fromYear, toYear, setYear] = useState([0, 0]);
-    const [manual, automatic, electric, random, setTransmission] = useState([false, false, false, false]);
-    const [dealer, privateSeller, setSellerType] = useState([false, false]);
+    const [year, setYear] = useState([0, 0]);
+    const [transmission, setTransmission] = useState([false, false, false, false]);
+    const [sellerType, setSellerType] = useState([false, false]);
 
-    const handleRadius = (value) => {
-        setRadius(value);
+    const handleRadius = (radius) => {
+        setRadius(radius);
+        props.onHandleRadius(radius);
+        filters['radius'] = radius;
+        FilterQueryString(filters);    
     }
 
-    const handlePrice = (minPrice, maxPrice) => {
-        setPrice([minPrice, maxPrice]);
+    const handlePrice = (price) => {
+        setPrice(price);
+        props.onHandlePrice(price);
+        
+        filters['minPrice'] = price[0];
+        filters['maxPrice'] = price[1];
+
+        FilterQueryString(filters);
     }
 
     const handleMileage = (mileage) => {
         setMileage(mileage);
+        props.onHandleMileage(mileage);
+        filters['mileage'] = mileage;
+        FilterQueryString(filters);
     }
+
+    const todayYear = (new Date()).getFullYear();
+    const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
 
     return(
         <Card className="filters">
@@ -52,7 +79,10 @@ const Filters = () => {
                             <Label>Radius</Label>
                         </Col>
                         <Col xs="6" sm="8" md="4" lg="6">
-                            <RadiusSlider />
+                            <RadiusSlider 
+                                min={0}
+                                max={200}
+                                onHandleRadius={handleRadius} />
                         </Col>
                         <Col xs="3" sm="2" md="4" lg="3" className="px-0">
                             <Label>{radius + "Km"}</Label>
@@ -80,9 +110,12 @@ const Filters = () => {
                 <h6>PRICE</h6>
                 <div className="px-2">
                     <PriceRangeSlider
-                        min={1000}
-                        max={2000}
-                        defaultValue={1000} />
+                        min={price[0]}
+                        max={price[1]}
+                        minLabel={price[0]}
+                        maxLabel={price[1]}
+                        defaultValue={[1000, 2000]}
+                        onHandlePrice={handlePrice} />
                 </div>
                 
                 <hr />
@@ -92,7 +125,10 @@ const Filters = () => {
                     <Typography id="continuous-slider" gutterBottom>
                         {mileage + "Km"}
                     </Typography>
-                    <MileageSlider />
+                    <MileageSlider
+                        min={0}
+                        max={1000}
+                        onHandleMileage={handleMileage} />
                 </div>
                 
                 <hr />
@@ -102,11 +138,21 @@ const Filters = () => {
                     <Col xs="6">
                         <Input type="select">
                             <option>From</option>
+                            {
+                                dropdownYears.map((year, index) => {
+                                    return <option key={`year${index}`} value={year}>{year}</option>
+                                })
+                            }
                         </Input>
                     </Col>
                     <Col xs="6">
                         <Input type="select">
                             <option>To</option>
+                            {
+                                dropdownYears.map((year, index) => {
+                                    return <option key={`year${index}`} value={year}>{year}</option>
+                                })
+                            }
                         </Input>
                     </Col>
                 </Row>

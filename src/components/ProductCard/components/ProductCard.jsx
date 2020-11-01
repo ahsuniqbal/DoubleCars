@@ -2,8 +2,8 @@ import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Row, Col, Label, Button, Badge } from 'reactstrap';
 import CompanyLogo from '../../../assets/company-logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../styles/ProductCard.css'
-import { Link } from 'react-router-dom'
+import '../styles/ProductCard.css';
+import { Link } from 'react-router-dom';
 
 const ProductCard = (props) => {
   return (
@@ -20,7 +20,7 @@ const ProductCard = (props) => {
             <Link to={"/product-details/" + props.productId}>
                 <Row>
                     <Col xs="9">
-                        <CardTitle>{props.productTitle}</CardTitle>
+                        <CardTitle title={props.productTitle}>{props.productTitle}</CardTitle>
                         <CardSubtitle>{props.productSubtitle}</CardSubtitle>
                         <CardText>{props.productText}</CardText>
                     </Col>
@@ -41,12 +41,13 @@ const ProductCard = (props) => {
                 </Col>
                 <Col xs="4" className="pl-0 text-right">
                     {
-                        props.privateSeller ?
-                            <Label className="private-seller">Private Seller</Label> :
+                        props.dealer ?
                             <div className="company-rating">
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                 <Label>4.8</Label>
-                            </div>
+                            </div>  :
+                            null
+                            
                     }
                     
                 </Col>

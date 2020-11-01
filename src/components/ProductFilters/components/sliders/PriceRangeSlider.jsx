@@ -2,32 +2,30 @@ import React from 'react';
 import { Slider } from '@material-ui/core';
 
 
-const marks = (min, max) => [
-    {
-      value: min,
-      label: '$' + min,
-    },
-    {
-      value: max,
-      label: 'Max',
-    }
+const marks = (min, max, minLabel, maxLabel) => [
+  {
+    value: min,
+    label: '$' + minLabel,
+  },
+  {
+    value: max,
+    label: '$' + maxLabel,
+  }
 ];
 
-function valueText(value) {
-    return `${value}`;
-}
-
 const PriceRangeSlider = (props) => {
-    return(
-        <Slider 
-            min={props.min}
-            max={props.max}
-            defaultValue={props.defaultValue}
-            className="price-range-slider" 
-            marks={marks(props.min, props.max)}
-            valueLabelDisplay="auto"
-            getAriaValueText={valueText} />
-    );
+  const handleChange = (event, price) => {
+    props.onHandlePrice(price)
+  }
+  return(
+      <Slider 
+          min={props.min}
+          max={props.max}
+          defaultValue={props.defaultValue}
+          className="price-range-slider" 
+          marks={marks(props.min, props.max, props.minLabel, props.maxLabel)}
+          onChange={handleChange} />
+  );
 };
 
 export default PriceRangeSlider;

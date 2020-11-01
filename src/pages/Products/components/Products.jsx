@@ -10,8 +10,12 @@ import 'aos/dist/aos.css';
 AOS.init();
 AOS.init({
     duration: 1200, // values from 0 to 3000, with step 50ms
+    once: false,
 });
 
+function numberWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 const ShowSearchResults = (products) => {
     var table = [];
@@ -21,12 +25,12 @@ const ShowSearchResults = (products) => {
                 <ProductCard
                     productId={products[i].productId}
                     productTitle={products[i].carName}
-                    productSubtitle={products[i].mileage + " mileage . " + products[i].zipCode}
-                    productText={"$ " + products[i].price}
+                    productSubtitle={numberWithCommas(products[i].mileage) + " miles · " + products[i].zipCode}
+                    productText={"$" + numberWithCommas(products[i].price)}
                     productImg={products[i].coverPic}
                     productName={products[i].carName}
                     productBadge={"TRENDING"}
-                    privateSeller />
+                    dealer />
             </Col>
         );        
     }
@@ -39,7 +43,10 @@ function GetSearchInput(searchInput){
 }
 
 const Products = ({location}) => {
-    const [products, setProducts] = useState(null);
+    const [radius, setRadius] = useState(0);
+    const [mileage, setMileage] = useState(0);
+    const [price, setPrice] = useState([0, 0]);
+    const [products, setProducts] = useState([]);
     
     useEffect(() => {
         GetSearchResult(GetSearchInput(location.search)).then(doc => {
@@ -47,12 +54,27 @@ const Products = ({location}) => {
         })
     }, [])
 
+    const handleRadius = (value) => {
+        setRadius(value);
+    }
+
+    const handleMileage = (value) => {
+        setMileage(value);
+    }
+
+    const handlePrice = (price) => {
+        setPrice(price);
+    }
+
     return(
         <div>
             <Container fluid className="mt-5">
                 <Row>
                     <Col xs="12" md="3">
-                        <Filters />
+                        <Filters 
+                            onHandleRadius={handleRadius}
+                            onHandleMileage={handleMileage}
+                            onHandlePrice={handlePrice} />
                     </Col>
                     <Col xs="12" md="9" >
                         <Row className="search-heading mb-2">
