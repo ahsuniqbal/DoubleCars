@@ -14,11 +14,11 @@ function FilterQueryString(obj){
             str += "&";
         }
     }
-    console.log(str)
+    console.log(obj,str)
 }
 
 const Filters = (props) => {
-    const filters = {};
+    const [filters, setFilters] = useState({});
     const [isModelCollapseOpen, setisModelCollapseOpen] = useState(false);
     const [radius, setRadius] = useState(0);
     const [price, setPrice] = useState([1000, 2000]);
@@ -31,16 +31,16 @@ const Filters = (props) => {
         setRadius(radius);
         props.onHandleRadius(radius);
         filters['radius'] = radius;
+        setFilters(filters);
         FilterQueryString(filters);    
     }
 
     const handlePrice = (price) => {
         setPrice(price);
         props.onHandlePrice(price);
-        
         filters['minPrice'] = price[0];
         filters['maxPrice'] = price[1];
-
+        setFilters(filters);
         FilterQueryString(filters);
     }
 
@@ -48,6 +48,7 @@ const Filters = (props) => {
         setMileage(mileage);
         props.onHandleMileage(mileage);
         filters['mileage'] = mileage;
+        setFilters(filters);
         FilterQueryString(filters);
     }
 
@@ -110,8 +111,8 @@ const Filters = (props) => {
                 <h6>PRICE</h6>
                 <div className="px-2">
                     <PriceRangeSlider
-                        min={price[0]}
-                        max={price[1]}
+                        min={1000}
+                        max={2000}
                         minLabel={price[0]}
                         maxLabel={price[1]}
                         defaultValue={[1000, 2000]}
