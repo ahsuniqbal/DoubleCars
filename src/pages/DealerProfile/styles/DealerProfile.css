@@ -1,6 +1,5 @@
-.read-reviews-button {
-    background-color: #ffffff !important;
-    border-radius: 0.4rem !important;
-    color: #1C67CE !important;
-    border-color: #1C67CE !important;
+.inv-label{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
 }

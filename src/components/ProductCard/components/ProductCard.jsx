@@ -46,10 +46,8 @@ const ProductCard = (props) => {
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                 <Label>4.8</Label>
                             </div>  :
-                            null
-                            
+                            null              
                     }
-                    
                 </Col>
             </Row>
         </CardBody>
