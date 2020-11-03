@@ -7,7 +7,7 @@ import '../styles/DealerProfile.css'
 
 const DealerProfile = () => {
     return(
-        <Container>
+        <div className = "container-fluid">
             <Row>
                 <Col md = "3">
                     <Filters/>
@@ -17,7 +17,7 @@ const DealerProfile = () => {
 
                 </Col>
             </Row>
-        </Container>
+        </div>
     )
 }
 
