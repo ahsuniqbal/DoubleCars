@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Row, Label, Card,CardBody, CardImg, Button} from 'reactstrap';
+import { Col,  Row, Label, Card,CardBody, CardImg, Button} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CompanyLogo from '../../../assets/company-logo.png';
 import '../styles/SellerDetails.css'
@@ -39,14 +39,14 @@ const SellerDetails = () => {
                             </Col>
                             <Col md = "4" className = "text-center">
                                 {/* Review box aye ga  */}
-                                <h1 className = "">4.45</h1>
+                                <h1 className = "review-label">4.45</h1>
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1" />
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1" />
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1" />
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1" />
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-1" /> <br/>
-                                <Label> 154 reviews</Label>
-                                <Button size = "lg" block className = "read-reviews-button secondary mt-4">Read reviews</Button> 
+                                <Label style= {{fontSize: "14px"}} className = "text-secondary"> 154 reviews</Label>
+                                <Button size = "lg" block className = "read-reviews-button primary mt-4">Read reviews</Button> 
                             </Col>
                         </Row>
                 

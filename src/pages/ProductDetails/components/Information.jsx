@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, NavLink, Row, Col, Input, Button, Card, CardBody, FormGroup, Label, CardImg} from 'reactstrap';
+import { Row, Col,Label} from 'reactstrap';
 
 const Information = () => {
     return(

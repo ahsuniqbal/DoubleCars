@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Row, Label, Card,CardBody, CardImg, Button,Input} from 'reactstrap';
+import { Col,  Row, Label, Card,CardBody, CardImg, Button,Input} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CompanyLogo from '../../../assets/company-logo.png'; 
 const SellerDetails = () => {

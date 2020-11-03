@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Row, Label, Card,CardBody, CardImg, Button} from 'reactstrap';
+import { Col ,Row} from 'reactstrap';
 
 import Filters from '../../../components/ProductFilters/components/Filters';
 import SellerDetails from './SellerDetails'
@@ -14,7 +14,6 @@ const DealerProfile = () => {
                 </Col>
                 <Col md = "9">
                 <SellerDetails/>
-
                 </Col>
             </Row>
         </div>
