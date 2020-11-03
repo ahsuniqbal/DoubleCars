@@ -48,10 +48,7 @@ const SellerDetails = () => {
                                 <Label style= {{fontSize: "14px"}} className = "text-secondary"> 154 reviews</Label>
                                 <Button size = "lg" block className = "read-reviews-button primary mt-4">Read reviews</Button> 
                             </Col>
-                        </Row>
-                
-                
-                 
+                        </Row>  
             </CardBody>
         </Card>
     </div>
