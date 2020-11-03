@@ -85,7 +85,6 @@ const DealerProfile = ({location}) => {
                                 products ? ShowSearchResults(products) : null
                             }
                         </Row>
-                   
                 </Col>
             </Row>
         </div>
