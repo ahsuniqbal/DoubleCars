@@ -16,7 +16,7 @@ const routes = [
     { path: '/profile', exact: true, name: 'Profile', public: false, restricted: false, component: Profile },
     { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
     { path: '/products', exact: true, name: 'Products', public: true, restricted: true, component: Products },
-    { path: '/product-details/:id', exact: true, name: 'Product Details', public: true, restricted: false, component: ProductDetails },
+    { path: '/product/:id', exact: true, name: 'Product Details', public: true, restricted: false, component: ProductDetails },
     { path: '/dealer', exact: true, name: 'Dealer Profile', public: true, restricted: false, component: DealerProfile },
 ];
 

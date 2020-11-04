@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const ProductCard = (props) => {
   return (
     <Card className="product-card mb-3">
-        <Link to={"/product-details/" + props.productId}>
+        <Link to={"/product/" + props.productId}>
             <div className="product-img">
                 {
                     props.productBadge ? <Badge color="primary">{props.productBadge}</Badge> : null
@@ -17,7 +17,7 @@ const ProductCard = (props) => {
             </div>
         </Link>
         <CardBody>
-            <Link to={"/product-details/" + props.productId}>
+            <Link to={"/product/" + props.productId}>
                 <Row>
                     <Col xs="9">
                         <CardTitle title={props.productTitle}>{props.productTitle}</CardTitle>
