@@ -7,7 +7,7 @@ const Profile = React.lazy(() => import('../pages/Profile'));
 const Login = React.lazy(() => import('../pages/Authentication/Login'));
 const Products = React.lazy(() => import('../pages/Products'));
 const ProductDetails = React.lazy(() => import ('../pages/ProductDetails/components/ProductDetails'))
-const dealerProfile = React.lazy(() => import ('../pages/DealerProfile'))
+const DealerProfile = React.lazy(() => import ('../pages/DealerProfile'))
 
 const routes = [
     { path: '/', exact: true, name: 'Home', public: true, restricted: false, component: Home },
@@ -17,7 +17,7 @@ const routes = [
     { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
     { path: '/products', exact: true, name: 'Products', public: true, restricted: true, component: Products },
     { path: '/product-details/:id', exact: true, name: 'Product Details', public: true, restricted: false, component: ProductDetails },
-    { path: '/dealerprofile', exact: true, name: 'DealerProfile', public: true, restricted: false, component: dealerProfile },
+    { path: '/dealer', exact: true, name: 'Dealer Profile', public: true, restricted: false, component: DealerProfile },
 ];
 
 export default routes;
