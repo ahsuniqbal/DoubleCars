@@ -21,7 +21,7 @@ const ShowSearchResults = (products) => {
     var table = [];
     for (let i = 0; i < products.length; i++) {
         table.push(
-            <Col key={products[i].productId} data-aos="fade-up" xs="12" sm="6" md="4">
+            <Col key={products[i].productId} data-aos="fade-up" xs="12" sm="6" lg="4">
                 <ProductCard
                     productId={products[i].productId}
                     productTitle={products[i].carName}
@@ -46,6 +46,7 @@ const Products = ({location}) => {
     const [radius, setRadius] = useState(0);
     const [mileage, setMileage] = useState(0);
     const [price, setPrice] = useState([0, 0]);
+    const [make, setMake] = useState(null);
     const [products, setProducts] = useState([]);
     
     useEffect(() => {
@@ -66,6 +67,10 @@ const Products = ({location}) => {
         setPrice(price);
     }
 
+    const handleMake = (make) => {
+        setMake(make);
+    }
+
     return(
         <div>
             <Container fluid className="mt-5">
@@ -74,7 +79,8 @@ const Products = ({location}) => {
                         <Filters 
                             onHandleRadius={handleRadius}
                             onHandleMileage={handleMileage}
-                            onHandlePrice={handlePrice} />
+                            onHandlePrice={handlePrice}
+                            onHandleMake={handleMake} />
                     </Col>
                     <Col xs="12" md="9" >
                         <Row className="search-heading mb-2">
