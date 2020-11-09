@@ -5,13 +5,7 @@ import ProductCard from '../../../components/ProductCard/components/ProductCard'
 import '../styles/Products.css'
 import { GetSearchResult } from '../api/GetRequests';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
 
-AOS.init();
-AOS.init({
-    duration: 1200, // values from 0 to 3000, with step 50ms
-    once: false,
-});
 
 function numberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -21,7 +15,7 @@ const ShowSearchResults = (products) => {
     var table = [];
     for (let i = 0; i < products.length; i++) {
         table.push(
-            <Col key={products[i].productId} data-aos="fade-up" xs="12" sm="6" lg="4">
+            <Col key={products[i].productId} xs="12" sm="6" lg="4">
                 <ProductCard
                     productId={products[i].productId}
                     productTitle={products[i].carName}
