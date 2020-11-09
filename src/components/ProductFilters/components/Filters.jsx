@@ -17,6 +17,36 @@ function FilterQueryString(obj){
     console.log(obj,str)
 }
 
+function GetLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(ShowPosition, ShowError);
+    }
+    else{
+        console.log("Geo location is not supported");
+    }
+}
+
+function ShowPosition(position){
+    console.log("Lat: " + position.coords.latitude + "Long: " + position.coords.longitude);
+}
+
+function ShowError(error){
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+          console.log("User denied the request for Geolocation");
+          break;
+        case error.POSITION_UNAVAILABLE:
+          console.log("Location information is unavailable.");
+          break;
+        case error.TIMEOUT:
+          console.log("The request to get user location timed out.");
+          break;
+        case error.UNKNOWN_ERROR:
+          console.log("An unknown error occurred.");
+          break;
+      }
+}
+
 const Filters = (props) => {
 
     //Filters
@@ -83,7 +113,7 @@ const Filters = (props) => {
                     <Input type="text" className="location-box" />
                         <InputGroupAddon addonType="append">
                             <InputGroupText>
-                                <FontAwesomeIcon icon="map-pin" size="sm" color="#1C67CE" />
+                                <FontAwesomeIcon onClick={() => GetLocation()} icon="map-pin" size="sm" color="#1C67CE" />
                             </InputGroupText>
                         </InputGroupAddon>
                     </InputGroup>
