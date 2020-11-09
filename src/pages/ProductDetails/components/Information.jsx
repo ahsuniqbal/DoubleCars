@@ -1,10 +1,11 @@
 import React from 'react';
 import { Row, Col,Label} from 'reactstrap';
+import '../styles/Information.css'
 
 const Information = () => {
     return(
         <div>     
-            <h4>Information</h4>
+            <h4 className = "information-head">Information</h4>
             <Row className = "mb-5">
                 <Col xs = "6" md = "3">
                     <Label>Transmission</Label><br/>

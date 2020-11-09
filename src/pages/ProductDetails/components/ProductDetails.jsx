@@ -10,6 +10,7 @@ import Information from './Information';
 import CarFeatures from './CarFeatures';
 import AboutSeller from './AboutSeller';
 import Comments from './Comments';
+import Footer from '../../../components/Footer'
 
 const images = [
     {
@@ -59,6 +60,7 @@ const ProductResults = ({match}) => {
                 </Col>
             </Row>
             <Comments/>
+            <Footer/>
         </Container>
     )
 }

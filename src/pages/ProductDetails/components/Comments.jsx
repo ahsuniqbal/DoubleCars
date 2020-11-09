@@ -1,9 +1,17 @@
 import React from 'react';
+import { Col, Row } from 'reactstrap';
 import '../styles/Comments.css';
 
 const Comments = () => {
     return(
-        <h1>This is a comment section</h1>
+        <div>
+            <Row>
+                <Col md = "12">
+                    <h1 className = "dealer-review-head">Dealer Reviews</h1>
+                </Col>
+            </Row>
+            
+        </div>
     );
 };
 
