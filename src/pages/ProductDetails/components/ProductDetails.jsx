@@ -9,6 +9,7 @@ import Gallery from './Gallery';
 import Information from './Information';
 import CarFeatures from './CarFeatures';
 import AboutSeller from './AboutSeller';
+import Comments from './Comments';
 
 const images = [
     {
@@ -44,7 +45,6 @@ const ProductResults = ({match}) => {
 
             <Row>
                 <Col md = "7">
-                    <h3>Image gallery here</h3>
                     <Gallery
                         items={images} />
 
@@ -58,6 +58,7 @@ const ProductResults = ({match}) => {
 
                 </Col>
             </Row>
+            <Comments/>
         </Container>
     )
 }
