@@ -9,8 +9,7 @@ import Mitsubishi from '../../../assets/Mitsubishi.png'
 import Suzuki from '../../../assets/Suzuki.png'
 import Tesla from '../../../assets/Tesla.png'
 import Toyota from '../../../assets/Toyota.png'
-import {Row, Col, Label, Button} from 'reactstrap'
-import { Link } from 'react-router-dom';
+import {Row} from 'reactstrap'
 import '../styles/PopularMake.css'
 
 
@@ -52,7 +51,7 @@ const DrawCols = () => {
 
 const Home = () => {
     return(
-        <div className="container-fluid our-league-section"> 
+        <div className="our-league-section"> 
                 <ul className = "client-list">
                 {
                     DrawCols()

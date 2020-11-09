@@ -1,7 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-
-
+import Header from './Header'
+import HomeImageSlider from './HomeImageSlider';
+import PopularMake from './PopularMake'
 
 const Home = () => {
     const history = useHistory();
@@ -16,10 +17,16 @@ const Home = () => {
     }
     return(
         <div className = "">
-            <form onSubmit={(e) => Search(e, document.getElementById('search-input').value)}>
+            {/* <form onSubmit={(e) => Search(e, document.getElementById('search-input').value)}>
                 <input type="text" id="search-input" />
-                <button type="submit">Submit</button>
-            </form>      
+                <button type="submit">ss</button>
+            </form>     */}
+        <Header/>
+        <HomeImageSlider/>
+        <PopularMake/>
+
+       
+
         </div>
     )
 }
