@@ -18,11 +18,21 @@ function FilterQueryString(obj){
 }
 
 const Filters = (props) => {
-    const [filters, setFilters] = useState({});
-    const [isModelCollapseOpen, setisModelCollapseOpen] = useState(false);
+
+    //Filters
     const [radius, setRadius] = useState(0);
     const [price, setPrice] = useState([1000, 2000]);
     const [mileage, setMileage] = useState(0);
+    const [make, setMake] = useState(null);
+
+    //Filters Object
+    const [filters, setFilters] = useState({});
+
+    //Make Model Collapse
+    const [isModelCollapseOpen, setisModelCollapseOpen] = useState(false);
+    
+    
+    
     const [year, setYear] = useState([0, 0]);
     const [transmission, setTransmission] = useState([false, false, false, false]);
     const [sellerType, setSellerType] = useState([false, false]);
@@ -50,6 +60,10 @@ const Filters = (props) => {
         filters['mileage'] = mileage;
         setFilters(filters);
         FilterQueryString(filters);
+    }
+
+    const handleMake = (make) => {
+        setMake(make);
     }
 
     const todayYear = (new Date()).getFullYear();
@@ -86,7 +100,7 @@ const Filters = (props) => {
                                 onHandleRadius={handleRadius} />
                         </Col>
                         <Col xs="3" sm="2" md="4" lg="3" className="px-0">
-                            <Label>{radius + "Km"}</Label>
+                            <Label>{radius + " mi."}</Label>
                         </Col>
                     </Row>
                 </div>
@@ -94,14 +108,14 @@ const Filters = (props) => {
                 <hr />
                 
                 <h6>MAKE</h6>
-                <Input type="select" className="mb-4" onChange={() => setisModelCollapseOpen(true)}>
-                    <option>Make</option>
-                    <option>Suzuki</option>
+                <Input type="select" className="mb-4" onChange={(e) => { setisModelCollapseOpen(true); handleMake(e.target.value); }}>
+                    <option value="">Make</option>
+                    <option value="Suzuki">Suzuki</option>
                 </Input>
 
                 <Collapse isOpen={isModelCollapseOpen}>
                     <h6>MODEL</h6>
-                    <Input type="select" className="mb-4">
+                    <Input type="select" className="mb-4" >
                         <option>Model</option>
                     </Input>
                 </Collapse>
@@ -124,7 +138,7 @@ const Filters = (props) => {
                 <h6>MILEAGE</h6>
                 <div className="px-2">
                     <Typography id="continuous-slider" gutterBottom>
-                        {mileage + "Km"}
+                        {mileage + " mi."}
                     </Typography>
                     <MileageSlider
                         min={0}
