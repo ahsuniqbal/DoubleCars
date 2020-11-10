@@ -3,8 +3,9 @@ import { Col,  Row, Label, Card,CardBody, CardImg, Button,Input} from 'reactstra
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CompanyLogo from '../../../assets/company-logo.png'; 
 import '../styles/AboutSeller.css'
+import { Link } from 'react-router-dom';
 
-const SellerDetails = () => {
+const SellerDetails = (props) => {
     return(
         <div>
             <h6 className = "interest-label">Are you interested in this car?</h6>
@@ -36,7 +37,9 @@ const SellerDetails = () => {
                 <h6 className = "contact-detail-head">Contact Details</h6>
                 <p className = "contact-detail"><i className="fa fa-envelope "></i>+1 2345 78974</p>
                 <p className = "contact-detail"> <i className="fa fa-phone "></i>hellochance@gmail.com</p>
-                <Button size = "lg" block className = "view-inventory-button primary mt-4"> View Inventory</Button> 
+                <Link to={'/dealer/' + props.userId}>
+                    <Button size = "lg" block className = "view-inventory-button primary mt-4"> View Inventory</Button>
+                </Link>
             </CardBody>
         </Card>
     </div>

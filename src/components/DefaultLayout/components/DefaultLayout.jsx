@@ -7,6 +7,7 @@ import routes from '../../../navigation/Routes';
 
 const NavigationBar = React.lazy(() => import('../../NavigationBar'))
 const NotFound = React.lazy(() => import('../../../navigation/NotFound'));
+const Footer = React.lazy(() => import('../../Footer'));
 
 const DefaultLayout = () => {
     return(
@@ -37,6 +38,8 @@ const DefaultLayout = () => {
                     <PublicRoute component={NotFound} />
                 </Switch>
             </Container>
+
+            <Footer />
         </div>
     );
 }

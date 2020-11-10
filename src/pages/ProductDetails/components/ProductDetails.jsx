@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Container, NavLink, Row, Col} from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, NavLink, Row, Col, Label} from 'reactstrap';
 import '../styles/ProductDetails.css'
 import CompanyLogo from '../../../assets/company-logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +11,9 @@ import CarFeatures from './CarFeatures';
 import AboutSeller from './AboutSeller';
 import Comments from './Comments';
 import Footer from '../../../components/Footer'
+
+
+import { GetProductDetails } from '../api/GetRequests';
 
 const images = [
     {
@@ -32,7 +35,15 @@ const images = [
 ]
 
 const ProductResults = ({match}) => {
-    const productId = match.params.id;
+    const [productDetails, setProductDetails] = useState({});
+
+    useEffect(() => {
+        GetProductDetails(match.params.id).then(doc => {
+            setProductDetails(doc);
+            console.log(doc.details[0].transmission);
+        })
+    }, []);
+
     return(
         <Container>
             <Row>
@@ -49,13 +60,37 @@ const ProductResults = ({match}) => {
                     <Gallery
                         items={images} />
 
-                   <Information/>
+                    
+                    {
+                        productDetails.details ? 
+                        <Information 
+                            transmission={productDetails.details[0].transmission}
+                            trim={productDetails.details[0].trim}
+                            fuelType={productDetails.details[0].fuelType}
+                            vin={productDetails.details[0].vin}
+                            yearCar={productDetails.details[0].yearCar}
+                            carModel={productDetails.details[0].carModel}
+                            carMake={productDetails.details[0].carMake}
+                            price={productDetails.details[0].price}
+                            mileage={productDetails.details[0].mileage}
+                            zipCode={productDetails.details[0].zipCode} /> : 
+                        <Label>Please wait while we fetch the information...</Label>
+                    }
+                    
+                    
 
                    <CarFeatures/>
 
                 </Col>
                 <Col md = "5">
-                    <AboutSeller/>
+                    {
+                        productDetails.details ? 
+                        <AboutSeller
+                            userId={productDetails.details[0].userId} />
+                        :
+                        null
+                    }
+                    
 
                 </Col>
             </Row>
