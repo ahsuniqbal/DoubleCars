@@ -1,0 +1,13 @@
+.recommended-cars-head {
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+}
+
+.slick-arrow{
+    color: blue !important;
+} 
+.slick-next {
+    color: brown !important;
+    height: 200px !important;
+}
