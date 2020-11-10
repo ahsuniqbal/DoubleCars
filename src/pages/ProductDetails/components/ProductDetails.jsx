@@ -40,7 +40,6 @@ const ProductResults = ({match}) => {
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
-            console.log(doc.details[0].transmission);
         })
     }, []);
 
@@ -57,8 +56,14 @@ const ProductResults = ({match}) => {
 
             <Row>
                 <Col md = "7">
-                    <Gallery
-                        items={images} />
+                    {
+                        productDetails.images ?
+                        <Gallery
+                            items={images} />
+                        :
+                        null
+                    }
+                    
 
                     
                     {
@@ -73,7 +78,18 @@ const ProductResults = ({match}) => {
                             carMake={productDetails.details[0].carMake}
                             price={productDetails.details[0].price}
                             mileage={productDetails.details[0].mileage}
-                            zipCode={productDetails.details[0].zipCode} /> : 
+                            zipCode={productDetails.details[0].zipCode}
+                            exteriorColor={productDetails.details[0].exteriorColor}
+                            interiorColor={productDetails.details[0].interiorColor}
+                            engine={productDetails.details[0].engine}
+                            conditionCar={productDetails.details[0].conditionCar}
+                            gasMileage={productDetails.details[0].gasMileage}
+                            bodyStyle={productDetails.details[0].bodyStyle}
+                            type={productDetails.details[0].type}
+                            interior={productDetails.details[0].interior}
+                            exterior={productDetails.details[0].exterior}
+                            security={productDetails.details[0].security}
+                            others={productDetails.details[0].others} /> : 
                         <Label>Please wait while we fetch the information...</Label>
                     }
                     
