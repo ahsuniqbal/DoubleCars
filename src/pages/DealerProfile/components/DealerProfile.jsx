@@ -4,7 +4,7 @@ import Filters from '../../../components/ProductFilters/components/Filters';
 import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
-import { GetSearchResult } from '../API/GetRequests';
+import { GetSearchResult } from '../api/GetRequests';
 
 function numberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
