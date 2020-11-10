@@ -2,11 +2,13 @@ import React from 'react';
 import { Col,  Row, Label, Card,CardBody, CardImg, Button,Input} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CompanyLogo from '../../../assets/company-logo.png'; 
+import '../styles/AboutSeller.css'
+
 const SellerDetails = () => {
     return(
         <div>
-            <h6>Are you interested in this car?</h6>
-                    <h6>Let the seller know about your interest</h6>
+            <h6 className = "interest-label">Are you interested in this car?</h6>
+                    <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
                     <Input type = "email" placeholder = "Your email address"></Input>
                     <Button size = "lg" block className = "contact-seller-button primary mt-4"> Contact Seller</Button>
 
@@ -27,13 +29,13 @@ const SellerDetails = () => {
                 </Row>
                 
                 <hr/>
-                <h6>About seller</h6>
-                <p className = "text-secondary">Contrary to popular belief, Lorem Ipsum is not slimi random text.
+                <h6 className = "about-seller-head">About seller</h6>
+                <p className = "about-seller-text">Contrary to popular belief, Lorem Ipsum is not slimi random text.
                 It has roots in a piece of classical Latin literature from 45 BC,
                 making it over 2000 years old. Richard McClintock.</p>
-                <h6>Contact Details</h6>
-                <p className = ""><i className="fa fa-envelope "></i>+1 2345 78974</p>
-                <p className = ""> <i className="fa fa-phone "></i>hellochance@gmail.com</p>
+                <h6 className = "contact-detail-head">Contact Details</h6>
+                <p className = "contact-detail"><i className="fa fa-envelope "></i>+1 2345 78974</p>
+                <p className = "contact-detail"> <i className="fa fa-phone "></i>hellochance@gmail.com</p>
                 <Button size = "lg" block className = "view-inventory-button primary mt-4"> View Inventory</Button> 
             </CardBody>
         </Card>
