@@ -4,6 +4,7 @@ import Header from './Header'
 import RecommendedCar from './RecommendedCar';
 import PopularMake from './PopularMake'
 import TrendingCar from './TrendingCar';
+import TrendingBodyTypes from './TrendingBodyTypes/TrendingBodyTypes'
 
 const Home = () => {
     const history = useHistory();
@@ -26,6 +27,7 @@ const Home = () => {
         <RecommendedCar/>
         <TrendingCar/>
         <PopularMake/>
+        <TrendingBodyTypes/>
 
        
 
