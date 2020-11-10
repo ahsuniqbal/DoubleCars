@@ -1,8 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from './Header'
-import HomeImageSlider from './HomeImageSlider';
+import RecommendedCar from './RecommendedCar';
 import PopularMake from './PopularMake'
+import TrendingCar from './TrendingCar';
 
 const Home = () => {
     const history = useHistory();
@@ -22,7 +23,8 @@ const Home = () => {
                 <button type="submit">ss</button>
             </form>     */}
         <Header/>
-        <HomeImageSlider/>
+        <RecommendedCar/>
+        <TrendingCar/>
         <PopularMake/>
 
        

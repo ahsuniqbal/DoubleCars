@@ -3,15 +3,12 @@ import '../styles/Home.css'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import '../styles/HomeImageSlider.css'
-import DummyCarCard from '../../../assets/DummyCarCard.png'
-import DummyCarCard2 from '../../../assets/DummyCarCard2.png'
-import DummyCarCard3 from '../../../assets/DummyCarCard3.png'
-import CarouselCard from '../../../components/CarouselCard/components/CarouselCard';
+import '../styles/TrendingCar.css'
+import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 // import {Button, Label, Row, Col, Input} from 'reactstrap'
-const HomeImageSlider = () => {
+const TrendingCar = () => {
 
     let settings = {
     dot:true,
@@ -26,7 +23,7 @@ const HomeImageSlider = () => {
         <div>
             <Row className = "mt-5">
                 <Col md = "6" xs = "12">
-                    <h2 className = "recommended-cars-head">Recommended Cars</h2>
+                    <h2 className = "trending-cars-head">Trending in US</h2>
                 </Col>
 
                 <Col md = "6" xs = "12" className = "text-right">
@@ -36,15 +33,15 @@ const HomeImageSlider = () => {
         
 
               <Slider {...settings}>
-              <CarouselCard/>
-              <CarouselCard/>
-              <CarouselCard/>
-              <CarouselCard/>
-              <CarouselCard/>
-              <CarouselCard/>
-              <CarouselCard/>
-              <CarouselCard/>
-              <CarouselCard/>
+              <ProductCard/>
+              <ProductCard/>
+              <ProductCard/>
+              <ProductCard/>
+              <ProductCard/>
+              <ProductCard/>
+              <ProductCard/>
+              <ProductCard/>
+              <ProductCard/>
                   
                  
                   
@@ -55,4 +52,4 @@ const HomeImageSlider = () => {
     )
 }
 
-export default HomeImageSlider;
+export default TrendingCar;
