@@ -18,23 +18,34 @@ const TrendingBody1 = (props) => {
             <Slider {...settings}>
                 <ProductCard
                     productImg = {DummyCarCard}
-                    
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
 
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
                 />
             </Slider> 
         </div>    
