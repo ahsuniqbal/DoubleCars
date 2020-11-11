@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Col ,Row, Label, Input} from 'reactstrap';
 import Filters from '../../../components/ProductFilters/components/Filters';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
-import { GetSearchResult } from '../API/GetRequests';
+import { GetSearchResult } from '../api/GetRequests';
 
 function numberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -70,6 +71,7 @@ const DealerProfile = ({location}) => {
                     <Row className="search-heading mb-2 mt-3">
                         <Col md="8">
                             <Label className="inv-label">9 cars in inventory...</Label> 
+                            <FontAwesomeIcon icon="phone" />
                         </Col>
                         <Col md="2">
                             <Label className="float-right mt-2">Sort by</Label>
@@ -77,6 +79,7 @@ const DealerProfile = ({location}) => {
                         <Col md="2">
                             <Input type="select">
                                 <option>Relevence</option>
+                                
                             </Input>
                         </Col>
                     </Row>

@@ -1,10 +1,10 @@
 import { connectionString } from '../../../config/ConnectionString';
 const axios = require('axios');
-// const relativeString = "products/search?search=";
+const relativeString = "products/";
 
-export const GetSearchResult = (queryParams) => {
+export const GetProductDetails = (id) => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + "products/search?search=" + queryParams;
+        var url = connectionString + relativeString + id;
         axios.get(url).then(function(response){
             const data = response.data.results;
             resolve(data);
