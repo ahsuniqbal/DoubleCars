@@ -39,31 +39,37 @@ const TrendingCar = () => {
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
                 />
             </Slider> 
             </CardBody>
