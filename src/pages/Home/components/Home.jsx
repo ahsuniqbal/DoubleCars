@@ -27,7 +27,7 @@ const Home = () => {
         <RecommendedCar/>
         <TrendingCar/>
         <PopularMake/>
-        <TrendingBodyTypes/>
+        {/* <TrendingBodyTypes/>ß */}
 
        
 
