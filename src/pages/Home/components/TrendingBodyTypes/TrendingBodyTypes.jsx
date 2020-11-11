@@ -134,7 +134,7 @@ class TrendingBodyTypes extends Component{
                 </Row>
                 <Row>
                     <Col xs="12" >
-                        <Nav tabs className = "text-center mb-5">
+                        <Nav tabs className = "text-center mb-5 tab-items">
                             <NavItem>
                                 <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={(e) => this.toggleTabs(e, '1')}>
                                     SUV
