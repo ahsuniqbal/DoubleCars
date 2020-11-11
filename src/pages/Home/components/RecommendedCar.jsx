@@ -5,14 +5,13 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import '../styles/RecommendedCar.css'
 import DummyCarCard from '../../../assets/DummyCarCard.png'
-import DummyCarCard2 from '../../../assets/DummyCarCard2.png'
-import DummyCarCard3 from '../../../assets/DummyCarCard3.png'
-import ProductCard from '../../../components/CarouselCard/components/CarouselCard';
-import { Col, Row } from 'reactstrap';
+import ProductCard from '../../../components//ProductCard/components/ProductCard';
+import { Col, Label, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 
-const RecommendedCar = () => {
+
+const RecommendedCar = (props) => {
 
    
 
@@ -36,26 +35,28 @@ const RecommendedCar = () => {
                     <Link>View All</Link>
                 </Col>
             </Row>
+            <Slider {...settings}>
+                <ProductCard
+                    productImg = {DummyCarCard}
+                    
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
 
-            
-        
-
-              <Slider {...settings}>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-                  
-                 
-                  
-                  
-                  
-                  </Slider> 
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                />
+            </Slider> 
         </div>
     )
 }
