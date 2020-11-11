@@ -128,8 +128,13 @@ class TrendingBodyTypes extends Component{
         return(
             <div>
                 <Row>
-                    <Col xs="12">
-                        <Nav tabs>
+                <Col md = "12" xs = "12" className = "text-center mt-5 mb-5">
+                       <h2 className = "trending-body-head">Trending Body Type in 2020</h2>
+                   </Col>
+                </Row>
+                <Row>
+                    <Col xs="12" >
+                        <Nav tabs className = "text-center mb-5">
                             <NavItem>
                                 <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={(e) => this.toggleTabs(e, '1')}>
                                     SUV

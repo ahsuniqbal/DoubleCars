@@ -19,7 +19,7 @@ const Home = () => {
         })
     }
     return(
-        <div className = "">
+        <div className = "trending-body-types">
             {/* <form onSubmit={(e) => Search(e, document.getElementById('search-input').value)}>
                 <input type="text" id="search-input" />
                 <button type="submit">ss</button>
