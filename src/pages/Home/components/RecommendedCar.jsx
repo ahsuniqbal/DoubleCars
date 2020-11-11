@@ -41,7 +41,9 @@ const RecommendedCar = () => {
         
 
               <Slider {...settings}>
-              <ProductCard/>
+              <ProductCard
+                productImg={DummyCarCard}
+                productTitle="Ttitle" />
               <ProductCard/>
               <ProductCard/>
               <ProductCard/>
