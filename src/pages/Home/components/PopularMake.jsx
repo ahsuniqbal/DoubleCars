@@ -16,9 +16,9 @@ import '../styles/PopularMake.css'
 
 const DrawRows = () => {
     var table = [];
-    for(let i = 0; i < 2; i++){
+    for(let i = 0; i < 1; i++){
         table.push(
-            <Row className="mx-0">
+            <Row className="">
                 {
                     DrawCols()
                 }
@@ -30,9 +30,9 @@ const DrawRows = () => {
 const DrawCols = () => {
     var table = [];
     var popularImages = [Suzuki, Mitsubishi, Mercedes, Lexus, Honda, Ford, BMW, Audi, Tesla, Toyota];
-    for (let i = 0; i <  6; i++) {
+    for (let i = 0; i <  10; i++) {
         table.push(
-                <li>
+                <li className = "popular-images col-md-2 col-md-offset-1">
                     <img data-aos="flip-up" src={popularImages[i]} alt="popular images" className="img-fluid" />
                 </li>
             // <Col md = "2" className="text-center my-2 col-md-offset-2">
@@ -58,8 +58,3 @@ const Home = () => {
 }
 
 export default Home;
-
-
-
-
-
