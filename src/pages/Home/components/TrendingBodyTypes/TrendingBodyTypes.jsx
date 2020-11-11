@@ -3,21 +3,24 @@ import { Row, Col, TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap
 import TrendingBody1 from './TrendingBody1';
 import TrendingBody2 from './TrendingBody2';
 import TrendingBody3 from './TrendingBody3';
-import TrendingBody5 from './TrendingBody5'
-import TrendingBody4 from './TrendingBody4'
+import TrendingBody4 from './TrendingBody4';
+import TrendingBody5 from './TrendingBody5';
+import TrendingBody6 from './TrendingBody6';
+
 // import '../../views/Settings.css'
 import '../../styles/TrendingBodyTypes.css'
 import classnames from 'classnames';
 
 const TrendingBodyTypes = () =>{
-    
-    
         
         return(
             <div>
                 <Row>
+                    <Col md = "12" xs = "12" className = "text-center mt-5">
+                        <h2 className = "trending-body-head">Trending Body Type in 2020</h2>
+                    </Col>
                     <Col xs="12">
-                        <Nav tabs>
+                        <Nav>
                             <NavItem>
                                 <NavLink>
                                    SUV
@@ -26,25 +29,31 @@ const TrendingBodyTypes = () =>{
 
                             <NavItem>
                                 <NavLink >
-                                    T2
+                                    Sedan
                                 </NavLink>
                             </NavItem>
 
                             <NavItem>
                                 <NavLink >
-                                    T3
+                                    Hatchback
                                 </NavLink>
                             </NavItem>
 
                             <NavItem>
                                 <NavLink >
-                                    T4
+                                    Crossover
                                 </NavLink>
                             </NavItem>
 
                             <NavItem>
                                 <NavLink >
-                                    T5
+                                    Coup
+                                </NavLink>
+                            </NavItem>
+
+                            <NavItem>
+                                <NavLink >
+                                    Covertable
                                 </NavLink>
                             </NavItem>
                         </Nav>
@@ -64,19 +73,14 @@ const TrendingBodyTypes = () =>{
                             </TabPane>
 
                             <TabPane tabId="4">
-                                <Row>
-                                    <Col xs="12">
-                                    <TrendingBody4/>
-                                    </Col>
-                                </Row>
+                                <TrendingBody4/>
                             </TabPane>
 
                             <TabPane tabId="5">
-                                <Row>
-                                    <Col xs="12">
-                                        <TrendingBody5/>
-                                    </Col>
-                                </Row>
+                                <TrendingBody5/>
+                            </TabPane>
+                            <TabPane tabId="6">
+                                <TrendingBody6/>
                             </TabPane>
                         </TabContent>
                     </Col>
