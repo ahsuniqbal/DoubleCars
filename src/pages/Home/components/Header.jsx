@@ -1,12 +1,9 @@
 import React from 'react';
-import Cover from '../../../assets/landingPageCover.png'
 import { NavLink } from "react-router-dom";
 import '../styles/Header.css'
-import '../styles/SearchBox.css'
-import {Button, Label, Row, Col, Input, InputGroup, InputGroupAddon, InputGroupText} from 'reactstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import search from '../../../assets/search.png'
-import { Link } from 'react-router-dom';
+
+
+
 const Header = () => {
     return(
         <div>
@@ -35,52 +32,8 @@ const Header = () => {
                     </div>
                 </div>
             </section>
-            <div className = "search-box">
-                <Row>
-                    <Col md = "6">
-                        <Label className = "search-label mt-2 ml-3 mb-5">Search for your dream car</Label>
-                    </Col>
-                    <Col md = "6" className = "text-right mt-2  ">
-                    <Link className = "mr-3">Advanced Search</Link>
-                    </Col>
 
-                </Row>
-                <Row>
-                    <Col md = "5" className="ml-4">
-                    <InputGroup>
-                    <Input type="text"  placeholder = "Search a car..." />
-                    <InputGroupAddon addonType="append">
-                        <InputGroupText>
-                            <FontAwesomeIcon icon="search" size="sm" color="#1C67CE" />
-                        </InputGroupText>
-                    </InputGroupAddon>
-                    </InputGroup>
-                    </Col>
-                    <Col md="2">
-                        <Input type="select">
-                            <option>Make</option>
-                            
-                        </Input>
-                    </Col>
-                    <Col md="2">
-                        <Input type="select">
-                            <option>Model</option>
-                            
-                        </Input>
-                    </Col>
-                    <Col md="2" className = "">
-                        <Input type="select">
-                            <option>Price Range</option>
-                            
-                        </Input>
-                    </Col>
-                    
-
-                    
-
-                </Row>
-                
-            </div>
+            
     </div>
     )
 }

@@ -44,6 +44,8 @@ function ShowError(error){
         case error.UNKNOWN_ERROR:
           console.log("An unknown error occurred.");
           break;
+        default:
+            console.log("An unknown error occurred.");
       }
 }
 

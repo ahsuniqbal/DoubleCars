@@ -1,4 +1,4 @@
-import React ,{ useEffect, useState } from 'react';
+import React from 'react';
 import '../styles/Home.css'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import '../styles/RecommendedCar.css'
 import DummyCarCard from '../../../assets/DummyCarCard.png'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
-import { Col, Label, Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 

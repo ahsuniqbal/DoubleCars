@@ -4,7 +4,6 @@ import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import '../styles/Products.css'
 import { GetSearchResult } from '../api/GetRequests';
-import AOS from 'aos';
 
 
 function numberWithCommas(number) {
