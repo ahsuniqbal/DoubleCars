@@ -20,8 +20,6 @@ const Home = () => {
                 <Searchbar />
             </Col>
         </Row>
-        
-      
         <RecommendedCar/>
         <TrendingCar/>
         <TrendingBodyTypes/>
