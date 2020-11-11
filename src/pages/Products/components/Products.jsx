@@ -23,7 +23,9 @@ const ShowSearchResults = (products) => {
                     productImg={products[i].coverPic}
                     productName={products[i].carName}
                     productBadge={"TRENDING"}
-                    dealer />
+                    dealer={true}
+                    dealerRating="4.5"
+                    allowBookmark={true} />
             </Col>
         );        
     }
