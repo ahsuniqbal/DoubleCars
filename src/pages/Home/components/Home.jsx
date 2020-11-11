@@ -31,10 +31,6 @@ const Home = () => {
         <TrendingBodyTypes/>
         <BuyNow/>
         <PopularMake/>
-        
-        
-
-       
 
         </div>
     )

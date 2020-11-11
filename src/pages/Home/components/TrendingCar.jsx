@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import '../styles/TrendingCar.css'
 import DummyCarCard from '../../../assets/DummyCarCard.png'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
-import { Col, Row } from 'reactstrap';
+import { CardBody, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 // import {Button, Label, Row, Col, Input} from 'reactstrap'
 const TrendingCar = () => {
@@ -22,7 +22,8 @@ const TrendingCar = () => {
 
     return(
         <div>
-            <Row className = "mt-5">
+            <CardBody className = "trending-cars">
+            <Row className = "">
                 <Col md = "6" xs = "12">
                     <h2 className = "trending-cars-head">Trending in US</h2>
                 </Col>
@@ -36,25 +37,37 @@ const TrendingCar = () => {
             <Slider {...settings}>
                 <ProductCard
                     productImg = {DummyCarCard}
-                    
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
-
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
                 />
             </Slider> 
+            </CardBody>
+            
         </div>
     )
 }

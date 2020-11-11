@@ -30,18 +30,25 @@ const DrawRows = () => {
 const DrawCols = () => {
     var table = [];
     var popularImages = [Suzuki, Mitsubishi, Mercedes, Lexus, Honda, Ford, BMW, Audi, Tesla, Toyota];
+    var popularNames = ["Suzuki", "Mitsubishi", "Mercedes", "Lexus", "Honda", "Ford", "BMW", "Audi", "Tesla", "Toyota"];
     for (let i = 0; i <  10; i++) {
         table.push(
                 <li className = "popular-images col-md-2 col-md-offset-1">
-                    <img data-aos="flip-up" src={popularImages[i]} alt="popular images" className="img-fluid" />
+                    <img data-aos="flip-up" src={popularImages[i]} alt="popular images" className="img-fluid" /> <br/>
+                    
+                    <label>{popularNames[i]}</label>    
+                    
+                    
                 </li>
             // <Col md = "2" className="text-center my-2 col-md-offset-2">
             //     <img data-aos="flip-up" src={ourLeagueImages[i]} alt="Our league person" className="img-fluid" />
             // </Col>
         )
     }
+    
     return table;
 }
+
 
 
 const Home = () => {
