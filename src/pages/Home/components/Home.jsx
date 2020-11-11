@@ -6,6 +6,7 @@ import PopularMake from './PopularMake'
 import TrendingCar from './TrendingCar';
 import SearchBox from './SearchBox'
 import TrendingBodyTypes from './TrendingBodyTypes/TrendingBodyTypes'
+import BuyNow from './BuyNow';
 
 const Home = () => {
     const history = useHistory();
@@ -29,7 +30,7 @@ const Home = () => {
         <RecommendedCar/>
         <TrendingCar/>
         <PopularMake/>
-        {/* <TrendingBodyTypes/> */}
+        <BuyNow/>
 
        
 

@@ -29,10 +29,10 @@ const RecommendedCar = () => {
         <div>
             <Row className = "mt-5">
                 <Col md = "6" xs = "12">
-                    <h2 className = "recommended-cars-head">Recommended Cars</h2>
+                    <h2 className = "recommended-cars-head mt-5">Recommended Cars</h2>
                 </Col>
 
-                <Col md = "6" xs = "12" className = "text-right">
+                <Col md = "6" xs = "12" className = "text-right mt-5">
                     <Link>View All</Link>
                 </Col>
             </Row>
