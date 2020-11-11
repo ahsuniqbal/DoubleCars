@@ -8,7 +8,7 @@ const BuyNow = () => {
         <Row>
             <Col md = "12" xs = "12" className = "text-center">
             
-                <img src = {AdImage} alt = "advertisment" className = "mt-5 mb-5 ad-image"/>
+                <img src = {AdImage} alt = "advertisment" className = "mt-5 mb-5 ad-image img-fluid"/>
           
             </Col>
         </Row>

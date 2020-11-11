@@ -4,6 +4,9 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import DummyCarCard from '../../../../assets/DummyCarCard.png'
 import ProductCard from '../../../../components/ProductCard/components/ProductCard';
+import { CardBody } from 'reactstrap';
+import '../../styles/TrendingBodyTypes.css'
+
 const TrendingBody1 = (props) => {
     let settings = {
         dot:true,
@@ -14,7 +17,8 @@ const TrendingBody1 = (props) => {
         cssEase: "linear",
         }
     return(
-        <div>    
+        <div>  
+            
             <Slider {...settings}>
                 <ProductCard
                     productImg = {DummyCarCard}
@@ -54,6 +58,7 @@ const TrendingBody1 = (props) => {
                     productText = "$32,500"
                 />
             </Slider> 
+            
         </div>    
     );
 };
