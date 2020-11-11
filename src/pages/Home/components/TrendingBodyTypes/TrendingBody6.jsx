@@ -6,7 +6,7 @@ import DummyCarCard from '../../../../assets/DummyCarCard.png'
 import ProductCard from '../../../../components/ProductCard/components/ProductCard';
 
 
-const TrendingBody3 = () => {
+const TrendingBody6 = () => {
     let settings = {
         dot:true,
         infinite: true,
@@ -43,4 +43,4 @@ const TrendingBody3 = () => {
     );
 };
 
-export default TrendingBody3;
+export default TrendingBody6;

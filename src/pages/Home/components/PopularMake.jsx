@@ -16,29 +16,24 @@ import '../styles/PopularMake.css'
 
 const DrawRows = () => {
     var table = [];
-    
-    for(let i = 0; i < 2; i++){
+    for(let i = 0; i < 1; i++){
         table.push(
-
-            <Row className="mx-0">
+            <Row className="">
                 {
                     DrawCols()
                 }
-                
             </Row>
         )
-        
     }
     return table;
 }
 const DrawCols = () => {
     var table = [];
-    var ourLeagueImages = [Suzuki, Mitsubishi, Mercedes, Lexus, Honda, Ford, BMW, Audi, Tesla, Toyota];
-    for (let i = 0; i <  6; i++) {
+    var popularImages = [Suzuki, Mitsubishi, Mercedes, Lexus, Honda, Ford, BMW, Audi, Tesla, Toyota];
+    for (let i = 0; i <  10; i++) {
         table.push(
-
-                <li>
-                    <img data-aos="flip-up" src={ourLeagueImages[i]} alt="Our league person" className="img-fluid" />
+                <li className = "popular-images col-md-2 col-md-offset-1">
+                    <img data-aos="flip-up" src={popularImages[i]} alt="popular images" className="img-fluid" />
                 </li>
             // <Col md = "2" className="text-center my-2 col-md-offset-2">
             //     <img data-aos="flip-up" src={ourLeagueImages[i]} alt="Our league person" className="img-fluid" />
@@ -51,19 +46,15 @@ const DrawCols = () => {
 
 const Home = () => {
     return(
-        <div className="our-league-section"> 
+        <div className=""> 
+            <h2 className = "popular-make-head">Popular Make</h2>
                 <ul className = "client-list">
                 {
                     DrawCols()
                 }
                 </ul>
-            </div>
+        </div>
     )
 }
 
 export default Home;
-
-
-
-
-

@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import '../styles/TrendingCar.css'
+import DummyCarCard from '../../../assets/DummyCarCard.png'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -32,22 +33,28 @@ const TrendingCar = () => {
             </Row>
         
 
-              <Slider {...settings}>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-              <ProductCard/>
-                  
-                 
-                  
-                  
-                  
-                  </Slider> 
+            <Slider {...settings}>
+                <ProductCard
+                    productImg = {DummyCarCard}
+                    
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                />
+            </Slider> 
         </div>
     )
 }

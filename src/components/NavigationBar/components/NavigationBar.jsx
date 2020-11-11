@@ -5,7 +5,7 @@ import DCLogo from '../../../assets/DCLogo.jpg'
 
 const NavigationBar = () => {
     return (
-        <div className = "container"> 
+        <> 
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <img src = {DCLogo} alt = "Logo" width = "252px" height = "50px"/>
                 <button className="navbar-toggler"
@@ -42,7 +42,7 @@ const NavigationBar = () => {
                     </ul>   
                 </div>
             </nav>
-        </div>
+        </>
     );
   }
   

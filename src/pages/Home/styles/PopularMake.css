@@ -2,8 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    
-    margin-top: 40px;
+   
 }
 
 .client-list li {
@@ -23,6 +22,16 @@
 .client-list li img {
     transition: all 0.5s ease;
     
+}
+
+.popular-make-head {
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+}
+
+.popular-images {
+    cursor: pointer;
 }
 
 @media (max-width: 767px) {

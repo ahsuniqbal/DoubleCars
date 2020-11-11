@@ -5,6 +5,7 @@ import RecommendedCar from './RecommendedCar';
 import PopularMake from './PopularMake'
 import TrendingCar from './TrendingCar';
 import TrendingBodyTypes from './TrendingBodyTypes/TrendingBodyTypes'
+import BuyNow from './BuyNow';
 
 const Home = () => {
     const history = useHistory();
@@ -18,16 +19,20 @@ const Home = () => {
         })
     }
     return(
-        <div className = "">
-            <form onSubmit={(e) => Search(e, document.getElementById('search-input').value)}>
+        <div className = "trending-body-types">
+            {/* <form onSubmit={(e) => Search(e, document.getElementById('search-input').value)}>
                 <input type="text" id="search-input" />
                 <button type="submit">ss</button>
-            </form>    
+            </form>     */}
         <Header/>
+      
         <RecommendedCar/>
         <TrendingCar/>
+        <TrendingBodyTypes/>
+        <BuyNow/>
         <PopularMake/>
-        {/* <TrendingBodyTypes/> */}
+        
+        
 
        
 
