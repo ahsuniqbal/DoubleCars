@@ -46,9 +46,9 @@ background: chocolate;
 }
 
 .slick-prev:before {
-    content: "";
-    font-family: 'FontAwesome';
-    font-size: 22px;
+    content: "<";
+    color: black;
+    font-size: 30px;
   }
   
   .slick-next:before {
