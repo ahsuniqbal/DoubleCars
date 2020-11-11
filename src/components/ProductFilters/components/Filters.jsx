@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../styles/Filters.css'
+import { GetAllMakes, GetModelFromMake } from '../api/GetRequests';
 import Typography from '@material-ui/core/Typography';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
+import '../styles/Filters.css';
 
 function FilterQueryString(obj){
     var str = "";
@@ -49,6 +50,24 @@ function ShowError(error){
       }
 }
 
+function concatMakeList(makeList){
+    var makeSelectBox = document.getElementById('make-list');
+
+    for(let i = 0; i < makeList.length; i++){
+        var option = makeList[i];
+        makeSelectBox.options.add(new Option(option.name, option.id));
+    }
+}
+
+function concatModelList(modelList){
+    var modelSelectBox = document.getElementById('model-list');
+
+    for(let i = 0; i < modelList; i++){
+        var option = modelList[i];
+        modelSelectBox.options.add(new Option(option.name, option.id));
+    }
+}
+
 const Filters = (props) => {
 
     //Filters
@@ -56,6 +75,8 @@ const Filters = (props) => {
     const [price, setPrice] = useState([1000, 2000]);
     const [mileage, setMileage] = useState(0);
     const [make, setMake] = useState(null);
+    const [makeList, setMakeList] = useState([]);
+    const [modelList, setModelList] = useState([]);
 
     //Filters Object
     const [filters, setFilters] = useState({});
@@ -96,7 +117,16 @@ const Filters = (props) => {
 
     const handleMake = (make) => {
         setMake(make);
+        GetModelFromMake(make).then(doc => {
+            setModelList(doc.makes[0].models);
+        });
     }
+
+    useEffect(() => {
+        GetAllMakes().then(doc => {
+            setMakeList(doc.makes);
+        })
+    }, [])
 
     const todayYear = (new Date()).getFullYear();
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
@@ -140,16 +170,33 @@ const Filters = (props) => {
                 <hr />
                 
                 <h6>MAKE</h6>
-                <Input type="select" className="mb-4" onChange={(e) => { setisModelCollapseOpen(true); handleMake(e.target.value); }}>
-                    <option value="">Make</option>
-                    <option value="Suzuki">Suzuki</option>
-                </Input>
+                {
+                    makeList ?
+                    <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setisModelCollapseOpen(true); handleMake(e.target.value); }}>
+                        <option value="">Make</option>
+                        {
+                            concatMakeList(makeList)
+                        }
+                    </Input>
+                    :
+                    null
+                }
+                
 
                 <Collapse isOpen={isModelCollapseOpen}>
                     <h6>MODEL</h6>
-                    <Input type="select" className="mb-4" >
-                        <option>Model</option>
-                    </Input>
+                    {
+                        modelList ?
+                        <Input id="model-list" type="select" className="mb-4" >
+                            <option value="">Model</option>
+                            {
+                                concatModelList(modelList)
+                            }
+                        </Input>
+                        :
+                        null
+                    }
+                    
                 </Collapse>
 
                 <hr />
