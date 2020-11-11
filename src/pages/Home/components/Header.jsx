@@ -2,7 +2,10 @@ import React from 'react';
 import Cover from '../../../assets/landingPageCover.png'
 import { NavLink } from "react-router-dom";
 import '../styles/Header.css'
-
+import '../styles/SearchBox.css'
+import {Button, Label, Row, Col, Input} from 'reactstrap'
+import search from '../../../assets/search.png'
+import { Link } from 'react-router-dom';
 const Header = () => {
     return(
         <div>
@@ -31,6 +34,26 @@ const Header = () => {
                     </div>
                 </div>
             </section>
+            <div className = "search-box">
+                <Row>
+                    <Col md = "6">
+                        <Label>Search For your dream </Label>
+                        <Col md = "6">
+                        <Input type="text" className = "search-text-field" placeholder="Search a car..." />
+                        </Col>
+                        <Col md = "6">
+                        <img src = {search} alt = "twitter" width = "10%"/>
+                        </Col>
+                        
+                    </Col>
+
+                    <Col md = "6" className = "text-right">
+                    <Link>View All</Link>
+                    </Col>
+
+                </Row>
+                
+            </div>
     </div>
     )
 }

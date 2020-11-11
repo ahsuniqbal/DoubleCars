@@ -4,6 +4,7 @@ import Header from './Header'
 import RecommendedCar from './RecommendedCar';
 import PopularMake from './PopularMake'
 import TrendingCar from './TrendingCar';
+import SearchBox from './SearchBox'
 import TrendingBodyTypes from './TrendingBodyTypes/TrendingBodyTypes'
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
                 <button type="submit">ss</button>
             </form>    
         <Header/>
+        <SearchBox/>
         <RecommendedCar/>
         <TrendingCar/>
         <PopularMake/>

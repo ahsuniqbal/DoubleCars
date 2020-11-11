@@ -52,6 +52,7 @@ const DrawCols = () => {
 const Home = () => {
     return(
         <div className="our-league-section"> 
+            <h2 className = "popular-make-head">Popular Make</h2>
                 <ul className = "client-list">
                 {
                     DrawCols()

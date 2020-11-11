@@ -7,7 +7,7 @@ import '../styles/RecommendedCar.css'
 import DummyCarCard from '../../../assets/DummyCarCard.png'
 import DummyCarCard2 from '../../../assets/DummyCarCard2.png'
 import DummyCarCard3 from '../../../assets/DummyCarCard3.png'
-import ProductCard from '../../../components/ProductCard/components/ProductCard';
+import ProductCard from '../../../components/CarouselCard/components/CarouselCard';
 import { Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 

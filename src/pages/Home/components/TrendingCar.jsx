@@ -4,7 +4,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import '../styles/TrendingCar.css'
-import ProductCard from '../../../components/ProductCard/components/ProductCard';
+import ProductCard from '../../../components/CarouselCard/components/CarouselCard';
 import { Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 // import {Button, Label, Row, Col, Input} from 'reactstrap'
