@@ -1,3 +1,7 @@
 const connectionString = "https://carsaleapi.herokuapp.com/";
+const vinAuditBaseUrl = "https://specifications.vinaudit.com/v3/selections?format=json&";
+const vinAuditKey = "key=VA_DEMO_KEY&list=";
 
-export { connectionString };
+const vinAuditConnectionString = vinAuditBaseUrl + vinAuditKey;
+
+export { connectionString, vinAuditConnectionString as vinAuditString };
