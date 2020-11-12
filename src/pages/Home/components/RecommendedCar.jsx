@@ -11,22 +11,132 @@ import { Link } from 'react-router-dom';
 
 
 
-const RecommendedCar = () => {
 
-
-    let settings = {
-    dot:true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    cssEase: "linear",
+const ShowSearchResults = () => {
+   
+    var table = [];
+    for (let i = 0; i < 4; i++) {
+        table.push(
+            
+            <Col xs="12" sm="6" lg="4">
+                <ProductCard
+                    productTitle="2019 Mercedes Benz Hybrid"
+                    productSubtitle="19,850 mileage - california "
+                    productText="$32,500"
+                    productImg={DummyCarCard}
+                    dealer={false}
+                    dealerRating= {false}
+                    allowBookmark={false} />
+            </Col>
+            
+        );        
     }
+    return table;
+}
+
+const RecommendedCar = () => {
+    let settings = {
+        dot:true,
+        infinite: true,
+        rows: 1,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        cssEase: "linear",
+        mobileFirst:true,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              centerMode: false,
+            }
+          }],
+        
+        }
 
     return(
         <div>
+             <CardBody className = "recommended-cars">
+            <Row className = "">
+                <Col md = "6" xs = "12">
+                    <h2 className = "recommended-cars-head">Recommneded Cars</h2>
+                </Col>
+
+                <Col md = "6" xs = "12" className = "text-right">
+                    <Link>View All</Link>
+                </Col>
+            </Row>
+        
+            <Row>
+                <Col >
+                <Slider {...settings}>
+                <ProductCard
+                    productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
+                />
+                <ProductCard
+                    productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
+                />
+                  <ProductCard
+                    productImg = {DummyCarCard}
+                    productTitle = "2019 Mercedes Benz Hybrid"
+                    productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
+                />
+               
+            </Slider> 
+                </Col>
+            </Row>
             
-            <CardBody className = "recommended-cars">
+            </CardBody>
+                {/* <Row>
+                    <Col xs="12" md="12" >
+                      
+                
+                      <Slider {...settings}>
+                            <Row>
+                                {
+                                    ShowSearchResults()
+                                }
+                               
+                            </Row>
+                            </Slider>
+                
+                    </Col>
+                </Row> */}
+            
+          
+            
+        </div>
+    )
+}
+
+export default RecommendedCar;
+  {/* <CardBody className = "recommended-cars">
             <Row className = "">
                 <Col md = "6" xs = "12">
                     <h2 className = "recommended-cars-head">Recommended Cars</h2>
@@ -39,41 +149,10 @@ const RecommendedCar = () => {
             <Slider {...settings}>
                 
                 
-                <ProductCard
-                    productImg = {DummyCarCard}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-                />
-                <ProductCard
-                    productImg = {DummyCarCard}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-                />
-                <ProductCard
-                    productImg = {DummyCarCard}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-                />
-                <ProductCard
-                    productImg = {DummyCarCard}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-                />
-                <ProductCard
-                    productImg = {DummyCarCard}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-                />
+            <Row>
+                            {
+                                ShowSearchResults()
+                            }
+                        </Row>
             </Slider> 
-            </CardBody>
-            
-        </div>
-    )
-}
-
-export default RecommendedCar;
+            </CardBody> */}

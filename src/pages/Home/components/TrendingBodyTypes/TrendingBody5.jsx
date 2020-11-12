@@ -9,11 +9,22 @@ import ProductCard from '../../../../components/ProductCard/components/ProductCa
 const TrendingBody5 = () => {
     let settings = {
         dot:true,
-        infinite: true,
+        infinite: false,
+        rows: 1,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
         cssEase: "linear",
+        mobileFirst:true,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              centerMode: false,
+            }
+          }],
+        
         }
     return(
         <div>    
@@ -22,32 +33,38 @@ const TrendingBody5 = () => {
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
 
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
+                    productText = "$32,500"
                 />
             </Slider> 
         </div>    
