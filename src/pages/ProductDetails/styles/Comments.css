@@ -4,3 +4,9 @@
     line-height: 25px;
     font-weight: bolder;
 }
+
+.comment-img {
+    border-radius: 50px;
+    height: auto;
+    width: 100%;
+}

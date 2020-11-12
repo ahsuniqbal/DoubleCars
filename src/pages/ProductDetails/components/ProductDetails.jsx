@@ -42,7 +42,9 @@ const ProductResults = ({match}) => {
     }, []);
 
     return(
-        <Container>
+       <div>
+
+       
             <Row>
                 <Col className = "" md = "6" >
                     <NavLink className="back-button" to="/products">Back to search results</NavLink>                
@@ -104,14 +106,17 @@ const ProductResults = ({match}) => {
                         :
                         null
                     }
-                    
-                    
-
                 </Col>
             </Row>
-            <Comments/>
+            <Row>
+                <Col xs = "8" md = "8">
+                <Comments/>
+                </Col>
+            </Row>
+
+           
             
-        </Container>
+            </div>
     )
 }
 
