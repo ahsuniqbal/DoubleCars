@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GetAllMakes, GetModelFromMake } from '../api/GetRequests';
+import MapPopup from './MapPopup';
 import Typography from '@material-ui/core/Typography';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
 import '../styles/Filters.css';
@@ -34,19 +35,19 @@ function ShowPosition(position){
 function ShowError(error){
     switch(error.code) {
         case error.PERMISSION_DENIED:
-          console.log("User denied the request for Geolocation");
+          alert("User denied the request for Geolocation");
           break;
         case error.POSITION_UNAVAILABLE:
-          console.log("Location information is unavailable.");
+            alert("Location information is unavailable.");
           break;
         case error.TIMEOUT:
-          console.log("The request to get user location timed out.");
+            alert("The request to get user location timed out.");
           break;
         case error.UNKNOWN_ERROR:
-          console.log("An unknown error occurred.");
+            alert("An unknown error occurred.");
           break;
         default:
-            console.log("An unknown error occurred.");
+            alert("An unknown error occurred.");
       }
 }
 
@@ -62,7 +63,7 @@ function concatMakeList(makeList){
 function concatModelList(modelList){
     var modelSelectBox = document.getElementById('model-list');
 
-    for(let i = 0; i < modelList; i++){
+    for(let i = 0; i < modelList.length; i++){
         var option = modelList[i];
         modelSelectBox.options.add(new Option(option.name, option.id));
     }
@@ -75,8 +76,13 @@ const Filters = (props) => {
     const [price, setPrice] = useState([1000, 2000]);
     const [mileage, setMileage] = useState(0);
     const [make, setMake] = useState(null);
+
+    //Make and Model list fetched from Vin audit API
     const [makeList, setMakeList] = useState([]);
     const [modelList, setModelList] = useState([]);
+
+    //Map Popup
+    const [mapPopup, setMapPopup] = useState(false);
 
     //Filters Object
     const [filters, setFilters] = useState({});
@@ -122,11 +128,14 @@ const Filters = (props) => {
         });
     }
 
+    const toggleMapPopup = () => setMapPopup(!mapPopup);
+
     useEffect(() => {
         GetAllMakes().then(doc => {
             setMakeList(doc.makes);
-            
         })
+
+        GetLocation();
     }, [])
 
     const todayYear = (new Date()).getFullYear();
@@ -146,7 +155,8 @@ const Filters = (props) => {
                     <Input type="text" className="location-box" />
                         <InputGroupAddon addonType="append">
                             <InputGroupText>
-                                <FontAwesomeIcon onClick={() => GetLocation()} icon="map-pin" size="sm" color="#1C67CE" />
+                                <FontAwesomeIcon onClick={() => toggleMapPopup()} icon="map-pin" size="sm" color="#1C67CE" />
+                                <MapPopup toggle={toggleMapPopup} isOpen={mapPopup} />
                             </InputGroupText>
                         </InputGroupAddon>
                     </InputGroup>
