@@ -36,10 +36,6 @@ function GetSearchInput(searchInput){
 }
 
 const DealerProfile = ({location}) => {
-
-    const [radius, setRadius] = useState(0);
-    const [mileage, setMileage] = useState(0);
-    const [price, setPrice] = useState([0, 0]);
     const [products, setProducts] = useState([]);
     
     useEffect(() => {
@@ -47,18 +43,6 @@ const DealerProfile = ({location}) => {
             setProducts(doc);
         })
     }, [])
-
-    const handleRadius = (value) => {
-        setRadius(value);
-    }
-
-    const handleMileage = (value) => {
-        setMileage(value);
-    }
-
-    const handlePrice = (price) => {
-        setPrice(price);
-    }
 
     return(
         <div className = "container-fluid">

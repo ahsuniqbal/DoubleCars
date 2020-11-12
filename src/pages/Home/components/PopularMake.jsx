@@ -9,24 +9,24 @@ import Mitsubishi from '../../../assets/Mitsubishi.png'
 import Suzuki from '../../../assets/Suzuki.png'
 import Tesla from '../../../assets/Tesla.png'
 import Toyota from '../../../assets/Toyota.png'
-import {Row} from 'reactstrap'
+// import {Row} from 'reactstrap'
 import '../styles/PopularMake.css'
 
 
 
-const DrawRows = () => {
-    var table = [];
-    for(let i = 0; i < 1; i++){
-        table.push(
-            <Row className="">
-                {
-                    DrawCols()
-                }
-            </Row>
-        )
-    }
-    return table;
-}
+// const DrawRows = () => {
+//     var table = [];
+//     for(let i = 0; i < 1; i++){
+//         table.push(
+//             <Row className="">
+//                 {
+//                     DrawCols()
+//                 }
+//             </Row>
+//         )
+//     }
+//     return table;
+// }
 const DrawCols = () => {
     var table = [];
     var popularImages = [Suzuki, Mitsubishi, Mercedes, Lexus, Honda, Ford, BMW, Audi, Tesla, Toyota];

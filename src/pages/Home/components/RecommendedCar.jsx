@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import '../styles/RecommendedCar.css'
 import DummyCarCard from '../../../assets/DummyCarCard.png'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
-import { CardBody, Col, Label, Row } from 'reactstrap';
+import { CardBody, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 
