@@ -13,7 +13,7 @@ const Header = () => {
                     <div className = "row">
                         <div className = "col-12">
                             <div className = "row">
-                                <div className = "col-md-5 pt-lg-0 order-2 order-lg-1 d-flex justify-content-center flex-column left-cover-section">
+                                <div className = "col-md-5 pt-lg-0 order-2 order-lg-1 d-flex justify-content-center flex-column left-cover-section xs-12 sm-12 md-12">
                                     <h1 className = "cover-left-heading ml-5">
                                         Find the most desireable car
                                     </h1>
