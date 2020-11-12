@@ -30,7 +30,7 @@ class TrendingBodyTypes extends Component{
     render(){
         return(
             <div>
-                <CardBody className = "trending-body-types">
+                <CardBody className = "trending-body-types2">
                 <Row>
                 <Col md = "12" xs = "12" className = "text-center mb-5">
                        <h2 className = "trending-body-head">Trending Body Type in 2020</h2>

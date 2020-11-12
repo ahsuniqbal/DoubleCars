@@ -30,9 +30,6 @@
     color: black;
 }
 
-.popular-images {
-    /* cursor: pointer; */
-}
 
 @media (max-width: 767px) {
     .client-list {
