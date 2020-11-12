@@ -104,13 +104,13 @@ const ProductResults = ({match}) => {
                         :
                         null
                     }
-                    <AboutSeller/>
+                    
                     
 
                 </Col>
             </Row>
             <Comments/>
-            <Footer/>
+            
         </Container>
     )
 }
