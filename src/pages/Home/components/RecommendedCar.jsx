@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom';
 
 const RecommendedCar = () => {
 
-   
 
     let settings = {
     dot:true,
@@ -26,6 +25,7 @@ const RecommendedCar = () => {
 
     return(
         <div>
+            
             <CardBody className = "recommended-cars">
             <Row className = "">
                 <Col md = "6" xs = "12">
