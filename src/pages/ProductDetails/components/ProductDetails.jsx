@@ -53,7 +53,7 @@ const ProductResults = ({match}) => {
             </Row>
 
             <Row>
-                <Col md = "7">
+                <Col md = "8">
                     {
                         productDetails.images ?
                         <Gallery
@@ -96,7 +96,7 @@ const ProductResults = ({match}) => {
                    <CarFeatures/>
 
                 </Col>
-                <Col md = "5">
+                <Col md = "4">
                     {
                         productDetails.details ? 
                         <AboutSeller
@@ -104,6 +104,7 @@ const ProductResults = ({match}) => {
                         :
                         null
                     }
+                    <AboutSeller/>
                     
 
                 </Col>
