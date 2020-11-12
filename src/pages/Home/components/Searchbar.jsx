@@ -35,7 +35,7 @@ const Searchbar = () => {
                             <Input className="search-box" id="search-box" type="text" placeholder="Search a car..." />
                             <InputGroupAddon addonType="append">
                                 <InputGroupText>
-                                    <FontAwesomeIcon icon="search" size="md" />
+                                    <FontAwesomeIcon icon="search" size="1x" />
                                 </InputGroupText>
                             </InputGroupAddon>
                         </InputGroup>

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, NavLink, Row, Col, Label} from 'reactstrap';
 import '../styles/ProductDetails.css'
-import CompanyLogo from '../../../assets/company-logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DemoCar from '../../../assets/DemoCar.png';
 import Thumbnail from '../../../assets/thumbnail.png';
 import Gallery from './Gallery';

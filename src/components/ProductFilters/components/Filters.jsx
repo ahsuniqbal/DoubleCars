@@ -125,6 +125,7 @@ const Filters = (props) => {
     useEffect(() => {
         GetAllMakes().then(doc => {
             setMakeList(doc.makes);
+            
         })
     }, [])
 
