@@ -55,7 +55,7 @@ const DealerProfile = ({location}) => {
                     <Row className="search-heading mb-2 mt-3">
                         <Col md="8">
                             <Label className="inv-label">9 cars in inventory...</Label> 
-                            <FontAwesomeIcon icon="phone" />
+                            
                         </Col>
                         <Col md="2">
                             <Label className="float-right mt-2">Sort by</Label>
