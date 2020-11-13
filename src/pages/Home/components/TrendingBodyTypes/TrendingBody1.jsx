@@ -3,6 +3,10 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import DummyCarCard from '../../../../assets/DummyCarCard.png'
+import DummyCarCard2 from '../../../../assets/DemoCar2.png'
+import DummyCarCard3 from '../../../../assets/DemoCar3.png'
+import DummyCarCard4 from '../../../../assets/DemoCar4.png'
+
 import ProductCard from '../../../../components/ProductCard/components/ProductCard';
 import { CardBody } from 'reactstrap';
 import '../../styles/TrendingBodyTypes.css'
@@ -32,34 +36,34 @@ const TrendingBody1 = (props) => {
             
             <Slider {...settings}>
                 <ProductCard
-                    productImg = {DummyCarCard}
+                    productImg = {DummyCarCard2}
                     productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
+                    productSubtitle = "41,850 mileage - california "
+                    productText = "$67,500"
+                />
+                <ProductCard
+                    productImg = {DummyCarCard4}
+                    productTitle = "2020 Honda Odyssey: Lincoln, Ala."
+                    productSubtitle = "45,850 mileage - california "
+                    productText = "$90,500"
                 />
                 <ProductCard
                     productImg = {DummyCarCard}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
+                    productTitle = "2020 Jeep Cherokee: Belvidere, Ill."
+                    productSubtitle = "11,850 mileage - california "
+                    productText = "$55,500"
                 />
                 <ProductCard
-                    productImg = {DummyCarCard}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
+                    productImg = {DummyCarCard2}
+                    productTitle = "2020 Tesla Model S: Fremont, Calif."
+                    productSubtitle = "30,850 mileage - New York "
+                    productText = "$45,780"
                 />
                 <ProductCard
-                    productImg = {DummyCarCard}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-                />
-                <ProductCard
-                    productImg = {DummyCarCard}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
+                    productImg = {DummyCarCard3}
+                    productTitle = "2020 Honda Passport: Lincoln, Ala."
+                    productSubtitle = "20,000 mileage - california "
+                    productText = "$12,500"
 
                 />
                 <ProductCard

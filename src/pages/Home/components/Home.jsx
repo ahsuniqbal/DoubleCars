@@ -10,22 +10,21 @@ import { Row, Col } from 'reactstrap';
 
 const Home = () => {
     return(
-        <div className = "trending-body-types">
-        <Header/>
-
-        <Row>
-            <Col xs="1"></Col>
-
-            <Col xs="10">
-                <Searchbar />
-            </Col>
-        </Row>
-        <RecommendedCar/>
-        <TrendingCar/>
-        <TrendingBodyTypes/>
-        <BuyNow/>
-        <PopularMake/>
-
+        <div>
+            <Header/>
+            <Row>
+                <Col xs="1"></Col>
+                <Col xs="10">
+                    <Searchbar />
+                </Col>
+            </Row>
+            <RecommendedCar/>
+            <TrendingCar/>
+            <div className = "trending-body-types">
+                <TrendingBodyTypes/>    
+            </div>
+            <BuyNow/>
+            <PopularMake/>
         </div>
     )
 }
