@@ -21,28 +21,42 @@
     line-height: 18px;
     font-weight: normal;
 }
-
+/* 
  .image-gallery-right-nav{
-    right: 0;
+    right: -40px !important;
     color: black !important;
     background-color: white !important;
    border-bottom-left-radius: 13px !important;
    border-top-left-radius: 13px !important;
-    
-   
-    height: 20px;
+   border-radius: 0px !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important; 
+  -webkit-box-shadow: none !important;
+    height: 50% !important;
+    box-shadow: transparent !important;
+}
+
+.image-gallery-icon {
+    height: 5% !important;
+    -webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
 }
 
 .image-gallery-left-nav{
-    left: -50 !important;
+    left: -40px !important;
     color: black !important;
     background-color: white !important;
     
     border-top-right-radius: 13px !important;
     border-bottom-right-radius: 13px !important;
-    height: 20px;
+    height: 25% !important;
+  
+    
 }
  .image-gallery-svg {
     height:  30px !important;
     width: 56px !important;
 }
+ */
+
