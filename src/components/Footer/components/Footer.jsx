@@ -8,7 +8,7 @@ import twittericon from '../../../assets/twitter-icon.png'
 const Footer = () => {
     return (
         <div> 
-            <section className = "">
+            <section className = "bottom-footer">
                 <div className = "container-fluid">
                     <div className = "row">
                         <div className = "col-12 footer-image">

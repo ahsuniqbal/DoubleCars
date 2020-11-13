@@ -88,7 +88,9 @@ const Information = (props) => {
                     <Label className = "info-sub-head">Others</Label> <br/>
                     <Label className = "car-detail">{props.others ? props.others : "N/A"}</Label>
                 </Col>
+                
             </Row>
+            <hr className = "info-bottom-line"/>
     </div>
     )
 }
