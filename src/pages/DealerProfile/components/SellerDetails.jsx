@@ -1,7 +1,6 @@
 import React from 'react';
 import { Col,  Row, Label, Card,CardBody, CardImg, Button} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Dealerprofile from '../../../assets/DealerProfileImage.png';
 import '../styles/SellerDetails.css';
 
 const SellerDetails = (props) => {
