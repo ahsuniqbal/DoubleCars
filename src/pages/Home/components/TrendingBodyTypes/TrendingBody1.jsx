@@ -4,7 +4,6 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import DummyCarCard from '../../../../assets/DummyCarCard.png'
 import ProductCard from '../../../../components/ProductCard/components/ProductCard';
-import { CardBody } from 'reactstrap';
 import '../../styles/TrendingBodyTypes.css'
 
 const TrendingBody1 = (props) => {

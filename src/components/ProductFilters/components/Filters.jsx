@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GetAllMakes, GetModelFromMake } from '../api/GetRequests';
 import MapPopup from './MapPopup';
 import Typography from '@material-ui/core/Typography';

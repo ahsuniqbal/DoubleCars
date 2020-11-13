@@ -44,26 +44,27 @@ const ProductCard = (props) => {
                 props.dealer ?
                 <div>
                     <hr />
-                    <Row className="company-details">
-                        <Col xs="3">
-                            <CardImg src={CompanyLogo} alt="Company logo" />
-                        </Col>
-                        <Col xs="5" className="px-0">
-                            <CardTitle>Cooper Motors</CardTitle>
-                        </Col>
-                        <Col xs="4" className="pl-0 text-right">
-                            {
-                                props.dealer ?
-                                <div className="company-rating">
-                                    {/* <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" /> */}
-                                    <img src={StarIcon} alt="Star icon" className="img-fluid mr-2" />
-                                    <Label>{props.dealerRating}</Label>
-                                </div>
-                                :
-                                null              
-                            }
-                        </Col>
-                    </Row>
+                    <Link to={"/dealer/" + props.userId}>
+                        <Row className="company-details">
+                            <Col xs="3">
+                                <CardImg src={CompanyLogo} alt="Company logo" />
+                            </Col>
+                            <Col xs="5" className="px-0">
+                                <CardTitle>Cooper Motors</CardTitle>
+                            </Col>
+                            <Col xs="4" className="pl-0 text-right">
+                                {
+                                    props.dealer ?
+                                    <div className="company-rating">
+                                        <img src={StarIcon} alt="Star icon" className="img-fluid mr-2" />
+                                        <Label>{props.dealerRating}</Label>
+                                    </div>
+                                    :
+                                    null              
+                                }
+                            </Col>
+                        </Row>
+                    </Link>
                 </div>
                 :
                 null

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col ,Row, Label, Input} from 'reactstrap';
 import Filters from '../../../components/ProductFilters/components/Filters';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';

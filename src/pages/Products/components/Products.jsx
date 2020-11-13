@@ -23,6 +23,7 @@ const ShowSearchResults = (products) => {
                     productImg={products[i].coverPic}
                     productName={products[i].carName}
                     productBadge={"TRENDING"}
+                    userId={products[i].userId}
                     dealer={true}
                     dealerRating="4.5"
                     allowBookmark={true} />
