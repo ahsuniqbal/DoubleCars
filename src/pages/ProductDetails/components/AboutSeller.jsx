@@ -2,6 +2,8 @@ import React from 'react';
 import { Col,  Row, Label, Card,CardBody, CardImg, Button,Input} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CompanyLogo from '../../../assets/company-logo.png'; 
+import Ad1 from '../../../assets/Advertisement3.png'
+import Ad2 from '../../../assets/Advertisment2.png'
 import '../styles/AboutSeller.css'
 import { Link } from 'react-router-dom';
 
@@ -45,6 +47,17 @@ const SellerDetails = (props) => {
                 </Link>
             </CardBody>
         </Card>
+
+        <Row>
+            <Col className = "mt-3">
+            <img src = {Ad1} alt = "ad" className = "img-fluid"/>
+            </Col>
+        </Row>
+        <Row>
+            <Col className = "mt-3">
+            <img src = {Ad2} alt = "ad" className = "img-fluid"/>
+            </Col>
+        </Row>
     </div>
     )
 }
