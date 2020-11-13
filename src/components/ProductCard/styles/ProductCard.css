@@ -17,7 +17,7 @@
 
 .product-card .card-text{
     font-weight: 500;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 23px;
     margin-top: 15px;
 }
@@ -50,7 +50,7 @@
 }
 
 .product-card .bookmark:active, .product-card .bookmark:focus{
-    box-shadow: 0 0 0 0.2rem rgb(86 86 86 / 25%);
+    box-shadow: none;
 }
 
 .product-card .bookmark:hover{
@@ -66,22 +66,31 @@
 
 .product-card .company-details .card-title{
     font-weight: normal;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 17px;
     color: rgba(0, 0, 0, 0.85);
     margin-top: 12px;
 }
 
-.product-card .company-details .private-seller{
+.product-card .company-details .card-img{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+}
+
+/* .product-card .company-details .private-seller{
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     color: rgba(0, 0, 0, 0.45);
     margin-top: 12px;
-}
+} */
 
 .product-card .company-details .company-rating{
     margin-top: 10px;
+}
+
+.product-card .company-details .company-rating img{
+    margin-top: -4px;
 }
 
 .product-card a{

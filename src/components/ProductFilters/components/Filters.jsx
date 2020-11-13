@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GetAllMakes, GetModelFromMake } from '../api/GetRequests';
 import MapPopup from './MapPopup';
 import Typography from '@material-ui/core/Typography';
+import gps from '../../../assets/gps.svg';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
 import '../styles/Filters.css';
 
@@ -155,7 +156,7 @@ const Filters = (props) => {
                     <Input type="text" className="location-box" />
                         <InputGroupAddon addonType="append">
                             <InputGroupText>
-                                <FontAwesomeIcon onClick={() => toggleMapPopup()} icon="map-pin" size="sm" color="#1C67CE" />
+                                <img onClick={() => toggleMapPopup()} src={gps} alt="Gps Icon" className="img-fluid" />
                                 <MapPopup toggle={toggleMapPopup} isOpen={mapPopup} />
                             </InputGroupText>
                         </InputGroupAddon>
@@ -166,13 +167,13 @@ const Filters = (props) => {
                         <Col xs="3" sm="2" md="4" lg="3">
                             <Label>Radius</Label>
                         </Col>
-                        <Col xs="6" sm="8" md="4" lg="6">
+                        <Col xs="7" sm="9" md="5" lg="7">
                             <RadiusSlider 
                                 min={0}
                                 max={200}
                                 onHandleRadius={handleRadius} />
                         </Col>
-                        <Col xs="3" sm="2" md="4" lg="3" className="px-0">
+                        <Col xs="2" sm="1" md="3" lg="2" className="px-0">
                             <Label>{radius + " mi."}</Label>
                         </Col>
                     </Row>

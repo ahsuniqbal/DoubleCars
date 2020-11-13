@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,700&display=swap');
 
 *{
   margin: 0;
@@ -20,4 +22,6 @@ body {
 
 .container, .container-sm, .container-md, .container-lg, .container-xl {
   max-width: 1320px !important;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }

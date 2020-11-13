@@ -68,39 +68,37 @@ const Products = ({location}) => {
 
     return(
         <div>
-            <Container fluid className="mt-5">
-                <Row>
-                    <Col xs="12" md="3">
-                        <Filters 
-                            onHandleRadius={handleRadius}
-                            onHandleMileage={handleMileage}
-                            onHandlePrice={handlePrice}
-                            onHandleMake={handleMake} />
-                    </Col>
-                    <Col xs="12" md="9" >
-                        <Row className="search-heading mb-2">
-                            <Col md="8">
-                                {
-                                    products ? <Label className="output-num">{products.length} cars match your search...</Label> : <Label className="output-num">Loading your interested results, please wait...</Label>
-                                }
-                            </Col>
-                            <Col md="2">
-                                <Label className="float-right mt-2">Sort by</Label>
-                            </Col>
-                            <Col md="2">
-                                <Input type="select">
-                                    <option>Relevence</option>
-                                </Input>
-                            </Col>
-                        </Row>
-                        <Row>
+            <Row>
+                <Col xs="12" md="3">
+                    <Filters 
+                        onHandleRadius={handleRadius}
+                        onHandleMileage={handleMileage}
+                        onHandlePrice={handlePrice}
+                        onHandleMake={handleMake} />
+                </Col>
+                <Col xs="12" md="9" >
+                    <Row className="search-heading mb-2">
+                        <Col md="8">
                             {
-                                products ? ShowSearchResults(products) : null
+                                products ? <Label className="output-num">{products.length} cars match your search...</Label> : <Label className="output-num">Loading your interested results, please wait...</Label>
                             }
-                        </Row>
-                    </Col>
-                </Row>
-            </Container>
+                        </Col>
+                        <Col md="2">
+                            <Label className="float-right mt-2">Sort by</Label>
+                        </Col>
+                        <Col md="2">
+                            <Input type="select">
+                                <option>Relevence</option>
+                            </Input>
+                        </Col>
+                    </Row>
+                    <Row>
+                        {
+                            products ? ShowSearchResults(products) : null
+                        }
+                    </Row>
+                </Col>
+            </Row>
         </div>
         
     );

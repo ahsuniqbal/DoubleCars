@@ -12,6 +12,8 @@
 
 .filters .MuiSlider-markLabel{
     top: -22px;
+    font-size: 14px;
+    color: #000000;
 }
 
 .filters .MuiSlider-marked{
@@ -21,8 +23,9 @@
 
 .filters #continuous-slider{
     margin-left: -5px;
-    color: rgba(0, 0, 0, 0.54);
-    font-size: 0.875rem;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
 }
 
 .filters input[type="text"], .filters select{
@@ -61,4 +64,18 @@
     font-size: 14px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.85);
+}
+
+.filters .form-check{
+    margin-bottom: 18px;
+}
+
+.filters .form-check .form-check-input{
+    width: 16px;
+    height: 16px;
+}
+
+.filters .form-check .form-check-label{
+    margin-left: 0.5rem;
+    /* font-size: 14px; */
 }

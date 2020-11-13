@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Row, Col, Label, Button, Badge } from 'reactstrap';
 import CompanyLogo from '../../../assets/company-logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import StarIcon from '../../../assets/star.svg';
 import { Link } from 'react-router-dom';
 import '../styles/ProductCard.css';
 
@@ -54,7 +55,8 @@ const ProductCard = (props) => {
                             {
                                 props.dealer ?
                                 <div className="company-rating">
-                                    <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
+                                    {/* <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" /> */}
+                                    <img src={StarIcon} alt="Star icon" className="img-fluid mr-2" />
                                     <Label>{props.dealerRating}</Label>
                                 </div>
                                 :
