@@ -17,13 +17,13 @@ const Comments = () => {
 
             <Row>
                 <Col md = "3" xs = "12" sm = "12" className = "text-center"> 
-                            <h1 className = "rate-label">4.45</h1>
+                            <h1 className = "comment-rate-label">4.45</h1>
                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
                             <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-1 font-rate-stars" /> <br/>
-                            <Label className = "reviews-label"> 154 reviews</Label> <br/>
+                            <Label className = "comment-reviews-label"> 154 reviews</Label> <br/>
                            
                         </Col>
                 <Col md = "9">
