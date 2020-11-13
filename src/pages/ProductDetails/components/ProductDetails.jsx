@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, NavLink, Row, Col, Label} from 'reactstrap';
+import { NavLink, Row, Col, Label} from 'reactstrap';
 import '../styles/ProductDetails.css'
 import DemoCar from '../../../assets/DemoCar.png';
 import Thumbnail from '../../../assets/thumbnail.png';
@@ -8,7 +8,6 @@ import Information from './Information';
 import CarFeatures from './CarFeatures';
 import AboutSeller from './AboutSeller';
 import Comments from './Comments';
-import Footer from '../../../components/Footer'
 
 
 import { GetProductDetails } from '../api/GetRequests';

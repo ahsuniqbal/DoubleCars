@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GetAllMakes, GetModelFromMake } from '../api/GetRequests';
 import MapPopup from './MapPopup';
 import Typography from '@material-ui/core/Typography';
@@ -17,7 +16,6 @@ function FilterQueryString(obj){
             str += "&";
         }
     }
-    console.log(obj,str)
 }
 
 function GetLocation(){
@@ -34,22 +32,27 @@ function ShowPosition(position){
 }
 
 function ShowError(error){
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-          console.log("User denied the request for Geolocation");
-          break;
-        case error.POSITION_UNAVAILABLE:
-            console.log("Location information is unavailable.");
-          break;
-        case error.TIMEOUT:
-            console.log("The request to get user location timed out.");
-          break;
-        case error.UNKNOWN_ERROR:
-            console.log("An unknown error occurred.");
-          break;
-        default:
-            console.log("An unknown error occurred.");
-      }
+    try {
+        console.log("Error");
+    } catch (e) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+              console.log("User denied the request for Geolocation");
+              break;
+            case error.POSITION_UNAVAILABLE:
+                console.log("Location information is unavailable.");
+              break;
+            case error.TIMEOUT:
+                console.log("The request to get user location timed out.");
+              break;
+            case error.UNKNOWN_ERROR:
+                console.log("An unknown error occurred.");
+              break;
+            default:
+                console.log("An unknown error occurred.");
+          }
+    }
+    
 }
 
 function concatMakeList(makeList){

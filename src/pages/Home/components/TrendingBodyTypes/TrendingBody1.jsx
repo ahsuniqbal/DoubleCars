@@ -8,7 +8,6 @@ import DummyCarCard3 from '../../../../assets/DemoCar3.png'
 import DummyCarCard4 from '../../../../assets/DemoCar4.png'
 
 import ProductCard from '../../../../components/ProductCard/components/ProductCard';
-import { CardBody } from 'reactstrap';
 import '../../styles/TrendingBodyTypes.css'
 
 const TrendingBody1 = (props) => {
