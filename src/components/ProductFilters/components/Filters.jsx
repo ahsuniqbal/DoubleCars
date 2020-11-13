@@ -33,7 +33,7 @@ function ShowPosition(position){
 
 function ShowError(error){
     try {
-        console.log("Error");
+        console.log(error.message);
     } catch (e) {
         switch(error.code) {
             case error.PERMISSION_DENIED:
