@@ -15,7 +15,7 @@ export const GetSellerDetails = (id) => {
             alert("Error: ", error);
         })
     })
-}
+};
 
 export const GetSellerInventory = (id) => {
     return new Promise((resolve, reject) => {
