@@ -1,7 +1,9 @@
 .bootom-footer {
     font-size: 14px !important;
 }
-
+.bottom-footer {
+  margin-bottom: 5%;
+}
 
 .footer-image {
     background-image: url("../../../assets/Footer-image.png"); 
@@ -9,7 +11,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 254px;
-    background-color: rgba(28,118,206,0.9); 
+    background-color: rgba(28,103,206,0.9); 
 }
 
 .learn-more-button-cover {

@@ -3,6 +3,9 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import DummyCarCard from '../../../../assets/DummyCarCard.png'
+import DummyCarCard2 from '../../../../assets/DemoCar2.png'
+import DummyCarCard3 from '../../../../assets/DemoCar3.png'
+import DummyCarCard4 from '../../../../assets/DemoCar4.png'
 import ProductCard from '../../../../components/ProductCard/components/ProductCard';
 
 
@@ -37,32 +40,32 @@ const TrendingBody4 = () => {
                     
                 />
                 <ProductCard
-                    productImg = {DummyCarCard}
+                    productImg = {DummyCarCard2}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
                     productText = "$32,500"
                 />
                 <ProductCard
-                    productImg = {DummyCarCard}
+                    productImg = {DummyCarCard3}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
                     productText = "$32,500"
                 />
                 <ProductCard
-                    productImg = {DummyCarCard}
+                    productImg = {DummyCarCard3}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
                     productText = "$32,500"
                 />
                 <ProductCard
-                    productImg = {DummyCarCard}
+                    productImg = {DummyCarCard4}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
                     productText = "$32,500"
 
                 />
                 <ProductCard
-                    productImg = {DummyCarCard}
+                    productImg = {DummyCarCard2}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
                     productText = "$32,500"
