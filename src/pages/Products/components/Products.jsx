@@ -35,7 +35,8 @@ const ShowSearchResults = (products) => {
 
 function GetSearchInput(searchInput){
     
-    var toSearch = searchInput.replace(/%20/g, ' ').split('=');
+     var toSearch = searchInput.replace(/%20/g, ' ').split('=');
+    // var toSearch = searchInput.replace('%20', ' ').split('=');
     return toSearch[1];
 }
 
@@ -47,10 +48,9 @@ const Products = ({location}) => {
     const [products, setProducts] = useState([]);
     
     useEffect(() => {
-        console.log("location",location.search)
         GetSearchResult(GetSearchInput(location.search)).then(doc => {
             setProducts(doc);
-        })
+        });
     }, [])
 
     const handleRadius = (value) => {

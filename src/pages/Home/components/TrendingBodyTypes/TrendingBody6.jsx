@@ -33,6 +33,7 @@ const TrendingBody6 = () => {
         <div>    
            <Slider {...settings}>
                 <ProductCard
+                    productId={166}
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
@@ -40,24 +41,28 @@ const TrendingBody6 = () => {
                     
                 />
                 <ProductCard
+                    productId={166}
                     productImg = {DummyCarCard4}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
                     productText = "$32,500"
                 />
                 <ProductCard
+                    productId={166}
                     productImg = {DummyCarCard3}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
                     productText = "$32,500"
                 />
                 <ProductCard
+                    productId={166}
                     productImg = {DummyCarCard}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
                     productText = "$32,500"
                 />
                 <ProductCard
+                    productId={166}
                     productImg = {DummyCarCard3}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
@@ -65,6 +70,7 @@ const TrendingBody6 = () => {
 
                 />
                 <ProductCard
+                    productId={166}
                     productImg = {DummyCarCard2}
                     productTitle = "2019 Mercedes Benz Hybrid"
                     productSubtitle = "19,850 mileage - california "
