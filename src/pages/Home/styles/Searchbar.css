@@ -1,0 +1,43 @@
+.searchbar{
+    margin-top: -4rem;
+}
+
+.searchbar .card-title{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 120%;
+}
+
+.searchbar .card-title button{
+    font-style: normal;
+    font-size: 16px;
+    line-height: 120%;
+    color: #1C67CE;
+    float: right;
+}
+
+.searchbar .card-title button:focus{
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.searchbar .card-title button:hover{
+    text-decoration: none;
+}
+
+.searchbar .search-box{
+    background-color: #F9F9F9;
+    border-radius: 6px;
+    border: none;
+}
+
+.searchbar .search-box:focus, .searchbar .form-control{
+    box-shadow: none;
+}
+
+.searchbar .input-group-text{
+    background-color: #F9F9F9;
+    color: #898989;
+    border: none;
+}

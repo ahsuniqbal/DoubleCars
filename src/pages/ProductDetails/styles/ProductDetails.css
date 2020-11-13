@@ -1,0 +1,23 @@
+.report-button {
+    cursor: pointer !important;
+    font-size: 14px !important;
+    color: rgba(0, 0, 0, 0.25) !important;
+}
+
+.back-button {
+    cursor: pointer;
+}
+
+.contact-seller-button {
+    background-color: #1C67CE !important;
+    border-radius: 0.4rem !important;
+    color: #ffffff !important;
+}
+
+.view-inventory-button {
+    background-color: #ffffff !important;
+    border-radius: 0.4rem !important;
+    color: #1C67CE !important;
+    border-color: #1C67CE !important;
+}
+

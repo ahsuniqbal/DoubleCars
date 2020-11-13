@@ -1,0 +1,62 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+
+.car-name {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 30px;
+    font-weight: 600;
+}
+
+.car-price {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 30px;
+    font-weight: 600;
+}
+
+.car-info {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.45);
+    line-height: 18px;
+    font-weight: normal;
+}
+/* 
+ .image-gallery-right-nav{
+    right: -40px !important;
+    color: black !important;
+    background-color: white !important;
+   border-bottom-left-radius: 13px !important;
+   border-top-left-radius: 13px !important;
+   border-radius: 0px !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important; 
+  -webkit-box-shadow: none !important;
+    height: 50% !important;
+    box-shadow: transparent !important;
+}
+
+.image-gallery-icon {
+    height: 5% !important;
+    -webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.image-gallery-left-nav{
+    left: -40px !important;
+    color: black !important;
+    background-color: white !important;
+    
+    border-top-right-radius: 13px !important;
+    border-bottom-right-radius: 13px !important;
+    height: 25% !important;
+  
+    
+}
+ .image-gallery-svg {
+    height:  30px !important;
+    width: 56px !important;
+}
+ */
+

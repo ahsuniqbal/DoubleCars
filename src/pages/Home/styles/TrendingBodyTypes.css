@@ -1,0 +1,48 @@
+.trending-body-head {
+    font-weight: bold;
+    font-size: 28px;
+    
+}
+
+.trending-body-types2 {
+    margin-top: 5%;
+    background-color: white;
+}
+
+.trending-body-types .nav-link{
+    color:  rgba(0, 0, 0, 0.65);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 85px;
+    width: 100%;
+
+    
+}
+.trending-body-types .nav-tabs .nav-link:hover{
+     color: #1C67CE; 
+     border-bottom-width: 2px; 
+    width: 100%;
+    border-bottom-color: #1C67CE; 
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+}
+
+.nav-tabs {
+    border-bottom: 0px !important;
+}
+
+a.nav-link {
+    text-align: center;
+}
+
+.trending-body-types .nav-tabs .nav-link.active{
+    color: #1C67CE;
+    border-bottom-width: 2px;
+    border-bottom-color: #1C67CE;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    width: 100%;
+}

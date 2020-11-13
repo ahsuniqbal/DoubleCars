@@ -1,9 +1,13 @@
+.popular-make {
+    margin-top: 15%;
+}
+
+
 .client-list {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    
-    margin-top: 40px;
+   
 }
 
 .client-list li {
@@ -24,6 +28,13 @@
     transition: all 0.5s ease;
     
 }
+
+.popular-make-head {
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+}
+
 
 @media (max-width: 767px) {
     .client-list {

@@ -1,0 +1,83 @@
+.filters h6{
+    font-weight: 700;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+
+
+.filters .MuiSlider-valueLabel {
+    left: calc(-50% + 0px);
+}
+
+.filters .MuiSlider-markLabel{
+    top: -22px;
+    font-size: 14px;
+    color: #000000;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.filters .MuiSlider-marked{
+    margin-bottom: 0;
+}
+
+
+.filters #continuous-slider{
+    margin-left: -5px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.filters input[type="text"], .filters select{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.filters .location-box{
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.filters .location h6{
+    margin-bottom: 15px;
+}
+
+.filters .radius{
+    margin-top: 15px;
+}
+
+.filters .location .input-group-text{
+    background-color: transparent;
+}
+
+.filters .location input{
+    border-right: 0;
+}
+
+.filters .location label{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.filters .transmission label{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.filters .form-check{
+    margin-bottom: 18px;
+}
+
+.filters .form-check .form-check-input{
+    width: 16px;
+    height: 16px;
+}
+
+.filters .form-check .form-check-label{
+    margin-left: 0.5rem;
+    /* font-size: 14px; */
+}

@@ -1,0 +1,15 @@
+.search-heading .output-num{
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.search-heading label{
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.search-heading select{
+    font-size: 14px;
+    font-weight: normal;
+    color: rgba(8, 11, 48, 0.65);
+}

@@ -1,0 +1,18 @@
+.MuiSlider-root{
+    color: #1C67CE !important;
+}
+
+.MuiSlider-thumb{
+    height: 20px !important;
+    width: 20px !important;
+    background-color: #ffffff !important;
+    border: 2px solid currentColor;
+    margin-top: -10.5px !important;
+}
+
+.MuiSlider-thumb:focus, .MuiSlider-thumb:hover, .MuiSlider-thumb:active{
+    box-shadow: inherit !important;
+}
+.price-range-slider.MuiSlider-root{
+    margin-top: 30px;
+}

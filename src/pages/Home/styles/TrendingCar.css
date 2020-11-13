@@ -1,0 +1,10 @@
+.trending-cars-head {
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+}
+
+.trending-cars {
+    margin-top: 5%;
+    background-color: #FFFFFF;
+}

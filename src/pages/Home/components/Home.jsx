@@ -1,20 +1,31 @@
 import React from 'react';
-import Cover from '../../../assets/DummyCarCard.png'
-import Footer from '../../../components/Footer/components/Footer'
-import { NavLink } from "react-router-dom";
-import PopularMake from './PopularMake';
-import SearchBox from './SearchBox';
+import Header from './Header'
+import RecommendedCar from './RecommendedCar';
+import PopularMake from './PopularMake'
+import TrendingCar from './TrendingCar';
+import TrendingBodyTypes from './TrendingBodyTypes/TrendingBodyTypes'
+import BuyNow from './BuyNow';
+import Searchbar from './Searchbar';
+import { Row, Col } from 'reactstrap';
 
-import Header from './Header';
 const Home = () => {
     return(
-        <div className = "">
-            
-       
-            
+        <div className = "trending-body-types">
+        <Header/>
 
-            <Footer/>
-      
+        <Row>
+            <Col xs="1"></Col>
+
+            <Col xs="10">
+                <Searchbar />
+            </Col>
+        </Row>
+        <RecommendedCar/>
+        <TrendingCar/>
+        <TrendingBodyTypes/>
+        <BuyNow/>
+        <PopularMake/>
+
         </div>
     )
 }
