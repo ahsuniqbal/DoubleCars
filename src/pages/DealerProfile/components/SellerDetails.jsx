@@ -2,20 +2,26 @@ import React from 'react';
 import { Col,  Row, Label, Card,CardBody, CardImg, Button} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Dealerprofile from '../../../assets/DealerProfileImage.png';
-import '../styles/SellerDetails.css'
-const SellerDetails = () => {
+import '../styles/SellerDetails.css';
+
+const SellerDetails = (props) => {
     return(
-        <div>
             <Card className = "seller-card">
                 <CardBody>
                     <Row>
                         <Col md = "8">
                             <Row>
                                 <Col md = "2">
-                                    <CardImg className = "Dealer-Profile-image" src={Dealerprofile} alt="Company logo" />
+                                    {
+                                        props.profilePic ?
+                                        <CardImg className = "Dealer-Profile-image" src={props.profilePic} alt="Company logo" />
+                                        :
+                                        null
+                                    }
+                                    
                                 </Col>
                                 <Col md = "10">
-                                    <Label className = "dealer-name">One chance auto</Label> <br/>
+                                    <Label className = "dealer-name">{props.fullName}</Label> <br/>
                                     <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                     <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                     <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
@@ -27,15 +33,19 @@ const SellerDetails = () => {
                             <Row className = "mt-3">
                                 <Col md = "7">
                                     <h6 className = "about-seller-head">About seller</h6>
-                                    <p className = "seller-details-p">Contrary to popular belief, Lorem Ipsum is not slimi random text.
-                                    It has roots in a piece of classical Latin literature from 45 BC,
-                                    making it over 2000 years old. Richard McClintock.</p>
+                                    {
+                                        props.aboutMe ? 
+                                        <p className = "seller-details-p">{props.aboutMe}</p>
+                                        :
+                                        <p className = "seller-details-p">This seller has provided no information</p>
+                                    }
+                                    
                                 </Col>
                                 <Col md = "5">
                                     <h6 className = "contact-details">Contact Details</h6>
                                     
-                                    <p className = "contact-details-p"><FontAwesomeIcon icon="phone" color = "#1C67CE" className = "mr-2" />+1 2345 78974</p>
-                                    <p className = "contact-details-p"><FontAwesomeIcon icon="envelope" color = "#1C67CE" className = "mr-2"/>hellochance@gmail.com</p>
+                                    <p className = "contact-details-p"><FontAwesomeIcon icon="phone" color = "#1C67CE" className = "mr-2" />{props.phNum}</p>
+                                    <p className = "contact-details-p"><FontAwesomeIcon icon="envelope" color = "#1C67CE" className = "mr-2"/>{props.email}</p>
                                 </Col>
                             </Row>
                         </Col>
@@ -61,7 +71,6 @@ const SellerDetails = () => {
                         </Row>  
             </CardBody>
         </Card>
-    </div>
     )
 }
 

@@ -81,7 +81,10 @@ const Products = ({location}) => {
                     <Row className="search-heading mb-2">
                         <Col md="8">
                             {
-                                products ? <Label className="output-num">{products.length} cars match your search...</Label> : <Label className="output-num">Loading your interested results, please wait...</Label>
+                                products ? 
+                                <Label className="output-num">{products.length} cars match your search...</Label> 
+                                : 
+                                <Label className="output-num">Loading your interested results, please wait...</Label>
                             }
                         </Col>
                         <Col md="2">
@@ -90,6 +93,8 @@ const Products = ({location}) => {
                         <Col md="2">
                             <Input type="select">
                                 <option>Relevence</option>
+                                <option>Price</option>
+                                <option>Date Published</option>
                             </Input>
                         </Col>
                     </Row>

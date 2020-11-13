@@ -4,24 +4,24 @@ import Filters from '../../../components/ProductFilters/components/Filters';
 import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
-import { GetSearchResult } from '../api/GetRequests';
+import { GetSellerDetails, GetSellerInventory } from '../api/GetRequests';
 
 function numberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const ShowSearchResults = (products) => {
+const ShowSearchResults = (inventory) => {
     var table = [];
-    for (let i = 0; i < products.length; i++) {
+    for (let i = 0; i < inventory.length; i++) {
         table.push(
-            <Col key={products[i].productId} data-aos="fade-up" xs="12" sm="6" md="4">
+            <Col key={inventory[i].productId} data-aos="fade-up" xs="12" sm="6" md="4">
                 <ProductCard
-                    productId={products[i].productId}
-                    productTitle={products[i].carName}
-                    productSubtitle={numberWithCommas(products[i].mileage) + " miles · " + products[i].zipCode}
-                    productText={"$" + numberWithCommas(products[i].price)}
-                    productImg={products[i].coverPic}
-                    productName={products[i].carName}
+                    productId={inventory[i].productId}
+                    productTitle={inventory[i].carName}
+                    productSubtitle={numberWithCommas(inventory[i].mileage) + " miles · " + inventory[i].zipCode}
+                    productText={"$" + numberWithCommas(inventory[i].price)}
+                    productImg={inventory[i].coverPic}
+                    productName={inventory[i].carName}
                     productBadge={"TRENDING"}
                     dealer />
             </Col>
@@ -29,19 +29,19 @@ const ShowSearchResults = (products) => {
     }
     return table;
 }
-function GetSearchInput(searchInput){
-    var toSearch = searchInput.replaceAll('%20', ' ').split('=');
-    return toSearch[1];
-}
 
-const DealerProfile = ({location}) => {
-    const [products, setProducts] = useState([]);
+const DealerProfile = ({match}) => {
+    const [dealer, setDealer] = useState([]);
+    const [inventory, setInventory] = useState([]);
     
     useEffect(() => {
-        GetSearchResult(GetSearchInput(location.search)).then(doc => {
-            setProducts(doc);
+        GetSellerDetails(match.params.id).then(doc => {
+            setDealer(doc[0]);
+        });
+        GetSellerInventory(match.params.id).then(doc => {
+            setInventory(doc.inventory);
         })
-    }, [])
+    }, []);
 
     return(
         <div className = "container-fluid">
@@ -50,10 +50,31 @@ const DealerProfile = ({location}) => {
                     <Filters/>
                 </Col>
                 <Col md = "9">
-                    <SellerDetails/>
+                    <Row>
+                        <Col xs="12">
+                        {
+                            dealer ?
+                            <SellerDetails 
+                                userId={dealer.userId}
+                                fullName={dealer.fullName}
+                                email={dealer.email}
+                                phNum={dealer.phNum}
+                                aboutMe={dealer.aboutMe}
+                                profilePic={dealer.profilePic} />
+                            :
+                            null
+                        }
+                        </Col>
+                    </Row>
+                    
                     <Row className="search-heading mb-2 mt-3">
                         <Col md="8">
-                            <Label className="inv-label">9 cars in inventory...</Label> 
+                            {
+                                inventory ? 
+                                <Label className="output-num">{inventory.length} cars match your search...</Label> 
+                                : 
+                                <Label className="output-num">Loading your interested results, please wait...</Label>
+                            }
                             
                         </Col>
                         <Col md="2">
@@ -67,10 +88,10 @@ const DealerProfile = ({location}) => {
                         </Col>
                     </Row>
                     <Row>
-                            {
-                                products ? ShowSearchResults(products) : null
-                            }
-                        </Row>
+                        {
+                            inventory ? ShowSearchResults(inventory) : null
+                        }
+                    </Row>
                 </Col>
             </Row>
         </div>
