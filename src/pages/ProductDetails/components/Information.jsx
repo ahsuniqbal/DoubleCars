@@ -28,65 +28,65 @@ const Information = (props) => {
             <Row className = "mb-5">
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Transmission</Label><br/>
-                    <Label>{props.transmission}</Label>
+                    <Label className = "car-detail">{props.transmission}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Trim</Label><br/>
-                    <Label>{props.trim}</Label>
+                    <Label className = "car-detail">{props.trim}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Fuel Type</Label> <br/>
-                    <Label>{props.fuelType}</Label>
+                    <Label className = "car-detail">{props.fuelType}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">VIN</Label> <br/>
-                    <Label>{props.vin}</Label>
+                    <Label className = "car-detail">{props.vin}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Exterior Color</Label> <br/>
-                    <Label>{props.exteriorColor}</Label>
+                    <Label className = "car-detail">{props.exteriorColor}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Interior Color</Label> <br/>
-                    <Label>{props.interiorColor}</Label>
+                    <Label className = "car-detail">{props.interiorColor}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Engine</Label> <br/>
-                    <Label>{props.engine}</Label>
+                    <Label className = "car-detail">{props.engine}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Car Condition</Label> <br/>
-                    <Label>{props.conditionCar}</Label>
+                    <Label className = "car-detail">{props.conditionCar}</Label>
                 </Col>
 
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Gas Mileage</Label> <br/>
-                    <Label>{props.gasMileage}</Label>
+                    <Label className = "car-detail">{props.gasMileage}</Label>
                 </Col>
 
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Body Style</Label> <br/>
-                    <Label>{props.bodyStyle}</Label>
+                    <Label className = "car-detail">{props.bodyStyle}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Type</Label> <br/>
-                    <Label>{props.type}</Label>
+                    <Label className = "car-detail">{props.type}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Interior</Label> <br/>
-                    <Label>{props.interior}</Label>
+                    <Label className = "car-detail">{props.interior}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Exterior</Label> <br/>
-                    <Label>{props.exterior}</Label>
+                    <Label className = "car-detail">{props.exterior}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Security</Label> <br/>
-                    <Label>{props.security}</Label>
+                    <Label className = "car-detail">{props.security}</Label>
                 </Col>
                 <Col xs = "6" md = "3">
                     <Label className = "info-sub-head">Others</Label> <br/>
-                    <Label>{props.others}</Label>
+                    <Label className = "car-detail">{props.others}</Label>
                 </Col>
             </Row>
     </div>

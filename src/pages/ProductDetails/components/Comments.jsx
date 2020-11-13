@@ -16,41 +16,92 @@ const Comments = () => {
             </Row>
 
             <Row>
-                <Col md = "3" xs = "12" sm = "12" className = "text-center"> 
-                            <h1 className = "rate-label">4.45</h1>
+                <Col md = "3" xs = "12" sm = "12" className = ""> 
+                            <h1 className = "comment-rate-label">4.45</h1>
                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
                             <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-1 font-rate-stars" /> <br/>
-                            <Label className = "reviews-label"> 154 reviews</Label> <br/>
+                            <Label className = "comment-reviews-label"> 154 reviews</Label> <br/>
                            
-                        </Col>
+                </Col>
                 <Col md = "9">
-                
-                <ProgressBar variant="warning" now={60} />   
-                <ProgressBar className = "mt-3" variant="warning" now={20} /> 
-                <ProgressBar className = "mt-3" variant="warning" now={12} /> 
-                <ProgressBar className = "mt-3" variant="warning" now={59} /> 
-                <ProgressBar className = "mt-3" variant="warning" now={45} />            
+                    <Row>
+                        <Col xs = "2" md = "1">
+                            <Label>5</Label>
+                        </Col>
+                        <Col xs = "12" md = "10">
+                        <ProgressBar variant="warning" now={60} /> 
+                        </Col>
+                        <Col xs = "2" md = "1">
+                            <Label>54</Label>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs = "2" md = "1">
+                            <Label>4</Label>
+                        </Col>
+                        <Col xs = "12" md = "10">
+                        <ProgressBar variant="warning" now={20} /> 
+                        </Col>
+                        <Col xs = "2" md = "1">
+                            <Label>54</Label>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs = "2" md = "1">
+                            <Label>3</Label>
+                        </Col>
+                        <Col xs = "12" md = "10">
+                        <ProgressBar variant="warning" now={76} /> 
+                        </Col>
+                        <Col xs = "2" md = "1">
+                            <Label>54</Label>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs = "2" md = "1">
+                            <Label>2</Label>
+                        </Col>
+                        <Col xs = "12" md = "10">
+                        <ProgressBar variant="warning" now={32} /> 
+                        </Col>
+                        <Col xs = "2" md = "1">
+                            <Label>54</Label>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs = "2" md = "1">
+                            <Label>1</Label>
+                        </Col>
+                        <Col xs = "12" md = "10">
+                        <ProgressBar variant="warning" now={1} /> 
+                        </Col>
+                        <Col xs = "2" md = "1">
+                            <Label>54</Label>
+                        </Col>
+                    </Row>
+                  
+                   
                 </Col>
             </Row>
             <Row >
-                <Col md = "2">
-                    <img src = {CommentDemoImage} className = "img-fluid comment-img" width = "auto"/>
+                <Col md = "2" className = "">
+                    <img src = {CommentDemoImage} className = "img-fluid rounded-circle" width = "60%" height = "60%"/>
                 </Col>
                 <Col md = "6">
                     <Row>
                         <Col xs = "12">
-                            <Label>Name</Label> <br/>
-                            <Label>Date</Label>
+                            <Label className = "comment-username">Kiltos Kyriaco</Label> <br/>
+                            <Label>March, 2020</Label>
                         </Col>
                     </Row>
                 </Col>
             </Row>
             <Row>
                 <Col xs = "12" md = "12">
-                    <Label>lLorem ipsum dolor sit amet, consectetur adipiing elit. Duis ultrices magna et dui consequat.</Label>
+                    <Label className = "user-comment">Lorem ipsum dolor sit amet, consectetur adipiing elit. Duis ultrices magna et dui consequat.</Label>
                 </Col>
             </Row>
             </Col>

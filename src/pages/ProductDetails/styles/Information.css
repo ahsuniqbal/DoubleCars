@@ -9,4 +9,13 @@
     font-size: 16px;
     color: rgba(0, 0, 0, 0.85);
     font-weight: bold;
+    line-height: 18px;
+    margin-top: 12%;
+}
+
+.car-detail {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: normal;
+    line-height: 18px;
 }
