@@ -41,7 +41,7 @@ const ProductResults = ({match}) => {
     }, []);
 
     return(
-       <div>
+       <div className = "product-detail">
 
        
             <Row>

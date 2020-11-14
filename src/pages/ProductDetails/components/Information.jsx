@@ -9,21 +9,25 @@ function numberWithCommas(number) {
 const Information = (props) => {
     return(
         <div>     
+            {/* Car name and proce section starts here. */}
             <Row>
                 <Col md = "8">
-                    <h2 className = "car-name">{props.yearCar + " " + props.carModel + " " + props.carMake}</h2>
+                    <h2 className = "car-name">{props.yearCar + " " + props.carModel + " " + props.carMake }</h2>
                 </Col>
                 <Col className = "text-right" md = "4">
                     <h2 className = "car-price">{"$" + numberWithCommas(props.price)}</h2>
                 </Col>
             </Row>
-
+           
             <Row>
                 <Col>
-                    <h4 className = "car-info mb-5">{numberWithCommas(props.mileage) + " mi."} · {props.zipCode} </h4>
+                    <h4 className = "car-info mb-4">{numberWithCommas(props.mileage) + " mi"} · {props.zipCode} </h4>
                 </Col>
             </Row>
+            <hr className = "info-bottom-line mb-5"/>
+            {/* ---------- ENDS HERE ---------- */}
 
+            {/* Information section starts here.*/}
             <h4 className = "information-head">Information</h4>
             <Row className = "mb-5">
                 <Col xs = "6" md = "3">
@@ -88,9 +92,27 @@ const Information = (props) => {
                     <Label className = "info-sub-head">Others</Label> <br/>
                     <Label className = "car-detail">{props.others ? props.others : "N/A"}</Label>
                 </Col>
-                
             </Row>
-            <hr className = "info-bottom-line"/>
+            <hr className = "info-bottom-line mb-5"/>
+            {/* ---------- ENDS HERE ---------- */}
+            
+            {/* Car Feature section starts here. */}
+            <h4 className = "mb-5 car-feature-head">Car Features</h4>
+                <Row className = "mb-5">
+                    <Col xs = "6" md = "3">
+                        <Label>ABS</Label>
+                    </Col>
+                    <Col xs = "6" md = "3">
+                        <Label>Trim</Label> 
+                    </Col>
+                    <Col xs = "6" md = "3">
+                        <Label>Immobilizer Key</Label>
+                    </Col>
+                    <Col xs = "6" md = "3">
+                        <Label>Power Mirrors</Label>
+                    </Col>
+                </Row>
+            {/* ---------- ENDS HERE ---------- */}
     </div>
     )
 }

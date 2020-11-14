@@ -8,16 +8,10 @@
     cursor: pointer;
 }
 
-.contact-seller-button {
-    background-color: #1C67CE !important;
-    border-radius: 0.4rem !important;
-    color: #ffffff !important;
-}
 
-.view-inventory-button {
-    background-color: #ffffff !important;
-    border-radius: 0.4rem !important;
-    color: #1C67CE !important;
-    border-color: #1C67CE !important;
+
+
+.product-detail {
+    background-color: #ffffff;
 }
 

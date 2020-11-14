@@ -1,26 +1,11 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
 
-.car-name {
-    font-size: 24px;
-    color: rgba(0, 0, 0, 0.85);
-    line-height: 30px;
-    font-weight: 600;
-}
 
-.car-price {
-    font-size: 24px;
-    color: rgba(0, 0, 0, 0.85);
-    line-height: 30px;
-    font-weight: 600;
-}
 
-.car-info {
-    font-size: 16px;
-    color: rgba(0, 0, 0, 0.45);
-    line-height: 18px;
-    font-weight: normal;
-}
+
+/* AHSUN, Ye commented css check krna. ye carousel tuti phuti css hai :3 */
+
 /* 
  .image-gallery-right-nav{
     right: -40px !important;

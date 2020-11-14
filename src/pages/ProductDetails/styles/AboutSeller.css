@@ -12,7 +12,7 @@
 .contact-detail-head, .about-seller-head {
     color: rgba(0, 0, 0, 0.85);
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .about-seller-text {
@@ -30,8 +30,60 @@
 
 .about-seller-card {
     background-color: white;
+    border-radius: 4px !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 .interested-card {
-    background-color: white;
+    background-color: #f9f9f9;
+}
+
+
+.interested-textfield {
+background: #FFFFFF ;
+border-radius: 4px;
+border: 1px solid rgb(233, 233, 233);
+height: 48px ;
+}
+
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.2rem rgb(13, 81, 170,0.1) ;
+}
+.interested-textfield::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.35);
+   /* line-height: 17px; */
+    font-size: 15px;
+  }
+
+  .contact-seller-button {
+    background-color: #1C67CE !important;
+    border-radius: 0.4rem ;
+    color: #ffffff ;
+    font-size: 14px;
+    height: 48px;
+    font-weight: 500;
+}
+
+.seller-name {
+    font-size: 18px;
+    color: #000000;
+    font-weight: 500;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+
+
+.view-inventory-button {
+    background-color: #ffffff !important;
+    border-radius: 0.4rem !important;
+    color: #1C67CE !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    height: 48px;
+    font-size: 14px;
+    
+}
+.view-inv-link {
+    text-decoration: none !important;
 }
