@@ -23,7 +23,8 @@ const ShowSearchResults = (inventory) => {
                     productImg={inventory[i].coverPic}
                     productName={inventory[i].carName}
                     productBadge={"TRENDING"}
-                    dealer />
+                    dealer
+                    userId={inventory[i].userId} />
             </Col>
         );        
     }
@@ -40,7 +41,7 @@ const DealerProfile = ({match}) => {
         });
         GetSellerInventory(match.params.id).then(doc => {
             setInventory(doc.inventory);
-        })
+        });
     }, []);
 
     return(
