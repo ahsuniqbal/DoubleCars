@@ -2,6 +2,7 @@ import React from 'react';
 import { Col,  Row, Label, Card,CardBody, CardImg, Button} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/SellerDetails.css';
+import { Phone, Mail } from 'react-feather';
 
 const SellerDetails = (props) => {
     return(
@@ -43,8 +44,8 @@ const SellerDetails = (props) => {
                                 <Col md = "5">
                                     <h6 className = "contact-details">Contact Details</h6>
                                     
-                                    <p className = "contact-details-p"><FontAwesomeIcon icon="phone" color = "#1C67CE" className = "mr-2" />{props.phNum}</p>
-                                    <p className = "contact-details-p"><FontAwesomeIcon icon="envelope" color = "#1C67CE" className = "mr-2"/>{props.email}</p>
+                                    <p className = "contact-details-p"><Phone color="#1C67CE" size={20} className = "mr-2"/>{props.phNum}</p>
+                                    <p className = "contact-details-p"><Mail color="#1C67CE" size={20} className = "mr-2"/>{props.email}</p>
                                 </Col>
                             </Row>
                         </Col>

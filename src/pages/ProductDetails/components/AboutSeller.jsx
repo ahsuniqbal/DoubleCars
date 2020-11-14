@@ -6,6 +6,7 @@ import Ad2 from '../../../assets/Advertisment2.png'
 import '../styles/AboutSeller.css'
 import { Link } from 'react-router-dom';
 import { GetSellerDetails } from '../api/GetRequests';
+import { Phone, Mail } from 'react-feather';
 
 const SellerDetails = (props) => {
     const [dealer, setDealer] = useState([]);
@@ -48,8 +49,8 @@ const SellerDetails = (props) => {
                         <h6 className = "about-seller-head mt-3">About seller</h6>
                         <p className = "about-seller-text">{dealer.aboutMe ? dealer.aboutMe : "This seller has provided no information"}</p>
                         <h6 className = "contact-detail-head">Contact Details</h6>
-                        <p className = "contact-detail"><FontAwesomeIcon icon={["fas", "phone"]} color="#1C67CE" size="1x" className="mr-2" />{dealer.phNum}</p>
-                        <p className = "contact-detail"><FontAwesomeIcon icon={["fas", "envelope"]} color="#1C67CE" size="1x" className="mr-2" />{dealer.email}</p>
+                        <p className = "contact-detail"><Phone color="#1C67CE" size={20} className = "mr-2"/>{dealer.phNum}</p>
+                        <p className = "contact-detail"> <Mail color="#1C67CE" size={20} className = "mr-2"/>{dealer.email}</p>
                         <Link className = "view-inv-link" to={'/dealer/' + props.userId}>
                             <Button size = "lg" block className = "view-inventory-button primary mt-4"> View Inventory</Button>
                         </Link>

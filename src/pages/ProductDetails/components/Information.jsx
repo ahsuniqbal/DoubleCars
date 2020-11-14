@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col,Label} from 'reactstrap';
 import '../styles/Information.css';
-
 function numberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -95,7 +94,7 @@ const Information = (props) => {
             </Row>
             <hr className = "info-bottom-line mb-5"/>
             {/* ---------- ENDS HERE ---------- */}
-            
+
             {/* Car Feature section starts here. */}
             <h4 className = "mb-5 car-feature-head">Car Features</h4>
                 <Row className = "mb-5">
@@ -112,6 +111,7 @@ const Information = (props) => {
                         <Label>Power Mirrors</Label>
                     </Col>
                 </Row>
+                <hr className = "info-bottom-line mb-5"/>
             {/* ---------- ENDS HERE ---------- */}
     </div>
     )
