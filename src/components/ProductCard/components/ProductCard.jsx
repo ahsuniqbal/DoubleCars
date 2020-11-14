@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Row, Col, Label, Button, Badge } from 'reactstrap';
-import CompanyLogo from '../../../assets/company-logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarIcon from '../../../assets/star.svg';
 import { Link } from 'react-router-dom';

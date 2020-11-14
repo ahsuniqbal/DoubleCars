@@ -33,17 +33,29 @@ const images = [
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState({});
+    
 
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
-        })
+        });
     }, []);
+
+    const DrawGallery = (images) => {
+        const galleryImages = [];
+        for(let i = 0; i < images.length; i++){
+            var tempObj = {
+                original: images[i].image,
+                thumbnail: images[i].image,
+            };
+            galleryImages.push(tempObj);
+        }
+        return(galleryImages);
+    }
+
 
     return(
        <div className = "product-detail">
-
-       
             <Row>
                 <Col className = "" md = "6" >
                     <NavLink className="back-button" to="/products">Back to search results</NavLink>                
@@ -58,7 +70,7 @@ const ProductResults = ({match}) => {
                     {
                         productDetails.images ?
                         <Gallery
-                            items={images} />
+                            items={DrawGallery(productDetails.images)} />
                         :
                         null
                     }
