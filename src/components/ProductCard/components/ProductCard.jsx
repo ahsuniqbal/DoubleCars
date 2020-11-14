@@ -50,7 +50,7 @@ const ProductCard = (props) => {
                                 <CardImg src={props.dealerPic} alt="Company logo" />
                             </Col>
                             <Col xs="5" className="px-0">
-                                <CardTitle>{props.dealer}</CardTitle>
+                                <CardTitle>{props.dealerName}</CardTitle>
                             </Col>
                             <Col xs="4" className="pl-0 text-right">
                                 {
