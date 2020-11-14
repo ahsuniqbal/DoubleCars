@@ -47,7 +47,7 @@ const ProductCard = (props) => {
                     <Link to={"/dealer/" + props.userId}>
                         <Row className="company-details">
                             <Col xs="3">
-                                <CardImg src={props.dealerPic} alt="Company logo" />
+                                <CardImg className = "mt-1" src={props.dealerPic} alt="Company logo" width = "auto"/>
                             </Col>
                             <Col xs="5" className="px-0">
                                 <CardTitle>{props.dealer}</CardTitle>
