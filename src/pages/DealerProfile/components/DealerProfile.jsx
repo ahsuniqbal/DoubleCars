@@ -17,11 +17,11 @@ const ShowSearchResults = (inventory) => {
             <Col key={inventory[i].productId} data-aos="fade-up" xs="12" sm="6" md="4">
                 <ProductCard
                     productId={inventory[i].productId}
-                    productTitle={inventory[i].carName}
+                    productTitle={inventory[i].yearCar + " " + inventory[i].carModel + " " + inventory[i].carMake}
                     productSubtitle={numberWithCommas(inventory[i].mileage) + " miles · " + inventory[i].zipCode}
                     productText={"$" + numberWithCommas(inventory[i].price)}
                     productImg={inventory[i].coverPic}
-                    productName={inventory[i].carName}
+                    productName={inventory[i].yearCar + " " + inventory[i].carModel + " " + inventory[i].carMake}
                     productBadge={"TRENDING"}
                     // dealer
                     userId={inventory[i].userId} />
