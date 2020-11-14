@@ -3,7 +3,7 @@ import { Row, Col, Label, Input } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import '../styles/Products.css'
-import { GetSearchResult, GetSellerDetails } from '../api/GetRequests';
+import { GetSearchResult } from '../api/GetRequests';
 
 
 function numberWithCommas(number) {

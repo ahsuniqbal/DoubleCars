@@ -4,7 +4,7 @@ import Filters from '../../../components/ProductFilters/components/Filters';
 import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
-import { GetSellerDetails, GetSellerInventory } from '../API/GetRequests';
+import { GetSellerDetails, GetSellerInventory } from '../api/GetRequests';
 
 function numberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -23,7 +23,7 @@ const ShowSearchResults = (inventory) => {
                     productImg={inventory[i].coverPic}
                     productName={inventory[i].carName}
                     productBadge={"TRENDING"}
-                    dealer
+                    // dealer
                     userId={inventory[i].userId} />
             </Col>
         );        
