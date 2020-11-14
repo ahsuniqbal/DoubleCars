@@ -24,8 +24,10 @@ const ShowSearchResults = (products) => {
                     productName={products[i].carName}
                     productBadge={"TRENDING"}
                     userId={products[i].userId}
-                    dealer={true}
-                    dealerRating="4.5"
+                    dealerPic={products[i].userPic}
+                    dealer={products[i].userRole}
+                    dealerName={products[i].fullName}
+                    dealerRating={Math.floor(Math.random() * (5 * 100 - 1 * 100) + 1 * 100) / (1*100)}
                     allowBookmark={true} />
             </Col>
         );        
