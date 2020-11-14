@@ -1,5 +1,5 @@
 import React from "react"
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../styles/NavigationBar.css"
 import DCLogo from '../../../assets/DCLogo.jpg'
 
@@ -7,7 +7,9 @@ const NavigationBar = () => {
     return (
         <> 
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <img src = {DCLogo} alt = "Logo" width = "252px" height = "50px"/>
+                <Link to="/">
+                    <img src = {DCLogo} alt = "Logo" width = "252px" height = "50px"/>
+                </Link>
                 <button className="navbar-toggler"
                     type="button"
                     data-toggle="collapse"
@@ -21,19 +23,19 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/">New Cars</NavLink>
+                            <NavLink className="nav-link" to="/products">New Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/blogs">Used Cars</NavLink>
+                            <NavLink className="nav-link" to="/products">Used Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/about">Popular Cars</NavLink>
+                            <NavLink className="nav-link" to="/products">Popular Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/">Certified Cars</NavLink>
+                            <NavLink className="nav-link" to="/products">Certified Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/">Contact Us</NavLink>
+                            <NavLink className="nav-link" to="/products">Contact Us</NavLink>
                         </li>
                        
                         <li className="nav-item">

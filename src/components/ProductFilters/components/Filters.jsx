@@ -148,7 +148,8 @@ const Filters = (props) => {
     return(
         <Card className="filters">
             <CardBody>
-                <Label><b>Filter</b> (2)</Label>
+                <Label><b>Filter</b></Label>
+                {/* <Label><b>Filter</b> (2)</Label> */}
                 <Button color="link" className="float-right" size="sm">Clear</Button>
                 
                 <hr/>
