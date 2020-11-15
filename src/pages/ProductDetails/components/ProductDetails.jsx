@@ -55,7 +55,7 @@ const ProductResults = ({match}) => {
 
 
     return(
-       <div>
+       <div className = "product-detail">
             <Row>
                 <Col className = "" md = "6" >
                     <NavLink className="back-button" to="/products">Back to search results</NavLink>                

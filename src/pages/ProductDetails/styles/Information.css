@@ -23,3 +23,34 @@
 .info-bottom-line {
     width: 100%;
 }
+
+.car-name {
+    font-size: 26px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 30px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    /* width:100%;  */
+}
+.car-info {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.45);
+    line-height: 18px;
+    font-weight: normal;
+}
+
+.car-price {
+    font-size: 26px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 30px;
+    font-weight: 500;
+}
+
+.car-feature-head {
+    color: #222222;
+    font-size: 22px;
+    line-height: 25px;
+    font-weight: bold;
+}
