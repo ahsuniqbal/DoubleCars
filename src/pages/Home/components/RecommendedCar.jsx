@@ -12,31 +12,6 @@ import ProductCard from '../../../components//ProductCard/components/ProductCard
 import { CardBody, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-
-
-
-const ShowSearchResults = () => {
-   
-    var table = [];
-    for (let i = 0; i < 4; i++) {
-        table.push(
-            
-            <Col xs="12" sm="6" lg="4">
-                <ProductCard
-                    productTitle="2019 Mercedes Benz Hybrid"
-                    productSubtitle="19,850 mileage - california "
-                    productText="$32,500"
-                    productImg={DummyCarCard}
-                    dealer={false}
-                    dealerRating= {false}
-                    allowBookmark={false} />
-            </Col>
-            
-        );        
-    }
-    return table;
-}
-
 const RecommendedCar = () => {
     let settings = {
         dot:true,
@@ -145,23 +120,3 @@ const RecommendedCar = () => {
 }
 
 export default RecommendedCar;
-  {/* <CardBody className = "recommended-cars">
-            <Row className = "">
-                <Col md = "6" xs = "12">
-                    <h2 className = "recommended-cars-head">Recommended Cars</h2>
-                </Col>
-
-                <Col md = "6" xs = "12" className = "text-right">
-                    <Link>View All</Link>
-                </Col>
-            </Row>
-            <Slider {...settings}>
-                
-                
-            <Row>
-                            {
-                                ShowSearchResults()
-                            }
-                        </Row>
-            </Slider> 
-            </CardBody> */}

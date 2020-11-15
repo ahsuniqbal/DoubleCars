@@ -1,35 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Row, Col, Label} from 'reactstrap';
-import '../styles/ProductDetails.css'
-import DemoCar from '../../../assets/DemoCar.png';
-import Thumbnail from '../../../assets/thumbnail.png';
 import Gallery from './Gallery';
 import Information from './Information';
 import CarFeatures from './CarFeatures';
 import AboutSeller from './AboutSeller';
 import Comments from './Comments';
-
-
 import { GetProductDetails } from '../api/GetRequests';
+import '../styles/ProductDetails.css';
 
-const images = [
-    {
-        original: DemoCar,
-        thumbnail: Thumbnail,
-        originalAlt: 'Original',
-        thumbnailAlt: 'Thumbnail',
-        originalTitle: 'Original Title',
-        thumbnailTitle: 'Thumbnail Title',
-    },
-    {
-        original: DemoCar,
-        thumbnail: Thumbnail
-    },
-    {
-        original: DemoCar,
-        thumbnail: Thumbnail
-    }
-]
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState({});
