@@ -3,7 +3,6 @@ import ImageGallery from 'react-image-gallery';
 import '../styles/Gallery.css';
 
 
-
 const Gallery = (props) => {
     return(
         <div>    

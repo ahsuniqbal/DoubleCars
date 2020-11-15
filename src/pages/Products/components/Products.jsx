@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Label, Input } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
-import '../styles/Products.css'
 import { GetSearchResult } from '../api/GetRequests';
+import Skeleton from '@material-ui/lab/Skeleton';
+import '../styles/Products.css';
+
 
 
 function numberWithCommas(number) {
@@ -47,12 +49,12 @@ const Products = ({location}) => {
     const [mileage, setMileage] = useState(0);
     const [price, setPrice] = useState([0, 0]);
     const [make, setMake] = useState(null);
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(null);
     
     useEffect(() => {
         GetSearchResult(GetSearchInput(location.search)).then(doc => {
             setProducts(doc);
-        });
+        })      
     }, [])
 
     const handleRadius = (value) => {
@@ -104,7 +106,21 @@ const Products = ({location}) => {
                     </Row>
                     <Row>
                         {
-                            products ? ShowSearchResults(products) : null
+                            products ? ShowSearchResults(products) : 
+                            <Col xs="12" sm="6" lg="4">
+                                <Skeleton variant="rect" width={298} height={178} animation="wave" />
+                                <Skeleton variant="text" animation="wave" />
+                                <Skeleton variant="text" animation="wave" />
+                                <Skeleton variant="text" animation="wave" />
+                                <Row>
+                                    <Col xs="3">
+                                        <Skeleton variant="text" width={50} height={50} animation="wave" />
+                                    </Col>
+                                    <Col xs="9" className="mt-2">
+                                        <Skeleton variant="text" animation="wave" />
+                                    </Col>
+                                </Row>
+                            </Col>
                         }
                     </Row>
                 </Col>
