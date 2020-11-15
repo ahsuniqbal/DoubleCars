@@ -1,4 +1,4 @@
-import { vinAuditString } from '../../../config/connectionString';
+import { vinAuditString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
 export const GetAllMakes = () => {
