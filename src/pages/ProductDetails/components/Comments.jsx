@@ -32,7 +32,7 @@ const Comments = () => {
                             <Label>5</Label>
                         </Col>
                         <Col xs = "12" md = "10">
-                        <ProgressBar variant="warning" now={60} /> 
+                        <ProgressBar variant="warning" now={60} className = "comment-progress-bar"/> 
                         </Col>
                         <Col xs = "2" md = "1">
                             <Label>54</Label>
@@ -43,7 +43,7 @@ const Comments = () => {
                             <Label>4</Label>
                         </Col>
                         <Col xs = "12" md = "10">
-                        <ProgressBar variant="warning" now={20} /> 
+                        <ProgressBar variant="warning" now={20} className = "comment-progress-bar"/> 
                         </Col>
                         <Col xs = "2" md = "1">
                             <Label>54</Label>
@@ -54,7 +54,7 @@ const Comments = () => {
                             <Label>3</Label>
                         </Col>
                         <Col xs = "12" md = "10">
-                        <ProgressBar variant="warning" now={76} /> 
+                        <ProgressBar variant="warning" now={76} className = "comment-progress-bar"/> 
                         </Col>
                         <Col xs = "2" md = "1">
                             <Label>54</Label>
@@ -65,7 +65,7 @@ const Comments = () => {
                             <Label>2</Label>
                         </Col>
                         <Col xs = "12" md = "10">
-                        <ProgressBar variant="warning" now={32} /> 
+                        <ProgressBar variant="warning" now={32} className = "comment-progress-bar"/> 
                         </Col>
                         <Col xs = "2" md = "1">
                             <Label>54</Label>
@@ -76,7 +76,7 @@ const Comments = () => {
                             <Label>1</Label>
                         </Col>
                         <Col xs = "12" md = "10">
-                        <ProgressBar variant="warning" now={1} /> 
+                        <ProgressBar variant="warning" now={1} className = "comment-progress-bar"/> 
                         </Col>
                         <Col xs = "2" md = "1">
                             <Label>54</Label>
