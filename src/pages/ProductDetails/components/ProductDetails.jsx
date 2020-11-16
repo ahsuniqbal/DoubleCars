@@ -46,7 +46,7 @@ const ProductResults = ({match}) => {
             <Row>
                 <Col className = "text-left" md = "6" >
                 
-                    <NavLink className="back-button" to="/products"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</NavLink>                
+                    <NavLink className="back-button-product" to="/products"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</NavLink>                
                 </Col>
                 <Col className = "" md = "6" >
                     <NavLink className="float-right report-button" to="/products">Report this car</NavLink>                
