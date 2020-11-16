@@ -37,6 +37,11 @@
     width: 56px !important;
 }
 
-
+.save-gallery-icon {
+position: absolute;
+top: 2%;
+left: 93%;
+background-color: royalblue;
+}
 
 
