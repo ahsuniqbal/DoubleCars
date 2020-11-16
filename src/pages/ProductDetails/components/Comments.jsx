@@ -91,10 +91,12 @@ const Comments = () => {
                     <img src = {CommentDemoImage} className = "img-fluid user-comment-img"/>
                 </Col>
                 <Col md = "6">
-                    
+                    <Row>
+                        <Col xs = "12">
                             <Label className = "comment-username">Kiltos Kyriaco</Label> <br/>
                             <Label className = "comment-date">March, 2020</Label>
-                        
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
             <Row>

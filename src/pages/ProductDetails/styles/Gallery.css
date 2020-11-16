@@ -1,6 +1,6 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
  
- .image-gallery-right-nav{
+ /* .image-gallery-right-nav{
     right: -40px !important;
     color: black !important;
     background-color: white !important;
@@ -35,7 +35,7 @@
  .image-gallery-svg {
     height:  30px !important;
     width: 56px !important;
-}
+} */
 
 .save-icon-gallery {
     height: 48px;
