@@ -12,27 +12,6 @@ import { CardBody, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 // import {Button, Label, Row, Col, Input} from 'reactstrap'
 
-const ShowSearchResults = () => {
-   
-    var table = [];
-    for (let i = 0; i < 4; i++) {
-        table.push(
-            
-            <Col xs="12" sm="6" lg="4">
-                <ProductCard
-                    productTitle="2019 Mercedes Benz Hybrid"
-                    productSubtitle="19,850 mileage - california "
-                    productText="$32,500"
-                    productImg={DummyCarCard}
-                    dealer={false}
-                    dealerRating= {false}
-                    allowBookmark={false} />
-            </Col>
-            
-        );        
-    }
-    return table;
-}
 
 const TrendingCar = () => {
 
