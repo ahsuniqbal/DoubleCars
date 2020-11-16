@@ -7,16 +7,20 @@ import AboutSeller from './AboutSeller';
 import Comments from './Comments';
 import { GetProductDetails } from '../api/GetRequests';
 import '../styles/ProductDetails.css';
+import { Skeleton } from '@material-ui/lab';
 
 
 const ProductResults = ({match}) => {
-    const [productDetails, setProductDetails] = useState({});
+    const [productDetails, setProductDetails] = useState(null);
     
 
     useEffect(() => {
-        GetProductDetails(match.params.id).then(doc => {
-            setProductDetails(doc);
-        });
+        setTimeout(async() => {
+            GetProductDetails(match.params.id).then(doc => {
+                setProductDetails(doc);
+            });
+        }, 5000)
+        
     }, []);
 
     const DrawGallery = (images) => {
@@ -43,20 +47,13 @@ const ProductResults = ({match}) => {
                 </Col>
             </Row>
 
-            <Row>
-                <Col md = "8">
-                    {
-                        productDetails.images ?
+            {
+                productDetails ?
+                <Row>
+                    <Col md = "8">
                         <Gallery
                             items={DrawGallery(productDetails.images)} />
-                        :
-                        null
-                    }
-                    
 
-                    
-                    {
-                        productDetails.details ? 
                         <Information 
                             transmission={productDetails.details[0].transmission}
                             trim={productDetails.details[0].trim}
@@ -78,28 +75,44 @@ const ProductResults = ({match}) => {
                             interior={productDetails.details[0].interior}
                             exterior={productDetails.details[0].exterior}
                             security={productDetails.details[0].security}
-                            others={productDetails.details[0].others} /> : 
-                        <Label>Please wait while we fetch the information...</Label>
-                    }
-                    
-                    
+                            others={productDetails.details[0].others} />
 
-                   <CarFeatures/>
-
-                </Col>
-                <Col md = "4">
-                    {
-                        productDetails.details ? 
+                        <CarFeatures/>
+                    </Col>
+                    <Col md = "4">
                         <AboutSeller
                             userId={productDetails.details[0].userId} />
-                        :
-                        null
-                    }
-                </Col>
-            </Row>
+                    </Col>
+                </Row>
+                :
+                <Row>
+                    <Col md="8">
+                        <Skeleton variant="rect" width={850} height={378} animation="wave" />
+                        <Skeleton variant="text" height={80} animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                    </Col>
+
+                    <Col md="4">
+                        <Skeleton variant="rect" width={410} height={378} animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                        <Skeleton variant="text" animation="wave" />
+                    </Col>
+                </Row>
+
+            }
+
             <Row>
                 <Col xs = "8" md = "8">
-                <Comments/>
+                    <Comments/>
                 </Col>
             </Row>
 
