@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Row, Col, Label} from 'reactstrap';
+import { NavLink, Row, Col, Label, Container} from 'reactstrap';
 import Gallery from './Gallery';
 import Information from './Information';
 import CarFeatures from './CarFeatures';
@@ -8,6 +8,8 @@ import Comments from './Comments';
 import { GetProductDetails } from '../api/GetRequests';
 import '../styles/ProductDetails.css';
 import { Skeleton } from '@material-ui/lab';
+import { ChevronLeft } from 'react-feather';
+
 
 
 const ProductResults = ({match}) => {
@@ -37,10 +39,14 @@ const ProductResults = ({match}) => {
 
 
     return(
+       
+
+        
        <div className = "product-detail">
             <Row>
-                <Col className = "" md = "6" >
-                    <NavLink className="back-button" to="/products">Back to search results</NavLink>                
+                <Col className = "text-left" md = "6" >
+                
+                    <NavLink className="back-button-product" to="/products"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</NavLink>                
                 </Col>
                 <Col className = "" md = "6" >
                     <NavLink className="float-right report-button" to="/products">Report this car</NavLink>                
@@ -119,6 +125,7 @@ const ProductResults = ({match}) => {
            
             
             </div>
+            
     )
 }
 
