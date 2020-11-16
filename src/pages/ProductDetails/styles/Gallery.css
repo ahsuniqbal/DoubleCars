@@ -37,11 +37,29 @@
     width: 56px !important;
 }
 
+.save-icon-gallery {
+    height: 48px;
+    width: 48px;
+    border-radius: 20%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 1%;
+    left: 90%;
+    cursor: pointer;
+}
+
 .save-gallery-icon {
 position: absolute;
-top: 2%;
-left: 93%;
-background-color: royalblue;
+top: 33%;
+left: 32%;
+cursor: pointer;
+}
+
+
+/* Thumbnail images css */
+
+.image-gallery-thumbnail .image-gallery-thumbnail-image :focus{
+    border-color: transparent !important;
 }
 
 
