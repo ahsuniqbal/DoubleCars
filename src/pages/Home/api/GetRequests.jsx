@@ -1,10 +1,9 @@
-import { connectionString } from '../../../config/connectionString';
+import { connectionString } from '../../../config/ConnectionString';
 const axios = require('axios');
-const relativeString = "home/part-one";
 
-export const GetBannerResults = () => {
+export const GetRecommendations = (id) => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + relativeString;
+        var url = connectionString + "/home/part-two?id=" + id;
         axios.get(url).then(function(response){
             const data = response.data.results;
             resolve(data);
@@ -15,4 +14,4 @@ export const GetBannerResults = () => {
             alert("Error: ", error);
         })
     })
-}
+};

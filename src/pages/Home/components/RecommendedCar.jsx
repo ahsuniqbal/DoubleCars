@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Home.css'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -11,8 +11,36 @@ import DummyCarCard4 from '../../../assets/DemoCar4.png'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
 import { CardBody, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { GetRecommendations } from '../api/GetRequests';
+
+function DrawRecommendations(recommnedations){
+    var table = [];
+    for(let i = 0; i < recommnedations.length; i++){
+        table.push(
+            <ProductCard 
+                key={i}
+                productId={166}
+                productImg = {DummyCarCard}
+                productTitle = "2020 Jeep Cherokee: Belvidere, Ill."
+                productSubtitle = "11,850 mileage - california "
+                productText = "$55,500"
+            />
+        );
+    }
+    return table;
+}
 
 const RecommendedCar = () => {
+    const [recommnedations, setRecommendations] = useState(null);
+
+    useEffect(() => {
+        // If User is logged in the you will send id param other wise no id param will be send
+        // Login not implemented yet that
+        GetRecommendations(null).then(doc => {
+            setRecommendations(doc.data);
+        });
+    });
+
     let settings = {
         dot:true,
         infinite: true,
@@ -49,6 +77,9 @@ const RecommendedCar = () => {
             <Row>
                 <Col >
                 <Slider {...settings}>
+                    {/* {
+                        recommnedations ? DrawRecommendations(recommnedations) : null
+                    } */}
                 <ProductCard
                     productId={166}
                     productImg = {DummyCarCard}
