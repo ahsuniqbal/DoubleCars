@@ -87,12 +87,12 @@ const Comments = () => {
                 </Col>
             </Row>
             <Row >
-                <Col md = "2" className = "">
+                <Col md = "1" className = "comment-img-col">
                     <img src = {CommentDemoImage} className = "img-fluid user-comment-img"/>
                 </Col>
-                <Col md = "6">
+                <Col md = "7">
                     <Row>
-                        <Col xs = "12">
+                        <Col xs = "12" className = "name-data-col">
                             <Label className = "comment-username">Kiltos Kyriaco</Label> <br/>
                             <Label className = "comment-date">March, 2020</Label>
                         </Col>

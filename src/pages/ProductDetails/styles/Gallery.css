@@ -1,5 +1,7 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
  
+/* Gallery css */
+
  /* .image-gallery-right-nav{
     right: -40px !important;
     color: black !important;
@@ -37,6 +39,9 @@
     width: 56px !important;
 } */
 
+/* Till here gallary arrows css */
+
+/* Save icon css */
 .save-icon-gallery {
     height: 48px;
     width: 48px;
