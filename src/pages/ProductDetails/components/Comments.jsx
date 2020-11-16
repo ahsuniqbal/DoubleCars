@@ -94,7 +94,7 @@ const Comments = () => {
                     <Row>
                         <Col xs = "12">
                             <Label className = "comment-username">Kiltos Kyriaco</Label> <br/>
-                            <Label>March, 2020</Label>
+                            <Label className = "comment-date">March, 2020</Label>
                         </Col>
                     </Row>
                 </Col>

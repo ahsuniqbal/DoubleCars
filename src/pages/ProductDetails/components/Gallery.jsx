@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
 import '../styles/Gallery.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const Gallery = (props) => {
@@ -12,6 +13,7 @@ const Gallery = (props) => {
                 showFullscreenButton={false}
                 showPlayButton={false}
             />
+            <FontAwesomeIcon icon={["far", "bookmark"]} color="gray" className = "save-gallery-icon"/>
         </div>    
     );
 };
