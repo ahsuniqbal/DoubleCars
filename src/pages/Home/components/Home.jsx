@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header'
 import PopularMake from './PopularMake'
-import TrendingCar from './TrendingCar';
 import TrendingBodyTypes from './TrendingBodyTypes/TrendingBodyTypes'
 import BuyNow from './BuyNow';
 import Searchbar from './Searchbar';
@@ -11,25 +10,29 @@ import { Link } from 'react-router-dom';
 import { GetRecommendations } from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth';
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-function DrawRecommendations(recommnedations){
+import '../styles/RecommendedCar.css';
+import '../styles/TrendingCar.css';
+
+function DrawProductCards(data){
     var table = [];
-    console.log(recommnedations);
-    for(let i = 0; i < recommnedations.length; i++){
+    for(let i = 0; i < data.length; i++){
         table.push(
             <ProductCard 
                 key={i}
-                productId={recommnedations[i].productId}
-                productImg={recommnedations[i].coverPic}
-                productName={recommnedations[i].name}
-                productTitle={recommnedations[i].name}
-                productSubtitle={recommnedations[i].mileage + " miles · " + recommnedations[i].zipCode}
-                productText = {"$" + recommnedations[i].price}
+                productId={data[i].productId}
+                productImg={data[i].coverPic}
+                productName={data[i].name}
+                productTitle={data[i].name}
+                productSubtitle={data[i].mileage + " miles · " + data[i].zipCode}
+                productText = {"$" + data[i].price}
             />
+            
         );
     }
     return table;
@@ -37,6 +40,7 @@ function DrawRecommendations(recommnedations){
 
 const Home = () => {
     const [recommnedations, setRecommendations] = useState(null);
+    const [trending, setTrending] = useState(null);
 
     useEffect(() => {
         // If User is logged in the you will send id param other wise no id param will be send
@@ -45,17 +49,19 @@ const Home = () => {
         if(isLogin()){
             GetRecommendations(getLogin()).then(doc => {
                 setRecommendations(doc[0].data);
+                setTrending(doc[1].data);
             })
         }
         else{
             GetRecommendations('-1').then(doc => {
                 setRecommendations(doc[0].data);
+                setTrending(doc[1].data);
             });
         }
     }, []);
 
     let settings = {
-        dot:true,
+        dot: true,
         infinite: true,
         rows: 1,
         speed: 500,
@@ -63,14 +69,35 @@ const Home = () => {
         slidesToScroll: 1,
         cssEase: "linear",
         mobileFirst:true,
-        responsive: [{
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              centerMode: false,
+        responsive: [
+            {
+                breakpoint: 576,
+                settings:
+                {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: false,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings:
+                {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    centerMode: false,
+                }
+            },
+            {
+                breakpoint: 992,
+                settings:
+                {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    centerMode: false,
+                }
             }
-        }],
+        ],
         
     }
 
@@ -101,7 +128,7 @@ const Home = () => {
                             <Col>
                                 <Slider {...settings}>
                                     {
-                                        recommnedations ? DrawRecommendations(recommnedations) : null
+                                        recommnedations ? DrawProductCards(recommnedations) : <div>Loading your recommendations</div>
                                     }
                                 </Slider> 
                             </Col>
@@ -109,8 +136,36 @@ const Home = () => {
                     </CardBody>
                 </Col>
             </Row>
+
+            <Row>
+                <Col xs="12">
+                    <CardBody className="trending-cars">
+                        <Row className = "">
+                            <Col md = "6" xs = "12">
+                                <h2 className = "trending-cars-head">Trending in US</h2>
+                            </Col>
+
+                            <Col md = "6" xs = "12" className = "text-right">
+                                <Link>View All</Link>
+                            </Col>
+                        </Row>
+                        
+                        <Row>
+                            <Col>
+                                <Slider {...settings}>     
+                                {
+                                    trending ? DrawProductCards(trending) : <div>Loading your recommendations</div>
+                                }
+                                </Slider> 
+                            </Col>
+                        </Row>
+
+                        
+                    </CardBody>
+                </Col>
+            </Row>
+
             
-            <TrendingCar/>
             <div className = "trending-body-types">
                 <TrendingBodyTypes/>    
             </div>

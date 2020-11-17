@@ -27,11 +27,11 @@
     overflow: hidden;
 }
 
-.product-card .product-img .card-img{
+/* .product-card .product-img .card-img{
     object-fit: contain;
     background-color: black;
     height: 200px;
-}
+} */
 
 .product-card .product-img span{
     position: absolute;
