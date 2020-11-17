@@ -3,7 +3,7 @@ const axios = require('axios');
 
 export const GetRecommendations = (id) => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + "/home/part-two?id=" + id;
+        var url = connectionString + "home/part-two?id=" + id;
         axios.get(url).then(function(response){
             const data = response.data.results;
             resolve(data);
@@ -11,7 +11,7 @@ export const GetRecommendations = (id) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert("Error: ", error);
+            console.log("Error: ", error);
         })
     })
 };
