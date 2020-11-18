@@ -1,11 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Input, Card, CardBody, CardTitle, Button, InputGroup, InputGroupAddon, InputGroupText, Form } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { GetAllMakes, GetModelFromMake } from '../api/GetRequests';
 import '../styles/Searchbar.css';
+
+
+function concatMakeList(makeList){
+    var makeSelectBox = document.getElementById('make-list');
+
+    for(let i = 0; i < makeList.length; i++){
+        var option = makeList[i];
+        makeSelectBox.options.add(new Option(option.name, option.id));
+    }
+}
+
+function concatModelList(modelList){
+    var modelSelectBox = document.getElementById('model-list');
+
+    for(let i = 0; i < modelList.length; i++){
+        var option = modelList[i];
+        modelSelectBox.options.add(new Option(option.name, option.id));
+    }
+}
 
 const Searchbar = () => {
     const history = useHistory();
+
+    //Make and Model list fetched from Vin audit API
+    const [makeList, setMakeList] = useState([]);
+    const [modelList, setModelList] = useState([]);
+
+    const [make, setMake] = useState(null);
 
     const Search = (e) => {
         e.preventDefault();
@@ -15,7 +41,21 @@ const Searchbar = () => {
             pathname: '/products',
             search: '?search='+searchInput,
         })
-    }
+    };
+
+    const handleMake = (make) => {
+        setMake(make);
+        GetModelFromMake(make).then(doc => {
+            setModelList(doc.makes[0].models);
+        });
+    };
+
+    useEffect(() => {
+        GetAllMakes().then(doc => {
+            setMakeList(doc.makes);
+        });
+    }, []);
+
     return(
         <Card className="searchbar">
             <CardBody>
@@ -43,15 +83,32 @@ const Searchbar = () => {
                         </Col>
 
                         <Col xs="6" sm="4" md="2">
-                            <Input type="select">
-                                <option value="">Make</option>
-                            </Input>
+                            {
+                                makeList ? 
+                                <Input id="make-list" type="select" onChange={(e) => handleMake(e.target.value)} >
+                                    <option value="">Make</option>
+                                    {
+                                        concatMakeList(makeList)
+                                    }
+                                </Input>
+                                : null
+                            }
+                            
                         </Col>
 
                         <Col xs="6" sm="4" md="2">
-                            <Input type="select">
-                                <option value="">Model</option>
-                            </Input>
+                            {
+                                modelList ?
+                                <Input id="model-list" type="select">
+                                    <option value="">Model</option>
+                                    {
+                                        concatModelList(modelList)
+                                    }
+                                </Input>
+                                :
+                                null
+                            }
+                            
                         </Col>
 
                         <Col xs="12" sm="4" md="2">

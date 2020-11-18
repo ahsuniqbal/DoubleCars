@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 import { GetRecommendations } from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth';
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
-import Skeleton from '@material-ui/lab/Skeleton';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -37,6 +36,7 @@ function DrawProductCards(data){
     }
     return table;
 }
+
 
 const Home = () => {
     const [recommnedations, setRecommendations] = useState(null);
