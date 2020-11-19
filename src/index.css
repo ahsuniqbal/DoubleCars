@@ -25,3 +25,20 @@ body {
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
+
+
+
+.preloader{
+
+  background-color: white;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.preloader img{
+  width: 300px;
+  position: absolute;
+  top: 40%;
+  left: 38%;
+}
