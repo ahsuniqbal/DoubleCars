@@ -1,81 +1,62 @@
-import React from 'react';
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import DummyCarCard from '../../../../assets/DummyCarCard.png'
-import DummyCarCard2 from '../../../../assets/DemoCar2.png'
-import DummyCarCard3 from '../../../../assets/DemoCar3.png'
-import DummyCarCard4 from '../../../../assets/DemoCar4.png'
+import React, { useState, useEffect } from 'react';
+import Carousel from 'react-bootstrap/Carousel'
+import democar from '../../../../assets/DemoCar.png'
 import ProductCard from '../../../../components/ProductCard/components/ProductCard';
+
+import { Row, Col } from 'reactstrap'
+const DrawCarouselCols = (list,index) => {
+    var table = [];
+    for(let i = index; i < index + 4 ; i++){
+        table.push(
+            <Col xs="12" sm="4" lg="3">
+                <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+            </Col>
+        );
+    }
+    return table;
+}
+
+const DrawCarousel = (list) => {
+    var table = [];
+    for(let i = 0; i < list.length; i++){
+        table.push(
+            <Carousel.Item>
+                <Row>
+                {
+                    DrawCarouselCols(list, i)
+                }
+                </Row>
+            </Carousel.Item>
+        );
+        i+=3;
+    }
+    return table;
+}
 
 
 const TrendingBody5 = () => {
-    let settings = {
-        dot:true,
-        infinite: false,
-        rows: 1,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        cssEase: "linear",
-        mobileFirst:true,
-        responsive: [{
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              centerMode: false,
-            }
-          }],
-        
-        }
+    const [trending5] = useState(null);
     return(
-        <div>    
-           <Slider {...settings}>
-                <ProductCard
-                    productId={166}
-                    productImg = {DummyCarCard2}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-                />
-                <ProductCard
-                    productId={166}
-                    productImg = {DummyCarCard}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-                />
-                <ProductCard
-                    productId={166}
-                    productImg = {DummyCarCard3}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-                />
-                <ProductCard
-                    productId={166}
-                    productImg = {DummyCarCard4}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-                />
-                <ProductCard
-                    productId={166}
-                    productImg = {DummyCarCard3}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-
-                />
-                <ProductCard
-                    productId={166}
-                    productImg = {DummyCarCard}
-                    productTitle = "2019 Mercedes Benz Hybrid"
-                    productSubtitle = "19,850 mileage - california "
-                    productText = "$32,500"
-                />
-            </Slider> 
+        <div>  
+            
+            
+            <Row>
+                <Carousel indicators={false}>
+                {
+                    trending5 ? DrawCarousel(trending5) : <div>Loading your recommendations</div>
+                }
+                </Carousel>
+                           
+                        </Row>
+            
         </div>    
     );
 };
