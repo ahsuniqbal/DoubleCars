@@ -4,38 +4,72 @@ import PopularMake from './PopularMake'
 import TrendingBodyTypes from './TrendingBodyTypes/TrendingBodyTypes'
 import BuyNow from './BuyNow';
 import Searchbar from './Searchbar';
-import { Row, Col, CardBody, Carousel } from 'reactstrap';
+import { Row, Col, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
-
+import Carousel from 'react-bootstrap/Carousel'
+import democar from '../../../assets/DemoCar.png'
 import { GetRecommendations } from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
 
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 import '../styles/RecommendedCar.css';
 import '../styles/TrendingCar.css';
 
-function DrawProductCards(data){
+// function DrawProductCards(data){
+//     var table = [];
+//     for(let i = 0; i < data.length; i++){
+//         table.push(
+//             <ProductCard 
+//                 key={i}
+//                 productId={data[i].productId}
+//                 productImg={data[i].coverPic}
+//                 productName={data[i].name}
+//                 productTitle={data[i].name}
+//                 productSubtitle={data[i].mileage + " miles · " + data[i].zipCode}
+//                 productText = {"$" + data[i].price}
+//             />
+            
+//         );
+//     }
+//     return table;
+// }
+
+
+const DrawCarouselCols = (list,index) => {
     var table = [];
-    for(let i = 0; i < data.length; i++){
+    for(let i = index; i < list.length ; i++){
         table.push(
             <ProductCard 
-                key={i}
-                productId={data[i].productId}
-                productImg={data[i].coverPic}
-                productName={data[i].name}
-                productTitle={data[i].name}
-                productSubtitle={data[i].mileage + " miles · " + data[i].zipCode}
-                productText = {"$" + data[i].price}
+            // key={i}
+                    productId= "asas"
+                    productImg={democar}
+                    productName="Car" 
+                    productTitle="Car"
+                    productSubtitle="miles"
+                    productText = "3455"
             />
-            
         );
     }
     return table;
 }
+
+const DrawCarousel = (list) => {
+    var table = [];
+    for(let i = 0; i < list.length; i++){
+        table.push(
+            <Carousel.Item>
+                <Row>
+                {
+                    DrawCarouselCols(list,i)
+                }
+                </Row>
+            </Carousel.Item>
+        );
+    }
+    return table;
+}
+
+
 
 
 const Home = () => {
@@ -60,47 +94,7 @@ const Home = () => {
         }
     }, []);
 
-    let settings = {
-        dot: true,
-        infinite: true,
-        rows: 1,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        cssEase: "linear",
-        mobileFirst:true,
-        responsive: [
-            {
-                breakpoint: 576,
-                settings:
-                {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    centerMode: false,
-                }
-            },
-            {
-                breakpoint: 768,
-                settings:
-                {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    centerMode: false,
-                }
-            },
-            {
-                breakpoint: 992,
-                settings:
-                {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    centerMode: false,
-                }
-            }
-        ],
-        
-    }
-
+   
     return(
         <div>
             <Header/>
@@ -126,11 +120,16 @@ const Home = () => {
                     
                         <Row>
                             <Col>
-                                <Slider {...settings}>
+                                {/* <Slider {...settings}>
                                     {
                                         recommnedations ? DrawProductCards(recommnedations) : <div>Loading your recommendations</div>
                                     }
-                                </Slider> 
+                                </Slider>  */}
+                                <Carousel indicators={false}>
+                                {
+                                    DrawCarousel(recommnedations) 
+                                }
+                                </Carousel>
                             </Col>
                         </Row>
                     </CardBody>
@@ -152,11 +151,11 @@ const Home = () => {
                         
                         <Row>
                             <Col>
-                                <Slider {...settings}>     
+                            <Carousel indicators={false}>
                                 {
-                                    trending ? DrawProductCards(trending) : <div>Loading your recommendations</div>
+                                    DrawCarousel(trending) 
                                 }
-                                </Slider> 
+                                </Carousel>
                             </Col>
                         </Row>
 
@@ -170,6 +169,7 @@ const Home = () => {
                 <TrendingBodyTypes/>    
             </div>
             <BuyNow/>
+           
             <PopularMake/>
         </div>
     )
