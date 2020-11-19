@@ -1,49 +1,75 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
+/* Gallery image size */
+.image-gallery-slide{
+    max-height: 500px;
+}
+
+/* Gallery thumbnails */
 .image-gallery-thumbnail{
-    
-}
- 
-/* Gallery css */
-
- /* .image-gallery-right-nav{
-    right: -40px !important;
-    color: black !important;
-    background-color: white !important;
-   border-bottom-left-radius: 13px !important;
-   border-top-left-radius: 13px !important;
-   border-radius: 0px !important;
-  box-shadow: none !important;
-  -moz-box-shadow: none !important; 
-  -webkit-box-shadow: none !important;
-    height: 50% !important;
-    box-shadow: transparent !important;
+    border: none;
+    margin-right: 10px;
 }
 
-.image-gallery-icon {
-    height: 5% !important;
-    -webkit-box-shadow: none !important;
-	-moz-box-shadow: none !important;
-	box-shadow: none !important;
+.image-gallery-thumbnail .image-gallery-thumbnail-inner{
+    border-radius: 4px;
+}
+
+.image-gallery-thumbnail .image-gallery-thumbnail-image{
+    border-radius: 4px;
+}
+
+.image-gallery-thumbnail.active, .image-gallery-thumbnail:hover, .image-gallery-thumbnail:focus{
+    border: none;
+}
+
+.image-gallery-thumbnail .image-gallery-thumbnail-inner{
+    background: rgba(0, 0, 0);
+}
+
+.image-gallery-thumbnail .image-gallery-thumbnail-image{
+    opacity: 0.47;
+}
+
+.image-gallery-thumbnail.active .image-gallery-thumbnail-image{
+    opacity: 1;
+}
+
+
+/* Gallery navs */
+
+.image-gallery-icon{
+    filter: none;
 }
 
 .image-gallery-left-nav{
-    left: -40px !important;
-    color: black !important;
-    background-color: white !important;
-    
-    border-top-right-radius: 13px !important;
-    border-bottom-right-radius: 13px !important;
-    height: 25% !important;
-  
-    
+    left: -25px;
 }
- .image-gallery-svg {
-    height:  30px !important;
-    width: 56px !important;
-} */
 
-/* Till here gallary arrows css */
+.image-gallery-right-nav{
+    right: -25px;
+}
+
+.image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg{
+    background-color: #fff;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+    width: 56px;
+    height: 56px;
+    color: #000;
+    border-radius: 13px;
+}
+
+
+/* Gallery description */
+.image-gallery-slide .image-gallery-description{
+    width: 100%;
+    bottom: 0px;
+    text-align: justify;
+    background: rgba(54, 54, 54, 0.6);
+    padding: 15px 20px;
+
+}
+
 
 /* Save icon css */
 .save-icon-gallery {

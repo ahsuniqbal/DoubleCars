@@ -31,6 +31,7 @@ const ProductResults = ({match}) => {
             var tempObj = {
                 original: images[i].image,
                 thumbnail: images[i].image,
+                description: "1 person have saved this car"
             };
             galleryImages.push(tempObj);
         }

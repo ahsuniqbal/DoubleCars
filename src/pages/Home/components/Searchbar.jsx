@@ -31,7 +31,6 @@ const Searchbar = () => {
     const [makeList, setMakeList] = useState([]);
     const [modelList, setModelList] = useState([]);
 
-    const [make, setMake] = useState(null);
 
     const Search = (e) => {
         e.preventDefault();
@@ -44,7 +43,6 @@ const Searchbar = () => {
     };
 
     const handleMake = (make) => {
-        setMake(make);
         GetModelFromMake(make).then(doc => {
             setModelList(doc.makes[0].models);
         });
