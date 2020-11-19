@@ -32,23 +32,26 @@ const SellerDetails = (props) => {
                     <CardBody className = "">
                         <Row>
                             <Col xs="3">
-                                <CardImg src={dealer.profilePic} alt={dealer.fullName} />
+                                <div className = "seller-name-image">
+                                    <CardImg className = "seller-img" src={dealer.profilePic} alt={dealer.fullName} height = "100%" width = "100%"/>
+                                </div>
+                                
                             </Col>
-                            <Col xs = "9">
+                            <Col xs = "9" className = "seller-column">
                                 <Label className = "seller-name">{dealer.fullName}</Label> <br/>
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-2" />
-                                <Label style= {{color: "#FFC061"}}>4.1</Label>
+                                <Label className = "seller-rate">4.1</Label>
                             </Col>
                         </Row>
                         
                         
-                        <h6 className = "about-seller-head mt-3">About seller</h6>
+                        <h6 className = "about-seller-head mt-4">About seller</h6>
                         <p className = "about-seller-text">{dealer.aboutMe ? dealer.aboutMe : "This seller has provided no information"}</p>
-                        <h6 className = "contact-detail-head">Contact Details</h6>
+                        <h6 className = "contact-detail-head mb-4">Contact Details</h6>
                         <p className = "contact-detail"><Phone color="#1C67CE" size={20} className = "mr-2"/>{dealer.phNum}</p>
                         <p className = "contact-detail"> <Mail color="#1C67CE" size={20} className = "mr-2"/>{dealer.email}</p>
                         <Link className = "view-inv-link" to={'/dealer/' + props.userId}>

@@ -1,19 +1,43 @@
 
+/* left section css */
 .left-cover-section {
-    background-image: url("../../../assets/BlueCover.png"); 
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 80vh;
-  }
-  
-  .cover-left-heading {
+  background-image: url("../../../assets/BlueCover.png"); 
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 80vh;
+}
+
+.cover-left-heading {
   color: #ffffff;
   font-size: 62px;
   font-weight: bold;
-  }
+}
+
+.header-sub-head {
+  font-size: 20px;
+  color: white;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.download-button-cover {
+  background-color: #ffffff !important;
+  border-radius: 0.4rem !important;
+  width: 168px !important;
+  height: 56px;
+  color: #1C67CE !important;
+  cursor: pointer;
+  padding: 14px 28px !important;
+  font-size: 15px !important;
+  line-height: 19px;
+  font-weight: bold;
+}
   
+  
+  
+  /* Right section css */
 .right-cover-section {
     background-image: url("../../../assets/landingPageCover.png"); 
     background-position: left;
@@ -23,49 +47,70 @@
 }
 
 
-  .download-button-cover {
-    background-color: #ffffff !important;
-      border-radius: 0.4rem !important;
-      width: 168px !important;
-      height: 56px;
-      color: #1C67CE !important;
-      cursor: pointer;
-      padding: 14px 28px !important;
-      font-size: 16px !important;
-  }
-
-  .header-sub-head {
-    font-size: 20px;
-    color: white;
-  }
-
-
 @media (max-width: 767px) {
   .right-cover-section{
     width: 100%;
     height: 40vh;
+    min-width: 100%;
   }
   
   .left-cover-section{
     width: 100%;
     height: 70vh;
+    min-width: 100%;
   }
+
+  .cover-left-heading {
+    color: #1C67CE;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: -200px;
+
+    }
 }
 @media (max-width: 980px) {
   .left-cover-section{
     width: 100%;
-    height: 70vh;
+    height: 50vh;
+    min-width: 100%;
+    
   }
+  .right-cover-section{
+    width: 100%;
+    height: 40vh;
+    min-width: 100%;
+  }
+
+  .cover-left-heading {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -200px;
+    }
 }
 
 @media (max-width: 1050px) {
   .left-cover-section {
      width: 100%;
+     min-width: 100%;
+    
+  }
+
+
+  .right-cover-section{
+    width: 100%;
+    height: 40vh;
+    min-width: 100%;
   }
 
   .cover-left-heading {
     color: #ffffff;
     font-size: 50px;
     font-weight: bold;
+    margin-top: -200px;
     }
 }
+
+
+
+

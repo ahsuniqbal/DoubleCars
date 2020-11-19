@@ -10,10 +10,10 @@ const Information = (props) => {
         <div>     
             {/* Car name and proce section starts here. */}
             <Row>
-                <Col md = "8">
+                <Col md = "8" className = "mt-5">
                     <h2 className = "car-name">{props.yearCar + " " + props.carModel + " " + props.carMake }</h2>
                 </Col>
-                <Col className = "text-right" md = "4">
+                <Col className = "text-right mt-5" md = "4">
                     <h2 className = "car-price">{"$" + numberWithCommas(props.price)}</h2>
                 </Col>
             </Row>

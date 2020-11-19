@@ -73,6 +73,10 @@ height: 48px ;
     margin-bottom: 0px;
 }
 
+.seller-column {
+    margin-left: -20px;
+}
+
 
 .view-inventory-button {
     background-color: #ffffff !important;
@@ -87,3 +91,28 @@ height: 48px ;
 .view-inv-link {
     text-decoration: none !important;
 }
+
+.seller-name-image {
+    width:56px;
+    height:56px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    border-radius: 15px;
+      
+}
+
+.seller-img{
+    flex-shrink:0;
+    -webkit-flex-shrink: 0;
+    max-width:100%;
+    max-height:100%;
+  }
+
+
+  .seller-rate {
+      color: #FFC061;
+      font-size: 14px;
+      line-height: 14px;
+  }

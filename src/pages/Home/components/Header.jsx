@@ -12,8 +12,8 @@ const Header = () => {
                 <div className = "container-fluid">
                     <div className = "row">
                         <div className = "col-12">
-                            <div className = "row">
-                                <div className = "col-md-5 pt-lg-0 order-2 order-lg-1 d-flex justify-content-center flex-column left-cover-section xs-12 sm-12 md-12">
+                            <Row>
+                                <div className = "col-md-5 pt-lg-0 order-2 order-lg-1 d-flex justify-content-center flex-column left-cover-section xs-6 sm-6 md-12">
                                     <h1 className = "cover-left-heading ml-5">
                                         Find the most desireable car
                                     </h1>
@@ -32,7 +32,7 @@ const Header = () => {
                                 <div className = "col-lg-7  order-1 order-lg-2 right-cover-section">
                                     {/* <img src = {Cover} alt = "Cover image" className = "img-fluid" width = "100%"/> */}
                                 </div>
-                            </div>
+                            </Row>
                         </div>
                     </div>
                 </div>

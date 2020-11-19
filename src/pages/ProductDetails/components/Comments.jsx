@@ -29,57 +29,57 @@ const Comments = () => {
                 <Col md = "9">
                     <Row>
                         <Col xs = "2" md = "1">
-                            <Label>5</Label>
+                            <Label className = "comment-labels">5</Label>
                         </Col>
                         <Col xs = "12" md = "10">
                         <ProgressBar variant="warning" now={60} className = "comment-progress-bar"/> 
                         </Col>
                         <Col xs = "2" md = "1">
-                            <Label>54</Label>
+                            <Label className = "comment-labels">54</Label>
                         </Col>
                     </Row>
                     <Row>
                         <Col xs = "2" md = "1">
-                            <Label>4</Label>
+                            <Label className = "comment-labels">4</Label>
                         </Col>
                         <Col xs = "12" md = "10">
                         <ProgressBar variant="warning" now={20} className = "comment-progress-bar"/> 
                         </Col>
                         <Col xs = "2" md = "1">
-                            <Label>54</Label>
+                            <Label className = "comment-labels">54</Label>
                         </Col>
                     </Row>
                     <Row>
                         <Col xs = "2" md = "1">
-                            <Label>3</Label>
+                            <Label className = "comment-labels">3</Label>
                         </Col>
                         <Col xs = "12" md = "10">
                         <ProgressBar variant="warning" now={76} className = "comment-progress-bar"/> 
                         </Col>
                         <Col xs = "2" md = "1">
-                            <Label>54</Label>
+                            <Label className = "comment-labels">54</Label>
                         </Col>
                     </Row>
                     <Row>
                         <Col xs = "2" md = "1">
-                            <Label>2</Label>
+                            <Label className = "comment-labels">2</Label>
                         </Col>
                         <Col xs = "12" md = "10">
                         <ProgressBar variant="warning" now={32} className = "comment-progress-bar"/> 
                         </Col>
                         <Col xs = "2" md = "1">
-                            <Label>54</Label>
+                            <Label className = "comment-labels">54</Label>
                         </Col>
                     </Row>
                     <Row>
                         <Col xs = "2" md = "1">
-                            <Label>1</Label>
+                            <Label className = "comment-labels">1</Label>
                         </Col>
                         <Col xs = "12" md = "10">
                         <ProgressBar variant="warning" now={1} className = "comment-progress-bar"/> 
                         </Col>
                         <Col xs = "2" md = "1">
-                            <Label>54</Label>
+                            <Label className = "comment-labels">54</Label>
                         </Col>
                     </Row>
                   
@@ -87,8 +87,11 @@ const Comments = () => {
                 </Col>
             </Row>
             <Row >
-                <Col md = "1" className = "comment-img-col">
-                    <img src = {CommentDemoImage} alt="" className = "img-fluid user-comment-img"/>
+                <Col md = "1">
+                    <div className = "comment-image">
+                        <img src = {CommentDemoImage} alt="" className = "img-fluid user-comment-img"/>
+                    </div>
+                    
                 </Col>
                 <Col md = "7">
                     <Row>
@@ -101,7 +104,7 @@ const Comments = () => {
             </Row>
             <Row>
                 <Col xs = "12" md = "12">
-                    <Label className = "user-comment">Lorem ipsum dolor sit amet, consectetur adipiing elit. Duis ultrices magna et dui consequat.</Label>
+                    <Label className = "user-comment mt-3">Lorem ipsum dolor sit amet, consectetur adipiing elit. Duis ultrices magna et dui consequat.</Label>
                 </Col>
             </Row>
             </Col>

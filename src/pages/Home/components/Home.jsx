@@ -8,7 +8,7 @@ import { Row, Col, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import { GetRecommendations } from '../api/GetRequests';
-import { isLogin, getLogin } from '../../../config/LoginAuth';
+import { isLogin, getLogin } from '../../../config/loginAuth'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
 
 import Slider from 'react-slick';

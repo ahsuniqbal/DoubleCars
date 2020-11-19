@@ -48,12 +48,7 @@
     line-height: 21px;
     
 }
-.user-comment-img {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    margin-right: 0px;
-}
+
 
 .name-data-col {
     margin-left: -8px;
@@ -67,4 +62,26 @@
 
 .bg-warning {
     border-radius: 10px;
+    background-color: #FFC061 !important;
+}
+
+/* Comment image css */
+.comment-image {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+  
+}
+
+.user-comment-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 0px;
+}
+
+.comment-labels {
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.65);
 }
