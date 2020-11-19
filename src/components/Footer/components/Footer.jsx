@@ -4,16 +4,18 @@ import '../styles/Footer.css'
 import facebookicon from '../../../assets/facebook-icon.png'
 import instaicon from '../../../assets/insta-icon.png'
 import twittericon from '../../../assets/twitter-icon.png'
+import { Facebook, Instagram, Twitter } from 'react-feather';
 
 const Footer = () => {
     return (
         <div> 
-            <section className = "bottom-footer">
+            {/* Upper header starts here */}
+            <section className = "bottom-footer container-fluid">
                 <div className = "container-fluid">
                     <div className = "row">
                         <div className = "col-12 footer-image">
                             <div className = "row h-100">
-                                <div className = "col-md-4 offset-2 my-auto">
+                                <div className = "col-md-5 offset-1 my-auto">
                                     <h1 className = "car-dealer-head">
                                     Are you a car dealer?
                                     </h1>
@@ -24,7 +26,7 @@ const Footer = () => {
                                 </div>
 
                                 <div className = "col-md-2 offset-3 my-auto">
-                                <Button className=" learn-more-button-cover" to="">Learn More</Button>
+                                <Button className="learn-more-button-cover" to="">Learn More</Button>
                                 </div>
                             </div>
                         </div>
@@ -32,19 +34,16 @@ const Footer = () => {
                 </div>
                 </section>
             
-           
-            
-
-
-            <div className="container-fluid mt-5">
+           {/* Lower header starts here */}
+            <div className="container mt-5">
                 <Row>
                     <Col xs="12" md="3">
                         <Nav vertical>
                             <NavItem>
                                 <h4 className = "footer-dc"><strong>Double Cars</strong></h4>
                             </NavItem>
-                            <NavItem>
-                                <p>Maecenas ante lacus, viverra is in, egestas <br/>tincidunt nulla. Aliquam mi lectus, eleifend <br/> eget felis eget,</p>
+                            <NavItem >
+                                <p className = "discription-dc-footer">Maecenas ante lacus, viverra is in, egestas tincidunt nulla. Aliquam mi lectus, eleifend eget felis eget,</p>
                             </NavItem>
                             
                         </Nav>
@@ -96,10 +95,10 @@ const Footer = () => {
                             <NavLink className = "nav-text-color" href="#"><strong>Contact Information</strong></NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">support@doublecars.com</NavLink>
+                                <NavLink href="#" className = "footer-contact">support@doublecars.com</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">01 234 67890</NavLink>
+                                <NavLink href="#" className = "footer-contact">01 234 67890</NavLink>
                             </NavItem>
                         </Nav>
                     </Col>
@@ -107,10 +106,39 @@ const Footer = () => {
                 <hr/>
             </div>
 
-            <div className="container-fluid mt-3">
-                
+            <div className="container lower-container">
+                <Row>
+                    <Col md = "3">
+                    <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
+                    </Col>
 
-                <ul className = "bottom-footer-content">
+                    <Col md = "2">
+                    <NavLink className = "bootom-footer nav-text-color" href="#">Legal Information</NavLink>
+                    </Col>
+                    <Col md = "2">
+                    <NavLink className = "bootom-footer nav-text-color" href="#">Privacy Policy</NavLink>
+                    </Col>
+                    <Col md = "2">
+                    <NavLink className = "bootom-footer nav-text-color" href="#">Terms and Conditions</NavLink>
+                    </Col>
+                    <Col md = "3" className = "">
+                    
+                    <Row>
+                        <Col md = "4" className = "icons-columns ">
+                            <Facebook color="#1C67CE" size={20} className = "feather-icon"/>
+                        </Col >
+                        <Col md = "4" className = "icons-columns ">
+                            <Instagram color="#1C67CE" size={20} className = "feather-icon"/>
+                        </Col>
+                        <Col md = "4" className = "icons-columns ">
+                            <Twitter color="#1C67CE" size={20} className = "feather-icon"/>
+                        </Col>
+                    </Row>
+                    </Col>
+
+                </Row>
+
+                {/* <ul className = "bottom-footer-content">
                 <li>
                     <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
                 </li>
@@ -128,7 +156,7 @@ const Footer = () => {
                 <img className = "mr-2" src = {instaicon} alt = "insta" width = "5%"/>
                 <img src = {twittericon} alt = "twitter" width = "5%"/>
                 </li>
-                </ul>
+                </ul> */}
             </div>
         </div>
     );

@@ -6,6 +6,7 @@ import { Phone, Mail } from 'react-feather';
 
 const SellerDetails = (props) => {
     return(
+        // Public seller card starts here
             <Card className = "seller-card">
                 <CardBody>
                     <Row>
@@ -70,6 +71,53 @@ const SellerDetails = (props) => {
                         </Row>  
             </CardBody>
         </Card>
+        // Private seller card starts here
+        // <Card className = "seller-card">
+        //         <CardBody>
+        //             <Row>
+        //                 <Col md = "12">
+        //                     <Row>
+        //                         <Col md = "2" xs = "12">
+        //                             {
+        //                                 props.profilePic ?
+        //                                 <CardImg className = "Dealer-Profile-image" src={props.profilePic} alt="Company logo" />
+        //                                 :
+        //                                 null
+        //                             }
+                                    
+        //                         </Col>
+        //                         <Col md = "10" xs = "12">
+        //                             <Label className = "dealer-name">{props.fullName}</Label> <br/>
+        //                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
+        //                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
+        //                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
+        //                             <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-2" />
+        //                             <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-2" />
+        //                             <Label style= {{color: "#FFC061"}}>4.2</Label>
+        //                         </Col>
+        //                     </Row>
+        //                     <Row className = "mt-3">
+        //                         <Col md = "8">
+        //                             <h6 className = "about-seller-head">About seller</h6>
+        //                             {
+        //                                 props.aboutMe ? 
+        //                                 <p className = "seller-details-p">{props.aboutMe}</p>
+        //                                 :
+        //                                 <p className = "seller-details-p"> This seller has provided no information</p>
+        //                             }
+        //                         </Col>
+        //                         <Col md = "4">
+        //                             <h6 className = "contact-details">Contact Details</h6>
+                                    
+        //                             <p className = "contact-details-p"><Phone color="#1C67CE" size={20} className = "mr-2"/>{props.phNum}</p>
+        //                             <p className = "contact-details-p"><Mail color="#1C67CE" size={20} className = "mr-2"/>{props.email}</p>
+        //                         </Col>
+        //                     </Row>
+        //                 </Col>
+                        
+        //                 </Row>  
+        //     </CardBody>
+        // </Card>
     )
 }
 

@@ -46,6 +46,7 @@ const DrawCarouselCols = (list,index) => {
     var table = [];
     for(let i = index; i < 10 ; i++){
         table.push(
+            <Col xs="12" sm="6" lg="4">
             <ProductCard 
             // key={i}
                     productId= "asas"
@@ -55,6 +56,7 @@ const DrawCarouselCols = (list,index) => {
                     productSubtitle="miles"
                     productText = "3455"
             />
+            </Col>
         );
     }
     return table;
@@ -132,11 +134,11 @@ const Home = () => {
                                         recommnedations ? DrawProductCards(recommnedations) : <div>Loading your recommendations</div>
                                     }
                                 </Slider>  */}
-                                <Carousel indicators={false}>
+                                {/* <Carousel indicators={false}>
                                 {
                                     recommnedations ? DrawCarousel(recommnedations) : <div>Loading your recommendations</div>
                                 }
-                                </Carousel>
+                                </Carousel> */}
                             </Col>
                         </Row>
                     </CardBody>
@@ -158,11 +160,11 @@ const Home = () => {
                         
                         <Row>
                             <Col>
-                            <Carousel indicators={false}>
+                            {/* <Carousel indicators={false}>
                                 {
                                     trending ? DrawCarousel(trending) : <div>Loading your recommendations</div>
                                 }
-                                </Carousel>
+                                </Carousel> */}
                             </Col>
                         </Row>
 
