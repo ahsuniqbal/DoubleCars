@@ -4,7 +4,7 @@ import PopularMake from './PopularMake'
 import TrendingBodyTypes from './TrendingBodyTypes/TrendingBodyTypes'
 import BuyNow from './BuyNow';
 import Searchbar from './Searchbar';
-import { Row, Col, CardBody } from 'reactstrap';
+import { Row, Col, CardBody, Carousel } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import { GetRecommendations } from '../api/GetRequests';

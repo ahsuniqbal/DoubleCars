@@ -22,7 +22,7 @@ const Header = () => {
                                     </h5>
                                     <Row>
                                         <Col md = "12" className = "">
-                                        <Button className="ml-5 download-button-cover" to="">Download App</Button>
+                                        <Button className="ml-5 mt-4 download-button-cover" to="">Download App</Button>
                                         </Col>
                                     </Row>
                                     

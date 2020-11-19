@@ -12,13 +12,13 @@
 .cover-left-heading {
   color: #ffffff;
   font-size: 62px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .header-sub-head {
   font-size: 20px;
   color: white;
-  font-weight: 600;
+  font-weight: normal;
   line-height: 20px;
 }
 
@@ -34,8 +34,6 @@
   line-height: 19px;
   font-weight: bold;
 }
-  
-  
   
   /* Right section css */
 .right-cover-section {
