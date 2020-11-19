@@ -66,6 +66,10 @@
 }
 
 
+.image-gallery-icon:focus{
+    outline: none;
+}
+
 /* Gallery description */
 .image-gallery-slide .image-gallery-description{
     width: 100%;
