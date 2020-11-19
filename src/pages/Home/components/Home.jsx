@@ -15,6 +15,11 @@ import ProductCard from '../../../components//ProductCard/components/ProductCard
 import '../styles/RecommendedCar.css';
 import '../styles/TrendingCar.css';
 
+function numberWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
 // function DrawProductCards(data){
 //     var table = [];
 //     for(let i = 0; i < data.length; i++){

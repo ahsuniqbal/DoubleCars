@@ -29,10 +29,16 @@
 
 .image-gallery-thumbnail .image-gallery-thumbnail-image{
     opacity: 0.47;
+    max-height: 65px;
+    object-fit: contain;
 }
 
 .image-gallery-thumbnail.active .image-gallery-thumbnail-image{
     opacity: 1;
+}
+
+.image-gallery-slide .image-gallery-image{
+    object-fit: contain;
 }
 
 
@@ -43,11 +49,11 @@
 }
 
 .image-gallery-left-nav{
-    left: -25px;
+    left: -30px;
 }
 
 .image-gallery-right-nav{
-    right: -25px;
+    right: -30px;
 }
 
 .image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg{
