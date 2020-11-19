@@ -110,3 +110,9 @@ height: 48px ;
     max-height:100%;
   }
 
+
+  .seller-rate {
+      color: #FFC061;
+      font-size: 14px;
+      line-height: 14px;
+  }
