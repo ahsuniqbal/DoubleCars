@@ -11,7 +11,7 @@ import democar from '../../../assets/DemoCar.png'
 import { GetRecommendations } from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
-
+import '../styles/Home.css'
 import '../styles/RecommendedCar.css';
 import '../styles/TrendingCar.css';
 
@@ -114,7 +114,7 @@ const Home = () => {
                     <Searchbar />
                 </Col>
             </Row>
-
+            <div className = "recommend-trend-body">
             <Row>
                 <Col xs="12">
                     <CardBody className = "recommended-cars">
@@ -129,12 +129,6 @@ const Home = () => {
                         </Row>
                     
                         <Row>
-                            {/* <Col xs="12"> */}
-                                {/* <Slider {...settings}>
-                                    {
-                                        recommnedations ? DrawProductCards(recommnedations) : <div>Loading your recommendations</div>
-                                    }
-                                </Slider>  */}
                                 <Carousel indicators={false}>
                                 {
                                     recommnedations ? DrawCarousel(recommnedations) : <div>Loading your recommendations</div>
@@ -161,18 +155,19 @@ const Home = () => {
                         
                         <Row>
                             <Col>
-                            {/* <Carousel indicators={false}>
+                            <Carousel indicators={false}>
                                 {
                                     trending ? DrawCarousel(trending) : <div>Loading your recommendations</div>
                                 }
-                                </Carousel> */}
+                                </Carousel>
                             </Col>
                         </Row>
 
-                        
                     </CardBody>
                 </Col>
             </Row>
+            </div>
+            
 
             
             <div className = "trending-body-types">
