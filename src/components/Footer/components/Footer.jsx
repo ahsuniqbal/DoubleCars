@@ -1,9 +1,6 @@
 import React from "react"
 import {Row, Col, Nav, NavItem, Button, NavLink} from 'reactstrap'
 import '../styles/Footer.css'
-import facebookicon from '../../../assets/facebook-icon.png'
-import instaicon from '../../../assets/insta-icon.png'
-import twittericon from '../../../assets/twitter-icon.png'
 import { Facebook, Instagram, Twitter } from 'react-feather';
 
 const Footer = () => {

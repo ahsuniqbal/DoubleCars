@@ -106,7 +106,7 @@ const Home = () => {
 
    
     return(
-        <div>
+        <div className = "landing-page-dc">
             <Header/>
             <Row>
                 <Col xs="1"></Col>
@@ -114,7 +114,7 @@ const Home = () => {
                     <Searchbar />
                 </Col>
             </Row>
-            <div className = "recommend-trend-body">
+            <div>
             <Row>
                 <Col xs="12">
                     <CardBody className = "recommended-cars">
