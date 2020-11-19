@@ -35,9 +35,11 @@ import '../styles/TrendingCar.css';
 // }
 
 
+
+
 const DrawCarouselCols = (list,index) => {
     var table = [];
-    for(let i = index; i < list.length ; i++){
+    for(let i = index; i < 10 ; i++){
         table.push(
             <ProductCard 
             // key={i}
