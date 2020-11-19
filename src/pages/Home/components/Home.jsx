@@ -128,9 +128,9 @@ const Home = () => {
                                     }
                                 </Slider>  */}
                                 <Carousel indicators={false}>
-                                {/* {
-                                    DrawCarousel(recommnedations) 
-                                } */}
+                                {
+                                    recommnedations ? DrawCarousel(recommnedations) : <div>Loading your recommendations</div>
+                                }
                                 </Carousel>
                             </Col>
                         </Row>
@@ -154,9 +154,9 @@ const Home = () => {
                         <Row>
                             <Col>
                             <Carousel indicators={false}>
-                                {/* {
-                                    DrawCarousel(trending) 
-                                } */}
+                                {
+                                    trending ? DrawCarousel(trending) : <div>Loading your recommendations</div>
+                                }
                                 </Carousel>
                             </Col>
                         </Row>
