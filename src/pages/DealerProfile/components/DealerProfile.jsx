@@ -18,7 +18,7 @@ const ShowSearchResults = (inventory) => {
                 <ProductCard
                     productId={inventory[i].productId}
                     productTitle={inventory[i].yearCar + " " + inventory[i].carModel + " " + inventory[i].carMake}
-                    productSubtitle={numberWithCommas(inventory[i].mileage) + " miles · " + inventory[i].zipCode}
+                    mileage={numberWithCommas(inventory[i].mileage) + " miles · " + inventory[i].zipCode}
                     productText={"$" + numberWithCommas(inventory[i].price)}
                     productImg={inventory[i].coverPic}
                     productName={inventory[i].yearCar + " " + inventory[i].carModel + " " + inventory[i].carMake}
@@ -32,8 +32,8 @@ const ShowSearchResults = (inventory) => {
 }
 
 const DealerProfile = ({match}) => {
-    const [dealer, setDealer] = useState([]);
-    const [inventory, setInventory] = useState([]);
+    const [dealer, setDealer] = useState(null);
+    const [inventory, setInventory] = useState(null);
     
     useEffect(() => {
         GetSellerDetails(match.params.id).then(doc => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Row, Col, Label, Container} from 'reactstrap';
+import { NavLink, Row, Col } from 'reactstrap';
 import Gallery from './Gallery';
 import Information from './Information';
 import CarFeatures from './CarFeatures';

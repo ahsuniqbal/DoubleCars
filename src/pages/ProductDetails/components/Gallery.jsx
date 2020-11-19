@@ -1,7 +1,6 @@
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
 import '../styles/Gallery.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Bookmark } from 'react-feather';
 
 const Gallery = (props) => {

@@ -6,8 +6,6 @@ import { GetSearchResult } from '../api/GetRequests';
 import Skeleton from '@material-ui/lab/Skeleton';
 import '../styles/Products.css';
 
-
-
 function numberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -33,6 +31,29 @@ const ShowSearchResults = (products) => {
                     allowBookmark={true} />
             </Col>
         );        
+    }
+    return table;
+}
+
+function DrawSkeleton(){
+    var table = [];
+    for(let i = 0; i < 6; i++){
+        table.push(
+            <Col xs="12" sm="6" lg="4">
+                <Skeleton variant="rect" width={298} height={178} animation="wave" />
+                <Skeleton variant="text" animation="wave" />
+                <Skeleton variant="text" animation="wave" />
+                <Skeleton variant="text" animation="wave" />
+                <Row>
+                    <Col xs="3">
+                        <Skeleton variant="text" width={50} height={50} animation="wave" />
+                    </Col>
+                    <Col xs="9" className="mt-2">
+                        <Skeleton variant="text" animation="wave" />
+                    </Col>
+                </Row>
+            </Col>
+        );
     }
     return table;
 }
@@ -106,21 +127,7 @@ const Products = ({location}) => {
                     </Row>
                     <Row>
                         {
-                            products ? ShowSearchResults(products) : 
-                            <Col xs="12" sm="6" lg="4">
-                                <Skeleton variant="rect" width={298} height={178} animation="wave" />
-                                <Skeleton variant="text" animation="wave" />
-                                <Skeleton variant="text" animation="wave" />
-                                <Skeleton variant="text" animation="wave" />
-                                <Row>
-                                    <Col xs="3">
-                                        <Skeleton variant="text" width={50} height={50} animation="wave" />
-                                    </Col>
-                                    <Col xs="9" className="mt-2">
-                                        <Skeleton variant="text" animation="wave" />
-                                    </Col>
-                                </Row>
-                            </Col>
+                            products ? ShowSearchResults(products) : DrawSkeleton()
                         }
                     </Row>
                 </Col>
