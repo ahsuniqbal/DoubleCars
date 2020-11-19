@@ -39,7 +39,6 @@ const SellerDetails = (props) => {
                                         :
                                         <p className = "seller-details-p">This seller has provided no information</p>
                                     }
-                                    
                                 </Col>
                                 <Col md = "5">
                                     <h6 className = "contact-details">Contact Details</h6>

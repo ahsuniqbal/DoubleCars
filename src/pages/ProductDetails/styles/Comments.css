@@ -48,12 +48,7 @@
     line-height: 21px;
     
 }
-.user-comment-img {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    margin-right: 0px;
-}
+
 
 .name-data-col {
     margin-left: -8px;
@@ -67,4 +62,20 @@
 
 .bg-warning {
     border-radius: 10px;
+}
+
+/* Comment image css */
+.comment-image {
+    border-radius: 50%;
+   
+  position:relative;
+  overflow:hidden;
+}
+
+.user-comment-img {
+    position:absolute; 
+ 
+  margin: auto;
+  width:48px;
+  height: 48px;
 }

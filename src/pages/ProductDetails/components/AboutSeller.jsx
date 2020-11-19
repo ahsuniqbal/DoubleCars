@@ -32,9 +32,12 @@ const SellerDetails = (props) => {
                     <CardBody className = "">
                         <Row>
                             <Col xs="3">
-                                <CardImg src={dealer.profilePic} alt={dealer.fullName} />
+                                <div className = "seller-name-image">
+                                    <CardImg className = "seller-img" src={dealer.profilePic} alt={dealer.fullName} height = "100%" width = "100%"/>
+                                </div>
+                                
                             </Col>
-                            <Col xs = "9">
+                            <Col xs = "9" className = "seller-column">
                                 <Label className = "seller-name">{dealer.fullName}</Label> <br/>
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />

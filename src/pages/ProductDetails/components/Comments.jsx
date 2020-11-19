@@ -87,8 +87,11 @@ const Comments = () => {
                 </Col>
             </Row>
             <Row >
-                <Col md = "1" className = "comment-img-col">
-                    <img src = {CommentDemoImage} className = "img-fluid user-comment-img"/>
+                <Col md = "2">
+                    <div className = "comment-image">
+                        <img src = {CommentDemoImage} className = "img-fluid user-comment-img"/>
+                    </div>
+                    
                 </Col>
                 <Col md = "7">
                     <Row>
