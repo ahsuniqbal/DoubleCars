@@ -44,18 +44,18 @@ function numberWithCommas(number) {
 
 const DrawCarouselCols = (list,index) => {
     var table = [];
-    for(let i = index; i < 10 ; i++){
+    for(let i = index; i < index + 4 ; i++){
         table.push(
-            <Col xs="12" sm="6" lg="4">
-            <ProductCard 
-            // key={i}
-                    productId= "asas"
-                    productImg={democar}
-                    productName="Car" 
-                    productTitle="Car"
-                    productSubtitle="miles"
-                    productText = "3455"
-            />
+            <Col xs="12" sm="4" lg="3">
+                <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
             </Col>
         );
     }
@@ -69,11 +69,12 @@ const DrawCarousel = (list) => {
             <Carousel.Item>
                 <Row>
                 {
-                    DrawCarouselCols(list,i)
+                    DrawCarouselCols(list, i)
                 }
                 </Row>
             </Carousel.Item>
         );
+        i+=3;
     }
     return table;
 }
@@ -128,18 +129,18 @@ const Home = () => {
                         </Row>
                     
                         <Row>
-                            <Col>
+                            {/* <Col xs="12"> */}
                                 {/* <Slider {...settings}>
                                     {
                                         recommnedations ? DrawProductCards(recommnedations) : <div>Loading your recommendations</div>
                                     }
                                 </Slider>  */}
-                                {/* <Carousel indicators={false}>
+                                <Carousel indicators={false}>
                                 {
                                     recommnedations ? DrawCarousel(recommnedations) : <div>Loading your recommendations</div>
                                 }
-                                </Carousel> */}
-                            </Col>
+                                </Carousel>
+                            {/* </Col> */}
                         </Row>
                     </CardBody>
                 </Col>
