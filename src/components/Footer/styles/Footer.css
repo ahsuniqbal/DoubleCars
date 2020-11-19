@@ -23,6 +23,7 @@
       cursor: pointer;
       padding: 14px 28px !important;
       font-size: 16px !important;
+      font-weight: bold;
   }
 
   .car-dealer-head {
@@ -34,7 +35,8 @@
   .car-dealer-head5 {
     font-weight: normal;
     font-size: 18px;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.85);
+
   }
 
   .nav-text-color {
@@ -66,6 +68,31 @@
     justify-content: center;   
 }
 
+.footer-contact {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #1C67CE;
+}
+
+.lower-container {
+  margin-top: -30px;
+}
+
+.discription-dc-footer {
+  color: rgba(8, 11, 48, 0.85);
+  font-size: 15px;
+  font-weight: normal;
+}
+.icons-all-columns {
+  margin-right: -20px;
+}
+
+.feather-icon {
+  margin-left: 90px;
+}
+.icons-columns {
+  margin-right: -66px;
+}
 
 @media (max-width: 767px) {
   .bottom-footer-content {

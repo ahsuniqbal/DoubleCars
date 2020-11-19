@@ -134,11 +134,11 @@ const Home = () => {
                                         recommnedations ? DrawProductCards(recommnedations) : <div>Loading your recommendations</div>
                                     }
                                 </Slider>  */}
-                                <Carousel indicators={false}>
+                                {/* <Carousel indicators={false}>
                                 {
                                     recommnedations ? DrawCarousel(recommnedations) : <div>Loading your recommendations</div>
                                 }
-                                </Carousel>
+                                </Carousel> */}
                             </Col>
                         </Row>
                     </CardBody>
@@ -160,11 +160,11 @@ const Home = () => {
                         
                         <Row>
                             <Col>
-                            <Carousel indicators={false}>
+                            {/* <Carousel indicators={false}>
                                 {
                                     trending ? DrawCarousel(trending) : <div>Loading your recommendations</div>
                                 }
-                                </Carousel>
+                                </Carousel> */}
                             </Col>
                         </Row>
 
