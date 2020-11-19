@@ -5,12 +5,16 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUser, faStar, faMapPin, faPhone, faSearch, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
+import logo from './assets/DCLogo.jpg';
 
 
 library.add(faUser, faStar, faBookmark, faMapPin, faPhone, faSearch, faEnvelope);
 
 //fallback loading
-const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
+// const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
+const loading = () => <div className="preloader">
+  <img src={logo} alt="Double Cars preloader" className="img-fluid" />
+</div>
 
 const DefaultLayout = React.lazy(() => import('./components/DefaultLayout'));
 
