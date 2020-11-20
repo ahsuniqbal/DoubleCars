@@ -48,14 +48,60 @@ const TrendingBody3 = () => {
         <div>  
             
             
+            <Carousel indicators={false}>
             <Row>
-                <Carousel indicators={false}>
-                {
-                    trending3 ? DrawCarousel(trending3) : <div>Loading your recommendations</div>
-                }
-                </Carousel>
-                           
-                        </Row>
+                <Col md = "4" xs = "12" lg = "3">
+               
+                <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+                </Col>  
+                <Col md = "4" xs = "12" lg = "3">
+               
+                <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+                </Col> 
+                <Col md = "4" xs = "12" lg = "3">
+               
+               <ProductCard 
+               // key={i}
+                       productId= "asas"
+                       productImg={democar}
+                       productName="Car" 
+                       productTitle="Car"
+                       productSubtitle="miles"
+                       productText = "3455"
+               />
+               </Col> 
+               <Col md = "4" xs = "12" lg = "3">
+               
+                <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+                </Col> 
+               
+                         
+            </Row>
+            </Carousel>
             
         </div>    
     );

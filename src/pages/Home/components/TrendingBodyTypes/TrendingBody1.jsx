@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 import democar from '../../../../assets/DemoCar.png'
 import ProductCard from '../../../../components/ProductCard/components/ProductCard';
-
 import { Row, Col, CardBody } from 'reactstrap';
 import '../../styles/TrendingBodyTypes.css'
 
@@ -49,16 +48,60 @@ const TrendingBody1 = () => {
     const [trending1] = useState(null);
     return(
         <div>  
-            
-            
+            <Carousel indicators={false}>
             <Row>
-                <Carousel indicators={false}>
-                {
-                    trending1 ? DrawCarousel(trending1) : <div>Loading your recommendations</div>
-                }
-                </Carousel>
-                           
-                        </Row>
+                <Col md = "4" xs = "12" lg = "3">
+               
+                <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+                </Col>  
+                <Col md = "4" xs = "12" lg = "3">
+               
+                <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+                </Col> 
+                <Col md = "4" xs = "12" lg = "3">
+               
+               <ProductCard 
+               // key={i}
+                       productId= "asas"
+                       productImg={democar}
+                       productName="Car" 
+                       productTitle="Car"
+                       productSubtitle="miles"
+                       productText = "3455"
+               />
+               </Col> 
+               <Col md = "4" xs = "12" lg = "3">
+               
+                <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+                </Col> 
+               
+                         
+            </Row>
+            </Carousel>
             
         </div>    
     );
