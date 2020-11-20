@@ -42,20 +42,19 @@ function numberWithCommas(number) {
 
 
 
-const DrawCarouselCols = (list,index) => {
-    console.log(list);
+const DrawCarouselCols = (list, index) => {
     var table = [];
-    for(let i = index; i < index + 4 ; i++){
+    for(let i = index; i < index + 4; i++){
         table.push(
             <Col xs="12" sm="4" lg="3">
                 <ProductCard 
                     key={i}
                     productId={list[i].productId}
                     productImg={list[i].coverPic}
-                    productName="Car" 
-                    productTitle="Car"
-                    productSubtitle="miles"
-                    productText = "3455"
+                    productName={list[i].name}
+                    productTitle={list[i].name}
+                    productSubtitle={numberWithCommas(list[i].mileage) + " miles · " + list[i].zipCode}
+                    productText={numberWithCommas(list[i].price)}
                 />
             </Col>
         );
@@ -75,7 +74,7 @@ const DrawCarousel = (list) => {
                 </Row>
             </Carousel.Item>
         );
-        i+=3;
+        i+=4;
     }
     return table;
 }
@@ -135,7 +134,6 @@ const Home = () => {
                                 recommnedations ? DrawCarousel(recommnedations) : <div>Loading your recommendations</div>
                             }
                             </Carousel>
-                            {/* </Col> */}
                         </Row>
                     </CardBody>
                 </Col>
@@ -157,9 +155,9 @@ const Home = () => {
                         <Row>
                             <Col>
                             <Carousel indicators={false}>
-                                {/* {
+                                {
                                     trending ? DrawCarousel(trending) : <div>Loading your recommendations</div>
-                                } */}
+                                }
                                 </Carousel>
                             </Col>
                         </Row>
