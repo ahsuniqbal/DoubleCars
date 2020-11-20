@@ -43,19 +43,110 @@ const DrawCarousel = (list) => {
 
 
 const TrendingBody4 = () => {
-    const [trending4] = useState(null);
     return(
         <div>  
-            
-            
-            <Row>
-                <Carousel indicators={false}>
-                {
-                    trending4 ? DrawCarousel(trending4) : <div>Loading your recommendations</div>
-                }
-                </Carousel>
-                           
-                        </Row>
+            <Carousel indicators={false}>
+               <Carousel.Item>
+                <Row>
+                    <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+                </Row>
+               
+               </Carousel.Item>
+               <Carousel.Item>
+                <Row>
+                    <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+                </Row>
+               
+               </Carousel.Item>
+              
+         
+            </Carousel>
             
         </div>    
     );
