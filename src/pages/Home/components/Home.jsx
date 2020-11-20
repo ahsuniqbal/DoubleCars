@@ -43,18 +43,19 @@ function numberWithCommas(number) {
 
 
 const DrawCarouselCols = (list,index) => {
+    console.log(list);
     var table = [];
     for(let i = index; i < index + 4 ; i++){
         table.push(
             <Col xs="12" sm="4" lg="3">
                 <ProductCard 
-                // key={i}
-                        productId= "asas"
-                        productImg={democar}
-                        productName="Car" 
-                        productTitle="Car"
-                        productSubtitle="miles"
-                        productText = "3455"
+                    key={i}
+                    productId={list[i].productId}
+                    productImg={list[i].coverPic}
+                    productName="Car" 
+                    productTitle="Car"
+                    productSubtitle="miles"
+                    productText = "3455"
                 />
             </Col>
         );
@@ -129,11 +130,11 @@ const Home = () => {
                         </Row>
                     
                         <Row>
-                                <Carousel indicators={false}>
-                                {
-                                    recommnedations ? DrawCarousel(recommnedations) : <div>Loading your recommendations</div>
-                                }
-                                </Carousel>
+                            <Carousel indicators={false}>
+                            {
+                                recommnedations ? DrawCarousel(recommnedations) : <div>Loading your recommendations</div>
+                            }
+                            </Carousel>
                             {/* </Col> */}
                         </Row>
                     </CardBody>
@@ -156,9 +157,9 @@ const Home = () => {
                         <Row>
                             <Col>
                             <Carousel indicators={false}>
-                                {
+                                {/* {
                                     trending ? DrawCarousel(trending) : <div>Loading your recommendations</div>
-                                }
+                                } */}
                                 </Carousel>
                             </Col>
                         </Row>
