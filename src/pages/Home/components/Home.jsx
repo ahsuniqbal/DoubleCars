@@ -53,7 +53,7 @@ const DrawSkeleton = () => {
                 </Row>
             </Carousel.Item>
         );
-        i+=4;
+        i+=3;
     }
     return table;
 }
@@ -63,7 +63,7 @@ const DrawSkeletonCols = (index) => {
     var table = [];
     for(let i = index; i < index + 4; i++){
         table.push(
-            <Col key={i} xs="12" sm="6" lg="4">
+            <Col key={i} xs="12" sm="6" lg="3">
                 <Skeleton variant="rect" width={298} height={178} animation="wave" />
                 <Skeleton variant="text" animation="wave" />
                 <Skeleton variant="text" animation="wave" />
@@ -84,7 +84,6 @@ const DrawSkeletonCols = (index) => {
 
 const DrawCarouselCols = (list, index) => {
     var table = [];
-    console.log("List", list);
     for(let i = index; i < index + 4; i++){
         if(i > list.length - 1){
             return table;

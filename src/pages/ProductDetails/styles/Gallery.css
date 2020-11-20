@@ -38,7 +38,7 @@
 }
 
 .image-gallery-slide .image-gallery-image{
-    object-fit: contain;
+    object-fit: cover;
 }
 
 
