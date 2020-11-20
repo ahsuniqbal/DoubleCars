@@ -6,8 +6,8 @@ import BuyNow from './BuyNow';
 import Searchbar from './Searchbar';
 import { Row, Col, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import Carousel from 'react-bootstrap/Carousel'
-import democar from '../../../assets/DemoCar.png'
+import Carousel from 'react-bootstrap/Carousel';
+import Skeleton from '@material-ui/lab/Skeleton';
 import { GetRecommendations } from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
@@ -41,21 +41,69 @@ function numberWithCommas(number) {
 
 
 
+const DrawSkeleton = () => {
+    var table = [];
+    for(let i = 0; i < 4; i++){
+        table.push(
+            <Carousel.Item>
+                <Row>
+                    {
+                        DrawSkeletonCols(i)
+                    }
+                </Row>
+            </Carousel.Item>
+        );
+        i+=4;
+    }
+    return table;
+}
 
-const DrawCarouselCols = (list, index) => {
+
+const DrawSkeletonCols = (index) => {
     var table = [];
     for(let i = index; i < index + 4; i++){
         table.push(
+            <Col key={i} xs="12" sm="6" lg="4">
+                <Skeleton variant="rect" width={298} height={178} animation="wave" />
+                <Skeleton variant="text" animation="wave" />
+                <Skeleton variant="text" animation="wave" />
+                <Skeleton variant="text" animation="wave" />
+                <Row>
+                    <Col xs="3">
+                        <Skeleton variant="text" width={50} height={50} animation="wave" />
+                    </Col>
+                    <Col xs="9" className="mt-2">
+                        <Skeleton variant="text" animation="wave" />
+                    </Col>
+                </Row>
+            </Col>
+        );
+    }
+    return table;
+}
+
+const DrawCarouselCols = (list, index) => {
+    var table = [];
+    console.log("List", list);
+    for(let i = index; i < index + 4; i++){
+        if(i > list.length - 1){
+            return table;
+        }
+        table.push(
             <Col xs="12" sm="4" lg="3">
-                <ProductCard 
+                {
+                    list[i].productId ? <ProductCard 
                     key={i}
                     productId={list[i].productId}
                     productImg={list[i].coverPic}
                     productName={list[i].name}
                     productTitle={list[i].name}
                     productSubtitle={numberWithCommas(list[i].mileage) + " miles · " + list[i].zipCode}
-                    productText={numberWithCommas(list[i].price)}
+                    productText={"$" + numberWithCommas(list[i].price)}
                 />
+                 : null
+                }
+                
             </Col>
         );
     }
@@ -74,7 +122,7 @@ const DrawCarousel = (list) => {
                 </Row>
             </Carousel.Item>
         );
-        i+=4;
+        i+=3;
     }
     return table;
 }
@@ -83,7 +131,7 @@ const DrawCarousel = (list) => {
 
 
 const Home = () => {
-    const [recommnedations, setRecommendations] = useState(null);
+    const [recommendations, setRecommendations] = useState(null);
     const [trending, setTrending] = useState(null);
 
     useEffect(() => {
@@ -92,6 +140,7 @@ const Home = () => {
 
         if(isLogin()){
             GetRecommendations(getLogin()).then(doc => {
+                
                 setRecommendations(doc[0].data);
                 setTrending(doc[1].data);
             })
@@ -124,16 +173,18 @@ const Home = () => {
                             </Col>
 
                             <Col md = "6" xs = "12" className = "text-right">
-                                <Link>View All</Link>
+                                <Link to="/products">View All</Link>
                             </Col>
                         </Row>
                     
                         <Row>
-                            <Carousel indicators={false}>
-                            {
-                                recommnedations ? DrawCarousel(recommnedations) : <div>Loading your recommendations</div>
-                            }
-                            </Carousel>
+                            <Col>
+                                <Carousel indicators={false}>
+                                {
+                                    recommendations ? DrawCarousel(recommendations) : DrawSkeleton()
+                                }
+                                </Carousel>
+                            </Col>
                         </Row>
                     </CardBody>
                 </Col>
@@ -148,15 +199,15 @@ const Home = () => {
                             </Col>
 
                             <Col md = "6" xs = "12" className = "text-right">
-                                <Link>View All</Link>
+                                <Link to="/products">View All</Link>
                             </Col>
                         </Row>
                         
                         <Row>
                             <Col>
-                            <Carousel indicators={false}>
+                                <Carousel indicators={false}>
                                 {
-                                    trending ? DrawCarousel(trending) : <div>Loading your recommendations</div>
+                                    trending ? DrawCarousel(trending) : DrawSkeleton()
                                 }
                                 </Carousel>
                             </Col>
