@@ -46,13 +46,11 @@ const TrendingBody5 = () => {
     const [trending5] = useState(null);
     return(
         <div>  
-            
-            
-            <Carousel indicators={false}>
-            <Row>
-                <Col md = "4" xs = "12" lg = "3">
-               
-                <ProductCard 
+           <Carousel indicators={false}>
+               <Carousel.Item>
+                <Row>
+                    <Col md = "3" xs = "12">
+                    <ProductCard 
                 // key={i}
                         productId= "asas"
                         productImg={democar}
@@ -61,10 +59,9 @@ const TrendingBody5 = () => {
                         productSubtitle="miles"
                         productText = "3455"
                 />
-                </Col>  
-                <Col md = "4" xs = "12" lg = "3">
-               
-                <ProductCard 
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
                 // key={i}
                         productId= "asas"
                         productImg={democar}
@@ -73,22 +70,9 @@ const TrendingBody5 = () => {
                         productSubtitle="miles"
                         productText = "3455"
                 />
-                </Col> 
-                <Col md = "4" xs = "12" lg = "3">
-               
-               <ProductCard 
-               // key={i}
-                       productId= "asas"
-                       productImg={democar}
-                       productName="Car" 
-                       productTitle="Car"
-                       productSubtitle="miles"
-                       productText = "3455"
-               />
-               </Col> 
-               <Col md = "4" xs = "12" lg = "3">
-               
-                <ProductCard 
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
                 // key={i}
                         productId= "asas"
                         productImg={democar}
@@ -97,10 +81,72 @@ const TrendingBody5 = () => {
                         productSubtitle="miles"
                         productText = "3455"
                 />
-                </Col> 
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+                </Row>
                
-                         
-            </Row>
+               </Carousel.Item>
+               <Carousel.Item>
+                <Row>
+                    <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+                </Row>
+               
+               </Carousel.Item>
+              
+         
             </Carousel>
         </div>    
     );

@@ -49,10 +49,10 @@ const TrendingBody1 = () => {
     return(
         <div>  
             <Carousel indicators={false}>
-            <Row>
-                <Col md = "4" xs = "12" lg = "3">
-               
-                <ProductCard 
+               <Carousel.Item>
+                <Row>
+                    <Col md = "3" xs = "12">
+                    <ProductCard 
                 // key={i}
                         productId= "asas"
                         productImg={democar}
@@ -61,10 +61,9 @@ const TrendingBody1 = () => {
                         productSubtitle="miles"
                         productText = "3455"
                 />
-                </Col>  
-                <Col md = "4" xs = "12" lg = "3">
-               
-                <ProductCard 
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
                 // key={i}
                         productId= "asas"
                         productImg={democar}
@@ -73,22 +72,9 @@ const TrendingBody1 = () => {
                         productSubtitle="miles"
                         productText = "3455"
                 />
-                </Col> 
-                <Col md = "4" xs = "12" lg = "3">
-               
-               <ProductCard 
-               // key={i}
-                       productId= "asas"
-                       productImg={democar}
-                       productName="Car" 
-                       productTitle="Car"
-                       productSubtitle="miles"
-                       productText = "3455"
-               />
-               </Col> 
-               <Col md = "4" xs = "12" lg = "3">
-               
-                <ProductCard 
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
                 // key={i}
                         productId= "asas"
                         productImg={democar}
@@ -97,10 +83,72 @@ const TrendingBody1 = () => {
                         productSubtitle="miles"
                         productText = "3455"
                 />
-                </Col> 
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+                </Row>
                
-                         
-            </Row>
+               </Carousel.Item>
+               <Carousel.Item>
+                <Row>
+                    <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+               <Col md = "3" xs = "12">
+                    <ProductCard 
+                // key={i}
+                        productId= "asas"
+                        productImg={democar}
+                        productName="Car" 
+                        productTitle="Car"
+                        productSubtitle="miles"
+                        productText = "3455"
+                />
+               </Col>
+                </Row>
+               
+               </Carousel.Item>
+              
+         
             </Carousel>
             
         </div>    
