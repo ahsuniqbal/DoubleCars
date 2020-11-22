@@ -157,8 +157,6 @@ const Home = () => {
         <div className = "landing-page-dc">
             <Header/>
             <Container>
-
-            
             <Row>
                 <Col xs="1"></Col>
                 <Col xs="10">
