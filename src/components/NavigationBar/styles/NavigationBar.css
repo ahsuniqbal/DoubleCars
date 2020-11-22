@@ -6,6 +6,10 @@
     font-size: 1.9rem !important;
     color: #000000 !important;
 }
+
+.navigation-bar {
+    height: 80px; 
+}
 .navigation-bar-box {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
    

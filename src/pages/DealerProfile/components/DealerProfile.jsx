@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col ,Row, Label, Input} from 'reactstrap';
+import { Col ,Row, Label, Input, Container} from 'reactstrap';
 import Filters from '../../../components/ProductFilters/components/Filters';
 import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
@@ -45,7 +45,9 @@ const DealerProfile = ({match}) => {
     }, []);
 
     return(
-        <div className = "container-fluid">
+        <Container>
+
+       
             <Row>
                 <Col md = "3">
                     <Filters/>
@@ -95,7 +97,7 @@ const DealerProfile = ({match}) => {
                     </Row>
                 </Col>
             </Row>
-        </div>
+            </Container>
     )
 }
 
