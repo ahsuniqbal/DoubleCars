@@ -3,6 +3,8 @@
     box-shadow: 0px 0px 40px rgba(44, 44, 44, 0.08);
     border-radius: 8px;
     border-color: white ;
+
+ 
 }
 
 .searchbar .card-title{
@@ -35,6 +37,12 @@
     border: none;
 }
 
+.search-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.45);
+   /* line-height: 17px; */
+    font-size: 16px;
+  }
+
 .searchbar .search-box:focus, .searchbar .form-control{
     box-shadow: none;
 }
@@ -43,4 +51,10 @@
     background-color: #F9F9F9;
     color: #898989;
     border: none;
+}
+
+.advance-search {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
