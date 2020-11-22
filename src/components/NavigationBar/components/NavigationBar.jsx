@@ -6,7 +6,7 @@ import DCLogo from '../../../assets/DCLogo.jpg'
 const NavigationBar = () => {
     return (
         <> 
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light navigation-bar-box">
                 <Link to="/">
                     <img src = {DCLogo} alt = "Logo" width = "252px" height = "50px"/>
                 </Link>
