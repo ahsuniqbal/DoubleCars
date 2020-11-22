@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Row, Col, Button } from 'reactstrap';
+import { NavLink, Row, Col, Button, Container } from 'reactstrap';
 import Gallery from './Gallery';
 import Information from './Information';
 import CarFeatures from './CarFeatures';
@@ -43,7 +43,10 @@ const ProductResults = ({match}) => {
        
 
         
-       <div className = "product-detail">
+       
+           <Container className = "product-detail ">
+
+           
             <Row>
                 <Col className = "text-left" md = "6" >
                 
@@ -123,9 +126,9 @@ const ProductResults = ({match}) => {
                 </Col>
             </Row>
 
-           
+            </Container>
             
-            </div>
+         
             
     )
 }

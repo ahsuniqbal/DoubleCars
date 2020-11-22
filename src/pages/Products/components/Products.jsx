@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Label, Input } from 'reactstrap';
+import { Row, Col, Label, Input, Container } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { GetSearchResult } from '../api/GetRequests';
@@ -95,7 +95,9 @@ const Products = ({location}) => {
     }
 
     return(
-        <div>
+        <Container>
+
+        
             <Row>
                 <Col xs="12" md="3">
                     <Filters 
@@ -132,7 +134,7 @@ const Products = ({location}) => {
                     </Row>
                 </Col>
             </Row>
-        </div>
+            </Container>
         
     );
 }

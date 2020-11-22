@@ -4,7 +4,7 @@ import PopularMake from './PopularMake'
 import TrendingBodyTypes from './TrendingBodyTypes/TrendingBodyTypes'
 import BuyNow from './BuyNow';
 import Searchbar from './Searchbar';
-import { Row, Col, CardBody } from 'reactstrap';
+import { Row, Col, CardBody, Container } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -156,6 +156,9 @@ const Home = () => {
     return(
         <div className = "landing-page-dc">
             <Header/>
+            <Container>
+
+            
             <Row>
                 <Col xs="1"></Col>
                 <Col xs="10">
@@ -225,6 +228,7 @@ const Home = () => {
             <BuyNow/>
            
             <PopularMake/>
+            </Container>
         </div>
     )
 }
