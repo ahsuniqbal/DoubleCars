@@ -21,12 +21,11 @@
 
 .product-detail {
     background-color: #ffffff;
-    padding: 15px;
+    padding: 2.25rem;
 }
 
-.back-to-search {
-    
-    font-size: 15px;
-    
+
+body {
+    background-color: #ffffff ;
 }
 

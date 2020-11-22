@@ -41,7 +41,7 @@ const ProductResults = ({match}) => {
 
 
     return(
-           <Container className = " ">
+           <Container className = "product-container ">
                <Card >
                    <CardBody className = "product-detail">
                    <Row>
