@@ -2,21 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
 import { GetAllMakes, GetModelFromMake, GetZipFromLatLong } from '../api/GetRequests';
 import MapPopup from './MapPopup';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import gps from '../../../assets/gps.svg';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
 import '../styles/Filters.css';
 
-function FilterQueryString(obj){
-    var str = "";
-    for(let i = 0; i < Object.keys(obj).length; i++){
-        str += Object.keys(obj)[i] + "=" + obj[Object.keys(obj)[i]];
-
-        if(i !== Object.keys(obj).length - 1){
-            str += "&";
-        }
-    }
-}
 
 
 function concatMakeList(makeList){
@@ -44,9 +34,10 @@ const Filters = (props) => {
 
     //Filters
     const [radius, setRadius] = useState(0);
-    const [price, setPrice] = useState([1000, 2000]);
-    const [mileage, setMileage] = useState(0);
+    const [price, setPrice] = useState([0, 99999999]);
+    const [mileage, setMileage] = useState([0, 99999]);
     const [make, setMake] = useState(null);
+    // const [model, setModel] = useState(null);
 
     //Make and Model list fetched from Vin audit API
     const [makeList, setMakeList] = useState([]);
@@ -63,16 +54,17 @@ const Filters = (props) => {
     
     
     
-    const [year, setYear] = useState([0, 0]);
-    const [transmission, setTransmission] = useState([false, false, false, false]);
-    const [sellerType, setSellerType] = useState([false, false]);
+    // const [fromYear, setFromYear] = useState(null);
+    // const [toYear, setToYear] = useState(null);
+    // const [transmission, setTransmission] = useState([false, false, false, false]);
+    // const [sellerType, setSellerType] = useState([false, false]);
 
     const handleRadius = (radius) => {
         setRadius(radius);
         props.onHandleRadius(radius);
-        filters['radius'] = radius;
-        setFilters(filters);
-        FilterQueryString(filters);    
+        // filters['radius'] = radius;
+        // setFilters(filters);
+        // FilterQueryString(filters);    
     }
 
     const handlePrice = (price) => {
@@ -87,16 +79,41 @@ const Filters = (props) => {
     const handleMileage = (mileage) => {
         setMileage(mileage);
         props.onHandleMileage(mileage);
-        filters['mileage'] = mileage;
+        filters['minMileage'] = mileage[0];
+        filters['maxMileage'] = mileage[1]
         setFilters(filters);
         FilterQueryString(filters);
     }
 
     const handleMake = (make) => {
         setMake(make);
+        filters['carMake'] = make;
+        setFilters(filters);
+        FilterQueryString(filters);
         GetModelFromMake(make).then(doc => {
             setModelList(doc.makes[0].models);
         });
+    }
+
+    const handleModel = (model) => {
+        // setModel(model);
+        filters['carModel'] = model;
+        setFilters(filters);
+        FilterQueryString(filters);
+    }
+
+    const handleFromYear = (fromYear) => {
+        // setFromYear(fromYear);
+        filters['minYear'] = fromYear;
+        setFilters(filters);
+        FilterQueryString(filters);
+    }
+
+    const handleToYear = (toYear) => {
+        // setToYear(toYear);
+        filters['maxYear'] = toYear;
+        setFilters(filters);
+        FilterQueryString(filters);
     }
 
     const toggleMapPopup = () => setMapPopup(!mapPopup);
@@ -111,6 +128,25 @@ const Filters = (props) => {
 
     const todayYear = (new Date()).getFullYear();
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
+
+
+    function FilterQueryString(obj){
+        var str = "";
+        for(let i = 0; i < Object.keys(obj).length; i++){
+            str += Object.keys(obj)[i] + "=" + obj[Object.keys(obj)[i]];
+    
+            if(i !== Object.keys(obj).length - 1){
+                str += "&";
+            }
+        }
+    
+        // GetSearchResult(str).then(doc => {
+        //     setProducts(doc);
+        //     console.log("Doc", doc);
+        // });
+        props.onQueryChange(str);
+    }
+    
 
 
 
@@ -128,6 +164,9 @@ const Filters = (props) => {
         GetZipFromLatLong(latLong).then(doc => {
             if(doc.length > 0){
                 setZipCode(doc[0].address_components[0].long_name);
+                filters['zipCode'] = doc[0].address_components[0].long_name;
+                setFilters(filters);
+                FilterQueryString(filters);
             }
             else{
                 setZipCode("N/A");
@@ -218,7 +257,7 @@ const Filters = (props) => {
                     <h6>MODEL</h6>
                     {
                         modelList ?
-                        <Input id="model-list" type="select" className="mb-4" >
+                        <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)}>
                             <option value="">Model</option>
                             {
                                 concatModelList(modelList)
@@ -235,11 +274,11 @@ const Filters = (props) => {
                 <h6>PRICE</h6>
                 <div className="px-2">
                     <PriceRangeSlider
-                        min={1000}
-                        max={2000}
+                        min={0}
+                        max={99999999}
                         minLabel={price[0]}
                         maxLabel={price[1]}
-                        defaultValue={[1000, 2000]}
+                        defaultValue={[0, 99999999]}
                         onHandlePrice={handlePrice} />
                 </div>
                 
@@ -247,12 +286,15 @@ const Filters = (props) => {
                 
                 <h6>MILEAGE</h6>
                 <div className="px-2">
-                    <Typography id="continuous-slider" gutterBottom>
+                    {/* <Typography id="continuous-slider" gutterBottom>
                         {mileage + " mi."}
-                    </Typography>
+                    </Typography> */}
                     <MileageSlider
                         min={0}
-                        max={1000}
+                        max={99999}
+                        minLabel={mileage[0]}
+                        maxLabel={mileage[1]}
+                        defaultValue={[0, 99999]}
                         onHandleMileage={handleMileage} />
                 </div>
                 
@@ -261,7 +303,7 @@ const Filters = (props) => {
                 <h6>YEAR</h6>
                 <Row>
                     <Col xs="6">
-                        <Input type="select">
+                        <Input type="select" onChange={(e) => handleFromYear(e.target.value)}>
                             <option>From</option>
                             {
                                 dropdownYears.map((year, index) => {
@@ -271,7 +313,7 @@ const Filters = (props) => {
                         </Input>
                     </Col>
                     <Col xs="6">
-                        <Input type="select">
+                        <Input type="select" onChange={(e) => handleToYear(e.target.value)}>
                             <option>To</option>
                             {
                                 dropdownYears.map((year, index) => {

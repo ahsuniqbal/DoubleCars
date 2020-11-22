@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'reactstrap';
 import { Switch } from 'react-router-dom';
 import { PublicRoute, PrivateRoute } from '../../../navigation/RouteTypes';
 import routes from '../../../navigation/Routes';

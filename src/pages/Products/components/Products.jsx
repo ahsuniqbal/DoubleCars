@@ -94,6 +94,12 @@ const Products = ({location}) => {
         setMake(make);
     }
 
+    const queryChange = (queryStr) => {
+        GetSearchResult(queryStr).then(doc => {
+            setProducts(doc);
+        });
+    }
+
     return(
         <Container>
 
@@ -104,7 +110,8 @@ const Products = ({location}) => {
                         onHandleRadius={handleRadius}
                         onHandleMileage={handleMileage}
                         onHandlePrice={handlePrice}
-                        onHandleMake={handleMake} />
+                        onHandleMake={handleMake}
+                        onQueryChange={queryChange} />
                 </Col>
                 <Col xs="12" md="9" >
                     <Row className="search-heading mb-2">

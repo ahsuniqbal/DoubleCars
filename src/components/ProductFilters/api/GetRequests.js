@@ -1,4 +1,4 @@
-import { vinAuditString, GeoCodeString } from '../../../config/ConnectionString';
+import { connectionString, vinAuditString, GeoCodeString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
 
@@ -47,4 +47,21 @@ export const GetZipFromLatLong = (latLong) => {
             alert("Error: ", error);
         })
     })
-}
+};
+
+
+export const GetSearchResult = (queryParams) => {
+    return new Promise((resolve, reject) => {
+        var url = connectionString + "products/search?search=range&" + queryParams;
+        axios.get(url).then(function(response){
+            const data = response.data.results;
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            alert("Error: ", error);
+        })
+    })
+};
+
