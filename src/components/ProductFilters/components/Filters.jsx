@@ -145,6 +145,7 @@ const Filters = (props) => {
         //     console.log("Doc", doc);
         // });
         props.onQueryChange(str);
+        console.log(str);
     }
     
 

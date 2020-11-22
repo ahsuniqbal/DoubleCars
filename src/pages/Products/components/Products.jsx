@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Label, Input, Container } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
-import { GetSearchResult } from '../api/GetRequests';
+import { GetSearchResult, GetFilterResult } from '../api/GetRequests';
 import Skeleton from '@material-ui/lab/Skeleton';
 import '../styles/Products.css';
 
@@ -95,7 +95,7 @@ const Products = ({location}) => {
     }
 
     const queryChange = (queryStr) => {
-        GetSearchResult(queryStr).then(doc => {
+        GetFilterResult(queryStr).then(doc => {
             setProducts(doc);
         });
     }
