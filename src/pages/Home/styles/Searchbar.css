@@ -1,5 +1,8 @@
 .searchbar{
     margin-top: -4rem;
+    box-shadow: 0px 0px 40px rgba(44, 44, 44, 0.08);
+    border-radius: 8px;
+    border-color: white ;
 }
 
 .searchbar .card-title{

@@ -4,6 +4,7 @@ import '../styles/Comments.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import CommentDemoImage from '../../../assets/CommentDemoImage.png'
+import {MoreVertical} from 'react-feather'
 const Comments = () => {
     return(
         <Row>
@@ -86,21 +87,25 @@ const Comments = () => {
                    
                 </Col>
             </Row>
-            <Row >
+            <Row className = "mt-5" >
                 <Col md = "1">
                     <div className = "comment-image">
                         <img src = {CommentDemoImage} alt="" className = "img-fluid user-comment-img"/>
                     </div>
                     
                 </Col>
-                <Col md = "7">
+                <Col md = "11">
                     <Row>
-                        <Col xs = "12" className = "name-data-col">
+                        <Col xs = "12" md = "8" className = "name-data-col">
                             <Label className = "comment-username">Kiltos Kyriaco</Label> <br/>
                             <Label className = "comment-date">March, 2020</Label>
                         </Col>
+                        <Col md = "4" className = "text-right">
+                        <MoreVertical color="rgba(0, 0, 0, 0.45)" size={20} className = ""/>
+                        </Col>
                     </Row>
                 </Col>
+                
             </Row>
             <Row>
                 <Col xs = "12" md = "12">

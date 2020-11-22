@@ -6,7 +6,7 @@ import DCLogo from '../../../assets/DCLogo.jpg'
 const NavigationBar = () => {
     return (
         <> 
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light navigation-bar-box">
                 <Link to="/">
                     <img src = {DCLogo} alt = "Logo" width = "252px" height = "50px"/>
                 </Link>
@@ -23,19 +23,19 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="/products">New Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to="">New Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="/products">Used Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to="">Used Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="/products">Popular Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to="">Popular Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="/products">Certified Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to="">Certified Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="/products">Contact Us</NavLink>
+                            <NavLink className="nav-link navigation-items" to="">Contact Us</NavLink>
                         </li>
                        
                         <li className="nav-item">
