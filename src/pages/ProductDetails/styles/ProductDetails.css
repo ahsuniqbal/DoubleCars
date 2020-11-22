@@ -12,8 +12,8 @@
     border: 1px solid #1C67CE !important;
     text-decoration: none !important;
     border-color: transparent !important;
-   
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 15px;
 }
 
 
@@ -21,5 +21,11 @@
 
 .product-detail {
     background-color: #ffffff;
+}
+
+.back-to-search {
+    
+    font-size: 15px;
+    
 }
 

@@ -41,7 +41,7 @@ const ProductResults = ({match}) => {
 
     return(
        
-
+       
         
        
            <Container className = "product-detail ">
@@ -50,7 +50,7 @@ const ProductResults = ({match}) => {
             <Row>
                 <Col className = "text-left" md = "6" >
                 
-                    <Button className="back-button-product" to="/products"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</Button>                
+                    <Button className="back-button-product mb-3" to="/products"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</Button>                
                 </Col>
                 <Col className = "" md = "6" >
                     <NavLink className="float-right report-button" to="/products">Report this car</NavLink>                

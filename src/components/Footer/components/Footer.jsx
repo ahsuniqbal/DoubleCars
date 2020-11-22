@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div> 
             {/* Upper header starts here */}
-            <section className = "bottom-footer container-fluid">
+            <section className = "bottom-footer ">
                 <div className = "container-fluid">
                     <div className = "row">
                         <div className = "col-12 footer-image">
