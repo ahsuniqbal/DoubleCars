@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
-import { GetAllMakes, GetModelFromMake } from '../api/GetRequests';
+import { GetAllMakes, GetModelFromMake, GetZipFromLatLong } from '../api/GetRequests';
 import MapPopup from './MapPopup';
 import Typography from '@material-ui/core/Typography';
 import gps from '../../../assets/gps.svg';
@@ -18,42 +18,6 @@ function FilterQueryString(obj){
     }
 }
 
-function GetLocation(){
-    if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(ShowPosition, ShowError);
-    }
-    else{
-        console.log("Geo location is not supported");
-    }
-}
-
-function ShowPosition(position){
-    console.log("Lat: " + position.coords.latitude + "Long: " + position.coords.longitude);
-}
-
-function ShowError(error){
-    try {
-        console.log(error.message);
-    } catch (e) {
-        switch(error.code) {
-            case error.PERMISSION_DENIED:
-              console.log("User denied the request for Geolocation");
-              break;
-            case error.POSITION_UNAVAILABLE:
-                console.log("Location information is unavailable.");
-              break;
-            case error.TIMEOUT:
-                console.log("The request to get user location timed out.");
-              break;
-            case error.UNKNOWN_ERROR:
-                console.log("An unknown error occurred.");
-              break;
-            default:
-                console.log("An unknown error occurred.");
-          }
-    }
-    
-}
 
 function concatMakeList(makeList){
     var makeSelectBox = document.getElementById('make-list');
@@ -74,6 +38,9 @@ function concatModelList(modelList){
 }
 
 const Filters = (props) => {
+
+    //Zip Code
+    const [zipCode, setZipCode] = useState(null);
 
     //Filters
     const [radius, setRadius] = useState(0);
@@ -137,13 +104,61 @@ const Filters = (props) => {
     useEffect(() => {
         GetAllMakes().then(doc => {
             setMakeList(doc.makes);
-        })
+        });
 
-        GetLocation();
+        GetLocation();        
     }, [])
 
     const todayYear = (new Date()).getFullYear();
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
+
+
+
+    function GetLocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(ShowPosition, ShowError);
+        }
+        else{
+            console.log("Geo location is not supported");
+        }
+    }
+    
+    function ShowPosition(position){
+        var latLong = position.coords.latitude + "," + position.coords.longitude;
+        GetZipFromLatLong(latLong).then(doc => {
+            if(doc.length > 0){
+                setZipCode(doc[0].address_components[0].long_name);
+            }
+            else{
+                setZipCode("N/A");
+            }
+        });
+    }
+    
+    function ShowError(error){
+        try {
+            console.log(error.message);
+        } catch (e) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                  console.log("User denied the request for Geolocation");
+                  break;
+                case error.POSITION_UNAVAILABLE:
+                    console.log("Location information is unavailable.");
+                  break;
+                case error.TIMEOUT:
+                    console.log("The request to get user location timed out.");
+                  break;
+                case error.UNKNOWN_ERROR:
+                    console.log("An unknown error occurred.");
+                  break;
+                default:
+                    console.log("An unknown error occurred.");
+              }
+        }
+        
+    }
+
 
     return(
         <Card className="filters">
@@ -157,7 +172,7 @@ const Filters = (props) => {
                 <div className="location">
                     <h6>LOCATION</h6>
                     <InputGroup>
-                    <Input type="text" className="location-box" />
+                    <Input type="text" className="location-box" defaultValue={zipCode} readOnly />
                         <InputGroupAddon addonType="append">
                             <InputGroupText>
                                 <img onClick={() => toggleMapPopup()} src={gps} alt="Gps Icon" className="img-fluid" />

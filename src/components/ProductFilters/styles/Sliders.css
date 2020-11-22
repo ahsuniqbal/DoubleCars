@@ -16,3 +16,11 @@
 .price-range-slider.MuiSlider-root{
     margin-top: 30px;
 }
+
+span.MuiSlider-markLabel[data-index="0"]{
+    left: 5% !important;
+}
+
+span.MuiSlider-markLabel[data-index="1"]{
+    left: 98% !important;
+}
