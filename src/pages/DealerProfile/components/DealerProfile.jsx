@@ -18,7 +18,7 @@ const ShowSearchResults = (inventory) => {
                 <ProductCard
                     productId={inventory[i].productId}
                     productTitle={inventory[i].yearCar + " " + inventory[i].carModel + " " + inventory[i].carMake}
-                    mileage={numberWithCommas(inventory[i].mileage) + " miles · " + inventory[i].zipCode}
+                    productSubtitle={numberWithCommas(inventory[i].mileage) + " miles · " + inventory[i].zipCode}
                     productText={"$" + numberWithCommas(inventory[i].price)}
                     productImg={inventory[i].coverPic}
                     productName={inventory[i].yearCar + " " + inventory[i].carModel + " " + inventory[i].carMake}
