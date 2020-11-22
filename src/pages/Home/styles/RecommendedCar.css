@@ -13,7 +13,8 @@
 /* Carosuel custom css starts here. */
   .carousel-control-prev, .carousel-control-next {
     opacity: 1;
-    height: 20px;
+  
+    
   }
 
   .carousel-control-next:hover, .carousel-control-next:focus {

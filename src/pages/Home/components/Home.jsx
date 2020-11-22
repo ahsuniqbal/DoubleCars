@@ -178,7 +178,7 @@ const Home = () => {
                     
                         <Row>
                             <Col>
-                                <Carousel indicators={false}>
+                                <Carousel indicators={false} >
                                 {
                                     recommendations ? DrawCarousel(recommendations) : DrawSkeleton()
                                 }

@@ -15,9 +15,12 @@
     cursor: pointer;
     font-size: 16px;
     margin-left: 85px;
-    width: 100%;
+    width: 100%; 
+}
 
-    
+.trending-body-types .nav-tabs .nav-link {
+    border-right-width: 1px;
+    border-right-color: rgba(0, 0, 0, 0.1);
 }
 .trending-body-types .nav-tabs .nav-link:hover{
      color: #1C67CE; 
@@ -27,6 +30,7 @@
     border-top: 0;
     border-right: 0;
     border-left: 0;
+    
 }
 
 .nav-tabs {
