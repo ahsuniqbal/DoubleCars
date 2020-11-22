@@ -4,7 +4,9 @@
     color: rgba(0, 0, 0, 0.65);
 }
 
-
+.filters button:focus{
+    box-shadow: none;
+}
 
 .filters .MuiSlider-valueLabel {
     left: calc(-50% + 0px);
@@ -20,7 +22,6 @@
 .filters .MuiSlider-marked{
     margin-bottom: 0;
 }
-
 
 .filters #continuous-slider{
     margin-left: -5px;
@@ -54,6 +55,11 @@
 
 .filters .location input{
     border-right: 0;
+}
+
+.filters .location input:focus, .filters select:focus{
+    box-shadow: none;
+    border-color: #ced4da;
 }
 
 .filters .location label{

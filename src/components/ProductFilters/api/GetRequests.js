@@ -1,5 +1,7 @@
-import { vinAuditString } from '../../../config/ConnectionString';
+import { vinAuditString, GeoCodeString } from '../../../config/ConnectionString';
 const axios = require('axios');
+
+
 
 export const GetAllMakes = () => {
     return new Promise((resolve, reject) => {
@@ -30,3 +32,19 @@ export const GetModelFromMake = (makeId) => {
         })
     })
 };
+
+
+export const GetZipFromLatLong = (latLong) => {
+    return new Promise((resolve, reject) => {
+        var url = GeoCodeString + latLong;
+        axios.get(url).then(function(response){
+            const data = response.data.results;
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            alert("Error: ", error);
+        })
+    })
+}
