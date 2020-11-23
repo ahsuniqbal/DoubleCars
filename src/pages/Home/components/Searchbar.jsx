@@ -38,7 +38,7 @@ const Searchbar = () => {
         // sessionStorage.setItem('searchInput', searchInput);
         history.push({
             pathname: '/products',
-            search: '?search='+searchInput,
+            search: '?search=' + searchInput,
         })
     };
 
@@ -61,7 +61,7 @@ const Searchbar = () => {
                 <Row>
                     <Col xs="12">
                         <CardTitle>Search for your dream car
-                            <Button className = "advance-search" color="link">Advanced Search</Button>
+                            <Button className="advance-search" color="link" onClick={() => history.push('/products?search=')}>Advanced Search</Button>
                         </CardTitle>
                     </Col>
                 </Row>

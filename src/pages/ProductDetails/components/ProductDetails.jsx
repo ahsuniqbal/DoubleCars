@@ -47,10 +47,10 @@ const ProductResults = ({match}) => {
                    <Row>
                 <Col className = "text-left" md = "6" >
                 
-                    <Button className="back-button-product mb-3" id = "back"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</Button>                
+                    <Button onClick={() => history.push("/products?search=")} className="back-button-product mb-3" id = "back"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</Button>                
                 </Col>
                 <Col className = "" md = "6" >
-                    <NavLink className="float-right report-button" to="/products">Report this car</NavLink>                
+                    <NavLink className="float-right report-button">Report this car</NavLink>                
                 </Col>
             </Row>
 

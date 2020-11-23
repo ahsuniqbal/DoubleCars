@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
+import MultiSelect from "@khanacademy/react-multi-select";
 import { GetAllMakes, GetModelFromMake, GetZipFromLatLong } from '../api/GetRequests';
 import MapPopup from './MapPopup';
-// import Typography from '@material-ui/core/Typography';
 import gps from '../../../assets/gps.svg';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
 import '../styles/Filters.css';
@@ -19,6 +19,16 @@ function concatMakeList(makeList){
 }
 
 function concatModelList(modelList){
+    // var options = [];
+    // for(let i = 0; i < modelList.length; i++){
+    //     var tempObj = {
+    //         label: modelList[i].name,
+    //         value: modelList[i].id
+    //     };
+    //     options.push(tempObj);
+    // }
+    // return options;
+
     var modelSelectBox = document.getElementById('model-list');
 
     for(let i = 0; i < modelList.length; i++){
@@ -37,6 +47,8 @@ const Filters = (props) => {
     const [price, setPrice] = useState([0, 99999999]);
     const [mileage, setMileage] = useState([0, 99999]);
     const [make, setMake] = useState(null);
+    const [selectedModels, setSelectedModels] = useState(null);
+
     // const [model, setModel] = useState(null);
 
     //Make and Model list fetched from Vin audit API
@@ -124,10 +136,15 @@ const Filters = (props) => {
         });
 
         GetLocation();        
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        GetFilterLength();
+    }, [filters]);
 
     const todayYear = (new Date()).getFullYear();
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
+
 
 
     function FilterQueryString(obj){
@@ -145,7 +162,6 @@ const Filters = (props) => {
         //     console.log("Doc", doc);
         // });
         props.onQueryChange(str);
-        console.log(str);
     }
     
 
@@ -195,17 +211,39 @@ const Filters = (props) => {
                 default:
                     console.log("An unknown error occurred.");
               }
-        }
-        
+        }   
     }
 
+    function GetFilterLength(){
+        var table = [];
+        if(Object.keys(filters).length > 0){
+            table.push(
+                <Label><b>Filter</b> ({Object.keys(filters).length})</Label>
+            );
+        }
+        else{
+            table.push(
+                <Label><b>Filter</b></Label>
+            );
+        }
+        return table;
+       
+    }
+
+    function clearFilters(){
+        var tempFilters = {};
+        tempFilters['zipCode'] = filters['zipCode'];
+        setFilters(tempFilters);
+        FilterQueryString(tempFilters);
+    }
 
     return(
         <Card className="filters">
             <CardBody>
-                <Label><b>Filter</b></Label>
-                {/* <Label><b>Filter</b> (2)</Label> */}
-                <Button color="link" className="float-right" size="sm">Clear</Button>
+                {
+                    GetFilterLength()
+                }
+                <Button color="link" className="float-right" size="sm" onClick={() => clearFilters()}>Clear</Button>
                 
                 <hr/>
                 
@@ -258,6 +296,10 @@ const Filters = (props) => {
                     <h6>MODEL</h6>
                     {
                         modelList ?
+                        // <MultiSelect
+                        //     options={concatModelList(modelList)}
+                        //     selected={selectedModels}
+                        //     onSelectedChanged={(e) => handleModel(e.target.value)} />
                         <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)}>
                             <option value="">Model</option>
                             {

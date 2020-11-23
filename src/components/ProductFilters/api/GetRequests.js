@@ -1,4 +1,4 @@
-import { connectionString, vinAuditString, GeoCodeString } from '../../../config/ConnectionString';
+import { vinAuditString, GeoCodeString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
 
@@ -36,7 +36,7 @@ export const GetModelFromMake = (makeId) => {
 
 export const GetZipFromLatLong = (latLong) => {
     return new Promise((resolve, reject) => {
-        var url = GeoCodeString + "30.448,-90.752";
+        var url = GeoCodeString + /*"30.448,-90.752"*/ latLong;
         axios.get(url).then(function(response){
             const data = response.data.results;
             resolve(data);

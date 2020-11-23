@@ -1,6 +1,5 @@
 import { connectionString } from '../../../config/ConnectionString';
 const axios = require('axios');
-// const relativeString = "products/search?search=";
 
 export const GetSearchResult = (queryParams) => {
     return new Promise((resolve, reject) => {

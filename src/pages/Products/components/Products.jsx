@@ -3,6 +3,7 @@ import { Row, Col, Label, Input, Container } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { GetSearchResult, GetFilterResult } from '../api/GetRequests';
+import { SortByPrice } from '../../../components/Sorting/Sorting';
 import Skeleton from '@material-ui/lab/Skeleton';
 import '../styles/Products.css';
 
@@ -39,7 +40,7 @@ function DrawSkeleton(){
     var table = [];
     for(let i = 0; i < 6; i++){
         table.push(
-            <Col xs="12" sm="6" lg="4">
+            <Col xs="12" sm="6" lg="4" key={i}>
                 <Skeleton variant="rect" width={298} height={178} animation="wave" />
                 <Skeleton variant="text" animation="wave" />
                 <Skeleton variant="text" animation="wave" />
@@ -75,8 +76,8 @@ const Products = ({location}) => {
     useEffect(() => {
         GetSearchResult(GetSearchInput(location.search)).then(doc => {
             setProducts(doc);
-        })      
-    }, [])
+        });
+    }, []);
 
     const handleRadius = (value) => {
         setRadius(value);
@@ -98,6 +99,12 @@ const Products = ({location}) => {
         GetFilterResult(queryStr).then(doc => {
             setProducts(doc);
         });
+    }
+
+    function ProductSorting(sortingType){
+        if(sortingType === "price"){
+            setProducts(SortByPrice(products));
+        }
     }
 
     return(
@@ -127,10 +134,10 @@ const Products = ({location}) => {
                             <Label className="float-right mt-2">Sort by</Label>
                         </Col>
                         <Col md="2">
-                            <Input type="select">
-                                <option>Relevence</option>
-                                <option>Price</option>
-                                <option>Date Published</option>
+                            <Input type="select" onChange={(e) => ProductSorting(e.target.value)}>
+                                <option value="relevance">Relevance</option>
+                                <option value="price">Price</option>
+                                <option value="date">Date Published</option>
                             </Input>
                         </Col>
                     </Row>
