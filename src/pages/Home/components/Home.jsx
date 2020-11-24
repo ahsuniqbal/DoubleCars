@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header'
 import PopularMake from './PopularMake'
-import TrendingBodyTypes from './TrendingBodyTypes/TrendingBodyTypes'
+import TrendingBodyTypes from './TrendingBodyTypes'
 import BuyNow from './BuyNow';
 import Searchbar from './Searchbar';
 import { Row, Col, CardBody, Container } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import Skeleton from '@material-ui/lab/Skeleton';
-import { GetRecommendations } from '../api/GetRequests';
+import { GetAllBodyTypes, GetRecommendations } from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
 import '../styles/Home.css'
 import '../styles/RecommendedCar.css';
 import '../styles/TrendingCar.css';
+import '../styles/TrendingBodyTypes.css';
 
 function numberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -132,6 +133,7 @@ const DrawCarousel = (list) => {
 const Home = () => {
     const [recommendations, setRecommendations] = useState(null);
     const [trending, setTrending] = useState(null);
+    const [bodyTypes, setBodyTypes] = useState(null);
 
     useEffect(() => {
         // If User is logged in the you will send id param other wise no id param will be send
@@ -150,6 +152,11 @@ const Home = () => {
                 setTrending(doc[1].data);
             });
         }
+
+        //Get the list of all body types
+        GetAllBodyTypes().then(doc => {
+            setBodyTypes(doc.bodyStyleList);
+        });
     }, []);
 
    
@@ -221,7 +228,16 @@ const Home = () => {
 
             
             <div className = "trending-body-types">
-                <TrendingBodyTypes/>    
+            <CardBody className = "trending-body-types2">
+                <Row>
+                <Col md = "12" xs = "12" className = "text-center mb-5">
+                       <h2 className = "trending-body-head">Trending Body Type in 2020</h2>
+                   </Col>
+                </Row>
+                {
+                    bodyTypes ? <TrendingBodyTypes bodyTypes={bodyTypes} /> : null
+                }
+                </CardBody>
             </div>
             <BuyNow/>
            
