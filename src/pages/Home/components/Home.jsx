@@ -8,12 +8,13 @@ import { Row, Col, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import Skeleton from '@material-ui/lab/Skeleton';
-import { GetRecommendations } from '../api/GetRequests';
-import { isLogin, getLogin } from '../../../config/LoginAuth'
+import { GetRecommendations,testingBlob } from '../api/GetRequests';
+import { isLogin, getLogin } from '../../../config/loginAuth'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
 import '../styles/Home.css'
 import '../styles/RecommendedCar.css';
 import '../styles/TrendingCar.css';
+import {getBlob} from '../../../Utils/conversion'
 
 function numberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -151,7 +152,21 @@ const Home = () => {
             });
         }
     }, []);
-
+    const setImage = (e) => {
+        var file = e.target.files[e.target.files.length - 1]
+        // document.getElementById('productImg').src = URL.createObjectURL(file) 
+        getBlob(file)
+        .then(doc => {
+        //   console.log(doc)
+          testingBlob(doc).then(doc => {
+              console.log(doc)
+          })
+          .catch(e => {
+              console.log(e.message)
+          })
+        })
+    
+      }
    
     return(
         <div className = "landing-page-dc">
@@ -216,6 +231,8 @@ const Home = () => {
                 </Col>
             </Row>
             </div>
+
+            <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" />
             
 
             
@@ -227,6 +244,7 @@ const Home = () => {
             <PopularMake/>
         </div>
     )
+    
 }
 
 export default Home;
