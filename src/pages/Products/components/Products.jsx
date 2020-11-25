@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Label, Input } from 'reactstrap';
+import { Row, Col, Label, Input, Container } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
-import { GetSearchResult } from '../api/GetRequests';
+import { GetSearchResult, GetFilterResult } from '../api/GetRequests';
+import { SortByRelevance, SortByPrice } from '../../../components/Sorting/Sorting';
 import Skeleton from '@material-ui/lab/Skeleton';
 import '../styles/Products.css';
 
@@ -39,7 +40,7 @@ function DrawSkeleton(){
     var table = [];
     for(let i = 0; i < 6; i++){
         table.push(
-            <Col xs="12" sm="6" lg="4">
+            <Col xs="12" sm="6" lg="4" key={i}>
                 <Skeleton variant="rect" width={298} height={178} animation="wave" />
                 <Skeleton variant="text" animation="wave" />
                 <Skeleton variant="text" animation="wave" />
@@ -70,13 +71,15 @@ const Products = ({location}) => {
     const [mileage, setMileage] = useState(0);
     const [price, setPrice] = useState([0, 0]);
     const [make, setMake] = useState(null);
+    const [sortFlag, setSortFlag] = useState(false);
     const [products, setProducts] = useState(null);
+
     
     useEffect(() => {
         GetSearchResult(GetSearchInput(location.search)).then(doc => {
             setProducts(doc);
-        })      
-    }, [])
+        });
+    }, []);
 
     const handleRadius = (value) => {
         setRadius(value);
@@ -94,15 +97,36 @@ const Products = ({location}) => {
         setMake(make);
     }
 
+    const queryChange = (queryStr) => {
+        GetFilterResult(queryStr).then(doc => {
+            setProducts(doc);
+        });
+    }
+
+    function ProductSorting(sortingType){
+        if(sortingType === "relevance"){
+            setProducts(SortByRelevance(products));
+            setSortFlag(!sortFlag);
+        }
+        else if(sortingType === "price"){
+            setProducts(SortByPrice(products));
+            setSortFlag(!sortFlag);
+        }
+    }
+
     return(
-        <div>
+                    
+        <Container className = "products-container">
+
+        
             <Row>
                 <Col xs="12" md="3">
                     <Filters 
                         onHandleRadius={handleRadius}
                         onHandleMileage={handleMileage}
                         onHandlePrice={handlePrice}
-                        onHandleMake={handleMake} />
+                        onHandleMake={handleMake}
+                        onQueryChange={queryChange} />
                 </Col>
                 <Col xs="12" md="9" >
                     <Row className="search-heading mb-2">
@@ -118,10 +142,9 @@ const Products = ({location}) => {
                             <Label className="float-right mt-2">Sort by</Label>
                         </Col>
                         <Col md="2">
-                            <Input type="select">
-                                <option>Relevence</option>
-                                <option>Price</option>
-                                <option>Date Published</option>
+                            <Input type="select" onChange={(e) => ProductSorting(e.target.value)}>
+                                <option value="relevance">Relevance</option>
+                                <option value="price">Price</option>
                             </Input>
                         </Col>
                     </Row>
@@ -132,7 +155,8 @@ const Products = ({location}) => {
                     </Row>
                 </Col>
             </Row>
-        </div>
+            </Container>
+         
         
     );
 }

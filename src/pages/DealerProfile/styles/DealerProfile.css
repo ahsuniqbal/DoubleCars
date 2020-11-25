@@ -1,5 +1,15 @@
+
+.dealer-profile {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
 .inv-label{
     font-size: 20px;
     font-weight: 500;
     line-height: 23px;
+}
+.output-num {
+    font-size: 20px;
+    font-weight: 500;
 }

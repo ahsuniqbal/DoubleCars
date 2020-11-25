@@ -36,7 +36,7 @@ export const GetModelFromMake = (makeId) => {
 
 export const GetZipFromLatLong = (latLong) => {
     return new Promise((resolve, reject) => {
-        var url = GeoCodeString + latLong;
+        var url = GeoCodeString + /*"30.448,-90.752"*/ latLong;
         axios.get(url).then(function(response){
             const data = response.data.results;
             resolve(data);
@@ -47,4 +47,5 @@ export const GetZipFromLatLong = (latLong) => {
             alert("Error: ", error);
         })
     })
-}
+};
+

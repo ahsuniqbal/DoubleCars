@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Row, Col, Button } from 'reactstrap';
+import { NavLink, Row, Col, Button, Container, CardBody, Card } from 'reactstrap';
 import Gallery from './Gallery';
 import Information from './Information';
 import CarFeatures from './CarFeatures';
@@ -9,12 +9,12 @@ import { GetProductDetails } from '../api/GetRequests';
 import '../styles/ProductDetails.css';
 import { Skeleton } from '@material-ui/lab';
 import { ChevronLeft } from 'react-feather';
-
+import { useHistory } from 'react-router-dom';
 
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
-    
+    const history = useHistory();
 
     useEffect(() => {
         setTimeout(async() => {
@@ -25,6 +25,7 @@ const ProductResults = ({match}) => {
         
     }, []);
 
+    
     const DrawGallery = (images) => {
         const galleryImages = [];
         for(let i = 0; i < images.length; i++){
@@ -40,17 +41,16 @@ const ProductResults = ({match}) => {
 
 
     return(
-       
-
-        
-       <div className = "product-detail">
-            <Row>
+           <Container className = "product-container ">
+               <Card >
+                   <CardBody className = "product-detail">
+                   <Row>
                 <Col className = "text-left" md = "6" >
                 
-                    <Button className="back-button-product" to="/products"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</Button>                
+                    <Button onClick={() => history.push("/products?search=")} className="back-button-product mb-3" id = "back"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</Button>                
                 </Col>
                 <Col className = "" md = "6" >
-                    <NavLink className="float-right report-button" to="/products">Report this car</NavLink>                
+                    <NavLink className="float-right report-button">Report this car</NavLink>                
                 </Col>
             </Row>
 
@@ -123,9 +123,14 @@ const ProductResults = ({match}) => {
                 </Col>
             </Row>
 
+                   </CardBody>
+               </Card>
+
            
+           
+            </Container>
             
-            </div>
+         
             
     )
 }

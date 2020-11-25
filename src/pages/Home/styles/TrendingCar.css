@@ -2,11 +2,22 @@
     font-size: 22px;
     font-weight: bold;
     color: black;
+    margin-bottom: 5%;
 }
 
 .trending-cars {
     margin-top: 5%;
     background-color: #FFFFFF;
+    height: 407px;
+    width: 1253px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.view-all {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 
