@@ -296,7 +296,7 @@ const Filters = (props) => {
                     {
                         modelList ?
                         <MultiSelect
-                            options={modelList ? concatModelList(modelList) : null}
+                            options={concatModelList(modelList)}
                             selected={selectedModels}
                             onSelectedChanged={(e) => handleModel(e.target.value)} />
                         // <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)}>
