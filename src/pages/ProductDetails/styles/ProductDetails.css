@@ -1,9 +1,11 @@
-.report-button {
-    cursor: pointer !important;
-    font-size: 14px !important;
-    color: rgba(0, 0, 0, 0.25) !important;
+/* Product Details css starts here */
+.product-detail-body {
+    background-color: white !important;
 }
 
+.product-detail-cardbody {
+    padding: 2.25rem;
+}
 .back-button-product {
     cursor: pointer;
     margin-left: -20px;
@@ -16,21 +18,9 @@
     font-size: 15px;
 }
 
-
-
-
-.product-detail {
-    background-color: #ffffff;
-    padding: 2.25rem;
+.report-button {
+    cursor: pointer !important;
+    font-size: 14px !important;
+    color: rgba(0, 0, 0, 0.25) !important;
 }
-
-
-body {
-    background-color: #ffffff ;
-}
-
-.product-container {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-}
-
+/* End */
