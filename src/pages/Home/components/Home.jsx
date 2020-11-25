@@ -163,7 +163,7 @@ const Home = () => {
     return(
         <div className = "landing-page-dc">
             <Header/>
-            <Container>
+            <Container className = "foo">
             <Row>
                 <Col xs="1"></Col>
                 <Col xs="10">

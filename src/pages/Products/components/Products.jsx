@@ -115,7 +115,8 @@ const Products = ({location}) => {
     }
 
     return(
-        <Container>
+                    
+        <Container className = "products-container">
 
         
             <Row>
@@ -155,6 +156,7 @@ const Products = ({location}) => {
                 </Col>
             </Row>
             </Container>
+         
         
     );
 }
