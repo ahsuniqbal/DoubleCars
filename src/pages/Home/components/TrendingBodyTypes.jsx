@@ -38,7 +38,7 @@ const TrendingBodyTypes = (props) => {
 
     const DrawCarouselCols = (list, index) => {
         var table = [];
-        console.log(list)
+        console.log("List", list)
         for(let i = index; i < index + 4; i++){
             if(i > list.length - 1){
                 return table;
@@ -115,7 +115,7 @@ const TrendingBodyTypes = (props) => {
         for(let i = 0; i < bodyTypes.length; i++){
             table.push(
                 <NavItem>
-                    <NavLink className={classnames({ active: activeTab === i + 1 })} onClick={(e) => toggleTabs(e, i + 1)}>
+                    <NavLink className={classnames({ active: activeTab === i + 1 })} onClick={(e) => { toggleTabs(e, i + 1); GetProduct(e, props.bodyTypes[i]); }}>
                         {props.bodyTypes[i]}
                     </NavLink>
                 </NavItem>

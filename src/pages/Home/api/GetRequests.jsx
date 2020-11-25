@@ -1,4 +1,4 @@
-import { connectionString, vinAuditString } from '../../../config/ConnectionString';
+import { connectionString, vinAuditString } from '../../../config/connectionString';
 const axios = require('axios');
 
 export const GetRecommendations = (id) => {

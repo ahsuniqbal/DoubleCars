@@ -1,4 +1,4 @@
-import { connectionString } from '../../../config/ConnectionString';
+import { connectionString } from '../../../config/connectionString';
 const axios = require('axios');
 
 

@@ -3,7 +3,7 @@ import { Row, Col, Label, Input, Container } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { GetSearchResult, GetFilterResult } from '../api/GetRequests';
-import { SortByPrice } from '../../../components/Sorting/Sorting';
+import { SortByRelevance, SortByPrice } from '../../../components/Sorting/Sorting';
 import Skeleton from '@material-ui/lab/Skeleton';
 import '../styles/Products.css';
 
@@ -71,7 +71,9 @@ const Products = ({location}) => {
     const [mileage, setMileage] = useState(0);
     const [price, setPrice] = useState([0, 0]);
     const [make, setMake] = useState(null);
+    const [sortFlag, setSortFlag] = useState(false);
     const [products, setProducts] = useState(null);
+
     
     useEffect(() => {
         GetSearchResult(GetSearchInput(location.search)).then(doc => {
@@ -102,8 +104,13 @@ const Products = ({location}) => {
     }
 
     function ProductSorting(sortingType){
-        if(sortingType === "price"){
+        if(sortingType === "relevance"){
+            setProducts(SortByRelevance(products));
+            setSortFlag(!sortFlag);
+        }
+        else if(sortingType === "price"){
             setProducts(SortByPrice(products));
+            setSortFlag(!sortFlag);
         }
     }
 
@@ -138,7 +145,6 @@ const Products = ({location}) => {
                             <Input type="select" onChange={(e) => ProductSorting(e.target.value)}>
                                 <option value="relevance">Relevance</option>
                                 <option value="price">Price</option>
-                                <option value="date">Date Published</option>
                             </Input>
                         </Col>
                     </Row>
