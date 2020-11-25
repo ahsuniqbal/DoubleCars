@@ -44,9 +44,11 @@ const Filters = (props) => {
 
     //Filters
     const [radius, setRadius] = useState(0);
-    const [price, setPrice] = useState([0, 99999999]);
+    const [price, setPrice] = useState([0, 99999]);
     const [mileage, setMileage] = useState([0, 99999]);
     const [make, setMake] = useState(null);
+    
+    const [selectedFromYear, setSelectedFromYear] = useState(null);
 
     const [selectedModels, setSelectedModels] = useState([]);
 
@@ -116,7 +118,7 @@ const Filters = (props) => {
     }
 
     const handleFromYear = (fromYear) => {
-        // setFromYear(fromYear);
+        setSelectedFromYear(fromYear);
         filters['minYear'] = fromYear;
         setFilters(filters);
         FilterQueryString(filters);
@@ -145,6 +147,9 @@ const Filters = (props) => {
 
     const todayYear = (new Date()).getFullYear();
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
+
+    const selectedYear = (new Date(selectedFromYear)).getFullYear();
+    const dropdownToYears = Array.from(new Array(100), (val, index) => selectedYear + index);
 
 
 
@@ -298,7 +303,9 @@ const Filters = (props) => {
                         <MultiSelect
                             options={concatModelList(modelList)}
                             selected={selectedModels}
-                            onSelectedChanged={(e) => handleModel(e.target.value)} />
+                            // onSelectedChanged={(e) => handleModel(e.target.value)} 
+                            onSelectedChanged={selectedModels => setSelectedModels(selectedModels)}
+                        />
                         // <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)}>
                         //     <option value="">Model</option>
                         //     {
@@ -317,10 +324,11 @@ const Filters = (props) => {
                 <div className="px-2">
                     <PriceRangeSlider
                         min={0}
-                        max={99999999}
+                        max={99999}
                         minLabel={price[0]}
                         maxLabel={price[1]}
-                        defaultValue={[0, 99999999]}
+                        step={1000}
+                        defaultValue={[0, 99999]}
                         onHandlePrice={handlePrice} />
                 </div>
                 
@@ -336,6 +344,7 @@ const Filters = (props) => {
                         max={99999}
                         minLabel={mileage[0]}
                         maxLabel={mileage[1]}
+                        step={1000}
                         defaultValue={[0, 99999]}
                         onHandleMileage={handleMileage} />
                 </div>
@@ -358,7 +367,7 @@ const Filters = (props) => {
                         <Input type="select" onChange={(e) => handleToYear(e.target.value)}>
                             <option>To</option>
                             {
-                                dropdownYears.map((year, index) => {
+                                dropdownToYears.map((year, index) => {
                                     return <option key={`year${index}`} value={year}>{year}</option>
                                 })
                             }

@@ -21,10 +21,11 @@ const PriceRangeSlider = (props) => {
       <Slider 
           min={props.min}
           max={props.max}
+          step={props.step}
           defaultValue={props.defaultValue}
           className="price-range-slider" 
           marks={marks(props.min, props.max, props.minLabel, props.maxLabel)}
-          onChange={handleChange} />
+          onChangeCommitted={handleChange} />
   );
 };
 
