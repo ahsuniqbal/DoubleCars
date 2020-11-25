@@ -1,5 +1,18 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
+
+/* Save icon css */
+.save-icon-gallery {
+    height: 48px;
+    width: 48px;
+    border-radius: 20%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 1%;
+    left: 90%;
+    cursor: pointer;
+}
+
 /* Gallery image size */
 .image-gallery-slide{
     max-height: 500px;
@@ -41,7 +54,6 @@
     object-fit: cover;
 }
 
-
 /* Gallery navs */
 
 .image-gallery-icon{
@@ -65,7 +77,6 @@
     border-radius: 13px;
 }
 
-
 .image-gallery-icon:focus{
     outline: none;
 }
@@ -79,20 +90,6 @@
     padding: 15px 20px;
 
 }
-
-
-/* Save icon css */
-.save-icon-gallery {
-    height: 48px;
-    width: 48px;
-    border-radius: 20%;
-    background-color: #ffffff;
-    position: absolute;
-    top: 1%;
-    left: 90%;
-    cursor: pointer;
-}
-
 .save-gallery-icon {
 position: absolute;
 top: 33%;
@@ -100,9 +97,7 @@ left: 28%;
 cursor: pointer;
 }
 
-
 /* Thumbnail images css */
-
 .image-gallery-thumbnail .image-gallery-thumbnail-image :focus{
     border-color: transparent !important;
 }

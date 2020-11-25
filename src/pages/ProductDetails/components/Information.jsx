@@ -8,7 +8,7 @@ function numberWithCommas(number) {
 const Information = (props) => {
     return(
         <div>     
-            {/* Car name and proce section starts here. */}
+            {/* Car name and price section starts here. */}
             <Row>
                 <Col md = "8" className = "mt-5">
                     <h2 className = "car-name">{props.yearCar + " " + props.carModel + " " + props.carMake }</h2>
@@ -17,14 +17,12 @@ const Information = (props) => {
                     <h2 className = "car-price">{"$" + numberWithCommas(props.price)}</h2>
                 </Col>
             </Row>
-           
             <Row>
                 <Col>
                     <h4 className = "car-info mb-4">{numberWithCommas(props.mileage) + " mi"} · {props.zipCode} </h4>
                 </Col>
             </Row>
-            <hr className = "info-bottom-line mb-5"/>
-            {/* ---------- ENDS HERE ---------- */}
+            <hr  className = "info-bottom-line mb-5"/>
 
             {/* Information section starts here.*/}
             <h4 className = "information-head">Information</h4>
@@ -93,27 +91,25 @@ const Information = (props) => {
                 </Col>
             </Row>
             <hr className = "info-bottom-line mb-5"/>
-            {/* ---------- ENDS HERE ---------- */}
 
             {/* Car Feature section starts here. */}
             <h4 className = "mb-5 car-feature-head">Car Features</h4>
-                <Row className = "mb-5">
-                    <Col xs = "6" md = "3">
-                        <Label>ABS</Label>
-                    </Col>
-                    <Col xs = "6" md = "3">
-                        <Label>Trim</Label> 
-                    </Col>
-                    <Col xs = "6" md = "3">
-                        <Label>Immobilizer Key</Label>
-                    </Col>
-                    <Col xs = "6" md = "3">
-                        <Label>Power Mirrors</Label>
-                    </Col>
-                </Row>
-                <hr className = "info-bottom-line mb-5"/>
-            {/* ---------- ENDS HERE ---------- */}
-    </div>
+            <Row className = "mb-5">
+                <Col xs = "6" md = "3">
+                    <Label className = "car-feature">ABS</Label>
+                </Col>
+                <Col xs = "6" md = "3">
+                    <Label className = "car-feature">Trim</Label> 
+                </Col>
+                <Col xs = "6" md = "3">
+                    <Label className = "car-feature">Immobilizer Key</Label>
+                </Col>
+                <Col xs = "6" md = "3">
+                    <Label className = "car-feature">Power Mirrors</Label>
+                </Col>
+            </Row>
+            <hr className = "info-bottom-line mb-5"/>
+        </div>
     )
 }
 

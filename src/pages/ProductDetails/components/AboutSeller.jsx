@@ -23,11 +23,11 @@ const SellerDetails = (props) => {
                 <h6 className = "interest-label">Are you interested in this car?</h6>
                 <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
                 <Input type = "email" className = "interested-textfield" placeholder = "Your email address"></Input>
-                <Button size = "lg" block className = "contact-seller-button primary mt-4"> Contact Seller</Button>
+                <Button color = "primary" size = "lg" block className = "contact-seller-button mt-4"> Contact Seller</Button>
             </CardBody>
             
             {
-                dealer ?
+            dealer ?
                 <Card className="mt-4 about-seller-card">
                     <CardBody className = "">
                         <Row>
@@ -48,34 +48,28 @@ const SellerDetails = (props) => {
                             </Col>
                         </Row>
                         
-                        
                         <h6 className = "about-seller-head mt-4">About seller</h6>
                         <p className = "about-seller-text">{dealer.aboutMe ? dealer.aboutMe : "This seller has provided no information"}</p>
                         <h6 className = "contact-detail-head mb-4">Contact Details</h6>
-                        <p className = "contact-detail"><Phone color="#1C67CE" size={20} className = "mr-2"/>{dealer.phNum}</p>
-                        <p className = "contact-detail"> <Mail color="#1C67CE" size={20} className = "mr-2"/>{dealer.email}</p>
+                        <p className = "contact-detail-text"><Phone color="#1C67CE" size={20} className = "mr-2"/>{dealer.phNum}</p>
+                        <p className = "contact-detail-text"> <Mail color="#1C67CE" size={20} className = "mr-2"/>{dealer.email}</p>
                         <Link className = "view-inv-link" to={'/dealer/' + props.userId}>
-                            <Button size = "lg" block className = "view-inventory-button primary mt-4"> View Inventory</Button>
+                            <Button color = "primary" size = "lg" block className = "view-inventory-button primary mt-4"> View Inventory</Button>
                         </Link>
                     </CardBody>
-                </Card>
-                :
-                null
-
+                </Card> : null
             }
-            
-
-        <Row>
-            <Col className = "mt-3">
-            <img src = {Ad1} alt = "ad" className = "img-fluid"/>
-            </Col>
-        </Row>
-        <Row>
-            <Col className = "mt-3">
-            <img src = {Ad2} alt = "ad" className = "img-fluid"/>
-            </Col>
-        </Row>
-    </div>
+            <Row>
+                <Col className = "mt-3">
+                    <img src = {Ad1} alt = "ad" className = "img-fluid"/>
+                </Col>
+            </Row>
+            <Row>
+                <Col className = "mt-3">
+                    <img src = {Ad2} alt = "ad" className = "img-fluid"/>
+                </Col>
+            </Row>
+        </div>
     )
 }
 
