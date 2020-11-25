@@ -45,7 +45,7 @@ const DealerProfile = ({match}) => {
     }, []);
 
     return(
-        <Container>
+        <Container className = "dealer-profile">
 
        
             <Row>
