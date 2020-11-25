@@ -19,22 +19,22 @@ function concatMakeList(makeList){
 }
 
 function concatModelList(modelList){
-    // var options = [];
-    // for(let i = 0; i < modelList.length; i++){
-    //     var tempObj = {
-    //         label: modelList[i].name,
-    //         value: modelList[i].id
-    //     };
-    //     options.push(tempObj);
-    // }
-    // return options;
-
-    var modelSelectBox = document.getElementById('model-list');
-
+    var options = [];
     for(let i = 0; i < modelList.length; i++){
-        var option = modelList[i];
-        modelSelectBox.options.add(new Option(option.name, option.name));
+        var tempObj = {
+            label: modelList[i].name,
+            value: modelList[i].name
+        };
+        options.push(tempObj);
     }
+    return options;
+
+    // var modelSelectBox = document.getElementById('model-list');
+
+    // for(let i = 0; i < modelList.length; i++){
+    //     var option = modelList[i];
+    //     modelSelectBox.options.add(new Option(option.name, option.name));
+    // }
 }
 
 const Filters = (props) => {
@@ -47,6 +47,8 @@ const Filters = (props) => {
     const [price, setPrice] = useState([0, 99999999]);
     const [mileage, setMileage] = useState([0, 99999]);
     const [make, setMake] = useState(null);
+
+    const [selectedModels, setSelectedModels] = useState([]);
 
     // const [model, setModel] = useState(null);
 
@@ -98,12 +100,12 @@ const Filters = (props) => {
 
     const handleMake = (make) => {
         setMake(make);
-        filters['carMake'] = make;
-        setFilters(filters);
-        FilterQueryString(filters);
         GetModelFromMake(make).then(doc => {
             setModelList(doc.makes[0].models);
         });
+        filters['carMake'] = make;
+        setFilters(filters);
+        FilterQueryString(filters);
     }
 
     const handleModel = (model) => {
@@ -160,12 +162,9 @@ const Filters = (props) => {
         //     setProducts(doc);
         //     console.log("Doc", doc);
         // });
-        console.log(str);
         props.onQueryChange(str);
     }
     
-
-
 
     function GetLocation(){
         if(navigator.geolocation){
@@ -296,16 +295,16 @@ const Filters = (props) => {
                     <h6>MODEL</h6>
                     {
                         modelList ?
-                        // <MultiSelect
-                        //     options={concatModelList(modelList)}
-                        //     selected={selectedModels}
-                        //     onSelectedChanged={(e) => handleModel(e.target.value)} />
-                        <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)}>
-                            <option value="">Model</option>
-                            {
-                                concatModelList(modelList)
-                            }
-                        </Input>
+                        <MultiSelect
+                            options={modelList ? concatModelList(modelList) : null}
+                            selected={selectedModels}
+                            onSelectedChanged={(e) => handleModel(e.target.value)} />
+                        // <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)}>
+                        //     <option value="">Model</option>
+                        //     {
+                        //         concatModelList(modelList)
+                        //     }
+                        // </Input>
                         :
                         null
                     }
