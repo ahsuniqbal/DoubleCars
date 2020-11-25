@@ -158,21 +158,21 @@ const Home = () => {
             setBodyTypes(doc.bodyStyleList);
         });
     }, []);
-    const setImage = (e) => {
-        var file = e.target.files[e.target.files.length - 1]
-        // document.getElementById('productImg').src = URL.createObjectURL(file) 
-        getBlob(file)
-        .then(doc => {
-        //   console.log(doc)
-          testingBlob(doc).then(doc => {
-              console.log(doc)
-          })
-          .catch(e => {
-              console.log(e.message)
-          })
-        })
+    // const setImage = (e) => {
+    //     var file = e.target.files[e.target.files.length - 1]
+    //     // document.getElementById('productImg').src = URL.createObjectURL(file) 
+    //     getBlob(file)
+    //     .then(doc => {
+    //     //   console.log(doc)
+    //       testingBlob(doc).then(doc => {
+    //           console.log(doc)
+    //       })
+    //       .catch(e => {
+    //           console.log(e.message)
+    //       })
+    //     })
     
-      }
+    //   }
    
     return(
         <div className = "landing-page-dc">
@@ -239,7 +239,7 @@ const Home = () => {
             </Row>
             </div>
 
-            <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" />
+            {/* <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" /> */}
             
 
             
