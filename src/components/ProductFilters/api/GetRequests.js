@@ -1,4 +1,4 @@
-import { vinAuditString, GeoCodeString } from '../../../config/connectionString';
+import { vinAuditString, GeoCodeString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
 
