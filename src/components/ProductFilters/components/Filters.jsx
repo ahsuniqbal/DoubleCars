@@ -14,7 +14,7 @@ function concatMakeList(makeList){
 
     for(let i = 0; i < makeList.length; i++){
         var option = makeList[i];
-        makeSelectBox.options.add(new Option(option.name, option.id));
+        makeSelectBox.options.add(new Option(option.name, option.name));
     }
 }
 
@@ -33,7 +33,7 @@ function concatModelList(modelList){
 
     for(let i = 0; i < modelList.length; i++){
         var option = modelList[i];
-        modelSelectBox.options.add(new Option(option.name, option.id));
+        modelSelectBox.options.add(new Option(option.name, option.name));
     }
 }
 
@@ -47,7 +47,6 @@ const Filters = (props) => {
     const [price, setPrice] = useState([0, 99999999]);
     const [mileage, setMileage] = useState([0, 99999]);
     const [make, setMake] = useState(null);
-    const [selectedModels, setSelectedModels] = useState(null);
 
     // const [model, setModel] = useState(null);
 
@@ -161,6 +160,7 @@ const Filters = (props) => {
         //     setProducts(doc);
         //     console.log("Doc", doc);
         // });
+        console.log(str);
         props.onQueryChange(str);
     }
     

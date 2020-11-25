@@ -11,3 +11,18 @@ export const SortByPrice = (productsArray) => {
     }
     return productsArray;
 }
+
+
+export const SortByRelevance = (productsArray) => {
+
+    for (var i = productsArray.length - 1; i >= 0; i--){
+        for(var j = 1; j <= i; j++){
+          if(productsArray[j-1].productId > productsArray[j].productId){
+              var temp = productsArray[j-1];
+              productsArray[j-1] = productsArray[j];
+              productsArray[j] = temp;
+           }
+        }
+    }
+    return productsArray;
+}
