@@ -74,7 +74,7 @@ const DealerProfile = ({match}) => {
                         <Col md="8">
                             {
                                 inventory ? 
-                                <Label className="output-num">{inventory.length} cars in inventory...</Label> 
+                                <Label className="output-num">{inventory.length} car(s) found in inventory...</Label> 
                                 : 
                                 <Label className="output-num">Loading your interested results, please wait...</Label>
                             }
