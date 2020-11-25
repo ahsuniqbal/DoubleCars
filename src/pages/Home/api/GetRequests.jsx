@@ -16,6 +16,7 @@ export const GetRecommendations = (id) => {
     })
 };
 
+
 export const GetAllMakes = () => {
     return new Promise((resolve, reject) => {
         var url = vinAuditString + "make";
