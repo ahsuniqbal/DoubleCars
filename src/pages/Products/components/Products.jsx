@@ -93,9 +93,10 @@ const Products = ({location}) => {
     const handleMake = (make) => {
         setMake(make);
     }
-
+    document.body.style.backgroundColor = "green";
     return(
-        <Container>
+                    
+        <Container className = "products-container">
 
         
             <Row>
@@ -135,6 +136,7 @@ const Products = ({location}) => {
                 </Col>
             </Row>
             </Container>
+         
         
     );
 }

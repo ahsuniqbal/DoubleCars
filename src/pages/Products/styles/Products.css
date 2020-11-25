@@ -13,3 +13,8 @@
     font-weight: normal;
     color: rgba(8, 11, 48, 0.65);
 }
+
+.products-container {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}

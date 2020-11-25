@@ -1,160 +1,134 @@
 import React from "react"
-import {Row, Col, Nav, NavItem, Button, NavLink} from 'reactstrap'
+import {Row, Col, Nav, NavItem, Button, NavLink, Container} from 'reactstrap'
 import '../styles/Footer.css'
 import { Facebook, Instagram, Twitter } from 'react-feather';
 
 const Footer = () => {
     return (
         <div> 
-            {/* Upper header starts here */}
+            {/* Upper Footer starts here */}
             <section className = "bottom-footer ">
                 <div className = "container-fluid">
-                    <div className = "row">
-                        <div className = "col-12 footer-image">
-                            <div className = "row h-100">
-                                <div className = "col-md-5 offset-1 my-auto">
-                                    <h1 className = "car-dealer-head">
-                                    Are you a car dealer?
-                                    </h1>
-                                    <h5 className = "my-1 car-dealer-head5">
-                                        We bring you the opporitniy to sell your car on our platmore
-                                    </h5>
-                                  
-                                </div>
-
-                                <div className = "col-md-2 offset-3 my-auto">
-                                <Button className="learn-more-button-cover" to="">Learn More</Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </section>
-            
-           {/* Lower header starts here */}
-            <div className="container mt-5">
-                <Row>
-                    <Col xs="12" md="3">
-                        <Nav vertical>
-                            <NavItem>
-                                <h4 className = "footer-dc"><strong>Double Cars</strong></h4>
-                            </NavItem>
-                            <NavItem >
-                                <p className = "discription-dc-footer">Maecenas ante lacus, viverra is in, egestas tincidunt nulla. Aliquam mi lectus, eleifend eget felis eget,</p>
-                            </NavItem>
-                            
-                        </Nav>
-                    </Col>
-
-                    <Col xs="12" md="2">
-                        <Nav vertical>
-                            <NavItem>
-                                <NavLink className = "nav-text-color" href="#">New Cars</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className = "nav-text-color" href="#">Popular Cars</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className = "nav-text-color" href="#">Used Cars</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Col>
-
-                    <Col xs="12" md="2">
-                        <Nav vertical>
-                            <NavItem>
-                                <NavLink className = "nav-text-color" href="#">Certified Cars</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className = "nav-text-color" href="#">Recommended</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className = "nav-text-color" href="#">Trending</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Col>
-                    <Col xs="12" md="2">
-                        <Nav vertical>
-                            <NavItem>
-                                <NavLink className = "nav-text-color" href="#">Categories</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className = "nav-text-color" href="#">Best Manufacturers</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className = "nav-text-color" href="#">Best Offers</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Col>
-                    <Col xs="12" md="3">
-                        <Nav vertical>
-                            <NavItem>
-                            <NavLink className = "nav-text-color" href="#"><strong>Contact Information</strong></NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="#" className = "footer-contact">support@doublecars.com</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="#" className = "footer-contact">01 234 67890</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Col>
-                </Row>
-                <hr/>
-            </div>
-
-            <div className="container lower-container">
-                <Row>
-                    <Col md = "3">
-                    <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
-                    </Col>
-
-                    <Col md = "2">
-                    <NavLink className = "bootom-footer nav-text-color" href="#">Legal Information</NavLink>
-                    </Col>
-                    <Col md = "2">
-                    <NavLink className = "bootom-footer nav-text-color" href="#">Privacy Policy</NavLink>
-                    </Col>
-                    <Col md = "2">
-                    <NavLink className = "bootom-footer nav-text-color" href="#">Terms and Conditions</NavLink>
-                    </Col>
-                    <Col md = "3" className = "">
-                    
                     <Row>
-                        <Col md = "4" className = "icons-columns ">
-                            <Facebook color="#1C67CE" size={20} className = "feather-icon"/>
-                        </Col >
-                        <Col md = "4" className = "icons-columns ">
-                            <Instagram color="#1C67CE" size={20} className = "feather-icon"/>
-                        </Col>
-                        <Col md = "4" className = "icons-columns ">
-                            <Twitter color="#1C67CE" size={20} className = "feather-icon"/>
+                        <Col className = "footer-image">
+                            <Row className = "h-100">
+                                <Col md  = "5" xs = "12" className = "offset-1 my-auto">
+                                    <h1 className = "car-dealer-head">Are you a car dealer?</h1>
+                                    <h5 className = "my-1 car-dealer-subhead">We bring you the opporitniy to sell your car on our platmore</h5>
+                                </Col>
+                                <Col md = "2" xs = "12" className = "offset-3 my-auto">
+                                    <Button className="learn-more-button-cover">Learn More</Button>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
-                    </Col>
+                </div>
+            </section>
+            
+           {/* Mid Footer starts here */}
+           <body className = "footer-body">
+                <Container>
+                    <Row>
+                        <Col xs="12" md="3" className = "footer-columns">
+                            <Nav vertical>
+                                <NavItem>
+                                    <h4 className = "footer-dc">Double Cars</h4>
+                                </NavItem>
+                                <NavItem >
+                                    <p className = "discription-dc-footer">Maecenas ante lacus, viverra is in, egestas tincidunt nulla. Aliquam mi lectus, eleifend eget felis eget,</p>
+                                </NavItem>
+                                
+                            </Nav>
+                        </Col>
 
-                </Row>
+                        <Col xs="12" md="2" className = "footer-columns">
+                            <Nav vertical>
+                                <NavItem>
+                                    <NavLink className = "nav-text-color" to = "">New Cars</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className = "nav-text-color" to = "">Popular Cars</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className = "nav-text-color" to = "">Used Cars</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Col>
 
-                {/* <ul className = "bottom-footer-content">
-                <li>
-                    <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
-                </li>
-                <li>
-                <NavLink className = "bootom-footer nav-text-color" href="#">Legal Information</NavLink>
-                </li>
-                <li>
-                <NavLink className = "bootom-footer nav-text-color" href="#">Privacy Policy</NavLink>
-                </li>
-                <li>
-                <NavLink className = "bootom-footer nav-text-color" href="#">Terms and Conditions</NavLink>
-                </li>
-                <li>
-                <img className = "mr-2" src = {facebookicon} alt = "fb" width = "5%"/>
-                <img className = "mr-2" src = {instaicon} alt = "insta" width = "5%"/>
-                <img src = {twittericon} alt = "twitter" width = "5%"/>
-                </li>
-                </ul> */}
-            </div>
+                        <Col xs="12" md="2" className = "footer-columns">
+                            <Nav vertical>
+                                <NavItem>
+                                    <NavLink className = "nav-text-color" to = "">Certified Cars</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className = "nav-text-color" to = "">Recommended</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className = "nav-text-color" to = "">Trending</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Col>
+                        <Col xs="12" md="2" className = "footer-columns">
+                            <Nav vertical>
+                                <NavItem>
+                                    <NavLink className = "nav-text-color" to = "">Categories</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className = "nav-text-color" to = "">Best Manufacturers</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className = "nav-text-color" to = "">Best Offers</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Col>
+                        <Col xs="12" md="3" className = "footer-columns">
+                            <Nav vertical>
+                                <NavItem>
+                                <NavLink className = "nav-text-color" to=""><strong>Contact Information</strong></NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink to="" className = "footer-contact ">support@doublecars.com</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink to="" className = "footer-contact ">01 234 67890</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Col>
+                    </Row>
+                    <hr/>
+                </Container>
+
+                {/* Lower Footer starts here */}
+                <Container>
+                    <Row>
+                        <Col md = "3" xs = "" className = "lower-footer-columns text-center">
+                            <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
+                        </Col>
+                        <Col md = "2" xs = "" className = "lower-footer-columns text-center">
+                            <NavLink className = "bootom-footer nav-text-color" to="">Legal Information</NavLink>
+                        </Col>
+                        <Col md = "2" xs = "" className = "lower-footer-columns text-center">
+                            <NavLink className = "bootom-footer nav-text-color" to="">Privacy Policy</NavLink>
+                        </Col>
+                        <Col md = "2" xs = "" className = "text-center lower-footer-columns">
+                            <NavLink className = "bootom-footer nav-text-color" to="">Terms and Conditions</NavLink>
+                        </Col>
+                        <Col md = "3" xs = "" className = "lower-footer-columns">
+                            <Row>
+                                <Col md = "4" xs = "4" className = "icons-columns">
+                                    <Facebook color="#1C67CE" size={20} className = "feather-icon"/>
+                                </Col >
+                                <Col md = "4" xs = "4" className = "icons-columns ">
+                                    <Instagram color="#1C67CE" size={20} className = "feather-icon"/>
+                                </Col>
+                                <Col md = "4" xs = "4" className = "icons-columns ">
+                                    <Twitter color="#1C67CE" size={20} className = "feather-icon"/>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Container>
+            </body>
         </div>
     );
   }
