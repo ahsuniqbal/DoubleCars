@@ -42,7 +42,7 @@
 
 .image-gallery-thumbnail .image-gallery-thumbnail-image{
     opacity: 0.47;
-    max-height: 65px;
+    height: 65px;
     object-fit: contain;
 }
 

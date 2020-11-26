@@ -1,7 +1,7 @@
 import { connectionString, vinAuditString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
-export const GetRecommendations = (id) => {
+export const GetRecommendationsTrendings = (id) => {
     return new Promise((resolve, reject) => {
         var url = connectionString + "home/part-two?id=" + id;
         axios.get(url).then(function(response){

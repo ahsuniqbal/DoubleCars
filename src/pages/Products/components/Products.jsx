@@ -133,7 +133,7 @@ const Products = ({location}) => {
                         <Col md="8">
                             {
                                 products ? 
-                                <Label className="output-num">{products.length} cars match your search...</Label> 
+                                <Label className="output-num">{products.length} car(s) match your search...</Label> 
                                 : 
                                 <Label className="output-num">Loading your interested results, please wait...</Label>
                             }

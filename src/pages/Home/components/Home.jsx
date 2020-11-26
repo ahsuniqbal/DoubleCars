@@ -8,7 +8,7 @@ import { Row, Col, CardBody, Container } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import Skeleton from '@material-ui/lab/Skeleton';
-import { GetAllBodyTypes, GetRecommendations } from '../api/GetRequests';
+import { GetAllBodyTypes, GetRecommendationsTrendings } from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
 import '../styles/Home.css'
@@ -140,14 +140,14 @@ const Home = () => {
         // Login not implemented yet that
 
         if(isLogin()){
-            GetRecommendations(getLogin()).then(doc => {
+            GetRecommendationsTrendings(getLogin()).then(doc => {
                 
                 setRecommendations(doc[0].data);
                 setTrending(doc[1].data);
             })
         }
         else{
-            GetRecommendations('-1').then(doc => {
+            GetRecommendationsTrendings('-1').then(doc => {
                 setRecommendations(doc[0].data);
                 setTrending(doc[1].data);
             });

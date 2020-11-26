@@ -118,6 +118,7 @@ const Filters = (props) => {
     }
 
     const handleFromYear = (fromYear) => {
+        document.getElementById("toYear").disabled = false;
         setSelectedFromYear(fromYear);
         filters['minYear'] = fromYear;
         setFilters(filters);
@@ -147,9 +148,7 @@ const Filters = (props) => {
 
     const todayYear = (new Date()).getFullYear();
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
-
-    const selectedYear = (new Date(selectedFromYear)).getFullYear();
-    const dropdownToYears = Array.from(new Array(100), (val, index) => selectedYear + index);
+    const dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index);
 
 
 
@@ -255,9 +254,9 @@ const Filters = (props) => {
                     <h6>LOCATION</h6>
                     <InputGroup>
                     <Input type="text" className="location-box" defaultValue={zipCode} readOnly />
-                        <InputGroupAddon addonType="append">
+                        <InputGroupAddon addonType="append" onClick={() => toggleMapPopup()}>
                             <InputGroupText>
-                                <img onClick={() => toggleMapPopup()} src={gps} alt="Gps Icon" className="img-fluid" />
+                                <img src={gps} alt="Gps Icon" className="img-fluid" />
                                 <MapPopup toggle={toggleMapPopup} isOpen={mapPopup} />
                             </InputGroupText>
                         </InputGroupAddon>
@@ -364,12 +363,14 @@ const Filters = (props) => {
                         </Input>
                     </Col>
                     <Col xs="6">
-                        <Input type="select" onChange={(e) => handleToYear(e.target.value)}>
+                        <Input id="toYear" type="select" onChange={(e) => handleToYear(e.target.value)} disabled>
                             <option>To</option>
                             {
+                                selectedFromYear ? 
                                 dropdownToYears.map((year, index) => {
                                     return <option key={`year${index}`} value={year}>{year}</option>
                                 })
+                                : null
                             }
                         </Input>
                     </Col>
