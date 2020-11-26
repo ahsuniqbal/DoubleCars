@@ -22,10 +22,11 @@ function concatModelList(modelList){
     var options = [];
     for(let i = 0; i < modelList.length; i++){
         var tempObj = {
-            label: modelList[i].name,
-            value: modelList[i].name
+            label: modelList[i].name + "",
+            value: modelList[i].name + "",
         };
         options.push(tempObj);
+        
     }
     return options;
 
@@ -50,7 +51,7 @@ const Filters = (props) => {
     
     const [selectedFromYear, setSelectedFromYear] = useState(null);
 
-    const [selectedModels, setSelectedModels] = useState([]);
+    const [selected, setSelected] = useState([]);
 
     // const [model, setModel] = useState(null);
 
@@ -110,9 +111,16 @@ const Filters = (props) => {
         FilterQueryString(filters);
     }
 
-    const handleModel = (model) => {
-        // setModel(model);
-        filters['carModel'] = model;
+    const handleModel = (select) => {
+        setSelected(select);
+        var str = ""
+        for(let i = 0; i < select.length; i++){
+            str += select[i]
+            if(i !== select.length - 1){
+                str += ","
+            }
+        }
+        filters['carModel'] = "carModel="+str;
         setFilters(filters);
         FilterQueryString(filters);
     }
@@ -301,10 +309,8 @@ const Filters = (props) => {
                         modelList ?
                         <MultiSelect
                             options={concatModelList(modelList)}
-                            selected={selectedModels}
-                            // onSelectedChanged={(e) => handleModel(e.target.value)} 
-                            onSelectedChanged={selectedModels => setSelectedModels(selectedModels)}
-                        />
+                            selected={selected}
+                            onSelectedChanged={selected => handleModel(selected)} />
                         // <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)}>
                         //     <option value="">Model</option>
                         //     {
