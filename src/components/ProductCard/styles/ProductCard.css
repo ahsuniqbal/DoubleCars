@@ -27,11 +27,11 @@
     overflow: hidden;
 }
 
-/* .product-card .product-img .card-img{
-    object-fit: contain;
+.product-card .product-img .card-img{
+    object-fit: cover;
     background-color: black;
     height: 200px;
-} */
+}
 
 .product-card .product-img span{
     position: absolute;
@@ -110,7 +110,7 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .product-card .product-img{
-        max-height: 175px;
+        height: 175px;
         overflow: hidden;
     }
 }

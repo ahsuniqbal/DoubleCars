@@ -5,13 +5,14 @@ const vinAuditKey = "key=09P9CXBFSTGKA2G&list=";
 // const vinAuditKey = "key=VA_DEMO_KEY&list=";
 
 const ReverseGeoCodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?key=";
-const ReverseGeoCodeApi = "AIzaSyCSQ8v_269843uhaQ0hI9uBccotpA2gKYk";
+const GoogleApiKey = "AIzaSyCxiSu4WWhFpMhN7Zi55WNX5FuB8ot6JA0";
 const ReverseGeoCodeLatLong = "&result_type=postal_code&latlng=";
 
 const vinAuditConnectionString = vinAuditBaseUrl + vinAuditKey;
-const ReverseGeoCodeConnectionString = ReverseGeoCodeUrl + ReverseGeoCodeApi + ReverseGeoCodeLatLong;
+const ReverseGeoCodeConnectionString = ReverseGeoCodeUrl + GoogleApiKey + ReverseGeoCodeLatLong;
 
 export { connectionString, 
+    GoogleApiKey,
     vinAuditConnectionString as vinAuditString, 
     ReverseGeoCodeConnectionString as GeoCodeString 
 };

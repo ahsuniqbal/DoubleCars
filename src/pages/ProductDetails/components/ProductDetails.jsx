@@ -25,8 +25,12 @@ const ProductResults = ({match}) => {
     }, []);
 
 
-    const DrawGallery = (images) => {
-        const galleryImages = [];
+    const DrawGallery = (images, coverPic) => {
+        const galleryImages = [{
+            original: coverPic,
+            thumbnail: coverPic,
+            description: "1 person have saved this car"
+        }];
         for(let i = 0; i < images.length; i++){
             var tempObj = {
                 original: images[i].image,
@@ -57,7 +61,7 @@ const ProductResults = ({match}) => {
                         <Row>
                             <Col md = "8">
                                 <Gallery
-                                    items={DrawGallery(productDetails.images)}
+                                    items={DrawGallery(productDetails.images, productDetails.details[0].coverPic)}
                                 />
                                 <Information
                                     transmission={productDetails.details[0].transmission}

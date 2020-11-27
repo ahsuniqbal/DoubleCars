@@ -3,6 +3,7 @@ import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Row, Col, L
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarIcon from '../../../assets/star.svg';
 import { Link } from 'react-router-dom';
+import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import '../styles/ProductCard.css';
 
 
@@ -14,7 +15,7 @@ const ProductCard = (props) => {
                 {
                     props.productBadge ? <Badge color="primary">{props.productBadge}</Badge> : null
                 }
-                <CardImg src={props.productImg} alt={props.productName} />
+                <CardImg src={props.productImg ? props.productImg : dummyAvatar} alt={props.productName} />
             </div>
         </Link>
         <CardBody>

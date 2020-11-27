@@ -10,7 +10,7 @@ const RadiusSlider = (props) => {
         <Slider 
             min={props.min}
             max={props.max}
-            onChange={handleChange} />
+            onChangeCommitted={handleChange} />
     )
 }
 
