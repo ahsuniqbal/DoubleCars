@@ -1,3 +1,4 @@
+// Bubble sort algorithm to sort the products array using price
 export const SortByPrice = (productsArray) => {
 
     for (var i = productsArray.length - 1; i >= 0; i--){
@@ -12,7 +13,7 @@ export const SortByPrice = (productsArray) => {
     return productsArray;
 }
 
-
+// Bubble sort algorithm to sort the products array using product ID
 export const SortByRelevance = (productsArray) => {
 
     for (var i = productsArray.length - 1; i >= 0; i--){
