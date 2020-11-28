@@ -164,21 +164,6 @@ const Home = () => {
             alert("Error", error.message);
         });
     }, []);
-    // const setImage = (e) => {
-    //     var file = e.target.files[e.target.files.length - 1]
-    //     // document.getElementById('productImg').src = URL.createObjectURL(file) 
-    //     getBlob(file)
-    //     .then(doc => {
-    //     //   console.log(doc)
-    //       testingBlob(doc).then(doc => {
-    //           console.log(doc)
-    //       })
-    //       .catch(e => {
-    //           console.log(e.message)
-    //       })
-    //     })
-    
-    //   }
    
     return(
         <div className = "landing-page-dc">
