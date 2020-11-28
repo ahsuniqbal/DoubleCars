@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col ,Row, Label, Input, Container} from 'reactstrap';
+import { SortByRelevance, SortByPrice } from '../../../components/Sorting/Sorting';
 import Filters from '../../../components/ProductFilters/components/Filters';
 import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
@@ -23,8 +24,8 @@ const ShowSearchResults = (inventory) => {
                     productImg={inventory[i].coverPic}
                     productName={inventory[i].yearCar + " " + inventory[i].carModel + " " + inventory[i].carMake}
                     productBadge={"TRENDING"}
-                    // dealer
-                    userId={inventory[i].userId} />
+                    userId={inventory[i].userId}
+                    allowBookmark={true} />
             </Col>
         );        
     }
@@ -34,6 +35,7 @@ const ShowSearchResults = (inventory) => {
 const DealerProfile = ({match}) => {
     const [dealer, setDealer] = useState(null);
     const [inventory, setInventory] = useState(null);
+    const [sortFlag, setSortFlag] = useState(false);
     
     useEffect(() => {
         GetSellerDetails(match.params.id).then(doc => {
@@ -49,6 +51,18 @@ const DealerProfile = ({match}) => {
             alert("Error", error.message);
         });
     }, []);
+
+
+    function ProductSorting(sortingType){
+        if(sortingType === "relevance"){
+            setInventory(SortByRelevance(inventory));
+            setSortFlag(!sortFlag);
+        }
+        else if(sortingType === "price"){
+            setInventory(SortByPrice(inventory));
+            setSortFlag(!sortFlag);
+        }
+    }
 
     return(
         <Container className = "dealer-profile">
@@ -90,9 +104,9 @@ const DealerProfile = ({match}) => {
                             <Label className="float-right mt-2">Sort by</Label>
                         </Col>
                         <Col md="2">
-                            <Input type="select">
-                                <option>Relevence</option>
-                                
+                            <Input type="select" onChange={(e) => ProductSorting(e.target.value)}>
+                                <option value="relevance">Relevance</option>
+                                <option value="price">Price</option>
                             </Input>
                         </Col>
                     </Row>
