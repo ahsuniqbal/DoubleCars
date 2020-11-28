@@ -45,6 +45,7 @@ const ProductCard = (props) => {
                     }
                 </Row>
             {
+                props.dealer ? 
                 props.dealer === "Dealership" ?
                 <div>
                     <hr />
@@ -57,15 +58,10 @@ const ProductCard = (props) => {
                                 <CardTitle>{props.dealerName}</CardTitle>
                             </Col>
                             <Col xs="4" className="pl-0 text-right">
-                                {
-                                    props.dealer ?
-                                    <div className="company-rating">
-                                        <img src={StarIcon} alt="Star icon" className="img-fluid mr-2" />
-                                        <Label>{props.dealerRating}</Label>
-                                    </div>
-                                    :
-                                    null              
-                                }
+                                <div className="company-rating">
+                                    <img src={StarIcon} alt="Star icon" className="img-fluid mr-2" />
+                                    <Label>{props.dealerRating}</Label>
+                                </div>    
                             </Col>
                         </Row>
                     </Link>
@@ -73,13 +69,22 @@ const ProductCard = (props) => {
                 :
                 <div>
                     <hr />
-                    <Row className="company-details">
-                        <Col xs="12">
-                            <CardTitle>Private Seller</CardTitle>
-                        </Col>
-                    </Row>
-                    
+                    <Link to={"/dealer/" + props.userId}>
+                        <Row className="company-details private-seller">
+                            <Col xs="3">
+                                <CardImg src={props.dealerPic} alt="Company logo" />
+                            </Col>
+                            <Col xs="4" className="px-0">
+                                <CardTitle>{props.dealerName}</CardTitle>
+                            </Col>
+                            <Col xs="5" className="pl-0 text-right">
+                                <Label>Private Seller</Label>    
+                            </Col>
+                        </Row>
+                    </Link>
                 </div>
+                :
+                null
             }
         </CardBody>
     </Card>

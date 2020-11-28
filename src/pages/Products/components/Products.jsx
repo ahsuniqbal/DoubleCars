@@ -4,6 +4,7 @@ import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { GetSearchResult, GetFilterResult } from '../api/GetRequests';
 import { SortByRelevance, SortByPrice } from '../../../components/Sorting/Sorting';
+import adProducts from '../../../assets/ad_products.png';
 import Skeleton from '@material-ui/lab/Skeleton';
 import '../styles/Products.css';
 
@@ -13,25 +14,35 @@ function numberWithCommas(number) {
 
 const ShowSearchResults = (products) => {
     var table = [];
+    var adPlacement = 5;
     for (let i = 0; i < products.length; i++) {
-        table.push(
-            <Col key={products[i].productId} xs="12" sm="6" lg="4">
-                <ProductCard
-                    productId={products[i].productId}
-                    productTitle={products[i].carName}
-                    productSubtitle={numberWithCommas(products[i].mileage) + " miles · " + products[i].zipCode}
-                    productText={"$" + numberWithCommas(products[i].price)}
-                    productImg={products[i].coverPic}
-                    productName={products[i].carName}
-                    productBadge={"TRENDING"}
-                    userId={products[i].userId}
-                    dealerPic={products[i].userPic}
-                    dealer={products[i].userRole}
-                    dealerName={products[i].fullName}
-                    dealerRating={Math.floor(Math.random() * (5 * 100 - 1 * 100) + 1 * 100) / (1*100)}
-                    allowBookmark={true} />
-            </Col>
-        );        
+        if(i !== 0 && i % adPlacement === 0) {
+            table.push(
+                <Col key={products[i].productId} xs="12" sm="6" lg="4">
+                    <img src={adProducts} alt="Advertisement" className="img-fluid" />
+                </Col>
+            );
+        }
+        else {
+            table.push(
+                <Col key={products[i].productId} xs="12" sm="6" lg="4">
+                    <ProductCard
+                        productId={products[i].productId}
+                        productTitle={products[i].carName}
+                        productSubtitle={numberWithCommas(products[i].mileage) + " miles · " + products[i].zipCode}
+                        productText={"$" + numberWithCommas(products[i].price)}
+                        productImg={products[i].coverPic}
+                        productName={products[i].carName}
+                        productBadge={"TRENDING"}
+                        userId={products[i].userId}
+                        dealerPic={products[i].userPic}
+                        dealer={products[i].userRole}
+                        dealerName={products[i].fullName}
+                        dealerRating={Math.floor(Math.random() * (5 * 100 - 1 * 100) + 1 * 100) / (1*100)}
+                        allowBookmark={true} />
+                </Col>
+            );
+        }   
     }
     return table;
 }

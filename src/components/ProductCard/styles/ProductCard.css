@@ -88,13 +88,13 @@
     margin-top: 10px;
 }
 
-/* .product-card .company-details .private-seller{
+.product-card .company-details.private-seller label{
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     color: rgba(0, 0, 0, 0.45);
     margin-top: 12px;
-} */
+}
 
 .product-card .company-details .company-rating{
     margin-top: 10px;

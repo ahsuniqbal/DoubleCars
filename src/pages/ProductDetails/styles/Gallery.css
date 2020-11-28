@@ -75,6 +75,7 @@
     height: 56px;
     color: #000;
     border-radius: 13px;
+    padding: 12px;
 }
 
 .image-gallery-icon:focus{
