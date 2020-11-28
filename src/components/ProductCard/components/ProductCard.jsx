@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import '../styles/ProductCard.css';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 
 const ProductCard = (props) => {
   return (
@@ -15,14 +18,17 @@ const ProductCard = (props) => {
                 {
                     props.productBadge ? <Badge color="primary">{props.productBadge}</Badge> : null
                 }
-                <CardImg src={props.productImg ? props.productImg : dummyAvatar} alt={props.productName} />
+                <LazyLoadImage className="card-img"  effect="blur" 
+                    src={props.productImg ? props.productImg : dummyAvatar} alt={props.productName} />
+                {/* <CardImg src={props.productImg ? props.productImg : dummyAvatar} alt={props.productName} /> */}
             </div>
         </Link>
         <CardBody>
-            <Link to={"/product/" + props.productId}>
                 <Row>
                     <Col xs="9">
-                        <CardTitle title={props.productTitle}>{props.productTitle}</CardTitle>
+                        <Link to={"/product/" + props.productId}>
+                            <CardTitle title={props.productTitle}>{props.productTitle}</CardTitle>
+                        </Link>
                         <CardSubtitle>{props.productSubtitle}</CardSubtitle>
                         <CardText>{props.productText}</CardText>
                     </Col>
@@ -38,16 +44,14 @@ const ProductCard = (props) => {
                         null
                     }
                 </Row>
-            </Link>
-            
             {
-                props.dealer ?
+                props.dealer === "Dealership" ?
                 <div>
                     <hr />
                     <Link to={"/dealer/" + props.userId}>
                         <Row className="company-details">
                             <Col xs="3">
-                                <CardImg className = "mt-1" src={props.dealerPic} alt="Company logo" width = "auto"/>
+                                <CardImg src={props.dealerPic} alt="Company logo" />
                             </Col>
                             <Col xs="5" className="px-0">
                                 <CardTitle>{props.dealerName}</CardTitle>
@@ -67,7 +71,15 @@ const ProductCard = (props) => {
                     </Link>
                 </div>
                 :
-                null
+                <div>
+                    <hr />
+                    <Row className="company-details">
+                        <Col xs="12">
+                            <CardTitle>Private Seller</CardTitle>
+                        </Col>
+                    </Row>
+                    
+                </div>
             }
         </CardBody>
     </Card>

@@ -78,6 +78,9 @@ const Products = ({location}) => {
     useEffect(() => {
         GetSearchResult(GetSearchInput(location.search)).then(doc => {
             setProducts(doc);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
     }, []);
 
@@ -100,6 +103,9 @@ const Products = ({location}) => {
     const queryChange = (queryStr) => {
         GetFilterResult(queryStr).then(doc => {
             setProducts(doc);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
     }
 

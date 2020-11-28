@@ -145,6 +145,9 @@ const Home = () => {
                 setRecommendations(doc[0].data);
                 setTrending(doc[1].data);
             })
+            .catch(error => {
+                alert("Error", error.message);
+            });
         }
         else{
             GetRecommendationsTrendings('-1').then(doc => {
@@ -156,6 +159,9 @@ const Home = () => {
         //Get the list of all body types
         GetAllBodyTypes().then(doc => {
             setBodyTypes(doc.bodyStyleList);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
     }, []);
     // const setImage = (e) => {

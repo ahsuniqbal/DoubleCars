@@ -14,6 +14,9 @@ const SellerDetails = (props) => {
     useEffect(() => {
         GetSellerDetails(props.userId).then(doc => {
             setDealer(doc[0]);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
     }, []);
 

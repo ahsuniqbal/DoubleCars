@@ -5,11 +5,11 @@ import { Slider } from '@material-ui/core';
 const marks = (min, max, minLabel, maxLabel) => [
   {
     value: min,
-    label: minLabel + " mi.",
+    label: minLabel + " mi",
   },
   {
     value: max,
-    label: maxLabel + " mi.",
+    label: maxLabel + " mi",
   }
 ];
 

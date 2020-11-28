@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
 import MultiSelect from "@khanacademy/react-multi-select";
 import { GetAllMakes, GetModelFromMake, GetZipFromLatLong } from '../api/GetRequests';
@@ -43,6 +43,12 @@ const Filters = (props) => {
     //Zip Code
     const [zipCode, setZipCode] = useState(null);
 
+    //Current Lat Long
+    const [currentLatLng, setCurrentLatLng] = useState(null);
+
+    // Get location from map
+    const [locationFromMap, setLocationFromMap] = useState(false);
+
     //Filters
     const [radius, setRadius] = useState(0);
     const [price, setPrice] = useState([0, 99999]);
@@ -51,7 +57,7 @@ const Filters = (props) => {
     
     const [selectedFromYear, setSelectedFromYear] = useState(null);
 
-    const [selected, setSelected] = useState([]);
+    const [selectedModels, setSelectedModels] = useState([]);
 
     // const [model, setModel] = useState(null);
 
@@ -67,6 +73,11 @@ const Filters = (props) => {
 
     //Make Model Collapse
     const [isModelCollapseOpen, setisModelCollapseOpen] = useState(false);
+
+    // const GetLocationFromMap = useCallback((marker) => {
+    //     setCurrentLatLng(marker);
+    //     console.log(marker);
+    // }, []);
     
     
     
@@ -105,6 +116,9 @@ const Filters = (props) => {
         setMake(make);
         GetModelFromMake(make).then(doc => {
             setModelList(doc.makes[0].models);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
         filters['carMake'] = make;
         setFilters(filters);
@@ -112,7 +126,7 @@ const Filters = (props) => {
     }
 
     const handleModel = (select) => {
-        setSelected(select);
+        setSelectedModels(select);
         var str = ""
         for(let i = 0; i < select.length; i++){
             str += select[i]
@@ -145,6 +159,9 @@ const Filters = (props) => {
     useEffect(() => {
         GetAllMakes().then(doc => {
             setMakeList(doc.makes);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
 
         GetLocation();        
@@ -154,9 +171,15 @@ const Filters = (props) => {
         GetFilterLength();
     }, [filters]);
 
+    useEffect(() => {
+        GetLocation();
+        setLocationFromMap(!locationFromMap);
+    }, [currentLatLng]);
+
     const todayYear = (new Date()).getFullYear();
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
     const dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index);
+
 
 
 
@@ -173,7 +196,10 @@ const Filters = (props) => {
         // GetSearchResult(str).then(doc => {
         //     setProducts(doc);
         //     console.log("Doc", doc);
-        // });
+        // })
+        // .catch(error){
+        //     alert("Error", error.message);
+        // };
         props.onQueryChange(str);
     }
     
@@ -189,6 +215,7 @@ const Filters = (props) => {
     
     function ShowPosition(position){
         var latLong = position.coords.latitude + "," + position.coords.longitude;
+        setCurrentLatLng({ lat: position.coords.latitude, lng: position.coords.longitude });
         GetZipFromLatLong(latLong).then(doc => {
             if(doc.length > 0){
                 setZipCode(doc[0].address_components[0].long_name);
@@ -199,6 +226,9 @@ const Filters = (props) => {
             else{
                 setZipCode("N/A");
             }
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
     }
     
@@ -248,6 +278,10 @@ const Filters = (props) => {
         FilterQueryString(tempFilters);
     }
 
+    const GetLocationFromMap = useCallback((mapLocation) => {
+        setCurrentLatLng(mapLocation);
+    }, []);
+
     return(
         <Card className="filters">
             <CardBody>
@@ -261,11 +295,11 @@ const Filters = (props) => {
                 <div className="location">
                     <h6>LOCATION</h6>
                     <InputGroup>
-                    <Input type="text" className="location-box" defaultValue={zipCode} readOnly />
-                        <InputGroupAddon addonType="append" onClick={() => toggleMapPopup()}>
+                    <Input type="text" className="location-box" defaultValue={zipCode} onClick={() => toggleMapPopup()} readOnly />
+                    {currentLatLng ? <MapPopup toggle={toggleMapPopup} isOpen={mapPopup} GetLocationFromMap={GetLocationFromMap} center={currentLatLng} /> : null}
+                        <InputGroupAddon addonType="append">
                             <InputGroupText>
-                                <img src={gps} alt="Gps Icon" className="img-fluid" />
-                                <MapPopup toggle={toggleMapPopup} isOpen={mapPopup} />
+                                <img src={gps} alt="Gps Icon" className="img-fluid" onClick={() => GetLocation()} />            
                             </InputGroupText>
                         </InputGroupAddon>
                     </InputGroup>
@@ -282,7 +316,7 @@ const Filters = (props) => {
                                 onHandleRadius={handleRadius} />
                         </Col>
                         <Col xs="2" sm="1" md="3" lg="2" className="px-0">
-                            <Label>{radius + " mi."}</Label>
+                            <Label>{radius + " mi"}</Label>
                         </Col>
                     </Row>
                 </div>
@@ -309,7 +343,7 @@ const Filters = (props) => {
                         modelList ?
                         <MultiSelect
                             options={concatModelList(modelList)}
-                            selected={selected}
+                            selected={selectedModels}
                             onSelectedChanged={selected => handleModel(selected)} />
                         // <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)}>
                         //     <option value="">Model</option>
@@ -342,7 +376,7 @@ const Filters = (props) => {
                 <h6>MILEAGE</h6>
                 <div className="px-2">
                     {/* <Typography id="continuous-slider" gutterBottom>
-                        {mileage + " mi."}
+                        {mileage + " mi"}
                     </Typography> */}
                     <MileageSlider
                         min={0}

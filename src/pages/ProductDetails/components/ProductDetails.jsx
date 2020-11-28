@@ -19,6 +19,9 @@ const ProductResults = ({match}) => {
         setTimeout(async() => {
             GetProductDetails(match.params.id).then(doc => {
                 setProductDetails(doc);
+            })
+            .catch(error => {
+                alert("Error", error.message);
             });
         }, 5000)
 
