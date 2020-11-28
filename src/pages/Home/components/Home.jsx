@@ -15,6 +15,7 @@ import '../styles/Home.css'
 import '../styles/RecommendedCar.css';
 import '../styles/TrendingCar.css';
 import '../styles/TrendingBodyTypes.css';
+import DCSlider from '../../../components/DcSlider'
 
 function numberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -206,11 +207,12 @@ const Home = () => {
                     
                         <Row>
                             <Col>
-                                <Carousel indicators={false} >
+                                <DCSlider/>
+                                {/* <Carousel indicators={false} >
                                 {
                                     recommendations ? DrawCarousel(recommendations) : DrawSkeleton()
                                 }
-                                </Carousel>
+                                </Carousel> */}
                             </Col>
                         </Row>
                     </CardBody>
