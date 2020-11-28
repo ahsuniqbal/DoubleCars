@@ -45,12 +45,18 @@ const Searchbar = () => {
     const handleMake = (make) => {
         GetModelFromMake(make).then(doc => {
             setModelList(doc.makes[0].models);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
     };
 
     useEffect(() => {
         GetAllMakes().then(doc => {
             setMakeList(doc.makes);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
     }, []);
 

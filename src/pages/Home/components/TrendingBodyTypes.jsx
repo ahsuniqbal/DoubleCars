@@ -38,7 +38,6 @@ const TrendingBodyTypes = (props) => {
 
     const DrawCarouselCols = (list, index) => {
         var table = [];
-        console.log("List", list)
         for(let i = index; i < index + 4; i++){
             if(i > list.length - 1){
                 return table;
@@ -107,6 +106,9 @@ const TrendingBodyTypes = (props) => {
         e.preventDefault();
         GetProductsOfBodyType(bodyType).then(doc => {
             setBodyTypeProducts(doc);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
     }
 
@@ -127,6 +129,9 @@ const TrendingBodyTypes = (props) => {
     useEffect(() => {
         GetProductsOfBodyType(props.bodyTypes[0]).then(doc => {
             setBodyTypeProducts(doc);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
     }, []);
 

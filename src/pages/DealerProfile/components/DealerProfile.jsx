@@ -38,9 +38,15 @@ const DealerProfile = ({match}) => {
     useEffect(() => {
         GetSellerDetails(match.params.id).then(doc => {
             setDealer(doc[0]);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
         GetSellerInventory(match.params.id).then(doc => {
             setInventory(doc.inventory);
+        })
+        .catch(error => {
+            alert("Error", error.message);
         });
     }, []);
 
