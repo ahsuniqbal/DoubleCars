@@ -8,8 +8,8 @@ const Login = React.lazy(() => import('../pages/Authentication/Login'));
 const Products = React.lazy(() => import('../pages/Products'));
 const ProductDetails = React.lazy(() => import ('../pages/ProductDetails/components/ProductDetails'))
 const DealerProfile = React.lazy(() => import ('../pages/DealerProfile'))
-const TermsAndCondition = React.lazy(() => import ('../pages/PrivacyAndTerms'))
-
+const TermsAndCondition = React.lazy(() => import ('../pages/PrivacyAndTerms/components/TermsAndCondition'))
+const PrivacyPolicy = React.lazy(() => import ('../pages/PrivacyAndTerms/components/PrivacyPolicy'))
 
 /////////////////////// MUST READ BEFORE CREATING A ROUTE /////////////////////
 
@@ -31,7 +31,8 @@ const routes = [
     { path: '/products', exact: true, name: 'Products', public: true, restricted: true, component: Products },
     { path: '/product/:id', exact: true, name: 'Product Details', public: true, restricted: false, component: ProductDetails },
     { path: '/dealer/:id', exact: true, name: 'Dealer Profile', public: true, restricted: false, component: DealerProfile },
-    { path: '/termsandconditions', name: 'Terms and Condition', public: true, restricted: false, component: TermsAndCondition },
+    { path: '/termsandconditions', name: 'Terms and Condition', public: true, restricted: true, component: TermsAndCondition },
+    { path: '/privacypolicy', name: 'Privacy and Policy', public: true, restricted: true, component: PrivacyPolicy },
 ];
 
 export default routes;

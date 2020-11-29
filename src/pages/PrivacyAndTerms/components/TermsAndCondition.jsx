@@ -1,11 +1,19 @@
 import React from 'react';
 import '../styles/TermsAndCondition.css'
-
+import {Row, Col, Nav, NavItem, Button, NavLink, Container, CardBody} from 'reactstrap'
 const TermsAndCondition = () => {
     return(
-        <div>
-        <h3>Welcome Terms page </h3>
-    </div>
+        <body className = "terms-and-condition-body">
+        <Container>
+            <Row>
+                <Col className = "terms-column">
+                <h4 className = "terms-head">Terms and Conditions</h4>
+                </Col>   
+            </Row>
+           
+            
+        </Container>
+    </body>
     )
 }
 

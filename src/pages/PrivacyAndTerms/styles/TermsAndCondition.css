@@ -1,0 +1,14 @@
+.terms-and-condition-body {
+    background-color: white !important;
+}
+
+.terms-column{
+    margin-top: 5%;
+}
+
+.terms-head {
+    font-weight: 500;
+    font-size: 32px;
+    color: rgba(0, 0, 0, 0.85);
+    
+}

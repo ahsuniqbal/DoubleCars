@@ -109,10 +109,13 @@ const Footer = () => {
                             <NavLink className = "bootom-footer nav-text-color" to="">Legal Information</NavLink>
                         </Col>
                         <Col md = "2" xs = "" className = "lower-footer-columns text-center">
-                            <NavLink className = "bootom-footer nav-text-color" to="">Privacy Policy</NavLink>
+                            {/* <NavLink className = "bootom-footer nav-text-color" to="">Privacy Policy</NavLink> */}
+                            <Link to={'/privacypolicy/'}>
+                            <NavLink className = "bootom-footer nav-text-color">Privacy Policy</NavLink>
+                        </Link>
                         </Col>
                         <Col md = "2" xs = "" className = "text-center lower-footer-columns">
-a                            <Link to={'/termsandconditions/'}>
+                        <Link to={'/termsandconditions/'}>
                             <NavLink className = "bootom-footer nav-text-color">Terms and Conditions</NavLink>
                         </Link>
                         </Col>
