@@ -2,15 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col, Label, Input, Container } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
+import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import { GetSearchResult, GetFilterResult } from '../api/GetRequests';
-import { SortByRelevance, SortByPrice } from '../../../components/Sorting/Sorting';
+import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
 import adProducts from '../../../assets/ad_products.png';
 import Skeleton from '@material-ui/lab/Skeleton';
 import '../styles/Products.css';
 
-function numberWithCommas(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 
 const ShowSearchResults = (products) => {
     var table = [];
@@ -29,8 +27,8 @@ const ShowSearchResults = (products) => {
                     <ProductCard
                         productId={products[i].productId}
                         productTitle={products[i].carName}
-                        productSubtitle={numberWithCommas(products[i].mileage) + " miles · " + products[i].zipCode}
-                        productText={"$" + numberWithCommas(products[i].price)}
+                        productSubtitle={AddCommaToNumber(products[i].mileage) + " miles · " + products[i].zipCode}
+                        productText={"$" + AddCommaToNumber(products[i].price)}
                         productImg={products[i].coverPic}
                         productName={products[i].carName}
                         productBadge={"TRENDING"}

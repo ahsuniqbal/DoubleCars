@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Col ,Row, Label, Input, Container} from 'reactstrap';
-import { SortByRelevance, SortByPrice } from '../../../components/Sorting/Sorting';
+import { SortByRelevance, SortByPrice } from '../../../utils/Sorting';
+import { AddCommaToNumber } from '../../../utils/NumberManipulation'
 import Filters from '../../../components/ProductFilters/components/Filters';
 import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { GetSellerDetails, GetSellerInventory } from '../api/GetRequests';
-
-function numberWithCommas(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 
 const ShowSearchResults = (inventory) => {
     var table = [];
@@ -19,8 +16,8 @@ const ShowSearchResults = (inventory) => {
                 <ProductCard
                     productId={inventory[i].productId}
                     productTitle={inventory[i].yearCar + " " + inventory[i].carModel + " " + inventory[i].carMake}
-                    productSubtitle={numberWithCommas(inventory[i].mileage) + " miles · " + inventory[i].zipCode}
-                    productText={"$" + numberWithCommas(inventory[i].price)}
+                    productSubtitle={AddCommaToNumber(inventory[i].mileage) + " miles · " + inventory[i].zipCode}
+                    productText={"$" + AddCommaToNumber(inventory[i].price)}
                     productImg={inventory[i].coverPic}
                     productName={inventory[i].yearCar + " " + inventory[i].carModel + " " + inventory[i].carMake}
                     productBadge={"TRENDING"}

@@ -5,7 +5,7 @@ const axios = require('axios');
 
 export const GetAllMakes = () => {
     return new Promise((resolve, reject) => {
-        var url = vinAuditString + "make";
+        var url = vinAuditString + "&list=make";
         axios.get(url).then(function(response){
             const data = response.data.selections;
             resolve(data);
@@ -20,7 +20,7 @@ export const GetAllMakes = () => {
 
 export const GetModelFromMake = (makeId) => {
     return new Promise((resolve, reject) => {
-        var url = vinAuditString + "make+model&make=" + makeId;
+        var url = vinAuditString + "&list=make+model&make=" + makeId;
         axios.get(url).then(function(response){
             const data = response.data.selections;
             resolve(data);

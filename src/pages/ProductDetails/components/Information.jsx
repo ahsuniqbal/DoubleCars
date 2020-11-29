@@ -1,9 +1,7 @@
 import React from 'react';
 import { Row, Col,Label} from 'reactstrap';
+import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import '../styles/Information.css';
-function numberWithCommas(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 
 const Information = (props) => {
     return(
@@ -14,12 +12,12 @@ const Information = (props) => {
                     <h2 className = "car-name">{props.yearCar + " " + props.carModel + " " + props.carMake }</h2>
                 </Col>
                 <Col className = "text-right mt-5" md = "4">
-                    <h2 className = "car-price">{"$" + numberWithCommas(props.price)}</h2>
+                    <h2 className = "car-price">{"$" + AddCommaToNumber(props.price)}</h2>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h4 className = "car-info mb-4">{numberWithCommas(props.mileage) + " mi"} · {props.zipCode} </h4>
+                    <h4 className = "car-info mb-4">{AddCommaToNumber(props.mileage) + " mi"} · {props.zipCode} </h4>
                 </Col>
             </Row>
             <hr  className = "info-bottom-line mb-5"/>

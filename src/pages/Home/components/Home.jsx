@@ -5,6 +5,7 @@ import TrendingBodyTypes from './TrendingBodyTypes'
 import BuyNow from './BuyNow';
 import Searchbar from './Searchbar';
 import { Row, Col, CardBody, Container } from 'reactstrap';
+import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -16,10 +17,6 @@ import '../styles/RecommendedCar.css';
 import '../styles/TrendingCar.css';
 import '../styles/TrendingBodyTypes.css';
 import DCSlider from '../../../components/DcSlider'
-
-function numberWithCommas(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 
 
 // function DrawProductCards(data){
@@ -99,8 +96,8 @@ const DrawCarouselCols = (list, index) => {
                     productImg={list[i].coverPic}
                     productName={list[i].name}
                     productTitle={list[i].name}
-                    productSubtitle={numberWithCommas(list[i].mileage) + " miles · " + list[i].zipCode}
-                    productText={"$" + numberWithCommas(list[i].price)}
+                    productSubtitle={AddCommaToNumber(list[i].mileage) + " miles · " + list[i].zipCode}
+                    productText={"$" + AddCommaToNumber(list[i].price)}
                 />
                  : null
                 }

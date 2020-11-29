@@ -38,7 +38,7 @@ const DefaultLayout = () => {
                 </Switch>
             
 
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 }
