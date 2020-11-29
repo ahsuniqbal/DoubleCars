@@ -9,6 +9,18 @@ const Products = React.lazy(() => import('../pages/Products'));
 const ProductDetails = React.lazy(() => import ('../pages/ProductDetails/components/ProductDetails'))
 const DealerProfile = React.lazy(() => import ('../pages/DealerProfile'))
 
+
+/////////////////////// MUST READ BEFORE CREATING A ROUTE /////////////////////
+
+// To show the page to every visitor public keyword will be true
+// To hide the page from all visitors public will be false,
+// To show the page to only logged in users restricted keyword will be false
+// To show the page to only logged out users restricted will be true
+// The exact param comes into play when you have multiple paths that have similar names
+// The exact param disables the partial matching for a route and makes sure that it only returns the route if the path is an EXACT match to the current url.
+
+/////////////////////// MUST READ BEFORE CREATING A ROUTE /////////////////////
+
 const routes = [
     { path: '/', exact: true, name: 'Home', public: true, restricted: false, component: Home },
     { path: '/about', name: 'About', public: true, restricted: false, component: About },

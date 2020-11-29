@@ -1,8 +1,6 @@
 import { vinAuditString, GeoCodeString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
-
-
 export const GetAllMakes = () => {
     return new Promise((resolve, reject) => {
         var url = vinAuditString + "&list=make";
@@ -48,4 +46,3 @@ export const GetZipFromLatLong = (latLong) => {
         })
     })
 };
-

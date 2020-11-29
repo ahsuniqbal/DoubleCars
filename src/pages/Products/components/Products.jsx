@@ -68,18 +68,12 @@ function DrawSkeleton(){
     return table;
 }
 
-function GetSearchInput(searchInput){
-    
-     var toSearch = searchInput.replace(/%20/g, ' ').split('=');
-    // var toSearch = searchInput.replace('%20', ' ').split('=');
+function GetSearchInput(searchInput){   
+    var toSearch = searchInput.replace(/%20/g, ' ').split('=');
     return toSearch[1];
 }
 
 const Products = ({location}) => {
-    const [radius, setRadius] = useState(0);
-    const [mileage, setMileage] = useState(0);
-    const [price, setPrice] = useState([0, 0]);
-    const [make, setMake] = useState(null);
     const [sortFlag, setSortFlag] = useState(false);
     const [products, setProducts] = useState(null);
 
@@ -92,22 +86,6 @@ const Products = ({location}) => {
             alert("Error", error.message);
         });
     }, []);
-
-    const handleRadius = (value) => {
-        setRadius(value);
-    }
-
-    const handleMileage = (value) => {
-        setMileage(value);
-    }
-
-    const handlePrice = (price) => {
-        setPrice(price);
-    }
-
-    const handleMake = (make) => {
-        setMake(make);
-    }
 
     const queryChange = (queryStr) => {
         GetFilterResult(queryStr).then(doc => {
@@ -136,11 +114,7 @@ const Products = ({location}) => {
         
             <Row>
                 <Col xs="12" md="3">
-                    <Filters 
-                        onHandleRadius={handleRadius}
-                        onHandleMileage={handleMileage}
-                        onHandlePrice={handlePrice}
-                        onHandleMake={handleMake}
+                    <Filters
                         onQueryChange={queryChange} />
                 </Col>
                 <Col xs="12" md="9" >

@@ -88,7 +88,6 @@ const Filters = (props) => {
 
     const handleRadius = (radius) => {
         setRadius(radius);
-        props.onHandleRadius(radius);
         // filters['radius'] = radius;
         // setFilters(filters);
         // FilterQueryString(filters);    
@@ -96,7 +95,6 @@ const Filters = (props) => {
 
     const handlePrice = (price) => {
         setPrice(price);
-        props.onHandlePrice(price);
         filters['minPrice'] = price[0];
         filters['maxPrice'] = price[1];
         setFilters(filters);
@@ -105,7 +103,6 @@ const Filters = (props) => {
 
     const handleMileage = (mileage) => {
         setMileage(mileage);
-        props.onHandleMileage(mileage);
         filters['minMileage'] = mileage[0];
         filters['maxMileage'] = mileage[1]
         setFilters(filters);

@@ -48,7 +48,7 @@ const MapPopup = (props) => {
         mapRef.current.setZoom(14);
     }, []);
 
-    const { isLoaded, loadError } = useLoadScript({
+    const { loadError } = useLoadScript({
         googleMapsApiKey: GoogleApiKey,
         libraries: libraries,
     });

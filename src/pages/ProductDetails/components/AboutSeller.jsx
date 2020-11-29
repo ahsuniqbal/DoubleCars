@@ -32,7 +32,7 @@ const SellerDetails = (props) => {
             {
             dealer ?
                 <Card className="mt-4 about-seller-card">
-                    <CardBody className = "">
+                    <CardBody>
                         <Row>
                             <Col xs="3">
                                 <div className = "seller-name-image">

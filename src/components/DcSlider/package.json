@@ -1,7 +1,7 @@
 {
-    "name": "DCSlider",
-    "version": "0.0.0",
-    "private": true,
-    "main": "./components/DCSlider.jsx"
-  }
+  "name": "dc-slider",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./components/DCSlider.jsx"
+}
   
