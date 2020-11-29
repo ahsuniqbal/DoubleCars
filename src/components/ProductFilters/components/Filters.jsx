@@ -22,20 +22,12 @@ function concatModelList(modelList){
     var options = [];
     for(let i = 0; i < modelList.length; i++){
         var tempObj = {
-            label: modelList[i].name + "",
-            value: modelList[i].name + "",
+            label: modelList[i].name,
+            value: modelList[i].name,
         };
-        options.push(tempObj);
-        
+        options.push(tempObj);   
     }
     return options;
-
-    // var modelSelectBox = document.getElementById('model-list');
-
-    // for(let i = 0; i < modelList.length; i++){
-    //     var option = modelList[i];
-    //     modelSelectBox.options.add(new Option(option.name, option.name));
-    // }
 }
 
 const Filters = (props) => {
@@ -59,7 +51,6 @@ const Filters = (props) => {
 
     const [selectedModels, setSelectedModels] = useState([]);
 
-    // const [model, setModel] = useState(null);
 
     //Make and Model list fetched from Vin audit API
     const [makeList, setMakeList] = useState([]);
