@@ -3,6 +3,7 @@ import {Row, Col, Nav, NavItem, Button, NavLink, Container} from 'reactstrap'
 import '../styles/Footer.css'
 import { Facebook, Instagram, Twitter } from 'react-feather';
 
+import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div> 
@@ -111,7 +112,9 @@ const Footer = () => {
                             <NavLink className = "bootom-footer nav-text-color" to="">Privacy Policy</NavLink>
                         </Col>
                         <Col md = "2" xs = "" className = "text-center lower-footer-columns">
-                            <NavLink className = "bootom-footer nav-text-color" to="">Terms and Conditions</NavLink>
+                            <Link className = "" to={'/termsandconditions/'}>
+                            <NavLink className = "bootom-footer nav-text-color" to="/termsandconditions">Terms and Conditions</NavLink>
+                        </Link>
                         </Col>
                         <Col md = "3" xs = "" className = "lower-footer-columns">
                             <Row>
