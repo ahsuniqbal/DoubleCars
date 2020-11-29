@@ -80,7 +80,8 @@ const DealerProfile = ({match}) => {
                                 email={dealer.email}
                                 phNum={dealer.phNum}
                                 aboutMe={dealer.aboutMe}
-                                profilePic={dealer.profilePic} />
+                                profilePic={dealer.profilePic}
+                                userRole={dealer.userRole} />
                             :
                             null
                         }
