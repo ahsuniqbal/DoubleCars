@@ -35,9 +35,9 @@ const NavigationBar = () => {
                             <NavLink className="nav-link navigation-items" to="">Popular Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                        <Link className = "" to={'/about/'}>
+                        
                             <NavLink className="nav-link navigation-items" to= {'/about/'}>About us</NavLink>
-                        </Link>
+                        
                             
                         </li>
                         <li className="nav-item">

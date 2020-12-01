@@ -1,0 +1,32 @@
+.contactus-body {
+    background-color: white !important;
+}
+
+.contactus-column {
+    margin-top: 5%;
+}
+
+.contactus-head {
+    font-weight: 500;
+    font-size: 32px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.contact-label {
+    font-size: 16px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.selected-div{
+    background: #FFFFFF !important ;
+    height: 48px;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid #E9E9E9;
+}
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.1rem rgb(13, 81, 170,0.1) ;
+}
+
