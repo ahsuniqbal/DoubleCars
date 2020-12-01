@@ -42,7 +42,7 @@ const DefaultLayout = () => {
                     <PublicRoute component={NotFound} />
                 </Switch>
             {/* Footer will be visible at the end of every page rendered inside the switch */}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

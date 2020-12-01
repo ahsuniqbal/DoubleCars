@@ -2,6 +2,9 @@ import React from "react"
 import { Link, NavLink } from "react-router-dom";
 import "../styles/NavigationBar.css"
 import DCLogo from '../../../assets/DCNewlogo.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {Input, InputGroup, InputGroupText} from 'reactstrap';
+import { Search } from 'react-feather';
 
 const NavigationBar = () => {
     return (
@@ -39,7 +42,13 @@ const NavigationBar = () => {
                         </li>
                        
                         <li className="nav-item">
-                            <NavLink className="nav-link download-button" to="">Download App</NavLink>
+                            {/* <NavLink className="nav-link download-button" to="">Download App</NavLink> */}
+                            <InputGroup className="search-group">
+                                <InputGroupText>
+                                <Search className = "search-icon-navbar"/>
+                                </InputGroupText>
+                            <Input className="search-box" type="text" placeholder="Search" />
+                        </InputGroup>
                         </li>
                     </ul>   
                 </div>
