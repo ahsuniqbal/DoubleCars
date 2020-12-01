@@ -189,12 +189,12 @@ const Home = () => {
                     
                         <Row>
                             <Col>
-                                <DCSlider/>
-                                {/* <Carousel indicators={false} >
+                                {/* <DCSlider/> */}
+                                <Carousel indicators={false} >
                                 {
                                     recommendations ? DrawCarousel(recommendations) : DrawSkeleton()
                                 }
-                                </Carousel> */}
+                                </Carousel>
                             </Col>
                         </Row>
                     </CardBody>
