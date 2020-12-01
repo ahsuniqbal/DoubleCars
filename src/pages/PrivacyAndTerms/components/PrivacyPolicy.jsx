@@ -8,6 +8,8 @@ const PrivacyPolicy = () => {
             <Row>
                 <Col className = "pp-column">
                 <h4 className = "pp-head">Privacy Policy</h4>
+
+                <p>Lorem Ipsum</p>
                 </Col>   
             </Row>
            
