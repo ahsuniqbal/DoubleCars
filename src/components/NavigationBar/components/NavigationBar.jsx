@@ -11,7 +11,7 @@ const NavigationBar = () => {
         <> 
             <nav className="navbar navbar-expand-lg navbar-light bg-light navigation-bar-box">
                 <Link to="/">
-                    <img src = {DCLogo} alt = "Logo" className = "ml-5" width = "144px" height = "28px"/>
+                    <img  src = {DCLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px"/>
                 </Link>
                 <button className="navbar-toggler"
                     type="button"
@@ -35,10 +35,13 @@ const NavigationBar = () => {
                             <NavLink className="nav-link navigation-items" to="">Popular Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="">About us</NavLink>
+                        <Link className = "" to={'/about/'}>
+                            <NavLink className="nav-link navigation-items" to= {'/about/'}>About us</NavLink>
+                        </Link>
+                            
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="">Contact Us</NavLink>
+                            <NavLink className="nav-link navigation-items" to={'/contactus/'}>Contact Us</NavLink>
                         </li>
                        
                         <li className="nav-item">

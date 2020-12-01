@@ -2,6 +2,6 @@
     "name": "about",
     "version": "1.0.0",
     "private": true,
-    "main": "./components/About"
+    "main": "./components/About.jsx"
   }
   
