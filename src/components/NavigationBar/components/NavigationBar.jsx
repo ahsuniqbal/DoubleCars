@@ -1,14 +1,14 @@
 import React from "react"
 import { Link, NavLink } from "react-router-dom";
 import "../styles/NavigationBar.css"
-import DCLogo from '../../../assets/DCLogo.jpg'
+import DCLogo from '../../../assets/DCNewlogo.svg'
 
 const NavigationBar = () => {
     return (
         <> 
             <nav className="navbar navbar-expand-lg navbar-light bg-light navigation-bar-box">
                 <Link to="/">
-                    <img src = {DCLogo} alt = "Logo" width = "252px" height = "50px"/>
+                    <img src = {DCLogo} alt = "Logo" className = "ml-5" width = "144px" height = "28px"/>
                 </Link>
                 <button className="navbar-toggler"
                     type="button"
@@ -32,7 +32,7 @@ const NavigationBar = () => {
                             <NavLink className="nav-link navigation-items" to="">Popular Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="">Certified Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to="">About us</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link navigation-items" to="">Contact Us</NavLink>
