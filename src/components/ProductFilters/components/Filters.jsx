@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
 import MultiSelect from "@khanacademy/react-multi-select";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Check } from 'react-feather';
 import { GetAllMakes, GetModelFromMake, GetZipFromLatLong } from '../api/GetRequests';
 import MapPopup from './MapPopup';
 import gps from '../../../assets/gps.svg';
@@ -584,6 +585,38 @@ const Filters = (props) => {
                             defaultValue={[0, 99999]}
                             onHandleMileage={handleMileage} />
                     </div>
+
+                    <hr />
+
+                    <h6>Exterior Color</h6>
+                    <Row className="exterior-color text-center">
+                        <Col xs="4" sm="2" md="4">
+                            <div className="color-swatch" style={{backgroundColor: 'black'}}>
+                                <Check />
+                            </div>
+                            <p>Black</p>
+                        </Col>
+
+                        <Col xs="4" sm="2" md="4">
+                            <div className="color-swatch" style={{backgroundColor: 'white'}}></div>
+                            <p>White</p>
+                        </Col>
+
+                        <Col xs="4" sm="2" md="4">
+                            <div className="color-swatch" style={{backgroundColor: 'gray'}}></div>
+                            <p>Gray</p>
+                        </Col>
+
+                        <Col xs="4" sm="2" md="4">
+                            <div className="color-swatch" style={{backgroundColor: 'red'}}></div>
+                            <p>Red</p>
+                        </Col>
+
+                        <Col xs="4" sm="2" md="4">
+                            <div className="color-swatch" style={{backgroundColor: 'orange'}}></div>
+                            <p>Orange</p>
+                        </Col>
+                    </Row>
                 </Collapse>
             </CardBody>
         </Card>
