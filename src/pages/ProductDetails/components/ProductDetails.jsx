@@ -99,23 +99,47 @@ const ProductResults = ({match}) => {
                         </Row> :
                         <Row>
                             <Col md="8">
-                                <Skeleton variant="rect" width={800} height={378} animation="wave" />
+                                {/* <Skeleton variant="rect" width={800} height={378} animation="wave" />
                                 <Skeleton variant="text" height={80} animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
-                                <Skeleton variant="text" animation="wave" />
+                                <Skeleton variant="text" animation="wave" /> */}
                             </Col>
                             <Col md="4">
-                                <Skeleton variant="rect" width={390} height={378} animation="wave" />
+                                <Row>
+                                    <Col md = "12">
+                                    <Skeleton variant="rect" width={390} height={270} animation="wave" className = "mb-3"/>
+                                    </Col>
+                                </Row>
+                               
+                                <Row>
+                                    <Col md = "2">
+                                        <Skeleton variant="rect" width={55} height={55} animation="wave" className = "seller-image-skeloton"/>
+                                    </Col>
+                                    <Col md = "8">
+                                    <Skeleton variant="rect" width={260} height={20} animation="wave" className = "mb-2" />
+                                    <Skeleton variant="rect" width={200} height={20} animation="wave" />
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col md = "12">
+                                        <Skeleton variant="text" width={180} height={20} animation="wave" />
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col md = "12">
+                                        <Skeleton variant="text" width={180} height={20} animation="wave" />
+                                    </Col>
+                                </Row>
+                                
+                                {/* <Skeleton variant="text" animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
-                                <Skeleton variant="text" animation="wave" />
-                                <Skeleton variant="text" animation="wave" />
-                                <Skeleton variant="text" animation="wave" />
+                                <Skeleton variant="text" animation="wave" /> */}
                             </Col>
                         </Row>
                     }
