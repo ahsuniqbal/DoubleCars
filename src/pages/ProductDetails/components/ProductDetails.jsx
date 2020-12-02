@@ -99,14 +99,14 @@ const ProductResults = ({match}) => {
                         </Row> :
                         <Row>
                             <Col md="8">
-                                {/* <Skeleton variant="rect" width={800} height={378} animation="wave" />
+                                <Skeleton variant="rect" width={800} height={378} animation="wave" />
                                 <Skeleton variant="text" height={80} animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
                                 <Skeleton variant="text" animation="wave" />
-                                <Skeleton variant="text" animation="wave" /> */}
+                                <Skeleton variant="text" animation="wave" />
                             </Col>
                             <Col md="4">
                                 <Row>
@@ -120,18 +120,18 @@ const ProductResults = ({match}) => {
                                         <Skeleton variant="rect" width={55} height={55} animation="wave" className = "seller-image-skeloton"/>
                                     </Col>
                                     <Col md = "8">
-                                    <Skeleton variant="rect" width={260} height={20} animation="wave" className = "mb-2" />
-                                    <Skeleton variant="rect" width={200} height={20} animation="wave" />
+                                    <Skeleton variant="rect" width={260} height={20} animation="wave" className = "mb-2" className = "seller-default-skeloton" />
+                                    <Skeleton variant="rect" width={200} height={20} animation="wave" className = "seller-default-skeloton"/>
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col md = "12">
-                                        <Skeleton variant="text" width={180} height={20} animation="wave" />
+                                    <Skeleton variant="rect" width={260} height={10} animation="wave" className = "mb-2" className = "seller-default-skeloton" />
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col md = "12">
-                                        <Skeleton variant="text" width={180} height={20} animation="wave" />
+                                    <Skeleton variant="rect" width={260} height={10} animation="wave" className = "mb-2" className = "seller-default-skeloton" />
                                     </Col>
                                 </Row>
                                 
