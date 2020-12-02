@@ -6,7 +6,7 @@ import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import { GetSearchResult, GetFilterResult } from '../api/GetRequests';
 import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
 import adProducts from '../../../assets/ad_products.png';
-import Skeleton from '@material-ui/lab/Skeleton';
+import { ProductSkeleton } from '../../../components/Skeletons';
 import '../styles/Products.css';
 
 
@@ -50,18 +50,7 @@ function DrawSkeleton(){
     for(let i = 0; i < 6; i++){
         table.push(
             <Col xs="12" sm="6" lg="4" key={i}>
-                <Skeleton variant="rect" width={298} height={178} animation="wave" />
-                <Skeleton variant="text" animation="wave" />
-                <Skeleton variant="text" animation="wave" />
-                <Skeleton variant="text" animation="wave" />
-                <Row>
-                    <Col xs="3">
-                        <Skeleton variant="text" width={50} height={50} animation="wave" />
-                    </Col>
-                    <Col xs="9" className="mt-2">
-                        <Skeleton variant="text" animation="wave" />
-                    </Col>
-                </Row>
+                <ProductSkeleton />
             </Col>
         );
     }

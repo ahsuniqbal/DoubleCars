@@ -160,7 +160,23 @@ const Filters = (props) => {
     }, [filters]);
 
     useEffect(() => {
-        GetLocation();
+        if(currentLatLng){
+        var latLong = currentLatLng.lat + "," + currentLatLng.lng;
+        GetZipFromLatLong(latLong).then(doc => {
+            if(doc.length > 0){
+                setZipCode(doc[0].address_components[0].long_name);
+                filters['zipCode'] = doc[0].address_components[0].long_name;
+                setFilters(filters);
+                FilterQueryString(filters);
+            }
+            else{
+                setZipCode("N/A");
+            }
+        })
+        .catch(error => {
+            alert("Error", error.message);
+        });
+        }
         setLocationFromMap(!locationFromMap);
     }, [currentLatLng]);
 
@@ -260,10 +276,7 @@ const Filters = (props) => {
     }
 
     function clearFilters(){
-        var tempFilters = {};
-        tempFilters['zipCode'] = filters['zipCode'];
-        setFilters(tempFilters);
-        FilterQueryString(tempFilters);
+        window.location.reload()
     }
 
     const GetLocationFromMap = useCallback((mapLocation) => {
