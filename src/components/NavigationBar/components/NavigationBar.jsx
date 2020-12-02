@@ -2,7 +2,6 @@ import React from "react"
 import { Link, NavLink } from "react-router-dom";
 import "../styles/NavigationBar.css"
 import DCLogo from '../../../assets/DCNewlogo.svg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {Input, InputGroup, InputGroupText} from 'reactstrap';
 import { Search } from 'react-feather';
 
