@@ -2,6 +2,8 @@
     background-color: white !important;
 }
 
+
+/* First column css starts here */
 .contactus-column {
     margin-top: 5%;
 }
@@ -18,7 +20,7 @@
     color: rgba(0, 0, 0, 0.65);
 }
 
-.selected-div{
+.contact-dropdown{
     background: #FFFFFF !important ;
     height: 48px;
     overflow: hidden;
@@ -27,6 +29,66 @@
 }
 .form-control:focus {
     border-color: transparent;
-    box-shadow: 0 0 0 0.1rem rgb(13, 81, 170,0.1) ;
+    box-shadow: 0 0 0 0.rem rgb(13, 81, 170,0.1) ;
 }
 
+.fullname-textfield, .email-textfield{
+    background: #FFFFFF ;
+    border-radius: 4px;
+    border: 1px solid #E9E9E9;
+    height: 48px ;
+    background: #FFFFFF;
+    margin-top: 1rem;
+}
+.message-box {
+    margin-top: 1rem;
+    border-radius: 4px;
+    border: 1px solid #E9E9E9;
+    background: #FFFFFF;
+}
+
+.fullname-textfield::placeholder,.email-textfield::placeholder, .message-box::placeholder  { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.agree-label {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 13px;
+    margin-top: 1rem;
+}
+
+.send-button {
+    background-color: #1C67CE !important;
+    border-radius: 6px ;
+    width: 138px !important;
+    height: 48px;
+    color: #ffffff !important;
+    margin-top: 0.7rem;
+    font-size: 15px !important;   
+} 
+
+/* End */
+
+/* Second column css starts here. */
+.about-contact-column {
+    margin-top: 10%;
+}
+
+.about-dc-head {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+    line-height: 21px;
+}
+
+.about-dc-text {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.contact-map {
+    border-radius: 6px;
+    
+}

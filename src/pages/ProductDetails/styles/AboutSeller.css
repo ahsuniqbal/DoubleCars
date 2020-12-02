@@ -100,6 +100,8 @@
     line-height: 17px;
     font-size: 15px;
     font-weight: normal;
+   display: block;
+   margin-bottom: -10px;
 }
 .view-inv-link {
     text-decoration: none !important;

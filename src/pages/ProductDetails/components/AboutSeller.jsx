@@ -54,11 +54,11 @@ const SellerDetails = (props) => {
                         <h6 className = "about-seller-head mt-4">About seller</h6>
                         <p className = "about-seller-text">{dealer.aboutMe ? dealer.aboutMe : "This seller has provided no information"}</p>
                         <h6 className = "contact-detail-head mb-4">Contact Details</h6>
-                        <a href={"tel:" + dealer.phNum} className = "contact-detail-text"><Phone color="#1C67CE" size={20} className = "mr-2"/>{dealer.phNum}</a>
+                        <a href={"tel:" + dealer.phNum} className = "contact-detail-text"><Phone color="#1C67CE" size={20} className = "mr-3"/>{dealer.phNum}</a>
                         <br />
-                        <a href={"mailto:" + dealer.email} className = "contact-detail-text"> <Mail color="#1C67CE" size={20} className = "mr-2"/>{dealer.email}</a>
+                        <a href={"mailto:" + dealer.email} className = "contact-detail-text"> <Mail color="#1C67CE" size={20} className = "mr-3"/>{dealer.email}</a>
                         <Link className = "view-inv-link" to={'/dealer/' + props.userId}>
-                            <Button color = "primary" size = "lg" block className = "view-inventory-button primary mt-4"> View Inventory</Button>
+                            <Button color = "primary" size = "lg" block className = "view-inventory-button  mt-4">View Inventory</Button>
                         </Link>
                     </CardBody>
                 </Card> : null
