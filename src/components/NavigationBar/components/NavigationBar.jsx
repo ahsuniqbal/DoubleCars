@@ -46,7 +46,7 @@ const NavigationBar = () => {
                         <li className="nav-item">
                             {/* <NavLink className="nav-link download-button" to="">Download App</NavLink> */}
                             <InputGroup className="search-group">
-                                <InputGroupText>
+                                <InputGroupText className = "search-navigation-icon">
                                 <Search className = "search-icon-navbar"/>
                                 </InputGroupText>
                             <Input className="search-box" type="text" placeholder="Search" />
