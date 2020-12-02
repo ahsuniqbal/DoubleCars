@@ -1,3 +1,8 @@
+.double-car-logo {
+    margin-left: 3rem;
+}
+
+
 .navbar {
     background-color: #ffffff !important;
 }
@@ -15,12 +20,17 @@
    
 }
 
-
 .navbar a {
     font-size: 16px !important;
-    text-transform: capitalize !important;
-    
+    text-transform: capitalize !important;   
 }
+a:hover {
+    color: #1C67CE !important;
+    text-decoration: none !important;
+  }
+  a:active {
+    color: #1C67CE !important;
+  }
 
 .navbar-nav li{
     margin-left:17px;
@@ -32,7 +42,77 @@
     border-bottom:  1px solid #565387;
 }
 
-.download-button {
+
+.nav-item {
+    text-decoration: none !important;
+}
+.navigation-items {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.85) !important;
+}
+
+.navigation-items:hover {
+    text-decoration: none !important;
+}
+
+/* .navigation-items:active {
+    background-color: #f44336;      THW WORK TO BE DONE AFTER THE ROUTES OF ABOUT AND CONTACT US.
+    color: yellow;
+} */
+
+/* Search bar css starts here. */
+
+ .search-box{
+    background-color: #F4F4F4;
+    border-radius: 0px 8px 8px 0px;
+    border: none;
+    
+}
+
+.search-box::placeholder {
+    color: rgba(0, 0, 0, 0.45);  
+    font-size: 14px;
+    line-height: 23px;
+    color: rgba(0, 0, 0, 0.45);
+    text-align: left;
+    justify-content: center;
+
+}
+
+.search-box:focus{
+    box-shadow: none;
+    background-color: #F4F4F4;
+}
+.search-group {
+    width: 167px;
+    height: 48px;
+    margin-top: 20px;
+}
+.input-group-text{
+    background-color: #F4F4F4;
+    color: #898989;
+    border: none;
+    height: 38px !important;
+    width: 36px;
+    border-radius: 8px 0px 0px 8px;
+}
+
+.search-icon-navbar {
+    color: #1C67CE;
+    height: 13.5px;
+    width: 13.5px;
+}
+
+
+
+
+
+
+/* COMMENTED CODE,  MAY BE USE LATER> */
+
+/* .download-button {
     background-color: #1C67CE !important;
     border-radius: 0.4rem !important;
     width: 100% !important;
@@ -42,11 +122,4 @@
     font-size: 16px !important;
     margin-top: 16px;
     margin-bottom: 16px;    
-}
-
-.navigation-items {
-    margin-top: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    color: black;
-}
+} */

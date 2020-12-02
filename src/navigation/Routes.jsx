@@ -10,6 +10,7 @@ const ProductDetails = React.lazy(() => import ('../pages/ProductDetails/compone
 const DealerProfile = React.lazy(() => import ('../pages/DealerProfile'))
 const TermsAndCondition = React.lazy(() => import ('../pages/PrivacyAndTerms/components/TermsAndCondition'))
 const PrivacyPolicy = React.lazy(() => import ('../pages/PrivacyAndTerms/components/PrivacyPolicy'))
+const ContactUs = React.lazy(() => import ('../pages/ContactUs'))
 
 /////////////////////// MUST READ BEFORE CREATING A ROUTE /////////////////////
 
@@ -24,7 +25,7 @@ const PrivacyPolicy = React.lazy(() => import ('../pages/PrivacyAndTerms/compone
 
 const routes = [
     { path: '/', exact: true, name: 'Home', public: true, restricted: false, component: Home },
-    { path: '/about', name: 'About', public: true, restricted: false, component: About },
+    { path: '/about', name: 'About', public: true, restricted: true, component: About },
     { path: '/blogs', name: 'Blogs', public: true, restricted: false, component: Blogs },
     { path: '/profile', exact: true, name: 'Profile', public: false, restricted: false, component: Profile },
     { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
@@ -33,6 +34,7 @@ const routes = [
     { path: '/dealer/:id', exact: true, name: 'Dealer Profile', public: true, restricted: false, component: DealerProfile },
     { path: '/termsandconditions', name: 'Terms and Condition', public: true, restricted: true, component: TermsAndCondition },
     { path: '/privacypolicy', name: 'Privacy and Policy', public: true, restricted: true, component: PrivacyPolicy },
+    { path: '/contactus', name: 'Contact Us', public: true, restricted: true, component: ContactUs },
 ];
 
 export default routes;
