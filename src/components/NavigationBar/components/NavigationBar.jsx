@@ -31,7 +31,7 @@ const NavigationBar = () => {
                             <NavLink className="nav-link navigation-items" to="">Used Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="">Popular Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to="">Blogs</NavLink>
                         </li>
                         <li className="nav-item">
                         
