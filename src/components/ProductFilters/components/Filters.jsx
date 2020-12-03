@@ -73,17 +73,6 @@ const Filters = (props) => {
     //Make Model Collapse
     const [isModelCollapseOpen, setisModelCollapseOpen] = useState(false);
 
-    // const GetLocationFromMap = useCallback((marker) => {
-    //     setCurrentLatLng(marker);
-    //     console.log(marker);
-    // }, []);
-    
-    
-    
-    // const [fromYear, setFromYear] = useState(null);
-    // const [toYear, setToYear] = useState(null);
-    // const [transmission, setTransmission] = useState([false, false, false, false]);
-    // const [sellerType, setSellerType] = useState([false, false]);
 
     const handleRadius = (radius) => {
         setRadius(radius);

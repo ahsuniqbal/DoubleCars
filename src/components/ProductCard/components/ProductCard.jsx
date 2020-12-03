@@ -22,7 +22,7 @@ const ProductCard = (props) => {
                 }
                 {/* Lazy load component used for product cover image */}
                 <LazyLoadImage className="card-img"  effect="blur" 
-                    src={props.productImg ? props.productImg : dummyAvatar} alt={props.productName} />
+                    src={props.productImg ? props.productImg : dummyAvatar} alt={props.productName} title={props.productName} />
                 {/* <CardImg src={props.productImg ? props.productImg : dummyAvatar} alt={props.productName} /> */}
             </div>
         </Link>
@@ -68,7 +68,7 @@ const ProductCard = (props) => {
                             </Col>
                             <Col xs="5" className="px-0">
                                 {/* Name of the dealer */}
-                                <CardTitle>{props.dealerName}</CardTitle>
+                                <CardTitle title={props.dealerName}>{props.dealerName}</CardTitle>
                             </Col>
                             <Col xs="4" className="pl-0 text-right">
                                 {/* Rating star and numbers */}
@@ -92,7 +92,7 @@ const ProductCard = (props) => {
                             </Col>
                             <Col xs="4" className="px-0">
                                 {/* Name of the private seller */}
-                                <CardTitle>{props.dealerName}</CardTitle>
+                                <CardTitle title={props.dealerName}>{props.dealerName}</CardTitle>
                             </Col>
                             <Col xs="5" className="pl-0 text-right">
                                 <Label>Private Seller</Label>    
