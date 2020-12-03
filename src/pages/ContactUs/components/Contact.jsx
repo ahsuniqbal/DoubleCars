@@ -1,10 +1,6 @@
 import React from 'react';
 import '../styles/Contact.css';
-import ContactMessage from '../../../assets/contact-message.svg'
-import ContactLocation from '../../../assets/contact-location.svg'
-import ContactPhone from '../../../assets/contact-phone.svg'
-
-import {Row, Col, Nav, NavItem, Button, NavLink, Container, Input, Label} from 'reactstrap'
+import {Row, Col, Container} from 'reactstrap'
 import ContactForm from './ContactForm';
 import ContactDetail from './ContactDetail';
 import ContactAbout from './ContactAbout';
