@@ -5,14 +5,15 @@ import ContactusDemo from '../../../assets/ContactusDemo.png'
 const ContactAbout = () => {
     return(
         <div>
-            {/* <Row >
-                <Col xs = "12" md = "12" sm = "12">
-                    
+            {/* <div >
+                
+            </div> */}
+            <Row xs = "12" md = "12" sm = "12" className = "contact-image-div ">
+                <Col>
+                    <img className = "contactus-image" src = {ContactusDemo}/>
                 </Col>
-            </Row> */}
-            <div className = "contact-image d-flex justify-content-center">
-                <img src = {ContactusDemo}/>
-            </div>
+            </Row>
+
             <h5 className = "about-dc-head" >About Double Cars</h5>
             <Label className = "about-dc-text">Maecenas ante lacus, viverra is in,
             egestas tincidunt nulla. Aliquam mi lectus,
@@ -24,7 +25,7 @@ const ContactAbout = () => {
                     <ContactMap/>
                 </Col>
             </Row>
-    </div>
+        </div>
     )
 }
 

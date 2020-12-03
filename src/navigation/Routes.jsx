@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = React.lazy(() => import('../pages/Home'));
 const About = React.lazy(() => import('../pages/About'));
-const Blogs = React.lazy(() => import('../pages/Blogs'));
+const BlogsHome = React.lazy(() => import('../pages/Blogs/components/BlogsHome'));
 const Profile = React.lazy(() => import('../pages/Profile'));
 const Login = React.lazy(() => import('../pages/Authentication/Login'));
 const Products = React.lazy(() => import('../pages/Products'));
@@ -11,7 +11,7 @@ const DealerProfile = React.lazy(() => import ('../pages/DealerProfile'))
 const TermsAndCondition = React.lazy(() => import ('../pages/PrivacyAndTerms/components/TermsAndCondition'))
 const PrivacyPolicy = React.lazy(() => import ('../pages/PrivacyAndTerms/components/PrivacyPolicy'))
 const ContactUs = React.lazy(() => import ('../pages/ContactUs'))
-
+const Blogs = React.lazy(() => import('../pages/Blogs/components/Blogs'));
 /////////////////////// MUST READ BEFORE CREATING A ROUTE /////////////////////
 
 // To show the page to every visitor public keyword will be true
@@ -26,7 +26,7 @@ const ContactUs = React.lazy(() => import ('../pages/ContactUs'))
 const routes = [
     { path: '/', exact: true, name: 'Home', public: true, restricted: false, component: Home },
     { path: '/about', name: 'About', public: true, restricted: true, component: About },
-    { path: '/blogs', name: 'Blogs', public: true, restricted: false, component: Blogs },
+    { path: '/blogshome', name: 'Blogs', public: true, restricted: false, component: BlogsHome },
     { path: '/profile', exact: true, name: 'Profile', public: false, restricted: false, component: Profile },
     { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
     { path: '/products', exact: true, name: 'Products', public: true, restricted: true, component: Products },
@@ -35,6 +35,7 @@ const routes = [
     { path: '/termsandconditions', name: 'Terms and Condition', public: true, restricted: true, component: TermsAndCondition },
     { path: '/privacypolicy', name: 'Privacy and Policy', public: true, restricted: true, component: PrivacyPolicy },
     { path: '/contactus', name: 'Contact Us', public: true, restricted: true, component: ContactUs },
+    { path: '/blogs', name: 'Blogs', public: true, restricted: false, component: Blogs },
 ];
 
 export default routes;

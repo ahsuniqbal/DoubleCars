@@ -31,13 +31,10 @@ const NavigationBar = () => {
                             <NavLink className="nav-link navigation-items" to="">Used Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="">Blogs</NavLink>
+                            <NavLink className="nav-link navigation-items" to= {'/blogshome/'}>Blogs</NavLink>
                         </li>
                         <li className="nav-item">
-                        
                             <NavLink className="nav-link navigation-items" to= {'/about/'}>About us</NavLink>
-                        
-                            
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link navigation-items" to={'/contactus/'}>Contact Us</NavLink>

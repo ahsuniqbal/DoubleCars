@@ -91,8 +91,13 @@ select:required:invalid {
 .about-contact-column {
     margin-top: 5%;
 }
-.contact-image{
+.contact-image-div{
     margin-bottom: 1.9rem;
+    overflow:hidden;
+}
+.contactus-image {
+    height: 251px;
+    width: 403px;
 }
 .about-dc-head {
     font-size: 18px;

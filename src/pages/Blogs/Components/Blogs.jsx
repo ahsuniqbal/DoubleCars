@@ -1,10 +1,17 @@
 import React from 'react';
-
+import { Button } from 'reactstrap';
+import '../styles/Blogs.css'
 const Blogs = () => {
     return(
-        <div>
-        <h3>Welcome Blog Page </h3>
-    </div>
+        <body className = "">
+            <Container>
+                <Row>
+                    <Col xs = "12" md = "6" sm = "12" className = "contactus-column">
+                       
+                    </Col>
+                </Row>
+            </Container>
+    </body>
     )
 }
 
