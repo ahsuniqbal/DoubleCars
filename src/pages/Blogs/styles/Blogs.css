@@ -1,0 +1,21 @@
+.blogs-body {
+    background-color: white !important;
+}
+
+/* Blogs css starts here.  */
+.blogs-column {
+    margin-top: 7%;
+}
+
+.blog-read-label {
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+.blogs-heading {
+    font-size: 40px;
+line-height: 140%;
+color: rgba(0, 0, 0, 0.85);
+}
