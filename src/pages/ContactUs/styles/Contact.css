@@ -5,7 +5,7 @@
 
 /* First column css starts here */
 .contactus-column {
-    margin-top: 5%;
+    margin-top: 7%;
 }
 
 .contactus-head {
@@ -16,7 +16,7 @@
 
 .contact-label {
     font-size: 16px;
-    line-height: 18px;
+    line-height: 160%;
     color: rgba(0, 0, 0, 0.65);
     margin-bottom: 4rem;
 }
@@ -56,7 +56,7 @@ select:required:invalid {
     background: #FFFFFF;
 }
 
-.fullname-textfield::placeholder,.email-textfield::placeholder, .message-box::placeholder  { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.fullname-textfield::placeholder,.email-textfield::placeholder, .message-box::placeholder  {
     color: rgba(0, 0, 0, 0.35);
     font-size: 14px;
     line-height: 24px;
@@ -89,9 +89,11 @@ select:required:invalid {
 
 /* Second column css starts here. */
 .about-contact-column {
-    margin-top: 13%;
+    margin-top: 5%;
 }
-
+.contact-image{
+    margin-bottom: 1.9rem;
+}
 .about-dc-head {
     font-size: 18px;
     color: rgba(0, 0, 0, 0.85);
@@ -102,6 +104,7 @@ select:required:invalid {
 .about-dc-text {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.45);
+    margin-bottom: 2rem;
 }
 
 .contact-map {

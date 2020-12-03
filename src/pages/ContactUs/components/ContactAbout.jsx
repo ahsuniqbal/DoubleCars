@@ -5,7 +5,12 @@ import ContactusDemo from '../../../assets/ContactusDemo.png'
 const ContactAbout = () => {
     return(
         <div>
-            <div className = "">
+            {/* <Row >
+                <Col xs = "12" md = "12" sm = "12">
+                    
+                </Col>
+            </Row> */}
+            <div className = "contact-image d-flex justify-content-center">
                 <img src = {ContactusDemo}/>
             </div>
             <h5 className = "about-dc-head" >About Double Cars</h5>
