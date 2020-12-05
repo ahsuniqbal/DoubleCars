@@ -145,7 +145,7 @@ const ProductResults = ({match}) => {
                     }
                     <Row>
                         <Col xs = "8" md = "8">
-                            <Comments/>
+                            {/* <Comments/> */}
                         </Col>
                     </Row>
                 </CardBody>
