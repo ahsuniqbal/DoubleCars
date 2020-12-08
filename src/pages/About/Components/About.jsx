@@ -1,10 +1,19 @@
 import React from 'react';
-
+import { Row, Col, Container, Label} from 'reactstrap';
 const About = () => {
   return (
-    <div>
-        <h3>Welcome About Page</h3>
-    </div>
+    <body className = "about-body">
+    <Container>
+        <Row>
+            <Col className = "">
+            <h4 className = "">Who are we?</h4>
+            <p></p>
+            </Col>   
+        </Row>
+       
+        
+    </Container>
+</body>
   );
 }
 
