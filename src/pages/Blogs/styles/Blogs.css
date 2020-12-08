@@ -19,3 +19,14 @@
 line-height: 140%;
 color: rgba(0, 0, 0, 0.85);
 }
+
+
+
+
+/* Related Stories Cell css starts here */
+
+.relatedImage {
+    object-fit: cover;
+    width: 90px;
+    height: 66px;
+}

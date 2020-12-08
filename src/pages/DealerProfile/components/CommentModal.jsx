@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/CommentModal.css'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {Row, Col, Nav, NavItem, Button, NavLink,Input, Modal, ModalBody,ModalHeader, CardBody, Label} from 'reactstrap'
+import {Row, Col, Modal, ModalBody,ModalHeader, Label} from 'reactstrap'
 import {MoreVertical} from 'react-feather'
 import CommentDemoImage from '../../../assets/CommentDemoImage.png'
 const CommentModal = (props) => {
