@@ -6,7 +6,7 @@ const RelatedStoriesCell = () => {
     return(
             <Row>
                 <Col md = "3">
-                    <img src = {RelatedStoriesDemoimg} className = "relatedImage" alt = "RelatedStories"/>
+                    <img src = {RelatedStoriesDemoimg} className = "relatedImage img-fluid" alt = "RelatedStories"/>
                 </Col>
 
                 <Col md = "9">

@@ -20,6 +20,12 @@ line-height: 140%;
 color: rgba(0, 0, 0, 0.85);
 }
 
+.related-stories-heading {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+}
 
 
 
@@ -29,4 +35,5 @@ color: rgba(0, 0, 0, 0.85);
     object-fit: cover;
     width: 90px;
     height: 66px;
+    border-radius: 4px;
 }
