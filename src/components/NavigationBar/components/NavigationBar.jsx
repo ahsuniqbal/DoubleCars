@@ -25,19 +25,19 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse navigation-bar" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="">New Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'New Cars'}}>New Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to="">Used Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'Used Cars'}}>Used Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to= {'/blogshome/'}>Blogs</NavLink>
+                            <NavLink className="nav-link navigation-items" to= {'/blogshome'}>Blogs</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to= {'/about/'}>About us</NavLink>
+                            <NavLink className="nav-link navigation-items" to= {'/about'}>About us</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={'/contactus/'}>Contact Us</NavLink>
+                            <NavLink className="nav-link navigation-items" to={'/contactus'}>Contact Us</NavLink>
                         </li>
                        
                         <li className="nav-item">

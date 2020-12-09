@@ -11,7 +11,8 @@ const DealerProfile = React.lazy(() => import ('../pages/DealerProfile'))
 const TermsAndCondition = React.lazy(() => import ('../pages/PrivacyAndTerms/components/TermsAndCondition'))
 const PrivacyPolicy = React.lazy(() => import ('../pages/PrivacyAndTerms/components/PrivacyPolicy'))
 const ContactUs = React.lazy(() => import ('../pages/ContactUs'))
-const Blogs = React.lazy(() => import('../pages/Blogs/components/Blogs'));
+const Blogs = React.lazy(() => import('../pages/Blogs/'));
+const InfiniteScroll = React.lazy(() => import('../pages/InfiniteScroll'));
 /////////////////////// MUST READ BEFORE CREATING A ROUTE /////////////////////
 
 // To show the page to every visitor public keyword will be true
@@ -36,6 +37,7 @@ const routes = [
     { path: '/privacypolicy', name: 'Privacy and Policy', public: true, restricted: true, component: PrivacyPolicy },
     { path: '/contactus', name: 'Contact Us', public: true, restricted: true, component: ContactUs },
     { path: '/blogs', name: 'Blogs', public: true, restricted: false, component: Blogs },
+    { path: '/infinite-scroll', name: 'Infinite Scroll', public: true, restricted: false, component: InfiniteScroll },
 ];
 
 export default routes;

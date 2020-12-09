@@ -1,6 +1,15 @@
-.search-heading .output-num{
+.search-heading h6{
     font-weight: 500;
-    font-size: 20px;
+    font-size: 28px;
+    line-height: 32px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.search-heading .output-num{
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.85);
 }
 
 .search-heading label{
@@ -12,6 +21,11 @@
     font-size: 14px;
     font-weight: normal;
     color: rgba(8, 11, 48, 0.65);
+}
+
+.search-heading select:focus{
+    box-shadow: none;
+    border-color: #ced4da;
 }
 
 .products-container {

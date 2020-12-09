@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 import Skeleton from '@material-ui/lab/Skeleton';
