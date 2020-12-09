@@ -1,10 +1,15 @@
-import React from 'react';
-import { Col,  Row, Label, Card,CardBody, CardImg, Button} from 'reactstrap';
+import React ,{useState} from 'react';
+import {Row, Col, Nav, NavItem, Button, NavLink,Input, Modal, ModalBody,ModalHeader, CardBody, CardImg, Label, Card} from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/SellerDetails.css';
 import { Phone, Mail } from 'react-feather';
+import CommentModal from './CommentModal';
+
 
 const SellerDetails = (props) => {
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
     return(
         // Public seller card starts here
             <Card className = "seller-card">
@@ -67,13 +72,14 @@ const SellerDetails = (props) => {
                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
                             <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-1 font-rate-stars" /> <br/>
                             <Label className = "reviews-label"> 154 reviews</Label> <br/>
-                            <Button size = "lg" block className = "read-reviews-button primary mt-4 float-left">Read reviews</Button> 
+                            <Button size = "lg" block className = "read-reviews-button primary mt-4 float-left" onClick={toggle}>Read reviews</Button> 
+                            <CommentModal isOpen={modal} toggle={toggle} />
                            
                             
                         </Col>
                         </Row>  
-            </CardBody>
-         :
+                </CardBody>
+            :
                  <CardBody>
                      <Row>
                          <Col md = "12">
@@ -118,7 +124,7 @@ const SellerDetails = (props) => {
                         
                         </Row>  
             </CardBody>
-}
+        }
         </Card>
         
     )

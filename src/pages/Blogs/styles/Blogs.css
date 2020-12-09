@@ -19,3 +19,45 @@
 line-height: 140%;
 color: rgba(0, 0, 0, 0.85);
 }
+
+.blog-content {
+    font-weight: 300;
+font-size: 16px;
+line-height: 160%;
+color: rgba(0, 0, 0, 0.84);
+}
+
+.blog-sub-heading {
+    font-weight: 500;
+font-size: 24px;
+line-height: 160%;
+/* or 38px */
+
+color: rgba(0, 0, 0, 0.84);
+}
+
+.cell-heading {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+/* Related Stories Cell css starts here */
+
+.cell-card-image{
+    object-fit: cover;
+    width: 90px;
+    height: 66px;
+    border-radius: 4px;
+}
+
+.related-point {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+}
+
