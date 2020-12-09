@@ -1,0 +1,23 @@
+.about-body {
+    background-color: white !important;
+}
+
+/* About page css starts here. */
+
+.about-column {
+    margin-top: 7%;
+}
+
+.about-heading {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.about-content {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+    color: rgba(0, 0, 0, 0.84);
+}
