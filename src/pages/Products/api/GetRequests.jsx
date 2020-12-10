@@ -20,7 +20,6 @@ export const GetSearchResult = (queryParams, pageNum) => {
 export const GetFilterResult = (queryParams) => {
     return new Promise((resolve, reject) => {
         var url = connectionString + "products/search?" + queryParams;
-        console.log(url)
         axios.get(url).then(function(response){
             const data = response.data.results;
             resolve(data);
