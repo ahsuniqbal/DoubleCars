@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/About.css'
-import { Row, Col, Container} from 'reactstrap';
+import { Row, Col, Container, NavLink} from 'reactstrap';
 import AboutDetails from './AboutDetails';
-
+import { ChevronRight } from 'react-feather';
 const About = () => {
   return (
     <body className = "about-body">
@@ -17,6 +17,7 @@ const About = () => {
             <h5 className = "">
             This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in www.doublecars.com. This policy is not applicable to any information collected offline or via channels other than this website. 
             </h5>
+            <NavLink className = "join-mission-btn" to="">Join Our Mission <ChevronRight className = "about-contact-icon"/></NavLink>
               </Col>
             </Row>
             
