@@ -183,7 +183,7 @@ const Home = () => {
                             </Col>
 
                             <Col md = "6" xs = "12" className = "text-right">
-                                <Link className = "view-all" to="/products?search=">View All</Link>
+                                <Link className = "view-all" to="/products">View All</Link>
                             </Col>
                         </Row>
                     
@@ -210,7 +210,7 @@ const Home = () => {
                             </Col>
 
                             <Col md = "6" xs = "12" className = "text-right">
-                                <Link className = "view-all" to="/products?search=">View All</Link>
+                                <Link className = "view-all" to="/products">View All</Link>
                             </Col>
                         </Row>
                         

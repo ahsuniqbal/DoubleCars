@@ -86,6 +86,10 @@
 }
 
 
+.filters .multi-select{
+    margin-bottom: 1.5rem;
+}
+
 
 
 .filters .transmission label{
@@ -147,4 +151,5 @@
     color: #FFFFFF;
     padding: 0.675rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }

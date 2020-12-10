@@ -39,6 +39,7 @@ const Searchbar = () => {
         history.push({
             pathname: '/products',
             search: '?search=' + searchInput,
+            page: 0
         })
     };
 
@@ -67,7 +68,7 @@ const Searchbar = () => {
                 <Row>
                     <Col xs="12">
                         <CardTitle>Search for your dream car
-                            <Button className="advance-search" color="link" onClick={() => history.push('/products?search=')}>Advanced Search</Button>
+                            <Button className="advance-search" color="link" onClick={() => history.push('/products')}>Advanced Search</Button>
                         </CardTitle>
                     </Col>
                 </Row>

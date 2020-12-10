@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Row, Col, Label, Input, Container } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
@@ -8,6 +8,7 @@ import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
 import adProducts from '../../../assets/ad_products.png';
 import { ProductSkeleton } from '../../../components/Skeletons';
 import '../styles/Products.css';
+// import useProductSearch from './useProductSearch';
 
 
 const ShowSearchResults = (products) => {
@@ -49,7 +50,7 @@ function DrawSkeleton(){
     var table = [];
     for(let i = 0; i < 6; i++){
         table.push(
-            <Col xs="12" sm="6" lg="4" key={i}>
+            <Col xs="12" sm="6" lg="4" key={i} className="my-2">
                 <ProductSkeleton />
             </Col>
         );
@@ -65,18 +66,50 @@ function GetSearchInput(searchInput){
 const Products = ({location}) => {
     const [sortFlag, setSortFlag] = useState(false);
     const [products, setProducts] = useState(null);
+    const [pageNumber, setPageNumber] = useState(0);
 
+
+    // const {
+    //     productss,
+    //     hasMore,
+    //     loading,
+    //     error
+    // } = useProductSearch(GetSearchInput(location.search));
+
+    // const observer = useRef();
+    // const lastElementRef = useCallback(node => {
+    //     if(observer.current) observer.current.disconnect();
+    //     observer.current = new IntersectionObserver(entries => {
+    //         if (entries[0].isIntersecting && hasMore) {
+    //           setPageNumber(prevPageNumber => prevPageNumber + 1)
+    //         }
+    //     })
+    //     if (node) observer.current.observe(node)
+    // }, [loading, hasMore])
+    
     
     useEffect(() => {
-        GetSearchResult(GetSearchInput(location.search)).then(doc => {
-            setProducts(doc);
-        })
-        .catch(error => {
-            alert("Error", error.message);
-        });
-    }, []);
+        setPageNumber(location.page)
+        if(location.search) {
+            GetSearchResult(GetSearchInput(location.search), pageNumber).then(doc => {
+                setProducts(doc);
+            })
+            .catch(error => {
+                alert("Error", error.message);
+            });
+        }
+        else {
+            GetSearchResult('', pageNumber).then(doc => {
+                setProducts(doc);
+            })
+            .catch(error => {
+                alert("Error", error.message);
+            });
+        }
+        
+    }, [location.heading]);
 
-    const queryChange = (queryStr) => {
+    const filterQueryChange = (queryStr) => {
         GetFilterResult(queryStr).then(doc => {
             setProducts(doc);
         })
@@ -98,17 +131,16 @@ const Products = ({location}) => {
 
     return(
                     
-        <Container className = "products-container">
-
-        
+        <Container className="products-container">        
             <Row>
                 <Col xs="12" md="3">
                     <Filters
-                        onQueryChange={queryChange} />
+                        onFilterChange={filterQueryChange} />
                 </Col>
                 <Col xs="12" md="9" >
                     <Row className="search-heading mb-2">
                         <Col md="8">
+                            {location.heading ? <h6>{location.heading}</h6> : null}
                             {
                                 products ? 
                                 <Label className="output-num">{products.length} car(s) match your search...</Label> 
@@ -130,6 +162,16 @@ const Products = ({location}) => {
                         {
                             products ? ShowSearchResults(products) : DrawSkeleton()
                         }
+                        {/* {
+                            productss.map((product, index) => { 
+                                if(products.length === index + 1){
+                                    return <div ref={lastElementRef}>{product}</div>
+                                }
+                                else{
+                                    return <div>{product}</div>
+                                }
+                            })
+                        } */}
                     </Row>
                 </Col>
             </Row>
