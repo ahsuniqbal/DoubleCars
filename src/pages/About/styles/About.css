@@ -2,6 +2,55 @@
     background-color: white !important;
 }
 
+/* about header css starts here */
+
+.aboutus-header {
+    background-image: url("../../../assets/AboutDemoImg.png"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+}
+
+
+/* About Detail css starts here. */
+.about-detail-head {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    color: rgba(0, 0, 0, 0.84);
+}
+
+.about-detail-content {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+    color: rgba(0, 0, 0, 0.84);
+}
+
+.about-detail-contact-btn {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    margin-left: -17px;
+    color: #1C67CE;
+    cursor: pointer;
+}
+
+.about-contact-icon {
+    width: 20px;
+    height: 25px;
+}
+
+.vertical-line {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    height: 276px;
+    width: 0px !important;
+}
+
+/* End */
+
+
 /* About page css starts here. */
 
 .about-column {
@@ -20,4 +69,11 @@
     font-size: 16px;
     line-height: 160%;
     color: rgba(0, 0, 0, 0.84);
+}
+
+@media (max-width: 980px) {
+    .vertical-line{
+        display: none;
+    }
+
 }
