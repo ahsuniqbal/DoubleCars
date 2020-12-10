@@ -1,7 +1,8 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
-import { Modal, ModalBody, ModalFooter, ModalHeader, Button } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter, ModalHeader, Button, Label } from 'reactstrap';
 import { GoogleApiKey } from '../../../config/ConnectionString';
+import closeModal from '../../../assets/icons/close-modal.svg';
 import SearchPlaces from './SearchPlaces';
 import '../styles/MapPopup.css';
 
@@ -59,11 +60,12 @@ const MapPopup = (props) => {
     
 
     return(
-        <Modal {...props} size="lg" centered>
-            <ModalHeader charCode="X" {...props}>
-                <SearchPlaces center={props.center} panTo={panTo} />
+        <Modal {...props} size="lg" centered className="location-map">
+            <ModalHeader charCode={<img src={closeModal} />} {...props}>
+                Location
             </ModalHeader>
             <ModalBody>
+                <SearchPlaces center={props.center} panTo={panTo} />
                 <GoogleMap 
                 mapContainerStyle={mapContainerStyle} 
                 zoom={6} 
@@ -88,6 +90,10 @@ const MapPopup = (props) => {
             </ModalBody>
 
             <ModalFooter>
+                <div>
+                    <h5>Golden Gate Park - 94121</h5>
+                    <Label>San Francisco, CA, USA</Label>
+                </div>
                 <Button color="primary" onClick={() => { props.GetLocationFromMap(marker); props.toggle() }} >Save Location</Button>
             </ModalFooter>
         </Modal>
