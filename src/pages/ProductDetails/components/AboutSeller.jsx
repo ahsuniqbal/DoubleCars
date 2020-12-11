@@ -26,7 +26,9 @@ const SellerDetails = (props) => {
                 <h6 className = "interest-label">Are you interested in this car?</h6>
                 <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
                 <Input type = "email" className = "interested-textfield" placeholder = "Your email address"></Input>
-                <Button color = "primary" size = "lg" block className = "contact-seller-button mt-4"> Contact Seller</Button>
+                <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
+                <Button color = "primary" size = "lg" block className = "contact-seller-button mt-4">Send Message</Button>
+                
             </CardBody>
             
             {

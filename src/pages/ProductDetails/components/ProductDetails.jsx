@@ -9,7 +9,8 @@ import '../styles/ProductDetails.css';
 import { Skeleton } from '@material-ui/lab';
 import { ChevronLeft } from 'react-feather';
 import { useHistory } from 'react-router-dom';
-
+import DCSlider from '../../../components/DcSlider/components/DCSlider';
+import { Link } from 'react-router-dom';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
@@ -143,11 +144,17 @@ const ProductResults = ({match}) => {
                             </Col>
                         </Row>
                     }
-                    <Row>
-                        <Col xs = "8" md = "8">
-                            {/* <Comments/> */}
-                        </Col>
-                    </Row>
+                   <Row className = "">
+                            <Col md = "6" xs = "12">
+                                <h2 className = "similar-cars-head">Similar cars</h2>
+                            </Col>
+
+                            <Col md = "6" xs = "12" className = "text-right">
+                                <Link className = "view-all" to="/products">View All</Link>
+                            </Col>
+                        </Row>
+
+                    <DCSlider/>
                 </CardBody>
             </Container>
         </body>

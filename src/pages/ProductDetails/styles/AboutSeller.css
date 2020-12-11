@@ -21,7 +21,7 @@
     height: 48px ;
 }
 
-.interested-textfield::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.interested-textfield::placeholder, .message-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgba(0, 0, 0, 0.35);
     font-size: 15px;
 }
@@ -29,6 +29,13 @@
 .form-control:focus {
     border-color: transparent;
     box-shadow: 0 0 0 0.1rem rgb(13, 81, 170,0.1) ;
+}
+
+.message-box {
+    margin-top: 1rem;
+    border-radius: 4px;
+    border: 1px solid #E9E9E9;
+    background: #FFFFFF;
 }
 .contact-seller-button {
     background-color: #1C67CE !important;
