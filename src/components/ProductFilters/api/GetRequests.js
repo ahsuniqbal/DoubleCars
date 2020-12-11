@@ -32,6 +32,22 @@ export const GetModelFromMake = (makeId) => {
 };
 
 
+export const GetTrimFromMakeAndModel = (makeId, modelId) => {
+    return new Promise((resolve, reject) => {
+        var url = vinAuditString + "&list=make+model+trim&make=" + makeId + "&model=" + modelId;
+        axios.get(url).then(function(response){
+            const data = response.data.selections;
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            alert("Error: ", error);
+        })
+    })
+};
+
+
 export const GetZipFromLatLong = (latLong) => {
     return new Promise((resolve, reject) => {
         var url = GeoCodeString + /*"30.448,-90.752"*/ latLong;

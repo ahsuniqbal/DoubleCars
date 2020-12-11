@@ -3,7 +3,7 @@ import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputG
 import MultiSelect from "@khanacademy/react-multi-select";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Check } from 'react-feather';
-import { GetAllMakes, GetModelFromMake, GetZipFromLatLong } from '../api/GetRequests';
+import { GetAllMakes, GetModelFromMake, GetTrimFromMakeAndModel, GetZipFromLatLong } from '../api/GetRequests';
 import MapPopup from './MapPopup';
 import gps from '../../../assets/gps.svg';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
@@ -34,6 +34,19 @@ function concatModelList(modelList){
     return options;
 }
 
+// Concatinate model list to show on the dropdown
+function concatTrimList(trimList){
+    var options = [];
+    for(let i = 0; i < trimList.length; i++){
+        var tempObj = {
+            label: trimList[i].name,
+            value: trimList[i].name,
+        };
+        options.push(tempObj);   
+    }
+    return options;
+}
+
 // Concatinate comma to those filters who are multi select
 function concatinateCommaToFilters(list) {
     var str = ""
@@ -58,9 +71,13 @@ const Filters = (props) => {
 
     // Make, Model and trim list fetched from Vin audit API
     const [makeList, setMakeList] = useState([]);
+    const [selectedMake, setSelectedMake] = useState(null);
     const [modelList, setModelList] = useState([]);
     const [selectedModels, setSelectedModels] = useState([]);
     const [trimList, setTrimList] = useState([]);
+    const [selectedTrims, setSelectedTrims] = useState([]);
+
+    
 
     // Model and trim collapses
     const [isModelCollapseOpen, setModelCollapseOpen] = useState(false);
@@ -109,16 +126,23 @@ const Filters = (props) => {
     const handleMake = (make) => {
         GetModelFromMake(make).then(doc => {
             setModelList(doc.makes[0].models);
+            setSelectedMake(make);
+            filters['carMake'] = make;
+            setFilters(filters);
+            FilterQueryString(filters);
         })
         .catch(error => {
             alert("Error fetching models");
         });
-        filters['carMake'] = make;
-        setFilters(filters);
-        FilterQueryString(filters);
     }
 
     const handleModel = (select) => {
+        GetTrimFromMakeAndModel(selectedMake, select[select.length - 1]).then(doc => {
+            console.log(doc.makes[0].models[0].trims)
+            trimList.push(doc.makes[0].models[0].trims)
+        }).catch(error => {
+            alert("Error fetching trims");
+        });
         setSelectedModels(select);
         filters['carModel'] = concatinateCommaToFilters(select);
         setFilters(filters);
@@ -370,7 +394,7 @@ const Filters = (props) => {
                 <h6>Make</h6>
                 {/* Make list will be fetched from vinaudit api
                 On changing the make, modal will be visible  */}
-                <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value); }}>
+                <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }}>
                     <option value="">Make</option>
                     {
                         // Make list will be populated using the results from vinaudit API
@@ -385,7 +409,7 @@ const Filters = (props) => {
                     <MultiSelect
                         options={concatModelList(modelList)}
                         selected={selectedModels}
-                        onSelectedChanged={selected => { handleModel(selected); setTrimCollapseOpen(true)}} />
+                        onSelectedChanged={selected => { setTrimCollapseOpen(true); handleModel(selected) }} />
                        
 
                     {/******** Trim filter, trim list will be 
@@ -393,9 +417,9 @@ const Filters = (props) => {
                     <Collapse isOpen={isTrimCollapseOpen}>
                         <h6>Trim</h6>
                         <MultiSelect
-                            options={concatModelList(modelList)}
-                            selected={selectedModels}
-                            onSelectedChanged={selected => handleModel(selected)} />
+                            options={concatTrimList(trimList)}
+                            selected={selectedTrims}
+                            onSelectedChanged={console.log("trim")} />
                     </Collapse>
                 </Collapse>
 
