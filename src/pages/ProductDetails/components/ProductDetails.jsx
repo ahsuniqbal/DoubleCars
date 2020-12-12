@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Row, Col, Button, Container, CardBody } from 'reactstrap';
+import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import Gallery from './Gallery';
 import Information from './Information';
 import AboutSeller from './AboutSeller';
@@ -63,9 +64,12 @@ const ProductResults = ({match}) => {
                         productDetails ?
                         <Row>
                             <Col md = "8">
-                                <Gallery
-                                    items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)}
-                                />
+                                {
+                                    console.log(productDetails),
+                                    productDetails.images ? <Gallery
+                                    items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)} />
+                                    : <Gallery items={dummyAvatar} />
+                                }
                                 <Information
                                     transmission={productDetails.details[0].transmission}
                                     trim={productDetails.details[0].trim}
