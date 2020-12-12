@@ -4,7 +4,6 @@ import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import Gallery from './Gallery';
 import Information from './Information';
 import AboutSeller from './AboutSeller';
-import Comments from './Comments';
 import { GetProductDetails } from '../api/GetRequests';
 import '../styles/ProductDetails.css';
 import { Skeleton } from '@material-ui/lab';
@@ -66,33 +65,34 @@ const ProductResults = ({match}) => {
                         <Row>
                             <Col md = "8">
                                 {
-                                    console.log(productDetails),
-                                    productDetails.images ? <Gallery
+                                    productDetails.images[0].image !== "" ? <Gallery
                                     items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)} />
-                                    : <Gallery items={dummyAvatar} />
+                                    : <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} />
                                 }
                                 <Information
-                                    transmission={productDetails.details[0].transmission}
-                                    trim={productDetails.details[0].trim}
-                                    fuelType={productDetails.details[0].fuelType}
-                                    vin={productDetails.details[0].vin}
-                                    yearCar={productDetails.details[0].yearCar}
-                                    carModel={productDetails.details[0].carModel}
-                                    carMake={productDetails.details[0].carMake}
-                                    price={productDetails.details[0].price}
-                                    mileage={productDetails.details[0].mileage}
-                                    zipCode={productDetails.details[0].zipCode}
-                                    exteriorColor={productDetails.details[0].exteriorColor}
-                                    interiorColor={productDetails.details[0].interiorColor}
-                                    engine={productDetails.details[0].engine}
-                                    conditionCar={productDetails.details[0].conditionCar}
-                                    gasMileage={productDetails.details[0].gasMileage}
-                                    bodyStyle={productDetails.details[0].bodyStyle}
-                                    type={productDetails.details[0].type}
-                                    interior={productDetails.details[0].interior}
-                                    exterior={productDetails.details[0].exterior}
-                                    security={productDetails.details[0].security}
-                                    others={productDetails.details[0].others}
+                                    details={productDetails.details[0]}
+                                    attributes={productDetails.attributes[0]}
+                                    // transmission={productDetails.details[0].transmission}
+                                    // trim={productDetails.details[0].trim}
+                                    // fuelType={productDetails.details[0].fuelType}
+                                    // vin={productDetails.details[0].vin}
+                                    // yearCar={productDetails.details[0].yearCar}
+                                    // carModel={productDetails.details[0].carModel}
+                                    // carMake={productDetails.details[0].carMake}
+                                    // price={productDetails.details[0].price}
+                                    // mileage={productDetails.details[0].mileage}
+                                    // zipCode={productDetails.details[0].zipCode}
+                                    // exteriorColor={productDetails.details[0].exteriorColor}
+                                    // interiorColor={productDetails.details[0].interiorColor}
+                                    // engine={productDetails.details[0].engine}
+                                    // conditionCar={productDetails.details[0].conditionCar}
+                                    // gasMileage={productDetails.details[0].gasMileage}
+                                    // bodyStyle={productDetails.details[0].bodyStyle}
+                                    // type={productDetails.details[0].type}
+                                    // interior={productDetails.details[0].interior}
+                                    // exterior={productDetails.details[0].exterior}
+                                    // security={productDetails.details[0].security}
+                                    // others={productDetails.details[0].others}
                                 />
 
                             </Col>

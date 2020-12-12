@@ -1,4 +1,4 @@
-import { vinAuditString, GeoCodeString } from '../../../config/ConnectionString';
+import { connectionString, vinAuditString, GeoCodeString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
 export const GetAllMakes = () => {
@@ -53,6 +53,21 @@ export const GetZipFromLatLong = (latLong) => {
         var url = GeoCodeString + /*"30.448,-90.752"*/ latLong;
         axios.get(url).then(function(response){
             const data = response.data.results;
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            alert("Error: ", error);
+        })
+    })
+};
+
+export const GetFiltersList = () => {
+    return new Promise((resolve, reject) => {
+        var url = connectionString + "products/filters-list";
+        axios.get(url).then(function(response){
+            const data = response.data;
             resolve(data);
         })
         .catch(function(error){

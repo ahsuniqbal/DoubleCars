@@ -90,10 +90,10 @@ const MapPopup = (props) => {
             </ModalBody>
 
             <ModalFooter>
-                <div>
+                {/* <div>
                     <h5>Golden Gate Park - 94121</h5>
                     <Label>San Francisco, CA, USA</Label>
-                </div>
+                </div> */}
                 <Button color="primary" onClick={() => { props.GetLocationFromMap(marker); props.toggle() }} >Save Location</Button>
             </ModalFooter>
         </Modal>

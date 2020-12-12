@@ -22,5 +22,6 @@
 } */
 
 span.MuiSlider-markLabel[data-index="1"]{
-    left: 91% !important;
+    left: auto !important;
+    right: -5% !important;
 }
