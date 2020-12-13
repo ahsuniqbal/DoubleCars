@@ -71,7 +71,7 @@ const ProductResults = ({match}) => {
                                 }
                                 <Information
                                     details={productDetails.details[0]}
-                                    attributes={productDetails.attributes[0]}
+                                    attributes={productDetails.attributes}
                                     // transmission={productDetails.details[0].transmission}
                                     // trim={productDetails.details[0].trim}
                                     // fuelType={productDetails.details[0].fuelType}

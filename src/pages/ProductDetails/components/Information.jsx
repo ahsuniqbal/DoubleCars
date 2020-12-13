@@ -6,6 +6,36 @@ import '../styles/Information.css';
 const Information = (props) => {
     const details = props.details;
     const attributes = props.attributes;
+
+    function renderItems(attributes, i) {
+        var itemTable = [];
+
+        while (i < attributes.length - 1 && attributes[i].category === attributes[i + 1].category) {
+            i++;
+            itemTable.push(
+                <Label className = "car-feature">{attributes[i].itemName}</Label>
+            );
+        }
+        return itemTable;
+    }
+
+    function renderFeaturesList() {
+        var table = [];
+        
+
+        for(let i = 0; i < attributes.length; i++) {
+            table.push(
+                <Col xs = "6" md = "3">
+                    <Label className = "info-sub-head">{attributes[i].category}</Label> <br/>
+                    {
+                        renderItems(attributes, i)
+                    }
+                </Col>
+            );
+        }
+        return table;
+    }
+
     return(
         <div>
             {/* Car name and price section starts here. */}
@@ -101,10 +131,10 @@ const Information = (props) => {
                     : null
                 }
                 {
-                    details.bodyStyle ?
+                    details.gasMilage ?
                     <Col xs = "6" md = "3">
                         <Label className = "info-sub-head">City MPG</Label> <br/>
-                        <Label className = "car-detail">{details.bodyStyle}</Label>
+                        <Label className = "car-detail">{details.gasMilage}</Label>
                     </Col>
                     : null
                 }
@@ -284,18 +314,9 @@ const Information = (props) => {
             {/* Car Feature section starts here. */}
             <h4 className = "mb-5 car-feature-head">Car Features</h4>
             <Row className = "mb-5">
-                <Col xs = "6" md = "3">
-                    <Label className = "car-feature">ABS</Label>
-                </Col>
-                <Col xs = "6" md = "3">
-                    <Label className = "car-feature">Trim</Label> 
-                </Col>
-                <Col xs = "6" md = "3">
-                    <Label className = "car-feature">Immobilizer Key</Label>
-                </Col>
-                <Col xs = "6" md = "3">
-                    <Label className = "car-feature">Power Mirrors</Label>
-                </Col>
+                {
+                    attributes.length > 0 ? renderFeaturesList(attributes) : <Col xs = "12"><Label className = "car-detail">No features have been listed by the user</Label></Col>
+                }
             </Row>
             <hr className = "info-bottom-line mb-5"/>
         </div>
@@ -303,7 +324,3 @@ const Information = (props) => {
 }
 
 export default Information;
-
-
-
-

@@ -66,6 +66,7 @@
 .product-card .bookmark{
     border: 1px solid #DEDEDE;
     border-radius: 10px;
+    color: rgba(0, 0, 0, 0.35);
 }
 
 .product-card .bookmark:active, .product-card .bookmark:focus{
@@ -73,7 +74,7 @@
 }
 
 .product-card .bookmark:hover{
-    background-color: #f5f5f5;
+    color: #1C67CE;
 }
 
 /* The icon of the bookmark */
