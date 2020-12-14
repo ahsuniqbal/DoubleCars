@@ -9,9 +9,9 @@ const Information = (props) => {
 
     function renderItems(attributes, i) {
         var itemTable = [];
+        var categoryName = attributes[i].category
 
-        while (i < attributes.length - 1 && attributes[i].category === attributes[i + 1].category) {
-            i++;
+        for(let i = 0; i < attributes.length; i++) {
             itemTable.push(
                 <Label className = "car-feature">{attributes[i].itemName}</Label>
             );
@@ -22,16 +22,30 @@ const Information = (props) => {
     function renderFeaturesList() {
         var table = [];
         
-
-        for(let i = 0; i < attributes.length; i++) {
-            table.push(
-                <Col xs = "6" md = "3">
-                    <Label className = "info-sub-head">{attributes[i].category}</Label> <br/>
-                    {
-                        renderItems(attributes, i)
-                    }
-                </Col>
-            );
+        if(attributes[0].category === 'features') {
+            for(let i = 0; i < attributes.length; i++) {
+                table.push(
+                    <Col xs="6" md="3">
+                        <ul>
+                            <li>{attributes[i].itemName}</li>
+                        </ul>
+                    </Col>
+                );
+            }
+        }
+        else {
+            var categoryName = attributes[0].category;
+            for(let i = 0; i < attributes.length; i++) {
+                if(categoryName === attributes[i].category)
+                    table.push(
+                        <Col xs="6" md="3">
+                            <Label className="info-sub-head">{attributes[i].category}</Label> <br/>
+                            {
+                                renderItems(attributes, i)
+                            }
+                        </Col>
+                    );
+            }
         }
         return table;
     }
