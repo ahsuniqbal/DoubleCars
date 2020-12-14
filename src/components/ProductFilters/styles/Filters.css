@@ -19,6 +19,7 @@
     font-size: 14px;
     color: #000000;
     font-family: 'Ubuntu', sans-serif;
+    transform: none;
 }
 
 .filters .MuiSlider-marked{
@@ -112,6 +113,40 @@
     /* font-size: 14px; */
 }
 
+
+
+
+
+/* .filters .body-types input[type="checkbox"] {
+    visibility: hidden;
+}
+
+.filters .body-types label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgb(89, 89, 89);
+}
+
+.filters .body-types .bodystyle-checkbox {
+    background: url('../../../assets/icons/body-styles/sedan-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 22px;
+    margin-bottom: 13px;
+}
+
+.filters .body-types .bodystyle-checkbox-colored {
+    background-color: orange;
+    mask: url('../../../assets/icons/body-styles/sedan-icon.svg');
+    mask-position: center center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    margin-bottom: 13px;
+    height: 22px;
+} */
 
 .filters .body-types svg{
     margin-bottom: 13px;

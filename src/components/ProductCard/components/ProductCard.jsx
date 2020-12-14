@@ -44,7 +44,7 @@ const ProductCard = (props) => {
                     props.allowBookmark ?
                     <Col xs="3">
                         <Button color="link" className="bookmark">
-                            <FontAwesomeIcon icon={["far", "bookmark"]} color="rgba(0, 0, 0, 0.35)" />
+                            <FontAwesomeIcon icon={["far", "bookmark"]} />
                         </Button>
                     </Col>
                     :

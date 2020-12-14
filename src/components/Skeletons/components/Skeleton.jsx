@@ -21,3 +21,18 @@ export const ProductSkeleton = () => {
         </div>
     );
 };
+
+export const FiltersSkeleton = () => {
+    return(
+        <div className="filters-skeleton">
+            <Skeleton variant="text" animation="wave" />
+            <Skeleton variant="text" animation="wave" />
+            <Skeleton variant="text" animation="wave" />
+            <Row>
+                <Col xs="9" className="mt-2">
+                    <Skeleton variant="text" animation="wave" />
+                </Col>
+            </Row>
+        </div>
+    );
+};
