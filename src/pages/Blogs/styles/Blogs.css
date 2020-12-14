@@ -47,6 +47,9 @@ color: rgba(0, 0, 0, 0.84);
 
 /* Related Stories Cell css starts here */
 
+.related-car-card {
+    border: transparent !important;
+}
 .cell-card-image{
     object-fit: cover;
     width: 90px;
@@ -54,10 +57,28 @@ color: rgba(0, 0, 0, 0.84);
     border-radius: 4px;
 }
 
-.related-point {
+.related-card-label {
     font-weight: 500;
     font-size: 16px;
     line-height: 140%;
     color: rgba(0, 0, 0, 0.85);
 }
+
+/* End */
+
+/* Similar car cell css starts here */
+.similar-car-title {
+    font-size: 15px;
+    line-height: 120%;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.similar-card-price {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 17px;
+    color: #000000;
+}
+
+/* End */
 
