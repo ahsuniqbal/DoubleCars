@@ -3,7 +3,7 @@ import Header from './Header'
 import PopularMake from './PopularMake'
 import TrendingBodyTypes from './TrendingBodyTypes'
 import Searchbar from './Searchbar';
-import { Row, Col, CardBody, Container } from 'reactstrap';
+import { Row, Col, Label, Container } from 'reactstrap';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
@@ -17,6 +17,7 @@ import '../styles/TrendingCar.css';
 import '../styles/TrendingBodyTypes.css';
 import DCSlider from '../../../components/DcSlider'
 import TopBudget from './TopBudget'
+import TopStories from './TopStories';
 
 
 // function DrawProductCards(data){
@@ -166,7 +167,7 @@ const Home = () => {
     return(
         <div className = "landing-page-dc">
             <Header/>
-            <Container className = "foo">
+            <Container className = "home-container">
             <Row>
                 <Col xs="1"></Col>
                 <Col xs="10">
@@ -247,7 +248,26 @@ const Home = () => {
             </div> */}
           
            <TopBudget/>
-            <PopularMake/>
+            
+            <Row>
+                <Col xs = "12" md = "12" sm = "12" className = "text-center">
+                    <h2 className = "popular-heading">Popular Make</h2>
+                    <Label className = "download-app-label">Download app and upload your car in few steps</Label>
+                </Col>
+                <Col>
+                <PopularMake/>
+                </Col>
+            </Row>
+            <Row>
+                <Col xs = "12" md = "12" sm = "12" className = "text-center">
+                    <h2 className = "top-stories-heading">Top Stories</h2>
+                    <Label className = "download-app-label">Download app and upload your car in few steps</Label>
+                </Col>
+                <Col>
+                    <TopStories/>
+                </Col>
+            </Row>
+
             </Container>
         </div>
     )

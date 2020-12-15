@@ -47,7 +47,6 @@ const DrawCols = () => {
 const Home = () => {
     return(
         <div className="popular-make"> 
-            <h2 className = "popular-make-head">Popular Make</h2>
                 <ul className = "client-list">
                 {
                     DrawCols()

@@ -1,11 +1,6 @@
-.searchbox {
-     background: #ffffff;
-  width: 100%;
-  
-  box-shadow: 0px 0px 40px rgba(44, 44, 44, 0.08);
-    border-radius: 8px;
-  padding: 50px;
-  margin: 20px;
+.home-container {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .search-text-field {
@@ -16,11 +11,3 @@
     outline-offset: 0px !important;
 }
 
-.landing-page-dc {
-/* background-color: #F9F9F9; */
-
-}
-.foo {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-}
