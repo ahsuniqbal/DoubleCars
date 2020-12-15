@@ -174,7 +174,7 @@ const Home = () => {
                 </Col>
             </Row>
             <div>
-            <Row>
+            {/* <Row>
                 <Col xs="12">
                     <CardBody className = "recommended-cars">
                         <Row className = "">
@@ -189,19 +189,19 @@ const Home = () => {
                     
                         <Row>
                             <Col>
-                                <DCSlider/>
-                                {/* <Carousel indicators={false} >
+                               
+                                <Carousel indicators={false} >
                                 {
                                     recommendations ? DrawCarousel(recommendations) : DrawSkeleton()
                                 }
-                                </Carousel> */}
+                                </Carousel>
                             </Col>
                         </Row>
                     </CardBody>
                 </Col>
-            </Row>
+            </Row> */}
 
-            <Row>
+            {/* <Row>
                 <Col xs="12">
                     <CardBody className="trending-cars">
                         <Row className = "">
@@ -226,7 +226,7 @@ const Home = () => {
 
                     </CardBody>
                 </Col>
-            </Row>
+            </Row> */}
             </div>
 
             {/* <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" /> */}

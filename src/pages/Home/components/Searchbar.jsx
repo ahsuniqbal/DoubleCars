@@ -75,7 +75,7 @@ const Searchbar = () => {
 
                 <Form onSubmit={(e) => Search(e)}>
                     <Row>
-                        <Col xs="12" md="8">
+                        <Col xs="12" md="8" sm = "12">
                         <InputGroup>
                             <Input className="search-box" id="search-box" type="text" placeholder="Search Cars or Brand eg. Audi or Tesla " />
                             <InputGroupAddon addonType="append">
@@ -87,7 +87,7 @@ const Searchbar = () => {
                             
                         </Col>
 
-                        <Col xs="6" sm="4" md="2">
+                        <Col xs="6" sm="6" md="2">
                             {
                                 makeList ? 
                                 <Input id="make-list" type="select" className = "condition-dropdown" onChange={(e) => handleMake(e.target.value)} >
@@ -99,7 +99,7 @@ const Searchbar = () => {
                             }
                         </Col>
 
-                        <Col xs="6" sm="4" md="2">
+                        <Col xs="6" sm="6" md="2">
                             <Button className = "search-button">Search</Button>
                         </Col>
 

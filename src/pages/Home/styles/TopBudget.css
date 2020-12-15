@@ -1,15 +1,35 @@
-.ad-image {
-    cursor: pointer;
+.topBudgetRow {
+    margin-top: 4rem;
+  display: flex;
+  align-items: center;
+}
+.top-budget-label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    /* identical to box height, or 17px */
+    
+    color: #FFFFFF;
 }
 
-.buy-now {
-    margin-top: 10%;
-} 
+.top-budget-heading {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 120%;
+    /* or 38px */
+    
+    color: #FFFFFF;
+}
 
-.top-budget-column {
-    background-image: url("../../../assets/TopBudgetCar.png"); 
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 80vh;
+.explore-button {
+    margin-top: 1rem;
+    background-color: #1C67CE !important;
+    border-radius: 0.4rem !important;
+    width: 140px ;
+    height: 48px ; 
+    color: #ffffff ;
+    font-size: 15px ;
+    line-height: 16px; 
+    border-color: #1C67CE; 
+    font-weight: 500;
 }
