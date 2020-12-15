@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header'
 import PopularMake from './PopularMake'
 import TrendingBodyTypes from './TrendingBodyTypes'
-import BuyNow from './BuyNow';
 import Searchbar from './Searchbar';
 import { Row, Col, CardBody, Container } from 'reactstrap';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
@@ -17,6 +16,7 @@ import '../styles/RecommendedCar.css';
 import '../styles/TrendingCar.css';
 import '../styles/TrendingBodyTypes.css';
 import DCSlider from '../../../components/DcSlider'
+import TopBudget from './TopBudget'
 
 
 // function DrawProductCards(data){
@@ -189,12 +189,12 @@ const Home = () => {
                     
                         <Row>
                             <Col>
-                                {/* <DCSlider/> */}
-                                <Carousel indicators={false} >
+                                <DCSlider/>
+                                {/* <Carousel indicators={false} >
                                 {
                                     recommendations ? DrawCarousel(recommendations) : DrawSkeleton()
                                 }
-                                </Carousel>
+                                </Carousel> */}
                             </Col>
                         </Row>
                     </CardBody>
@@ -233,7 +233,7 @@ const Home = () => {
             
 
             
-            <div className = "trending-body-types">
+            {/* <div className = "trending-body-types">
             <CardBody className = "trending-body-types2">
                 <Row>
                 <Col md = "12" xs = "12" className = "text-center mb-5">
@@ -244,9 +244,9 @@ const Home = () => {
                     bodyTypes ? <TrendingBodyTypes bodyTypes={bodyTypes} /> : null
                 }
                 </CardBody>
-            </div>
-            <BuyNow/>
-           
+            </div> */}
+          
+           <TopBudget/>
             <PopularMake/>
             </Container>
         </div>

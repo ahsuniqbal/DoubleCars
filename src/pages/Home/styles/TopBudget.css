@@ -1,0 +1,15 @@
+.ad-image {
+    cursor: pointer;
+}
+
+.buy-now {
+    margin-top: 10%;
+} 
+
+.top-budget-column {
+    background-image: url("../../../assets/TopBudgetCar.png"); 
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+}
