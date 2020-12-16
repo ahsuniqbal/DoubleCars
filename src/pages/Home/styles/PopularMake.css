@@ -29,6 +29,13 @@
     
 }
 
+.popular-heading {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: #080B30;
+    
+}
 
 
 @media (max-width: 767px) {

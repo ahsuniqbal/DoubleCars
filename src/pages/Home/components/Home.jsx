@@ -12,6 +12,7 @@ import { GetAllBodyTypes, GetRecommendationsTrendings } from '../api/GetRequests
 import { isLogin, getLogin } from '../../../config/LoginAuth'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
 import '../styles/Home.css'
+import '../styles/TopStories.css'
 import '../styles/RecommendedCar.css';
 import '../styles/TrendingCar.css';
 import '../styles/TrendingBodyTypes.css';
@@ -268,16 +269,26 @@ const Home = () => {
                     <h2 className = "popular-heading">Popular Make</h2>
                     <Label className = "download-app-label">Download app and upload your car in few steps</Label>
                 </Col>
-                <Col>
-                <PopularMake/>
-                </Col>
             </Row>
+            <Label>In progress</Label>
             <Row>
                 <Col xs = "12" md = "12" sm = "12" className = "text-center">
                     <h2 className = "top-stories-heading">Top Stories</h2>
                     <Label className = "download-app-label">Download app and upload your car in few steps</Label>
                 </Col>
-                <Col>
+            </Row>
+            
+            <Row>
+                <Col xs = "12" md = "3">
+                    <TopStories/>
+                </Col>
+                <Col xs = "12" md = "3">
+                    <TopStories/>
+                </Col>
+                <Col xs = "12" md = "3">
+                    <TopStories/>
+                </Col>
+                <Col xs = "12" md = "3">
                     <TopStories/>
                 </Col>
             </Row>
