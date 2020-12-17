@@ -29,10 +29,12 @@
     
 }
 
-.popular-make-head {
-    font-size: 22px;
-    font-weight: bold;
-    color: black;
+.popular-heading {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: #080B30;
+    
 }
 
 

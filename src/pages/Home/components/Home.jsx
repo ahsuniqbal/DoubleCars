@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header'
 import PopularMake from './PopularMake'
 import TrendingBodyTypes from './TrendingBodyTypes'
-import BuyNow from './BuyNow';
 import Searchbar from './Searchbar';
-import { Row, Col, CardBody, Container } from 'reactstrap';
+import { Row, Col, Label, Container } from 'reactstrap';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
@@ -13,10 +12,15 @@ import { GetAllBodyTypes, GetRecommendationsTrendings } from '../api/GetRequests
 import { isLogin, getLogin } from '../../../config/LoginAuth'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
 import '../styles/Home.css'
+import '../styles/TopStories.css'
 import '../styles/RecommendedCar.css';
 import '../styles/TrendingCar.css';
 import '../styles/TrendingBodyTypes.css';
 import DCSlider from '../../../components/DcSlider'
+import TopBudget from './TopBudget'
+import TopStories from './TopStories';
+import FeaturedCars from './FeaturedCars';
+import CarSection1 from './CarSection1';
 
 
 // function DrawProductCards(data){
@@ -166,88 +170,132 @@ const Home = () => {
     return(
         <div className = "landing-page-dc">
             <Header/>
-            <Container className = "foo">
-            <Row>
-                <Col xs="1"></Col>
-                <Col xs="10">
-                    <Searchbar />
-                </Col>
-            </Row>
-            <div>
-            <Row>
-                <Col xs="12">
-                    <CardBody className = "recommended-cars">
-                        <Row className = "">
-                            <Col md = "6" xs = "12">
-                                <h2 className = "recommended-cars-head">Recommneded Cars</h2>
-                            </Col>
+                <Container fluid = {true} className = "home-container">
+                    <Row>
+                        <Col xs="1"></Col>
+                        <Col xs="10">
+                            <Searchbar />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs = "12" md = "8" sm = "12" className = "">
+                            <h2 className = "">Featured Cars</h2>
+                        </Col>
+                        <Col md = "4" xs = "12" className = "text-right">
+                            <Link className = "mr-3" to="">All</Link>
+                            <Link className = "mr-3" to="">New</Link>
+                            <Link className = "" to="">Used</Link>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col><FeaturedCars/></Col>
+                    </Row>
+                    <div>
+                        {/* <Row>
+                            <Col xs="12">
+                                <CardBody className = "recommended-cars">
+                                    <Row className = "">
+                                        <Col md = "6" xs = "12">
+                                            <h2 className = "recommended-cars-head">Recommneded Cars</h2>
+                                        </Col>
 
-                            <Col md = "6" xs = "12" className = "text-right">
-                                <Link className = "view-all" to="/products">View All</Link>
+                                        <Col md = "6" xs = "12" className = "text-right">
+                                            <Link className = "view-all" to="/products">View All</Link>
+                                        </Col>
+                                    </Row>
+                                
+                                    <Row>
+                                        <Col>
+                                        
+                                            <Carousel indicators={false} >
+                                            {
+                                                recommendations ? DrawCarousel(recommendations) : DrawSkeleton()
+                                            }
+                                            </Carousel>
+                                        </Col>
+                                    </Row>
+                                </CardBody>
                             </Col>
-                        </Row>
-                    
-                        <Row>
-                            <Col>
-                                {/* <DCSlider/> */}
-                                <Carousel indicators={false} >
-                                {
-                                    recommendations ? DrawCarousel(recommendations) : DrawSkeleton()
-                                }
-                                </Carousel>
-                            </Col>
-                        </Row>
-                    </CardBody>
-                </Col>
-            </Row>
+                        </Row> */}
 
-            <Row>
-                <Col xs="12">
-                    <CardBody className="trending-cars">
-                        <Row className = "">
-                            <Col md = "6" xs = "12">
-                                <h2 className = "trending-cars-head">Trending in US</h2>
-                            </Col>
+                        {/* <Row>
+                            <Col xs="12">
+                                <CardBody className="trending-cars">
+                                    <Row className = "">
+                                        <Col md = "6" xs = "12">
+                                            <h2 className = "trending-cars-head">Trending in US</h2>
+                                        </Col>
 
-                            <Col md = "6" xs = "12" className = "text-right">
-                                <Link className = "view-all" to="/products">View All</Link>
+                                        <Col md = "6" xs = "12" className = "text-right">
+                                            <Link className = "view-all" to="/products">View All</Link>
+                                        </Col>
+                                    </Row>
+                                    
+                                    <Row>
+                                        <Col>
+                                            <Carousel indicators={false}>
+                                            {
+                                                trending ? DrawCarousel(trending) : DrawSkeleton()
+                                            }
+                                            </Carousel>
+                                        </Col>
+                                    </Row>
+
+                                </CardBody>
                             </Col>
-                        </Row>
+                        </Row> */}
+                        </div>
+
+                        {/* <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" /> */}
                         
-                        <Row>
-                            <Col>
-                                <Carousel indicators={false}>
-                                {
-                                    trending ? DrawCarousel(trending) : DrawSkeleton()
-                                }
-                                </Carousel>
-                            </Col>
-                        </Row>
 
-                    </CardBody>
+                        
+                        {/* <div className = "trending-body-types">
+                        <CardBody className = "trending-body-types2">
+                            <Row>
+                            <Col md = "12" xs = "12" className = "text-center mb-5">
+                                <h2 className = "trending-body-head">Trending Body Type in 2020</h2>
+                            </Col>
+                            </Row>
+                            {
+                                bodyTypes ? <TrendingBodyTypes bodyTypes={bodyTypes} /> : null
+                            }
+                            </CardBody>
+                        </div> */}
+                    
+           <TopBudget/>
+            
+            <Row>
+                <Col xs = "12" md = "12" sm = "12" className = "text-center">
+                    <h2 className = "popular-heading">Popular Make</h2>
+                    <Label className = "download-app-label">Download app and upload your car in few steps</Label>
                 </Col>
             </Row>
-            </div>
-
-            {/* <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" /> */}
+            <Label>In progress</Label>
+            <Row>
+                <Col xs = "12" md = "12" sm = "12" className = "text-center">
+                    <h2 className = "top-stories-heading">Top Stories</h2>
+                    <Label className = "download-app-label">Download app and upload your car in few steps</Label>
+                </Col>
+            </Row>
             
+            <Row>
+                <Col xs = "12" md = "3">
+                    <TopStories/>
+                </Col>
+                <Col xs = "12" md = "3">
+                    <TopStories/>
+                </Col>
+                <Col xs = "12" md = "3">
+                    <TopStories/>
+                </Col>
+                <Col xs = "12" md = "3">
+                    <TopStories/>
+                </Col>
+            </Row>
 
-            
-            <div className = "trending-body-types">
-            <CardBody className = "trending-body-types2">
-                <Row>
-                <Col md = "12" xs = "12" className = "text-center mb-5">
-                       <h2 className = "trending-body-head">Trending Body Type in 2020</h2>
-                   </Col>
-                </Row>
-                {
-                    bodyTypes ? <TrendingBodyTypes bodyTypes={bodyTypes} /> : null
-                }
-                </CardBody>
-            </div>
-            <BuyNow/>
-           
-            <PopularMake/>
+            <CarSection1/>
+
             </Container>
         </div>
     )

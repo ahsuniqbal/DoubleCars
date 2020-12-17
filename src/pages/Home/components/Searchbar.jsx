@@ -75,9 +75,9 @@ const Searchbar = () => {
 
                 <Form onSubmit={(e) => Search(e)}>
                     <Row>
-                        <Col xs="12" md="6">
+                        <Col xs="12" md="8" sm = "12">
                         <InputGroup>
-                            <Input className="search-box" id="search-box" type="text" placeholder="Search a car ..." />
+                            <Input className="search-box" id="search-box" type="text" placeholder="Search Cars or Brand eg. Audi or Tesla " />
                             <InputGroupAddon addonType="append">
                                 <InputGroupText>
                                     <FontAwesomeIcon icon="search" size="1x" />
@@ -87,21 +87,23 @@ const Searchbar = () => {
                             
                         </Col>
 
-                        <Col xs="6" sm="4" md="2">
+                        <Col xs="6" sm="6" md="2">
                             {
                                 makeList ? 
-                                <Input id="make-list" type="select" onChange={(e) => handleMake(e.target.value)} >
-                                    <option value="">Make</option>
+                                <Input id="make-list" type="select" className = "condition-dropdown" onChange={(e) => handleMake(e.target.value)} >
+                                    <option value="">Condition</option>
                                     {
                                         concatMakeList(makeList)
                                     }
-                                </Input>
-                                : null
+                                </Input> : null
                             }
-                            
                         </Col>
 
-                        <Col xs="6" sm="4" md="2">
+                        <Col xs="6" sm="6" md="2">
+                            <Button className = "search-button">Search</Button>
+                        </Col>
+
+                        {/* <Col xs="6" sm="4" md="2">
                             {
                                 modelList ?
                                 <Input id="model-list" type="select">
@@ -114,16 +116,16 @@ const Searchbar = () => {
                                 null
                             }
                             
-                        </Col>
+                        </Col> */}
 
-                        <Col xs="12" sm="4" md="2">
+                        {/* <Col xs="12" sm="4" md="2">
                             <Input type="select">
                                 <option value="">Price Range</option>
                                 <option value="<50"> &lt; $50</option>
                                 <option value="50-100">$50 - $100</option>
                                 <option value="150-200">$150 - $200</option>
                             </Input>
-                        </Col>
+                        </Col> */}
                     </Row>
                 </Form>
             </CardBody>
