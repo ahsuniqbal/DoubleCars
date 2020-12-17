@@ -20,6 +20,7 @@ import DCSlider from '../../../components/DcSlider'
 import TopBudget from './TopBudget'
 import TopStories from './TopStories';
 import FeaturedCars from './FeaturedCars';
+import CarSection1 from './CarSection1';
 
 
 // function DrawProductCards(data){
@@ -292,6 +293,8 @@ const Home = () => {
                     <TopStories/>
                 </Col>
             </Row>
+
+            <CarSection1/>
 
             </Container>
         </div>

@@ -1,0 +1,38 @@
+.car-badge {
+    position: absolute;
+    left: 3%;
+    bottom: 23%;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+    background-color: #1c67ce;
+    
+}
+
+.car-title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    position: absolute;
+    left: 3%;
+    bottom: 10%;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    width: 80%;
+}
+
+.price-label {
+    position: absolute;
+    bottom: 0%;
+    left: 3%;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    width: 80%;
+    line-height: 17px;
+    font-size: 14px;
+    font-weight: 500;
+}
