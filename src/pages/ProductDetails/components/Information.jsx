@@ -7,18 +7,6 @@ const Information = (props) => {
     const details = props.details;
     const attributes = props.attributes;
 
-    function renderItems(attributes, i) {
-        var itemTable = [];
-        var categoryName = attributes[i].category
-
-        for(let i = 0; i < attributes.length; i++) {
-            itemTable.push(
-                <Label className = "car-feature">{attributes[i].itemName}</Label>
-            );
-        }
-        return itemTable;
-    }
-
     function renderFeaturesList() {
         var table = [];
         
@@ -26,26 +14,57 @@ const Information = (props) => {
             for(let i = 0; i < attributes.length; i++) {
                 table.push(
                     <Col xs="6" md="3">
-                        <ul>
-                            <li>{attributes[i].itemName}</li>
-                        </ul>
+                        <Label className = "car-feature">{attributes[i].itemName}</Label>
                     </Col>
                 );
             }
         }
         else {
-            var categoryName = attributes[0].category;
             for(let i = 0; i < attributes.length; i++) {
-                if(categoryName === attributes[i].category)
+                if(i < attributes.length - 1 && attributes[i].category === attributes[i + 1].category) {
                     table.push(
                         <Col xs="6" md="3">
-                            <Label className="info-sub-head">{attributes[i].category}</Label> <br/>
+                            <Label className = "info-sub-head">{attributes[i].category}</Label><br />
                             {
-                                renderItems(attributes, i)
+                                attributes[i].category === attributes[i + 1].category ? 
+                                    <Label className="car-feature">{attributes[i].itemName}</Label>
+                                :null
                             }
                         </Col>
                     );
+                }
+                else {
+                    table.push(
+                        <Col xs="6" md="3">
+                            <Label className = "info-sub-head">{attributes[i].category}</Label><br />
+                                <Label className="car-feature">{attributes[i].itemName}</Label>
+                        </Col>
+                    );
+                }
+                
+                // if(attributes[i].category === attributes[i + 1].category) {
+                //     table.push(
+                //         <Col xs="6" md="3">
+                //             <Label className="car-feature">{attributes[i].itemName}</Label>
+                //         </Col>
+                //     );
+                // }
+                // else { 
+
+                // }
             }
+            // var categoryName = attributes[0].category;
+            // for(let i = 0; i < attributes.length; i++) {
+            //     if(categoryName === attributes[i].category)
+            //         table.push(
+            //             <Col xs="6" md="3">
+            //                 <Label className="info-sub-head">{attributes[i].category}</Label> <br/>
+            //                 {
+            //                     renderItems(attributes, i)
+            //                 }
+            //             </Col>
+            //         );
+            // }
         }
         return table;
     }
@@ -55,7 +74,7 @@ const Information = (props) => {
             {/* Car name and price section starts here. */}
             <Row>
                 <Col md = "8" className = "mt-5">
-                    <h2 className = "car-name">{details.yearCar + " " + details.carMake + " " + details.carModel + " " + details.trim}</h2>
+                    <h2 className = "car-name" title={details.yearCar + " " + details.carMake + " " + details.carModel + " " + details.trim}>{details.yearCar + " " + details.carMake + " " + details.carModel + " " + details.trim}</h2>
                 </Col>
                 <Col className = "text-right mt-5" md = "4">
                     <h2 className = "car-price">{details.price ? ("$" + AddCommaToNumber(details.price)) : null}</h2>
@@ -243,8 +262,8 @@ const Information = (props) => {
                 {
                     details.made_in_city ?
                     <Col xs = "6" md = "3">
-                        <Label className = "info-sub-head">Made in City</Label> <br/>
-                        <Label className = "car-detail">{details.made_in_city}</Label>
+                        <Label className = "info-sub-head">Gross Vehicle Weight</Label> <br/>
+                        <Label className = "car-detail">{details.gross_vehicle_weight_rating}</Label>
                     </Col>
                     : null
                 }
@@ -291,8 +310,8 @@ const Information = (props) => {
                 {
                     details.standard_seating ?
                     <Col xs = "6" md = "3">
-                        <Label className = "info-sub-head">Standard Seating</Label> <br/>
-                        <Label className = "car-detail">{details.standard_seating}</Label>
+                        <Label className = "info-sub-head">Style</Label> <br/>
+                        <Label className = "car-detail">{details.style}</Label>
                     </Col>
                     : null
                 }
