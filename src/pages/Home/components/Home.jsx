@@ -21,6 +21,7 @@ import TopBudget from './TopBudget'
 import TopStories from './TopStories';
 import FeaturedCars from './FeaturedCars';
 import CarSection1 from './CarSection1';
+import ServicesOffer from './ServicesOffer';
 
 
 // function DrawProductCards(data){
@@ -190,6 +191,7 @@ const Home = () => {
                     <Row>
                         <Col><FeaturedCars/></Col>
                     </Row>
+                    <ServicesOffer/>
                     <div>
                         {/* <Row>
                             <Col xs="12">
@@ -263,7 +265,8 @@ const Home = () => {
                             </CardBody>
                         </div> */}
                     
-           <TopBudget/>
+                    <TopBudget/>
+                    
             
             <Row>
                 <Col xs = "12" md = "12" sm = "12" className = "text-center">
