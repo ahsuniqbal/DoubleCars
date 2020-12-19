@@ -39,13 +39,13 @@ const DealerProfile = ({match}) => {
             setDealer(doc[0]);
         })
         .catch(error => {
-            alert("Error", error.message);
+            alert(error.message);
         });
         GetSellerInventory(match.params.id).then(doc => {
             setInventory(doc.inventory);
         })
         .catch(error => {
-            alert("Error", error.message);
+            alert(error.message);
         });
     }, []);
 

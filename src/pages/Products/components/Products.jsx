@@ -95,7 +95,7 @@ const Products = ({location}) => {
                 setProducts(doc);
             })
             .catch(error => {
-                alert("Error", error.message);
+                alert(error.message);
             });
         }
         else {
@@ -103,7 +103,7 @@ const Products = ({location}) => {
                 setProducts(doc);
             })
             .catch(error => {
-                alert("Error", error.message);
+                alert(error.message);
             });
         }
         
@@ -114,7 +114,7 @@ const Products = ({location}) => {
             setProducts(doc);
         })
         .catch(error => {
-            alert("Error", error.message);
+            alert(error.message);
         });
     }
 

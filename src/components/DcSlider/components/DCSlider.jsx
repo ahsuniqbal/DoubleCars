@@ -2,31 +2,70 @@ import React from "react"
 import '../styles/DCSlider.css'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import { Card, CardImg } from 'reactstrap';
-import DemoCar2 from '../../../assets/DemoCar2.png'
-import ProductCard from '../../ProductCard'
-const DCSlider = () => {
+import "slick-carousel/slick/slick-theme.css";
+import ProductCard from '../../ProductCard';
+import { AddCommaToNumber } from "../../../utils/NumberManipulation";
+
+const DCSlider = (props) => {
     let settings = {
-        dot: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
+        adaptiveHeight: true,
+        arrows: true,
+        autoplaySpeed: 2000,
+        autoplay: false,
+        // centerMode: true,
+        // centerPadding: '50px',
+        dots: false,
+        // fade: true,
+        responsive: [
+          {
+            breakpoint: 576,
+            settings: {
+              slidesToShow: 1,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 3,
+            },
+          },
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 4,
+            },
+          },
+        ],
+        // slidesPerRow: 1,
+        swipeToSlide: true,
         slidesToScroll: 1,
-        cssEase: "linear",
+        slidesToShow: 5,
     }
 
     return (
         <Slider {...settings}>
-            
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-            
-            <ProductCard/>
-           
-            
+            {
+                props.items ? 
+                    props.items.map((item, index) => (
+                        <ProductCard 
+                            key={index}
+                            productId={item.productId}
+                            productBadge={props.productBadge}
+                            productImg={item.coverPic}
+                            productName={item.productName}
+                            productTitle={item.carName}
+                            productSubtitle={AddCommaToNumber(item.mileage) + " miles · " + item.zipCode}
+                            productText={"$" + AddCommaToNumber(item.price)}
+                        />      
+                    ))
+                : null
+            }
         </Slider>
     );
   }

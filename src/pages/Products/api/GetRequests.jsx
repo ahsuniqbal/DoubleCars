@@ -12,7 +12,7 @@ export const GetSearchResult = (queryParams, pageNum) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert("Error: ", error);
+            alert(error.message);
         })
     })
 };
@@ -27,7 +27,7 @@ export const GetFilterResult = (queryParams) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert("Error: ", error);
+            alert(error.message);
         })
     })
 };

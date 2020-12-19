@@ -16,7 +16,7 @@ const SellerDetails = (props) => {
             setDealer(doc[0]);
         })
         .catch(error => {
-            alert("Error", error.message);
+            alert(error.message);
         });
     }, []);
 

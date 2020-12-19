@@ -27,7 +27,7 @@ export const GetAllMakes = () => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert("Error: ", error);
+            alert(error.message);
         })
     })
 };
@@ -42,7 +42,7 @@ export const GetModelFromMake = (makeId) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert("Error: ", error);
+            alert(error.message);
         })
     })
 };
@@ -57,7 +57,7 @@ export const GetAllBodyTypes = () => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert("Error: ", error);
+            alert(error.message);
         })
     })
 };
@@ -72,7 +72,7 @@ export const GetProductsOfBodyType = (bodyType) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert("Error: ", error);
+            alert(error.message);
         })
     })
 };

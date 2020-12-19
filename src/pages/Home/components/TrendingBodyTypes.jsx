@@ -108,7 +108,7 @@ const TrendingBodyTypes = (props) => {
             setBodyTypeProducts(doc);
         })
         .catch(error => {
-            alert("Error", error.message);
+            alert(error.message);
         });
     }
 
@@ -131,7 +131,7 @@ const TrendingBodyTypes = (props) => {
             setBodyTypeProducts(doc);
         })
         .catch(error => {
-            alert("Error", error.message);
+            alert(error.message);
         });
     }, []);
 

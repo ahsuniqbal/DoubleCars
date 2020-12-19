@@ -6,30 +6,30 @@ import { GetAllMakes, GetModelFromMake } from '../api/GetRequests';
 import '../styles/Searchbar.css';
 
 
-function concatMakeList(makeList){
-    var makeSelectBox = document.getElementById('make-list');
+// function concatMakeList(makeList){
+//     var makeSelectBox = document.getElementById('make-list');
 
-    for(let i = 0; i < makeList.length; i++){
-        var option = makeList[i];
-        makeSelectBox.options.add(new Option(option.name, option.id));
-    }
-}
+//     for(let i = 0; i < makeList.length; i++){
+//         var option = makeList[i];
+//         makeSelectBox.options.add(new Option(option.name, option.id));
+//     }
+// }
 
-function concatModelList(modelList){
-    var modelSelectBox = document.getElementById('model-list');
+// function concatModelList(modelList){
+//     var modelSelectBox = document.getElementById('model-list');
 
-    for(let i = 0; i < modelList.length; i++){
-        var option = modelList[i];
-        modelSelectBox.options.add(new Option(option.name, option.id));
-    }
-}
+//     for(let i = 0; i < modelList.length; i++){
+//         var option = modelList[i];
+//         modelSelectBox.options.add(new Option(option.name, option.id));
+//     }
+// }
 
 const Searchbar = () => {
     const history = useHistory();
 
-    //Make and Model list fetched from Vin audit API
-    const [makeList, setMakeList] = useState([]);
-    const [modelList, setModelList] = useState([]);
+    // //Make and Model list fetched from Vin audit API
+    // const [makeList, setMakeList] = useState([]);
+    // const [modelList, setModelList] = useState([]);
 
 
     const Search = (e) => {
@@ -43,23 +43,23 @@ const Searchbar = () => {
         })
     };
 
-    const handleMake = (make) => {
-        GetModelFromMake(make).then(doc => {
-            setModelList(doc.makes[0].models);
-        })
-        .catch(error => {
-            alert("Error", error.message);
-        });
-    };
+    // const handleMake = (make) => {
+    //     GetModelFromMake(make).then(doc => {
+    //         setModelList(doc.makes[0].models);
+    //     })
+    //     .catch(error => {
+    //         alert(error.message);
+    //     });
+    // };
 
-    useEffect(() => {
-        GetAllMakes().then(doc => {
-            setMakeList(doc.makes);
-        })
-        .catch(error => {
-            alert("Error", error.message);
-        });
-    }, []);
+    // useEffect(() => {
+    //     GetAllMakes().then(doc => {
+    //         setMakeList(doc.makes);
+    //     })
+    //     .catch(error => {
+    //         alert(error.message);
+    //     });
+    // }, []);
 
     return(
         <Card className="searchbar">
@@ -88,15 +88,11 @@ const Searchbar = () => {
                         </Col>
 
                         <Col xs="6" sm="6" md="2">
-                            {
-                                makeList ? 
-                                <Input id="make-list" type="select" className = "condition-dropdown" onChange={(e) => handleMake(e.target.value)} >
-                                    <option value="">Condition</option>
-                                    {
-                                        concatMakeList(makeList)
-                                    }
-                                </Input> : null
-                            }
+                            <Input id="make-list" type="select" className = "condition-dropdown">
+                                <option value="" hidden selected>Condition</option>
+                                <option value={false}>New</option>
+                                <option value={true}>Used</option>
+                            </Input>
                         </Col>
 
                         <Col xs="6" sm="6" md="2">

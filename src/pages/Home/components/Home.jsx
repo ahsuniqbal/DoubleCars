@@ -3,7 +3,7 @@ import Header from './Header'
 import PopularMake from './PopularMake'
 import TrendingBodyTypes from './TrendingBodyTypes'
 import Searchbar from './Searchbar';
-import { Row, Col, Label, Container } from 'reactstrap';
+import { Row, Col, Label, Container, CardBody} from 'reactstrap';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
@@ -136,36 +136,28 @@ const DrawCarousel = (list) => {
 const Home = () => {
     const [recommendations, setRecommendations] = useState(null);
     const [trending, setTrending] = useState(null);
-    const [bodyTypes, setBodyTypes] = useState(null);
+    // const [bodyTypes, setBodyTypes] = useState(null);
 
     useEffect(() => {
         // If User is logged in the you will send id param other wise no id param will be send
         // Login not implemented yet that
 
-        if(isLogin()){
-            GetRecommendationsTrendings(getLogin()).then(doc => {
-                
-                setRecommendations(doc[0].data);
-                setTrending(doc[1].data);
-            })
-            .catch(error => {
-                alert("Error", error.message);
-            });
-        }
-        else{
-            GetRecommendationsTrendings('-1').then(doc => {
-                setRecommendations(doc[0].data);
-                setTrending(doc[1].data);
-            });
-        }
-
-        //Get the list of all body types
-        GetAllBodyTypes().then(doc => {
-            setBodyTypes(doc.bodyStyleList);
+        
+        GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
+            setRecommendations(doc[0].data);
+            setTrending(doc[1].data);
         })
         .catch(error => {
-            alert("Error", error.message);
+            alert(error.message);
         });
+
+        //Get the list of all body types
+        // GetAllBodyTypes().then(doc => {
+        //     setBodyTypes(doc.bodyStyleList);
+        // })
+        // .catch(error => {
+        //     alert(error.message);
+        // });
     }, []);
    
     return(
@@ -193,7 +185,7 @@ const Home = () => {
                     </Row>
                     <ServicesOffer/>
                     <div>
-                        {/* <Row>
+                        <Row>
                             <Col xs="12">
                                 <CardBody className = "recommended-cars">
                                     <Row className = "">
@@ -204,23 +196,19 @@ const Home = () => {
                                         <Col md = "6" xs = "12" className = "text-right">
                                             <Link className = "view-all" to="/products">View All</Link>
                                         </Col>
-                                    </Row>
-                                
-                                    <Row>
-                                        <Col>
-                                        
-                                            <Carousel indicators={false} >
-                                            {
-                                                recommendations ? DrawCarousel(recommendations) : DrawSkeleton()
-                                            }
-                                            </Carousel>
-                                        </Col>
-                                    </Row>
+                                    </Row>                            
                                 </CardBody>
                             </Col>
-                        </Row> */}
+                        </Row>
+                        {
+                            recommendations ? 
+                            <DCSlider
+                                slidesToShow = {5}
+                                items={recommendations}
+                            /> : null
+                        }
 
-                        {/* <Row>
+                        <Row>
                             <Col xs="12">
                                 <CardBody className="trending-cars">
                                     <Row className = "">
@@ -232,20 +220,16 @@ const Home = () => {
                                             <Link className = "view-all" to="/products">View All</Link>
                                         </Col>
                                     </Row>
-                                    
-                                    <Row>
-                                        <Col>
-                                            <Carousel indicators={false}>
-                                            {
-                                                trending ? DrawCarousel(trending) : DrawSkeleton()
-                                            }
-                                            </Carousel>
-                                        </Col>
-                                    </Row>
-
                                 </CardBody>
                             </Col>
-                        </Row> */}
+                        </Row>
+                        {
+                            trending ? 
+                            <DCSlider
+                                slidesToShow = {5}
+                                items={trending}
+                            /> : null
+                        }
                         </div>
 
                         {/* <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" /> */}

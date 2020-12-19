@@ -407,7 +407,7 @@ const Filters = (props) => {
             }
         })
         .catch(error => {
-            alert("Error", error.message);
+            alert(error.message);
         });
     }
     
@@ -440,14 +440,14 @@ const Filters = (props) => {
             setMakeList(doc.makes);
         })
         .catch(error => {
-            alert("Error", error.message);
+            alert(error.message);
         });
 
         GetFiltersList().then(doc => {
             setFiltersList(doc.listRanges);
             setPrice([0, doc.listRanges.ranges[0].maxPrice]);
         }).catch(error => {
-            alert("Error", error.message);
+            alert(error.message);
         })
 
         // Get the current location using HTML Geo location
@@ -475,7 +475,7 @@ const Filters = (props) => {
                 }
             })
             .catch(error => {
-                alert("Error", error.message);
+                alert(error.message);
             });
         }
     }, [currentLatLng]);

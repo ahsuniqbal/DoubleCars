@@ -17,15 +17,12 @@ const ProductResults = ({match}) => {
     const history = useHistory();
 
     useEffect(() => {
-        setTimeout(async() => {
-            GetProductDetails(match.params.id).then(doc => {
-                setProductDetails(doc);
-            })
-            .catch(error => {
-                alert("Error", error.message);
-            });
-        }, 5000)
-
+        GetProductDetails(match.params.id).then(doc => {
+            setProductDetails(doc);
+        })
+        .catch(error => {
+            alert(error.message);
+        });
     }, []);
 
 
@@ -158,7 +155,9 @@ const ProductResults = ({match}) => {
                             </Col>
                         </Row>
 
-                    <DCSlider/>
+                    <DCSlider
+                        slidesToShow={4}
+                    />
                 </CardBody>
             </Container>
         </body>
