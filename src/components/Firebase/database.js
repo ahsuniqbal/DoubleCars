@@ -1,3 +1,5 @@
+import { queries } from '@testing-library/react';
+
 const firebase = require('firebase').default
 
 var firebaseConfig = {
@@ -20,9 +22,44 @@ export const getChats = () => {
     return new Promise((resolve, reject) => {
         firestore.collection("Chats").get().then((snapshot) => {
         //console.log('onSnapshot Called!',snapshot.data())
-        let updatedData = snapshot.docs.map(doc => doc.data())
+        let updatedData = snapshot
           resolve(updatedData)
         }, reject)
       }) 
+}
+
+export const getUserChats = (userId) => {
+  return new Promise((resolve, reject) => {
+      firestore.collection("Chats").get().then((snapshot) => {
+      //console.log('onSnapshot Called!',snapshot.data())
+      var arr = []
+      var userArray = []
+      snapshot.docs.map(doc => {
+          if(doc.data().receiverId == userId || doc.data().senderId == userId){
+            arr.push(doc.data())
+            
+            userArray.push(doc.data().receiverId == userId ? doc.data().senderId : doc.data().receiverId)
+          }
+      })
+      const obj = {
+        chats : arr,
+        userIds : userArray
+      }
+      resolve(obj)
+      }, reject)
+    }) 
+}
+
+
+export const getRecieverChat = (senderId,receiverId) => {
+  const key = [senderId, receiverId].sort().join('-')
+  return new Promise((resolve, reject) => {
+    firestore.collection("Chats").doc(key).collection('Messages')
+    .orderBy('messagedAt','asc')
+    .get().then((snapshot) => {
+      let updatedData = snapshot.docs.map(doc => doc.data())
+      resolve(updatedData)
+    }, reject)
+  })
 }
 
