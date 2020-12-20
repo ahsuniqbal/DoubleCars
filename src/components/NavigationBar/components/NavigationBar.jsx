@@ -1,11 +1,30 @@
-import React from "react"
+import React,{useEffect} from "react"
 import { Link, NavLink } from "react-router-dom";
 import "../styles/NavigationBar.css"
 import DCLogo from '../../../assets/DCNewlogo.svg'
 import {Input, InputGroup, InputGroupText} from 'reactstrap';
 import { Search } from 'react-feather';
+import socketIOClient from "socket.io-client";
+const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 
 const NavigationBar = () => {
+
+    useEffect(() => {
+        if(localStorage.getItem("userId")){
+              const socket = socketIOClient.connect(ENDPOINT,{
+                  reconnect: true
+              })
+            socket.on('new_user', function(socketClientID) {
+            //console.log('Connection to server established. SocketID is ',socketClientID);
+                const obj = {
+                    ID : Number(localStorage.getItem("userId")),
+                    ClientID : socketClientID
+                }
+                socket.emit('user', obj);
+            });
+          }
+    },[])
+
     return (
         <> 
             <nav className="navbar navbar-expand-lg navbar-light bg-light navigation-bar-box">
