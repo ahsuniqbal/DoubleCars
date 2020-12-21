@@ -21,8 +21,9 @@
 }
 
 .navbar a {
-    font-size: 16px !important;
-    text-transform: capitalize !important;   
+    font-size: 15px !important;
+    text-transform: capitalize !important;
+    font-weight: normal; 
 }
 a:hover {
     color: #1C67CE !important;
@@ -105,6 +106,17 @@ a:hover {
     width: 13.5px;
 }
 
+.signup-button {
+    background-color: #ffffff !important;
+    border-radius: 0.4rem !important;
+    color: #1C67CE !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    height: 42px;
+    width: 98px;
+    line-height: 19px;
+    font-size: 14px;
+}
 
 
 
