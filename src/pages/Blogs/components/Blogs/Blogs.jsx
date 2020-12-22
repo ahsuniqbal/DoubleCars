@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Container, Label} from 'reactstrap';
-import '../styles/Blogs.css'
-import BlogsDemoImage1 from '../../../assets/BlogsDemoImage1.png' 
+import '../../styles/Blogs.css'
+import BlogsDemoImage1 from '../../../../assets/BlogsDemoImage1.png' 
 import RelatedStoriesCell from './RelatedStoriesCell';
 import SimilarCarCell from './SimilarCarCell';
 const Blogs = () => {

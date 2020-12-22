@@ -37,6 +37,7 @@
     "react-slick": "^0.27.13",
     "reactstrap": "^8.6.0",
     "slick-carousel": "^1.8.1",
+    "socket.io-client": "^3.0.4",
     "use-places-autocomplete": "^1.6.0"
   },
   "scripts": {

@@ -1,7 +1,6 @@
 import React from 'react';
-import '../styles/Blogs.css'
-
-import RelatedStoriesDemoimg from '../../../assets/RelatedStoriesDemoimg.png'
+import '../../styles/Blogs.css'
+import RelatedStoriesDemoimg from '../../../../assets/RelatedStoriesDemoimg.png'
 import { Row, Col, Card,CardImg,CardTitle, CardSubtitle} from 'reactstrap';
 const SimilarCarCell = () => {
     return(

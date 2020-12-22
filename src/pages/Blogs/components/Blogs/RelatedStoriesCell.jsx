@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/Blogs.css'
-import RelatedStoriesDemoimg from '../../../assets/RelatedStoriesDemoimg.png'
+import '../../styles/Blogs.css'
+import RelatedStoriesDemoimg from '../../../../assets/RelatedStoriesDemoimg.png'
 import { Label, Row, Col,Card, CardImg} from 'reactstrap';
 const RelatedStoriesCell = () => {
     return(
