@@ -1,7 +1,6 @@
 {
-    "name": "dealerprofile",
+    "name": "chat",
     "version": "0.0.0",
     "private": true,
-    "main": "./components/dashboard.jsx"
+    "main": "./components/Chat.jsx"
   }
-  

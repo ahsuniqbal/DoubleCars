@@ -1,4 +1,4 @@
-import { connectionString, vinAuditString } from '../../../config/ConnectionString';
+import { connectionString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
 export const GetRecommendationsTrendings = (id) => {
@@ -12,37 +12,6 @@ export const GetRecommendationsTrendings = (id) => {
             let updatedData = false;
             resolve(updatedData);
             console.log("Error: ", error);
-        })
-    })
-};
-
-
-export const GetAllMakes = () => {
-    return new Promise((resolve, reject) => {
-        var url = vinAuditString + "&list=make";
-        axios.get(url).then(function(response){
-            const data = response.data.selections;
-            resolve(data);
-        })
-        .catch(function(error){
-            let updatedData = false;
-            resolve(updatedData);
-            alert(error.message);
-        })
-    })
-};
-
-export const GetModelFromMake = (makeId) => {
-    return new Promise((resolve, reject) => {
-        var url = vinAuditString + "&list=make+model&make=" + makeId;
-        axios.get(url).then(function(response){
-            const data = response.data.selections;
-            resolve(data);
-        })
-        .catch(function(error){
-            let updatedData = false;
-            resolve(updatedData);
-            alert(error.message);
         })
     })
 };
