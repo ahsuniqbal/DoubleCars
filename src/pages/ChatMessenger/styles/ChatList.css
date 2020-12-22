@@ -1,0 +1,28 @@
+.chat-list {
+    background-color: #ffffff;
+}
+
+.chat-list h2 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.chat-list .input-group-text {
+    background-color: white;
+    border-right: none;
+    margin-top: 15px;
+}
+
+.chat-list .input-group input {
+    margin-top: 15px;
+    border-left: none;
+    padding: 5px;
+}
+
+.chat-list .scrollable {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height:  calc(100vh - (130px + 100px));
+}
