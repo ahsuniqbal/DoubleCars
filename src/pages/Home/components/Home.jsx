@@ -18,7 +18,7 @@ import '../styles/TrendingCar.css';
 import '../styles/TrendingBodyTypes.css';
 import DCSlider from '../../../components/DcSlider'
 import TopBudget from './TopBudget'
-import TopStories from './TopStories';
+import ArticleCard from './ArticleCard';
 import FeaturedCars from './FeaturedCars';
 import CarSection1 from './CarSection1';
 import ServicesOffer from './ServicesOffer';
@@ -184,10 +184,10 @@ const Home = () => {
                         <Col><FeaturedCars/></Col>
                     </Row>
                     <ServicesOffer/>
-                    <div>
+                   
                         <Row>
                             <Col xs="12">
-                                <CardBody className = "recommended-cars">
+                                {/*      */}
                                     <Row className = "">
                                         <Col md = "6" xs = "12">
                                             <h2 className = "recommended-cars-head">Recommneded Cars</h2>
@@ -197,7 +197,7 @@ const Home = () => {
                                             <Link className = "view-all" to="/products">View All</Link>
                                         </Col>
                                     </Row>                            
-                                </CardBody>
+                                {/* </CardBody> */}
                             </Col>
                         </Row>
                         {
@@ -210,7 +210,7 @@ const Home = () => {
 
                         <Row>
                             <Col xs="12">
-                                <CardBody className="trending-cars">
+                                {/* <CardBody className="trending-cars"> */}
                                     <Row className = "">
                                         <Col md = "6" xs = "12">
                                             <h2 className = "trending-cars-head">Trending in US</h2>
@@ -220,7 +220,7 @@ const Home = () => {
                                             <Link className = "view-all" to="/products">View All</Link>
                                         </Col>
                                     </Row>
-                                </CardBody>
+                                {/* </CardBody> */}
                             </Col>
                         </Row>
                         {
@@ -230,7 +230,7 @@ const Home = () => {
                                 items={trending}
                             /> : null
                         }
-                        </div>
+                        
 
                         {/* <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" /> */}
                         
@@ -268,16 +268,16 @@ const Home = () => {
             
             <Row>
                 <Col xs = "12" md = "3">
-                    <TopStories/>
+                    <ArticleCard/>
                 </Col>
                 <Col xs = "12" md = "3">
-                    <TopStories/>
+                    <ArticleCard/>
                 </Col>
                 <Col xs = "12" md = "3">
-                    <TopStories/>
+                    <ArticleCard/>
                 </Col>
                 <Col xs = "12" md = "3">
-                    <TopStories/>
+                    <ArticleCard/>
                 </Col>
             </Row>
 

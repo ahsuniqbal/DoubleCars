@@ -1,0 +1,17 @@
+.most-popular-card {
+    border: transparent !important;
+}
+
+.most-popular-title {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
