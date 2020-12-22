@@ -4,6 +4,7 @@ import { Row, Col } from 'reactstrap';
 import '../../styles/TopNews.css'
 import TopNewsDummyImage from '../../../../assets/TopNewsDummyImage.png'
 import Label from 'reactstrap/lib/Label';
+import TopNewsCard from './TopNewsCard';
 
 const TopNews = () => {
 
@@ -19,7 +20,11 @@ const TopNews = () => {
             </Col> 
 
             <Col xs = "12" md = "6" sm = "12">
-
+                <TopNewsCard/>
+                <TopNewsCard/>
+                <TopNewsCard/>
+                <TopNewsCard/>
+                
             </Col> 
         </Row>
     )

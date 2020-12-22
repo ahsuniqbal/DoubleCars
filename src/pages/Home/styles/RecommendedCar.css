@@ -8,7 +8,6 @@
 .recommended-cars {
    margin-top: 7%;
     background-color: #FFFFFF;
-    height: 407px;
     width: 1253px;
     display: block;
     margin-left: auto;
@@ -22,7 +21,7 @@
 
 
 /* Carosuel custom css starts here. */
-  .carousel-control-prev, .carousel-control-next {
+  /* .carousel-control-prev, .carousel-control-next {
     opacity: 1;
   
     
@@ -55,4 +54,4 @@
     content: url('../../../assets/prev-icon.svg');
     margin-left: -188px;
     margin-top: 143%;
-  }
+  } */
