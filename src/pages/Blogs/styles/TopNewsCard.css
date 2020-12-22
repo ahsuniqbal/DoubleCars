@@ -1,0 +1,18 @@
+.top-news-card {
+    border: transparent !important;
+}
+
+.top-news-title {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.85);
+    width: 80%;
+}
+
+.top-news-date {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(0, 0, 0, 0.85);
+}

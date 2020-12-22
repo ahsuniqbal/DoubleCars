@@ -4,7 +4,7 @@ import { Row, Col, Card,CardImg,CardTitle, CardSubtitle} from 'reactstrap';
 import TopNewsDummy2 from '../../../../assets/TopNewsDummy2.png'
 const TopNewsCard = () => {
     return(
-        <Card className = "mb-4">
+        <Card className = "mb-4 top-news-card">
             <Row className = "">
                 <Col md = "3">
                     <CardImg className = "img-fluid cell-card-image" src={TopNewsDummy2} alt="Card image" />
