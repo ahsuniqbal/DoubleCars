@@ -1,18 +1,34 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+import { Button, Row, Col } from 'reactstrap';
 import UpperSection from './UpperSection'
 import { Link } from 'react-router-dom';
 import '../../styles/BlogsHome.css'
+import Container from 'reactstrap/lib/Container';
+import UpcomingCars from './UpcomingCars';
+import TopNews from './TopNews'
 
 const BlogsHome = () => {
     return(
-        <div className = "text-center">
-        <h3>Welcome to the Blog Page </h3>
-        <Link className = "" to={'/blogs/1'}>
-            <Button>Tap to see the blogs</Button>
-        </Link>
-        <UpperSection/>
-    </div>
+        <Container fluid = {false}>
+            <UpperSection/>
+            <Row>
+            <Col xs = "12" md = "9">
+                <h1>Top News</h1>
+                <TopNews/>
+            </Col>
+
+            <Col xs = "12" md = "3">
+                <h2>Upcoming Cars</h2>
+                <UpcomingCars/>
+            </Col>
+        </Row> 
+        </Container>
+       
+        
+       
+
+         
+   
     )
 }
 

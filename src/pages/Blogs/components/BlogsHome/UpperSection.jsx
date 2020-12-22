@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 import { Row, Col } from 'reactstrap';
 import '../../styles/UpperSection.css'
 
-const BlogsHome = () => {
+const UpperSection = () => {
 
     const BlogpageImage1 = {
         backgroundImage: `url(${require("../../../../assets/BlogPageImage1.png")})`,
@@ -55,4 +55,4 @@ const BlogsHome = () => {
     )
 }
 
-export default BlogsHome;
+export default UpperSection;
