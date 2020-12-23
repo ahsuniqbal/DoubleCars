@@ -8,6 +8,8 @@ import UpcomingCars from './UpcomingCars';
 import TopNews from './TopNews'
 import MostPopularCard from './MostPopularCard';
 import ArticleCard from '../../../Home/components/ArticleCard';
+import LowerSection from './LowerSection';
+import AdImage from '../../../../assets/StaticBlogAd.png'
 
 const BlogsHome = () => {
     return(
@@ -18,6 +20,7 @@ const BlogsHome = () => {
                     <Col xs = "12" md = "9">
                         <h1 className = "top-news-heading">Top News</h1>
                         <TopNews/>
+                        <img className = "img-fluid" src = {AdImage} alt = "ad"/>
                         <h1 className = "article-heading">Latest Articles</h1>
                         <Row>
                             <Col xs = "6" md = "4">
@@ -41,7 +44,18 @@ const BlogsHome = () => {
                                 <ArticleCard/>
                             </Col>
                         </Row>
-                        
+                        <LowerSection/>
+                        <Row>
+                            <Col xs = "6" md = "4">
+                                <ArticleCard/>
+                            </Col>
+                            <Col xs = "6" md = "4">
+                                <ArticleCard/>
+                            </Col>
+                            <Col xs = "6" md = "4">
+                                <ArticleCard/>
+                            </Col>
+                        </Row>
 
                     </Col>
                     <Col xs = "12" md = "3">
