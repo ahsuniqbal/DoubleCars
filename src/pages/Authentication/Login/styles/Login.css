@@ -120,6 +120,26 @@
     padding:0 10px;  
     font-family: 'ubuntu';
 }
+.google-button { 
+    width: 58px;
+    height: 48px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    background: url('../../../../assets//icons/google-icon.svg') no-repeat;
+    float: center;
+    justify-content: center;
+    
+}
+.google-button span {
+   
+    
+}
+.google-icon {
+    text-align: center;
+}
 
 /* Media query */
 

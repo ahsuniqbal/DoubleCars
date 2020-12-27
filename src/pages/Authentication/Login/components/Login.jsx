@@ -59,26 +59,22 @@ const Login = (props) => {
                             </Form>
 
                             <h2 className = "or-label"><span>or continue with</span></h2>
-                            {/* <Row>
-                                <Col xs = "12" md = "3" className = "text-left input-column">
-                                    <FormGroup check>
-                                        <Input type="checkbox" id="" name="remember"/>
-                                        <Label check htmlFor="remember">Remember Details?</Label>
-                                    </FormGroup>
-                                </Col>
-                                <Col xs = "12" md = "3" className = "text-right">
-                                    <Button color = "primary" size = "" className = "login-button">Login</Button>
-                                </Col>
-                            </Row> */}
 
-                            {/* <Row>
-                                <Col xs = "12" md = "3" className = "text-left input-column">
-                                <NavLink className="" to={'/signup'}>Not Registered?</NavLink>
-                                    </Col>
-                                <Col xs = "12" md = "3" className = "text-right">
-                                <NavLink className="" to={''}>Forgot Details?</NavLink>
+                            <Row>
+                                <Col xs = "6" md = "6">
+                                <div className="google-button">
+                                <span className="google-icon"></span>
+                            </div>
                                 </Col>
-                            </Row> */}
+
+                                <Col xs = "6" md = "6">
+                                <div className="google-button">
+                                <span className="google-icon"></span>
+                            </div>
+                                </Col>
+                            </Row>
+                            
+                           
                         </Col>
                     </Row>
                 </Container>
