@@ -28,7 +28,7 @@
 
 .form-control:focus {
     border-color: transparent;
-    box-shadow: 0 0 0 0.1rem rgb(13, 81, 170,0.1) ;
+    box-shadow: 0 0 0 0.1rem rgba(11, 20, 32, 0.1) ;
 }
 
 .message-box {

@@ -43,7 +43,7 @@
     border-radius: 4px;
     border: 1px solid #E9E9E9;
     height: 48px ;
-    width: 415px;
+  ;
     background: #FFFFFF;
     margin-top: 1rem; 
 }
@@ -58,27 +58,74 @@
     box-shadow: 0 0 0 0.1rem rgb(13, 81, 170,0.1) ;
 }
 
+.login-button {
+    background-color: #1C67CE !important;
+    border-radius: 0.4rem ;
+    color: #ffffff ;
+    font-size: 15px;
+    line-height: 32px;
+    width: 142px;
+    height: 48px;
+    font-weight: 500;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
+}
+
+
+.remember-login-column {
+    margin-top: 1.5rem;
+}
+
+.remember-label {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 0.8rem;
+}
+.remember-check {
+    margin-top: 1.05rem;
+}
+
+.register-forgot-column {
+    margin-top: 1.5rem;
+}
+
+.not-register-label {
+    color: #1C67CE;
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.forgot-label {
+    color: #1C67CE;
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.or-label {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #eff3f6; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: normal;
+ } 
+   .or-label span { 
+    background:#fff; 
+    padding:0 10px;  
+    font-family: 'ubuntu';
+}
 
 /* Media query */
-@media screen and (max-width: 1024px) {
-    .input-column{
-        position: absolute;
-        left: 0%;
-        
-    }  
-}
-@media screen and (max-width: 772px) {
-    .input-column{
-        position: absolute;
-        left: 0%;
-        
-    }
-   
-}
-@media screen and (max-width: 320px) {
-    .input-column{
-        position: absolute;
-        left: 0%;
+
+@media screen and (max-width: 600px) {
+    .login-left-image {
+       display: none;
       
     }
     

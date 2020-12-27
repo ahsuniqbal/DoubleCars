@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'reactstrap';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Label } from 'reactstrap';
+import '../../styles/LowerSection.css'
 
 const LowerSection = () => {
 
@@ -15,7 +15,14 @@ const LowerSection = () => {
 
     return(
         <Row>
-            <Col md = "12" xs = "12" style = {LowerImage}></Col>
+            <Col md = "12" xs = "12" style = {LowerImage}>
+            <div className = "">
+                <Label className = "type-label">New Cars</Label>
+                <h2 className = "car-name">Video: BMW M2 CS is part of Autocar’s 2020 Best Sports Cars</h2>
+                <Label className = "date-label">Dec 15, 2020</Label>
+              </div>
+
+            </Col>
         </Row>
     )
 }
