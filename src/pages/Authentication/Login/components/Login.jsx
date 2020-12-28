@@ -60,17 +60,17 @@ const Login = (props) => {
 
                             <h2 className = "or-label"><span>or continue with</span></h2>
 
-                            <Row>
-                                <Col xs = "6" md = "6">
+                            <Row className = "justify-content-center">
+                                <Col xs = "2" md = "2" className = "">
                                 <div className="google-button">
-                                <span className="google-icon"></span>
-                            </div>
+                                    <span className=""></span>
+                                </div>
                                 </Col>
 
-                                <Col xs = "6" md = "6">
-                                <div className="google-button">
-                                <span className="google-icon"></span>
-                            </div>
+                                <Col xs = "2" md = "2">
+                                <div className="facebook-button">
+                                <span className=""></span>
+                                </div>
                                 </Col>
                             </Row>
                             

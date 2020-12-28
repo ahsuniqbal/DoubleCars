@@ -16,7 +16,7 @@
     height: 100vh;
 }
 
-.login-now-head {
+.register-head {
     font-weight: bold;
     font-size: 32px;
     line-height: 46px;
@@ -24,7 +24,7 @@
     color: rgba(0, 0, 0, 0.85);
 }
 
-.login-label {
+.register-label {
     font-weight: normal;
     font-size: 16px;
     line-height: 26px;
@@ -32,7 +32,7 @@
     
 }
 
-.login-email,.login-password  {
+.register-textfield  {
     background: #FFFFFF ;
     border-radius: 4px;
     border: 1px solid #E9E9E9;
@@ -41,7 +41,7 @@
     background: #FFFFFF;
     margin-top: 1rem; 
 }
-.login-email::placeholder,.login-password::placeholder  {
+.register-textfield::placeholder {
     color: rgba(0, 0, 0, 0.35);
     font-size: 14px;
     line-height: 24px;
@@ -52,10 +52,10 @@
     box-shadow: 0 0 0 0.1rem rgb(13, 81, 170,0.1) ;
 }
 
-.login-button {
+.signup-button {
     background-color: #1C67CE !important;
     border-radius: 0.4rem ;
-    color: #ffffff ;
+    color: #ffffff !important;
     font-size: 15px;
     line-height: 32px;
     width: 142px;
@@ -65,38 +65,14 @@
 }
 
 
-.remember-login-column {
-    margin-top: 1.5rem;
+.terms-signup-column {
+    margin-top: 3.5rem;
 }
 
-.remember-label {
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 22px;
-    margin-top: 0.8rem;
-}
-.remember-check {
-    margin-top: 1.05rem;
-}
-
-.register-forgot-column {
-    margin-top: 1.5rem;
-}
-
-.not-register-label {
-    color: #1C67CE;
-    font-size: 15px;
-    line-height: 26px;
-    font-weight: normal;
+.t-and-c {
+    color:  #1C67CE;
     cursor: pointer;
-}
-
-.forgot-label {
-    color: #1C67CE;
-    font-size: 15px;
-    line-height: 26px;
-    font-weight: normal;
-    cursor: pointer;
+    font-weight: 500;
 }
 
 .or-label {
@@ -108,39 +84,40 @@
     font-size: 15px;
     color: rgba(0, 0, 0, 0.45);
     font-weight: normal;
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
  } 
    .or-label span { 
     background:#fff; 
     padding:0 10px;  
     font-family: 'ubuntu';
 }
+
 .google-button { 
-    width: 58px;
+    width: 195px;
     height: 48px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     border-radius: 5px;
     cursor: pointer;
     vertical-align: middle;
-    background: url('../../../../assets//icons/google-icon.svg') no-repeat center;
+    background: url('../../../../assets//icons/google-icon.svg') no-repeat left;
     float: center;
     justify-content: center;
 }
 
 .facebook-button { 
-    width: 58px;
+    width: 195px;
     height: 48px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     border-radius: 5px;
     cursor: pointer;
     vertical-align: middle;
-    background: url('../../../../assets//icons/fb-icon.svg') no-repeat center;
+    background: url('../../../../assets//icons/fb-icon.svg') no-repeat left;
     float: center;
     justify-content: center;
 }
-
-
 
 /* Media query */
 
