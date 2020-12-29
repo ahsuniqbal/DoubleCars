@@ -14,7 +14,7 @@ const PrivacyPolicy = React.lazy(() => import ('../pages/PrivacyAndTerms/compone
 const ContactUs = React.lazy(() => import ('../pages/ContactUs'))
 const Blogs = React.lazy(() => import('../pages/Blogs/components/Blogs/Blogs'));
 const InfiniteScroll = React.lazy(() => import('../pages/InfiniteScroll'));
-const Chat = React.lazy(() => import('../pages/ChatMessenger'))
+const Chat = React.lazy(() => import('../pages/ChatMessenger'));
 /////////////////////// MUST READ BEFORE CREATING A ROUTE /////////////////////
 
 // To show the page to every visitor public keyword will be true
@@ -30,7 +30,7 @@ const routes = [
     { path: '/', exact: true, name: 'Home', public: true, restricted: false, component: Home },
     { path: '/about', name: 'About', public: true, restricted: true, component: About },
     { path: '/blogshome', name: 'Blogs', public: true, restricted: false, component: BlogsHome },
-    { path: '/profile', exact: true, name: 'Profile', public: false, restricted: false, component: Profile },
+    { path: '/profile', exact: true, name: 'Profile', public: true, restricted: true, component: Profile }, // login signup k kaam k baad is route ko private krna ha
     { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
     { path: '/signup', exact: true, name: 'Signup', public: true, restricted: true, component: Signup },
     { path: '/products', exact: true, name: 'Products', public: true, restricted: true, component: Products },

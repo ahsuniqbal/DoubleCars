@@ -52,7 +52,7 @@ const Signup = (props) => {
                                     <Col xs="6" md = "6" className = "terms-signup-column">
                                         <FormGroup check>
                                             <Input className = "checkbox-input remember-check" type="checkbox" id="" name="remember"/>
-                                            <Label check htmlFor="remember" className = "remember-label">I agree with <span className = "t-and-c">Terms & Conditions</span></Label>
+                                            <Label check htmlFor="remember" className = "remember-label">I agree with <span to = {''} className = "t-and-c">Terms & Conditions</span></Label>
                                         </FormGroup>
                                     </Col>
 
