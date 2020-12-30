@@ -1,0 +1,48 @@
+.profile-view h6 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.profile-view .inquaring-for-card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 9px;
+    padding: 15px;
+}
+
+.profile-view .inquaring-for-card .card-img {
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100px;
+    object-fit: fill;
+    margin-right: 10px;
+}
+
+
+
+.profile-view .inquaring-for-card .card-title {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    max-width: 100%;
+    color: rgba(0, 0, 0, 0.85);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.profile-view .inquaring-for-card .card-subtitle {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.profile-view .inquaring-for-card .card-text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 20px;
+}
