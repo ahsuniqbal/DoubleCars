@@ -7,9 +7,17 @@ import 'bootstrap/dist/css/bootstrap.css';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 
+import ChatReducer from './redux/reducers/ChatReducer';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+const store = createStore(ChatReducer);
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

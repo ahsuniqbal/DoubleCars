@@ -1,16 +1,17 @@
-import React,{useContext,useEffect} from 'react';
+import React from 'react';
 import { Col, Row } from 'reactstrap';
+import { connect } from 'react-redux';
 import Toolbar from './Toolbar';
 import MessageBubble from './MessageBubble';
 import Compose from './Compose';
-import {UserChat} from './ChatListItem'
 
-const ChatView = () => {
-    const user = useContext(UserChat)
-    
-    useEffect(() => {
-        console.log("userChatView",user)
-    },[])
+const mapStateToProps = (state) => {
+    return {
+        chats: state.chat
+    }
+}
+
+const ChatView = (props) => {
     return (
         <div>
             <Row>
@@ -35,4 +36,4 @@ const ChatView = () => {
     )
 }
 
-export default ChatView
+export default connect(mapStateToProps, null)(ChatView);

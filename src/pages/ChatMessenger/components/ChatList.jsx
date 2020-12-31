@@ -14,7 +14,6 @@ const ChatList = () => {
         var user = 73
         getUserChats(user)
         .then(snap => {
-           console.log("snap",snap)
             getChatUserPics(snap.userIds.toString())
             .then(doc => {
             //  console.log('doc',doc)
@@ -26,7 +25,6 @@ const ChatList = () => {
                 }
                 newList.push(obj)
             }
-                console.log(newList)
                setChats(newList)
             })
             .catch(e => {
