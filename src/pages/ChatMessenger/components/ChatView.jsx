@@ -7,22 +7,24 @@ import Compose from './Compose';
 
 const mapStateToProps = (state) => {
     return {
-        chats: state.chat
+        chats: state
     }
 }
 
 const ChatView = (props) => {
+    console.log("propsChatView",props.chats)
+    
     return (
         <div>
             <Row>
                 <Col xs="12">
-                    <Toolbar />
+                    {props.chats.chat ? <Toolbar user={props.chats.user}/> : null}
                 </Col>
             </Row>
 
             <Row>
                 <Col xs="12">
-                    <MessageBubble />
+                {props.chats.chat ? <MessageBubble chat={props.chats.chat}/> : null}
                 </Col>
             </Row>
 

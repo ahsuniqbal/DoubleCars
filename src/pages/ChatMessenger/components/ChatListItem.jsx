@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const ChatListItem = (props) => {
     return (
-        <Row className="chatlist-item" style={{backgroundColor: 'white'}} onClick={() => props.selectChat(1)}>
+        <Row className="chatlist-item" style={{backgroundColor: 'white'}} onClick={() => props.selectChat(props.chat)}>
             <Col xs="3">
                 <CardImg src={props.chat.user.profilePic} className="img-fluid" />    
             </Col>
