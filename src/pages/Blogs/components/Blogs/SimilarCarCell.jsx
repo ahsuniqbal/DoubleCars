@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/Blogs.css'
 import RelatedStoriesDemoimg from '../../../../assets/RelatedStoriesDemoimg.png'
-import { Row, Col, Card,CardImg,CardTitle, CardSubtitle} from 'reactstrap';
+import { Row, Col, Card,CardTitle, CardSubtitle} from 'reactstrap';
 const SimilarCarCell = () => {
     return(
         <Card className = "mb-4 similar-card-cell">

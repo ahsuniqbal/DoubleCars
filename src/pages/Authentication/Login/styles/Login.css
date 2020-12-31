@@ -11,9 +11,12 @@
   height: 100vh;
 }
 
+.double-car-logo {
+    margin-top: 3rem;
+}
 .right-side-column {
     background-color: white;
-    height: 100vh;
+    padding: 0px 140px;
 }
 
 .login-now-head {
