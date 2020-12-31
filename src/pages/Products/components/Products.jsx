@@ -14,6 +14,7 @@ import '../styles/Products.css';
 const ShowSearchResults = (products) => {
     var table = [];
     var adPlacement = 5;
+
     for (let i = 0; i < products.length; i++) {
         if(i !== 0 && i % adPlacement === 0) {
             table.push(
@@ -63,16 +64,39 @@ function GetSearchInput(searchInput){
     return toSearch[1];
 }
 
+
 const Products = ({location}) => {
     const [sortFlag, setSortFlag] = useState(false);
-    const [products, setProducts] = useState(null);
+    const [products, setProducts] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
+    const [isBottom, setIsBottom] = useState(false);
+    const [flag,setFlag] = useState(false)
+    const handleScroll = () => {
+        const scrollTop = (document.documentElement
+            && document.documentElement.scrollTop)
+            || document.body.scrollTop;
+        const scrollHeight = (document.documentElement
+            && document.documentElement.scrollHeight)
+            || document.body.scrollHeight;
+        if (scrollTop + window.innerHeight + 50 >= scrollHeight){
+            var page = pageNumber
+            page++;
+            setPageNumber(page)
+            setIsBottom(true);
+        }
+    }
 
-
+    
+    // const [loading,setLoading] = useState(false);
+    // const [pervY,setPervY] = useState(0)
+    // const options = {
+    //     root: null,
+    //     rootMargin: "0px",
+    //     threshold: 1.0
+    // }
     // const {
     //     productss,
     //     hasMore,
-    //     loading,
     //     error
     // } = useProductSearch(GetSearchInput(location.search));
 
@@ -86,28 +110,47 @@ const Products = ({location}) => {
     //     })
     //     if (node) observer.current.observe(node)
     // }, [loading, hasMore])
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
     
     
     useEffect(() => {
         setPageNumber(location.page)
+        console.log("pN",pageNumber,products.length)
         if(location.search) {
             GetSearchResult(GetSearchInput(location.search), pageNumber).then(doc => {
                 setProducts(doc);
             })
             .catch(error => {
-                alert(error.message);
+                alert("err",error.message);
             });
         }
         else {
+            
             GetSearchResult('', pageNumber).then(doc => {
-                setProducts(doc);
+                console.log(products.length,doc)
+                if(products.length > 0){
+                    var temp = products
+                    for(let i = 0; i < doc.length; i++){
+                        temp.push(doc[i])
+                    }
+                    console.log("temp",temp)
+                    setProducts(temp);
+                }else{
+                    setProducts(doc);
+                }
+                setFlag(!flag)
+                
             })
             .catch(error => {
-                alert(error.message);
+                alert("er",error.message);
             });
         }
         
-    }, [location.heading]);
+    }, [isBottom]);
 
     const filterQueryChange = (queryStr) => {
         GetFilterResult(queryStr).then(doc => {
@@ -160,7 +203,7 @@ const Products = ({location}) => {
                     </Row>
                     <Row>
                         {
-                            products ? ShowSearchResults(products) : DrawSkeleton()
+                            products.length > 0 ? ShowSearchResults(products) : DrawSkeleton()
                         }
                         {/* {
                             productss.map((product, index) => { 
