@@ -1,10 +1,51 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import { Row, Col, Input, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
 import ChatListItem from './ChatListItem';
 import '../styles/ChatList.css';
 import { MoreVertical, Search } from 'react-feather';
+import {getUserChats,getRecieverChat} from '../../../components/Firebase/database'
+import {getChatUserPics} from '../api/Get'
 
 const ChatList = () => {
+    const [chats,setChats] = useState([])
+    
+    useEffect(() => {
+        // var user = localStorage.getItem("userId")
+        var user = 73
+        getUserChats(user)
+        .then(snap => {
+           console.log("snap",snap)
+            getChatUserPics(snap.userIds.toString())
+            .then(doc => {
+            //  console.log('doc',doc)
+            var newList = []
+            for(let i = 0; i < doc.length; i++){
+                var obj = {
+                    user : doc[i],
+                    chat : snap.chats[i]
+                }
+                newList.push(obj)
+            }
+                console.log(newList)
+               setChats(newList)
+            })
+            .catch(e => {
+                console.log(e.message)
+            })
+            
+        })
+    },[])
+
+    const renderChatList = (list) => {
+        var table = [];
+        for(let i = 0; i < list.length; i++){
+            table.push(
+                <ChatListItem chat={list[i]}/>
+            )
+        }
+        return table;
+    }
+
     return (
         <Row className="chat-list">
             <Col xs="12">
@@ -32,16 +73,9 @@ const ChatList = () => {
                     </Row>
                 </div>
                 <div className="scrollable">
-                    <ChatListItem />
-                    <ChatListItem />
-                    <ChatListItem />
-                    <ChatListItem />
-                    <ChatListItem />
-                    <ChatListItem />
-                    <ChatListItem />
-                    <ChatListItem />
-                    <ChatListItem />
-                    <ChatListItem />
+                    {
+                        chats ? renderChatList(chats) : null
+                    }
                 </div>
             </Col>
         </Row>
