@@ -6,11 +6,32 @@
     margin-left: -1rem;
 }
 
-.type-label {
+.type-label1 {
     text-transform: uppercase;
     position: absolute;
     left: 3%;
     bottom: 23%;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+
+.type-label2 {
+    text-transform: uppercase;
+    position: absolute;
+    left: 3%;
+    bottom: 19%;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+.type-label3 {
+    text-transform: uppercase;
+    position: absolute;
+    left: 3%;
+    bottom: 30%;
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
@@ -32,6 +53,24 @@
    -webkit-box-orient: vertical;
     width: 80%;
 }
+
+.car-name1 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    position: absolute;
+    left: 3%;
+    bottom: 8%;
+    width: 100%;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+    width: 80%;
+}
+
 
 .date-label {
     position: absolute;
