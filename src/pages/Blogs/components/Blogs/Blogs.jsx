@@ -16,16 +16,22 @@ const Blogs = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col md = "8" sm = "12" xs = "12">
+                    <Col md = "9" sm = "12" xs = "12">
                         <p className = "blog-content mt-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci lorem, mattis at porta vitae, accumsan vel libero. In sit amet magna nunc. Curabitur at purus iaculis, rutrum neque sit amet, ornare lorem. Donec est metus, sagittis a nunc suscipit, varius facilisis est. In hac habitasse platea dictumst. Nulla dictum metus id risus porta, sed venenatis libero egestas. Donec laoreet ac ex eget rhoncus. Proin vel diam luctus, finibus mi ac, condimentum nunc. Sed interdum lacinia turpis, et tempus neque laoreet a. Nulla nec aliquam velit. Cras sit amet leo a elit egestas congue quis sit amet lacus. </p>
                         <h4 className = "blog-sub-heading mb-4">What abour price?</h4>
                         <p className = "blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci lorem, mattis at porta vitae, accumsan vel libero. In sit amet magna nunc. Curabitur at purus iaculis, rutrum neque sit amet, ornare lorem. Donec est metus, sagittis a nunc suscipit, varius facilisis est. In hac habitasse platea dictumst. Nulla dictum metus id risus porta, sed venenatis libero egestas. Donec laoreet ac ex eget rhoncus. Proin vel diam luctus, finibus mi ac, condimentum nunc. Sed interdum lacinia turpis, et tempus neque laoreet a. Nulla nec aliquam velit. Cras sit amet leo a elit egestas congue quis sit amet lacus. </p>
-                        <img src = {BlogsDemoImage1} className = "img-fluid"/>
+                        <Row>
+                            <Col xs = "12" md = "12" className = "text-center">
+                            <img src = {BlogsDemoImage1} className = "img-fluid"/>
+                            <Label className = "image-credit-label">Image by: Getty Images - John Doe Photography</Label>
+                        
+                            </Col>
+                        </Row>
                         <p className = "blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci lorem, mattis at porta vitae, accumsan vel libero. In sit amet magna nunc. Curabitur at purus iaculis, rutrum neque sit amet, ornare lorem. Donec est metus, sagittis a nunc suscipit, varius facilisis est. In hac habitasse platea dictumst. Nulla dictum metus id risus porta, sed venenatis libero egestas. Donec laoreet ac ex eget rhoncus. Proin vel diam luctus, finibus mi ac, condimentum nunc. Sed interdum lacinia turpis, et tempus neque laoreet a. Nulla nec aliquam velit. Cras sit amet leo a elit egestas congue quis sit amet lacus. </p>
                         
                     </Col>
 
-                    <Col md = "4" sm = "12" xs = "12">
+                    <Col md = "3" sm = "12" xs = "12">
                         <Label className = "cell-heading">Related Stories</Label>
                         <RelatedStoriesCell/>
                         <RelatedStoriesCell/>

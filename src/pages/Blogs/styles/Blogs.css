@@ -43,6 +43,18 @@ color: rgba(0, 0, 0, 0.84);
     margin-bottom: 5%;
 }
 
+.image-credit-label {
+    font-weight: 300;
+    font-size: 14px;
+    line-height:22px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.45);
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+
+
+}
+
 /* Related Stories Cell css starts here */
 
 .related-car-card {
@@ -52,7 +64,7 @@ color: rgba(0, 0, 0, 0.84);
     object-fit: cover;
     width: 90px;
     height: 66px;
-    border-radius: 4px;
+    border-radius: 6px 0px 0px 6px;
 }
 
 .related-card-label {
@@ -65,6 +77,17 @@ color: rgba(0, 0, 0, 0.84);
 /* End */
 
 /* Similar car cell css starts here */
+
+.similar-card-cell {
+    height: 97px;
+}
+
+.similar-cell-card-image {
+    object-fit: cover;
+    width: 100%;
+    height: 96px;
+    border-radius: 6px 0px 0px 6px;
+}
 .similar-car-title {
     font-size: 15px;
     line-height: 120%;

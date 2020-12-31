@@ -4,7 +4,7 @@ import '../styles/Login.css'
 import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reactstrap'
 import { Link, NavLink } from "react-router-dom";
 
-import DCLogo from '../../../../assets/DCNewlogo.svg'
+import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
 
 const Login = (props) => {
     const handleLogin = () => {
@@ -17,7 +17,7 @@ const Login = (props) => {
                     <Row>
                         <Col xs = "12" md = "7" sm = "12" className = "login-left-image">
                             <Link to="/">
-                                <img  src = {DCLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px"/>
+                                <img  src = {DCWhiteLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px"/>
                             </Link>
                         </Col>
 

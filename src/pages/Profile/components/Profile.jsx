@@ -21,57 +21,62 @@ const Profile = (props) => {
                     <Card>
                         
                         <CardBody>
-                            <img src = {profileImage} class = "img-fluid" alt = "profile-image" width = "115px" height = "115px"/> <br/>
-                            <Button>Change Picture</Button> <br/>
-                            <Button>Remove Picture</Button> 
+                            <img src = {profileImage} class = "img-fluid profile-image" alt = "profile-image"/> <br/>
+                            <Button className = "change-pic-button">Change Picture</Button> <br/>
+                            <Button className = "remove-pic-button">Remove Picture</Button> 
                         </CardBody>
                     </Card>
                     </Col>
                     <Col xs = "12" md = "9" className = "profile-column">
-                        <h4>Edit Profile</h4>
+                        <h4 className = "profile-page-heading">Edit Profile</h4>
                         <hr/>
                         <Row>
                             <Col xs = "12" md = "6">
-                                <Label>First Name</Label>
-                                <Input id="" className = "register-textfield" type="text" placeholder="First Name" required />
+                                <Label className = "profile-labels">First Name</Label>
+                                <Input id="" className = "profile-text-field" type="text"   />
                             </Col>
 
                             <Col xs = "12" md = "6">
-                                <Label>Last Name</Label>
-                                <Input id="" className = "register-textfield" type="text" placeholder="First Name" required />
+                                <Label className = "profile-labels">Last Name</Label>
+                                <Input id="" className = "profile-text-field" type="text"  />
                             </Col>
                         </Row>
 
                         <Row>
                             <Col xs = "12" md = "6">
-                                <Label>Mobile Number</Label>
-                                <Input id="" className = "register-textfield" type="text" placeholder="First Name" required />
+                                <Label className = "profile-labels">Mobile Number</Label>
+                                <Input id="" className = "profile-text-field" type="text"  />
                             </Col>
 
                             <Col xs = "12" md = "6">
-                                <Label>Zip Code</Label>
-                                <Input id="" className = "register-textfield" type="text" placeholder="First Name" required />
+                                <Label className = "profile-labels">Zip Code</Label>
+                                <Input id=""className = "profile-text-field" type="text" />
                             </Col>
                         </Row>
-                        <Label>Location</Label>
-                        <Input id="" className = "register-textfield" type="text" placeholder="First Name" required />
-                        <Label>Bio</Label>
-                        <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
-                        <Button type="submit" color="primary" className="">Save Profile</Button>
-                        <h4>Edit Profile</h4>
+                        <Label className = "profile-labels">Location</Label>
+                        <Input id="" className = "profile-text-field" type="text" />
+                        <Label className = "profile-labels">Bio</Label>
+                        <textarea class="form-control bio-box" rows="4" placeholder = "Message (Optional)"></textarea>
+                        <Button type="submit" color="primary" className="save-profile-button float-right">Save Profile</Button>
+                        <Row>
+                            <Col xs = "12" md = "12">
+                            <h4 className = "profile-page-heading">Change Password</h4>
                         <hr/>
+                            </Col>
+                        </Row>
+                        
                         <Row>
                             <Col xs = "12" md = "6">
-                                <Label>Old Pasword</Label>
-                                <Input id="" className = "register-textfield" type="text" placeholder="First Name" required />
+                                <Label className = "profile-labels">Old Pasword</Label>
+                                <Input id="" className = "profile-text-field" type="text"/>
                             </Col>
 
                             <Col xs = "12" md = "6">
-                                <Label>New Password</Label>
-                                <Input id="" className = "register-textfield" type="text" placeholder="First Name" required />
+                                <Label className = "profile-labels">New Password</Label>
+                                <Input id="" className = "profile-text-field" type="text" />
                             </Col>
                         </Row>
-                        <Button type="submit" color="primary" className="">Change</Button>
+                        <Button type="submit" color="primary" className="change-password-button float-right">Change</Button>
                     </Col>
                </Row>
             </Container>
