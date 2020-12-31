@@ -15,7 +15,7 @@ const Profile = (props) => {
         //     <Button onClick={() => handleLogout()}>Logout</Button>
         // </div>
         <body className = "profile-body">
-            <Container>
+            <Container clsssName = "profile-container">
                 <Row>
                     <Col xs = "12" md = "3" className = "profile-column text-center">
                     <Card>

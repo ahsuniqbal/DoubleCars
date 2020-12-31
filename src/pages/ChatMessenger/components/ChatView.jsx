@@ -1,10 +1,16 @@
-import React from 'react';
+import React,{useContext,useEffect} from 'react';
 import { Col, Row } from 'reactstrap';
 import Toolbar from './Toolbar';
 import MessageBubble from './MessageBubble';
 import Compose from './Compose';
+import {UserChat} from './ChatListItem'
 
 const ChatView = () => {
+    const user = useContext(UserChat)
+    
+    useEffect(() => {
+        console.log("userChatView",user)
+    },[])
     return (
         <div>
             <Row>
