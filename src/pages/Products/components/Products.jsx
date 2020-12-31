@@ -146,7 +146,7 @@ const Products = ({location}) => {
                 
             })
             .catch(error => {
-                alert("er",error.message);
+                alert(error.message);
             });
         }
         
