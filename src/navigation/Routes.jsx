@@ -41,7 +41,7 @@ const routes = [
     { path: '/contactus', name: 'Contact Us', public: true, restricted: true, component: ContactUs },
     { path: '/blogs', name: 'Blogs', public: true, restricted: false, component: Blogs },
     { path: '/chat', name: 'Chat', public: true, restricted: false, component: Chat },
-    { path: '/blogs/1', name: 'Blogs', public: true, restricted: false, component: Blogs },
+    { path: '/blogs/:id', name: 'Blogs', public: true, restricted: false, component: Blogs },
     { path: '/infinite-scroll', name: 'Infinite Scroll', public: true, restricted: false, component: InfiniteScroll },
 ];
 
