@@ -3,6 +3,10 @@
    
 }
 
+.profile-container {
+    padding: 0px 140px;
+}
+
 .profile-column {
     margin-top: 4rem;
 }
