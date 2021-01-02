@@ -1,15 +1,40 @@
-import React from 'react';
-import { login } from '../../../../config/LoginAuth';
+import React, { useState} from 'react';
 import '../styles/Signup.css'
 import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reactstrap'
-import { Link, NavLink } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import {userSignUp} from '../../api/Post'
 import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
 
 const Signup = (props) => {
-    const handleLogin = () => {
-        login();
-        props.history.push('/profile');
+    const [loading,setLoading] = useState(false)
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        var firstName = document.getElementById('firstName').value
+        var lastName = document.getElementById('lastName').value
+        var phNum = document.getElementById('phNum').value
+        var email = document.getElementById('signup-email').value
+        var password = document.getElementById('signup-password').value
+        var obj = {
+            firstName,lastName,phNum,email,password
+        }
+        setLoading(true)
+        userSignUp(obj)
+        .then(doc => {
+            setLoading(false)
+            if(doc.code === 1){
+                localStorage.setItem('userId',doc.id)
+                localStorage.setItem('userToken',doc.Token)
+                props.history.push('/profile');
+            }else{
+                document.getElementById('error-label').textContent = doc.message
+            }
+        })
+        .catch(e => {
+            setLoading(false)
+            console.log(e.message)
+            document.getElementById('error-label').textContent = e.message
+        })
+        
     }
     return(
         <div>
@@ -29,23 +54,23 @@ const Signup = (props) => {
                                     <Label className = "register-label">Si sine causa, nollem me ab eo ortum, tam egregios viros censes tantas.</Label>
                                 </Col>
                             </Row>
-                            <Form>
+                            <Form onSubmit={e => handleSignUp(e)}>
                             
                                 <Row>
                                     <Col xs = "12" md = "6">
-                                    <Input id="" className = "register-textfield" type="text" placeholder="First Name" required />
+                                    <Input id="firstName" className = "register-textfield" type="text" placeholder="First Name" required />
 
                                     </Col>
                                     <Col xs = "12" md = "6">
-                                    <Input id="" className = "register-textfield" type="text" placeholder="last Name" required />
+                                    <Input id="lastName" className = "register-textfield" type="text" placeholder="last Name" required />
 
                                     </Col>
                                 </Row>
-                                <Input id="" className = "register-textfield" type="number" placeholder="Mobile Number" required />
+                                <Input id="phNum" className = "register-textfield" type="number" placeholder="Mobile Number" required />
 
-                                <Input id="" className = "register-textfield" type="email" placeholder="Your Email" required />
+                                <Input id="signup-email" className = "register-textfield" type="email" placeholder="Your Email" required />
 
-                                <Input id="" className = "register-textfield" type="password" placeholder= "Create a password" required/>
+                                <Input id="signup-password" className = "register-textfield" type="password" placeholder= "Create a password" required/>
                                 <div id="error-label"></div>
 
                                 <Row>
@@ -57,7 +82,10 @@ const Signup = (props) => {
                                     </Col>
 
                                     <Col xs="6" md = "6" className = "text-right terms-signup-column">
-                                        <Button type="submit" color="primary" className="signup-button">Sign Up</Button>
+                                        <Button type="submit" color="primary" className="signup-button">
+                                        {loading && <span>Signing up....</span>}
+                                        {!loading && <span>Sign Up</span>}
+                                        </Button>
                                     </Col>
                                 </Row>
                                 
