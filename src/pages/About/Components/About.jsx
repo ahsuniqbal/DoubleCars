@@ -3,6 +3,7 @@ import '../styles/About.css'
 import { Row, Col, Container, NavLink} from 'reactstrap';
 import AboutDetails from './AboutDetails';
 import { ChevronRight } from 'react-feather';
+import AboutStats from './AboutStats';
 const About = () => {
   return (
     <body className = "about-body">
@@ -32,6 +33,7 @@ const About = () => {
         </Row>
 
         <AboutDetails/>
+        <AboutStats/>
       </Container>
     </body>
   );

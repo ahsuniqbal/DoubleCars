@@ -1,9 +1,11 @@
-import React from 'react';
-import { Col, Row, Label, Button } from 'reactstrap';
+import React, { useEffect, useState} from 'react';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Label } from 'reactstrap';
 import AdImage from '../../../assets/advertisementLanding.png'
 import '../styles/TopBudget.css'
+import classnames from 'classnames';
 
 const TopBudget = () => {
+    const [activeTab, setActiveTab] = useState('1');
     const mystyle = {
         backgroundImage: `url(${require("../../../assets/TopBudgetCar.png")})`,
         backgroundPosition: 'center',
@@ -11,6 +13,13 @@ const TopBudget = () => {
         backgroundRepeat: 'no-repeat',
         height: '30vh',
       };
+
+      const toggle = (e, tab) => {
+        
+        if(activeTab !== tab){
+            setActiveTab(tab);
+        }
+    }
 
       
     return(
@@ -23,6 +32,43 @@ const TopBudget = () => {
                         <Button  className = "explore-button">Exlpore more</Button>
                     </Col>
                 </Row>
+
+                <Row>
+            <Col xs="6" sm="4" md="4">
+              <Nav tabs vertical pills>
+                <NavItem>
+                  <NavLink
+                    className={classnames({active: activeTab === '1'})}
+                    onClick={() => {
+                      toggle('1');
+                    }}
+                  >
+                    Tab1
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    className={classnames({active: activeTab === '2'})}
+                    onClick={(e) => { toggle(2)}}
+                  >
+                    Moar Tabs
+                  </NavLink>
+                </NavItem>
+              </Nav>
+            </Col>
+            <Col xs="6" sm="6" md="6">
+              <TabContent activeTab={activeTab}>
+                <TabPane tabId="1">
+                  <h4>Tab 1 Contents</h4>
+                </TabPane>
+                <TabPane tabId="2">
+                  <h4>Tab 2 Contents</h4>
+                </TabPane>
+              </TabContent>
+            </Col>
+          </Row>
+
+
                 
           
             </Col>
