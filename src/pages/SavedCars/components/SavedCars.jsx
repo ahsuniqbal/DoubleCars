@@ -40,11 +40,17 @@ import ProductCard from '../../../components/ProductCard/components/ProductCard'
 //     }
 //     return table;
 // }
-const Profile = (props) => {
+const  SavedCars = (props) => {
 
     return(
         <body className = "saved-body">
             <Container clsssName = "saved-container">
+                <Row>
+                    <Col xs = "12" md = "12" className = "saved-car-col">
+                    <h2 className = "saved-car-label">Saved Cars</h2>
+                    </Col>
+                </Row>
+
                 <Row>
                     <Col xs = "12" md = "3" className = "">
                         <ProductCard/>
@@ -64,4 +70,4 @@ const Profile = (props) => {
     );
 }
 
-export default Profile;
+export default SavedCars;
