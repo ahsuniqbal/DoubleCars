@@ -1,0 +1,108 @@
+
+.profile-body {
+    background-color: white !important;
+   
+}
+
+.profile-container {
+    padding: 0px 140px;
+}
+
+.profile-column {
+    margin-top: 4rem;
+}
+
+.profile-image {
+    width: 115px;
+    height: 115px;
+    border-radius: 24px;
+    margin-bottom: 1rem;
+}
+
+.change-pic-button {
+    background-color: #1C67CE  !important;
+    border-radius: 0.4rem !important;
+    color: #ffffff !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    height: 40px;
+    width: 178px;
+    line-height: 19px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.remove-pic-button {
+    background-color: #ffffff !important;
+    border-radius: 0.4rem !important;
+    color: #1C67CE !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    height: 40px;
+    width: 178px;
+    line-height: 19px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.profile-page-heading {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.85);
+} 
+
+.profile-labels {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.85);
+}
+.profile-text-field{
+    background: #FFFFFF ;
+    border-radius: 4px;
+    border: 1px solid #E9E9E9;
+    height: 56px ;
+    background: #FFFFFF;
+}
+
+.bio-box {
+    
+    border-radius: 4px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.1rem rgba(11, 20, 32, 0.1) ;
+}
+
+.save-profile-button {
+    background-color: #1C67CE  !important;
+    border-radius: 0.4rem !important;
+    color: #ffffff !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    height: 40px;
+    width: 127px;
+    line-height: 19px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 1.6rem;
+    margin-top: 1.6rem;
+}
+
+.change-password-button {
+    background-color: #1C67CE  !important;
+    border-radius: 0.4rem !important;
+    color: #ffffff !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    height: 40px;
+    width: 100px;
+    line-height: 19px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 1.6rem;
+    margin-top: 1.6rem;
+}
