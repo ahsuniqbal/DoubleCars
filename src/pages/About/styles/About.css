@@ -10,6 +10,36 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 80vh;
+    
+}
+
+.about-header-content {
+    background: #0B54B8;
+    mix-blend-mode: normal;
+    opacity: 0.85;
+    height: 80vh;
+}
+
+.about-header-heading {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 56px;
+    color: #FFFFFF;
+    margin-top: 40%;
+}
+
+.about-header-subheading {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+.join-mission-btn {
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem 0rem;
+    font-weight: bold;
 }
 
 
