@@ -1,10 +1,25 @@
-import React from 'react';
-import { Button, Container, Row, Col, Input, Label, Card,CardBody, CardText} from 'reactstrap';
+import React,{ useState, useEffect} from 'react';
+import { Button, Container, Row, Col, Input, Label, Card,CardBody} from 'reactstrap';
 import '../styles/Profile.css'
 import { logout } from '../../../config/LoginAuth';
 import profileImage from '../../../assets/Dummy-profile-image.png'
-
+import {getUser} from '../api/Get'
 const Profile = (props) => {
+
+    const [user,setUser] = useState(null)
+
+    useEffect(() => {
+        //localStorage.getItem("userId")
+        getUser(73)
+        .then(doc => {
+            console.log(doc[0])
+            setUser(doc[0])
+        })
+        .catch(e => {
+            alert(e.message)
+        })
+    },[])
+
     const handleLogout = () => {
         logout();
         props.history.push('/');
@@ -21,7 +36,7 @@ const Profile = (props) => {
                     <Card>
                         
                         <CardBody>
-                            <img src = {profileImage} class = "img-fluid profile-image" alt = "profile-image"/> <br/>
+                            <img src = {user ? user.profilePic : null} class = "img-fluid profile-image" alt = "profile-image"/> <br/>
                             <Button className = "change-pic-button">Change Picture</Button> <br/>
                             <Button className = "remove-pic-button">Remove Picture</Button> 
                         </CardBody>
@@ -33,30 +48,30 @@ const Profile = (props) => {
                         <Row>
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">First Name</Label>
-                                <Input id="" className = "profile-text-field" type="text"   />
+                                <Input id="" className = "profile-text-field" type="text" value={user ? user.fullName.split(' ')[0] : "loading..."} />
                             </Col>
 
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">Last Name</Label>
-                                <Input id="" className = "profile-text-field" type="text"  />
+                                <Input id="" className = "profile-text-field" type="text"  value={user ? user.fullName.split(' ')[1] : "loading..."}/>
                             </Col>
                         </Row>
 
                         <Row>
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">Mobile Number</Label>
-                                <Input id="" className = "profile-text-field" type="text"  />
+                                <Input id="" className = "profile-text-field" type="number"  value={user ? user.phNum : "loading..."}/>
                             </Col>
 
-                            <Col xs = "12" md = "6">
+                            {/* <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">Zip Code</Label>
-                                <Input id=""className = "profile-text-field" type="text" />
-                            </Col>
+                                <Input id=""className = "profile-text-field" type="text" defaultValue={user ? user.fullName : "loading..."}/>
+                            </Col> */}
                         </Row>
-                        <Label className = "profile-labels">Location</Label>
+                        {/* <Label className = "profile-labels">Location</Label>
                         <Input id="" className = "profile-text-field" type="text" />
                         <Label className = "profile-labels">Bio</Label>
-                        <textarea class="form-control bio-box" rows="4" placeholder = "Message (Optional)"></textarea>
+                        <textarea class="form-control bio-box" rows="4" placeholder = "Message (Optional)"></textarea> */}
                         <Button type="submit" color="primary" className="save-profile-button float-right">Save Profile</Button>
                         <Row>
                             <Col xs = "12" md = "12">
