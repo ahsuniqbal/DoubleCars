@@ -38,6 +38,7 @@ const ShowSearchResults = (products) => {
                         dealerPic={products[i].userPic}
                         dealer={products[i].userRole}
                         dealerName={products[i].fullName}
+                        isSave={products[i].saveId}
                         dealerRating={Math.floor(Math.random() * (5 * 100 - 1 * 100) + 1 * 100) / (1*100)}
                         allowBookmark={true} />
                 </Col>
@@ -93,6 +94,7 @@ const Products = (props) => {
     
     useEffect(() => {
         GetSearchResult(location.search, pageNumber).then(doc => {
+            console.log(doc)
             if(products.length > 0){
                 var temp = products
                 for(let i = 0; i < doc.length; i++){

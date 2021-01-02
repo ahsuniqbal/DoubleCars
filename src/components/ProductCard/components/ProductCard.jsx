@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState, useEffect} from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Row, Col, Label, Button, Badge } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarIcon from '../../../assets/star.svg';
@@ -8,9 +8,40 @@ import '../styles/ProductCard.css';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
+import {postSaveCar} from '../api/post'
 
 const ProductCard = (props) => {
+    const [saveId, setSaveId] = useState(null)
+
+    useEffect(() => {
+        setSaveId(props.saveId)
+    },[])
+
+    const saveCarFunc = (productId) => {
+        var userId;
+        if(localStorage.getItem("userId") && localStorage.getItem("userId") !== "undefined"){
+            userId = localStorage.getItem('userId')
+        }else{
+            alert('You need to login First')
+            return
+        }
+        const obj = {
+            productId,userId
+        }
+        postSaveCar(obj)
+        .then(doc => {
+            if(doc.code === -1){
+                setSaveId(doc.saveId)
+            }else{
+                alert(doc.message)
+            }
+        })
+        .catch(e => {
+            alert(e.message)
+        })
+    }
+
+
   return (
     <Card className="product-card mb-3 ">
         {/* Link to the product details page */}
@@ -41,14 +72,14 @@ const ProductCard = (props) => {
                 </Col>
                 {
                     // The bookmark button
-                    props.allowBookmark ?
+                    saveId ?
+                        null
+                    :
                     <Col xs="3">
-                        <Button color="link" className="bookmark">
+                        <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
                             <FontAwesomeIcon icon={["far", "bookmark"]} />
                         </Button>
                     </Col>
-                    :
-                    null
                 }
             </Row>
             {
