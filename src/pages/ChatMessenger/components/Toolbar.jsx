@@ -1,19 +1,19 @@
 import React from 'react';
 import { Card, CardBody, CardImg, Row, Col, Label } from 'reactstrap';
-import companyLogo from '../../../assets/company-logo.png';
+// import companyLogo from '../../../assets/company-logo.png';
 import { Star, Trash2 } from 'react-feather';
 import '../styles/Toolbar.css';
 
-const Toolbar = () => {
+const Toolbar = (props) => {
     return (
         <Card className="toolbar">
             <CardBody>
                 <Row>
                     <Col xs="1">
-                        <CardImg src={companyLogo} />
+                        <CardImg src={props.user.profilePic} />
                     </Col>
                     <Col xs="9">
-                        <h6>One Chance Auto</h6>
+                        <h6>{props.user.fullName}</h6>
                         <Label>2 hr ago</Label>
                     </Col>
 

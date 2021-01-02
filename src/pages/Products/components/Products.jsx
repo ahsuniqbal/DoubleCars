@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Label, Input, Container } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
@@ -7,8 +7,8 @@ import { GetSearchResult, GetFilterResult } from '../api/GetRequests';
 import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
 import adProducts from '../../../assets/ad_products.png';
 import { ProductSkeleton } from '../../../components/Skeletons';
+import queryString from 'query-string';
 import '../styles/Products.css';
-// import useProductSearch from './useProductSearch';
 
 
 const ShowSearchResults = (products) => {
@@ -59,13 +59,12 @@ function DrawSkeleton(){
     return table;
 }
 
-function GetSearchInput(searchInput){   
-    var toSearch = searchInput.replace(/%20/g, ' ').split('=');
-    return toSearch[1];
-}
 
+const Products = (props) => {
+    let location = queryString.parse(props.location.search);
 
-const Products = ({location}) => {
+    console.log("P", props)
+
     const [sortFlag, setSortFlag] = useState(false);
     const [products, setProducts] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
@@ -86,31 +85,6 @@ const Products = ({location}) => {
         }
     }
 
-    
-    // const [loading,setLoading] = useState(false);
-    // const [pervY,setPervY] = useState(0)
-    // const options = {
-    //     root: null,
-    //     rootMargin: "0px",
-    //     threshold: 1.0
-    // }
-    // const {
-    //     productss,
-    //     hasMore,
-    //     error
-    // } = useProductSearch(GetSearchInput(location.search));
-
-    // const observer = useRef();
-    // const lastElementRef = useCallback(node => {
-    //     if(observer.current) observer.current.disconnect();
-    //     observer.current = new IntersectionObserver(entries => {
-    //         if (entries[0].isIntersecting && hasMore) {
-    //           setPageNumber(prevPageNumber => prevPageNumber + 1)
-    //         }
-    //     })
-    //     if (node) observer.current.observe(node)
-    // }, [loading, hasMore])
-
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -118,38 +92,21 @@ const Products = ({location}) => {
     
     
     useEffect(() => {
-        setPageNumber(location.page)
-        console.log("pN",pageNumber,products.length)
-        if(location.search) {
-            GetSearchResult(GetSearchInput(location.search), pageNumber).then(doc => {
-                setProducts(doc);
-            })
-            .catch(error => {
-                alert("err",error.message);
-            });
-        }
-        else {
-            
-            GetSearchResult('', pageNumber).then(doc => {
-                console.log(products.length,doc)
-                if(products.length > 0){
-                    var temp = products
-                    for(let i = 0; i < doc.length; i++){
-                        temp.push(doc[i])
-                    }
-                    console.log("temp",temp)
-                    setProducts(temp);
-                }else{
-                    setProducts(doc);
+        GetSearchResult(location.search, pageNumber).then(doc => {
+            if(products.length > 0){
+                var temp = products
+                for(let i = 0; i < doc.length; i++){
+                    temp.push(doc[i])
                 }
-                setFlag(!flag)
-                
-            })
-            .catch(error => {
-                alert("er",error.message);
-            });
-        }
-        
+                setProducts(temp);
+            }else{
+                setProducts(doc);
+            }
+            setFlag(!flag)
+        })
+        .catch(error => {
+            alert("err",error.message);
+        });
     }, [isBottom]);
 
     const filterQueryChange = (queryStr) => {
@@ -183,7 +140,7 @@ const Products = ({location}) => {
                 <Col xs="12" md="9" >
                     <Row className="search-heading mb-2">
                         <Col md="8">
-                            {location.heading ? <h6>{location.heading}</h6> : null}
+                            {props.location.heading ? <h6>{props.location.heading}</h6> : null}
                             {
                                 products ? 
                                 <Label className="output-num">{products.length} car(s) match your search...</Label> 

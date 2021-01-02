@@ -1,17 +1,27 @@
 import React from 'react';
 import { Row, Col, CardImg, Label } from 'reactstrap';
-import personImg from '../../../assets/person-image.png';
+import { connect } from 'react-redux';
+import { selectChat } from '../../../redux/actions/ChatActions.jsx';
 import '../styles/ChatListItem.css';
 
-const ChatListItem = () => {
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        selectChat: (chat) => {
+            dispatch(selectChat(chat));
+        }
+    }
+}
+
+const ChatListItem = (props) => {
     return (
-        <Row className="chatlist-item" style={{backgroundColor: 'white'}}>
+        <Row className="chatlist-item" style={{backgroundColor: 'white'}} onClick={() => props.selectChat(props.chat)}>
             <Col xs="3">
-                <CardImg src={personImg} className="img-fluid" />    
+                <CardImg src={props.chat.user.profilePic} className="img-fluid" />    
             </Col>
             <Col xs="6">
-                <Label className="name">Katren Mark</Label>
-                <Label className="last-msg">2014 Audi A8 V4A</Label>
+                <Label className="name">{props.chat.user.fullName}</Label>
+                <Label className="last-msg">{props.chat.chat.lastMessage}</Label>
             </Col>
             <Col xs="3" className="text-center">
                 <Label className="time">12 min</Label>
@@ -21,4 +31,4 @@ const ChatListItem = () => {
     )
 }
 
-export default ChatListItem;
+export default connect(null, mapDispatchToProps)(ChatListItem);

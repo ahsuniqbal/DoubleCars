@@ -39,7 +39,6 @@ const Searchbar = () => {
         history.push({
             pathname: '/products',
             search: '?search=' + searchInput,
-            page: 0
         })
     };
 

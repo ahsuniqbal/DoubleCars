@@ -13,7 +13,6 @@ const TermsAndCondition = React.lazy(() => import ('../pages/PrivacyAndTerms/com
 const PrivacyPolicy = React.lazy(() => import ('../pages/PrivacyAndTerms/components/PrivacyPolicy'))
 const ContactUs = React.lazy(() => import ('../pages/ContactUs'))
 const Blogs = React.lazy(() => import('../pages/Blogs/components/Blogs/Blogs'));
-const InfiniteScroll = React.lazy(() => import('../pages/InfiniteScroll'));
 const Chat = React.lazy(() => import('../pages/ChatMessenger'));
 /////////////////////// MUST READ BEFORE CREATING A ROUTE /////////////////////
 
@@ -42,7 +41,6 @@ const routes = [
     { path: '/blogs', name: 'Blogs', public: true, restricted: false, component: Blogs },
     { path: '/chat', name: 'Chat', public: true, restricted: false, component: Chat },
     { path: '/blogs/:id', name: 'Blogs', public: true, restricted: false, component: Blogs },
-    { path: '/infinite-scroll', name: 'Infinite Scroll', public: true, restricted: false, component: InfiniteScroll },
 ];
 
 export default routes;
