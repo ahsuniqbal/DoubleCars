@@ -11,3 +11,22 @@
     line-height: 26px;
     color: rgba(0, 0, 0, 0.84);
 }
+
+.stats-card {
+    height: 168px;
+    margin-bottom: 5rem;
+}
+
+.stats-label {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 46px;
+    color: #1C67CE;
+    margin-top: 1rem;
+}
+
+.stats-label2 {
+    font-size: 18px;
+    line-height: 21px;
+    color: rgba(8, 11, 48, 0.85);
+}
