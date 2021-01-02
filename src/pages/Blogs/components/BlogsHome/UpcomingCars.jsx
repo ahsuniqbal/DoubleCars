@@ -43,8 +43,6 @@ const UpcomingCars = () => {
             <Row>
                 <Col md = "9" xs = "12" style = {UpcomingCarDemo1}></Col>
                 <Col md = "3" xs = "12" style = {UpcomingCarDemo2}></Col>
-            </Row>
-            <Row>
                 <Col md = "3" xs = "12" style = {UpcomingCarDemo3}></Col>
                 <Col md = "9" xs = "12" style = {UpcomingCarDemo4}></Col>
             </Row>
