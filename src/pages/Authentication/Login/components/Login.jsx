@@ -1,15 +1,41 @@
-import React from 'react';
-import { login } from '../../../../config/LoginAuth';
+import React,{ useState} from 'react';
 import '../styles/Login.css'
 import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reactstrap'
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {userLogin} from '../../api/Post'
 
 import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
 
 const Login = (props) => {
-    const handleLogin = () => {
-        login();
-        props.history.push('/profile');
+    const [loading,setLoading] = useState(false)
+    const handleLogin = (e) => {
+        e.preventDefault();
+        var email = document.getElementById('login-email').value
+        var password = document.getElementById('login-password').value
+        var obj = {
+            email,password
+        }
+        setLoading(true)
+        userLogin(obj)
+        .then(doc => {
+            console.log(doc)
+            setLoading(false)
+            if(doc.ID !== -1){
+                console.log("log")
+                localStorage.setItem('userId',doc.ID)
+                localStorage.setItem('userToken',doc.Token)
+                props.history.push('/profile');
+            }else{
+                console.log("not")
+                document.getElementById('error-label').textContent = doc.Message
+            }
+        })
+        .catch(e => {
+            setLoading(false)
+            console.log(e.message)
+            document.getElementById('error-label').textContent = e.message
+        })
+        
     }
     return(
         <div>
@@ -28,7 +54,7 @@ const Login = (props) => {
                                     <Label className = "login-label">Si sine causa, nollem me ab eo ortum, tam egregios viros censes tantas.</Label>
                                 </Col>
                             </Row>
-                            <Form>
+                            <Form onSubmit={e => handleLogin(e)}>
                                 <Input id="login-email" className = "login-email" type="email" placeholder="Enter Email" required />
 
                                 <Input id="login-password" className = "login-password" type="password" placeholder= "Enter password" required/>
@@ -43,7 +69,10 @@ const Login = (props) => {
                                     </Col>
 
                                     <Col xs="6" md = "6" className = "text-right remember-login-column">
-                                        <Button type="submit" color="primary" className="login-button">Login</Button>
+                                        <Button type="submit" color="primary" className="login-button">
+                                        {loading && <span>Logging in...</span>}
+                                        {!loading && <span>LOGIN</span>}
+                                        </Button>
                                     </Col>
                                 </Row>
                                 <Row>
