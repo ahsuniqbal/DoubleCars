@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Row, Col, Input, Card, CardBody, CardTitle, Button, InputGroup, InputGroupAddon, InputGroupText, Form } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { GetAllMakes, GetModelFromMake } from '../api/GetRequests';
 import '../styles/Searchbar.css';
 
 

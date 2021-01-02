@@ -1,5 +1,5 @@
 import React ,{useState} from 'react';
-import {Row, Col, Nav, NavItem, Button, NavLink,Input, Modal, ModalBody,ModalHeader, CardBody, CardImg, Label, Card} from 'reactstrap'
+import {Row, Col, Button, CardBody, CardImg, Label, Card} from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/SellerDetails.css';
 import { Phone, Mail } from 'react-feather';

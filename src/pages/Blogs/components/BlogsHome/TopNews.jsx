@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'reactstrap';
 import { Row, Col } from 'reactstrap';
 import '../../styles/TopNews.css'
 import TopNewsDummyImage from '../../../../assets/TopNewsDummyImage.png'

@@ -1,6 +1,6 @@
-import React, { useEffect, useState} from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, Label } from 'reactstrap';
-import AdImage from '../../../assets/advertisementLanding.png'
+import React, { useState} from 'react';
+import { TabContent, TabPane, Nav, NavItem, NavLink,  Button,  Row, Col, Label } from 'reactstrap';
+
 import '../styles/TopBudget.css'
 import classnames from 'classnames';
 

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import UpperSection from './UpperSection'
-import { Link } from 'react-router-dom';
 import '../../styles/BlogsHome.css'
 import Container from 'reactstrap/lib/Container';
 import UpcomingCars from './UpcomingCars';
