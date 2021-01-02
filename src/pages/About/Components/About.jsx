@@ -4,6 +4,7 @@ import { Row, Col, Container, NavLink, Label} from 'reactstrap';
 import AboutDetails from './AboutDetails';
 import { ChevronRight } from 'react-feather';
 import AboutStats from './AboutStats';
+import AboutChoose from './AboutChoose';
 const About = () => {
   return (
     <body className = "about-body">
@@ -29,8 +30,9 @@ const About = () => {
             Donec est metus, sagittis a nunc suscipit, varius facilisis est. In hac habitasse platea dictumst. Nulla dictum metus id risus porta, sed venenatis libero egestas. Donec laoreet ac ex eget rhoncus. Proin vel diam luctus, finibus mi ac, condimentum nunc. Sed interdum lacinia turpis, et tempus neque laoreet a. Nulla nec aliquam velit. Cras sit amet leo a elit egestas congue quis sit amet lacus.</p>
           </Col>   
         </Row>
-
+        <AboutChoose/>
         <AboutDetails/>
+        
         <AboutStats/>
       </Container>
     </body>
