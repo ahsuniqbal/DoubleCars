@@ -46,7 +46,7 @@ const  SavedCars = (props) => {
         <body className = "saved-body">
             <Container clsssName = "saved-container">
                 <Row>
-                    <Col xs = "12" md = "12">
+                    <Col xs = "12" md = "12" className = "saved-car-col">
                     <h2 className = "saved-car-label">Saved Cars</h2>
                     </Col>
                 </Row>
