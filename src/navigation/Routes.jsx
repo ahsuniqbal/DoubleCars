@@ -14,7 +14,7 @@ const PrivacyPolicy = React.lazy(() => import ('../pages/PrivacyAndTerms/compone
 const ContactUs = React.lazy(() => import ('../pages/ContactUs'))
 const Blogs = React.lazy(() => import('../pages/Blogs/components/Blogs/Blogs'));
 const Chat = React.lazy(() => import('../pages/ChatMessenger'));
-const SavedCars = React.lazy(() => import('../pages//SavedCars/components/SavedCars'));
+const SavedCars = React.lazy(() => import('../pages/SavedCars/components/SavedCars'));
 /////////////////////// MUST READ BEFORE CREATING A ROUTE /////////////////////
 
 // To show the page to every visitor public keyword will be true

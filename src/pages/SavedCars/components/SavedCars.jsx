@@ -1,8 +1,9 @@
 import React,{ useState, useEffect} from 'react';
 import { Button, Container, Row, Col, Input, Label, Card,CardBody} from 'reactstrap';
 import '../styles/SavedCars.css'
+import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
-
+import {getSaveCars} from '../api/Get'
 
 // const ShowSearchResults = (products) => {
 //     var table = [];
@@ -41,29 +42,62 @@ import ProductCard from '../../../components/ProductCard/components/ProductCard'
 //     return table;
 // }
 const  SavedCars = (props) => {
+    const [savedCars,setSavedCars] = useState([])
+    useState(() => {
+        // var userId = localStorage.getItem('userId')
+        var userId = 73
+        getSaveCars(userId)
+        .then(doc => {
+            console.log(doc)
+            if(doc.length > 0){
+                setSavedCars(doc)
+            }
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
+    },[])
+
+    const renderSaveCars = (list) => {
+        var table = [];
+        for(let i = 0; i < list.length; i++){
+            table.push(
+                <Col xs = "12" md = "3" className = "">
+                    <ProductCard
+                    productId={list[i].productId}
+                    productTitle={list[i].carName}
+                    productSubtitle={""}
+                    productText={"$" + AddCommaToNumber(list[i].price)}
+                    productImg={list[i].coverPic}
+                    productName={list[i].carName}
+                    productBadge={""}
+                    userId={list[i].userId}
+                    dealerPic={list[i].userPic}
+                    dealer={list[i].userRole}
+                    dealerName={""}
+                    isSave={1}
+                    // dealerRating={Math.floor(Math.random() * (5 * 100 - 1 * 100) + 1 * 100) / (1*100)}
+                    allowBookmark={true}
+                    />
+                </Col>
+            )
+        }
+        return table
+    }
 
     return(
         <body className = "saved-body">
             <Container clsssName = "saved-container">
                 <Row>
                     <Col xs = "12" md = "12" className = "saved-car-col">
-                    <h2 className = "saved-car-label">Saved Cars</h2>
+                    <h2 className = "saved-car-label">Saved Cars {savedCars ? savedCars.length : null}</h2>
                     </Col>
                 </Row>
 
                 <Row>
-                    <Col xs = "12" md = "3" className = "">
-                        <ProductCard/>
-                    </Col>
-                    <Col xs = "12" md = "3" className = "">
-                        <ProductCard/>
-                    </Col>
-                    <Col xs = "12" md = "3" className = "">
-                        <ProductCard/>
-                    </Col>
-                    <Col xs = "12" md = "3" className = "">
-                        <ProductCard/>
-                    </Col>
+                    {
+                        savedCars ? renderSaveCars(savedCars) : "No List"
+                    }
                </Row>
             </Container>
         </body>
