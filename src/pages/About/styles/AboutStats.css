@@ -1,16 +1,4 @@
-.stats-heading {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 34px;
-    color: rgba(0, 0, 0, 0.85);
-}
 
-.stats-content {
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 26px;
-    color: rgba(0, 0, 0, 0.84);
-}
 
 .stats-card {
     height: 168px;
