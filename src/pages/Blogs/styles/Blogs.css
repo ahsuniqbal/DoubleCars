@@ -43,6 +43,14 @@ color: rgba(0, 0, 0, 0.84);
     margin-bottom: 5%;
 }
 
+.blog-blockquote {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 29px;
+    color: rgba(0, 0, 0, 0.84);
+    border-left: 4px solid #1C67CE;
+}
+
 .image-credit-label {
     font-weight: 300;
     font-size: 14px;
