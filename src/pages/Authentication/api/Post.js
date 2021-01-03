@@ -21,7 +21,7 @@ export const userLogin = (obj) => {
 }
 export const userSignUp = (obj) => {
     return new Promise((resolve, reject) => {
-        var url = URL + "users/"
+        var url = connectionString + "users/"
         axios.post(url,obj)
         .then(function (response) {
             // handle success
