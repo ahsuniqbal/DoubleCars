@@ -72,7 +72,7 @@ const NavigationBar = () => {
                             <NavLink className="nav-link navigation-items" to={'/login'}>Log in</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items signup-button" to="">Sign up</NavLink>
+                            <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
                         </li>
                     </ul>   
                 </div>

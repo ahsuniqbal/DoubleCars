@@ -119,7 +119,12 @@
     float: center;
     justify-content: center;
 }
-
+.bottom-footer {
+    display: none;
+}
+.footer-body{
+    display: none;
+}
 /* Media query */
 
 @media screen and (max-width: 600px) {

@@ -1,13 +1,23 @@
-import React,{ useState} from 'react';
+import React,{ useState ,useEffect} from 'react';
 import '../styles/Login.css'
-import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reactstrap'
+import {Row, Col, Button,Input, Container, Label, FormGroup, Form} from 'reactstrap'
 import { Link } from "react-router-dom";
 import {userLogin} from '../../api/Post'
-
+import { useHistory } from "react-router-dom";
 import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Login = (props) => {
     const [loading,setLoading] = useState(false)
+    const [passwordShown, setPasswordShown] = useState(false)
+    const eye = <FontAwesomeIcon icon={faEyeSlash} />
+    const history=useHistory()
+    
+    const togglePasswordVisiblity = () => {
+        setPasswordShown(passwordShown ? false : true);
+      };
+
     const handleLogin = (e) => {
         e.preventDefault();
         var email = document.getElementById('login-email').value
@@ -37,27 +47,31 @@ const Login = (props) => {
         })
         
     }
+    
     return(
         <div>
                 <Container fluid = {true}>
-                    <Row>
-                        <Col xs = "12" md = "7" sm = "12" className = "login-left-image">
+                    <Row  className='main'>
+                        <Col lg='7' xs = "12" md = "6" sm = "12" className = "login-left-image">
                             <Link to="/">
                                 <img  src = {DCWhiteLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px"/>
                             </Link>
                         </Col>
 
-                        <Col xs = "12" md = "5" sm = "12" className = "right-side-column">
+                        <Col lg='5' xs = "12" md = "6" sm = "12" className = "right-side-column">
                             <Row>
-                                <Col xs = "12" md = "12" className = "text-center">
+                                <Col xs = "12" md = "12" className = "head-text">
                                     <h2 className = "login-now-head">Login now</h2>
                                     <Label className = "login-label">Si sine causa, nollem me ab eo ortum, tam egregios viros censes tantas.</Label>
                                 </Col>
                             </Row>
                             <Form onSubmit={e => handleLogin(e)}>
+                                
                                 <Input id="login-email" className = "login-email" type="email" placeholder="Enter Email" required />
-
-                                <Input id="login-password" className = "login-password" type="password" placeholder= "Enter password" required/>
+                                <div className='pass-wrapper'>
+                                    <Input id="login-password" className = "login-password"  type={passwordShown ? "text" : "password"} placeholder= "Enter password" required />
+                                    <i onClick={togglePasswordVisiblity}>{eye}</i>
+                                 </div>
                                 <div id="error-label"></div>
 
                                 <Row>
@@ -77,7 +91,9 @@ const Login = (props) => {
                                 </Row>
                                 <Row>
                                     <Col xs="6" md = "6" className = "register-forgot-column">
-                                        <Label className="not-register-label">Not Registered?</Label>
+                                        <Label className="not-register-label"
+                                         onClick={()=>history.push('/signup')}
+                                        >Not Registered?</Label>
                                     </Col>
 
                                     <Col xs="6" md = "6" className = "text-right register-forgot-column">
@@ -89,25 +105,23 @@ const Login = (props) => {
 
                             <h2 className = "or-label"><span>or continue with</span></h2>
 
-                            <Row className = "justify-content-center">
-                                <Col xs = "2" md = "2" className = "">
+                            <div className = "icons">
                                 <div className="google-button">
                                     <span className=""></span>
                                 </div>
-                                </Col>
-
-                                <Col xs = "2" md = "2">
                                 <div className="facebook-button">
-                                <span className=""></span>
+                                    <span className=""></span>
                                 </div>
-                                </Col>
-                            </Row>
-                            
-                           
+                            </div>
+
+                            <div className='bottom'>
+                                <hr />
+                                <span>Not a member? <Label className='signup-label'>Sign up now</Label></span>
+                            </div>
                         </Col>
                     </Row>
                 </Container>
-           
+               
         </div>
     );
 }
