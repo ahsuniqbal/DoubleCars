@@ -17,6 +17,7 @@
 .right-side-column {
     background-color: white;
     padding: 0px 80px;
+    height: 100vh;
 }
 
 .login-now-head {
