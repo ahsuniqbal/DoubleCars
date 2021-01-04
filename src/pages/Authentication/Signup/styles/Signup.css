@@ -54,9 +54,9 @@
 }
 
 .signup-button {
-    background-color: #1C67CE !important;
-    border-radius: 0.4rem ;
-    color: #ffffff !important;
+   background-color: #1C67CE !important;
+    border-radius: 0.4rem  ;
+    color: #ffffff !important ;
     font-size: 15px;
     line-height: 32px;
     width: 142px;
@@ -125,6 +125,21 @@
 .footer-body{
     display: none;
 }
+.pass-wrapper {
+    position: relative;
+    display: flex;
+    margin-bottom: 14px;
+  }
+.pass-wrapper i {
+    position: absolute;
+    top: 44%;
+    right: 4%;
+    color: rgb(158, 154, 154);
+  }
+.pass-wrapper i:hover {
+   
+    cursor: pointer;
+  }
 /* Media query */
 
 @media screen and (max-width: 600px) {

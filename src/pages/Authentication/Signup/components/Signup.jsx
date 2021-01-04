@@ -4,9 +4,17 @@ import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reacts
 import { Link } from "react-router-dom";
 import {userSignUp} from '../../api/Post'
 import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Signup = (props) => {
     const [loading,setLoading] = useState(false)
+    const [passwordShown, setPasswordShown] = useState(false)
+    const eye = <FontAwesomeIcon icon={faEyeSlash} />
+    const togglePasswordVisiblity = () => {
+        setPasswordShown(passwordShown ? false : true);
+      };
+
     const handleSignUp = (e) => {
         e.preventDefault();
         var firstName = document.getElementById('firstName').value
@@ -69,8 +77,11 @@ const Signup = (props) => {
                                 <Input id="phNum" className = "register-textfield" type="number" placeholder="Mobile Number" required />
 
                                 <Input id="signup-email" className = "register-textfield" type="email" placeholder="Your Email" required />
-
-                                <Input id="signup-password" className = "register-textfield" type="password" placeholder= "Create a password" required/>
+                                <div className='pass-wrapper'>
+                                    <Input id="signup-password" className = "register-textfield"  type={passwordShown ? "text" : "password"} placeholder= "Enter password" required />
+                                    <i onClick={togglePasswordVisiblity}>{eye}</i>
+                                 </div>
+                                {/* <Input id="signup-password" className = "register-textfield" type="password" placeholder= "Create a password" required/> */}
                                 <div id="error-label"></div>
 
                                 <Row>
