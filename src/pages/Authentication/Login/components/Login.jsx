@@ -39,12 +39,14 @@ const Login = (props) => {
             }else{
                 console.log("not")
                 document.getElementById('error-label').textContent = doc.Message
+                document.getElementById('error-label').style.color = "red"
             }
         })
         .catch(e => {
             setLoading(false)
             console.log(e.message)
             document.getElementById('error-label').textContent = e.message
+            document.getElementById('error-label').style.color = "red"
         })
         
     }
@@ -68,9 +70,9 @@ const Login = (props) => {
                             </Row>
                             <Form onSubmit={e => handleLogin(e)}>
                                 
-                                <Input id="login-email" className = "login-email" type="email" placeholder="Enter Email" required />
+                                <Input id="login-email" onChange={e => document.getElementById('error-label').textContent = ""} className = "login-email" type="email" placeholder="Enter Email" required />
                                 <div className='pass-wrapper'>
-                                    <Input id="login-password" className = "login-password"  type={passwordShown ? "text" : "password"} placeholder= "Enter password" required />
+                                    <Input id="login-password" onChange={e => document.getElementById('error-label').textContent = ""} className = "login-password"  type={passwordShown ? "text" : "password"} placeholder= "Enter password" required />
                                     <i onClick={togglePasswordVisiblity}>{eye}</i>
                                  </div>
                                 <div id="error-label"></div>

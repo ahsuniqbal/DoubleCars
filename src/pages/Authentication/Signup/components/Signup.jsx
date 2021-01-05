@@ -35,6 +35,7 @@ const Signup = (props) => {
         setLoading(true)
         userSignUp(obj)
         .then(doc => {
+            console.log(doc)
             setLoading(false)
             if(doc.code === 1){
                 localStorage.setItem('userId',doc.id)

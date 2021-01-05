@@ -41,8 +41,3 @@
 .new-cars{
     margin: 23px 0px 30px;
 }
-@media screen and (max-width: 420px) {
-    body{
-        overflow-x:hidden;
-    }
-}
