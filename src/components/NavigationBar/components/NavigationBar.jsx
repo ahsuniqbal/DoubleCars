@@ -68,12 +68,12 @@ const NavigationBar = () => {
                             <Input className="search-box" type="text" placeholder="Search" />
                         </InputGroup>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink className="nav-link navigation-items" to={'/login'}>Log in</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
-                        </li>
+                        </li> */}
                     </ul>   
                 </div>
             </nav>
