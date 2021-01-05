@@ -9,10 +9,13 @@ import MostPopularCard from './MostPopularCard';
 import ArticleCard from '../../../Home/components/ArticleCard';
 import LowerSection from './LowerSection';
 import AdImage from '../../../../assets/StaticBlogAd.png'
+import SubsribeCard from './SubscribeCard'
 
 const BlogsHome = () => {
     return(
         <body className = "blogs-home-body">
+                            
+
             <Container fluid = {false}>
                 <UpperSection/>
                 <Row>
@@ -31,6 +34,7 @@ const BlogsHome = () => {
                             <Col xs = "6" md = "4">
                                 <ArticleCard/>
                             </Col>
+                            
                         </Row>
                         <Row>
                             <Col xs = "6" md = "4">
@@ -42,16 +46,18 @@ const BlogsHome = () => {
                             <Col xs = "6" md = "4">
                                 <ArticleCard/>
                             </Col>
+                            <Col></Col>
                         </Row>
+                       
                         <LowerSection/>
-                        <Row>
-                            <Col xs = "6" md = "4">
+                        <Row className='new-cars'>
+                            <Col xs = "6" md = "4" className='new-cars'>
                                 <ArticleCard/>
                             </Col>
-                            <Col xs = "6" md = "4">
+                            <Col xs = "6" md = "4" className='new-cars'>
                                 <ArticleCard/>
                             </Col>
-                            <Col xs = "6" md = "4">
+                            <Col xs = "6" md = "4" className='new-cars'>
                                 <ArticleCard/>
                             </Col>
                         </Row>
@@ -65,6 +71,9 @@ const BlogsHome = () => {
                         <MostPopularCard/>
                         <MostPopularCard/>
                         <MostPopularCard/>
+                     
+                                <SubsribeCard/>
+               
                     </Col>
                 </Row> 
             </Container>

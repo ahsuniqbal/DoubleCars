@@ -116,6 +116,17 @@
     font-size: 28px;
     line-height: 120%;
 }
+.second-column label {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.second-column h2 {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 120%;
+}
 
 .blogs-header .content {
     position: absolute;
@@ -130,16 +141,43 @@
     overflow: hidden;
 }
 
-.img-div {
-    height: 100%;
+.first-column {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+}
+.second-column {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+}
+.third-coloumn {
+    position: relative;
+    height: 250px;
     overflow: hidden;
 }
 
-.img-div img {
-    height: 100%;
+.img1-fluid{
+    max-width: 100%;
+    height: 510px;
+}
+.img2-fluid{
+    max-width: 415px;
+    height: 600px;
+}
+.img3-fluid{
+    max-width: 310px;
+    height: auto;
+}
+.img4-fluid{
+    max-width: 310px;
+    height: 250px;
+}
+/* .img-div img {
+   height: 100%;
     object-fit: cover;
     object-position: center;
-}
+} */
 
 .fucking-padding-left {
     padding-left: 5px;

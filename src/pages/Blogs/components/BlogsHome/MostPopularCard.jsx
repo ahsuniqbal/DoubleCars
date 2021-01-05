@@ -5,7 +5,7 @@ import TopNewsDummy2 from '../../../../assets/TopNewsDummy2.png'
 
 const MostPopularCard = () => {
     return(
-        <Card className = "mb-4 most-popular-card">
+        <Card className = "most-popular-card">
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid cell-card-image" src={TopNewsDummy2} alt="Card image" />

@@ -46,8 +46,8 @@ const UpperSection = () => {
         <Row className="blogs-header">
             <Col md = "6" xs = "12" className="fucking-padding-right">
               <div className = "first-column">
-                <div className="img-div">
-                  <img src={img1} className="img-fluid" />
+                <div className="">
+                  <img src={img1} className="img1-fluid" />
                 </div>
                 <div className="content">
                   <Label>New Cars</Label>
@@ -58,40 +58,46 @@ const UpperSection = () => {
               </div>
               </Col>
             <Col md = "3" xs = "12" className="fucking-padding-left fucking-padding-right">
-              <div className="img-div">
-                <img src={img2} className="img-fluid" />
-              </div>
-              <div className="content">
-                <Label>New Cars</Label>
-                <h2>Video: BMW M2 CS is part of Autocar’s 2020 Best Sports Cars</h2>
-                <Label className="date">Dec 15, 2020</Label>
+              <div className = "second-column">
+                <div className="">
+                  <img src={img2} className="img2-fluid" />
+                </div>
+                <div className="content">
+                  <Label>New Cars</Label>
+                  <h2>Here is the perfect car for your love of black</h2>
+                  <Label className="date">Dec 15, 2020</Label>
+                </div>
               </div>
                 
             </Col>
             <Col md = "3" xs = "12" className="fucking-padding-left">
                 <Row>
                     <Col md = "12" xs = "12" className=" pb-1">
-                      <div className="img-div">
-                        <img src={img3} className="img-fluid" />
-                      </div>
-                      <div className="content">
-                        <Label>New Cars</Label>
-                        <h2>Video: BMW M2 CS is part of Autocar’s 2020 Best Sports Cars</h2>
-                        <Label className="date">Dec 15, 2020</Label>
+                      <div className='third-coloumn'>
+                        <div className="">
+                          <img src={img3} className="img3-fluid" />
+                        </div>
+                        <div className="content">
+                          <Label>New Cars</Label>
+                          <h2>Top 10 electric cars to buy as soon as possible </h2>
+                          {/* <Label className="date">Dec 15, 2020</Label> */}
+                        </div>
                       </div>
                       
                     </Col>
                     
                     <Col md = "12" xs = "12" className="pt-1">
-                      <div className="img-div">
-                        <img src={img2} className="img-fluid" />
-                      </div>
-                      
-                      <div className="content">
-                        <Label>New Cars</Label>
-                        <h2>Video: BMW M2 CS is part of Autocar’s 2020 Best Sports Cars</h2>
-                        <Label className="date">Dec 15, 2020</Label>
-                      </div>
+                     <div className='third-coloumn'>
+                      <div className="">
+                          <img src={img4} className="img4-fluid" />
+                        </div>
+                        
+                        <div className="content">
+                          <Label>New Cars</Label>
+                          <h2>Video: BMW M2 CS is part of Autocar’s 2020 Best Sports Cars</h2>
+                          {/* <Label className="date">Dec 15, 2020</Label> */}
+                        </div>
+                     </div>
                       
                     </Col>
                 </Row>

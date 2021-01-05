@@ -14,7 +14,6 @@ const DefaultLayout = () => {
         <div>
             {/* The navigation bar will be shown above every paged rendered inside the switch */}
             <NavigationBar />
-            
                 <Switch>
                     {
                         routes.map((route, idx) => {

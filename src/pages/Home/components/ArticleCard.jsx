@@ -7,8 +7,8 @@ const ArticleCard = () => {
     return(
            <div>
                 <img src = {TopStoriesCardDemoImage} className = "img-fluid article-card-image" alt = "demo-image"/>
-                <Label className = "tarticle-card-heading">Video: BMW X5 M vs GLE 63 AMG and Audi RSQ8 comparison review</Label>
-                <Label className = "article-date">Dec 15, 2020</Label>
+                <Label className = "tarticle-card-heading">Video: BMW X5 M vs GLE 63 AMG and Audi RSQ8 comparison review</Label> 
+                <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
            </div> 
     )
   
