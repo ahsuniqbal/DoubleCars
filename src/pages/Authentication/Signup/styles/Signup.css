@@ -2,7 +2,7 @@
     display: none;
 }
 
-.login-left-image {
+.signup-left-image {
     background-image: url("../../../../assets/LoginDummyImage.png"); 
   background-position: left;
   background-repeat: no-repeat;
@@ -10,25 +10,27 @@
   width: 100%;
   height: 100vh;
 }
-
-.right-side-column {
+.double-car-logo {
+    margin-top: 3rem;
+}
+.signup-right-side-column {
     background-color: white;
     height: 100vh;
-    padding: 0px 80px;
+    padding: 0px 77px;
 }
 
 .register-head {
     font-weight: bold;
     font-size: 32px;
     line-height: 46px;
-    margin-top: 10rem;
+    margin-top: 6rem;
     color: rgba(0, 0, 0, 0.85);
 }
 
 .register-label {
     font-weight: normal;
     font-size: 16px;
-    line-height: 26px;
+    line-height: 20px;
     color: rgba(0, 0, 0, 0.65);
     
 }
@@ -40,7 +42,7 @@
     height: 48px ;
   ;
     background: #FFFFFF;
-    margin-top: 1rem; 
+    margin-top: 0.7rem; 
 }
 .register-textfield::placeholder {
     color: rgba(0, 0, 0, 0.35);
@@ -67,8 +69,10 @@
 
 
 .terms-signup-column {
-    margin-top: 3.5rem;
+    margin-top: 2rem;
+    /* padding-left: 0 !important; */
 }
+
 
 .t-and-c {
     color:  #1C67CE;
@@ -85,8 +89,8 @@
     font-size: 15px;
     color: rgba(0, 0, 0, 0.45);
     font-weight: normal;
-    margin-top: 3rem;
-    margin-bottom: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
  } 
    .or-label span { 
     background:#fff; 
@@ -94,8 +98,14 @@
     font-family: 'ubuntu';
 }
 
-.google-button { 
+.google-signup-button { 
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2% 0% 2% 2%;
     width: 195px;
+    height: 48px;
+    /* width: 195px;
     height: 48px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -104,11 +114,19 @@
     vertical-align: middle;
     background: url('../../../../assets//icons/google-icon.svg') no-repeat left;
     float: center;
-    justify-content: center;
+    justify-content: center; */
 }
-
-.facebook-button { 
-    width: 195px;
+.google-icon{
+    margin: 0 10px 0px 0px;
+}
+.facebook-signup-button { 
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2% 0% 2% 2%;
+    width: 210px;
+    height: 48px;
+        /* width: 195px;
     height: 48px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -117,7 +135,10 @@
     vertical-align: middle;
     background: url('../../../../assets//icons/fb-icon.svg') no-repeat left;
     float: center;
-    justify-content: center;
+    justify-content: center; */
+}
+.fb-icon{
+    margin: 0 10px 0px 0px;
 }
 .bottom-footer {
     display: none;
@@ -128,7 +149,7 @@
 .pass-wrapper {
     position: relative;
     display: flex;
-    margin-bottom: 14px;
+    /* margin-bottom: 14px; */
   }
 .pass-wrapper i {
     position: absolute;
@@ -140,12 +161,190 @@
    
     cursor: pointer;
   }
+  .MuiCheckbox-colorPrimary.Mui-checked {
+    color: #1C67CE !important;
+    }
+    .signup-icon{
+        display: flex;
+        justify-content: center;
+    }
+    .signup-icon div{
+        margin: 0% 2% 0% 0%;
+    }
+    .signup-bottom{
+        display: none;
+        text-align: center;
+        font-size: 14px;
+        margin: 8% 0%;
+    }
+    .bottom-label{
+        color: #1C67CE;
+        line-height: 26px;
+        font-weight: normal;
+        cursor: pointer;
+    }
 /* Media query */
 
-@media screen and (max-width: 600px) {
-    .login-left-image {
-       display: none;
-      
+@media screen and (max-width: 1310px) {
+    .signup-right-side-column {
+        padding: 0px 55px !important;
     }
-    
+}
+@media screen and (max-width: 1285px) {
+    .signup-right-side-column {
+        padding: 0px 45px !important;
+    }
+    .signup-icon div {
+        margin: 0% 5px 0% 0% !important;
+    }
+    .fb-icon {
+        margin: 0 6px 0px 0px !important;
+    }
+    .google-icon{
+        margin: 0 6px 0px 0px !important;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .signup-right-side-column {
+        padding: 0px 40px !important;
+    }
+    .signup-icon div {
+        margin: 0% 1px 0% 0% !important;
+    }
+    .fb-icon {
+        margin: 0 6px 0px 0px !important;
+    }
+    .google-icon{
+        margin: 0 6px 0px 0px !important;
+    }
+    .icon-text{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .signup-right-side-column {
+        padding: 0px 200px !important;
+    }
+    .signup-icon div {
+        margin: 0% 10px 0% 0% !important;
+    }
+    .icon-text{
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 890px) {
+    body{
+        background-color: white !important;
+    }
+    .signup-left-image {
+       display: none;
+    }
+    .register-label{
+        display: none;
+    }
+    .signup-right-side-column {
+        padding: 0px 110px !important;
+    }
+    .signup-bottom{
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        margin: 5% 0%;
+    }
+}
+@media screen and (max-width: 650px) {
+    body{
+        background-color: white !important;
+    }
+    .signup-right-side-column {
+        padding: 0px 80px !important;
+    }
+}
+@media screen and (max-width: 650px) {
+    body{
+        background-color: white !important;
+    }
+    .signup-right-side-column {
+        padding: 0px 70px !important;
+    }
+}
+@media screen and (max-width: 480px) {
+    body{
+        background-color: white !important;
+    }
+    .signup-right-side-column{
+        padding: 0 36px !important;
+    }
+    .signup-button{
+        width: 90px;
+        height: 40px;
+        margin: 15px 12px 0px 0px !important ;
+    }
+    .col-md-6 {
+        padding: 0 !important;
+    }
+    .names{
+        margin-left: 15px;
+    }
+    #firstName {
+        width: 288px
+    }
+    #lastName{
+        width: 288px
+    }
+    .register-head {
+        font-size: 28px;
+        float: left;
+    }
+    .signup-icon {
+        display: inline;
+    }
+    .google-signup-button{
+        width: 300px !important;
+        height: 55px;
+        padding: 4% 15%
+    }
+    .facebook-signup-button{
+        width: 300px !important;
+        height: 55px;
+        padding: 4% 15%;
+        margin-bottom:5%
+    }
+    .signup-icon div {
+        margin: 0% 5px 5% 0% !important;
+    }
+}
+@media screen and (max-width: 412px) {
+    body{
+        background-color: white !important;
+    }
+    #firstName {
+        width: 339px
+    }
+    #lastName{
+        width: 339px
+    }
+}
+@media screen and (max-width: 375px) {
+    body{
+        background-color: white !important;
+    }
+    #firstName {
+        width: 300px
+    }
+    #lastName{
+        width: 300px
+    }
+}
+@media screen and (max-width: 360px) {
+    body{
+        background-color: white !important;
+    }
+    #firstName {
+        width: 288px
+    }
+    #lastName{
+        width: 288px
+    }
 }

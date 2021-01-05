@@ -4,12 +4,19 @@ import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reacts
 import { Link } from "react-router-dom";
 import {userSignUp} from '../../api/Post'
 import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
+import googleIcon from '../../../../assets//icons/google-icon.svg'
+import FbIcon from '../../../../assets//icons/fb-icon.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import Checkbox from '@material-ui/core/Checkbox';
+import { useHistory } from "react-router-dom";
+
 
 const Signup = (props) => {
     const [loading,setLoading] = useState(false)
     const [passwordShown, setPasswordShown] = useState(false)
+    const history=useHistory()
+
     const eye = <FontAwesomeIcon icon={faEyeSlash} />
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
@@ -48,13 +55,13 @@ const Signup = (props) => {
         <div>
                 <Container fluid = {true}>
                     <Row>
-                        <Col xs = "12" md = "7" sm = "12" className = "login-left-image">
+                        <Col xs = "12" lg = "7" sm = "12" className = "signup-left-image">
                             <Link to="/">
                                 <img  src = {DCWhiteLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px"/>
                             </Link>
                         </Col>
                         
-                        <Col xs = "12" md = "5" sm = "12" className = "right-side-column">
+                        <Col xs = "12" lg = "5" sm = "12" className = "signup-right-side-column">
                             
                             <Row>
                                 <Col xs = "12" md = "12" className = "text-center">
@@ -65,11 +72,11 @@ const Signup = (props) => {
                             <Form onSubmit={e => handleSignUp(e)}>
                             
                                 <Row>
-                                    <Col xs = "12" md = "6">
+                                    <Col xs = "12" md = "6" className='names'>
                                     <Input id="firstName" className = "register-textfield" type="text" placeholder="First Name" required />
 
                                     </Col>
-                                    <Col xs = "12" md = "6">
+                                    <Col xs = "12" md = "6" className='names'>
                                     <Input id="lastName" className = "register-textfield" type="text" placeholder="last Name" required />
 
                                     </Col>
@@ -87,8 +94,10 @@ const Signup = (props) => {
                                 <Row>
                                     <Col xs="6" md = "6" className = "terms-signup-column">
                                         <FormGroup check>
-                                            <Input className = "checkbox-input remember-check" type="checkbox" id="" name="remember"/>
-                                            <Label check htmlFor="remember" className = "remember-label">I agree with <span to = {''} className = "t-and-c">Terms & Conditions</span></Label>
+                                            <Label check  className = "remember-label">
+                                            <Checkbox color="primary" />
+                                            I agree with <span to = {''} className = "t-and-c">Terms & Conditions</span>
+                                            </Label>
                                         </FormGroup>
                                     </Col>
 
@@ -105,20 +114,23 @@ const Signup = (props) => {
 
                             <h2 className = "or-label"><span>or</span></h2>
 
-                            <Row>
-                                <Col xs = "6" md = "6" className = "">
-                                <div className="google-button text-center">
-                                    <span className="google-icon"></span>
+                            <div className='signup-icon'>
+                                
+                                <div className="google-signup-button ">
+                                    <img src={googleIcon} className='google-icon'/>
+                                    <span className="icon-text">Sigup with Google</span>
                                 </div>
-                                </Col>
-
-                                <Col xs = "6" md = "6">
-                                <div className="facebook-button">
-                                <span className="fb-icon"></span>
+                               
+                                <div className="facebook-signup-button">
+                                    <img src={FbIcon} className='fb-icon'/>
+                                <span className="icon-text">Signup with Facebook</span>
                                 </div>
-                                </Col>
-                            </Row>
-                            
+                                
+                            </div>
+                            <div className='signup-bottom'>
+                                <hr />
+                                <span>Already a member? <Label className='bottom-label' onClick={()=>history.push('/login')}>Login</Label></span>
+                            </div>
                            
                         </Col>
                     </Row>

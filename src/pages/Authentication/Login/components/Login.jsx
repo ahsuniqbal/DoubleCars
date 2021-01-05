@@ -123,7 +123,7 @@ const Login = (props) => {
 
                             <div className='bottom'>
                                 <hr />
-                                <span>Not a member? <Label className='signup-label'>Sign up now</Label></span>
+                                <span>Not a member? <Label className='signup-label'  onClick={()=>history.push('/signup')}>Sign up now</Label></span>
                             </div>
                         </Col>
                     </Row>
