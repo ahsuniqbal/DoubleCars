@@ -102,32 +102,32 @@ const Footer = () => {
                 {/* Lower Footer starts here */}
                 <Container>
                     <Row>
-                        <Col md = "3" xs = "" className = "lower-footer-columns text-center">
+                        <Col md = "3" xs = "12" className = "lower-footer-columns text-center">
                             <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
                         </Col>
-                        <Col md = "2" xs = "" className = "lower-footer-columns text-center">
+                        <Col md = "2" xs = "12" className = "lower-footer-columns text-center">
                             <NavLink className = "bootom-footer nav-text-color" to="">Legal Information</NavLink>
                         </Col>
-                        <Col md = "2" xs = "" className = "lower-footer-columns text-center">
+                        <Col md = "2" xs = "12" className = "lower-footer-columns text-center">
                             {/* <NavLink className = "bootom-footer nav-text-color" to="">Privacy Policy</NavLink> */}
                             <Link to={'/privacypolicy/'}>
                             <NavLink className = "bootom-footer nav-text-color">Privacy Policy</NavLink>
                         </Link>
                         </Col>
-                        <Col md = "2" xs = "" className = "text-center lower-footer-columns">
+                        <Col md = "2" xs = "12" className = "text-center lower-footer-columns">
                         <Link to={'/termsandconditions/'}>
                             <NavLink className = "bootom-footer nav-text-color">Terms and Conditions</NavLink>
                         </Link>
                         </Col>
-                        <Col md = "3" xs = "" className = "lower-footer-columns">
-                            <Row>
-                                <Col md = "4" xs = "4" className = "icons-columns">
+                        <Col md = "3" xs = "12" className = "lower-footer-columns">
+                            <Row >
+                                <Col md = "3"  xs = "" className = "icons-columns">
                                     <Facebook color="#1C67CE" size={20} className = "feather-icon"/>
                                 </Col >
-                                <Col md = "4" xs = "4" className = "icons-columns ">
+                                <Col md = "3" xs = "" className = "icons-columns ">
                                     <Instagram color="#1C67CE" size={20} className = "feather-icon"/>
                                 </Col>
-                                <Col md = "4" xs = "4" className = "icons-columns ">
+                                <Col md = "3"  xs = "" className = "icons-columns ">
                                     <Twitter color="#1C67CE" size={20} className = "feather-icon"/>
                                 </Col>
                             </Row>

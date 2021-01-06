@@ -14,7 +14,7 @@ const LowerSection = () => {
      
 
     return(
-        <Row>
+        <Row className='lower-section'>
             <Col md = "12" xs = "12" style = {LowerImage}>
             <div className = "">
                 <Label className = "type-label">New Cars</Label>

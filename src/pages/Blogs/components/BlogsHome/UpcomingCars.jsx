@@ -40,7 +40,7 @@ const UpcomingCars = () => {
           {/* <Col md = "6" xs = "12" style = {UpcomingCarDemo1}></Col>
           <Col md = "3" xs = "12" style = {UpcomingCarDemo2}></Col> */}
           <Col md = "12" xs = "12">
-            <Row>
+            <Row className='upcoming-img'>
                 <Col md = "9" xs = "12" style = {UpcomingCarDemo1}></Col>
                 <Col md = "3" xs = "12" style = {UpcomingCarDemo2}></Col>
                 <Col md = "3" xs = "12" style = {UpcomingCarDemo3}></Col>

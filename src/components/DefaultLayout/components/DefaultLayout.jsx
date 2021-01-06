@@ -14,7 +14,6 @@ const DefaultLayout = () => {
         <div>
             {/* The navigation bar will be shown above every paged rendered inside the switch */}
             <NavigationBar />
-            
                 <Switch>
                     {
                         routes.map((route, idx) => {
@@ -42,7 +41,7 @@ const DefaultLayout = () => {
                     <PublicRoute component={NotFound} />
                 </Switch>
             {/* Footer will be visible at the end of every page rendered inside the switch */}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

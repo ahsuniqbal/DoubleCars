@@ -9,10 +9,13 @@ import MostPopularCard from './MostPopularCard';
 import ArticleCard from '../../../Home/components/ArticleCard';
 import LowerSection from './LowerSection';
 import AdImage from '../../../../assets/StaticBlogAd.png'
-
+import SubsribeCard from './SubscribeCard'
+import Footer from '../../../../components/Footer/components/Footer'
 const BlogsHome = () => {
     return(
         <body className = "blogs-home-body">
+                            
+
             <Container fluid = {false}>
                 <UpperSection/>
                 <Row>
@@ -22,38 +25,41 @@ const BlogsHome = () => {
                         <img className = "img-fluid" src = {AdImage} alt = "ad"/>
                         <h1 className = "article-heading">Latest Articles</h1>
                         <Row>
-                            <Col xs = "6" md = "4">
+                            <Col  md = "4" sm = "12">
                                 <ArticleCard/>
                             </Col>
-                            <Col xs = "6" md = "4">
+                            <Col  md = "4" sm = "12">
                                 <ArticleCard/>
                             </Col>
-                            <Col xs = "6" md = "4">
+                            <Col  md = "4" sm = "12">
                                 <ArticleCard/>
                             </Col>
+                            
                         </Row>
                         <Row>
-                            <Col xs = "6" md = "4">
+                            <Col md = "4" sm = "12">
                                 <ArticleCard/>
                             </Col>
-                            <Col xs = "6" md = "4">
+                            <Col  md = "4" sm = "12">
                                 <ArticleCard/>
                             </Col>
-                            <Col xs = "6" md = "4">
+                            <Col  md = "4" sm = "12">
                                 <ArticleCard/>
                             </Col>
                         </Row>
+                       
                         <LowerSection/>
-                        <Row>
-                            <Col xs = "6" md = "4">
+                        <Row className='new-cars'>
+                            <Col md = "4" sm = "12" >
                                 <ArticleCard/>
                             </Col>
-                            <Col xs = "6" md = "4">
+                            <Col md = "4" sm = "12" >
                                 <ArticleCard/>
                             </Col>
-                            <Col xs = "6" md = "4">
+                            <Col md = "4" sm = "12" >
                                 <ArticleCard/>
                             </Col>
+                            
                         </Row>
 
                     </Col>
@@ -65,9 +71,12 @@ const BlogsHome = () => {
                         <MostPopularCard/>
                         <MostPopularCard/>
                         <MostPopularCard/>
+                        <SubsribeCard/>
+               
                     </Col>
                 </Row> 
             </Container>
+            <Footer/>
         </body>
         
        

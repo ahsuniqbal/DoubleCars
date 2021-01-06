@@ -29,4 +29,7 @@
     line-height: 17px;
     color: rgba(0, 0, 0, 0.85);
 }
+.tarticle-card-heading{
+    font-weight: 550;
+}
 /* End */
