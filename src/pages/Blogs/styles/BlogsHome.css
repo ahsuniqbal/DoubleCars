@@ -7,18 +7,20 @@
     font-size: 24px;
     line-height: 28px;
     color: rgba(0, 0, 0, 0.85);
-    margin-bottom: 2rem;
-    margin-top: 3rem;
+    margin-bottom: 13px;
+    margin-top: 33px;
 }
-
+.upcoming-img{
+    margin-right: -5px !important;
+}
 .upcoming-cars-heading {
     font-weight: bold;
     font-size: 18px;
     line-height: 30px;
     color: rgba(0, 0, 0, 0.85);
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    /* margin-left: -15px; */
+    margin-bottom: 13px;
+    margin-top: 33px;
+    margin-left: -15px ;
 }
 
 .most-popular-heading {
@@ -39,7 +41,15 @@
     margin-bottom: 1rem;
 }
 .new-cars{
-    margin: 23px 0px 30px;
+    margin: 23px -20px 30px;
+}
+@media screen and (max-width:600px){
+    .upcoming-img{
+        margin-left: 0 !important;
+    }
+    .upcoming-cars-heading {
+        margin-left: 2px;
+    }
 }
 /* body{
     overflow-x:hidden;

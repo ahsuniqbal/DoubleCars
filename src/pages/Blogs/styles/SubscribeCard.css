@@ -1,13 +1,22 @@
 .main-card{
     background-color: #1C67CE;
-
-    padding: 3.4rem;
-   
+    padding: 2.4rem;   
     text-align: center;
     margin-bottom: 1.6rem;
 }
 .head{
-    font-size: 32px;
+    font-family: Ubuntu;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 25px;
+}
+.paragraph{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 120%;
+    margin-bottom: 24px;
 }
 .button{
     border: 1px solid #FFFFFF;
@@ -21,13 +30,44 @@
     color:white ;
 }
 #exampleEmail{
-    margin: 6% 0%;
+        height: 44px;
+        margin: 6% 0%;
+}
+#exampleEmail::placeholder{
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 14px;
+    line-height: 24px;
 }
 @media screen and (max-width: 768px) {
+    .main-card{
+        padding: 1rem 6rem !important;
+    }
+    .head{
+        font-size: 25px !important;
+    }
+    .paragraph{
+        font-size: 16px !important;
+        margin-bottom: 15px !important;
+
+    }
+    
+  }
+  @media screen and (max-width: 480px) {
+    .main-card{
+        padding: 1rem !important;
+    }
+    
+  }
+ @media screen and (max-width: 1030px) {
     .main-card{
         padding: 1rem;
     }
     .head{
-        font-size: 25px;
+      font-size: 20px;
+    font-weight: 500;
+    }
+    .paragraph{
+
+        font-size: 12px;
     }
   }
