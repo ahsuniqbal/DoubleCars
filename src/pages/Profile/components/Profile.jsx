@@ -9,8 +9,8 @@ const Profile = (props) => {
     const [user,setUser] = useState(null)
 
     useEffect(() => {
-        //localStorage.getItem("userId")
-        getUser(73)
+        //
+        getUser(localStorage.getItem("userId"))
         .then(doc => {
             console.log(doc[0])
             setUser(doc[0])

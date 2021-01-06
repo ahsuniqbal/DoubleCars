@@ -71,6 +71,7 @@ const Products = (props) => {
     const [pageNumber, setPageNumber] = useState(0);
     const [isBottom, setIsBottom] = useState(false);
     const [flag,setFlag] = useState(false)
+    const [booleanFlag, setBooleanFlag] = useState(false);
     const handleScroll = () => {
         const scrollTop = (document.documentElement
             && document.documentElement.scrollTop)
@@ -103,6 +104,7 @@ const Products = (props) => {
                 setProducts(temp);
             }else{
                 setProducts(doc);
+                setBooleanFlag(true);
             }
             setFlag(!flag)
         })
@@ -162,7 +164,8 @@ const Products = (props) => {
                     </Row>
                     <Row>
                         {
-                            products.length > 0 ? ShowSearchResults(products) : DrawSkeleton()
+                            products.length > 0 ? ShowSearchResults(products) : 
+                            booleanFlag ? <h2 className="text-center">No result found</h2> : DrawSkeleton()
                         }
                         {/* {
                             productss.map((product, index) => { 

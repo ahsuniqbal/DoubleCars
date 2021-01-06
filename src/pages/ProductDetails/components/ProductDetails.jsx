@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
+    const [recommendations, setRecommendations] = useState(null);
     const history = useHistory();
 
     useEffect(() => {
