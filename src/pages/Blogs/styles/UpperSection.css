@@ -272,42 +272,4 @@
         height: 325px !important;     
     }
   } 
-  
-  /* @media screen and (max-width: 1000px) {
-    .first-column, .second-column{
-        height: 467px !important;     
-    }
-  }
-
-  @media screen and (max-width: 751px) {
-    .third-column{
-        display: none !important; 
-    }
-    .second-column{
-        display: none !important;     
-    }
-    .first-column{
-        height: 100px !important;     
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .first-column{
-        height: 490px !important;     
-    } 
-    .second-column{
-        height: 490px !important;     
-    }
-    
-    .third-coloumn{
-        height: 238px !important; 
-    }
-    .blogs-header {
-        height: 50vh !important;
-    }
-    .content1 {
-        bottom: 2px !important;
-
-    }
-  }
-  */
+ 
