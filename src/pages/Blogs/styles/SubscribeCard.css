@@ -1,8 +1,8 @@
 .main-card{
     background-color: #1C67CE;
-    width: 330px;
+
     padding: 3.4rem;
-    height: 350px;
+   
     text-align: center;
     margin-bottom: 1.6rem;
 }
@@ -23,3 +23,11 @@
 #exampleEmail{
     margin: 6% 0%;
 }
+@media screen and (max-width: 768px) {
+    .main-card{
+        padding: 1rem;
+    }
+    .head{
+        font-size: 25px;
+    }
+  }

@@ -49,7 +49,7 @@ const UpperSection = () => {
                 <div className="">
                   <img src={img1} className="img1-fluid" />
                 </div>
-                <div className="content">
+                <div className="content1">
                   <Label>New Cars</Label>
                   <h2>Video: BMW M2 CS is part of Autocar’s 2020 Best Sports Cars</h2>
                   <Label className="date">Dec 15, 2020</Label>  
@@ -62,7 +62,7 @@ const UpperSection = () => {
                 <div className="">
                   <img src={img2} className="img2-fluid" />
                 </div>
-                <div className="content">
+                <div className="content1">
                   <Label>New Cars</Label>
                   <h2>Here is the perfect car for your love of black</h2>
                   <Label className="date">Dec 15, 2020</Label>
@@ -77,7 +77,7 @@ const UpperSection = () => {
                         <div className="">
                           <img src={img3} className="img3-fluid" />
                         </div>
-                        <div className="content">
+                        <div className="content2">
                           <Label>New Cars</Label>
                           <h2>Top 10 electric cars to buy as soon as possible </h2>
                           {/* <Label className="date">Dec 15, 2020</Label> */}
@@ -92,7 +92,7 @@ const UpperSection = () => {
                           <img src={img4} className="img4-fluid" />
                         </div>
                         
-                        <div className="content">
+                        <div className="content2">
                           <Label>New Cars</Label>
                           <h2>Video: BMW M2 CS is part of Autocar’s 2020 Best Sports Cars</h2>
                           {/* <Label className="date">Dec 15, 2020</Label> */}

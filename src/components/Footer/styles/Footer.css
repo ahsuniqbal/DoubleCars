@@ -10,13 +10,13 @@
 
 .car-dealer-head {
   color: #ffffff;
-  font-size: 42px;
+  font-size: 40px;
   font-weight: bold;
 }
 
 .car-dealer-subhead{
   font-weight: normal;
-  font-size: 18px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -59,7 +59,7 @@
   color: rgba(8, 11, 48, 0.65) !important;
 }
 .footer-contact {
-  font-size: 16px !important;
+  font-size: 12px !important;
   font-weight: 500 !important;
   color: #1C67CE;
 }
@@ -76,9 +76,26 @@
 }
 
 .icons-columns {
-  margin-right: -66px;
+  margin-right: -28px;
 }
 
 .feather-icon {
   margin-left: 90px;
+}
+
+/* media  */
+@media screen and (max-width: 500px) {
+  .h-100{
+     padding: 4% !important;
+  } 
+}
+@media screen and (max-width: 375px) {
+  .h-100{
+    padding-left: 10% !important;
+ }
+}
+@media screen and (max-width: 768px) {
+  .feather-icon {
+    margin-left: 40px;
+  }
 }
