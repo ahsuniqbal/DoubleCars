@@ -46,7 +46,6 @@ const BlogsHome = () => {
                             <Col  md = "4" sm = "12">
                                 <ArticleCard/>
                             </Col>
-                            <Col></Col>
                         </Row>
                        
                         <LowerSection/>
@@ -60,6 +59,7 @@ const BlogsHome = () => {
                             <Col md = "4" sm = "12" >
                                 <ArticleCard/>
                             </Col>
+                            
                         </Row>
 
                     </Col>
