@@ -1,0 +1,62 @@
+.PriceRange{
+    height:40vh;
+}
+.price-head{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 190%;
+    color: rgba(0, 0, 0, 0.85);
+    width: 268px;
+    height: 65px;
+}
+.Items{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 120%;
+    color: #080B30;
+    width: 268px;
+    height: 56px;
+    padding: 8% 0% 10% 7%;
+}
+/* .Items:focus{
+    color: #1C67CE;
+    background-color: #FAFAFA;
+    border-right: 2px solid #1C67CE !important;
+} */
+.Items:hover{
+    color: #1C67CE;
+    background-color: #FAFAFA;
+    border-right: 5px solid #1C67CE !important;
+}
+/* card */
+.head{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15.426px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.85);
+}
+.sub-head{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12.5336px;
+    line-height: 15px;
+    color: rgba(0, 0, 0, 0.65);
+}
+.price{
+    font-family:Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15.426px;
+    line-height: 19px;
+    color: #000000;
+}
+.row-class{
+    margin:2% 0% 4% -1% !important;
+}

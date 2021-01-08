@@ -1,0 +1,25 @@
+.content {
+    position: absolute;
+    bottom: 0px !important;
+    padding: 0px 20px 10px;
+    background: linear-gradient(1800deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    color: white !important;
+    width: 100%;
+}
+.content-header{
+    font-family: Ubuntu;
+    font-style: Bold;
+    font-size: 26px;
+    line-height: 30px;
+
+}
+.content-text{
+    font-family: Ubuntu;
+    font-style: Medium;
+    font-size: 16px;
+    line-height: 25px;
+    fill: Solid rgba(255, 255, 255, 0.85)
+}
+.main-coloumn{
+    padding-left: 0% !important;
+}

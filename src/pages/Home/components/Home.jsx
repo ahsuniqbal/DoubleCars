@@ -22,7 +22,11 @@ import ArticleCard from './ArticleCard';
 import FeaturedCars from './FeaturedCars';
 import CarSection1 from './CarSection1';
 import ServicesOffer from './ServicesOffer';
-
+import PriceRange from './PriceRange';
+import PriceRangeCards from './PriceRangeCards'
+import SellCar from './SellCar';
+import LowerCar from './LowerCars';
+import CarsLogo from './CarsLogo';
 
 // function DrawProductCards(data){
 //     var table = [];
@@ -170,11 +174,11 @@ const Home = () => {
                             <Searchbar />
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className='features-row'>
                         <Col xs = "12" md = "8" sm = "12" className = "">
                             <h2 className = "">Featured Cars</h2>
                         </Col>
-                        <Col md = "4" xs = "12" className = "text-right">
+                        <Col md = "4" xs = "12" className = " text-right">
                             <Link className = "mr-3" to="">All</Link>
                             <Link className = "mr-3" to="">New</Link>
                             <Link className = "" to="">Used</Link>
@@ -183,17 +187,17 @@ const Home = () => {
                     <Row>
                         <Col><FeaturedCars/></Col>
                     </Row>
-                    <ServicesOffer/>
+                    
                    
                         <Row>
                             <Col xs="12">
                                 {/*      */}
                                     <Row className = "">
-                                        <Col md = "6" xs = "12">
+                                        <Col md = "6" xs = "12" className = "recomended-coloumn">
                                             <h2 className = "recommended-cars-head">Recommneded Cars</h2>
                                         </Col>
 
-                                        <Col md = "6" xs = "12" className = "text-right">
+                                        <Col md = "6" xs = "12" className = "recomended-coloumn text-right">
                                             <Link className = "view-all" to="/products">View All</Link>
                                         </Col>
                                     </Row>                            
@@ -212,11 +216,11 @@ const Home = () => {
                             <Col xs="12">
                                 {/* <CardBody className="trending-cars"> */}
                                     <Row className = "">
-                                        <Col md = "6" xs = "12">
+                                        <Col md = "6" xs = "12" className='trending-coloumn'>
                                             <h2 className = "trending-cars-head">Trending in US</h2>
                                         </Col>
 
-                                        <Col md = "6" xs = "12" className = "text-right">
+                                        <Col md = "6" xs = "12" className = "trending-coloumn text-right">
                                             <Link className = "view-all" to="/products">View All</Link>
                                         </Col>
                                     </Row>
@@ -231,7 +235,7 @@ const Home = () => {
                             /> : null
                         }
                         
-
+                       
                         {/* <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" /> */}
                         
 
@@ -249,9 +253,24 @@ const Home = () => {
                             </CardBody>
                         </div> */}
                     
-                    <TopBudget/>
+                        <TopBudget/>
+                        <Row style={{backgroundColor:'#FAFAFA'}}>
+                            <Col lg='3' md='4' sm='12'>
+                                <PriceRange/>
+                            </Col>
+                            <Col lg='9' md='8' sm='12'>
+                                <PriceRangeCards/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <ServicesOffer/>
+                        </Row>
+
+                        
+                       
                     
-            
+                    
+{/*             
             <Row>
                 <Col xs = "12" md = "12" sm = "12" className = "text-center">
                     <h2 className = "popular-heading">Popular Make</h2>
@@ -259,31 +278,46 @@ const Home = () => {
                 </Col>
             </Row>
             <Label>In progress</Label>
-            <Row>
-                <Col xs = "12" md = "12" sm = "12" className = "text-center">
-                    <h2 className = "top-stories-heading">Top Stories</h2>
-                    <Label className = "download-app-label">Download app and upload your car in few steps</Label>
-                </Col>
-            </Row>
+            <Row> */}
+            <div>
+               
+                
+               
+            </div>
             
-            <Row>
-                <Col xs = "12" md = "3">
-                    <ArticleCard/>
-                </Col>
-                <Col xs = "12" md = "3">
-                    <ArticleCard/>
-                </Col>
-                <Col xs = "12" md = "3">
-                    <ArticleCard/>
-                </Col>
-                <Col xs = "12" md = "3">
-                    <ArticleCard/>
-                </Col>
-            </Row>
-
-            <CarSection1/>
+            
 
             </Container>
+
+            <CarSection1/>
+            <SellCar/>
+            <LowerCar/>
+            <CarsLogo/>
+            <div style={{backgroundColor:'white '}}>
+                 <Row>
+                    <Col xs = "12" md = "12" sm = "12" className = "top-stories-main text-center">
+                            <h2 className = "top-stories-heading">Top Stories</h2>
+                            <Label className = "download-app-label">Download app and upload your car in few steps</Label>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs = "12" md = "3">
+                        <ArticleCard/>
+                    </Col>
+                    <Col xs = "12" md = "3">
+                        <ArticleCard/>
+                    </Col>
+                    <Col xs = "12" md = "3">
+                        <ArticleCard/>
+                    </Col>
+                    <Col xs = "12" md = "3">
+                        <ArticleCard/>
+                    </Col>
+                </Row>
+               
+            </div>
+         
+            
         </div>
     )
     

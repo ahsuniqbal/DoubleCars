@@ -84,19 +84,19 @@ const Searchbar = () => {
                         </InputGroup>
                             
                         </Col>
+                       
+                            <Col xs="6" sm="6" md="2" className='dropdown-coloumn'>
+                                <Input id="make-list" type="select" className = "condition-dropdown">
+                                    <option value="" hidden selected>Condition</option>
+                                    <option value={false}>New</option>
+                                    <option value={true}>Used</option>
+                                </Input>
+                            </Col>
 
-                        <Col xs="6" sm="6" md="2">
-                            <Input id="make-list" type="select" className = "condition-dropdown">
-                                <option value="" hidden selected>Condition</option>
-                                <option value={false}>New</option>
-                                <option value={true}>Used</option>
-                            </Input>
-                        </Col>
-
-                        <Col xs="6" sm="6" md="2">
-                            <Button className = "search-button">Search</Button>
-                        </Col>
-
+                            <Col xs="6" sm="6" md="2" className='search-coloumn'>
+                                <Button className = "search-button">Search</Button>
+                            </Col>
+               
                         {/* <Col xs="6" sm="4" md="2">
                             {
                                 modelList ?

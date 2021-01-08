@@ -9,6 +9,7 @@ const FeaturedCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '70vh',
+        
       };
 
       const FeaturedDemoImage2 = {
@@ -17,6 +18,7 @@ const FeaturedCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '35vh',
+       
       };
       
       const FeaturedDemoImage3 = {
@@ -25,6 +27,7 @@ const FeaturedCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '35vh',
+       
       };
       const FeaturedDemoImage4 = {
         backgroundImage: `url(${require("../../../assets/FeaturedDemo4.png")})`,
@@ -32,6 +35,7 @@ const FeaturedCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '35vh',
+  
       };
       const FeaturedDemoImage5 = {
         backgroundImage: `url(${require("../../../assets/FeaturedDemo5.png")})`,
@@ -39,21 +43,47 @@ const FeaturedCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '35vh',
+     
       };
 
 
       
     return(
         <Row>
-            <Col md = "6" xs = "12" style = {FeaturedDemoImage1}></Col>
+            <Col md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn'>
+                <div className="content">
+                  <h2 className='content-header'>$30,500</h2>
+                  <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
+                </div>
+            </Col>
             <Col md = "6" xs = "12">
                 <Row>
-                    <Col md = "6" xs = "12" style = {FeaturedDemoImage2}></Col>
-                    <Col md = "6" xs = "12" style = {FeaturedDemoImage3}></Col>
+                    <Col md = "6" xs = "12" style = {FeaturedDemoImage2} className='main-coloumn'>
+                      <div className="content">
+                        <h2 className='content-header'>$30,500</h2>
+                        <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
+                      </div>
+                    </Col>
+                    <Col md = "6" xs = "12" style = {FeaturedDemoImage3} className='main-coloumn'>
+                      <div className="content">
+                        <h2 className='content-header'>$30,500</h2>
+                        <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
+                      </div>
+                    </Col>
                 </Row>
                 <Row>
-                    <Col md = "6" xs = "12" style = {FeaturedDemoImage4}></Col>
-                    <Col md = "6" xs = "12" style = {FeaturedDemoImage5}></Col>
+                    <Col md = "6" xs = "12" style = {FeaturedDemoImage4} className='main-coloumn'>
+                      <div className="content">
+                        <h2 className='content-header'>$30,500</h2>
+                        <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
+                      </div>
+                    </Col>
+                    <Col md = "6" xs = "12" style = {FeaturedDemoImage5} className='main-coloumn'>
+                      <div className="content">
+                        <h2 className='content-header'>$30,500</h2>
+                        <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
+                      </div>
+                    </Col>
                 </Row>
             </Col>
         </Row>

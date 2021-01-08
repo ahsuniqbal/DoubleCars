@@ -65,9 +65,37 @@
 .search-button {
     background-color: #1C67CE !important;
     border-radius: 0.4rem !important;
-    width: 150px !important;
+    width: 100% !important;
     height: 56px !important; 
     color: #ffffff !important;
     font-size: 15px !important;
     line-height: 16px;   
 }
+/* media */
+ @media screen and (max-width:1050px){
+    .left-cover-section{
+        padding-top: 20% !important;
+    }
+}
+/*
+@media screen and (max-width:940px){
+
+    .search-button {
+        width: 98px !important;   
+    }
+
+}
+@media screen and (max-width:768px){
+
+    .search-button {
+        width: 130px !important; 
+        margin-top: 15px !important;  
+    }
+    .dropdown-coloumn{
+        margin: 15px 0 0 0 !important;
+    }
+    .search-dropdown{
+
+    }
+
+} */

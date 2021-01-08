@@ -1,0 +1,38 @@
+.img-fluid{
+    width: 100% !important;
+    height: 100% !important;
+}
+.service-head{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    color: #080B30;
+}
+.service-text{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+    color: rgba(0, 0, 0, 0.84);
+}
+.nav-Item{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+    color: rgba(0, 0, 0, 0.84);
+}
+.check {
+    background-color: #F7FAFC !important;
+    color: #1C67CE !important;
+    width: 32px !important;
+    height: 32px !important;
+    padding: 3px;
+}
+.service-col{
+    padding: 8%;
+}

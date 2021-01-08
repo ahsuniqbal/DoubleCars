@@ -1,5 +1,6 @@
 import React, { useState} from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink,  Button,  Row, Col, Label } from 'reactstrap';
+import PriceRange from './PriceRange'
 
 import '../styles/TopBudget.css'
 import classnames from 'classnames';
@@ -11,7 +12,7 @@ const TopBudget = () => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        height: '30vh',
+        height: '258px',
       };
 
       const toggle = (e, tab) => {
@@ -32,41 +33,42 @@ const TopBudget = () => {
                         <Button  className = "explore-button">Exlpore more</Button>
                     </Col>
                 </Row>
-
+               
+{/* 
                 <Row>
-            <Col xs="6" sm="4" md="4">
-              <Nav tabs vertical pills>
-                <NavItem>
-                  <NavLink
-                    className={classnames({active: activeTab === '1'})}
-                    onClick={() => {
-                      toggle('1');
-                    }}
-                  >
-                    Tab1
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    className={classnames({active: activeTab === '2'})}
-                    onClick={(e) => { toggle(2)}}
-                  >
-                    Moar Tabs
-                  </NavLink>
-                </NavItem>
-              </Nav>
-            </Col>
-            <Col xs="6" sm="6" md="6">
-              <TabContent activeTab={activeTab}>
-                <TabPane tabId="1">
-                  <h4>Tab 1 Contents</h4>
-                </TabPane>
-                <TabPane tabId="2">
-                  <h4>Tab 2 Contents</h4>
-                </TabPane>
-              </TabContent>
-            </Col>
-          </Row>
+                  <Col xs="6" sm="4" md="4">
+                    <Nav tabs vertical pills>
+                      <NavItem>
+                        <NavLink
+                          className={classnames({active: activeTab === '1'})}
+                          onClick={() => {
+                            toggle('1');
+                          }}
+                        >
+                          Tab1
+                        </NavLink>
+                      </NavItem>
+                      <NavItem>
+                        <NavLink
+                          className={classnames({active: activeTab === '2'})}
+                          onClick={(e) => { toggle(2)}}
+                        >
+                          Moar Tabs
+                        </NavLink>
+                      </NavItem>
+                    </Nav>
+                  </Col>
+                  <Col xs="6" sm="6" md="6">
+                    <TabContent activeTab={activeTab}>
+                      <TabPane tabId="1">
+                        <h4>Tab 1 Contents</h4>
+                      </TabPane>
+                      <TabPane tabId="2">
+                        <h4>Tab 2 Contents</h4>
+                      </TabPane>
+                    </TabContent>
+                  </Col>
+                </Row> */}
 
 
                 
