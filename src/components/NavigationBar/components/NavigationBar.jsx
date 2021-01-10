@@ -69,7 +69,7 @@ const NavigationBar = () => {
                         </InputGroup>
                         </li>
 
-                        {/* <li className="nav-item">
+                        <li className="nav-item">
                             {
                                 localStorage.getItem("userId") ? <li className="nav-item">
                                 <NavLink className="nav-link navigation-items" to={'/profile'}>Profile</NavLink>
@@ -77,12 +77,13 @@ const NavigationBar = () => {
                                 <NavLink className="nav-link navigation-items" to={'/login'}>Log in</NavLink>
                             </li>
                             }
-                        {
+                            {
                             localStorage.getItem("userId") ? null : <li className="nav-item">
                             <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
                         </li>
+                            }
                         </li>
-                        } */}
+                        
                         
                         
                     </ul>   
