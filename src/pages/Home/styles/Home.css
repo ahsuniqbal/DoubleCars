@@ -17,3 +17,15 @@
   line-height: 19px;
   color: rgba(0, 0, 0, 0.65);
 }
+.features-row{
+  margin-top:3% !important;
+}
+.recomended-coloumn{
+  margin-top: 3% !important;
+}
+.trending-coloumn{
+  margin-top: 3% !important;
+}
+.top-stories-main{
+  padding: 4% 0%;
+}
