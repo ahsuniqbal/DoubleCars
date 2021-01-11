@@ -2,12 +2,13 @@ import React,{ useState, useEffect} from 'react';
 import { Button, Container, Row, Col, Input, Label, Card,CardBody} from 'reactstrap';
 import '../styles/Profile.css'
 import { logout } from '../../../config/LoginAuth';
-import profileImage from '../../../assets/Dummy-profile-image.png'
+// import profileImage from '../../../assets/Dummy-profile-image.png'
 import {getUser} from '../api/Get'
+import {changePassword} from '../api/Patch'
 const Profile = (props) => {
 
     const [user,setUser] = useState(null)
-
+    const [loading,setLoading] = useState(false)
     useEffect(() => {
         //
         getUser(localStorage.getItem("userId"))
@@ -20,9 +21,36 @@ const Profile = (props) => {
         })
     },[])
 
+    const saveProfileClick = () => {
+
+    }
+
     const handleLogout = () => {
         logout();
         props.history.push('/');
+    }
+
+    const onChangePassword = () => {
+        var currPassword = document.getElementById('oldPass');
+        var newPassword = document.getElementById('newPass');
+        const obj = {
+            currPassword,newPassword
+        }
+        setLoading(true)
+        changePassword(localStorage.getItem("userId"),obj)
+        .then(doc => {
+            setLoading(false)
+            if(doc.code === 1){
+                document.getElementById('oldPass').value = ""
+                document.getElementById('newPass').value = ""
+            }else{
+                alert(doc.message)
+            }
+        })
+        .catch(e => {
+            setLoading(false)
+            alert(e.message)
+        })
     }
     return(
         // <div>
@@ -72,7 +100,10 @@ const Profile = (props) => {
                         <Input id="" className = "profile-text-field" type="text" />
                         <Label className = "profile-labels">Bio</Label>
                         <textarea class="form-control bio-box" rows="4" placeholder = "Message (Optional)"></textarea> */}
-                        <Button type="submit" color="primary" className="save-profile-button float-right">Save Profile</Button>
+                        <Button onClick={e => saveProfileClick()} color="primary" className="save-profile-button float-right">
+                        {loading && <span>Saving</span>}
+                        {!loading && <span>Save Profile</span>}
+                        </Button>
                         <Row>
                             <Col xs = "12" md = "12">
                             <h4 className = "profile-page-heading">Change Password</h4>
@@ -83,15 +114,18 @@ const Profile = (props) => {
                         <Row>
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">Old Pasword</Label>
-                                <Input id="" className = "profile-text-field" type="text"/>
+                                <Input id="oldPass" className = "profile-text-field" type="text"/>
                             </Col>
 
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">New Password</Label>
-                                <Input id="" className = "profile-text-field" type="text" />
+                                <Input id="newPass" className = "profile-text-field" type="text" />
                             </Col>
                         </Row>
-                        <Button type="submit" color="primary" className="change-password-button float-right">Change</Button>
+                        <Button color="primary" onClick={e => onChangePassword()} className="change-password-button float-right">
+                        {loading && <span>Changing...</span>}
+                        {!loading && <span>Change</span>}
+                        </Button>
                     </Col>
                </Row>
             </Container>
