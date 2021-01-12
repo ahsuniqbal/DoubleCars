@@ -6,7 +6,7 @@ const Header = () => {
     return(
         <div>
             <section className = "align-items-center">
-                    <div className = "row">
+                    <div className = "row header-main">
                  
                                 <div className = "col-12 col-md-5 col-sm-6 pt-lg-0 pt-md-4 pt-sm-4 d-flex justify-content-center flex-column left-cover-section ">
                                     <h1 className = "cover-left-heading ml-5">

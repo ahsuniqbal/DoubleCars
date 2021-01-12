@@ -1,15 +1,36 @@
+.main-card{
+    margin: 30px 15px;
+}
+.rwt__tabs{
+    width: 100% !important;
+}
+.rwt__tablist{
+    border-right: none !important;
+}
 .PriceRange{
     height:40vh;
 }
+.MuiGrid-root{
+    background-color: #FAFAFA !important;
+}
+.MuiGrid-item{
+    padding:0px 12px 0px 0px !important
+}
+/* .vertical-tabs , .main-class{
+    display: flex;
+} */
+
 .price-head{
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
+    width: 100%;
     font-size: 20px;
     line-height: 190%;
     color: rgba(0, 0, 0, 0.85);
-    width: 268px;
-    height: 65px;
+    width: 100%;
+    background-color: white;
+    height: 68px;
 }
 .Items{
     font-family: Ubuntu;
@@ -18,19 +39,21 @@
     font-size: 14px;
     line-height: 120%;
     color: #080B30;
-    width: 268px;
-    height: 56px;
-    padding: 8% 0% 10% 7%;
+    width: 100%;
+    height: 60px;
+    padding: 10% 0% 12% 7%;
+    border-top: 1px solid #FAFAFA;
+    background-color: white;
+    border-left: 0px !important;
 }
-/* .Items:focus{
+.rwt__tab[aria-selected="true"]:after{
+    border-right: 3px solid #1C67CE !important;
+}
+
+.Items:focus{
     color: #1C67CE;
     background-color: #FAFAFA;
-    border-right: 2px solid #1C67CE !important;
-} */
-.Items:hover{
-    color: #1C67CE;
-    background-color: #FAFAFA;
-    border-right: 5px solid #1C67CE !important;
+    border-right: 3px solid #1C67CE !important;
 }
 /* card */
 .head{
@@ -60,3 +83,8 @@
 .row-class{
     margin:2% 0% 4% -1% !important;
 }
+/* @media screen and(max-width:768px){
+    .rwt__tab{
+        width: 100% !important;
+    }
+} */

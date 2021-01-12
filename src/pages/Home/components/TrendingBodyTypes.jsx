@@ -7,6 +7,7 @@ import '../styles/TrendingBodyTypes.css';
 import classnames from 'classnames';
 import { GetProductsOfBodyType } from '../api/GetRequests';
 
+
 const TrendingBodyTypes = (props) => {
     const [activeTab, setActiveTab] = useState('1');
     const [bodyTypeProducts, setBodyTypeProducts] = useState(null);

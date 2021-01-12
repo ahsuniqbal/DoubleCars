@@ -1,4 +1,6 @@
-
+.header-main{
+  margin: 0;
+}
 /* left section css */
 .left-cover-section {
   background-image: url("../../../assets/BlueCover.png"); 

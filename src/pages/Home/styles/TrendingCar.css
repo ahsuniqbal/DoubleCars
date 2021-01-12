@@ -18,7 +18,9 @@
   font-size: 16px;
   font-weight: 500;
 }
-
+.tab-items{
+  margin-right: 13px !important;
+}
 
 
 /* Carosuel custom css starts here. */

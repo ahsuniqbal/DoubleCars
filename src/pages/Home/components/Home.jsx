@@ -27,6 +27,7 @@ import PriceRangeCards from './PriceRangeCards'
 import SellCar from './SellCar';
 import LowerCar from './LowerCars';
 import CarsLogo from './CarsLogo';
+import { ActionSwapVerticalCircle } from 'material-ui/svg-icons';
 
 // function DrawProductCards(data){
 //     var table = [];
@@ -140,13 +141,28 @@ const DrawCarousel = (list) => {
 const Home = () => {
     const [recommendations, setRecommendations] = useState(null);
     const [trending, setTrending] = useState(null);
-    // const [bodyTypes, setBodyTypes] = useState(null);
-
+     const [bodyTypes, setBodyTypes] = useState(null);
+    
+    // const ApiCall=async()=>{
+    //     await axios
+    //     .get('https://magnetic-flare-280505.uc.r.appspot.com/home/part-two?id=1')
+    //     .then((data) => {
+    //         const recomendedData=data.data.results[0].data
+    //         const trendingData=data.data.results[1].data
+    //         console.log('data',recomendedData)
+    //     })
+    //     .catch((error)=>{
+    //         console.log(error)
+    //     })
+    // }
     useEffect(() => {
+        // calling Api function
+       
         // If User is logged in the you will send id param other wise no id param will be send
         // Login not implemented yet that
-
         
+      
+
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
             setRecommendations(doc[0].data);
             setTrending(doc[1].data);
@@ -156,12 +172,13 @@ const Home = () => {
         });
 
         //Get the list of all body types
-        // GetAllBodyTypes().then(doc => {
-        //     setBodyTypes(doc.bodyStyleList);
-        // })
-        // .catch(error => {
-        //     alert(error.message);
-        // });
+        GetAllBodyTypes().then(doc => {
+            console.log('bodytyes',doc.bodyStyleList)
+            setBodyTypes(doc.bodyStyleList);
+        })
+        .catch(error => {
+            alert(error.message);
+        });
     }, []);
    
     return(
@@ -254,17 +271,9 @@ const Home = () => {
                         </div> */}
                     
                         <TopBudget/>
-                        <Row style={{backgroundColor:'#FAFAFA'}}>
-                            <Col lg='3' md='4' sm='12'>
-                                <PriceRange/>
-                            </Col>
-                            <Col lg='9' md='8' sm='12'>
-                                <PriceRangeCards/>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <ServicesOffer/>
-                        </Row>
+                        <PriceRange/>
+                        <ServicesOffer/>
+                       
 
                         
                        
@@ -291,16 +300,16 @@ const Home = () => {
 
             <CarSection1/>
             <SellCar/>
-            <LowerCar/>
+            <LowerCar bodyTypes={bodyTypes}/>
             <CarsLogo/>
             <div style={{backgroundColor:'white '}}>
-                 <Row>
+                 <Row style={{margin:'0'}}>
                     <Col xs = "12" md = "12" sm = "12" className = "top-stories-main text-center">
                             <h2 className = "top-stories-heading">Top Stories</h2>
                             <Label className = "download-app-label">Download app and upload your car in few steps</Label>
                     </Col>
                 </Row>
-                <Row>
+                <Row style={{margin:'0'}}>
                     <Col xs = "12" md = "3">
                         <ArticleCard/>
                     </Col>

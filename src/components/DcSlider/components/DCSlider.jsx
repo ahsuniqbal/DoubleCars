@@ -5,13 +5,28 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css";
 import ProductCard from '../../ProductCard';
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
+import '../styles/DCSlider.css'
+import nextIcon from '../../../assets/next-icon.png';
 
+const NextIcon=(props)=>{
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      onClick={onClick}
+    >
+      <img src={nextIcon} className='icon-image'/>
+    </div>
+  );
+}
 const DCSlider = (props) => {
+
     let settings = {
         adaptiveHeight: true,
-        arrows: true,
+        
         autoplaySpeed: 2000,
         autoplay: false,
+        nextArrow: <NextIcon />,
         // centerMode: true,
         // centerPadding: '50px',
         dots: false,
@@ -62,6 +77,7 @@ const DCSlider = (props) => {
                             productTitle={item.carName}
                             productSubtitle={AddCommaToNumber(item.mileage) + " miles · " + item.zipCode}
                             productText={"$" + AddCommaToNumber(item.price)}
+                        
                         />      
                     ))
                 : null

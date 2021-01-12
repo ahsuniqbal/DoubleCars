@@ -14,8 +14,8 @@ const CarSection1 = () => {
 
       
     return(
-        <Row>
-            <Col md = "3" xs = "12">
+        <Row className='car-section-row'>
+            <Col md = "3" xs = "12" className='car-section-coloumn'>
                 <Col md = "12" xs = "12"  style = {CarSection1DemoImage1}>
                     <Badge color="primary" className = "car-badge">Hybrid</Badge>
                     <h2 className = "car-title"> Pluig-in Cars</h2>
@@ -23,7 +23,7 @@ const CarSection1 = () => {
                 </Col>
             </Col>
 
-            <Col md = "3" xs = "12">
+            <Col md = "3" xs = "12" className='car-section-coloumn'>
                 <Col md = "12" xs = "12"  style = {CarSection1DemoImage1}>
                     <Badge color="primary" className = "car-badge">Hybrid</Badge>
                     <h2 className = "car-title">Electric Cars</h2>
@@ -31,7 +31,7 @@ const CarSection1 = () => {
                 </Col>
             </Col>
 
-            <Col md = "3" xs = "12">
+            <Col md = "3" xs = "12" className='car-section-coloumn'>
                 <Col md = "12" xs = "12"  style = {CarSection1DemoImage1}>
                     <Badge color="primary" className = "car-badge">Hybrid</Badge>
                     <h2 className = "car-title">Self-Driving Cars</h2>
@@ -39,7 +39,7 @@ const CarSection1 = () => {
                 </Col>
             </Col>
 
-            <Col md = "3" xs = "12">
+            <Col md = "3" xs = "12" className='car-section-coloumn'>
                 <Col md = "12" xs = "12"  style = {CarSection1DemoImage1}>
                     <Badge color="primary" className = "car-badge">Hybrid</Badge>
                     <h2 className = "car-title">Hybird Cars</h2>

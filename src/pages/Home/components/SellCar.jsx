@@ -15,7 +15,7 @@ const SellCar = () => {
   
                 <div className='main'>
                     <div className='first'>
-                        <Row>
+                        <Row style={{margin:'0'}}>
                             <Col md='7' sm='6'>
                                <div className='blue-bg'>
                                     <h2 className='blue-head'>

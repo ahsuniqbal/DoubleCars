@@ -1,0 +1,20 @@
+
+ 
+  .slick-next:before{
+      display: none;
+  }
+  .slick-arrow{
+    background-color: none;
+  }
+  .slick-next{
+    right: 4px !important;
+
+  }
+.icon-image{
+    border: 1px solid white;
+    background-color: white;
+    height: 40px;
+    width: 32px;
+    padding: 10px;
+    border-radius: 8px;
+}
