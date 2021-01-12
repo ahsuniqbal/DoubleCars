@@ -21,6 +21,12 @@
 .tab-items{
   margin-right: 13px !important;
 }
+@media screen and(max-width:500px){
+  .trending-cars-head{
+    margin-top: 3% !important;
+    margin-bottom: -1% !important;
+  }
+}
 
 
 /* Carosuel custom css starts here. */

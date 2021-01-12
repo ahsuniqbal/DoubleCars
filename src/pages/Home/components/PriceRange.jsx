@@ -8,8 +8,8 @@ import {
 import '../styles/PriceRange.css';
 import {PriceRangeCards1,PriceRangeCards2,PriceRangeCards3,
     PriceRangeCards4} from './PriceRangeCards'
-    import Paper from '@material-ui/core/Paper';
-    import Grid from '@material-ui/core/Grid';
+ 
+import Grid from '@material-ui/core/Grid';
 
 const PriceRange = () => {
  
@@ -22,7 +22,7 @@ const PriceRange = () => {
                     <Grid item sm={12}  md={4} lg={2}>
 
                         <TabList>
-                            <Tab className='price-head'>Price Range</Tab>
+                            <span className='price-head'>Price Range</span>
                             <Tab tabFor="vertical-tab-one" className='Items'>$10000</Tab>
                             <Tab tabFor="vertical-tab-two" className='Items'>$20000</Tab>
                             <Tab tabFor="vertical-tab-three" className='Items'>$30000</Tab>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Row, Label, Badge } from 'reactstrap';
 import '../styles/FeaturedCars.css'
 
-const FeaturedCars = () => {
+const NewFeaturedCars = () => {
     const FeaturedDemoImage1 = {
         backgroundImage: `url(${require("../../../assets/FearturedDemo1.png")})`,
         backgroundPosition: 'center',
@@ -24,7 +24,7 @@ const FeaturedCars = () => {
       };
       
       const FeaturedDemoImage3 = {
-        backgroundImage: `url(${require("../../../assets/DemoCar3.png")})`,
+        backgroundImage: `url(${require("../../../assets/FeaturedDemo3.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -33,7 +33,7 @@ const FeaturedCars = () => {
        
       };
       const FeaturedDemoImage4 = {
-        backgroundImage: `url(${require("../../../assets/DemoCar2.png")})`,
+        backgroundImage: `url(${require("../../../assets/FeaturedDemo4.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -100,4 +100,4 @@ const FeaturedCars = () => {
   
 }
 
-export default FeaturedCars;
+export default NewFeaturedCars;

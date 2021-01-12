@@ -18,6 +18,13 @@
   font-size: 16px;
   font-weight: 500;
 }
+@media screen and(max-width:420px){
+  .recommended-cars-head {
+    margin-top: 5% !important;
+    margin-bottom: 0% !important;
+  }
+}
+
 
 
 /* Carosuel custom css starts here. */
