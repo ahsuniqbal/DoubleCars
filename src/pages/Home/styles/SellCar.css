@@ -1,13 +1,22 @@
 
-.main{
+/* .main{
         background-image: url("../../../assets/BlueCover.png");
         background-repeat: no-repeat;
         background-size: cover;
         width: 100%;
        
+} */
+.screenshot-img{
+    position: absolute;
 }
 .blue-bg{
-
+    background-color: #1C67CE ;
+    width: 100%;
+}
+.white-bg{
+    background-color: whitesmoke;
+    width: 100%;
+    margin-top: -230px;
 }
 .blue-head{
     font-family: Poppins;
@@ -39,3 +48,22 @@
     color: white;
 }
 
+.white-head{
+    position: absolute;
+    /* width: 80px;
+    height: 22px; */
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+}
+.white-text{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.45);
+}
