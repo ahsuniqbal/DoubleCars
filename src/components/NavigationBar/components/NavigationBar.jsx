@@ -72,24 +72,21 @@ const NavigationBar = () => {
                         </InputGroup>
                         </li>
 
-                        <li className="nav-item">
-                            <div style={{display:'flex'}}>
-                                {
-                                    localStorage.getItem("userId") ? <li className="nav-item">
-                                    <NavLink className="nav-link navigation-items" to={'/profile'}>Profile</NavLink>
-                                </li> : <li className="nav-item">
-                                    <NavLink className="nav-link navigation-items" to={'/login'}>Log in</NavLink>
-                                </li>
-                                }
+                        <li className="nav-item d-flex">
                             {
                                 localStorage.getItem("userId") ? null : <li className="nav-item">
-                                <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
+                                <NavLink className="nav-link navigation-items login-button" to="/login">Log in</NavLink>
                             </li>
-                        
                             }
-                        </div>
-                          </li>
+                            {
+                            localStorage.getItem("userId") ? null : <li className="nav-item">
+                            <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
+                        </li>
+                            }
+                        </li>
                         
+                        
+                       
                     </ul>   
                 </div>
             </nav>

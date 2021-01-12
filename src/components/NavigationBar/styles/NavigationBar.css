@@ -116,9 +116,22 @@ a:hover {
     width: 98px;
     line-height: 19px;
     font-size: 14px;
+    text-align: center;
+    padding-top: 0.6rem;
 }
 
-
+.login-button{
+    background-color: #ffffff !important;
+    border-radius: 0.4rem !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+    text-decoration: none !important;
+    height: 42px;
+    width: 98px;
+    line-height: 19px;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 0.6rem;
+}
 
 
 
