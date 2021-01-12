@@ -84,6 +84,9 @@
     line-height: 19px;
     color: #000000;
 }
+.rwt__tablist{
+    margin-right:0 !important;
+}
 .row-class{
     margin:2% 0% 4% -1% !important;
 }
@@ -107,5 +110,8 @@
     }
     .price-head{
         width: 355px !important;
+    }
+    .price-range-grid{
+        padding-right: 0 !important;
     }
 }

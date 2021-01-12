@@ -19,7 +19,7 @@ const PriceRange = () => {
 
             <Tabs defaultTab="vertical-tab-one" vertical className="vertical-tabs">
                 <Grid container spacing={3}>
-                    <Grid item sm={12}  md={4} lg={2}>
+                    <Grid item sm={12}  md={4} lg={2} className='price-range-grid'>
 
                         <TabList>
                             <span className='price-head'>Price Range</span>
