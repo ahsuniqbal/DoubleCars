@@ -1,10 +1,10 @@
 import React from 'react';
 import { Col, Row, Label, Badge } from 'reactstrap';
-import '../styles/FeaturedCars.css'
+import '../styles/OldFeaturedCard.css'
 
-const FeaturedCars = () => {
+const OldFeaturedCars = () => {
     const FeaturedDemoImage1 = {
-        backgroundImage: `url(${require("../../../assets/FearturedDemo1.png")})`,
+        backgroundImage: `url(${require("../../../assets/DummyCarCard.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -14,7 +14,7 @@ const FeaturedCars = () => {
       };
 
       const FeaturedDemoImage2 = {
-        backgroundImage: `url(${require("../../../assets/FeaturedDemo2.png")})`,
+        backgroundImage: `url(${require("../../../assets/DemoCar2.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -33,7 +33,7 @@ const FeaturedCars = () => {
        
       };
       const FeaturedDemoImage4 = {
-        backgroundImage: `url(${require("../../../assets/DemoCar2.png")})`,
+        backgroundImage: `url(${require("../../../assets/DemoCar4.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -42,7 +42,7 @@ const FeaturedCars = () => {
         border:'5px solid white'  
       };
       const FeaturedDemoImage5 = {
-        backgroundImage: `url(${require("../../../assets/FeaturedDemo5.png")})`,
+        backgroundImage: `url(${require("../../../assets/DemoCar.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -55,7 +55,6 @@ const FeaturedCars = () => {
     return(
         <Row className='main-feature'>
             <Col md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn'>
-            <Badge color="primary" className = "feature-car-badge1">New</Badge>
                 <div className="content">
                   <h2 className='content-header'>$30,500</h2>
                   <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
@@ -64,14 +63,12 @@ const FeaturedCars = () => {
             <Col md = "6" xs = "12">
                 <Row>
                     <Col md = "6" xs = "12" style = {FeaturedDemoImage2} className='main-coloumn'>
-                    <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
                         <h2 className='content-header'>$30,500</h2>
                         <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
                       </div>
                     </Col>
                     <Col md = "6" xs = "12" style = {FeaturedDemoImage3} className='main-coloumn'>
-                      
                       <div className="content">
                         <h2 className='content-header'>$30,500</h2>
                         <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
@@ -86,7 +83,6 @@ const FeaturedCars = () => {
                       </div>
                     </Col>
                     <Col md = "6" xs = "12" style = {FeaturedDemoImage5} className='main-coloumn'>
-                     <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
                         <h2 className='content-header'>$30,500</h2>
                         <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
@@ -100,4 +96,4 @@ const FeaturedCars = () => {
   
 }
 
-export default FeaturedCars;
+export default OldFeaturedCars;

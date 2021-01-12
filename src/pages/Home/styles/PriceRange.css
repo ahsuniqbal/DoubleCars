@@ -31,6 +31,8 @@
     width: 100%;
     background-color: white;
     height: 68px;
+    padding: 9%;
+    text-align: center;
 }
 .Items{
     font-family: Ubuntu;
@@ -40,8 +42,9 @@
     line-height: 120%;
     color: #080B30;
     width: 100%;
-    height: 60px;
-    padding: 10% 0% 12% 7%;
+    height: 55px;
+    padding-top: 3%;
+    padding-bottom: 6%;
     border-top: 1px solid #FAFAFA;
     background-color: white;
     border-left: 0px !important;
@@ -54,6 +57,7 @@
     color: #1C67CE;
     background-color: #FAFAFA;
     border-right: 3px solid #1C67CE !important;
+    font-weight: 700;
 }
 /* card */
 .head{
@@ -80,11 +84,34 @@
     line-height: 19px;
     color: #000000;
 }
+.rwt__tablist{
+    margin-right:0 !important;
+}
 .row-class{
     margin:2% 0% 4% -1% !important;
 }
-/* @media screen and(max-width:768px){
-    .rwt__tab{
-        width: 100% !important;
+
+@media screen and (max-width:900px){
+    .price-head{
+        padding: 4% 0% 8%;
     }
-} */
+}
+@media screen and (max-width:600px){
+    .Items{
+        width: 530px !important;
+    }
+    .price-head{
+        width: 530px !important;
+    }
+}
+@media screen and (max-width:500px){
+    .Items{
+        width: 355px !important;
+    }
+    .price-head{
+        width: 355px !important;
+    }
+    .price-range-grid{
+        padding-right: 0 !important;
+    }
+}

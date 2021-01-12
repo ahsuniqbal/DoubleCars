@@ -10,6 +10,9 @@
 .input :focus {
     outline-offset: 0px !important;
 }
+.feature-heading{
+  font-weight: 600;
+}
 
 .download-app-label{
   font-weight: normal;
@@ -28,4 +31,16 @@
 }
 .top-stories-main{
   padding: 4% 0%;
+}
+.new-used-class{
+  display: flex;
+  float: right;
+  margin-left: 190px;
+}
+@media screen and (max-width: 420px) {
+  .recommended-cars-head , .trending-cars-head{
+    margin-top: 13px !important;
+    margin-bottom: 0% !important;
+  }
+ 
 }

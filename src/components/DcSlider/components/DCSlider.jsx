@@ -7,15 +7,27 @@ import ProductCard from '../../ProductCard';
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
 import '../styles/DCSlider.css'
 import nextIcon from '../../../assets/next-icon.png';
+import previousIcon from '../../../assets/prev-icon.svg';
 
 const NextIcon=(props)=>{
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
     <div
       className={className}
       onClick={onClick}
     >
       <img src={nextIcon} className='icon-image'/>
+    </div>
+  );
+}
+const PrevoiusIcon=(props)=>{
+  const { className, onClick } = props;
+  return (
+    <div
+      className={className}
+      onClick={onClick}
+    >
+      <img src={previousIcon} className='prev-icon-image'/>
     </div>
   );
 }
@@ -27,6 +39,7 @@ const DCSlider = (props) => {
         autoplaySpeed: 2000,
         autoplay: false,
         nextArrow: <NextIcon />,
+        prevArrow:<PrevoiusIcon/>,
         // centerMode: true,
         // centerPadding: '50px',
         dots: false,
