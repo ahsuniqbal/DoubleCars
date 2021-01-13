@@ -37,7 +37,10 @@ a:hover {
     margin-left:17px;
     margin-right:17px;
   }
-
+.navbar-buttons{
+    margin-left:5px !important;
+    margin-right:10px !important;
+}
 .menu-active {
     font-weight: bold !important;
     border-bottom:  1px solid #565387;
@@ -112,12 +115,12 @@ a:hover {
     color: #1C67CE !important;
     border: 1px solid #1C67CE !important;
     text-decoration: none !important;
-    height: 42px;
-    width: 98px;
+    height: 60%;
+    width: 120%;
     line-height: 19px;
     font-size: 14px;
     text-align: center;
-    padding-top: 0.6rem;
+    /* padding-top: 0.6rem; */
 }
 
 .login-button{
@@ -125,14 +128,19 @@ a:hover {
     border-radius: 0.4rem !important;
     color: rgba(0, 0, 0, 0.85) !important;
     text-decoration: none !important;
-    height: 42px;
-    width: 98px;
+    height: 60%;
+    width: 100%;
     line-height: 19px;
     font-size: 14px;
     text-align: center;
-    padding-top: 0.6rem;
+    /* padding-top: 0.6rem; */
 }
-
+@media screen and (max-width:1050px){
+    .navbar-nav li{
+        margin-right:0 !important;
+        margin-left: 17px !important;
+      }
+}
 
 
 /* COMMENTED CODE,  MAY BE USE LATER> */

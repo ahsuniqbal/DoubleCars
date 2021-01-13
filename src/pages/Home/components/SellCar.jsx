@@ -3,9 +3,9 @@ import { Col, Row, Button, CustomInput } from 'reactstrap';
 import '../styles/SellCar.css';
 import GooglePlayImg from '../../../assets/GooglePlay.png'
 import Mobile from '../../../assets/mobile Image.png'
-import Upload from '../../../assets/upload.svg'
-import Chat from '../../../assets/message-square.svg'
-import Checkbox from '../../../assets/check-square.svg'
+import Upload from '../../../assets/upload.png'
+import Chat from '../../../assets/message-square.png'
+import Checkbox from '../../../assets/check-square.png'
 
 const SellCar = () => {
    

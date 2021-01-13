@@ -15,21 +15,15 @@
     left: -13px !important;
 }
   .slick-next{
-    right: 8px !important;
+    right: 18px !important;
   }
  
-.icon-image {
+.icon-image ,.prev-icon-image {
     border: 1px solid white;
     background-color: white;
-    height: 40px;
-    width: 32px;
-    padding: 10px;
-    border-radius: 8px;
-}
-.prev-icon-image{
-  border: 1px solid white;
-  background-color: white;
-  height: 40px;
-  width: 32px;
-  border-radius: 8px;
+    height: 56px;
+    width: 50px;
+    padding: 20px;
+    border-radius: 13px;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
 }

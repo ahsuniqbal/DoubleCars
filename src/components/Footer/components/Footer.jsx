@@ -13,11 +13,11 @@ const Footer = () => {
                     <Row>
                         <Col className = "footer-image">
                             <Row className = "h-100">
-                                <Col md  = "5" xs = "12" className = "offset-1 my-auto">
+                                <Col md  = "6" xs = "12" className = "car-dealer-class my-auto">
                                     <h1 className = "car-dealer-head">Are you a car dealer?</h1>
                                     <h5 className = "my-1 car-dealer-subhead">We bring you the opporitniy to sell your car on our platmore</h5>
                                 </Col>
-                                <Col md = "2" xs = "12" className = "offset-3 my-auto">
+                                <Col md = "2" xs = "12" className = "learn-more-button-class my-auto">
                                     <Button className="learn-more-button-cover">Learn More</Button>
                                 </Col>
                             </Row>
@@ -120,14 +120,18 @@ const Footer = () => {
                         </Link>
                         </Col>
                         <Col md = "3" xs = "12" className = "lower-footer-columns">
-                            <Row >
-                                <Col md = "3"  xs = "" className = "icons-columns">
+                        {/* <Facebook color="#1C67CE" size={20} className = "feather-icon"/>
+                        <Instagram color="#1C67CE" size={20} className = "feather-icon"/>
+                        <Twitter color="#1C67CE" size={20} className = "feather-icon"/> */}
+
+                            <Row className='icon-row'>
+                                <Col md = "2"  xs = "" className = "icons-columns">
                                     <Facebook color="#1C67CE" size={20} className = "feather-icon"/>
                                 </Col >
-                                <Col md = "3" xs = "" className = "icons-columns ">
+                                <Col md = "2" xs = "" className = "icons-columns ">
                                     <Instagram color="#1C67CE" size={20} className = "feather-icon"/>
                                 </Col>
-                                <Col md = "3"  xs = "" className = "icons-columns ">
+                                <Col md = "2"  xs = "" className = "icons-columns ">
                                     <Twitter color="#1C67CE" size={20} className = "feather-icon"/>
                                 </Col>
                             </Row>

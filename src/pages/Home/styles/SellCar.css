@@ -2,6 +2,7 @@
 .main{
      
        position: relative;
+       margin-top: 4% !important;
 }
 .mobile-img{
     position: absolute;
@@ -102,4 +103,7 @@
     .mobile-img{
         position: unset;
     }
+    .main{
+        margin-top: 10% !important;
+ }
 }

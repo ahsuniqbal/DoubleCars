@@ -24,10 +24,10 @@
   margin-top:3% !important;
 }
 .recomended-coloumn{
-  margin-top: 3% !important;
+  margin-top:55px ;
 }
 .trending-coloumn{
-  margin-top: 3% !important;
+  margin-top: 23px ;
 }
 .top-stories-main{
   padding: 4% 0%;
@@ -35,12 +35,11 @@
 .new-used-class{
   display: flex;
   float: right;
-  margin-left: 190px;
 }
-@media screen and (max-width: 420px) {
-  .recommended-cars-head , .trending-cars-head{
-    margin-top: 13px !important;
-    margin-bottom: 0% !important;
-  }
- 
+.new-used-tab{
+  color: grey;
 }
+.new-used-tab:focus{
+  color: blue;
+}
+/*  */

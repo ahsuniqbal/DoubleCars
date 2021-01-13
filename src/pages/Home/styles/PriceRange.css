@@ -26,13 +26,12 @@
     font-weight: 600;
     width: 100%;
     font-size: 20px;
-    line-height: 190%;
+    line-height: 120%;
     color: rgba(0, 0, 0, 0.85);
     width: 100%;
     background-color: white;
     height: 68px;
-    padding: 9%;
-    text-align: center;
+    padding: 9% 12% 9%;
 }
 .Items{
     font-family: Ubuntu;
@@ -42,9 +41,8 @@
     line-height: 120%;
     color: #080B30;
     width: 100%;
-    height: 55px;
-    padding-top: 3%;
-    padding-bottom: 6%;
+    height: 56px;
+    padding-right: 68%;
     border-top: 1px solid #FAFAFA;
     background-color: white;
     border-left: 0px !important;
@@ -91,11 +89,28 @@
     margin:2% 0% 4% -1% !important;
 }
 
-@media screen and (max-width:900px){
+@media screen and (max-width:600px){
+    .Items{
+        width: 530px !important;
+    }
     .price-head{
-        padding: 4% 0% 8%;
+        width: 530px !important;
     }
 }
+@media screen and (max-width:500px){
+    .Items{
+        width: 355px !important;
+    }
+    .price-head{
+        width: 355px !important;
+    }
+}
+@media screen and (max-width:900px){
+    .price-head{
+        padding:6% 14% 7%;
+    }
+}
+/* 
 @media screen and (max-width:600px){
     .Items{
         width: 530px !important;
@@ -114,4 +129,4 @@
     .price-range-grid{
         padding-right: 0 !important;
     }
-}
+} */

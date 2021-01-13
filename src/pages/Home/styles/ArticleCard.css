@@ -32,4 +32,7 @@
 .tarticle-card-heading{
     font-weight: 550;
 }
+.article-card-main:hover{
+    cursor: pointer;
+}
 /* End */

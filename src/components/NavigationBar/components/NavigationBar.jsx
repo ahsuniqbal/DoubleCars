@@ -2,13 +2,15 @@ import React,{useEffect} from "react"
 import { Link, NavLink } from "react-router-dom";
 import "../styles/NavigationBar.css"
 import DCLogo from '../../../assets/DCNewlogo.svg'
-import {Input, InputGroup, InputGroupText} from 'reactstrap';
+import {Input, InputGroup, InputGroupText ,Form} from 'reactstrap';
 import { Search } from 'react-feather';
 import socketIOClient from "socket.io-client";
+import { useHistory } from 'react-router-dom';
 const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 
 const NavigationBar = () => {
 
+    const history = useHistory();
     useEffect(() => {
         if(localStorage.getItem("userId")){
               const socket = socketIOClient.connect(ENDPOINT,{
@@ -25,9 +27,16 @@ const NavigationBar = () => {
           }
     },[])
 
-    const currentPath =window.location.pathname
-    console.log('path',currentPath)
-    
+    // search function
+    const TopSearch = (e) => {
+        e.preventDefault();
+        var searchValue = document.getElementById('top-search-box').value;
+        history.push({
+            pathname: '/products',
+            search: '?search=' + searchValue,
+        })
+    };
+
     return (
         <> 
             <nav className="navbar navbar-expand-lg navbar-light bg-light navigation-bar-box">
@@ -64,15 +73,17 @@ const NavigationBar = () => {
                        
                         <li className="nav-item">
                             {/* <NavLink className="nav-link download-button" to="">Download App</NavLink> */}
-                            <InputGroup className="search-group">
-                                <InputGroupText className = "search-navigation-icon">
-                                <Search className = "search-icon-navbar"/>
-                                </InputGroupText>
-                            <Input className="search-box" type="text" placeholder="Search" />
-                        </InputGroup>
+                            <Form onSubmit={(e) => TopSearch(e)}>
+                                <InputGroup className="search-group">
+                                    <InputGroupText className = "search-navigation-icon">
+                                    <Search className = "search-icon-navbar"/>
+                                    </InputGroupText>
+                                <Input className="search-box" type="text" placeholder="Search" id='top-search-box' />
+                                </InputGroup>
+                            </Form>
                         </li>
 
-                        <li className="nav-item d-flex">
+                        <li className="nav-item d-flex navbar-buttons">
                             {
                                 localStorage.getItem("userId") ? null : <li className="nav-item">
                                 <NavLink className="nav-link navigation-items login-button" to="/login">Log in</NavLink>

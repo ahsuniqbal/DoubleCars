@@ -7,7 +7,7 @@ import ProductCard from '../../ProductCard';
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
 import '../styles/DCSlider.css'
 import nextIcon from '../../../assets/next-icon.png';
-import previousIcon from '../../../assets/prev-icon.svg';
+import previousIcon from '../../../assets/prev-icon.png';
 
 const NextIcon=(props)=>{
   const { className, onClick } = props;

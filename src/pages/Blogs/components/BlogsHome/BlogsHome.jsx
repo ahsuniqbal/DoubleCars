@@ -76,7 +76,6 @@ const BlogsHome = () => {
                     </Col>
                 </Row> 
             </Container>
-            <Footer/>
         </body>
         
        

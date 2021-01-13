@@ -15,7 +15,7 @@ const PriceRange = () => {
  
 
     return(
-        <div className="mt-2">
+        <div className="mt-2 price-range-main">
 
             <Tabs defaultTab="vertical-tab-one" vertical className="vertical-tabs">
                 <Grid container spacing={3}>

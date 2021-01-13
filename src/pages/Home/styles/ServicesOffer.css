@@ -1,6 +1,7 @@
-.img-fluid{
+.service-img{
     width: 100% !important;
     height: 100% !important;
+    object-fit: contain;
 }
 .service-head{
     font-family: Poppins;
@@ -33,6 +34,10 @@
     height: 32px !important;
     padding: 3px;
 }
+.service-col-img{
+        padding: 8% 2%;
+    
+}
 .service-col{
-    padding: 8%;
+    padding: 8% 3%;
 }

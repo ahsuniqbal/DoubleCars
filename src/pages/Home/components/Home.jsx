@@ -18,7 +18,8 @@ import '../styles/TrendingCar.css';
 import '../styles/TrendingBodyTypes.css';
 import DCSlider from '../../../components/DcSlider'
 import TopBudget from './TopBudget'
-import ArticleCard from './ArticleCard';
+import ArticleCard from './ArticleCard'
+import {ArticleCard1,ArticleCard2,ArticleCard3} from './ArticleCard';
 import FeaturedCars from './FeaturedCars';
 import CarSection1 from './CarSection1';
 import ServicesOffer from './ServicesOffer';
@@ -141,10 +142,12 @@ const DrawCarousel = (list) => {
 
 
 const Home = () => {
+    const [recommendationName, setRecommendationName] = useState('');
+    const [trendingName, setTrendingName] = useState('');
     const [recommendations, setRecommendations] = useState(null);
     const [trending, setTrending] = useState(null);
      const [bodyTypes, setBodyTypes] = useState(null);
-    
+     const [homeData, setHomeData] = useState(null);
     // const ApiCall=async()=>{
     //     await axios
     //     .get('https://magnetic-flare-280505.uc.r.appspot.com/home/part-two?id=1')
@@ -166,8 +169,14 @@ const Home = () => {
       
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
-            setRecommendations(doc[0].data);
-            setTrending(doc[1].data);
+
+            setHomeData(doc)
+            console.log(homeData)
+            // setRecommendationName(doc[0].title)
+            // setTrendingName(doc[1].title)
+            // setRecommendations(doc[0].data);
+            // setTrending(doc[1].data);
+           
         })
         .catch(error => {
             alert(error.message);
@@ -188,7 +197,7 @@ const Home = () => {
             <Header/>
                 <Container fluid = {true} className = "home-container">
                     <Row>
-                        <Col xs="1"></Col>
+                        <Col xs="2"></Col>
                         <Col xs="10">
                             <Searchbar />
                         </Col>
@@ -196,15 +205,17 @@ const Home = () => {
                     <Tabs defaultTab="feature-tab">
                         <Row className='features-row'>
                             
-                                <Col xs = "12" md = "9" sm = "12" className = "">
+                                <Col xs = "12" md = "8" sm = "12" className = "">
                                     <h2 className = "feature-heading">Featured Cars</h2>
                                 </Col>
-                            <TabList>
-                                <Col md = "3" xs = "12" className = "new-used-class">
-                                    <Tab tabFor="new-feature-tab" className='px-1'><Link className = "" to="">New</Link></Tab>
-                                    <Tab tabFor="old-feature-tab" className='px-1'><Link className = "" to="">Used</Link></Tab> 
+                            
+                                <Col md = "4" xs = "12" >
+                                 <TabList className = "new-used-class">
+                                    <Tab tabFor="new-feature-tab" className='px-1'><Link className = "new-used-tab" to="">New</Link></Tab>
+                                    <Tab tabFor="old-feature-tab" className='px-1'><Link className = "new-used-tab" to="">Used</Link></Tab> 
+                                 </TabList>
                                 </Col>
-                            </TabList>
+                           
 
                         </Row>
                         <Row>
@@ -230,112 +241,36 @@ const Home = () => {
                                 <Link className = "mr-3" to="">New</Link>
                                 <Link className = "" to="">Used</Link>
                             </Col> */}
-                        
-{/*                    
-                    
-                        <Col>
-                            <Tabs defaultTab="basic-tab-one">
-                                <TabList>
-                                <Tab tabFor="basic-tab-one">Tab 1</Tab>
-                                <Tab tabFor="basic-tab-two">Tab 2</Tab>
-                                <Tab tabFor="basic-tab-three">Tab 3</Tab>
-                                </TabList>
-                                <TabPanel tabId="basic-tab-one">
-                                <p>Tab 1 content</p>
-                                </TabPanel>
-                                <TabPanel tabId="basic-tab-two">
-                                <p>Tab 2 content</p>
-                                </TabPanel>
-                                <TabPanel tabId="basic-tab-three">
-                                <p>Tab 3 content</p>
-                                </TabPanel>
-                            </Tabs>
-                        </Col> */}
-                   
-                    
-                   
+
+            {homeData ? homeData.map((item,index)=>{
+                return(
+                    <div>
                         <Row>
                             <Col xs="12">
-                                {/*      */}
-                                    <Row className = "">
-                                        <Col md = "6" xs = "12" className = "recomended-coloumn">
-                                            <h2 className = "recommended-cars-head">Recommneded Cars</h2>
-                                        </Col>
+                                <Row className = "">
+                                            <Col md = "6" xs = "12" className = "recomended-coloumn">
+                                                <h2 className = "recommended-cars-head">{item.title}</h2>
+                                            </Col>
 
-                                        <Col md = "6" xs = "12" className = "recomended-coloumn text-right">
-                                            <Link className = "view-all" to="/products">View All</Link>
-                                        </Col>
-                                    </Row>                            
-                                {/* </CardBody> */}
+                                            <Col md = "6" xs = "12" className = "recomended-coloumn text-right">
+                                                <Link className = "view-all" to="/products">View All</Link>
+                                            </Col>
+                                  </Row>                          
                             </Col>
                         </Row>
-                        {
-                            recommendations ? 
+                        
                             <DCSlider
                                 slidesToShow = {5}
-                                items={recommendations}
-                            /> : null
+                                items={item.data}
+                            />
+                    </div>  )}): null
                         }
 
-                        <Row>
-                            <Col xs="12">
-                                {/* <CardBody className="trending-cars"> */}
-                                    <Row className = "">
-                                        <Col md = "6" xs = "12" className='trending-coloumn'>
-                                            <h2 className = "trending-cars-head">Trending in US</h2>
-                                        </Col>
-
-                                        <Col md = "6" xs = "12" className = "trending-coloumn text-right">
-                                            <Link className = "view-all" to="/products">View All</Link>
-                                        </Col>
-                                    </Row>
-                                {/* </CardBody> */}
-                            </Col>
-                        </Row>
-                        {
-                            trending ? 
-                            <DCSlider
-                                slidesToShow = {5}
-                                items={trending}
-                            /> : null
-                        }
-                        
-                       
-                        {/* <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" /> */}
-                        
-
-                        
-                        {/* <div className = "trending-body-types">
-                        <CardBody className = "trending-body-types2">
-                            <Row>
-                            <Col md = "12" xs = "12" className = "text-center mb-5">
-                                <h2 className = "trending-body-head">Trending Body Type in 2020</h2>
-                            </Col>
-                            </Row>
-                            {
-                                bodyTypes ? <TrendingBodyTypes bodyTypes={bodyTypes} /> : null
-                            }
-                            </CardBody>
-                        </div> */}
                     
                         <TopBudget/>
                         <PriceRange/>
                         <ServicesOffer/>
-                       
 
-                        
-                       
-                    
-                    
-{/*             
-            <Row>
-                <Col xs = "12" md = "12" sm = "12" className = "text-center">
-                    <h2 className = "popular-heading">Popular Make</h2>
-                    <Label className = "download-app-label">Download app and upload your car in few steps</Label>
-                </Col>
-            </Row>
-            <Label>In progress</Label>
-            <Row> */}
             <div>
                
                 
@@ -362,13 +297,13 @@ const Home = () => {
                         <ArticleCard/>
                     </Col>
                     <Col xs = "12" md = "3">
-                        <ArticleCard/>
+                        <ArticleCard1/>
                     </Col>
                     <Col xs = "12" md = "3">
-                        <ArticleCard/>
+                        <ArticleCard2/>
                     </Col>
                     <Col xs = "12" md = "3">
-                        <ArticleCard/>
+                        <ArticleCard3/>
                     </Col>
                 </Row>
                

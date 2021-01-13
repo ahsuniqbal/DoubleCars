@@ -53,7 +53,7 @@ const LowerCar = (props) => {
                       bodyTypes? bodyTypes.map((item,index)=>{
                            return(
                                 <div>
-                                   <img src={Image1} className='img-fluid'/>
+                                   <img src={Image1} className='img-fluid lower-section-img '/>
                                    <p className='text'>{item}</p>  
                                 </div>
                            )

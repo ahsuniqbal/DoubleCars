@@ -8,8 +8,8 @@ const ServicesOffer = () => {
       
     return(
         <Row >
-           <Col xs = "12" md = "6" className='service-col'>
-                <img src = {ServicesDemoImage} className = "img-fluid" alt = "demo Image"/>
+           <Col xs = "12" md = "6" className='service-col-img'>
+                <img src = {ServicesDemoImage} className = "img-fluid service-img" alt = "demo Image"/>
            </Col>
            <Col xs = "12" md = "6" className='service-col'>
                 <h2 className='service-head'>What services do we offer?</h2>

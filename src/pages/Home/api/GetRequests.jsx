@@ -6,6 +6,7 @@ export const GetRecommendationsTrendings = (id) => {
         var url = connectionString + "home/part-two?id=" + id;
         axios.get(url).then(function(response){
             const data = response.data.results;
+            
             resolve(data);
         })
         .catch(function(error){
