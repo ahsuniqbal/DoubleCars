@@ -253,10 +253,10 @@ const Home = () => {
                         </Col> */}
                    
                     
-                   
+                        <Container>
                         <Row>
                             <Col xs="12">
-                                {/*      */}
+                                
                                     <Row className = "">
                                         <Col md = "6" xs = "12" className = "recomended-coloumn">
                                             <h2 className = "recommended-cars-head">Recommneded Cars</h2>
@@ -266,7 +266,7 @@ const Home = () => {
                                             <Link className = "view-all" to="/products">View All</Link>
                                         </Col>
                                     </Row>                            
-                                {/* </CardBody> */}
+                                
                             </Col>
                         </Row>
                         {
@@ -277,7 +277,9 @@ const Home = () => {
                             /> : null
                         }
 
-                        <Row>
+                        </Container>
+                            <Container>
+                            <Row>
                             <Col xs="12">
                                 {/* <CardBody className="trending-cars"> */}
                                     <Row className = "">
@@ -299,6 +301,8 @@ const Home = () => {
                                 items={trending}
                             /> : null
                         }
+                            </Container>
+                        
                         
                        
                         {/* <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" /> */}
