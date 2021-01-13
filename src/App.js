@@ -16,13 +16,18 @@ const loading = () => <div className="preloader">
 </div>
 
 const DefaultLayout = React.lazy(() => import('./components/DefaultLayout'));
+const Login = React.lazy(() => import('./pages/Authentication/Login'))
+const SignUp = React.lazy(() => import('./pages/Authentication/Signup'))
 
 function App() {
   return (
     <Router>
       <React.Suspense fallback={loading()}>
         <Switch>
+        <Route path="/login" component={Login}/>
+          <Route path="/signup" component={SignUp}/>
           <Route path="/" render={props => <DefaultLayout {...props} /> } />
+          
         </Switch>
       </React.Suspense>
     </Router>
