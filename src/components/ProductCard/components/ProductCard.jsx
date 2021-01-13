@@ -76,9 +76,9 @@ const ProductCard = (props) => {
                         null
                     :
                     <Col xs="3">
-                        <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
+                        {/* <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
                             <FontAwesomeIcon icon={["far", "bookmark"]} />
-                        </Button>
+                        </Button> */}
                     </Col>
                 }
             </Row>

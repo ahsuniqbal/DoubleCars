@@ -1,20 +1,35 @@
 
  
-  .slick-next:before{
+  .slick-next:before , .slick-prev:before{
       display: none;
   }
-  .slick-arrow{
+  .slick-arrow {
     background-color: none;
   }
-  .slick-next{
-    right: 4px !important;
-
+  .slick-prev{
+    background-color: none;
+    z-index: 999;
+    /* left: -16% !important; */
   }
-.icon-image{
+  .slick-prev {
+    left: -13px !important;
+}
+  .slick-next{
+    right: 8px !important;
+  }
+ 
+.icon-image {
     border: 1px solid white;
     background-color: white;
     height: 40px;
     width: 32px;
     padding: 10px;
     border-radius: 8px;
+}
+.prev-icon-image{
+  border: 1px solid white;
+  background-color: white;
+  height: 40px;
+  width: 32px;
+  border-radius: 8px;
 }

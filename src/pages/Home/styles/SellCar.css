@@ -1,19 +1,30 @@
 
 .main{
-        background-image: url("../../../assets/BlueCover.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
-       
+     
+       position: relative;
+}
+.mobile-img{
+    position: absolute;
+    right: 8%;
+    top: 7%;
 }
 .blue-bg{
-
+    background-color: #1C67CE ;
+    width: 100%;
+    padding: 5%;
+    margin-left: 0px !important;
+}
+.white-bg{
+    background-color: white;
+    width: 100%;
+    padding: 5%;
+    margin-left: 0px !important;
 }
 .blue-head{
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 34px;
+    font-size: 45px;
     line-height: 120%;
     color: #FFFFFF;
 }
@@ -24,6 +35,8 @@
     font-size: 16px;
     line-height: 140%;
     color: rgba(255, 255, 255, 0.85);
+    /*  */
+    padding: 1% 17% 0% 0%;
 }
 .google-play{
     width: 164.31px;
@@ -39,3 +52,54 @@
     color: white;
 }
 
+.white-head{
+    position: absolute;
+    /* width: 80px;
+    height: 22px; */
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+}
+.white-text{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.45);
+}
+.white-section-icon{
+    color: #1C67CE !important;
+}
+.white-main{
+    border-right: 1px solid whitesmoke;
+    margin: 0 3%;
+    padding: 0 10%;
+}
+.white-main2{
+    margin: 0 3%;
+    padding: 0 10%; 
+}
+@media screen and (max-width:1100px){
+    .mobile-img{
+        right: 0% !important;
+    }
+}
+/* @media screen and (max-width: 768px) {
+    .mobile-img{
+        right: 0 !important;
+    }
+} */
+@media screen and (max-width: 760px) {
+    .mobile-img{
+        position: unset;
+    }
+}
+@media screen and (max-width:420px){
+    .mobile-img{
+        position: unset;
+    }
+}

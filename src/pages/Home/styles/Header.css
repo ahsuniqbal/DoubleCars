@@ -39,7 +39,7 @@
   
   /* Right section css */
 .right-cover-section {
-    background-image: url("../../../assets/landingPageCover.png"); 
+    background-image: url("../../../assets/LandingPageHeaderImage.jpeg"); 
     background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
@@ -94,7 +94,7 @@
   .left-cover-section {
      width: 100%;
      min-width: 100%;
-    
+     padding-top: 27% !important;
   }
 
 
@@ -114,7 +114,7 @@
 @media(max-width:420px){
 
   .cover-left-heading {
-    padding-top:50% !important;
+    padding-top:36% !important;
     font-size: 40px !important;
     }
 }

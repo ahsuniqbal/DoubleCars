@@ -23,10 +23,12 @@ import FeaturedCars from './FeaturedCars';
 import CarSection1 from './CarSection1';
 import ServicesOffer from './ServicesOffer';
 import PriceRange from './PriceRange';
-import PriceRangeCards from './PriceRangeCards'
 import SellCar from './SellCar';
 import LowerCar from './LowerCars';
 import CarsLogo from './CarsLogo';
+import OldFeaturedCars from './OldFeaturedCars';
+import NewFeaturedCars from './NewFeatureCars';
+import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 import { ActionSwapVerticalCircle } from 'material-ui/svg-icons';
 
 // function DrawProductCards(data){
@@ -173,7 +175,7 @@ const Home = () => {
 
         //Get the list of all body types
         GetAllBodyTypes().then(doc => {
-            console.log('bodytyes',doc.bodyStyleList)
+            console.log('bodytye api***',doc)
             setBodyTypes(doc.bodyStyleList);
         })
         .catch(error => {
@@ -191,24 +193,70 @@ const Home = () => {
                             <Searchbar />
                         </Col>
                     </Row>
-                    <Row className='features-row'>
-                        <Col xs = "12" md = "8" sm = "12" className = "">
-                            <h2 className = "">Featured Cars</h2>
-                        </Col>
-                        <Col md = "4" xs = "12" className = " text-right">
-                            <Link className = "mr-3" to="">All</Link>
-                            <Link className = "mr-3" to="">New</Link>
-                            <Link className = "" to="">Used</Link>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col><FeaturedCars/></Col>
-                    </Row>
+                    <Tabs defaultTab="feature-tab">
+                        <Row className='features-row'>
+                            
+                                <Col xs = "12" md = "9" sm = "12" className = "">
+                                    <h2 className = "feature-heading">Featured Cars</h2>
+                                </Col>
+                            <TabList>
+                                <Col md = "3" xs = "12" className = "new-used-class">
+                                    <Tab tabFor="new-feature-tab" className='px-1'><Link className = "" to="">New</Link></Tab>
+                                    <Tab tabFor="old-feature-tab" className='px-1'><Link className = "" to="">Used</Link></Tab> 
+                                </Col>
+                            </TabList>
+
+                        </Row>
+                        <Row>
+                            <Col>
+                                <TabPanel tabId="feature-tab">
+                                    <FeaturedCars/>
+                                </TabPanel>
+                                <TabPanel tabId="new-feature-tab">
+                                    <NewFeaturedCars/>
+                                </TabPanel>
+                                <TabPanel tabId="old-feature-tab">
+                                    <OldFeaturedCars/>
+                                </TabPanel>
+
+                            </Col>
+                        </Row>
+                    </Tabs>
+                            {/* <Col xs = "12" md = "8" sm = "12" className = "">
+                                <h2 className = "feature-heading">Featured Cars</h2>
+                            </Col>
+                            <Col md = "4" xs = "12" className = " text-right">
+                            
+                                <Link className = "mr-3" to="">New</Link>
+                                <Link className = "" to="">Used</Link>
+                            </Col> */}
+                        
+{/*                    
                     
+                        <Col>
+                            <Tabs defaultTab="basic-tab-one">
+                                <TabList>
+                                <Tab tabFor="basic-tab-one">Tab 1</Tab>
+                                <Tab tabFor="basic-tab-two">Tab 2</Tab>
+                                <Tab tabFor="basic-tab-three">Tab 3</Tab>
+                                </TabList>
+                                <TabPanel tabId="basic-tab-one">
+                                <p>Tab 1 content</p>
+                                </TabPanel>
+                                <TabPanel tabId="basic-tab-two">
+                                <p>Tab 2 content</p>
+                                </TabPanel>
+                                <TabPanel tabId="basic-tab-three">
+                                <p>Tab 3 content</p>
+                                </TabPanel>
+                            </Tabs>
+                        </Col> */}
                    
+                    
+                        <Container>
                         <Row>
                             <Col xs="12">
-                                {/*      */}
+                                
                                     <Row className = "">
                                         <Col md = "6" xs = "12" className = "recomended-coloumn">
                                             <h2 className = "recommended-cars-head">Recommneded Cars</h2>
@@ -218,7 +266,7 @@ const Home = () => {
                                             <Link className = "view-all" to="/products">View All</Link>
                                         </Col>
                                     </Row>                            
-                                {/* </CardBody> */}
+                                
                             </Col>
                         </Row>
                         {
@@ -229,7 +277,9 @@ const Home = () => {
                             /> : null
                         }
 
-                        <Row>
+                        </Container>
+                            <Container>
+                            <Row>
                             <Col xs="12">
                                 {/* <CardBody className="trending-cars"> */}
                                     <Row className = "">
@@ -251,6 +301,8 @@ const Home = () => {
                                 items={trending}
                             /> : null
                         }
+                            </Container>
+                        
                         
                        
                         {/* <input onChange={e => setImage(e)} type="file" id="file-input" name="file-input" /> */}
