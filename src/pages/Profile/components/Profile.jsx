@@ -4,7 +4,7 @@ import '../styles/Profile.css'
 import { logout } from '../../../config/LoginAuth';
 // import profileImage from '../../../assets/Dummy-profile-image.png'
 import {getUser} from '../api/Get'
-import {changePassword} from '../api/Patch'
+import {changePassword,updateUser} from '../api/Patch'
 const Profile = (props) => {
 
     const [user,setUser] = useState(null)
@@ -22,11 +22,29 @@ const Profile = (props) => {
     },[])
 
     const saveProfileClick = () => {
+        const id = localStorage.getItem('userId')
+        var firstName = document.getElementById('firstName').value
+        var lastName = document.getElementById('lastName').value
+        var phNum = document.getElementById('phNum').value
+        const obj = {
+            firstName,lastName,phNum
+        }
 
+        updateUser(id,obj)
+        .then(doc => {
+            if(doc.code === 1){
+                window.location.reload()
+            }else{
+                alert(doc.message)
+            }
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
     }
 
     const handleLogout = () => {
-        logout();
+        localStorage.removeItem('userId')
         props.history.push('/');
     }
 
@@ -52,6 +70,9 @@ const Profile = (props) => {
             alert(e.message)
         })
     }
+    const changePicture = () => {
+        
+    }
     return(
         // <div>
         //     Profile Private Page
@@ -65,30 +86,32 @@ const Profile = (props) => {
                         
                         <CardBody>
                             <img src = {user ? user.profilePic : null} class = "img-fluid profile-image" alt = "profile-image"/> <br/>
-                            <Button className = "change-pic-button">Change Picture</Button> <br/>
+                            <Button onClick={e => changePicture()} className = "change-pic-button">Change Picture</Button> <br/>
                             <Button className = "remove-pic-button">Remove Picture</Button> 
                         </CardBody>
                     </Card>
                     </Col>
                     <Col xs = "12" md = "9" className = "profile-column">
+                    <Button className="save-profile-button float-right" onClick={e => handleLogout()}>Log Out</Button>
                         <h4 className = "profile-page-heading">Edit Profile</h4>
+                        
                         <hr/>
                         <Row>
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">First Name</Label>
-                                <Input id="" className = "profile-text-field" type="text" value={user ? user.fullName.split(' ')[0] : "loading..."} />
+                                <Input id="firstName" className = "profile-text-field" type="text" value={user ? user.fullName.split(' ')[0] : "loading..."} />
                             </Col>
 
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">Last Name</Label>
-                                <Input id="" className = "profile-text-field" type="text"  value={user ? user.fullName.split(' ')[1] : "loading..."}/>
+                                <Input id="lastName" className = "profile-text-field" type="text"  value={user ? user.fullName.split(' ')[1] : "loading..."}/>
                             </Col>
                         </Row>
 
                         <Row>
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">Mobile Number</Label>
-                                <Input id="" className = "profile-text-field" type="number"  value={user ? user.phNum : "loading..."}/>
+                                <Input id="phNum" className = "profile-text-field" type="number"  value={user ? user.phNum : "loading..."}/>
                             </Col>
 
                             {/* <Col xs = "12" md = "6">

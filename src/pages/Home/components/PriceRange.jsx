@@ -1,18 +1,23 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Tab, TabPanel, Tabs, TabList } from "react-web-tabs";
 import "react-web-tabs/dist/react-web-tabs.css";
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button,Row,Col
-  } from 'reactstrap';
 import '../styles/PriceRange.css';
-import {PriceRangeCards1,PriceRangeCards2,PriceRangeCards3,
-    PriceRangeCards4} from './PriceRangeCards'
- 
+import {PriceRangeCards1,PriceRangeCards2,PriceRangeCards3,PriceRangeCards4} from './PriceRangeCards'
 import Grid from '@material-ui/core/Grid';
-
+import {GetFilteredPriceList} from '../api/GetRequests'
+import { isLogin, getLogin } from '../../../config/LoginAuth'
 const PriceRange = () => {
- 
+
+        const [priceList ,setList]=useState(null)
+        useEffect(() => {
+                GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
+                    setList(doc)
+                     
+                })
+                .catch(error => {
+                    alert(error.message);
+                });
+            }, []);
 
     return(
         <div className="mt-2 price-range-main">
@@ -130,62 +135,3 @@ const PriceRange = () => {
 }
 
 export default PriceRange;
-{/* <TabPanel tabId="vertical-tab-two">
-<Grid item md={3} >
-        <PriceRangeCards1/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards2/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards1/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards4/>
-</Grid>
-</TabPanel>
-
-<TabPanel tabId="vertical-tab-three">
-<Grid item md={3} >
-        <PriceRangeCards3/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards2/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards1/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards4/>
-</Grid>
-</TabPanel>
-
-<TabPanel tabId="vertical-tab-four">
-<Grid item md={3} >
-        <PriceRangeCards4/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards1/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards1/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards2/>
-</Grid>
-</TabPanel>
-
-<TabPanel tabId="vertical-tab-five">
-<Grid item md={3} >
-        <PriceRangeCards2/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards2/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards2/>
-</Grid>
-<Grid item md={3}>
-        <PriceRangeCards2/>
-</Grid>
-</TabPanel> */}

@@ -31,8 +31,8 @@ const routes = [
     { path: '/about', name: 'About', public: true, restricted: true, component: About },
     { path: '/blogshome', name: 'Blogs', public: true, restricted: false, component: BlogsHome },
     { path: '/profile', exact: true, name: 'Profile', public: true, restricted: true, component: Profile }, // login signup k kaam k baad is route ko private krna ha
-    { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
-    { path: '/signup', exact: true, name: 'Signup', public: true, restricted: true, component: Signup },
+    // { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
+    // { path: '/signup', exact: true, name: 'Signup', public: true, restricted: true, component: Signup },
     { path: '/products', exact: true, name: 'Products', public: true, restricted: true, component: Products },
     { path: '/product/:id', exact: true, name: 'Product Details', public: true, restricted: false, component: ProductDetails },
     { path: '/dealer/:id', exact: true, name: 'Dealer Profile', public: true, restricted: false, component: DealerProfile },

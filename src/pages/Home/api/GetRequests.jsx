@@ -34,7 +34,23 @@ export const GetAllBodyTypes = () => {
 
 export const GetProductsOfBodyType = (bodyType) => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + "products/body-type?type=" + bodyType;
+        var url = connectionString + "products/body-style" + bodyType;
+        axios.get(url).then(function(response){
+            const data = response.data.results;
+            console.log(response) 
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            alert(error.message);
+        })
+    })
+};
+
+export const GetFilteredPriceList = (bodyType) => {
+    return new Promise((resolve, reject) => {
+        var url = connectionString + "/products/price-filter?price=5000" + bodyType;
         axios.get(url).then(function(response){
             const data = response.data.results;
             resolve(data);

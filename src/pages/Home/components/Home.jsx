@@ -169,14 +169,8 @@ const Home = () => {
       
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
-
             setHomeData(doc)
-            console.log(homeData)
-            // setRecommendationName(doc[0].title)
-            // setTrendingName(doc[1].title)
-            // setRecommendations(doc[0].data);
-            // setTrending(doc[1].data);
-           
+            console.log(homeData)  
         })
         .catch(error => {
             alert(error.message);
@@ -233,40 +227,58 @@ const Home = () => {
                             </Col>
                         </Row>
                     </Tabs>
-                            {/* <Col xs = "12" md = "8" sm = "12" className = "">
-                                <h2 className = "feature-heading">Featured Cars</h2>
-                            </Col>
-                            <Col md = "4" xs = "12" className = " text-right">
-                            
-                                <Link className = "mr-3" to="">New</Link>
-                                <Link className = "" to="">Used</Link>
-                            </Col> */}
+                   {/* recomended trending and others sections */}
+                    {homeData ? 
+                        homeData.map((item,index)=>{
+                            return(
+                            <div>
+                                <Row>
+                                    <Col xs="12">
+                                            <Row className = "">
+                                                <Col md = "6" xs = "12" className = "recomended-coloumn">
+                                                    <h2 className = "recommended-cars-head">{item.title}</h2>
+                                                </Col>
+        
+                                                <Col md = "6" xs = "12" className = "recomended-coloumn text-right">
+                                                    <Link className = "view-all" to="/products">View All</Link>
+                                                </Col>
+                                            </Row>                            
+                                    </Col>
+                                </Row>
 
-            {homeData ? homeData.map((item,index)=>{
-                return(
-                    <div>
+                                <DCSlider
+                                slidesToShow = {5}
+                                items={item.data}/>
+                            </div>) 
+                        })
+                        :null
+                    }
+                        {/* <Container>
                         <Row>
                             <Col xs="12">
-                                <Row className = "">
-                                            <Col md = "6" xs = "12" className = "recomended-coloumn">
-                                                <h2 className = "recommended-cars-head">{item.title}</h2>
-                                            </Col>
+                                
+                                    <Row className = "">
+                                        <Col md = "6" xs = "12" className = "recomended-coloumn">
+                                            <h2 className = "recommended-cars-head">Recommneded Cars</h2>
+                                        </Col>
 
-                                            <Col md = "6" xs = "12" className = "recomended-coloumn text-right">
-                                                <Link className = "view-all" to="/products">View All</Link>
-                                            </Col>
-                                  </Row>                          
+                                        <Col md = "6" xs = "12" className = "recomended-coloumn text-right">
+                                            <Link className = "view-all" to="/products">View All</Link>
+                                        </Col>
+                                    </Row>                            
+                                
                             </Col>
                         </Row>
-                        
+                        {
+                            recommendations ? 
                             <DCSlider
                                 slidesToShow = {5}
-                                items={item.data}
-                            />
-                    </div>  )}): null
+                                items={recommendations}
+                            /> : null
                         }
 
-                    
+                        </Container> */}
+                        
                         <TopBudget/>
                         <PriceRange/>
                         <ServicesOffer/>
