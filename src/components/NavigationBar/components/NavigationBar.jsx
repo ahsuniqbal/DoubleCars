@@ -41,7 +41,6 @@ const NavigationBar = () => {
     // get user data to show dropdown at navbar
     const [userName,setUserName] = useState(null)
     const path=window.location.pathname
-    console.log(path)
     useEffect(() => {
         getUser(localStorage.getItem("userId"))
         .then(doc => {

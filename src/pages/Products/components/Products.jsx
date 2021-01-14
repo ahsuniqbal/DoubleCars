@@ -25,7 +25,7 @@ const ShowSearchResults = (products) => {
         }
         else {
             table.push(
-                <Col key={products[i].productId} xs="12" sm="6" lg="4">
+                <Col key={products[i].productId} xs="12" sm="6" lg="4" style={{padding: '0 7px'}}>
                     <ProductCard
                         productId={products[i].productId}
                         productTitle={products[i].carName}
