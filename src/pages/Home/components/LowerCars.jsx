@@ -1,15 +1,23 @@
-import React  from 'react';
+import React ,{useEffect,useState} from 'react';
 import { Col, Row, Button, CustomInput } from 'reactstrap';
 import '../styles/Lowercar.css'
 import Image1 from '../../../assets/TopNewsDummyImage.png';
 import Image2 from '../../../assets/DemoCar2.png';
 import Image3 from '../../../assets/DemoCar3.png';
 import Slider from "react-slick";
+import {GetProductsOfBodyType} from '../api/GetRequests';
+import { isLogin, getLogin } from '../../../config/LoginAuth'
 
 const LowerCar = (props) => {
 
      const {bodyTypes}=props
-     console.log('bodytyes',bodyTypes)
+    useEffect(()=>{
+     GetProductsOfBodyType(isLogin() ? getLogin() : -1).then(doc=>{
+          console.log('lowecar',doc)
+     }).catch(e=>{
+          alert(e.message)
+     })
+    },[])
      var settings = {
           dots: true,
           infinite: false,

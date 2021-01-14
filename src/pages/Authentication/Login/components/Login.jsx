@@ -54,7 +54,7 @@ const Login = (props) => {
     return(
         <div>
                 <Container fluid = {true}>
-                    <Row  className='main'>
+                    <Row  className='login-main'>
                         <Col lg='7' xs = "12"  sm = "12" className = "login-left-image">
                             <Link to="/">
                                 <img  src = {DCWhiteLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px"/>
