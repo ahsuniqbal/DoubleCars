@@ -9,7 +9,9 @@
 /* End */
 
 /* Top Stories cell css starts here */
-
+.article-card-image {
+    border-radius: 4px;
+}
 .article-image {
     border-radius: 4rem;
     width: auto;
@@ -22,6 +24,7 @@
     overflow: hidden;
     color: #000000;
     text-overflow: ellipsis;
+    border-radius: 4px;
 }
 
 .article-date {
