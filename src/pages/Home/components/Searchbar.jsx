@@ -60,7 +60,7 @@ const Searchbar = () => {
     // }, []);
 
     return(
-        <Card className="searchbar">
+        <Card className="searchbar ">
             <CardBody>
 
                 <Row>
