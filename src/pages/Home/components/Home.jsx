@@ -279,15 +279,15 @@ const Home = () => {
                         }
 
                         </Container> */}
-                        
+                        <Container>
                         <TopBudget/>
                         <PriceRange/>
                         <ServicesOffer/>
+                        </Container>
+                        
+                     
 
             <div>
-               
-                
-               
             </div>
             
             
@@ -297,7 +297,10 @@ const Home = () => {
             <CarSection1/>
             <SellCar/>
             <LowerCar bodyTypes={bodyTypes}/>
+            <Container>
             <CarsLogo/>
+            </Container>
+            
             <div style={{backgroundColor:'white '}}>
                  <Row style={{margin:'0'}}>
                     <Col xs = "12" md = "12" sm = "12" className = "top-stories-main text-center">

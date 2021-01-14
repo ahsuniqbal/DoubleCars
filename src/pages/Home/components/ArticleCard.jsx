@@ -22,7 +22,7 @@ const ArticleCard1 = () => {
     const history=useHistory()
     return(
            <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
-                <img src = {CardImage2} className = "img-fluid article-card-image" alt = "demo-image"/>
+                <img src = {CardImage4} className = "img-fluid article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">Video: BMW X5 M vs GLE 63 AMG and Audi RSQ8 comparison review</Label> 
                 <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
            </div> 
