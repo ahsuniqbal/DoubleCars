@@ -178,7 +178,6 @@ const Home = () => {
 
         //Get the list of all body types
         GetAllBodyTypes().then(doc => {
-            console.log('bodytye api***',doc)
             setBodyTypes(doc.bodyStyleList);
         })
         .catch(error => {
@@ -228,6 +227,7 @@ const Home = () => {
                         </Row>
                     </Tabs>
                    {/* recomended trending and others sections */}
+                   <Container>
                     {homeData ? 
                         homeData.map((item,index)=>{
                             return(
@@ -253,6 +253,7 @@ const Home = () => {
                         })
                         :null
                     }
+                    </Container>
                         {/* <Container>
                         <Row>
                             <Col xs="12">

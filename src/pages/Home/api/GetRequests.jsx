@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { connectionString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
@@ -21,6 +22,7 @@ export const GetAllBodyTypes = () => {
     return new Promise((resolve, reject) => {
         var url = connectionString + "home/part-three";
         axios.get(url).then(function(response){
+            console.log('homepart3',response)
             const data = response.data.bodyTypes;
             resolve(data);
         })
@@ -34,10 +36,10 @@ export const GetAllBodyTypes = () => {
 
 export const GetProductsOfBodyType = (bodyType) => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + "products/body-style" + bodyType;
+        var url = connectionString + "products/body-type?type=Sedan" +bodyType;
         axios.get(url).then(function(response){
             const data = response.data.results;
-            console.log(response) 
+            console.log('bodytype***',response)
             resolve(data);
         })
         .catch(function(error){
@@ -48,10 +50,11 @@ export const GetProductsOfBodyType = (bodyType) => {
     })
 };
 
-export const GetFilteredPriceList = (bodyType) => {
+export const GetFilteredPriceList = () => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + "/products/price-filter?price=5000" + bodyType;
+        var url = connectionString + "products/price-filter?price=5000" ;
         axios.get(url).then(function(response){
+            console.log('filter***',response)
             const data = response.data.results;
             resolve(data);
         })
@@ -62,3 +65,4 @@ export const GetFilteredPriceList = (bodyType) => {
         })
     })
 };
+
