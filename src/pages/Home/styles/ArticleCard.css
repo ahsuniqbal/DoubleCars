@@ -9,8 +9,9 @@
 /* End */
 
 /* Top Stories cell css starts here */
+
 .article-image {
-    border-radius: 0.4rem;
+    border-radius: 4rem;
     width: auto;
     margin-bottom: 1rem;
 }
