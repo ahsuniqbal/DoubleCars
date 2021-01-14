@@ -1,6 +1,10 @@
 import React,{ useState, useEffect} from 'react'
 import { Label } from 'reactstrap';
-import {getRecieverChat} from '../../../components/Firebase/database'
+import '../styles/MessageBubble.css';
+
+import {getRecieverChat} from '../../../components/Firebase/database';
+
+
 const MessageBubble = (props) => {
     const [message,setMessage] = useState([])
     useEffect(() => {
@@ -22,17 +26,23 @@ const MessageBubble = (props) => {
         for(let i = 0; i < list.length; i++){
             if(i % 2 === 0){
                 table.push(
-                    <div>
-                    <Label>{list[i].messageText}</Label>
-                    <br/>
+                    <div className="message-bubble sent">
+                        <Label>{list[i].messageText}</Label>
+                        <br/>
                     </div>
                 )
             }else{
                 table.push(
-                    <div>
-                    <Label>{list[i].messageText}</Label>
-                    <br/>
+                    <>
+                    <div className="message-bubble received">
+                        <Label>{list[i].messageText}</Label>
+                        <br/>
                     </div>
+
+                    <div className="message-sent-date">
+                        Today
+                    </div>
+                    </>
                 )
             }
         }

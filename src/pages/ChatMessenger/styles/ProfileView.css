@@ -1,3 +1,7 @@
+.profile-view {
+    border-radius: 0;
+}
+
 .profile-view h6 {
     font-style: normal;
     font-weight: 500;

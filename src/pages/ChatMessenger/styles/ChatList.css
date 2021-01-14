@@ -1,5 +1,6 @@
 .chat-list {
     background-color: #ffffff;
+    border-right: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .chat-list h2 {
@@ -25,4 +26,8 @@
     overflow-y: auto;
     overflow-x: hidden;
     max-height:  calc(100vh - (130px + 100px));
+}
+
+.chat-list .scrollable::-webkit-scrollbar {
+    visibility: hidden;
 }

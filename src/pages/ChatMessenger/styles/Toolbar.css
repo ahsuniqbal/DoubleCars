@@ -1,3 +1,7 @@
+.toolbar {
+    border-radius: 0;
+}
+
 .toolbar h6 {
     font-style: normal;
     font-weight: 500;

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Toolbar from './Toolbar';
 import MessageBubble from './MessageBubble';
 import Compose from './Compose';
+import '../styles/ChatView.css';
 
 const mapStateToProps = (state) => {
     return {
@@ -22,8 +23,8 @@ const ChatView = (props) => {
                 </Col>
             </Row>
 
-            <Row>
-                <Col xs="12">
+            <Row className="chat-board">
+                <Col xs="12" style={{paddingLeft: '25px', paddingRight: '25px'}}>
                 {props.chats.chat ? <MessageBubble chat={props.chats.chat}/> : null}
                 </Col>
             </Row>
