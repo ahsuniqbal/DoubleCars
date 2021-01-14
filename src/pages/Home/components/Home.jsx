@@ -266,15 +266,15 @@ const Home = () => {
                         }
 
                         </Container> */}
-                        
+                        <Container>
                         <TopBudget/>
                         <PriceRange/>
                         <ServicesOffer/>
+                        </Container>
+                        
+                     
 
             <div>
-               
-                
-               
             </div>
             
             
@@ -284,7 +284,10 @@ const Home = () => {
             <CarSection1/>
             <SellCar/>
             <LowerCar bodyTypes={bodyTypes}/>
+            <Container>
             <CarsLogo/>
+            </Container>
+            
             <div style={{backgroundColor:'white '}}>
                  <Row style={{margin:'0'}}>
                     <Col xs = "12" md = "12" sm = "12" className = "top-stories-main text-center">
@@ -292,6 +295,7 @@ const Home = () => {
                             <Label className = "download-app-label">Download app and upload your car in few steps</Label>
                     </Col>
                 </Row>
+                <Container>
                 <Row style={{margin:'0'}}>
                     <Col xs = "12" md = "3">
                         <ArticleCard/>
@@ -306,6 +310,8 @@ const Home = () => {
                         <ArticleCard3/>
                     </Col>
                 </Row>
+                </Container>
+                
                
             </div>
          

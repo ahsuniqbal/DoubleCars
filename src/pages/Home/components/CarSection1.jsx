@@ -9,29 +9,37 @@ const CarSection1 = () => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
+        borderRadius: '4px',
         height: '35vh',
+        cursor: 'pointer',
       };
       const CarSection1DemoImage2 = {
         backgroundImage: `url(${require("../../../assets/FeaturedDemo3.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
+        borderRadius: '4px',
         backgroundRepeat: 'no-repeat',
         height: '35vh',
+        cursor: 'pointer',
       };
 
       const CarSection1DemoImage3 = {
         backgroundImage: `url(${require("../../../assets/FeaturedDemo4.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
+        borderRadius: '4px',
         backgroundRepeat: 'no-repeat',
         height: '35vh',
+        cursor: 'pointer',
       };
       const CarSection1DemoImage4 = {
         backgroundImage: `url(${require("../../../assets/FeaturedDemo5.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
+        borderRadius: '4px',
         backgroundRepeat: 'no-repeat',
         height: '35vh',
+        cursor: 'pointer',
       };
 
       

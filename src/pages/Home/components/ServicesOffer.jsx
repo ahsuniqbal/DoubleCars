@@ -16,15 +16,15 @@ const ServicesOffer = () => {
                 <p className='service-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci lorem, mattis at porta vitae, accumsan vel libero. In sit amet magna nunc. Curabitur at purus iaculis, rutrum neque sit amet.</p>
                 <ul className="">
                     <div>
-                        <CheckIcon className='check'/>
+                        <CheckIcon className='check mr-3'/>
                         <Label><p className="nav-Item">Lorem ipsum dolor sit amet consectetur.</p></Label>
                     </div>
                     <div>
-                        <CheckIcon className='check'/>
+                        <CheckIcon className='check mr-3'/>
                         <Label><p className="nav-Item">Lorem ipsum dolor sit amet consectetur.</p></Label>
                     </div>
                     <div>
-                        <CheckIcon className='check'/>
+                        <CheckIcon className='check mr-3'/>
                         <Label><p className="nav-Item">Lorem ipsum dolor sit amet consectetur.</p></Label>
                     </div>
               

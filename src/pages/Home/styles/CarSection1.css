@@ -3,6 +3,7 @@
 }
 .car-section-coloumn{
     padding-right: 2px;
+    background-color: white;
 }
 .car-badge {
     position: absolute;
@@ -23,7 +24,7 @@
     color: #FFFFFF;
     position: absolute;
     left: 3%;
-    bottom: 10%;
+    bottom: 11%;
     text-overflow: ellipsis; 
     white-space: nowrap;
     width: 80%;
@@ -31,7 +32,7 @@
 
 .price-label {
     position: absolute;
-    bottom: 0%;
+    bottom: 3%;
     left: 3%;
     color: white;
     overflow: hidden;
