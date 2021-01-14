@@ -199,7 +199,7 @@ const Home = () => {
 
                         </Row>
                         <Row>
-                            <Col>
+                            <Col className='featured-main-coloumn'>
                                 <TabPanel tabId="feature-tab">
                                     <FeaturedCars/>
                                 </TabPanel>

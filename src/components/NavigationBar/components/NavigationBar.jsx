@@ -52,10 +52,10 @@ const NavigationBar = () => {
         })
     },[]) 
     // logout function
-    const handleLogout = () => {
-        localStorage.removeItem('userId')
-        history.push('/');
-    }
+    // const handleLogout = () => {
+    //     localStorage.removeItem('userId')
+    //     history.push('/');
+    // }
 
     return (
         <> 
@@ -115,7 +115,7 @@ const NavigationBar = () => {
                              </li>
                             }
 
-                            {
+                            {/* {
                             path=='/profile' && localStorage.getItem("userId") ?  <li className="nav-item mt-3">
                              <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>
@@ -131,7 +131,7 @@ const NavigationBar = () => {
                                 </DropdownMenu>
                                 </UncontrolledDropdown>
                              </li> : null
-                            }
+                            } */}
                            
                         </li>
                         

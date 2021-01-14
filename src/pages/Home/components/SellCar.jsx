@@ -23,8 +23,8 @@ const SellCar = () => {
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.Impedit laborum blanditiis repellat sapiente harum veniam labore,
                             numquam illo provident distinctio voluptatem perferendis possimus est quaerat!
                         </p>
-                        <button className='google-play m-2'><img src={GooglePlayImg} alt='get it on google play'/></button>
-                        <Button outline className='button m-2'>Learn More</Button>
+                        <button className='google-play '><img src={GooglePlayImg} alt='get it on google play'/></button>
+                        <Button outline className='learn-button '>Learn More</Button>
                     </div>
                 </Col>
                 <Col md={4} >

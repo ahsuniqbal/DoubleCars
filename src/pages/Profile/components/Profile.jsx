@@ -79,7 +79,7 @@ const Profile = (props) => {
         //     <Button onClick={() => handleLogout()}>Logout</Button>
         // </div>
         <body className = "profile-body">
-            <Container clsssName = "profile-container">
+            {/* <Container clsssName = "profile-container">
                 <Row>
                     <Col xs = "12" md = "3" className = "profile-column text-center">
                     <Card>
@@ -92,7 +92,7 @@ const Profile = (props) => {
                     </Card>
                     </Col>
                     <Col xs = "12" md = "8" className = "profile-column">
-                    {/* <Button className="save-profile-button float-right" onClick={e => handleLogout()}>Log Out</Button> */}
+                   
                         <h4 className = "profile-page-heading">Edit Profile</h4>
                         
                         <hr/>
@@ -139,10 +139,6 @@ const Profile = (props) => {
                                 </Button>
                             </Col>
                         </Row>
-                        {/* <Label className = "profile-labels">Location</Label>
-                        <Input id="" className = "profile-text-field" type="text" />
-                        <Label className = "profile-labels">Bio</Label>
-                        <textarea class="form-control bio-box" rows="4" placeholder = "Message (Optional)"></textarea> */}
                         
                         <Row>
                             <Col xs = "12" md = "12">
@@ -173,7 +169,7 @@ const Profile = (props) => {
                         </Row>
                     </Col>
                </Row>
-            </Container>
+            </Container> */}
         </body>
     );
 }
