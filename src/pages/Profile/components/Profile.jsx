@@ -91,8 +91,8 @@ const Profile = (props) => {
                         </CardBody>
                     </Card>
                     </Col>
-                    <Col xs = "12" md = "9" className = "profile-column">
-                    <Button className="save-profile-button float-right" onClick={e => handleLogout()}>Log Out</Button>
+                    <Col xs = "12" md = "8" className = "profile-column">
+                    {/* <Button className="save-profile-button float-right" onClick={e => handleLogout()}>Log Out</Button> */}
                         <h4 className = "profile-page-heading">Edit Profile</h4>
                         
                         <hr/>
@@ -110,23 +110,40 @@ const Profile = (props) => {
 
                         <Row>
                             <Col xs = "12" md = "6">
-                                <Label className = "profile-labels">Mobile Number</Label>
+                                <Label className = "profile-labels" id='mobile-zip-label'>Mobile Number</Label>
                                 <Input id="phNum" className = "profile-text-field" type="number"  value={user ? user.phNum : "loading..."}/>
                             </Col>
 
-                            {/* <Col xs = "12" md = "6">
-                                <Label className = "profile-labels">Zip Code</Label>
+                            <Col xs = "12" md = "6">
+                                <Label className = "profile-labels" id='mobile-zip-label'>Zip Code</Label>
                                 <Input id=""className = "profile-text-field" type="text" defaultValue={user ? user.fullName : "loading..."}/>
-                            </Col> */}
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Label className = "profile-labels">Location</Label>
+                                <Input id="" className = "profile-text-field" type="text" />
+                            </Col>
+                        </Row>
+                        <Row>
+                           <Col>
+                                <Label className = "profile-labels">Bio</Label>
+                                <textarea class="form-control bio-box" rows="4" placeholder = "Message (Optional)"></textarea>
+                           </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Button onClick={e => saveProfileClick()} color="primary" className="save-profile-button float-right">
+                                {loading && <span>Saving</span>}
+                                {!loading && <span>Save Profile</span>}
+                                </Button>
+                            </Col>
                         </Row>
                         {/* <Label className = "profile-labels">Location</Label>
                         <Input id="" className = "profile-text-field" type="text" />
                         <Label className = "profile-labels">Bio</Label>
                         <textarea class="form-control bio-box" rows="4" placeholder = "Message (Optional)"></textarea> */}
-                        <Button onClick={e => saveProfileClick()} color="primary" className="save-profile-button float-right">
-                        {loading && <span>Saving</span>}
-                        {!loading && <span>Save Profile</span>}
-                        </Button>
+                        
                         <Row>
                             <Col xs = "12" md = "12">
                             <h4 className = "profile-page-heading">Change Password</h4>
@@ -145,10 +162,15 @@ const Profile = (props) => {
                                 <Input id="newPass" className = "profile-text-field" type="text" />
                             </Col>
                         </Row>
-                        <Button color="primary" onClick={e => onChangePassword()} className="change-password-button float-right">
-                        {loading && <span>Changing...</span>}
-                        {!loading && <span>Change</span>}
-                        </Button>
+
+                        <Row>
+                           <Col>
+                                <Button color="primary" onClick={e => onChangePassword()} className="change-password-button float-right">
+                                {loading && <span>Changing...</span>}
+                                {!loading && <span>Change</span>}
+                                </Button>
+                           </Col>
+                        </Row>
                     </Col>
                </Row>
             </Container>
