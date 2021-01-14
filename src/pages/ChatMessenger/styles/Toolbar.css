@@ -25,6 +25,8 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     width: 45px;
+    height: 100%;
+    object-fit: cover;
 }
 
 .toolbar svg {
