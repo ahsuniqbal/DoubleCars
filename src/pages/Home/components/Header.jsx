@@ -5,7 +5,7 @@ import '../styles/Header.css'
 const Header = () => {
     return(
         <div>
-            <section className = "align-items-center">
+            <section className = "align-items-center header-section">
                     <div className = "row header-main">
                  
                                 <div className = "col-12 col-md-5 col-sm-6 pt-lg-0 pt-md-4 pt-sm-4 d-flex justify-content-center flex-column left-cover-section ">
