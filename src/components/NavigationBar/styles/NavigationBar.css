@@ -141,8 +141,33 @@ a:hover {
         margin-left: 17px !important;
       }
 }
+/* navbar dropdown */
+.dropdown-img{
+    border: 1px solid;
+    border-radius: 8px;
+}
+.dropdown-toggle::after{
+    display: none;
+}
+.dropdown-menu{
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 20px 0px #F4F4F4;
+    border-radius: 4px;
+}
 
-
+.dropdown-menu{
+    padding: 55% 25% 55% 0%;
+    border-radius: 8px;
+    margin-top: 40%;
+}
+.dropdown-arrow{
+    margin: -40px 0px 0px 0px;
+    padding-left: 78% 
+}
+.dropdown-arrow:hover{
+    background-color: transparent;
+    cursor: none;
+}
 /* COMMENTED CODE,  MAY BE USE LATER> */
 
 /* .download-button {

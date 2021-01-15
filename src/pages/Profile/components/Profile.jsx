@@ -79,8 +79,10 @@ const Profile = (props) => {
         //     <Button onClick={() => handleLogout()}>Logout</Button>
         // </div>
         <body className = "profile-body">
-            {/* <Container clsssName = "profile-container">
+            <Container clsssName = "profile-container">
                 <Row>
+                    <Col md='1'></Col>
+                   
                     <Col xs = "12" md = "3" className = "profile-column text-center">
                     <Card>
                         
@@ -91,7 +93,8 @@ const Profile = (props) => {
                         </CardBody>
                     </Card>
                     </Col>
-                    <Col xs = "12" md = "8" className = "profile-column">
+                    
+                    <Col xs = "12" md = "6" className = "profile-column">
                    
                         <h4 className = "profile-page-heading">Edit Profile</h4>
                         
@@ -168,8 +171,9 @@ const Profile = (props) => {
                            </Col>
                         </Row>
                     </Col>
+                    
                </Row>
-            </Container> */}
+            </Container>
         </body>
     );
 }
