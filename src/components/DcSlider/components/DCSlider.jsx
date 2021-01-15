@@ -77,7 +77,7 @@ const DCSlider = (props) => {
     }
 
     return (
-        <Slider {...settings} className='silder-class' id='show-sliders'>
+        <Slider {...settings} className='silder-class'>
             {
                 props.items ? 
                     props.items.map((item, index) => (

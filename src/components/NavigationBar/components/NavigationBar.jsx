@@ -6,7 +6,7 @@ import {Input, InputGroup, InputGroupText ,Form,UncontrolledDropdown,DropdownTog
 import { Search } from 'react-feather';
 import socketIOClient from "socket.io-client";
 import { useHistory } from 'react-router-dom';
-import {getUser} from '../../../pages/Profile/api/Get';
+// import {getUser} from '../../../pages/Profile/api/Get';
 const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 
 const NavigationBar = () => {
@@ -39,17 +39,17 @@ const NavigationBar = () => {
     };
 
     // get user data to show dropdown at navbar
-    const [userName,setUserName] = useState(null)
-    const path=window.location.pathname
-    useEffect(() => {
-        getUser(localStorage.getItem("userId"))
-        .then(doc => {
-            setUserName(doc[0].fullName)
-        })
-        .catch(e => {
-            alert(e.message)
-        })
-    },[]) 
+    // const [userName,setUserName] = useState(null)
+    // const path=window.location.pathname
+    // useEffect(() => {
+    //     getUser(localStorage.getItem("userId"))
+    //     .then(doc => {
+    //         setUserName(doc[0].fullName)
+    //     })
+    //     .catch(e => {
+    //         alert(e.message)
+    //     })
+    // },[]) 
     // logout function
     // const handleLogout = () => {
     //     localStorage.removeItem('userId')
