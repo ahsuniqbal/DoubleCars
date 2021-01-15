@@ -11,7 +11,7 @@
 
 body {
   margin: 0;
-  font-family: 'Ubuntu', sans-serif !important;
+  font-family: 'Ubuntu', sans-serif  !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #F9F9F9 !important;
