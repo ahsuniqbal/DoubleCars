@@ -1,0 +1,124 @@
+
+/* Upper footer css starts here.*/
+.footer-image {
+  background-image: url("../../../assets/Footer-image.png"); 
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 254px; 
+}
+
+.car-dealer-head {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.car-dealer-subhead{
+  font-weight: normal;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.learn-more-button-cover {
+  background-color: #ffffff !important;
+  border-radius: 0.4rem !important;
+  width: 160px !important;
+  height: 56px;
+  color: #1C67CE !important;
+  cursor: pointer;
+  padding: 14px 28px !important;
+  font-size: 16px !important;
+  font-weight: bold;
+}
+/* End */
+
+/* Mid footer css starts here */
+.footer-body {
+  background-color: white !important;
+}
+
+.footer-columns {
+  margin-top: 4rem;
+}
+
+.footer-dc {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 29px;
+}
+
+.discription-dc-footer {
+  color: rgba(8, 11, 48, 0.85);
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.nav-text-color {
+  color: rgba(8, 11, 48, 0.65) !important;
+}
+.footer-contact {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #1C67CE;
+}
+/* End */
+
+/* Lower Footer css starts here  */
+.lower-footer-columns {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.bootom-footer {
+  font-size: 14px !important;
+}
+
+.icons-columns {
+  margin-right: 10px;
+}
+
+/* .feather-icon {
+  margin-left: 90px;
+} */
+.learn-more-button-class{
+  padding-left:20%
+}
+.car-dealer-class{
+  padding-left: 40px;
+}
+.icon-row{
+  padding: 0 30%;
+}
+/* media  */
+@media screen and (max-width: 1100px) {
+  .icon-row{
+    padding: 0 20% !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .h-100{
+     padding: 4% !important;
+  } 
+}
+@media screen and (max-width: 420px) {
+  .lower-footer-columns {
+    padding-left: 10% !important;
+  }    
+}
+@media screen and (max-width: 375px) {
+  .h-100{
+    padding-left: 10% !important;
+ }
+}
+@media screen and (max-width: 900px) {
+  .learn-more-button-class{
+    padding-left:20% !important
+  }
+}
+@media screen and (max-width: 768px) {
+  .learn-more-button-class{
+    padding-left:15% !important
+  }
+}

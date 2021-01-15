@@ -1,0 +1,69 @@
+/* Car Name and Price css starts here. */
+.car-name {
+    font-size: 26px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 30px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.car-price {
+    font-size: 26px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 30px;
+    font-weight: 500;
+}
+
+.car-info {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.45);
+    line-height: 18px;
+    font-weight: normal;
+}
+
+.info-bottom-line {
+    width: 100%;
+}
+
+/* Information css starts here. */
+
+.information-head {
+    color: #222222;
+    font-size: 22px;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+.info-sub-head {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: bold;
+    line-height: 18px;
+    margin-top: 12%;
+}
+
+.car-detail {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: normal;
+    line-height: 18px;
+}
+
+/* Car Feature css starts here. */
+
+.car-feature-head {
+    color: #222222;
+    font-size: 22px;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+.car-feature {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 17px;
+    color: rgba(8, 11, 48, 0.85);   
+    margin-bottom: 2rem;
+}

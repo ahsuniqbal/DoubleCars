@@ -1,0 +1,19 @@
+.lower-section-img{
+    position: relative;
+    width: 383px;
+height: 352.56px;
+} 
+.lower-main{
+    padding: 0% !important;
+}
+.text{
+    position: absolute;
+    bottom: 0;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 120%;
+    color: #FFFFFF;
+    padding-left: 35px;
+}

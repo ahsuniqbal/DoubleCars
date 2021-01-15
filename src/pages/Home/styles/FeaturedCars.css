@@ -1,0 +1,88 @@
+.main-feature{
+    margin: 0;
+}
+.rwt__tablist , .rwt__tab ,.rwt__tab[aria-selected="true"]:after{
+    border-bottom: none !important;
+}
+
+.content {
+    position: absolute;
+    bottom: 0px !important;
+    padding: 0px 20px 10px;
+    background: linear-gradient(1800deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    color: white !important;
+    width: 100%;
+}
+.content-header{
+    font-family: Ubuntu;
+    font-weight: bolder;
+    font-size: 26px;
+    line-height: 30px;
+
+}
+.content-text{
+    font-family: Ubuntu;
+    font-style: Medium;
+    font-size: 16px;
+    line-height: 25px;
+    fill: Solid rgba(255, 255, 255, 0.85)
+}
+.main-coloumn{
+    padding-left: 0% !important;
+    position: relative;
+}
+.feature-car-badge1{
+    position: absolute;
+    left: 91%;
+    margin-top: 3%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #FFFFFF;
+    background-color: #1c67ce;
+}
+.feature-car-badge2{
+    position: absolute;
+    left: 82%;
+    margin-top: 5%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #FFFFFF;
+    background-color: #1c67ce;
+}
+/* media */
+
+@media screen and (max-width: 1100px) {
+    .feature-car-badge1{
+        left: 85% !important;
+    }
+    .feature-car-badge2{
+        left: 70% !important;
+    }
+}
+@media screen and (max-width: 770px) {
+    .feature-car-badge1 , .feature-car-badge2{
+        left: 90% !important;
+    }
+   
+}
+@media screen and (max-width: 768px) {
+    .feature-car-badge1{
+        left: 85% !important;
+    }
+    .feature-car-badge2{
+        left: 70% !important;
+    }
+}
+@media screen and (max-width: 760px) {
+    .feature-car-badge1 , .feature-car-badge2{
+        left: 90% !important;
+    }
+}
+@media screen and (max-width: 450px) {
+    .feature-car-badge1 , .feature-car-badge2{
+        left: 85% !important;
+    }
+   
+}

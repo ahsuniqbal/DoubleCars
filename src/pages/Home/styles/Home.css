@@ -1,0 +1,50 @@
+.home-container {
+  
+  background-color: white;
+}
+
+.search-text-field {
+    border-color: transparent !important;
+}
+
+.input :focus {
+    outline-offset: 0px !important;
+}
+.feature-heading{
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+  color: #080B30;
+}
+.featured-main-coloumn{
+  padding:0 10px;
+}
+.download-app-label{
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.65);
+}
+.features-row{
+  margin-top:3% !important;
+}
+.recomended-coloumn{
+  margin-top:55px ;
+}
+.trending-coloumn{
+  margin-top: 23px ;
+}
+.top-stories-main{
+  padding: 4% 0%;
+}
+.new-used-class{
+  display: flex;
+  float: right;
+}
+.new-used-tab{
+  color: grey;
+}
+.new-used-tab:focus{
+  color: blue;
+}
+/*  */

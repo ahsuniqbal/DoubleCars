@@ -1,0 +1,190 @@
+.filters h6{
+    font-weight: 700;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.filters button:focus{
+    box-shadow: none;
+}
+
+.filters .MuiSlider-valueLabel {
+    left: calc(-50% + 0px);
+}
+
+.filters .MuiSlider-markLabel{
+    top: -22px;
+    font-size: 14px;
+    color: #000000;
+    font-family: 'Ubuntu', sans-serif;
+    transform: none;
+}
+
+.filters .MuiSlider-marked{
+    margin-bottom: 0;
+}
+
+.filters #continuous-slider{
+    margin-left: -5px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.filters input[type="text"], .filters select{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.filters .location-box{
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+
+.filters input:read-only{
+    background-color: #FFFFFF;
+}
+
+.filters select:read-only{
+    background-color: #FFFFFF;
+}
+
+.filters .radius{
+    margin-top: 15px;
+}
+
+.filters .location .input-group-text{
+    background-color: transparent;
+}
+
+.filters .location input{
+    border-right: 0;
+}
+
+.filters .location input:focus, .filters select:focus{
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+.filters .location label{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+/* Khan Academy Multiselect box */
+
+.filters .dropdown-heading{
+    border-color: rgb(217, 217, 217) rgb(204, 204, 204) rgb(179, 179, 179) !important;
+}
+
+.filters .select-panel input{
+    border-color: rgb(217, 217, 217) rgb(204, 204, 204) rgb(179, 179, 179) !important;
+}
+
+
+.filters .multi-select{
+    margin-bottom: 1.5rem;
+}
+
+
+
+.filters .transmission label{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.filters .form-check{
+    margin-bottom: 18px;
+}
+
+.filters .form-check .form-check-input{
+    width: 16px;
+    height: 16px;
+}
+
+.filters .form-check .form-check-label{
+    margin-left: 0.5rem;
+    /* font-size: 14px; */
+}
+
+
+
+
+
+/* .filters .body-types input[type="checkbox"] {
+    visibility: hidden;
+}
+
+.filters .body-types label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgb(89, 89, 89);
+}
+
+.filters .body-types .bodystyle-checkbox {
+    background: url('../../../assets/icons/body-styles/sedan-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 22px;
+    margin-bottom: 13px;
+}
+
+.filters .body-types .bodystyle-checkbox-colored {
+    background-color: orange;
+    mask: url('../../../assets/icons/body-styles/sedan-icon.svg');
+    mask-position: center center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    margin-bottom: 13px;
+    height: 22px;
+} */
+
+.filters .body-types svg{
+    margin-bottom: 13px;
+    margin-top: 30px;
+}
+
+.filters .body-types p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.filters .advanced-filters svg{
+    width: 10px;
+    padding-top: 2px;
+    cursor: pointer;
+}
+
+.filters .advanced-filters label{
+    color: #1C67CE;    
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 17px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.filters .exterior-color div.color-swatch{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    color: #FFFFFF;
+    padding: 0.675rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}

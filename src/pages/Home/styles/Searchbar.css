@@ -1,0 +1,111 @@
+.searchbar{
+    margin-top: -7rem;
+    box-shadow: 0px 4px 20px rgba(44, 44, 44, 0.08);
+    border-radius: 8px;
+    border-color: white ;
+    width: 100%;
+    
+
+}
+
+.searchbar .card-title{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 120%;
+    font-family: 'Poppins' !important;
+}
+
+.searchbar .card-title button{
+    font-style: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1C67CE;
+    float: right;
+    font-weight: 500;
+    padding-right: 0px;
+    font-family: 'Ubuntu';
+}
+
+.searchbar .card-title button:focus{
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.searchbar .card-title button:hover{
+    text-decoration: none;
+}
+
+.searchbar .search-box{
+    background-color: #F9F9F9;
+    border-radius: 6px;
+    border: none;
+    height: 56px;
+}
+
+.search-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.45);
+   /* line-height: 17px; */
+    font-size: 16px;
+  }
+
+.searchbar .search-box:focus, .searchbar .form-control{
+    box-shadow: none;
+}
+
+.searchbar .input-group-text{
+    background-color: #F9F9F9;
+    color: #898989;
+    border: none;
+}
+
+.advance-search {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.condition-dropdown {
+    height: 56px;
+}
+.search-button {
+    background-color: #1C67CE !important;
+    border-radius: 0.4rem !important;
+    width: 100% !important;
+    height: 56px !important; 
+    color: #ffffff !important;
+    font-size: 15px !important;
+    line-height: 16px;   
+}
+/* media */
+ @media screen and (max-width:1050px){
+    .left-cover-section{
+        padding-top: 20% !important;
+    }
+}
+@media screen and (max-width:420px){
+    .searchbar{
+        margin-top: -8rem !important;
+    }
+}
+/*
+@media screen and (max-width:940px){
+
+    .search-button {
+        width: 98px !important;   
+    }
+
+}
+@media screen and (max-width:768px){
+
+    .search-button {
+        width: 130px !important; 
+        margin-top: 15px !important;  
+    }
+    .dropdown-coloumn{
+        margin: 15px 0 0 0 !important;
+    }
+    .search-dropdown{
+
+    }
+
+} */

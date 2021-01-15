@@ -1,0 +1,328 @@
+/* .navbar {
+    display: none;
+} */
+
+.login-left-image {
+  background-image: url("../../../../assets/LoginDummyImage.png"); 
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.double-car-logo {
+    margin-top: 3rem;
+}
+.right-side-column {
+    background-color: white;
+    padding:0px 79px;
+}
+
+.login-now-head {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 46px;
+    margin-top: 10rem;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.login-label {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.65);
+    
+}
+
+.login-email,.login-password  {
+    background: #FFFFFF ;
+    border-radius: 4px;
+    border: 1px solid #E9E9E9;
+    height: 48px ;
+  ;
+    background: #FFFFFF;
+    margin-top: 1rem; 
+}
+.login-email::placeholder,.login-password::placeholder  {
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 14px;
+    line-height: 24px;
+}
+.form-check{
+    padding: 0 !important;
+    padding-left: 0 !important;
+}
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.1rem rgb(13, 81, 170,0.1) ;
+}
+
+.login-button {
+    background-color: #1C67CE !important;
+    border-radius: 0.4rem ;
+    color: #ffffff !important;
+    font-size: 15px;
+    line-height: 32px;
+    width: 142px;
+    height: 48px;
+    font-weight: 500;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
+}
+
+
+.remember-login-column {
+    margin-top: 1.5rem;
+}
+
+.remember-label {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 22px;
+    margin-top: 0.8rem;
+}
+.remember-check {
+    margin-top: 1.05rem;
+}
+
+.register-forgot-column {
+    margin-top: 1.5rem;
+}
+
+.not-register-label {
+    color: #1C67CE;
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.forgot-label {
+    color: #1C67CE;
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.or-label {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #eff3f6; 
+    line-height: 0.1em;
+    margin: 20px 0 30px; 
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: normal;
+ } 
+   .or-label span { 
+    background:#fff; 
+    padding:0 10px;  
+    font-family: 'ubuntu';
+}
+.google-button { 
+    width: 58px;
+    height: 48px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    background: url('../../../../assets//icons/google-icon.svg') no-repeat center;
+    float: center;
+    justify-content: center;
+}
+
+.facebook-button { 
+    width: 58px;
+    height: 48px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+    background: url('../../../../assets//icons/fb-icon.svg') no-repeat center;
+    float: center;
+    justify-content: center;
+}
+.MuiCheckbox-colorPrimary.Mui-checked {
+    color: #1C67CE !important;
+    }
+.bottom-footer {
+    display: none;
+}
+.footer-body{
+    display: none;
+}
+
+.pass-wrapper {
+    position: relative;
+    display: flex;
+    margin-bottom: 14px;
+  }
+.pass-wrapper i {
+    position: absolute;
+    top: 44%;
+    right: 4%;
+    color: rgb(158, 154, 154);
+  }
+.pass-wrapper i:hover {
+   
+    cursor: pointer;
+  }
+.icons{
+    display: flex;
+    justify-content: center;
+}
+.icons div{
+    margin: 0% 3%;
+}
+.bottom{
+    display: none;
+    text-align: center;
+    font-size: 14px;
+    margin: 8% 0%;
+}
+.signup-label{
+    color: #1C67CE;
+   
+    line-height: 26px;
+    font-weight: normal;
+    cursor: pointer;
+}
+.head-text{
+    text-align: center !important;
+}
+.col-md-6 {
+    padding-left: 0 !important;
+}
+/* Media query */
+
+
+@media screen and (max-width: 900px) {
+    body{
+        background-color: white !important;
+    }
+    .login-label{
+        display: none;
+    }
+    .head-text{
+        text-align:left ;
+    }
+    .right-side-column{
+        padding: 0px 100px !important;
+    }
+    .login-left-image {
+       display: none;
+    }
+    .login-now-head{
+        text-align: initial;
+        margin-top: 8rem;
+        font-size: 28px;
+    }
+    .login-button{
+        /* width: 110px;
+        height: 40px; */
+        padding: 2%;
+        margin-top: 12%;
+    }
+    .bottom{
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        margin: 5% 0%;
+    }
+    .right-side-column{
+        margin-bottom:0%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .right-side-column{
+        padding: 0 36px !important;
+    }
+    .login-button{
+        width: 90px;
+        height: 40px;
+        margin: 15px 12px 0px 0px !important ;
+    }
+    .col-md-6 {
+        padding: 0 !important;
+    }
+}
+@media screen and (max-width: 600px) {
+    .right-side-column{
+        padding: 0px 90px ;
+    }
+}
+@media screen and (max-width: 800px) {
+    .right-side-column{
+        padding: 0px 160px ;
+    }
+}
+
+
+ @media screen and (max-width: 1000px) {
+    body{
+        background-color: white !important;
+    }
+
+    .right-side-column{
+        margin-bottom:4%;
+    }
+    .login-now-head{
+        
+        margin-top: 8rem;
+        font-size: 28px;
+    }
+    
+    .login-button{
+        /* width: 110px;
+        height: 40px; */
+        padding: 2%;
+        margin-top: 12%;
+    }
+    
+    .right-side-column{
+        padding: 0px 160px;
+    }
+
+}
+@media screen and (max-width: 992px) {
+    .icons{
+        display: flex;
+        justify-content: center;
+        margin: 4% 0%;
+    } 
+}
+@media screen and (max-width: 1100px) {
+    .right-side-column{
+        padding: 0px 70px;
+    }
+    .login-now-head{
+        margin-top: 8rem;
+        font-size: 28px;
+    }
+    .login-left-image {
+        background-image: url("../../../../assets/LoginDummyImage.png"); 
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 50%;
+    }
+    .login-button{
+       margin:3% 0% 0% -20%;
+    }
+    
+} 
+@media screen and (max-width: 1225px) {
+    .login-left-image {
+        background-image: url("../../../../assets/LoginDummyImage.png"); 
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 50%;
+    }
+    .right-side-column{
+        padding: 0px 58px;
+    }
+}

@@ -1,0 +1,163 @@
+.seller-card {
+    background-color: #ffffff;
+}
+
+.rate-label{
+    font-weight: 600;
+    font-size: 60px;
+    color: rgba(0, 0, 0, 0.85);
+    font-style: normal;
+    line-height: 69px;
+}
+
+.read-reviews-button {
+    background-color: #ffffff !important;
+    border-radius: 0.4rem !important;
+    color: #1C67CE !important;
+    border-color: #1C67CE !important;
+    height: 40px;
+    width: 190px;
+    text-align: center;
+    font-size: 14px;
+   
+}
+
+.reviews-label {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.Dealer-Profile-image{
+    border-radius: 20px;
+    width: 70px;
+    height: 70px;
+}
+
+.about-seller-head {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 15px;
+}
+.contact-details {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 15px;
+}
+
+.dealer-name {
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.seller-details-p {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.55);
+}
+.contact-details-p {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.65);
+    overflow-wrap: break-word;
+}
+.vertical-line {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    height: 200px;
+    width: 0px !important;
+}
+
+
+
+@media (max-width: 980px) {
+    .vertical-line{
+        display: none;
+    }
+
+    .rate-label{
+        text-align: left;
+        font-size: 40px;
+      }
+
+      .reviews-label {
+        text-align: left;
+      }
+      .read-reviews-button {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+       
+    }
+
+  }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .rate-label{
+        text-align: center;
+        font-size: 40px;
+      }
+
+      .reviews-label {
+        text-align: left;
+      }
+      .read-reviews-button {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+    .font-rate-stars {
+        text-align: left;
+    }
+} 
+
+
+
+
+  @media (max-width: 767px) {
+    .rate-label{
+        text-align: center;
+        font-size: 40px;
+      }
+
+      .reviews-label {
+        text-align: left;
+      }
+      .read-reviews-button {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .font-rate-stars {
+        text-align: left;
+    }
+  }
+  
+  @media (max-width: 1050px) {
+    .rate-label{
+        text-align: center;
+        font-size: 40px;
+      }
+
+      .reviews-label {
+        text-align: left;
+      }
+      .read-reviews-button {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .seller-card {
+        margin-top: 5%;
+    }
+
+    .font-rate-stars {
+        text-align: left;
+    }
+  }
+
+
+  
+
+

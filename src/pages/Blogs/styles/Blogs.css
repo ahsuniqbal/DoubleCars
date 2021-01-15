@@ -1,0 +1,113 @@
+.blogs-body {
+    background-color: white !important;
+}
+
+/* Blogs css starts here.  */
+.blogs-column {
+    margin-top: 7%;
+}
+
+.blog-read-label {
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+.blogs-heading {
+    font-size: 40px;
+line-height: 140%;
+color: rgba(0, 0, 0, 0.85);
+}
+
+.blog-content {
+    font-weight: 300;
+font-size: 16px;
+line-height: 160%;
+color: rgba(0, 0, 0, 0.84);
+}
+
+.blog-sub-heading {
+    font-weight: 500;
+font-size: 24px;
+line-height: 38px;
+color: rgba(0, 0, 0, 0.84);
+}
+
+.cell-heading {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.blog-blockquote {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 29px;
+    color: rgba(0, 0, 0, 0.84);
+    border-left: 4px solid #1C67CE;
+}
+
+.image-credit-label {
+    font-weight: 300;
+    font-size: 14px;
+    line-height:22px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.45);
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+
+
+}
+
+/* Related Stories Cell css starts here */
+
+.related-car-card {
+    border: transparent !important;
+}
+.cell-card-image{
+    object-fit: cover;
+    width: 90px;
+    height: 66px;
+    border-radius: 6px 0px 0px 6px;
+}
+
+.related-card-label {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+/* End */
+
+/* Similar car cell css starts here */
+
+.similar-card-cell {
+    height: 97px;
+}
+
+.similar-cell-card-image {
+    object-fit: cover;
+    width: 100%;
+    height: 96px;
+    border-radius: 6px 0px 0px 6px;
+}
+.similar-car-title {
+    font-size: 15px;
+    line-height: 120%;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.similar-card-price {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 17px;
+    color: #000000;
+}
+
+/* End */
+

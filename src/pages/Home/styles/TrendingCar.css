@@ -1,0 +1,64 @@
+.trending-cars-head {
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 4%;
+}
+
+.trending-cars {
+    margin-top: 5%;
+    background-color: #FFFFFF;
+    width: 1253px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.view-all {
+  font-size: 16px;
+  font-weight: 500;
+}
+.tab-items{
+  margin-right: 13px !important;
+}
+@media screen and (max-width:420px){
+  .trending-cars-head{
+    margin-bottom: -5%;
+  }
+}
+
+
+/* Carosuel custom css starts here. */
+/* .carousel-control-prev, .carousel-control-next {
+    opacity: 1;
+    height: 20px;
+  }
+
+  .carousel-control-next:hover, .carousel-control-next:focus {
+  opacity: 1;
+  }
+
+  .carousel-control-prev:hover, .carousel-control-prev:focus {
+    opacity: 1;
+    }
+
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #FFFFFF;
+    height: 56px;
+    width: 56px;
+    border-radius: 13px;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .carousel-control-next-icon {
+    background-image: url('../../../assets/next-icon.svg');
+    margin-right: -188px;
+    margin-top: 143%;
+
+  }
+
+  .carousel-control-prev-icon {
+    content: url('../../../assets/prev-icon.svg');
+    margin-left: -188px;
+    margin-top: 143%;
+  } */

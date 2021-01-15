@@ -1,0 +1,30 @@
+import React from 'react';
+import { Row, Col, Label } from 'reactstrap';
+import '../../styles/LowerSection.css'
+
+const LowerSection = () => {
+
+    const LowerImage = {
+        backgroundImage: `url(${require("../../../../assets/LowerSectionDummyImage.png")})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        height: '50vh',
+      };
+     
+
+    return(
+        <Row className='lower-section'>
+            <Col md = "12" xs = "12" style = {LowerImage}>
+            <div className = "">
+                <Label className = "type-label">New Cars</Label>
+                <h2 className = "car-name">Video: BMW M2 CS is part of Autocar’s 2020 Best Sports Cars</h2>
+                <Label className = "date-label">Dec 15, 2020</Label>
+              </div>
+
+            </Col>
+        </Row>
+    )
+}
+
+export default LowerSection;
