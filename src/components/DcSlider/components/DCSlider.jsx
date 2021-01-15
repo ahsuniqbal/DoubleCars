@@ -16,7 +16,7 @@ const NextIcon=(props)=>{
       className={className}
       onClick={onClick}
     >
-      <img src={nextIcon} className='icon-image'/>
+      <img src={nextIcon} className='icon-image' id='show-sliders'/>
     </div>
   );
 }
@@ -27,7 +27,7 @@ const PrevoiusIcon=(props)=>{
       className={className}
       onClick={onClick}
     >
-      <img src={previousIcon} className='prev-icon-image'/>
+      <img src={previousIcon} className='prev-icon-image' id='show-sliders'/>
     </div>
   );
 }
@@ -77,7 +77,7 @@ const DCSlider = (props) => {
     }
 
     return (
-        <Slider {...settings}>
+        <Slider {...settings} className='silder-class' id='show-sliders'>
             {
                 props.items ? 
                     props.items.map((item, index) => (
@@ -90,7 +90,6 @@ const DCSlider = (props) => {
                             productTitle={item.carName}
                             productSubtitle={AddCommaToNumber(item.mileage) + " miles · " + item.zipCode}
                             productText={"$" + AddCommaToNumber(item.price)}
-                        
                         />      
                     ))
                 : null

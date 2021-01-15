@@ -12,11 +12,11 @@ const Chat = () => {
                     <ChatList />
                 </Col>
 
-                <Col md="6">
+                <Col md="6" style={{padding: '0'}}>
                     <ChatView />
                 </Col>
 
-                <Col xs="3">
+                <Col xs="3" style={{padding: '0'}}>
                     <ProfileView />
                 </Col>
             </Row>

@@ -7,13 +7,17 @@ const ProfileView = () => {
     return (
         <Card className="profile-view">
             <CardBody>
-                <h6>Inquaring For</h6>
+                <h6>Inquiring For</h6>
 
                 <div className="inquaring-for-card">
+                    <div>
                     <CardImg src={BlogPageImage4} />
+                    </div>
+                    <div>
                     <CardTitle title="2019 Acura MDX Hy...">2019 Acura MDX Hy...</CardTitle>
                     <CardSubtitle>17,863 Mileage · California</CardSubtitle>
                     <CardText>$25,664</CardText>
+                    </div>
                 </div>
                 
             </CardBody>

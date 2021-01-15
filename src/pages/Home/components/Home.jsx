@@ -148,25 +148,12 @@ const Home = () => {
     const [trending, setTrending] = useState(null);
      const [bodyTypes, setBodyTypes] = useState(null);
      const [homeData, setHomeData] = useState(null);
-    // const ApiCall=async()=>{
-    //     await axios
-    //     .get('https://magnetic-flare-280505.uc.r.appspot.com/home/part-two?id=1')
-    //     .then((data) => {
-    //         const recomendedData=data.data.results[0].data
-    //         const trendingData=data.data.results[1].data
-    //         console.log('data',recomendedData)
-    //     })
-    //     .catch((error)=>{
-    //         console.log(error)
-    //     })
-    // }
+
     useEffect(() => {
         // calling Api function
        
         // If User is logged in the you will send id param other wise no id param will be send
         // Login not implemented yet that
-        
-      
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
             setHomeData(doc)
@@ -212,7 +199,7 @@ const Home = () => {
 
                         </Row>
                         <Row>
-                            <Col>
+                            <Col className='featured-main-coloumn'>
                                 <TabPanel tabId="feature-tab">
                                     <FeaturedCars/>
                                 </TabPanel>

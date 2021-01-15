@@ -9,15 +9,16 @@ import {GetProductsOfBodyType} from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth'
 
 const LowerCar = (props) => {
-
-     const {bodyTypes}=props
-    useEffect(()=>{
-     GetProductsOfBodyType(isLogin() ? getLogin() : -1).then(doc=>{
-          console.log('lowecar',doc)
-     }).catch(e=>{
-          alert(e.message)
-     })
-    },[])
+     
+// data of api get through home.jsx
+//      const {bodyTypes}=props
+//     useEffect(()=>{
+//      GetProductsOfBodyType(isLogin() ? getLogin() : -1).then(doc=>{
+//           console.log('lowecar',doc)
+//      }).catch(e=>{
+//           alert(e.message)
+//      })
+//     },[])
      var settings = {
           dots: true,
           infinite: false,
@@ -56,7 +57,7 @@ const LowerCar = (props) => {
         };
     return(
        <div>
-            <Slider {...settings}>
+            {/* <Slider {...settings}>
                  {
                       bodyTypes? bodyTypes.map((item,index)=>{
                            return(
@@ -68,8 +69,8 @@ const LowerCar = (props) => {
                       }) :null
                  }
                
-          </Slider>
-            {/* <Slider {...settings}>
+          </Slider> */}
+            <Slider {...settings}>
                <div>
                     <img src={Image1} className='img-fluid'/>
                     <p className='text'>Sedan</p>
@@ -103,7 +104,7 @@ const LowerCar = (props) => {
                     <img src={Image3} className='img-fluid'/>
                     <p className='text'>Hatchback</p>
                </div>
-          </Slider> */}
+          </Slider>
        </div>
         
     )

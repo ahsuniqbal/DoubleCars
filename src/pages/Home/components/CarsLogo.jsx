@@ -68,7 +68,7 @@ const CarsLogo = () => {
                                 </Card>
                         </Col>
                    </Row>
-                    <br/>
+                    
                    <Row className='giving-margin'>
                         <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main'>
@@ -101,7 +101,7 @@ const CarsLogo = () => {
                                 </Card>
                         </Col>
                    </Row>
-                   <br/>
+             
                    <Row className='giving-margin'>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main'>

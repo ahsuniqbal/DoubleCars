@@ -9,15 +9,15 @@ const Header = () => {
                     <div className = "row header-main">
                  
                                 <div className = "col-12 col-md-5 col-sm-6 pt-lg-0 pt-md-4 pt-sm-4 d-flex justify-content-center flex-column left-cover-section ">
-                                    <h1 className = "cover-left-heading ml-5">
+                                    <h1 className = "cover-left-heading ml-3">
                                         Find the most desireable car
                                     </h1>
-                                    <h5 className = "my-3 header-sub-head ml-5">
+                                    <h5 className = "my-3 header-sub-head ml-3">
                                         Buy and sell cars with ease using our app!
                                     </h5>
                                     <div>
                                         <div className = "col-md-12" className = "">
-                                            <Button className="ml-5 mt-4 download-button-cover" to="">Download App</Button>
+                                            <Button className="ml-3 mt-4 download-button-cover" to="">Download App</Button>
                                         </div>
                                     </div>
                                 </div>

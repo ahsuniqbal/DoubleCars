@@ -25,8 +25,8 @@
     color: #ffffff !important;
     border: 1px solid #1C67CE !important;
     text-decoration: none !important;
-    height: 40px;
-    width: 178px;
+    height: 43px;
+    width: 68%;
     line-height: 19px;
     font-size: 14px;
     font-weight: 500;
@@ -38,8 +38,8 @@
     color: #1C67CE !important;
     border: 1px solid #1C67CE !important;
     text-decoration: none !important;
-    height: 40px;
-    width: 178px;
+    height: 43px;
+    width: 68%;
     line-height: 19px;
     font-size: 14px;
     font-weight: 500;
@@ -56,6 +56,10 @@
     font-size: 14px;
     line-height: 16px;
     color: rgba(0, 0, 0, 0.85);
+    margin-top: 4%;
+}
+#mobile-zip-label{
+    margin-top: 7%;
 }
 .profile-text-field{
     background: #FFFFFF ;
@@ -106,3 +110,5 @@
     margin-bottom: 1.6rem;
     margin-top: 1.6rem;
 }
+
+/* media */

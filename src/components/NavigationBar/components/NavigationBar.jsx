@@ -1,11 +1,12 @@
-import React,{useEffect} from "react"
+import React,{useEffect,useState} from "react"
 import { Link, NavLink } from "react-router-dom";
 import "../styles/NavigationBar.css"
 import DCLogo from '../../../assets/DCNewlogo.svg'
-import {Input, InputGroup, InputGroupText ,Form} from 'reactstrap';
+import {Input, InputGroup, InputGroupText ,Form,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
 import { Search } from 'react-feather';
 import socketIOClient from "socket.io-client";
 import { useHistory } from 'react-router-dom';
+import {getUser} from '../../../pages/Profile/api/Get';
 const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 
 const NavigationBar = () => {
@@ -36,6 +37,24 @@ const NavigationBar = () => {
             search: '?search=' + searchValue,
         })
     };
+
+    // get user data to show dropdown at navbar
+    const [userName,setUserName] = useState(null)
+    const path=window.location.pathname
+    useEffect(() => {
+        getUser(localStorage.getItem("userId"))
+        .then(doc => {
+            setUserName(doc[0].fullName)
+        })
+        .catch(e => {
+            alert(e.message)
+        })
+    },[]) 
+    // logout function
+    // const handleLogout = () => {
+    //     localStorage.removeItem('userId')
+    //     history.push('/');
+    // }
 
     return (
         <> 
@@ -92,8 +111,27 @@ const NavigationBar = () => {
                             {
                             localStorage.getItem("userId") ? null : <li className="nav-item">
                             <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
-                        </li>
+                             </li>
                             }
+
+                            {/* {
+                            path=='/profile' && localStorage.getItem("userId") ?  <li className="nav-item mt-3">
+                             <UncontrolledDropdown nav inNavbar>
+                                <DropdownToggle nav caret>
+                                    pic
+                                </DropdownToggle>
+                                <DropdownMenu right>
+                                    <DropdownItem style={{fontWeight:'bold'}}>{userName}</DropdownItem>
+                                    <DropdownItem>Edit Profile</DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem>Messages</DropdownItem>
+                                    <DropdownItem>Saved Cars</DropdownItem>
+                                    <DropdownItem onClick={e => handleLogout()}>Logout</DropdownItem>
+                                </DropdownMenu>
+                                </UncontrolledDropdown>
+                             </li> : null
+                            } */}
+                           
                         </li>
                         
                         
