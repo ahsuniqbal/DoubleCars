@@ -1,9 +1,7 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu'); */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,700&display=swap');
 
-@font-face {
-
-}
 *{
   margin: 0;
   padding: 0;
@@ -13,7 +11,7 @@
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif  !important;
+  font-family: 'Ubuntu', sans-serif  !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #F9F9F9 !important;
