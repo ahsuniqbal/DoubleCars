@@ -175,12 +175,13 @@ const Home = () => {
     return(
         <div className = "landing-page-dc">
             <Header/>
-                <Container fluid = {true} className = "home-container">
+                <Container fluid className = "home-container">
                     <Row>
                         <Col xs="2"></Col>
-                        <Col xs="10">
+                        <Col xs="8" style={{padding: '0'}}> 
                             <Searchbar />
                         </Col>
+                        <Col xs="2"></Col>
                     </Row>
                     <Tabs defaultTab="feature-tab">
                         <Row className='features-row'>

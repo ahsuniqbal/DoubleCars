@@ -79,10 +79,10 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse navigation-bar" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'New Cars'}}>New Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'New Cars', search: '?isUsed=false'}}>New Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'Used Cars'}}>Used Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'Used Cars', search: '?isUsed=true'}}>Used Cars</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link navigation-items" to= {'/blogshome'}>Blogs</NavLink>
@@ -106,16 +106,15 @@ const NavigationBar = () => {
                             </Form>
                         </li>
 
-                        <li className="nav-item d-flex navbar-buttons">
                             {
                                 localStorage.getItem("userId") ? null : <li className="nav-item">
                                 <NavLink className="nav-link navigation-items login-button" to="/login">Log in</NavLink>
-                            </li>
+                                </li>
                             }
                             {
-                            localStorage.getItem("userId") ? null : <li className="nav-item">
-                            <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
-                             </li>
+                                localStorage.getItem("userId") ? null : <li className="nav-item">
+                                <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
+                                </li>
                             }
 
                             {/* show this when user is login and route is profile */}
@@ -138,8 +137,6 @@ const NavigationBar = () => {
                                 </UncontrolledDropdown>
                              </li> : null
                             }
-                           
-                        </li>
                         
                         
                        

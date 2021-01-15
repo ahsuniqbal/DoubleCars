@@ -1,14 +1,16 @@
 import React from 'react';
-import { Row, Col , Button} from 'reactstrap';
-import '../styles/Header.css'
+import { Row, Col , Button, Card} from 'reactstrap';
+import '../styles/Header.css';
+// import headerVideo from '../../../assets/header-mov.mkv';
 
 const Header = () => {
     return(
         <div>
             <section className = "align-items-center header-section">
+                
                     <div className = "row header-main">
                  
-                                <div className = "col-12 col-md-5 col-sm-6 pt-lg-0 pt-md-4 pt-sm-4 d-flex justify-content-center flex-column left-cover-section ">
+                                <div className = "col-12 col-md-5 col-sm-6 left-cover-section">
                                     <h1 className = "cover-left-heading ml-3">
                                         Find the most desireable car
                                     </h1>
@@ -22,11 +24,15 @@ const Header = () => {
                                     </div>
                                 </div>
 
-                                <div className = "col-12 col-md-7 col-sm-6 right-cover-section">
+                                <div className = "col-12 col-md-7 col-sm-6 right-cover-section" style={{padding: '0'}}>
+                                    {/* <video width="100%" controls autoPlay loop>
+                                        <source src={headerVideo} type="video/mp4" />
+                                    </video> */}
                                     {/* <img src = {Cover} alt = "Cover image" className = "img-fluid" width = "100%"/> */}
                                 </div>
                           
                     </div>
+                    
             </section>
 
             

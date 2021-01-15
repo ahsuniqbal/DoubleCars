@@ -1,9 +1,9 @@
 .searchbar{
-    margin-top: -5rem;
-    box-shadow: 0px 0px 40px rgba(44, 44, 44, 0.08);
+    margin-top: -7rem;
+    box-shadow: 0px 4px 20px rgba(44, 44, 44, 0.08);
     border-radius: 8px;
     border-color: white ;
-    width:80%;
+    width: 100%;
     
 
 }
@@ -18,11 +18,13 @@
 
 .searchbar .card-title button{
     font-style: normal;
-    font-size: 16px;
-    line-height: 120%;
+    font-size: 14px;
+    line-height: 16px;
     color: #1C67CE;
     float: right;
+    font-weight: 500;
     padding-right: 0px;
+    font-family: 'Ubuntu';
 }
 
 .searchbar .card-title button:focus{

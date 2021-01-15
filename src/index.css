@@ -46,3 +46,8 @@ body {
 h1, h2 {
   font-family: 'Poppins' !important;
 }
+
+
+::-webkit-scrollbar {
+  display: none;
+}
