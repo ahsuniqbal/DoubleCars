@@ -13,6 +13,7 @@
     font-weight: bold;
     font-size: 22px;
     line-height: 120%;
+    font-family: 'Poppins' !important;
 }
 
 .searchbar .card-title button{
@@ -21,6 +22,7 @@
     line-height: 120%;
     color: #1C67CE;
     float: right;
+    padding-right: 0px;
 }
 
 .searchbar .card-title button:focus{
