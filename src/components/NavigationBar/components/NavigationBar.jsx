@@ -85,13 +85,13 @@ const NavigationBar = () => {
                             <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'Used Cars', search: '?isUsed=true'}}>Used Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to= {'/blogshome'}>Blogs</NavLink>
+                            <NavLink className="nav-link navigation-items" to= {'/blogshome'}>Blog</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to= {'/about'}>About us</NavLink>
+                            <NavLink className="nav-link navigation-items" to= {'/about'}>About US</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={'/contactus'}>Contact Us</NavLink>
+                            <NavLink className="nav-link navigation-items" to={'/contactus'}>Contact</NavLink>
                         </li>
                        
                         <li className="nav-item">

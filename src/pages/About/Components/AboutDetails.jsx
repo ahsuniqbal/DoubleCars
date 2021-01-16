@@ -8,6 +8,9 @@ import { ChevronRight } from 'react-feather';
 const AboutDetails = () => {
     return(
         <Row className = "">
+             <Col md = "1" className = "">
+                <div className = "vertical-line-01"></div>
+            </Col>
             <Col xs = "12" md = "3" className = "">
                 <img src = {AboutPatnership} alt = "message-icon" className = "mb-4"/> <br/>
                 <Label className = "about-detail-head">Partnership Program</Label> <br/>
