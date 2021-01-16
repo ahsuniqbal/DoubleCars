@@ -28,7 +28,7 @@ const SavedCars = React.lazy(() => import('../pages/SavedCars/components/SavedCa
 
 const routes = [
     { path: '/', exact: true, name: 'Home', public: true, restricted: false, component: Home },
-    // { path: '/about', name: 'About', public: true, restricted: true, component: About },
+    { path: '/about', name: 'About', public: true, restricted: true, component: About },
     { path: '/blogshome', name: 'Blogs', public: true, restricted: false, component: BlogsHome },
     { path: '/profile', exact: true, name: 'Profile', public: true, restricted: true, component: Profile }, // login signup k kaam k baad is route ko private krna ha
     // { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
