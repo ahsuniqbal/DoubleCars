@@ -4,6 +4,7 @@ import "../styles/NavigationBar.css"
 import DCLogo from '../../../assets/DCNewlogo.svg'
 import {Input, InputGroup, InputGroupText ,Form,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
 import { Search } from 'react-feather';
+import NavbarSearchIcon from '../../../assets/NavbarSearchIcon.svg'
 import socketIOClient from "socket.io-client";
 import { useHistory } from 'react-router-dom';
 import {getUser} from '../../../pages/Profile/api/Get';
@@ -99,7 +100,8 @@ const NavigationBar = () => {
                             <Form onSubmit={(e) => TopSearch(e)}>
                                 <InputGroup className="search-group">
                                     <InputGroupText className = "search-navigation-icon">
-                                    <Search className = "search-icon-navbar"/>
+                                        <img src = {NavbarSearchIcon} className = "img-fluid"/>
+                                    {/* <Search className = "search-icon-navbar"/> */}
                                     </InputGroupText>
                                 <Input className="search-box" type="text" placeholder="Search" id='top-search-box' />
                                 </InputGroup>

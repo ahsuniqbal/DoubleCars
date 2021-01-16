@@ -60,11 +60,11 @@ const Searchbar = () => {
     // }, []);
 
     return(
-        <Card className="searchbar ">
+        <Card className="searchbar">
             <CardBody>
 
                 <Row>
-                    <Col xs="12">
+                    <Col xs="12" style={{marginTop:'10px', marginBottom: '4px' }} >
                         <CardTitle>Search for your dream car
                             <Button className="advance-search" color="link" onClick={() => history.push('/products')}>Advanced Search</Button>
                         </CardTitle>
