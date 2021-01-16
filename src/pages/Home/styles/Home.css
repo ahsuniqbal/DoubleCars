@@ -12,6 +12,9 @@
 }
 .feature-heading{
   font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+  color: #080B30;
 }
 .featured-main-coloumn{
   padding:0 10px;

@@ -8,8 +8,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 80vh;
-  padding-top: 0;
+  height: 100vh;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 8rem;
 }
 
 .cover-left-heading {
@@ -40,13 +42,20 @@
   
   /* Right section css */
 .right-cover-section {
-    background-image: url("../../../assets/LandingPageHeaderImage.jpeg"); 
+    background-image: url("../../../assets/LandingPageHeaderImage.png"); 
     background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 80vh;
+    height: 100vh;
     width: 98%;
 }
+
+/* .right-cover-section video {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+} */
+
 
 @media (max-width: 1250px) {
   .cover-left-heading {

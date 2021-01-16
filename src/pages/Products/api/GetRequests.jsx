@@ -2,6 +2,7 @@ import { connectionString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
 export const GetSearchResult = (queryParams, pageNum) => {
+    console.log("query params", queryParams)
     return new Promise((resolve, reject) => {
         var url = connectionString + "products/search?search=" + queryParams + "&page=" + pageNum;
         axios.get(url).then(function(response){

@@ -25,7 +25,7 @@ const ShowSearchResults = (products) => {
         }
         else {
             table.push(
-                <Col key={products[i].productId} xs="12" sm="6" lg="4">
+                <Col key={products[i].productId} xs="12" sm="6" lg="4" style={{padding: '0 7px'}}>
                     <ProductCard
                         productId={products[i].productId}
                         productTitle={products[i].carName}
@@ -62,9 +62,7 @@ function DrawSkeleton(){
 
 
 const Products = (props) => {
-    let location = queryString.parse(props.location.search);
-
-    console.log("P", props)
+    let locationSearch = queryString.parse(props.location.search);
 
     const [sortFlag, setSortFlag] = useState(false);
     const [products, setProducts] = useState([]);
@@ -92,10 +90,8 @@ const Products = (props) => {
         return () => window.removeEventListener('scroll', handleScroll);
       }, []);
     
-    
     useEffect(() => {
-        GetSearchResult(location.search, pageNumber).then(doc => {
-            console.log(doc)
+        GetSearchResult(locationSearch.search, pageNumber).then(doc => {
             if(products.length > 0){
                 var temp = products
                 for(let i = 0; i < doc.length; i++){
@@ -111,6 +107,7 @@ const Products = (props) => {
         .catch(error => {
             alert("err",error.message);
         });
+    
     }, [isBottom]);
 
     const filterQueryChange = (queryStr) => {
@@ -139,7 +136,9 @@ const Products = (props) => {
             <Row>
                 <Col xs="12" md="3">
                     <Filters
-                        onFilterChange={filterQueryChange} />
+                        onFilterChange={filterQueryChange}
+                        isUsed={locationSearch.isUsed}
+                    />
                 </Col>
                 <Col xs="12" md="9" >
                     <Row className="search-heading mb-2">

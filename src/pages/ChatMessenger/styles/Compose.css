@@ -4,8 +4,8 @@
     align-items: center;
     background: white;
     border-top: 1px solid #eeeef1;
-    position: fixed;
-    width: 47%;
+    position: relative;
+    width: 100%;
     bottom: 0px;
     border: 1px solid #E9E9E9;
     background-color: rgba(255, 255, 255, 0.8);

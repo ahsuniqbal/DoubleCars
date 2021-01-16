@@ -4,9 +4,11 @@ import "../styles/NavigationBar.css"
 import DCLogo from '../../../assets/DCNewlogo.svg'
 import {Input, InputGroup, InputGroupText ,Form,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
 import { Search } from 'react-feather';
+import NavbarSearchIcon from '../../../assets/NavbarSearchIcon.svg'
 import socketIOClient from "socket.io-client";
 import { useHistory } from 'react-router-dom';
 import {getUser} from '../../../pages/Profile/api/Get';
+import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
 const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 
 const NavigationBar = () => {
@@ -38,24 +40,26 @@ const NavigationBar = () => {
         })
     };
 
-    // get user data to show dropdown at navbar
+    //get user data to show dropdown at navbar
     const [userName,setUserName] = useState(null)
     const path=window.location.pathname
-    console.log(path)
-    useEffect(() => {
+   
+    
+    if(path=='/profile' && localStorage.getItem("userId")!=null){
         getUser(localStorage.getItem("userId"))
         .then(doc => {
             setUserName(doc[0].fullName)
         })
         .catch(e => {
             alert(e.message)
-        })
-    },[]) 
+        }) 
+    }
+   
     // logout function
-    // const handleLogout = () => {
-    //     localStorage.removeItem('userId')
-    //     history.push('/');
-    // }
+    const handleLogout = () => {
+        localStorage.removeItem('userId')
+        history.push('/');
+    }
 
     return (
         <> 
@@ -76,19 +80,19 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse navigation-bar" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'New Cars'}}>New Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'New Cars', search: '?isUsed=false'}}>New Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'Used Cars'}}>Used Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'Used Cars', search: '?isUsed=true'}}>Used Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to= {'/blogshome'}>Blogs</NavLink>
+                            <NavLink className="nav-link navigation-items" to= {'/blogshome'}>Blog</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to= {'/about'}>About us</NavLink>
+                            <NavLink className="nav-link navigation-items" to= {'/about'}>About</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={'/contactus'}>Contact Us</NavLink>
+                            <NavLink className="nav-link navigation-items" to={'/contactus'}>Contact</NavLink>
                         </li>
                        
                         <li className="nav-item">
@@ -96,44 +100,45 @@ const NavigationBar = () => {
                             <Form onSubmit={(e) => TopSearch(e)}>
                                 <InputGroup className="search-group">
                                     <InputGroupText className = "search-navigation-icon">
-                                    <Search className = "search-icon-navbar"/>
+                                        <img src = {NavbarSearchIcon} className = "img-fluid"/>
+                                    {/* <Search className = "search-icon-navbar"/> */}
                                     </InputGroupText>
                                 <Input className="search-box" type="text" placeholder="Search" id='top-search-box' />
                                 </InputGroup>
                             </Form>
                         </li>
 
-                        <li className="nav-item d-flex navbar-buttons">
                             {
                                 localStorage.getItem("userId") ? null : <li className="nav-item">
                                 <NavLink className="nav-link navigation-items login-button" to="/login">Log in</NavLink>
-                            </li>
+                                </li>
                             }
                             {
-                            localStorage.getItem("userId") ? null : <li className="nav-item">
-                            <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
-                             </li>
+                                localStorage.getItem("userId") ? null : <li className="nav-item">
+                                <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
+                                </li>
                             }
 
-                            {/* {
+                            {/* show this when user is login and route is profile */}
+                            {
                             path=='/profile' && localStorage.getItem("userId") ?  <li className="nav-item mt-3">
                              <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
+                                <DropdownToggle nav caret className='dropdown-img'>
                                     pic
                                 </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem style={{fontWeight:'bold'}}>{userName}</DropdownItem>
-                                    <DropdownItem>Edit Profile</DropdownItem>
+                                     
+                                <DropdownMenu right className='dropdown-menu'>
+                                    <DropdownItem className='dropdown-arrow'><img src={AppbarDropdown} className='dropdown-arrow-pic'/> </DropdownItem>
+                                    <DropdownItem style={{fontWeight:'bold'}} >{userName}</DropdownItem>
+                                    <DropdownItem >Edit Profile</DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem>Messages</DropdownItem>
-                                    <DropdownItem>Saved Cars</DropdownItem>
-                                    <DropdownItem onClick={e => handleLogout()}>Logout</DropdownItem>
+                                    <DropdownItem >Messages</DropdownItem>
+                                    <DropdownItem >Saved Cars</DropdownItem>
+                                    <DropdownItem  onClick={e => handleLogout()}>Logout</DropdownItem>
                                 </DropdownMenu>
                                 </UncontrolledDropdown>
                              </li> : null
-                            } */}
-                           
-                        </li>
+                            }
                         
                         
                        
