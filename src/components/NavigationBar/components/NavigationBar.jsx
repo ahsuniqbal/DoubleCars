@@ -88,7 +88,7 @@ const NavigationBar = () => {
                             <NavLink className="nav-link navigation-items" to= {'/blogshome'}>Blog</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to= {'/about'}>About US</NavLink>
+                            <NavLink className="nav-link navigation-items" to= {'/about'}>About</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link navigation-items" to={'/contactus'}>Contact</NavLink>

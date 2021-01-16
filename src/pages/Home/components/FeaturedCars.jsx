@@ -47,7 +47,8 @@ const FeaturedCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '35vh',
-        border:'5px solid white'
+        border:'5px solid white',
+        
             };
 
 
@@ -57,7 +58,7 @@ const FeaturedCars = () => {
             <Col md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn'>
             <Badge color="primary" className = "feature-car-badge1">New</Badge>
                 <div className="content">
-                  <h2 className='content-header'>$30,500</h2>
+                  <Label className='content-header'>$30,500</Label><br/>
                   <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
                 </div>
             </Col>
@@ -66,14 +67,14 @@ const FeaturedCars = () => {
                     <Col md = "6" xs = "12" style = {FeaturedDemoImage2} className='main-coloumn'>
                     <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
-                        <h2 className='content-header'>$30,500</h2>
+                        <Label className='content-header'>$30,500</Label><br/>
                         <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
                       </div>
                     </Col>
                     <Col md = "6" xs = "12" style = {FeaturedDemoImage3} className='main-coloumn'>
                       
                       <div className="content">
-                        <h2 className='content-header'>$30,500</h2>
+                        <Label className='content-header'>$30,500</Label><br/>
                         <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
                       </div>
                     </Col>
@@ -81,14 +82,14 @@ const FeaturedCars = () => {
                 <Row>
                     <Col md = "6" xs = "12" style = {FeaturedDemoImage4} className='main-coloumn'>
                       <div className="content">
-                        <h2 className='content-header'>$30,500</h2>
+                        <Label className='content-header'>$30,500</Label><br/>
                         <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
                       </div>
                     </Col>
                     <Col md = "6" xs = "12" style = {FeaturedDemoImage5} className='main-coloumn'>
                      <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
-                        <h2 className='content-header'>$30,500</h2>
+                        <Label className='content-header'>$30,500</Label><br/>
                         <Label className="content-text">2019 Mercedes Benz Hybrid</Label>
                       </div>
                     </Col>

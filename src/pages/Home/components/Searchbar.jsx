@@ -86,11 +86,16 @@ const Searchbar = () => {
                         </Col>
                        
                             <Col xs="12" sm="6" md="2" className='dropdown-coloumn my-1'>
-                                <Input id="make-list" type="select" className = "condition-dropdown">
+                                {/* <Input id="make-list" type="select" className = "condition-dropdown">
                                     <option value="" hidden selected>Condition</option>
                                     <option value={false}>New</option>
                                     <option value={true}>Used</option>
-                                </Input>
+                                </Input> */}
+                                            <Input type="select" required className="condition-dropdown">
+                                            <option value=""disabled selected>Condition</option>
+                                            <option value="Option-1">New</option>
+                                            <option value="Option-2">Used</option>
+                                            </Input>
                             </Col>
 
                             <Col xs="12" sm="6" md="2" className='search-coloumn my-1'>
