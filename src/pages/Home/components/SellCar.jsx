@@ -17,7 +17,7 @@ const SellCar = () => {
                 <Col md={8} >
                     <div className=''>
                         <h2 className='blue-head'>
-                            Sell Your Car On Our Platform <br/> With Ease
+                            Sell Your Car On Our Platform <br/> With Ease.
                         </h2>
                         <p className='blue-text'> 
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.Impedit laborum blanditiis repellat sapiente harum veniam labore,
@@ -51,7 +51,7 @@ const SellCar = () => {
                                         <img src={Chat} className='white-section-icon'/>
                                         <h2 className='white-head  ml-5'>Get Leads</h2>
                                     </div>
-                                    <p className='white-text pt-2'>Get original leads and keep track on your car seat</p>
+                                    <p className='white-text pt-2'>Get original leads and keep track on your cars stats</p>
                                 </div>
                             </div>
                             <div className='col-lg-4 md-12'>

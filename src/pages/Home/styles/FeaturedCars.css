@@ -1,9 +1,9 @@
 .main-feature{
     margin: 0;
 }
-.rwt__tablist , .rwt__tab ,.rwt__tab[aria-selected="true"]:after{
+/* .rwt__tablist , .rwt__tab ,.rwt__tab[aria-selected="true"]:after{
     border-bottom: none !important;
-}
+} */
 
 .content {
     position: absolute;

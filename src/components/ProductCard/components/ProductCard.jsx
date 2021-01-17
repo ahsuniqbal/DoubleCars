@@ -72,6 +72,7 @@ const ProductCard = (props) => {
                 </Col>
                 {
                     // The bookmark button
+                    props.allowBookmark ?
                     saveId ?
                         null
                     :
@@ -80,6 +81,7 @@ const ProductCard = (props) => {
                             <FontAwesomeIcon icon={["far", "bookmark"]} />
                         </Button>
                     </Col>
+                    : null
                 }
             </Row>
             {

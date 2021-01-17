@@ -28,11 +28,11 @@ const PriceRange = () => {
 
                         <TabList>
                             <span className='price-head'>Price Range</span>
-                            <Tab tabFor="vertical-tab-one" className='Items'>$10000</Tab>
-                            <Tab tabFor="vertical-tab-two" className='Items'>$20000</Tab>
-                            <Tab tabFor="vertical-tab-three" className='Items'>$30000</Tab>
-                            <Tab tabFor="vertical-tab-four" className='Items'>$40000</Tab>
-                            <Tab tabFor="vertical-tab-five" className='Items'>$50000</Tab>
+                            <Tab tabFor="vertical-tab-one" className='Items'>Under $10000</Tab>
+                            <Tab tabFor="vertical-tab-two" className='Items'>Under $20000</Tab>
+                            <Tab tabFor="vertical-tab-three" className='Items'>Under $30000</Tab>
+                            <Tab tabFor="vertical-tab-four" className='Items'>Under $40000</Tab>
+                            <Tab tabFor="vertical-tab-five" className='Items'>Under $50000</Tab>
                         </TabList>
 
                     </Grid>

@@ -42,7 +42,7 @@ import { ActionSwapVerticalCircle } from 'material-ui/svg-icons';
 //                 productImg={data[i].coverPic}
 //                 productName={data[i].name}
 //                 productTitle={data[i].name}
-//                 productSubtitle={data[i].mileage + " miles · " + data[i].zipCode}
+//                 productSubtitle={data[i].mileage + " mileage · " + data[i].zipCode}
 //                 productText = {"$" + data[i].price}
 //             />
             
@@ -109,7 +109,7 @@ const DrawCarouselCols = (list, index) => {
                     productImg={list[i].coverPic}
                     productName={list[i].name}
                     productTitle={list[i].name}
-                    productSubtitle={AddCommaToNumber(list[i].mileage) + " miles · " + list[i].zipCode}
+                    productSubtitle={AddCommaToNumber(list[i].mileage) + " mileage · " + list[i].zipCode}
                     productText={"$" + AddCommaToNumber(list[i].price)}
                 />
                  : null
@@ -235,8 +235,10 @@ const Home = () => {
                                 </Row>
 
                                 <DCSlider
-                                slidesToShow = {5}
-                                items={item.data}/>
+                                    slidesToShow = {5}
+                                    items={item.data}
+                                    allowBookmark={false}
+                                />
                             </div>) 
                         })
                         :null
