@@ -1,19 +1,31 @@
+.lower-section-car {
+    height: 352px;
+}
+
 .lower-section-img{
     position: relative;
-    width: 383px;
-height: 352.56px;
 } 
+
+.lower-cars-carousel-images {
+    height: 353px;
+    width: 360px;
+    /* padding-right: 0px !important; */
+}
 .lower-main{
     padding: 0% !important;
 }
 .text{
     position: absolute;
-    bottom: 0;
+    bottom: 3%;
     font-family: Poppins;
     font-style: normal;
-    font-weight: bold;
+    font-weight: bolder !important;
     font-size: 22px;
     line-height: 120%;
     color: #FFFFFF;
     padding-left: 35px;
+}
+
+.slick-slider {
+    background-color: white;
 }
