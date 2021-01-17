@@ -2,7 +2,7 @@
     font-size: 22px;
     font-weight: bold;
     color: black;
-    margin-bottom: 5%;
+    margin-bottom: 25px;
 }
 
 .recommended-cars {
@@ -16,7 +16,7 @@
 
 .view-all {
   font-size: 16px;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 @media screen and (max-width:420px){
   .recommended-cars-head{
