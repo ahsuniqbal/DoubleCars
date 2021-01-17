@@ -45,8 +45,10 @@
 .footer-dc {
   color: black;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: bolder;
   line-height: 29px;
+  font-style: normal;
+  font-family: 'Proxima Nova' !important;
 }
 
 .discription-dc-footer {
@@ -58,10 +60,23 @@
 .nav-text-color {
   color: rgba(8, 11, 48, 0.65) !important;
 }
+
+.footer-contact-information {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: #080B30;
+  font-family: 'Proxima Nova' !important;
+  cursor: default;
+}
 .footer-contact {
-  font-size: 12px !important;
+  font-size: 16px !important;
+  line-height: 18px;
   font-weight: 500 !important;
   color: #1C67CE;
+  font-weight: normal;
+  cursor: pointer;
 }
 /* End */
 

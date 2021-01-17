@@ -2,7 +2,8 @@ import React from "react"
 import {Row, Col, Nav, NavItem, Button, NavLink, Container} from 'reactstrap'
 import '../styles/Footer.css'
 import { Facebook, Instagram, Twitter } from 'react-feather';
-
+import FacebookFooter from '../../../assets/FooterFacebook.svg'
+import SearchBoxSearchIcon from '../../../assets/SearchBoxSearchIcon.svg'
 import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
@@ -86,13 +87,13 @@ const Footer = () => {
                         <Col xs="12" md="3" className = "footer-columns">
                             <Nav vertical>
                                 <NavItem>
-                                <NavLink className = "nav-text-color" to=""><strong>Contact Information</strong></NavLink>
+                                <NavLink className = "nav-text-color footer-contact-information" to="">Contact Information</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink to="" className = "footer-contact ">support@doublecars.com</NavLink>
+                                    <NavLink to="" className = "footer-contact">support@doublecars.com</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink to="" className = "footer-contact ">01 234 67890</NavLink>
+                                    <NavLink to="" className = "footer-contact">01 234 67890</NavLink>
                                 </NavItem>
                             </Nav>
                         </Col>
@@ -128,6 +129,7 @@ const Footer = () => {
                             <Row className='icon-row'>
                                 <Col md = "2"  xs = "" className = "icons-columns">
                                     <Facebook color="#1C67CE" size={20} className = "feather-icon"/>
+                                    {/* <img  src = {FacebookFooter} className = "img-fluid"/> */}
                                 </Col >
                                 <Col md = "2" xs = "" className = "icons-columns ">
                                     <Instagram color="#1C67CE" size={20} className = "feather-icon"/>
