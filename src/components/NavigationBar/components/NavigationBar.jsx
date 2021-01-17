@@ -4,6 +4,7 @@ import "../styles/NavigationBar.css"
 import DCLogo from '../../../assets/DCNewlogo.svg'
 import {Input, InputGroup, InputGroupText ,Form,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
 import { Search } from 'react-feather';
+import NavbarSearchIcon from '../../../assets/NavbarSearchIcon.svg'
 import socketIOClient from "socket.io-client";
 import { useHistory } from 'react-router-dom';
 import {getUser} from '../../../pages/Profile/api/Get';
@@ -85,13 +86,13 @@ const NavigationBar = () => {
                             <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'Used Cars', search: '?isUsed=true'}}>Used Cars</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to= {'/blogshome'}>Blogs</NavLink>
+                            <NavLink className="nav-link navigation-items" to= {'/blogshome'}>Blog</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to= {'/about'}>About us</NavLink>
+                            <NavLink className="nav-link navigation-items" to= {'/about'}>About</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={'/contactus'}>Contact Us</NavLink>
+                            <NavLink className="nav-link navigation-items" to={'/contactus'}>Contact</NavLink>
                         </li>
                        
                         <li className="nav-item">
@@ -99,7 +100,8 @@ const NavigationBar = () => {
                             <Form onSubmit={(e) => TopSearch(e)}>
                                 <InputGroup className="search-group">
                                     <InputGroupText className = "search-navigation-icon">
-                                    <Search className = "search-icon-navbar"/>
+                                        <img src = {NavbarSearchIcon} className = "img-fluid"/>
+                                    {/* <Search className = "search-icon-navbar"/> */}
                                     </InputGroupText>
                                 <Input className="search-box" type="text" placeholder="Search" id='top-search-box' />
                                 </InputGroup>
@@ -108,12 +110,12 @@ const NavigationBar = () => {
 
                             {
                                 localStorage.getItem("userId") ? null : <li className="nav-item">
-                                <NavLink className="nav-link navigation-items login-button" to="/login">Log in</NavLink>
+                                <NavLink className="nav-link navigation-items login-button" to="/" >Log in</NavLink>
                                 </li>
                             }
                             {
                                 localStorage.getItem("userId") ? null : <li className="nav-item">
-                                <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
+                                <NavLink className="nav-link navigation-items signup-button" to="/">Sign up</NavLink>
                                 </li>
                             }
 
