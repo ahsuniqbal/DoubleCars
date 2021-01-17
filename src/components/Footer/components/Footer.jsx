@@ -14,12 +14,13 @@ const Footer = () => {
                     <Row>
                         <Col className = "footer-image">
                             <Row className = "h-100">
-                                <Col md  = "6" xs = "12" className = "car-dealer-class my-auto">
+                                <Col md = "2"></Col>
+                                <Col md  = "4" xs = "12" className = "car-dealer-class my-auto mx-auto">
                                     <h1 className = "car-dealer-head">Are you a car dealer?</h1>
                                     <h5 className = "my-1 car-dealer-subhead">We bring you the opporitniy to sell your car on our platmore</h5>
                                 </Col>
-                              <Col md='1' sm='0'></Col>
-                                <Col md = "2" xs = "12" className = "learn-more-button-class my-auto">
+                              
+                                <Col md = "6" xs = "12" className = "learn-more-button-class my-auto mx-auto">
                                     <Button className="learn-more-button-cover">Learn More</Button>
                                 </Col>
                             </Row>
