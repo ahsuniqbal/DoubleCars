@@ -27,7 +27,7 @@
 } */
 
 .price-head{
-    font-family: Poppins;
+    font-family: 'Poppins' !important;
     font-style: normal;
     font-weight: 600;
     width: 100%;

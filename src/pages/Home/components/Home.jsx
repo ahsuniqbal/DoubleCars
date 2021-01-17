@@ -300,16 +300,16 @@ const Home = () => {
                 </Row>
                 <Container>
                 <Row style={{margin:'0'}}>
-                    <Col xs = "12" md = "3">
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
                         <ArticleCard/>
                     </Col>
-                    <Col xs = "12" md = "3">
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
                         <ArticleCard1/>
                     </Col>
-                    <Col xs = "12" md = "3">
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
                         <ArticleCard2/>
                     </Col>
-                    <Col xs = "12" md = "3">
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
                         <ArticleCard3/>
                     </Col>
                 </Row>

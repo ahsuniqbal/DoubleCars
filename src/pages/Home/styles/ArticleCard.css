@@ -34,7 +34,11 @@
     color: rgba(0, 0, 0, 0.85);
 }
 .tarticle-card-heading{
-    font-weight: 550;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    margin-top: 0.8rem;
 }
 .article-card-main:hover{
     cursor: pointer;
