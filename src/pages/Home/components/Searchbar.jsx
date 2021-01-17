@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, Input, Card, CardBody, CardTitle, Button, InputGroup, InputGroupAddon, InputGroupText, Form } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Search } from 'react-feather';
 import '../styles/Searchbar.css';
 import SearchBoxSearchIcon from '../../../assets/SearchBoxSearchIcon.svg'
 
