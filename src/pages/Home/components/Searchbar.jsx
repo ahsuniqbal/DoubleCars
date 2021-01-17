@@ -3,7 +3,7 @@ import { Row, Col, Input, Card, CardBody, CardTitle, Button, InputGroup, InputGr
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/Searchbar.css';
-
+import SearchBoxSearchIcon from '../../../assets/SearchBoxSearchIcon.svg'
 
 // function concatMakeList(makeList){
 //     var makeSelectBox = document.getElementById('make-list');
@@ -75,10 +75,11 @@ const Searchbar = () => {
                     <Row>
                         <Col xs="12" md="8" sm = "12" className='my-1'>
                         <InputGroup>
-                            <Input className="search-box" id="search-box" type="text" placeholder="Search Cars or Brand eg. Audi or Tesla " />
+                            <Input className="search-search-box" id="search-box" type="text" placeholder="Search Cars or Brand eg. Audi or Tesla" />
                             <InputGroupAddon addonType="append">
                                 <InputGroupText>
-                                    <FontAwesomeIcon icon="search" size="1x" />
+                                    {/* <FontAwesomeIcon icon="search" size="1x" /> */}
+                                    <img src = {SearchBoxSearchIcon} className = "img-fluid"/>
                                 </InputGroupText>
                             </InputGroupAddon>
                         </InputGroup>

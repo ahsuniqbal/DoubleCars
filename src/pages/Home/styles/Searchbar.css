@@ -45,6 +45,17 @@
     border: 1px solid #E9E9E9;
 }
 
+.search-search-box{
+    background-color: #F9F9F9;
+    border-radius: 6px;
+    border: none;
+    padding-left: 30px !important;
+    height: 56px;
+}
+.search-search-box:focus{
+    box-shadow: none;
+    background-color: #F9F9F9;
+}
 select:required:invalid {
     color: rgba(0, 0, 0, 0.35);
     font-size: 14px;
