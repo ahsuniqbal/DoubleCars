@@ -32,7 +32,6 @@ const PrevoiusIcon=(props)=>{
   );
 }
 const DCSlider = (props) => {
-
     let settings = {
         adaptiveHeight: true,
         
