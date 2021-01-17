@@ -48,7 +48,7 @@ const CarSection1 = () => {
             <Col md = "3" xs = "12" className='car-section-coloumn'>
                 <Col md = "12" xs = "12"  style = {CarSection1DemoImage1}>
                     <Badge color="primary" className = "car-badge">Hybrid</Badge>
-                    <h2 className = "car-title"> Pluig-in Cars</h2>
+                    <h2 className = "car-title"> Plug-in Cars</h2>
                     <Label className = "price-label">Starting from $5000 <ChevronRight color="#ffffff" size={15} className = ""/></Label>
                 </Col>
             </Col>

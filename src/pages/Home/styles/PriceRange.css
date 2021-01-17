@@ -1,9 +1,15 @@
 .main-card{
-    margin: 30px 15px;
+    margin: 30px 0px;
 }
 .rwt__tabs{
     width: 100% !important;
 }
+
+.rwt__tab {
+    padding: 1rem 1rem;
+}
+
+
 .rwt__tablist{
     border-right: none !important;
 }
@@ -31,7 +37,8 @@
     width: 100%;
     background-color: white;
     height: 68px;
-    padding: 9% 12% 9%;
+    padding: 9% 8%;
+    border-bottom: 1px solid #F3F3F3;
 }
 .Items{
     font-family: Ubuntu;
@@ -43,9 +50,10 @@
     width: 100%;
     height: 56px;
     padding-right: 68%;
-    border-top: 1px solid #FAFAFA;
+    border-bottom: 1px solid #F3F3F3 !important;
     background-color: white;
     border-left: 0px !important;
+    text-align: justify;
 }
 .rwt__tab[aria-selected="true"]:after{
     border-right: 3px solid #1C67CE !important;
