@@ -71,7 +71,7 @@ const Searchbar = () => {
                         </CardTitle>
                     </Col>
                 </Row>
-
+ 
                 <Form onSubmit={(e) => Search(e)}>
                     <Row>
                         <Col xs="12" md="8" sm = "12" className='my-1'>
