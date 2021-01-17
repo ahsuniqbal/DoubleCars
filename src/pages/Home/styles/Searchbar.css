@@ -11,7 +11,7 @@
 .searchbar .card-title{
     font-style: normal;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 120%;
     font-family: 'Poppins' !important;
 }
@@ -58,14 +58,15 @@
     color: #898989;
     border: none;
 }
-
+/* 
 .advance-search {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 1rem;
-}
+} */
 .condition-dropdown {
     height: 56px;
+    color: rgba(0, 0, 0, 0.45);
 }
 .search-button {
     background-color: #1C67CE !important;
