@@ -55,10 +55,14 @@
   color: rgba(8, 11, 48, 0.85);
   font-size: 15px;
   font-weight: normal;
+  font-family: 'Proxima Nova' !important;
 }
 
 .nav-text-color {
-  color: rgba(8, 11, 48, 0.65) !important;
+  color: rgba(8, 11, 48, 0.85) !important;
+  font-family: 'Proxima Nova' !important;
+  cursor: pointer;
+  text-align: left !important;
 }
 
 .footer-contact-information {
@@ -69,6 +73,7 @@
   color: #080B30;
   font-family: 'Proxima Nova' !important;
   cursor: default;
+  text-align: left !important;
 }
 .footer-contact {
   font-size: 16px !important;
@@ -77,10 +82,14 @@
   color: #1C67CE;
   font-weight: normal;
   cursor: pointer;
+  text-align: left !important;
 }
 /* End */
 
 /* Lower Footer css starts here  */
+.lower-footer-container {
+  margin-top: 2rem;
+}
 .lower-footer-columns {
   margin-top: 1rem;
   margin-bottom: 3rem;

@@ -98,11 +98,11 @@ const Footer = () => {
                             </Nav>
                         </Col>
                     </Row>
-                    <hr/>
+                    {/* <hr/> */}
                 </Container>
 
                 {/* Lower Footer starts here */}
-                <Container>
+                <Container className = "lower-footer-container">
                     <Row>
                         <Col md = "3" xs = "12" className = "lower-footer-columns text-center">
                             <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
