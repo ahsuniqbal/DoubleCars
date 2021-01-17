@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Home = React.lazy(() => import('../pages/Home'));
-const About = React.lazy(() => import('../pages/About/components/About'));
+// const About = React.lazy(() => import('../pages/About/components/About'));
 const BlogsHome = React.lazy(() => import('../pages/Blogs/components/BlogsHome/BlogsHome'));
 const Profile = React.lazy(() => import('../pages/Profile'));
 const Login = React.lazy(() => import('../pages/Authentication/Login'));
@@ -28,7 +28,7 @@ const SavedCars = React.lazy(() => import('../pages/SavedCars/components/SavedCa
 
 const routes = [
     { path: '/', exact: true, name: 'Home', public: true, restricted: false, component: Home },
-    { path: '/about', name: 'About', public: true, restricted: true, component: About },
+    // { path: '/about', name: 'About', public: true, restricted: true, component: About },
     { path: '/blogshome', name: 'Blogs', public: true, restricted: false, component: BlogsHome },
     { path: '/profile', exact: true, name: 'Profile', public: true, restricted: true, component: Profile }, // login signup k kaam k baad is route ko private krna ha
     // { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
