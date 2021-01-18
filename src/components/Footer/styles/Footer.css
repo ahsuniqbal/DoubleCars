@@ -122,7 +122,7 @@
   padding-left:20%
 }
 .car-dealer-class{
-  padding-left: 40px;
+  padding-left: 65px;
 }
 .icon-row{
   padding: 0 20%;
@@ -152,9 +152,15 @@
   .learn-more-button-class{
     padding-left:15% !important
   }
+  .footer-contact {
+    font-size: 12px !important;
+  }
 }
 @media screen and (max-width: 768px) {
   .learn-more-button-class{
     padding-left:15% !important
+  }
+  .footer-contact {
+    font-size: 12px !important;
   }
 }

@@ -20,7 +20,8 @@ const BlogsHome = () => {
         <body className = "blogs-home-body">
                             
 
-            <Container fluid = {false}>
+            <Container fluid = {false} className='blog-home-container'>
+                
                 <UpperSection/>
                 <Row>
                     <Col xs = "12" md = "9">
@@ -79,6 +80,7 @@ const BlogsHome = () => {
                
                     </Col>
                 </Row> 
+
             </Container>
         </body>
         

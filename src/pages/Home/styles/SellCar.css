@@ -12,13 +12,13 @@
 .blue-bg{
     background-color: #1C67CE ;
     width: 100%;
-    padding: 5% 7rem;
+    padding: 5% 4px 5% 30px;
     margin-left: 0px !important;
 }
 .white-bg{
     background-color: white;
     width: 100%;
-    padding: 5% 7rem;
+    padding: 5% 4px 5% 0px;
     margin-left: 0px !important;
 }
 .blue-head{

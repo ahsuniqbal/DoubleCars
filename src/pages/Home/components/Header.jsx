@@ -10,7 +10,7 @@ const Header = () => {
                 
                     <div className = "row header-main">
                  
-                                <div className = "col-12 col-md-5 col-sm-6 left-cover-section">
+                                <div className = "col-12 col-md-5 col-sm-6 left-cover-section width-1050">
                                     <h1 className = "cover-left-heading ml-3">
                                         Find the most desireable car
                                     </h1>

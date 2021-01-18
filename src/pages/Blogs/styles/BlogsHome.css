@@ -1,7 +1,9 @@
 .blogs-home-body {
     background-color: white !important;
 }
-
+.blog-home-container{
+    padding: 5px 30px;
+}
 .top-news-heading {
     font-weight: bold;
     font-size: 24px;
@@ -31,6 +33,7 @@
     font-size: 21px;
     line-height: 30px;
     color: rgba(0, 0, 0, 0.85);
+    margin-left: -15px;
 }
 
 .article-heading {

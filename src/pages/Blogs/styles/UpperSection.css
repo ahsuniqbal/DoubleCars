@@ -5,7 +5,9 @@
     margin-top: 16.9rem;
     margin-left: -1rem;
 }
-
+.uper-section-coloumns{
+    padding: 0 !important;
+}
 .type-label1 {
     text-transform: uppercase;
     position: absolute;
@@ -94,34 +96,42 @@
 }
 
 .blogs-header .date {
+    font-family: Ubuntu;
+    font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 120%;
-    padding-bottom: 2%;
+    color: rgba(255, 255, 255, 0.85);
 }
-
+.blog-page-label{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+}
 .blogs-header h2 {
     font-weight: bold;
     font-size: 16px;
     line-height: 120%;
 }
 
-.first-column label {
+/* .first-column label {
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
-}
+} */
 
 .first-column h2 {
     font-weight: bold;
     font-size: 25px;
     line-height: 120%;
 }
-.second-column label {
+/* .second-column label {
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
-}
+} */
 
 .second-column h2 {
     font-weight: bold;
@@ -145,7 +155,7 @@
 }
 
 .blogs-header {
-    padding-top: 5%;
+    padding: 5% 20px 0% 15px;
 /* 
     height: 70vh; */
     overflow: hidden;
@@ -163,7 +173,7 @@
 }
 .third-coloumn {
     position: relative;
-    height:301px;
+    height:291px;
     overflow: hidden;
 }
 

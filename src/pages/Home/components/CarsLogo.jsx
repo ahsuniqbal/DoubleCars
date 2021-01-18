@@ -104,32 +104,32 @@ const CarsLogo = () => {
              
                    <Row className='giving-margin'>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main'>
+                                <Card className='cardslogo-main3'>
                                     <CardImg src={Suzuki2} className='suzuki2-car'/>
                                 </Card>
                         </Col>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main'>
+                                <Card className='cardslogo-main3'>
                                     <CardImg src={MercedesBenz} className='mercedesbenz-car'/>
                                 </Card>
                         </Col>
                         <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main'>
+                                <Card className='cardslogo-main3'>
                                     <CardImg src={Nissan} className='nissan-car'/>
                                 </Card>
                         </Col>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main'>
+                                <Card className='cardslogo-main3'>
                                     <CardImg src={Jaguar} className='jaguar-car'/>
                                 </Card>
                         </Col>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main'>
+                                <Card className='cardslogo-main3'>
                                     <CardImg src={Lexus2} className='lexus2-car'/>
                                 </Card>
                         </Col>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main'>
+                                <Card className='cardslogo-main3'>
                                     <CardImg src={Horse} className='horse-car'/>
                                 </Card>
                         </Col>

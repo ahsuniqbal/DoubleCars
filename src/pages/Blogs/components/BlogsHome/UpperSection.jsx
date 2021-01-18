@@ -15,7 +15,9 @@ const UpperSection = () => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        padding:0,
+        border: '5px solid white',
+        borderLeft: '0px solid white',
+        borderRadius: '8px'
         // height: '80vh',
       };
 
@@ -24,7 +26,8 @@ const UpperSection = () => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        padding:0,
+        border: '5px solid white',
+        borderRadius: '8px'
         // height: '80vh',
       };
       
@@ -33,7 +36,10 @@ const UpperSection = () => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        padding:0,
+        border: '5px solid white',
+        borderLeft:'8px solid white',
+        padding:'0',
+        borderRadius: '8px'
         // height: '40vh',
       };
       const BlogpageImage4 = {
@@ -41,40 +47,43 @@ const UpperSection = () => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        padding:0,
+        border: '5px solid white',
+        borderLeft:'8px solid white',
+        padding:'0',
+        borderRadius: '8px'
         // height: '40vh',
       };
      
 
     return(
         <Row className="blogs-header">
-         <Col md = "6" xs = "12" className="fucking-padding-right">
+         <Col md = "6" xs = "12" className="uper-section-coloumns">
               <div className = "first-column"  style={BlogpageImage1}>
                 {/* <div className="">
                   <img src={img1} className="img-fluid" />
                 </div> */}
                 <div className="content1">
-                  <Label>New Cars</Label>
+                  <Label className='blog-page-label'>NEW CARS</Label>
                   <h2>Video: BMW M2 CS is part of Autocar’s 2020 Best Sports Cars</h2>
                   <Label className="date">Dec 15, 2020</Label>  
                 </div>
                 
               </div>
               </Col>
-            <Col md = "3" xs = "12" className="fucking-padding-left fucking-padding-right">
+            <Col md = "3" xs = "12" className="uper-section-coloumns">
               <div className = "second-column"  style={BlogpageImage2}>
                 {/* <div className="">
                   <img src={img2} className="img-fluid" />
                 </div> */}
                 <div className="content1">
-                  <Label>New Cars</Label>
+                  <Label className='blog-page-label'>NEW CARS</Label>
                   <h2>Here is the perfect car for your love of black</h2>
                   <Label className="date">Dec 15, 2020</Label>
                 </div>
               </div>
                 
             </Col>
-            <Col md = "3" xs = "12"  className="fucking-padding-left">
+            <Col md = "3" xs = "12"  className="uper-section-coloumns">
                 <Row>
                     <Col md = "12" xs = "12" className=" pb-1" style={BlogpageImage3}>
                       <div className='third-coloumn'>
@@ -82,9 +91,9 @@ const UpperSection = () => {
                           <img src={img3} className="img-fluid" />
                         </div> */}
                         <div className="content2">
-                          <Label>New Cars</Label>
+                          <Label className='blog-page-label'>ADVANCE</Label>
                           <h2>Top 10 electric cars to buy as soon as possible </h2>
-                          <Label className="date">Dec 15, 2020</Label>
+                          {/* <Label className="date">Dec 15, 2020</Label> */}
                         </div>
                       </div>
                       
@@ -97,9 +106,9 @@ const UpperSection = () => {
                         </div> */}
                         
                         <div className="content2">
-                          <Label>New Cars</Label>
+                          <Label className='blog-page-label'>MINI</Label>
                           <h2>Video: BMW M2 CS is part of Autocar’s 2020 Best Sports Cars</h2>
-                          <Label className="date">Dec 15, 2020</Label>
+                          {/* <Label className="date">Dec 15, 2020</Label> */}
                         </div>
                      </div>
                       

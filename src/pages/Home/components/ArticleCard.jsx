@@ -29,7 +29,7 @@ const ArticleCard1 = () => {
     const history=useHistory()
     return(
            <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
-                <img src = {CardImage7} className = "img-fluid article-card-image" alt = "demo-image"/>
+                <img src = {CardImage4} className = "img-fluid article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">2021 Ford Bronco Sport First Drive: Small SUV, Big Off-Road</Label> 
                 <Label className = "article-date">Apr 1, 2009</Label><br/><br/>
            </div> 
