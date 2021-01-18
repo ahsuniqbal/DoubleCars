@@ -43,7 +43,7 @@ const ProductCard = (props) => {
 
 
   return (
-    <Card className="product-card ">
+    <Card className="product-card">
         {/* Link to the product details page */}
         <Link to={"/product/" + props.productId}>
             <div className="product-img">
@@ -97,7 +97,9 @@ const ProductCard = (props) => {
                         <Row className="company-details">
                             <Col xs="3">
                                 {/* Profile pic of the dealer */}
-                                <CardImg src={props.dealerPic} alt="Company logo" />
+                                {/* <div className="image-div"> */}
+                                    <CardImg src={props.dealerPic} alt="Company logo" />
+                                {/* </div> */}
                             </Col>
                             <Col xs="5" className="px-0">
                                 {/* Name of the dealer */}
@@ -121,7 +123,9 @@ const ProductCard = (props) => {
                         <Row className="company-details private-seller">
                             <Col xs="3">
                                 {/* Profile pic of the private seller */}
-                                <CardImg src={props.dealerPic} alt="Company logo" />
+                                {/* <div className="image-div"> */}
+                                    <CardImg src={props.dealerPic} alt="Company logo" />
+                                {/* </div> */}
                             </Col>
                             <Col xs="4" className="px-0">
                                 {/* Name of the private seller */}

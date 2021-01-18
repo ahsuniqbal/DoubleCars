@@ -19,6 +19,7 @@
     mix-blend-mode: normal;
     opacity: 0.85;
     height: 80vh;
+    
 }
 
 .about-header-heading {
@@ -27,6 +28,7 @@
     line-height: 56px;
     color: #FFFFFF;
     margin-top: 40%;
+    margin-left: 2rem;
 }
 
 .about-header-subheading {
@@ -34,6 +36,7 @@
     font-size: 16px;
     line-height: 22px;
     color: #FFFFFF;
+    margin-left: 2rem;
 }
 
 .join-mission-btn {
@@ -43,6 +46,7 @@
     font-weight: bold;
     text-align: left !important;
     margin-top: 0.5rem;
+    margin-left: 2rem;
 }
 
 .join-mission-btn:hover {

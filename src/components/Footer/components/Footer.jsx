@@ -2,7 +2,9 @@ import React from "react"
 import {Row, Col, Nav, NavItem, Button, NavLink, Container} from 'reactstrap'
 import '../styles/Footer.css'
 import { Facebook, Instagram, Twitter } from 'react-feather';
-import FacebookFooter from '../../../assets/FooterFacebook.svg'
+import FacebookFooter from '../../../assets/facebook-icon.png'
+import InstraFooter from '../../../assets/insta-icon.png'
+import TwitterFooter from '../../../assets/twitter-icon.png'
 import SearchBoxSearchIcon from '../../../assets/SearchBoxSearchIcon.svg'
 import { Link } from 'react-router-dom';
 const Footer = () => {
@@ -16,8 +18,8 @@ const Footer = () => {
                             <Row className = "h-100">
                                 
                                 <Col md  = "6" xs = "12" className = "car-dealer-class my-auto">
-                                    <h1 className = "car-dealer-head ml-5">Are you a car dealer?</h1>
-                                    <h5 className = "car-dealer-subhead ml-5">Create your own virtural showroom and boost sales</h5>
+                                    <h1 className = "car-dealer-head ml-4">Are you a car dealer?</h1>
+                                    <h5 className = "car-dealer-subhead ml-4">Create your own virtural showroom and boost sales</h5>
                                 </Col>
                               
                                 <Col md = "6" xs = "12" className = "learn-more-button-class my-auto">
@@ -129,14 +131,16 @@ const Footer = () => {
 
                             <Row className='icon-row'>
                                 <Col md = "2"  xs = "" className = "icons-columns">
-                                    <Facebook color="#1C67CE" size={20} className = "feather-icon"/>
-                                    {/* <img  src = {FacebookFooter} className = "img-fluid"/> */}
+                                    {/* <Facebook color="#1C67CE" size={20} className = "feather-icon"/> */}
+                                    <img  src = {FacebookFooter} className = ""/>
                                 </Col >
                                 <Col md = "2" xs = "" className = "icons-columns ">
-                                    <Instagram color="#1C67CE" size={20} className = "feather-icon"/>
+                                    {/* <Instagram color="#1C67CE" size={20} className = "feather-icon"/> */}
+                                    <img  src = {InstraFooter} className = ""/>
                                 </Col>
                                 <Col md = "2"  xs = "" className = "icons-columns ">
-                                    <Twitter color="#1C67CE" size={20} className = "feather-icon"/>
+                                    {/* <Twitter color="#1C67CE" size={20} className = "feather-icon"/> */}
+                                    <img  src = {TwitterFooter} className = ""/>
                                 </Col>
                             </Row>
                         </Col>

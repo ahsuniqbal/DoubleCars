@@ -144,9 +144,15 @@
   .learn-more-button-class{
     padding-left:20% !important
   }
+  .footer-contact {
+    font-size: 12px !important;
+  }
 }
 @media screen and (max-width: 768px) {
   .learn-more-button-class{
     padding-left:15% !important
+  }
+  .footer-contact {
+    font-size: 12px !important;
   }
 }
