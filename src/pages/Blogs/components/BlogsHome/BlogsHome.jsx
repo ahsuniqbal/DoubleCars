@@ -6,8 +6,9 @@ import Container from 'reactstrap/lib/Container';
 import UpcomingCars from './UpcomingCars';
 import TopNews from './TopNews'
 import MostPopularCard from './MostPopularCard';
-import {MostPopularCard1, MostPopularCard2, MostPopularCard3} from './MostPopularCard'
 import ArticleCard from '../../../Home/components/ArticleCard';
+import {ArticleCard1,ArticleCard2,ArticleCard3} from '../../../Home/components/ArticleCard';
+import {MostPopularCard1,MostPopularCard2,MostPopularCard3} from './MostPopularCard';
 import LowerSection from './LowerSection';
 import AdImage from '../../../../assets/StaticBlogAd.png'
 import SubsribeCard from './SubscribeCard'
@@ -30,10 +31,10 @@ const BlogsHome = () => {
                                 <ArticleCard/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticleCard/>
+                                <ArticleCard1/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticleCard/>
+                                <ArticleCard2/>
                             </Col>
                             
                         </Row>
@@ -42,10 +43,10 @@ const BlogsHome = () => {
                                 <ArticleCard/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticleCard/>
+                                <ArticleCard1/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticleCard/>
+                                <ArticleCard3/>
                             </Col>
                         </Row>
                        
@@ -55,10 +56,10 @@ const BlogsHome = () => {
                                 <ArticleCard/>
                             </Col>
                             <Col md = "4" sm = "12" >
-                                <ArticleCard/>
+                                <ArticleCard1/>
                             </Col>
                             <Col md = "4" sm = "12" >
-                                <ArticleCard/>
+                                <ArticleCard2/>
                             </Col>
                             
                         </Row>

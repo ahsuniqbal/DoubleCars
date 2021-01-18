@@ -31,7 +31,7 @@ const Footer = () => {
             
            {/* Mid Footer starts here */}
            <body className = "footer-body">
-                <Container>
+                <Container className="upper-footer">
                     <Row>
                         <Col xs="12" md="3" className = "footer-columns">
                             <Nav vertical>
@@ -39,7 +39,7 @@ const Footer = () => {
                                     <h4 className = "footer-dc">Double Cars</h4>
                                 </NavItem>
                                 <NavItem >
-                                    <p className = "discription-dc-footer">Maecenas ante lacus, viverra is in, egestas tincidunt nulla. Aliquam mi lectus, eleifend eget felis eget,</p>
+                                    <p className = "discription-dc-footer">Maecenas ante lacus, viverra is in, egestas tincidunt nulla. Aliquam mi lectus, eleifend eget felis eget</p>
                                 </NavItem>
                                 
                             </Nav>
