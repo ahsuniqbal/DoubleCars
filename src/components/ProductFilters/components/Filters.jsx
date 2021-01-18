@@ -763,6 +763,47 @@ const Filters = (props) => {
                                         <p>Orange</p>
                                     </Col>
                                 </Row>
+
+
+
+
+                                {/* Interior Color */}
+                                <hr />
+
+                                <h6>Interior Color</h6>
+                                <Row className="exterior-color text-center">
+                                    <Col xs="4" sm="2" md="4">
+                                        <div className="color-swatch" style={{backgroundColor: 'black'}}>
+                                            <Check />
+                                        </div>
+                                        <p>Black</p>
+                                    </Col>
+
+                                    <Col xs="4" sm="2" md="4">
+                                        <div className="color-swatch" style={{backgroundColor: 'white'}}></div>
+                                        <p>White</p>
+                                    </Col>
+
+                                    <Col xs="4" sm="2" md="4">
+                                        <div className="color-swatch" style={{backgroundColor: 'gray'}}></div>
+                                        <p>Gray</p>
+                                    </Col>
+
+                                    <Col xs="4" sm="2" md="4">
+                                        <div className="color-swatch" style={{backgroundColor: 'red'}}></div>
+                                        <p>Red</p>
+                                    </Col>
+
+                                    <Col xs="4" sm="2" md="4">
+                                        <div className="color-swatch" style={{backgroundColor: 'orange'}}></div>
+                                        <p>Orange</p>
+                                    </Col>
+
+                                    <Col xs="4" sm="2" md="4">
+                                        <div className="color-swatch" style={{backgroundColor: 'yellow'}}></div>
+                                        <p>Yellow</p>
+                                    </Col>
+                                </Row>
                             </Collapse>
                         </div>
                     : DrawFiltersSkeleton()
