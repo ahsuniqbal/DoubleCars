@@ -48,3 +48,13 @@
     border-radius: 0.4rem;
     margin-bottom: 1rem;
 }
+
+
+.product-detail-body .slick-slide {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.product-detail-body .slick-slide .product-card .card-subtitle {
+    white-space: nowrap;
+}

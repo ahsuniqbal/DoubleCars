@@ -11,15 +11,28 @@ import { ChevronLeft } from 'react-feather';
 import { useHistory } from 'react-router-dom';
 import DCSlider from '../../../components/DcSlider/components/DCSlider';
 import { Link } from 'react-router-dom';
+import { isLogin, getLogin } from '../../../config/LoginAuth';
+import { GetRecommendationsTrendings } from '../api/GetRequests';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
     const [recommendations, setRecommendations] = useState(null);
+    const [homeData, setHomeData] = useState(null);
+
     const history = useHistory();
 
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
+        })
+        .catch(error => {
+            alert(error.message);
+        });
+
+
+
+        GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
+            setHomeData(doc) 
         })
         .catch(error => {
             alert(error.message);
@@ -146,19 +159,47 @@ const ProductResults = ({match}) => {
                             </Col>
                         </Row>
                     }
-                   <Row className = "">
-                            <Col md = "6" xs = "12">
-                                <h2 className = "similar-cars-head">Similar cars</h2>
-                            </Col>
+                    {
+                        homeData ? 
+                            homeData.map((item, index) => {
+                                if(index === 1) {
+                                    return(
+                                        <>
+                                            <Row>
+                                                <Col md = "6" xs = "12">
+                                                    <h2 className = "similar-cars-head">Similar cars</h2>
+                                                </Col>
 
-                            <Col md = "6" xs = "12" className = "text-right">
-                                <Link className = "view-all" to="/products">View All</Link>
-                            </Col>
-                        </Row>
+                                                <Col md = "6" xs = "12" className = "text-right">
+                                                    <Link className = "view-all" to="/products">View All</Link>
+                                                </Col>
+                                            </Row>
 
-                    <DCSlider
-                        slidesToShow={4}
-                    />
+                                            <DCSlider
+                                                slidesToShow={4}
+                                                items={item.data}
+                                                allowBookmark={false}
+                                            />
+                                        </>
+                                    )
+                                }
+                            })
+                        
+                        : null
+                    }
+                    {/* <Row>
+                         <Col md = "6" xs = "12">
+                             <h2 className = "similar-cars-head">Similar cars</h2>
+                         </Col>
+
+                         <Col md = "6" xs = "12" className = "text-right">
+                             <Link className = "view-all" to="/products">View All</Link>
+                         </Col>
+                     </Row>
+
+                     <DCSlider
+                         slidesToShow={4}
+                     /> */}
                 </CardBody>
             </Container>
         </body>
