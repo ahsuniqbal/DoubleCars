@@ -4,8 +4,8 @@ const Home = React.lazy(() => import('../pages/Home'));
 const About = React.lazy(() => import('../pages/About'));
 const BlogsHome = React.lazy(() => import('../pages/Blogs/components/BlogsHome/BlogsHome'));
 const Profile = React.lazy(() => import('../pages/Profile'));
-const Login = React.lazy(() => import('../pages/Authentication/Login'));
-const Signup = React.lazy(() => import('../pages/Authentication/Signup'));
+// const Login = React.lazy(() => import('../pages/Authentication/Login'));
+// const Signup = React.lazy(() => import('../pages/Authentication/Signup'));
 const Products = React.lazy(() => import('../pages/Products'));
 const ProductDetails = React.lazy(() => import ('../pages/ProductDetails/components/ProductDetails'))
 const DealerProfile = React.lazy(() => import ('../pages/DealerProfile'))

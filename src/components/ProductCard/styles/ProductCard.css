@@ -1,6 +1,7 @@
-/* .product-card:hover { */
-    /* box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253) !important; */
-/* } */
+.product-card {
+    margin-bottom: 1.5rem;
+}
+
 /* Name of the car */
 .product-card .card-title{
     font-weight: 500;
