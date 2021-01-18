@@ -74,6 +74,9 @@
     font-size: 15px !important;
     line-height: 16px;   
 }
+.condition-dropdown select{
+    display:none
+}
 /* media */
  @media screen and (max-width:1050px){
     .left-cover-section{
