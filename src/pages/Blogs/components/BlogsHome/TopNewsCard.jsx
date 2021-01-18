@@ -8,7 +8,7 @@ import TopNewsDummy6 from '../../../../assets/TopNewsDummy6.png'
 
 const TopNewsCard = () => {
     return(
-        <Card className = "mb-4 top-news-card">
+        <Card className = "top-news-card">
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid top-news-cell-card-image"  src={TopNewsDummy2} alt="Card image" />
@@ -26,7 +26,7 @@ const TopNewsCard = () => {
 
 const TopNewsCard1 = () => {
     return(
-        <Card className = "mb-4 top-news-card">
+        <Card className = "top-news-card">
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid top-news-cell-card-image"  src={TopNewsDummy4} alt="Card image" />
@@ -43,7 +43,7 @@ const TopNewsCard1 = () => {
 }
 const TopNewsCard2 = () => {
     return(
-        <Card className = "mb-4 top-news-card">
+        <Card className = "top-news-card">
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid top-news-cell-card-image"  src={TopNewsDummy5} alt="Card image" />
@@ -60,7 +60,7 @@ const TopNewsCard2 = () => {
 }
 const TopNewsCard3 = () => {
     return(
-        <Card className = "mb-4 top-news-card">
+        <Card className = " top-news-card">
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid top-news-cell-card-image"  src={TopNewsDummy6} alt="Card image" />
