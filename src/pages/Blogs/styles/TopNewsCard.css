@@ -9,6 +9,9 @@
     color: rgba(0, 0, 0, 0.85);
     width: 80%;
 }
+.top-news-cell-card-image {
+    border-radius: 0px !important;
+}
 
 .top-news-date {
     font-weight: normal;
