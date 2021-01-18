@@ -9,9 +9,7 @@ import {TopNewsCard1,TopNewsCard2,TopNewsCard3} from './TopNewsCard';
 
 const TopNews = () => {
 
-   
-
-    return(
+   return(
         <Row>
             <Col xs = "12" md = "6" sm = "12">
                 <img src = {TopNewsDummyImage} className = "img-fluid" alt = "top image"/>
