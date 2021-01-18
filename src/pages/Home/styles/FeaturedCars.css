@@ -59,6 +59,11 @@
     width: 52px;
     height: 25px;
 }
+
+.rwt__tablist:not([aria-orientation="vertical"]) .rwt__tab[aria-selected="true"]:after {
+    
+    border-bottom: transparent;
+}
 /* media */
 
 @media screen and (max-width: 1100px) {
