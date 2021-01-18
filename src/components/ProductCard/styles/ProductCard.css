@@ -97,11 +97,18 @@
     margin-top: 12px;
 }
 
+.product-card .company-details .image-div {
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+}
+
 /* Profile picture of the dealer */
 .product-card .company-details .card-img{
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     margin-top: 10px;
+    /* width: 100%; */
 }
 
 /* The label saying "Private Seller" */
