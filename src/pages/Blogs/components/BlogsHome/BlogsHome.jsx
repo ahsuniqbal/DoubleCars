@@ -6,6 +6,7 @@ import Container from 'reactstrap/lib/Container';
 import UpcomingCars from './UpcomingCars';
 import TopNews from './TopNews'
 import MostPopularCard from './MostPopularCard';
+import {MostPopularCard1, MostPopularCard2, MostPopularCard3} from './MostPopularCard'
 import ArticleCard from '../../../Home/components/ArticleCard';
 import LowerSection from './LowerSection';
 import AdImage from '../../../../assets/StaticBlogAd.png'
@@ -68,9 +69,9 @@ const BlogsHome = () => {
                         <UpcomingCars/>
                         <h2 className = "most-popular-heading">Most Popular</h2>
                         <MostPopularCard/>
-                        <MostPopularCard/>
-                        <MostPopularCard/>
-                        <MostPopularCard/>
+                        <MostPopularCard1/>
+                        <MostPopularCard2/>
+                        <MostPopularCard3/>
                         <SubsribeCard/>
                
                     </Col>
