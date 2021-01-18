@@ -34,6 +34,7 @@
     font-size: 22px;
     line-height: 25px;
     font-weight: bold;
+    font-family: 'poppins' !important;
 }
 
 .info-sub-head {
@@ -58,6 +59,7 @@
     font-size: 22px;
     line-height: 25px;
     font-weight: bold;
+    font-family: 'poppins' !important;
 }
 
 .car-feature {
