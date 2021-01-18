@@ -41,6 +41,12 @@
     cursor: pointer;
     padding: 0.5rem 0rem;
     font-weight: bold;
+    text-align: left !important;
+    margin-top: 0.5rem;
+}
+
+.join-mission-btn:hover {
+    color: white !important;
 }
 
 

@@ -2,10 +2,22 @@
     margin-bottom: 5rem;
 }
 
+.choose-heading {
+    font-family: 'Ubuntu' !important;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+}
+.choose-paragraph {
+    margin-top: 1rem;
+}
 .choose-list {
     list-style-type: none;   
+    margin-left: 0.3rem;
+    margin-top: 2rem;
 }
 
 .about-check-icon {
-    color: #1C67CE;;
+    margin-right: 1.3rem;
 }
