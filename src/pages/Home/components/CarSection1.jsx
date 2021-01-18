@@ -49,7 +49,7 @@ const CarSection1 = () => {
                 <Col md = "12" xs = "12"  style = {CarSection1DemoImage1}>
                     <Badge color="primary" className = "car-badge">Hybrid</Badge>
                     <h2 className = "car-title"> Plug-in Cars</h2>
-                    <Label className = "price-label">Starting from $5000 <ChevronRight color="#ffffff" size={15} className = ""/></Label>
+                    <h1 className = "price-label">Starting from $5000 <ChevronRight color="#ffffff" size={15} className = ""/></h1>
                 </Col>
             </Col>
 
@@ -57,7 +57,7 @@ const CarSection1 = () => {
                 <Col md = "12" xs = "12"  style = {CarSection1DemoImage2}>
                     <Badge color="primary" className = "car-badge">Hybrid</Badge>
                     <h2 className = "car-title">Electric Cars</h2>
-                    <Label className = "price-label">Starting from $5000<ChevronRight color="#ffffff" size={15} className = ""/></Label>
+                    <h1 className = "price-label">Starting from $5000<ChevronRight color="#ffffff" size={15} className = ""/></h1>
                 </Col>
             </Col>
 
@@ -65,7 +65,7 @@ const CarSection1 = () => {
                 <Col md = "12" xs = "12"  style = {CarSection1DemoImage3}>
                     <Badge color="primary" className = "car-badge">Hybrid</Badge>
                     <h2 className = "car-title">Self-Driving Cars</h2>
-                    <Label className = "price-label">Starting from $5000 <ChevronRight color="#ffffff" size={15} className = ""/></Label>
+                    <h1 className = "price-label">Starting from $5000 <ChevronRight color="#ffffff" size={15} className = ""/></h1>
                 </Col>
             </Col>
 
@@ -73,7 +73,7 @@ const CarSection1 = () => {
                 <Col md = "12" xs = "12"  style = {CarSection1DemoImage4}>
                     <Badge color="primary" className = "car-badge">Hybrid</Badge>
                     <h2 className = "car-title">Hybird Cars</h2>
-                    <Label className = "price-label">Starting from $5000 <ChevronRight color="#ffffff" size={15} className = ""/></Label>
+                    <h1 className = "price-label">Starting from $5000 <ChevronRight color="#ffffff" size={15} className = ""/></h1>
                 </Col>
             </Col>
             

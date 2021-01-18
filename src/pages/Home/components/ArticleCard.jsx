@@ -4,6 +4,7 @@ import CardImage1 from '../../../assets/TopStoriesCardDemoImage.png'
 import CardImage2 from '../../../assets/DemoCar4.png'
 import CardImage3 from '../../../assets/TopNewsDummy2.png'
 import CardImage4 from '../../../assets/TopNewsDummyImage.png'
+import TopStories from '../../../assets/TopStories.png'
 import '../styles/ArticleCard.css'
 import { useHistory } from 'react-router-dom';
 
@@ -22,9 +23,9 @@ const ArticleCard1 = () => {
     const history=useHistory()
     return(
            <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
-                <img src = {CardImage4} className = "img-fluid article-card-image" alt = "demo-image"/>
-                <Label className = "tarticle-card-heading">Video: BMW X5 M vs GLE 63 AMG and Audi RSQ8 comparison review</Label> 
-                <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
+                <img src = {CardImage2} className = "img-fluid article-card-image" alt = "demo-image"/>
+                <Label className = "tarticle-card-heading">2021 Ford Bronco Sport First Drive: Small SUV, Big Off-Road</Label> 
+                <Label className = "article-date">Apr 1, 2009</Label><br/><br/>
            </div> 
     )
   
@@ -34,8 +35,8 @@ const ArticleCard2 = () => {
     return(
            <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
                 <img src = {CardImage3} className = "img-fluid article-card-image" alt = "demo-image"/>
-                <Label className = "tarticle-card-heading">Video: BMW X5 M vs GLE 63 AMG and Audi RSQ8 comparison review</Label> 
-                <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
+                <Label className = "tarticle-card-heading">2021 Volvo XC60 Review | Swedish Design; no Assembly Required</Label> 
+                <Label className = "article-date">Feb 24, 2019</Label><br/><br/>
            </div> 
     )
   
@@ -45,8 +46,8 @@ const ArticleCard3 = () => {
     return(
            <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
                 <img src = {CardImage4} className = "img-fluid article-card-image" alt = "demo-image"/>
-                <Label className = "tarticle-card-heading">Video: BMW X5 M vs GLE 63 AMG and Audi RSQ8 comparison review</Label> 
-                <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
+                <Label className = "tarticle-card-heading">The Next Generation Car Is Just Here, Checkout More</Label> 
+                <Label className = "article-date">Oct 8, 2017</Label><br/><br/>
            </div> 
     )
   

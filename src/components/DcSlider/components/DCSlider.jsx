@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState,useEffect} from "react"
 import '../styles/DCSlider.css'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
@@ -32,6 +32,8 @@ const PrevoiusIcon=(props)=>{
   );
 }
 const DCSlider = (props) => {
+
+
     let settings = {
         adaptiveHeight: true,
         

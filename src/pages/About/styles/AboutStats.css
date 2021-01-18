@@ -3,6 +3,7 @@
 .stats-card {
     height: 168px;
     margin-bottom: 5rem;
+    border-radius: 8px;
 }
 
 .stats-label {
