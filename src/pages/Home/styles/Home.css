@@ -17,6 +17,7 @@
     font-size: 20px;
     line-height: 120%;
     color: #080B30;
+    margin-bottom: 1rem !important;
 }
 .feature-heading{
   font-weight: 600;
@@ -38,7 +39,7 @@
   margin-top:3% !important;
 }
 .recomended-coloumn{
-  margin-top:73px ;
+  margin-top: 47px;
 }
 
 .home-container .slick-slide {
