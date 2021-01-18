@@ -28,10 +28,6 @@ const AboutChoose = () => {
                         <li className="">
                             <p><img src = {AboutCheck} className = "img-fluid about-check-icon"/>Lorem ipsum dolor sit ametDonec orci lorem, mattis at porta.</p>
                         </li>
-                       
-                        
-                       
-                      
                     </ul> 
            </Col>
 
