@@ -43,7 +43,7 @@ const ProductCard = (props) => {
 
 
   return (
-    <Card className="product-card mb-3">
+    <Card className="product-card mx-1">
         {/* Link to the product details page */}
         <Link to={"/product/" + props.productId}>
             <div className="product-img">
