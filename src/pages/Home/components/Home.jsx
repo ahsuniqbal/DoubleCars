@@ -224,7 +224,7 @@ const Home = () => {
                                     <Col xs="12">
                                             <Row className = "">
                                                 <Col md = "6" xs = "12" className = "recomended-coloumn">
-                                                    <h2 className = "recommended-cars-head">{item.title}</h2>
+                                                    <h2 className = "recommended-trending-cars-head">{item.title}</h2>
                                                 </Col>
         
                                                 {item.data.length>=5 ?
@@ -272,10 +272,11 @@ const Home = () => {
                         }
 
                         </Container> */}
-                        <Container>
+                        
                         <TopBudget/>
-                        <PriceRange/>
-                        <ServicesOffer/>
+                        <Container>
+                            <PriceRange/>
+                            <ServicesOffer/>
                         </Container>
                         
                      

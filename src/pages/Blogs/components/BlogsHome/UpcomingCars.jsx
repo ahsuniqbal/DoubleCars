@@ -11,6 +11,7 @@ const UpcomingCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '15vh',
+        border: '2px solid white',
       };
 
       const UpcomingCarDemo4 = {
@@ -19,6 +20,7 @@ const UpcomingCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '15vh',
+        border: '2px solid white',
       };
       
       const UpcomingCarDemo1 = {
@@ -27,6 +29,7 @@ const UpcomingCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '15vh',
+        border: '2px solid white',
       };
       const UpcomingCarDemo2 = {
         backgroundImage: `url(${require("../../../../assets/UpcomingCarDemo1.png")})`,
@@ -34,6 +37,7 @@ const UpcomingCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '15vh',
+        border: '2px solid white',
       };
     return(
         <Row>

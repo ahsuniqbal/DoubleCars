@@ -4,7 +4,7 @@
 
 /* Name of the car */
 .product-card .card-title{
-    font-weight: 500;
+    font-weight: normal;
     font-size: 16px;
     line-height: 18px;
     max-width: 100%;
@@ -14,20 +14,26 @@
     
 }
 
+
 /* Mileage and zip code */
 .product-card .card-subtitle{
-    font-size: 14px;
+    font-family: Proxima Nova;
+    font-style: normal;
     font-weight: normal;
-    line-height: 16px;
-    color: rgba(36, 39, 44, 0.5);
+    font-size: 12.5336px;
+    line-height: 15px;
+    color: rgba(0, 0, 0, 0.65);
 }
 
 /* Price of the car */
 .product-card .card-text{
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-    margin-top: 15px;
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15.426px;
+    line-height: 19px;
+    color: #000000;
+    margin-top: 20px;
 }
 
 /* The div of the primary image  */

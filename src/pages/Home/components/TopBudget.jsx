@@ -25,7 +25,7 @@ const TopBudget = () => {
 
       
     return(
-        <Row >
+        <Row className='top-budget-main-row'>
             <Col md = "12" xs = "12" style={mystyle}>
                 <Row className = "topBudgetRow">
                     <Col xs = "12" md = "12" className = "text-center">
