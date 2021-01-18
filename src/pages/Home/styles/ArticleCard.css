@@ -11,9 +11,7 @@
 /* Top Stories cell css starts here */
 .article-card-image {
     border-radius: 4px;
-    width: 100%;
-    height: 30vh;
-}
+    }
 .article-image {
     border-radius: 4rem;
     width: auto;

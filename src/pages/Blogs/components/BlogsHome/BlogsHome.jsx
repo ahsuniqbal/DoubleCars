@@ -6,11 +6,9 @@ import Container from 'reactstrap/lib/Container';
 import UpcomingCars from './UpcomingCars';
 import TopNews from './TopNews'
 import MostPopularCard from './MostPopularCard';
-import ArticlesCard from '../../../Home/components/ArticleCard';
-import {ArticlesCard1,ArticlesCard2} from '../../../Home/components/ArticleCard';
-
-import {MostPopularCard1, MostPopularCard2, MostPopularCard3} from './MostPopularCard'
 import ArticleCard from '../../../Home/components/ArticleCard';
+import {ArticleCard1,ArticleCard2,ArticleCard3} from '../../../Home/components/ArticleCard';
+import {MostPopularCard1,MostPopularCard2,MostPopularCard3} from './MostPopularCard';
 import LowerSection from './LowerSection';
 import AdImage from '../../../../assets/StaticBlogAd.png'
 import SubsribeCard from './SubscribeCard'
