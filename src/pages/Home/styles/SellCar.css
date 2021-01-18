@@ -82,9 +82,12 @@
     color: #1C67CE !important;
 }
 .white-main{
-    border-right: 1px solid whitesmoke;
     margin: 0 3%;
-    /* padding: 0 5%; */
+}
+.vertical-line {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100px;
+    width: 0px !important;
 }
 .white-main2{
     margin: 0 3%;
