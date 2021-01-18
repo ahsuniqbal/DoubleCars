@@ -2,8 +2,9 @@ import React from 'react';
 import { Row, Col, Input, Card, CardBody, CardTitle, Button, InputGroup, InputGroupAddon, InputGroupText, Form } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Search } from 'react-feather';
 import '../styles/Searchbar.css';
-
+import SearchBoxSearchIcon from '../../../assets/SearchBoxSearchIcon.svg'
 
 // function concatMakeList(makeList){
 //     var makeSelectBox = document.getElementById('make-list');
@@ -60,25 +61,26 @@ const Searchbar = () => {
     // }, []);
 
     return(
-        <Card className="searchbar ">
+        <Card className="searchbar">
             <CardBody>
 
                 <Row>
-                    <Col xs="12">
+                    <Col xs="12" style={{marginTop:'10px', marginBottom: '4px' }} >
                         <CardTitle>Search for your dream car
                             <Button className="advance-search" color="link" onClick={() => history.push('/products')}>Advanced Search</Button>
                         </CardTitle>
                     </Col>
                 </Row>
-
+ 
                 <Form onSubmit={(e) => Search(e)}>
                     <Row>
                         <Col xs="12" md="8" sm = "12" className='my-1'>
                         <InputGroup>
-                            <Input className="search-box" id="search-box" type="text" placeholder="Search Cars or Brand eg. Audi or Tesla " />
+                            <Input className="search-search-box" id="search-box" type="text" placeholder="Search Cars or Brand eg. Audi or Tesla" />
                             <InputGroupAddon addonType="append">
                                 <InputGroupText>
-                                    <FontAwesomeIcon icon="search" size="1x" />
+                                    {/* <FontAwesomeIcon icon="search" size="1x" /> */}
+                                    <img src = {SearchBoxSearchIcon} className = "img-fluid"/>
                                 </InputGroupText>
                             </InputGroupAddon>
                         </InputGroup>
@@ -86,11 +88,16 @@ const Searchbar = () => {
                         </Col>
                        
                             <Col xs="12" sm="6" md="2" className='dropdown-coloumn my-1'>
-                                <Input id="make-list" type="select" className = "condition-dropdown">
+                                {/* <Input id="make-list" type="select" className = "condition-dropdown">
                                     <option value="" hidden selected>Condition</option>
                                     <option value={false}>New</option>
                                     <option value={true}>Used</option>
-                                </Input>
+                                </Input> */}
+                                            <Input type="select" required className="condition-dropdown">
+                                            <option value=""disabled selected>Condition</option>
+                                            <option value="Option-1">New</option>
+                                            <option value="Option-2">Used</option>
+                                            </Input>
                             </Col>
 
                             <Col xs="12" sm="6" md="2" className='search-coloumn my-1'>

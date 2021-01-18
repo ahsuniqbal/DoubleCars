@@ -42,7 +42,7 @@ import { ActionSwapVerticalCircle } from 'material-ui/svg-icons';
 //                 productImg={data[i].coverPic}
 //                 productName={data[i].name}
 //                 productTitle={data[i].name}
-//                 productSubtitle={data[i].mileage + " miles · " + data[i].zipCode}
+//                 productSubtitle={data[i].mileage + " mileage · " + data[i].zipCode}
 //                 productText = {"$" + data[i].price}
 //             />
             
@@ -109,7 +109,7 @@ const DrawCarouselCols = (list, index) => {
                     productImg={list[i].coverPic}
                     productName={list[i].name}
                     productTitle={list[i].name}
-                    productSubtitle={AddCommaToNumber(list[i].mileage) + " miles · " + list[i].zipCode}
+                    productSubtitle={AddCommaToNumber(list[i].mileage) + " mileage · " + list[i].zipCode}
                     productText={"$" + AddCommaToNumber(list[i].price)}
                 />
                  : null
@@ -157,7 +157,7 @@ const Home = () => {
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
             setHomeData(doc)
-            console.log(homeData)  
+            console.log(doc)  
         })
         .catch(error => {
             alert(error.message);
@@ -175,12 +175,13 @@ const Home = () => {
     return(
         <div className = "landing-page-dc">
             <Header/>
-                <Container fluid = {true} className = "home-container">
+                <Container fluid className = "home-container">
                     <Row>
                         <Col xs="2"></Col>
-                        <Col xs="10">
+                        <Col xs="8" style={{padding: '0'}}> 
                             <Searchbar />
                         </Col>
+                        <Col xs="2"></Col>
                     </Row>
                     <Tabs defaultTab="feature-tab">
                         <Row className='features-row'>
@@ -226,16 +227,21 @@ const Home = () => {
                                                     <h2 className = "recommended-cars-head">{item.title}</h2>
                                                 </Col>
         
+                                                {item.data.length>=5 ?
                                                 <Col md = "6" xs = "12" className = "recomended-coloumn text-right">
                                                     <Link className = "view-all" to="/products">View All</Link>
                                                 </Col>
+                                                :null
+                                                }
                                             </Row>                            
                                     </Col>
                                 </Row>
 
                                 <DCSlider
-                                slidesToShow = {5}
-                                items={item.data}/>
+                                    slidesToShow = {5}
+                                    items={item.data}
+                                    allowBookmark={false}
+                                />
                             </div>) 
                         })
                         :null
@@ -297,16 +303,16 @@ const Home = () => {
                 </Row>
                 <Container>
                 <Row style={{margin:'0'}}>
-                    <Col xs = "12" md = "3">
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
                         <ArticleCard/>
                     </Col>
-                    <Col xs = "12" md = "3">
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
                         <ArticleCard1/>
                     </Col>
-                    <Col xs = "12" md = "3">
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
                         <ArticleCard2/>
                     </Col>
-                    <Col xs = "12" md = "3">
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
                         <ArticleCard3/>
                     </Col>
                 </Row>

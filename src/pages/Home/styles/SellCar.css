@@ -12,13 +12,13 @@
 .blue-bg{
     background-color: #1C67CE ;
     width: 100%;
-    padding: 5% 10px;
+    padding: 5% 7rem;
     margin-left: 0px !important;
 }
 .white-bg{
     background-color: white;
     width: 100%;
-    padding: 5% 10px;
+    padding: 5% 7rem;
     margin-left: 0px !important;
 }
 .blue-head{
@@ -53,17 +53,19 @@
     border-radius: 6px;
     color: white;
     margin: 5px 10px 5px;
-
 }
 .learn-button:hover{
     background-color: #1C67CE;
+    border: 1px solid #FFFFFF;
 }
+
+
 
 .white-head{
     position: absolute;
     /* width: 80px;
     height: 22px; */
-    font-family: Poppins;
+    font-family: 'Poppins' !important;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -71,25 +73,26 @@
     color: rgba(0, 0, 0, 0.85);
 }
 .white-text{
-    font-family: Poppins;
+    font-family: 'Poppins' !important;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 140%;
     color: rgba(0, 0, 0, 0.45);
+    margin-top: 0.6rem;
 }
 .white-section-icon{
     color: #1C67CE !important;
 }
 .white-main{
-    border-right: 1px solid whitesmoke;
-    margin: 0 3%;
-    /* padding: 0 5%; */
+    margin: 0 16%;
 }
-.white-main2{
-    margin: 0 3%;
-    /* padding: 0 5%;  */
+.vertical-line {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100px;
+    width: 0px !important;
 }
+
 @media screen and (max-width:768px){
     .blue-head{
         font-size: 40px !important;

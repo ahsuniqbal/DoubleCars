@@ -2,7 +2,8 @@ import React from "react"
 import {Row, Col, Nav, NavItem, Button, NavLink, Container} from 'reactstrap'
 import '../styles/Footer.css'
 import { Facebook, Instagram, Twitter } from 'react-feather';
-
+import FacebookFooter from '../../../assets/FooterFacebook.svg'
+import SearchBoxSearchIcon from '../../../assets/SearchBoxSearchIcon.svg'
 import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
@@ -13,12 +14,13 @@ const Footer = () => {
                     <Row>
                         <Col className = "footer-image">
                             <Row className = "h-100">
+                                
                                 <Col md  = "6" xs = "12" className = "car-dealer-class my-auto">
-                                    <h1 className = "car-dealer-head">Are you a car dealer?</h1>
-                                    <h5 className = "my-1 car-dealer-subhead">We bring you the opporitniy to sell your car on our platmore</h5>
+                                    <h1 className = "car-dealer-head ml-5">Are you a car dealer?</h1>
+                                    <h5 className = "car-dealer-subhead ml-5">Create your own virtural showroom and boost sales</h5>
                                 </Col>
-                              <Col md='1' sm='0'></Col>
-                                <Col md = "2" xs = "12" className = "learn-more-button-class my-auto">
+                              
+                                <Col md = "6" xs = "12" className = "learn-more-button-class my-auto">
                                     <Button className="learn-more-button-cover">Learn More</Button>
                                 </Col>
                             </Row>
@@ -86,22 +88,22 @@ const Footer = () => {
                         <Col xs="12" md="3" className = "footer-columns">
                             <Nav vertical>
                                 <NavItem>
-                                <NavLink className = "nav-text-color" to=""><strong>Contact Information</strong></NavLink>
+                                <NavLink className = "nav-text-color footer-contact-information" to="">Contact Information</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink to="" className = "footer-contact ">support@doublecars.com</NavLink>
+                                    <NavLink to="" className = "footer-contact">support@doublecars.com</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink to="" className = "footer-contact ">01 234 67890</NavLink>
+                                    <NavLink to="" className = "footer-contact">01 234 67890</NavLink>
                                 </NavItem>
                             </Nav>
                         </Col>
                     </Row>
-                    <hr/>
+                    {/* <hr/> */}
                 </Container>
 
                 {/* Lower Footer starts here */}
-                <Container>
+                <Container className = "lower-footer-container">
                     <Row>
                         <Col md = "3" xs = "12" className = "lower-footer-columns text-center">
                             <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
@@ -128,6 +130,7 @@ const Footer = () => {
                             <Row className='icon-row'>
                                 <Col md = "2"  xs = "" className = "icons-columns">
                                     <Facebook color="#1C67CE" size={20} className = "feather-icon"/>
+                                    {/* <img  src = {FacebookFooter} className = "img-fluid"/> */}
                                 </Col >
                                 <Col md = "2" xs = "" className = "icons-columns ">
                                     <Instagram color="#1C67CE" size={20} className = "feather-icon"/>

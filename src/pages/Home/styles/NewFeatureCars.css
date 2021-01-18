@@ -51,10 +51,11 @@ line-height: 25px;
 .main-coloumn{
     padding-left: 0% !important;
     position: relative;
+    border-radius: 10px !important;
 }
 .feature-car-badge1{
     position: absolute;
-    left: 91%;
+    left: 89%;
     margin-top: 3%;
     font-weight: 500;
     font-size: 16px;
@@ -64,7 +65,7 @@ line-height: 25px;
 }
 .feature-car-badge2{
     position: absolute;
-    left: 82%;
+    left: 79%;
     margin-top: 5%;
     font-weight: 500;
     font-size: 16px;
@@ -90,20 +91,20 @@ line-height: 25px;
 }
 @media screen and (max-width: 768px) {
     .feature-car-badge1{
-        left: 85% !important;
+        left: 82% !important;
     }
     .feature-car-badge2{
-        left: 70% !important;
+        left: 65% !important;
     }
 }
 @media screen and (max-width: 760px) {
     .feature-car-badge1 , .feature-car-badge2{
-        left: 90% !important;
+        left: 82% !important;
     }
 }
 @media screen and (max-width: 450px) {
     .feature-car-badge1 , .feature-car-badge2{
-        left: 85% !important;
+        left: 82% !important;
     }
    
 }

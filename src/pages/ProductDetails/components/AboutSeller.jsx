@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import { GetSellerDetails } from '../api/GetRequests';
 import { Phone, Mail } from 'react-feather';
 
+import DealerProfileImage from '../../../assets/DealerProfileImage.png'
+
 const SellerDetails = (props) => {
     const [dealer, setDealer] = useState([]);
 

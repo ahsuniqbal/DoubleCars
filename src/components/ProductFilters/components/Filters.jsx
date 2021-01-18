@@ -3,7 +3,6 @@ import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputG
 import MultiSelect from "@khanacademy/react-multi-select";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Check } from 'react-feather';
-import sedan from '../../../assets/icons/body-styles/sedan-icon.svg';
 import { GetFiltersList, GetAllMakes, GetModelFromMake, GetTrimFromMakeAndModel, GetZipFromLatLong } from '../api/GetRequests';
 import MapPopup from './MapPopup';
 import gps from '../../../assets/gps.svg';
@@ -62,7 +61,6 @@ function concatinateCommaToFilters(list) {
 }
 
 const Filters = (props) => {
-
     /////////////// Filters ///////////////
     // Filters Object
     const [filters, setFilters] = useState({});
@@ -443,6 +441,10 @@ const Filters = (props) => {
 
         // Get the current location using HTML Geo location
         GetLocation();
+
+
+        
+        // handleCondition();
     }, []);
 
 
@@ -577,7 +579,7 @@ const Filters = (props) => {
                                     <MultiSelect
                                         options={concatTrimList(trimList)}
                                         selected={selectedTrims}
-                                        onSelectedChanged={console.log("trim")} />
+                                        onSelectedChanged={(console.log("trim"))} />
                                 </Collapse>
                             </Collapse>
 
@@ -643,11 +645,11 @@ const Filters = (props) => {
                             {/******** Condition filter ************/}
                             <h6>Condition</h6>
                             <FormGroup check>
-                                <Input type="checkbox" id="condition-new" name="condition" onChange={() => handleCondition()} />
+                                <Input type="checkbox" id="condition-new" name="condition" onChange={() => handleCondition()} checked={props.isUsed ? props.isUsed === "true" ? false : true : false} />
                                 <Label check htmlFor="condition-new">New</Label>
                             </FormGroup>
                             <FormGroup check>
-                                <Input type="checkbox" id="condition-used" name="condition" onChange={() => handleCondition()} />
+                                <Input type="checkbox" id="condition-used" name="condition" onChange={() => handleCondition()} checked={props.isUsed ? props.isUsed === "true" ? true : false : false} />
                                 <Label check htmlFor="condition-used">Used</Label>
                             </FormGroup>
 

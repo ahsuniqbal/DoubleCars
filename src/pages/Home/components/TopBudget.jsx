@@ -13,6 +13,7 @@ const TopBudget = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '258px',
+        marginTop: '4rem',
       };
 
       const toggle = (e, tab) => {
@@ -28,7 +29,7 @@ const TopBudget = () => {
             <Col md = "12" xs = "12" style={mystyle}>
                 <Row className = "topBudgetRow">
                     <Col xs = "12" md = "12" className = "text-center">
-                        <Label className = "top-budget-label">Best cars for you under $5000</Label>
+                        <h1 className = "top-budget-label">Best cars for you under $5000</h1>
                         <h1 className = "top-budget-heading">Top Budget Cars</h1>
                         <Button  className = "explore-button">Exlpore more</Button>
                     </Col>

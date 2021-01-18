@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState,useEffect} from "react"
 import '../styles/DCSlider.css'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
@@ -32,6 +32,7 @@ const PrevoiusIcon=(props)=>{
   );
 }
 const DCSlider = (props) => {
+
 
     let settings = {
         adaptiveHeight: true,
@@ -74,6 +75,7 @@ const DCSlider = (props) => {
         swipeToSlide: true,
         slidesToScroll: 1,
         slidesToShow: 5,
+        infinite: false,
     }
 
     return (
@@ -88,8 +90,9 @@ const DCSlider = (props) => {
                             productImg={item.coverPic}
                             productName={item.productName}
                             productTitle={item.carName}
-                            productSubtitle={AddCommaToNumber(item.mileage) + " miles · " + item.zipCode}
+                            productSubtitle={AddCommaToNumber(item.mileage) + " mileage · " + item.zipCode}
                             productText={"$" + AddCommaToNumber(item.price)}
+                            allowBookmark={props.allowBookmark}
                         />      
                     ))
                 : null

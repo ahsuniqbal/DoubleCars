@@ -1,9 +1,10 @@
 import React ,{useEffect,useState} from 'react';
 import { Col, Row, Button, CustomInput } from 'reactstrap';
 import '../styles/Lowercar.css'
-import Image1 from '../../../assets/TopNewsDummyImage.png';
-import Image2 from '../../../assets/DemoCar2.png';
-import Image3 from '../../../assets/DemoCar3.png';
+import LowerCarsImage1 from '../../../assets/LowerCarsImage1.png';
+import LowerCarsImage2 from '../../../assets/LowerCarsImage2.png';
+import LowerCarsImage3 from '../../../assets/LowerCarsImage3.png';
+import LowerCarsImage4 from '../../../assets/LowerCarsImage4.png';
 import Slider from "react-slick";
 import {GetProductsOfBodyType} from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth'
@@ -20,7 +21,7 @@ const LowerCar = (props) => {
 //      })
 //     },[])
      var settings = {
-          dots: true,
+          dots: false,
           infinite: false,
           speed: 500,
           slidesToShow: 4,
@@ -35,7 +36,7 @@ const LowerCar = (props) => {
                 slidesToShow: 3,
                 slidesToScroll: 3,
                 infinite: true,
-                dots: true
+                dots: false
               }
             },
             {
@@ -71,37 +72,37 @@ const LowerCar = (props) => {
                
           </Slider> */}
             <Slider {...settings}>
-               <div>
-                    <img src={Image1} className='img-fluid'/>
+               <div className = "lower-section-car">
+                    <img src={LowerCarsImage1} className='img-fluid'/>
                     <p className='text'>Sedan</p>
                </div>
                <div>
-                    <img src={Image2} className='img-fluid'/>
+                    <img src={LowerCarsImage2} className='img-fluid lower-cars-carousel-images'/>
                     <p className='text'>Suv</p>
                </div>
                <div>
-                    <img src={Image1} className='img-fluid'/>
+                    <img src={LowerCarsImage3} className='img-fluid lower-cars-carousel-images'/>
                     <p className='text'>Sports Car</p>
                </div>
                <div>
-                    <img src={Image2} className='img-fluid'/>
+                    <img src={LowerCarsImage4} className='img-fluid lower-cars-carousel-images'/>
                     <p className='text'>Hatchback</p>
                </div>
                    
                <div>
-                    <img src={Image3} className='img-fluid'/>
+                    <img src={LowerCarsImage3} className='img-fluid lower-cars-carousel-images'/>
                     <p className='text'>Sedan</p>
                </div>
                <div>
-                    <img src={Image2} className='img-fluid'/>
+                    <img src={LowerCarsImage2} className='img-fluid lower-cars-carousel-images'/>
                     <p className='text'>Suv</p>
                </div>
                <div>
-                    <img src={Image1} className='img-fluid'/>
+                    <img src={LowerCarsImage1} className='img-fluid lower-cars-carousel-images'/>
                     <p className='text'>Sports Car</p>
                </div>
                <div>
-                    <img src={Image3} className='img-fluid'/>
+                    <img src={LowerCarsImage3} className='img-fluid lower-cars-carousel-images'/>
                     <p className='text'>Hatchback</p>
                </div>
           </Slider>

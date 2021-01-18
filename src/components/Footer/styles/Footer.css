@@ -12,12 +12,14 @@
   color: #ffffff;
   font-size: 40px;
   font-weight: bold;
+  
 }
 
 .car-dealer-subhead{
   font-weight: normal;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.85);
+  position: absolute;
 }
 
 .learn-more-button-cover {
@@ -45,27 +47,53 @@
 .footer-dc {
   color: black;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: bolder;
   line-height: 29px;
+  font-style: normal;
+  font-family: 'Proxima Nova' !important;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
 }
 
 .discription-dc-footer {
   color: rgba(8, 11, 48, 0.85);
   font-size: 15px;
   font-weight: normal;
+  font-family: 'Proxima Nova' !important;
 }
 
 .nav-text-color {
-  color: rgba(8, 11, 48, 0.65) !important;
+  color: rgba(8, 11, 48, 0.85) !important;
+  font-family: 'Proxima Nova' !important;
+  cursor: pointer;
+  text-align: left !important;
+}
+
+.footer-contact-information {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: #080B30;
+  font-family: 'Proxima Nova' !important;
+  cursor: default;
+  text-align: left !important;
 }
 .footer-contact {
-  font-size: 12px !important;
+  font-size: 16px !important;
+  line-height: 18px;
   font-weight: 500 !important;
   color: #1C67CE;
+  font-weight: normal;
+  cursor: pointer;
+  text-align: left !important;
 }
 /* End */
 
 /* Lower Footer css starts here  */
+.lower-footer-container {
+  margin-top: 2rem;
+}
 .lower-footer-columns {
   margin-top: 1rem;
   margin-bottom: 3rem;

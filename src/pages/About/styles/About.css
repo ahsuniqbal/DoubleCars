@@ -78,7 +78,11 @@
     height: 276px;
     width: 0px !important;
 }
-
+.vertical-line-01 {
+    /* border-right: 1px solid rgba(0, 0, 0, 0.2); */
+    height: 276px;
+    width: 0px !important;
+}
 /* End */
 
 
