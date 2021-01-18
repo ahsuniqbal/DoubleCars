@@ -4,7 +4,7 @@ import '../styles/FeaturedCars.css'
 
 const NewFeaturedCars = () => {
     const FeaturedDemoImage1 = {
-        backgroundImage: `url(${require("../../../assets/FearturedDemo1.png")})`,
+        backgroundImage: `url(${require("../../../assets/FearturedDemo11.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
