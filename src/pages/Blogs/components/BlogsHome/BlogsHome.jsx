@@ -14,7 +14,8 @@ import ArticleCard from '../../../Home/components/ArticleCard';
 import LowerSection from './LowerSection';
 import AdImage from '../../../../assets/StaticBlogAd.png'
 import SubsribeCard from './SubscribeCard'
-import Footer from '../../../../components/Footer/components/Footer'
+import LatestArticlesCard from '../BlogsHome/LatestArticlesCard'
+import {LatestArticlesCard2, LatestArticlesCard3 ,LatestArticlesCard4, LatestArticlesCard5, LatestArticlesCard6 , LatestArticlesCard7, LatestArticlesCard8, LatestArticlesCard9 } from './LatestArticlesCard';
 const BlogsHome = () => {
     return(
         <body className = "blogs-home-body">
@@ -30,38 +31,38 @@ const BlogsHome = () => {
                         <h1 className = "article-heading">Latest Articles</h1>
                         <Row>
                             <Col  md = "4" sm = "12">
-                                <ArticlesCard/>
+                                <LatestArticlesCard/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticlesCard1/>
+                                <LatestArticlesCard2/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticlesCard2/>
+                                <LatestArticlesCard3/>
                             </Col>
                             
                         </Row>
                         <Row>
                             <Col md = "4" sm = "12">
-                                <ArticlesCard/>
+                                <LatestArticlesCard4/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticlesCard1/>
+                                <LatestArticlesCard5/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticlesCard2/>
+                                <LatestArticlesCard6/>
                             </Col>
                         </Row>
                        
                         <LowerSection/>
                         <Row className='new-cars'>
                             <Col md = "4" sm = "12" >
-                                <ArticlesCard/>
+                                <LatestArticlesCard7/>
                             </Col>
                             <Col md = "4" sm = "12" >
-                                <ArticlesCard1/>
+                                <LatestArticlesCard8/>
                             </Col>
                             <Col md = "4" sm = "12" >
-                                <ArticlesCard2/>
+                                <LatestArticlesCard9/>
                             </Col>
                             
                         </Row>
