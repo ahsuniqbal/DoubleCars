@@ -43,7 +43,7 @@ const ProductCard = (props) => {
 
 
   return (
-    <Card className="product-card mx-1">
+    <Card className="product-card ">
         {/* Link to the product details page */}
         <Link to={"/product/" + props.productId}>
             <div className="product-img">
@@ -63,7 +63,7 @@ const ProductCard = (props) => {
                     {/* Link to the product details page */}
                     <Link to={"/product/" + props.productId}>
                         {/* Name of the car */}
-                        <CardTitle title={props.productTitle}>{props.productTitle}</CardTitle>
+                        <CardTitle title={props.productTitle} >{props.productTitle}</CardTitle>
                     </Link>
                     {/* Subtitle will show mileage and zip code */}
                     <CardSubtitle>{props.productSubtitle}</CardSubtitle>

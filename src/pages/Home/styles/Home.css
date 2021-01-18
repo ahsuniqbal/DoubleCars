@@ -10,11 +10,20 @@
 .input :focus {
     outline-offset: 0px !important;
 }
+.recommended-trending-cars-head{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: #080B30;
+}
 .feature-heading{
   font-weight: 600;
   font-size: 28px;
   line-height: 34px;
   color: #080B30;
+  
 }
 .featured-main-coloumn{
   padding:0 10px;
