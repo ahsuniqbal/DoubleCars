@@ -1,6 +1,7 @@
 .most-popular-card {
     border: transparent !important;
     margin:28px 0px;
+    margin-bottom: 2rem;
 }
 .mp-cell-card-image {
     border-radius: 0px !important;
