@@ -9,7 +9,7 @@
     background-color: #ffffff;
     position: absolute;
     top: 1%;
-    left: 90%;
+    left: 88%;
     cursor: pointer;
 }
 
@@ -21,7 +21,7 @@
 /* Gallery thumbnails */
 .image-gallery-thumbnail{
     border: none;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .image-gallery-thumbnail .image-gallery-thumbnail-inner{
@@ -37,7 +37,7 @@
 }
 
 .image-gallery-thumbnail .image-gallery-thumbnail-inner{
-    background: rgba(0, 0, 0);
+    background: rgba(0, 0, 0, 0.95);
 }
 
 .image-gallery-thumbnail .image-gallery-thumbnail-image{
@@ -75,7 +75,11 @@
     height: 56px;
     color: #000;
     border-radius: 13px;
-    padding: 12px;
+    padding: 15px;
+}
+
+.image-gallery-left-nav .image-gallery-svg polyline, .image-gallery-right-nav .image-gallery-svg polyline {
+    stroke-width: 2px;
 }
 
 .image-gallery-icon:focus{
@@ -104,3 +108,6 @@ cursor: pointer;
 }
 
 
+.image-gallery {
+    padding: 0 20px;
+}

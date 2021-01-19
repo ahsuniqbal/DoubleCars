@@ -9,7 +9,7 @@ const LowerSection = () => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        height: '50vh',
+        height: '80vh',
       };
      
 
