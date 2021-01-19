@@ -7,7 +7,7 @@ import UpcomingCars from './UpcomingCars';
 import TopNews from './TopNews'
 import MostPopularCard from './MostPopularCard';
 import ArticleCard from '../../../Home/components/ArticleCard';
-import {ArticleCard1,ArticleCard2,ArticleCard3} from '../../../Home/components/ArticleCard';
+import {ArticleCard1,ArticleCard2,ArticleCard3,ArticleCard4,ArticleCard5} from '../../../Home/components/ArticleCard';
 import {MostPopularCard1,MostPopularCard2,MostPopularCard3} from './MostPopularCard';
 import LowerSection from './LowerSection';
 import AdImage from '../../../../assets/StaticBlogAd.png'
@@ -27,26 +27,26 @@ const BlogsHome = () => {
                         <TopNews/>
                         <img className = "img-fluid" src = {AdImage} alt = "ad"/>
                         <h1 className = "article-heading">Latest Articles</h1>
-                        <Row>
-                            <Col  md = "4" sm = "12">
+                        <Row >
+                            <Col  md = "4" sm = "12" className='decrease-margin-between-cards'>
                                 <ArticleCard/>
                             </Col>
-                            <Col  md = "4" sm = "12">
+                            <Col  md = "4" sm = "12" className='decrease-margin-between-cards'>
                                 <ArticleCard1/>
                             </Col>
-                            <Col  md = "4" sm = "12">
+                            <Col  md = "4" sm = "12" className='decrease-margin-between-cards'>
                                 <ArticleCard2/>
                             </Col>
                             
                         </Row>
                         <Row>
-                            <Col md = "4" sm = "12">
-                                <ArticleCard/>
+                            <Col md = "4" sm = "12" className='decrease-margin-between-cards'>
+                                <ArticleCard5/>
                             </Col>
-                            <Col  md = "4" sm = "12">
-                                <ArticleCard1/>
+                            <Col  md = "4" sm = "12" className='decrease-margin-between-cards'>
+                                <ArticleCard4/>
                             </Col>
-                            <Col  md = "4" sm = "12">
+                            <Col  md = "4" sm = "12" className='decrease-margin-between-cards'>
                                 <ArticleCard3/>
                             </Col>
                         </Row>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Col, Row, Label, Button } from 'reactstrap';
 import CardImage1 from '../../../assets/TopStoriesCardDemoImage.png'
-import CardImage2 from '../../../assets/DemoCar4.png'
+import CardImage2 from '../../../assets/TopNewsDummy5.png'
 import CardImage6 from '../../../assets/BlogPageImage1.png';
-import CardImage7 from '../../../assets/TopStories.png';
+import CardImage7 from '../../../assets/DummyCarCard.png';
 import CardImage3 from '../../../assets/TopNewsDummy2.png'
 import CardImage4 from '../../../assets/TopNewsDummyImage.png'
 import TopStories from '../../../assets/TopStories.png'
@@ -58,6 +58,28 @@ const ArticleCard3 = () => {
     )
   
 }
+const ArticleCard4 = () => { 
+    const history=useHistory()
+    return(
+           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
+                <img src = {CardImage2} className = "img-fluid article-card-image" alt = "demo-image"/>
+                <Label className = "tarticle-card-heading">2009 Audi A4 Tiptronic Premium Unleaded</Label> 
+                <Label className = "article-date">Dec 30, 2020</Label><br/><br/>
+           </div> 
+    )
+  
+}
+const ArticleCard5 = () => { 
+    const history=useHistory()
+    return(
+           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
+                <img src = {CardImage7} className = "img-fluid article-card-image" alt = "demo-image"/>
+                <Label className = "tarticle-card-heading">2014 Land Rover Range Rover Evoque Pure Plus With 6-Speed Automatic</Label> 
+                <Label className = "article-date">Apr 28, 2015</Label><br/><br/>
+           </div> 
+    )
+  
+}
 export default ArticlesCard;
 
-export {ArticleCard1,ArticleCard2,ArticleCard3};
+export {ArticleCard1,ArticleCard2,ArticleCard3,ArticleCard4,ArticleCard5};
