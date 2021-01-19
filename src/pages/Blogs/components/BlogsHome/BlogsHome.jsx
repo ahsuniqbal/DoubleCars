@@ -6,7 +6,9 @@ import Container from 'reactstrap/lib/Container';
 import UpcomingCars from './UpcomingCars';
 import TopNews from './TopNews'
 import MostPopularCard from './MostPopularCard';
-import ArticleCard from '../../../Home/components/ArticleCard';
+import ArticlesCard from '../../../Home/components/ArticleCard';
+import {ArticlesCard1,ArticlesCard2} from '../../../Home/components/ArticleCard';
+
 import LowerSection from './LowerSection';
 import AdImage from '../../../../assets/StaticBlogAd.png'
 import SubsribeCard from './SubscribeCard'
@@ -26,38 +28,38 @@ const BlogsHome = () => {
                         <h1 className = "article-heading">Latest Articles</h1>
                         <Row>
                             <Col  md = "4" sm = "12">
-                                <ArticleCard/>
+                                <ArticlesCard/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticleCard/>
+                                <ArticlesCard1/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticleCard/>
+                                <ArticlesCard2/>
                             </Col>
                             
                         </Row>
                         <Row>
                             <Col md = "4" sm = "12">
-                                <ArticleCard/>
+                                <ArticlesCard/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticleCard/>
+                                <ArticlesCard1/>
                             </Col>
                             <Col  md = "4" sm = "12">
-                                <ArticleCard/>
+                                <ArticlesCard2/>
                             </Col>
                         </Row>
                        
                         <LowerSection/>
                         <Row className='new-cars'>
                             <Col md = "4" sm = "12" >
-                                <ArticleCard/>
+                                <ArticlesCard/>
                             </Col>
                             <Col md = "4" sm = "12" >
-                                <ArticleCard/>
+                                <ArticlesCard1/>
                             </Col>
                             <Col md = "4" sm = "12" >
-                                <ArticleCard/>
+                                <ArticlesCard2/>
                             </Col>
                             
                         </Row>
