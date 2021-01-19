@@ -35,7 +35,7 @@ const SellerDetails = (props) => {
             
             {
             dealer ?
-                <Card className="mt-4 about-seller-card">
+                <Card className="mt-5 about-seller-card">
                     <CardBody>
                         <Row>
                             <Col xs="3">
@@ -69,6 +69,7 @@ const SellerDetails = (props) => {
             }
             <Row>
                 <Col className = "mt-3">
+                    <div className="add-title">Ad by DoubleCars</div>
                     <img src = {Ad1} alt = "ad" className = "img-fluid"/>
                 </Col>
             </Row>
