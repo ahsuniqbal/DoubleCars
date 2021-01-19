@@ -23,7 +23,7 @@
     font-weight: bold;
     font-size: 32px;
     line-height: 46px;
-    margin-top: 6rem;
+    margin-top: 3rem;
     color: rgba(0, 0, 0, 0.85);
 }
 
@@ -35,16 +35,15 @@
     
 }
 
-.register-textfield  {
+.signup-register-textfield  {
     background: #FFFFFF ;
     border-radius: 4px;
     border: 1px solid #E9E9E9;
     height: 48px ;
-  ;
     background: #FFFFFF;
     margin-top: 0.7rem; 
 }
-.register-textfield::placeholder {
+.signup-register-textfield::placeholder {
     color: rgba(0, 0, 0, 0.35);
     font-size: 14px;
     line-height: 24px;
@@ -72,12 +71,23 @@
     margin-top: 2rem;
     /* padding-left: 0 !important; */
 }
+/* error label color */
 
+.i-agree{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 22px;
+}
 
 .t-and-c {
     color:  #1C67CE;
     cursor: pointer;
-    font-weight: 500;
+    /* font-weight: 500; */
+}
+.t-c-checkbox-form-class{
+    padding-left: 0 !important;
 }
 
 .or-label {
@@ -281,12 +291,12 @@
         height: 40px;
         margin: 15px 12px 0px 0px !important ;
     }
-    .col-md-6 {
+    /* .col-md-6 {
         padding: 0 !important;
-    }
-    .names{
+    } */
+    /* .names{
         margin-left: 15px;
-    }
+    } */
     #firstName {
         width: 288px
     }
