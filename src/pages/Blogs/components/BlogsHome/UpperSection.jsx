@@ -17,7 +17,7 @@ const UpperSection = () => {
         backgroundRepeat: 'no-repeat',
         border: '5px solid white',
         borderLeft: '0px solid white',
-        borderRadius: '8px'
+        
         // height: '80vh',
       };
 
@@ -27,7 +27,7 @@ const UpperSection = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         border: '5px solid white',
-        borderRadius: '8px'
+       
         // height: '80vh',
       };
       
@@ -39,7 +39,7 @@ const UpperSection = () => {
         border: '5px solid white',
         borderLeft:'8px solid white',
         padding:'0',
-        borderRadius: '8px'
+      
         // height: '40vh',
       };
       const BlogpageImage4 = {
@@ -50,7 +50,7 @@ const UpperSection = () => {
         border: '5px solid white',
         borderLeft:'8px solid white',
         padding:'0',
-        borderRadius: '8px'
+       
         // height: '40vh',
       };
      
