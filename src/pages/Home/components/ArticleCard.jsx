@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Row, Label, Button } from 'reactstrap';
 import CardImage1 from '../../../assets/TopStoriesCardDemoImage.png'
 import CardImage2 from '../../../assets/DemoCar4.png'
+import CardImage6 from '../../../assets/BlogPageImage1.png';
 import CardImage7 from '../../../assets/TopStories.png';
 import CardImage3 from '../../../assets/TopNewsDummy2.png'
 import CardImage4 from '../../../assets/TopNewsDummyImage.png'
@@ -22,37 +23,13 @@ const ArticlesCard = () => {
     )
   
 }
-const ArticlesCard1 = () => { 
-    const history=useHistory()
-    return(
-        
-           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
-                <img src = {CardImage7} className = "img-fluid article-card-image" alt = "demo-image"/>
-                <Label className = "tarticle-card-heading">Video: BMW X5 M vs GLE 63 AMG and Audi RSQ8 comparison review</Label> 
-                <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
-           </div>
-        
-    )
-  
-}
-const ArticlesCard2 = () => { 
-    const history=useHistory()
-    return(
-        
-           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
-                <img src = {CardImage1} className = "img-fluid article-card-image" alt = "demo-image"/>
-                <Label className = "tarticle-card-heading">Video: BMW X5 M vs GLE 63 AMG and Audi RSQ8 comparison review</Label> 
-                <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
-           </div>
-        
-    )
-  
-}
+
+
 const ArticleCard1 = () => { 
     const history=useHistory()
     return(
            <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
-                <img src = {CardImage2} className = "img-fluid article-card-image" alt = "demo-image"/>
+                <img src = {CardImage7} className = "img-fluid article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">2021 Ford Bronco Sport First Drive: Small SUV, Big Off-Road</Label> 
                 <Label className = "article-date">Apr 1, 2009</Label><br/><br/>
            </div> 
@@ -74,7 +51,7 @@ const ArticleCard3 = () => {
     const history=useHistory()
     return(
            <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
-                <img src = {CardImage4} className = "img-fluid article-card-image" alt = "demo-image"/>
+                <img src = {CardImage6} className = "img-fluid article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">The Next Generation Car Is Just Here, Checkout More</Label> 
                 <Label className = "article-date">Oct 8, 2017</Label><br/><br/>
            </div> 
@@ -82,5 +59,5 @@ const ArticleCard3 = () => {
   
 }
 export default ArticlesCard;
-export {ArticlesCard1,ArticlesCard2}
+
 export {ArticleCard1,ArticleCard2,ArticleCard3};
