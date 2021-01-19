@@ -3,7 +3,9 @@ import { Row, Col } from 'reactstrap';
 import '../../styles/TopNews.css'
 import TopNewsDummyImage from '../../../../assets/TopNewsDummyImage.png'
 import Label from 'reactstrap/lib/Label';
-import TopNewsCard from './TopNewsCard';
+import TopNewsCard from './TopNewsCard'
+import {TopNewsCard1,TopNewsCard2,TopNewsCard3} from './TopNewsCard';
+
 
 const TopNews = () => {
 
@@ -16,11 +18,12 @@ const TopNews = () => {
                 <Label className = "top-news-content">Not many products actually deserve the label "iconic," but Airstream travel trailers have earned iNot many products actually deserve the label "iconic," but Airstream travel trailers have earned t. Most people can't tell...</Label>
             </Col> 
 
-            <Col xs = "12" md = "6" sm = "12">
+            <Col xs = "12" md = "6" sm = "12" >
                 <TopNewsCard/>
-                <TopNewsCard/>
-                <TopNewsCard/>
-                <TopNewsCard/>
+                <TopNewsCard1 />
+                <TopNewsCard2/>
+                <TopNewsCard3/>
+                
                 
             </Col> 
         </Row>

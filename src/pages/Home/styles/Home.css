@@ -31,6 +31,17 @@
 .recomended-coloumn{
   margin-top:73px ;
 }
+
+.home-container .slick-slide {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.home-container .slick-slide .product-card .card-subtitle {
+  white-space: nowrap;
+}
+
+
 .trending-coloumn{
   margin-top: 23px ;
 }

@@ -1,14 +1,19 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Label} from 'reactstrap';
 import UpperSection from './UpperSection'
 import '../../styles/BlogsHome.css'
 import Container from 'reactstrap/lib/Container';
 import UpcomingCars from './UpcomingCars';
 import TopNews from './TopNews'
 import MostPopularCard from './MostPopularCard';
+<<<<<<< HEAD
 import ArticlesCard from '../../../Home/components/ArticleCard';
 import {ArticlesCard1,ArticlesCard2} from '../../../Home/components/ArticleCard';
 
+=======
+import {MostPopularCard1, MostPopularCard2, MostPopularCard3} from './MostPopularCard'
+import ArticleCard from '../../../Home/components/ArticleCard';
+>>>>>>> 13c7e4dcd6cdf980a573f994cf533579cfd91da8
 import LowerSection from './LowerSection';
 import AdImage from '../../../../assets/StaticBlogAd.png'
 import SubsribeCard from './SubscribeCard'
@@ -22,7 +27,7 @@ const BlogsHome = () => {
                 <UpperSection/>
                 <Row>
                     <Col xs = "12" md = "9">
-                        <h1 className = "top-news-heading">Top News</h1>
+                        <Label className = "top-news-heading">Top News</Label>
                         <TopNews/>
                         <img className = "img-fluid" src = {AdImage} alt = "ad"/>
                         <h1 className = "article-heading">Latest Articles</h1>
@@ -66,13 +71,13 @@ const BlogsHome = () => {
 
                     </Col>
                     <Col xs = "12" md = "3">
-                        <h2 className = "upcoming-cars-heading">Upcoming Cars</h2>
+                        <Label className = "upcoming-cars-heading">Upcoming Car</Label>
                         <UpcomingCars/>
                         <h2 className = "most-popular-heading">Most Popular</h2>
                         <MostPopularCard/>
-                        <MostPopularCard/>
-                        <MostPopularCard/>
-                        <MostPopularCard/>
+                        <MostPopularCard1/>
+                        <MostPopularCard2/>
+                        <MostPopularCard3/>
                         <SubsribeCard/>
                
                     </Col>

@@ -1,6 +1,7 @@
-/* .product-card:hover { */
-    /* box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253) !important; */
-/* } */
+.product-card {
+    margin-bottom: 1.5rem;
+}
+
 /* Name of the car */
 .product-card .card-title{
     font-weight: 500;
@@ -97,11 +98,18 @@
     margin-top: 12px;
 }
 
+.product-card .company-details .image-div {
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+}
+
 /* Profile picture of the dealer */
 .product-card .company-details .card-img{
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     margin-top: 10px;
+    /* width: 100%; */
 }
 
 /* The label saying "Private Seller" */

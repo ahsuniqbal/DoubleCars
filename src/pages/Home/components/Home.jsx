@@ -157,7 +157,7 @@ const Home = () => {
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
             setHomeData(doc)
-            console.log(homeData)  
+            console.log(doc)  
         })
         .catch(error => {
             alert(error.message);
@@ -227,9 +227,12 @@ const Home = () => {
                                                     <h2 className = "recommended-cars-head">{item.title}</h2>
                                                 </Col>
         
+                                                {item.data.length>=5 ?
                                                 <Col md = "6" xs = "12" className = "recomended-coloumn text-right">
                                                     <Link className = "view-all" to="/products">View All</Link>
                                                 </Col>
+                                                :null
+                                                }
                                             </Row>                            
                                     </Col>
                                 </Row>
