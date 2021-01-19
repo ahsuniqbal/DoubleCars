@@ -15,6 +15,7 @@
 }
 .upcoming-img{
     margin-right: -5px !important;
+    
 }
 .upcoming-cars-heading {
     font-weight: bold;
@@ -44,8 +45,12 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+.decrease-margin-between-cards{
+    padding: 0px 5px 0px 15px;
+}
 .new-cars{
     margin: 23px -20px 30px;
+    padding-right: -20%;
 }
 @media screen and (max-width:600px){
     .upcoming-img{
