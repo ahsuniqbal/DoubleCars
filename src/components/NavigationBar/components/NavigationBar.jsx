@@ -63,7 +63,7 @@ const NavigationBar = () => {
 
     return (
         <> 
-            <nav className="navbar navbar-expand-lg navbar-light bg-light navigation-bar-box">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top navigation-bar-box">
                 <Link to="/">
                     <img  src = {DCLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px"/>
                 </Link>
