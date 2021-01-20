@@ -2,6 +2,8 @@ import React from 'react';
 import { Row, Col, Container, Label} from 'reactstrap';
 import '../../styles/Blogs.css'
 import BlogsDemoImage1 from '../../../../assets/BlogsDemoImage1.png' 
+
+import BlogsDemoImage2 from '../../../../assets/BlogsDemoImage2.png' 
 import RelatedStoriesCell from './RelatedStoriesCell';
 import SimilarCarCell from './SimilarCarCell';
 const Blogs = () => {
@@ -23,7 +25,7 @@ const Blogs = () => {
                         <p className = "blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci lorem, mattis at porta vitae, accumsan vel libero. In sit amet magna nunc. Curabitur at purus iaculis, rutrum neque sit amet, ornare lorem. Donec est metus, sagittis a nunc suscipit, varius facilisis est. In hac habitasse platea dictumst. Nulla dictum metus id risus porta, sed venenatis libero egestas. Donec laoreet ac ex eget rhoncus. Proin vel diam luctus, finibus mi ac, condimentum nunc. Sed interdum lacinia turpis, et tempus neque laoreet a. Nulla nec aliquam velit. Cras sit amet leo a elit egestas congue quis sit amet lacus. </p>
                         <Row>
                             <Col xs = "12" md = "12" className = "text-center">
-                            <img src = {BlogsDemoImage1} className = "img-fluid"/>
+                            <img src = {BlogsDemoImage2} className = "img-fluid"/>
                             <Label className = "image-credit-label">Image by: Getty Images - John Doe Photography</Label>
                         
                             </Col>
@@ -37,7 +39,7 @@ const Blogs = () => {
                         <RelatedStoriesCell/>
                         <RelatedStoriesCell/>
                         
-                        <Label className = "cell-heading">Similar Cars for Sell</Label>
+                        <Label className = "cell-heading">Similar Cars for Sale</Label>
                         <SimilarCarCell/>
                         <SimilarCarCell/>
                     </Col>
