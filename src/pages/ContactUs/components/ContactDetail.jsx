@@ -16,7 +16,7 @@ const ContactDetail = () => {
                         </Col>
                         <Col  xs = "6" md = "9">
                             <Label className = "contact-label-head">Email Address</Label> <br/>
-                            <Label className = "contact-detail">Contact@Doublecars.com</Label>
+                            <Label className = "contact-detail">Contact@doublecars.com</Label>
                         </Col>
                     </Row>
                 </Col>
@@ -29,7 +29,7 @@ const ContactDetail = () => {
                             <img  src = {ContactPhone} alt = "Phone-icon"/>
                         </Col>
                         <Col  xs = "6" md = "9">
-                            <Label className = "contact-label-head">Phone</Label> <br/>
+                            <Label className = "contact-label-head">Phone Number</Label> <br/>
                             <Label className = "contact-detail">+1 2634 546487</Label>
                         </Col>
                     </Row>

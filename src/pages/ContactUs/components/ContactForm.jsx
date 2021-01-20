@@ -17,9 +17,10 @@ Donec laoreet ac ex eget rhoncus. Proin vel diam luctus, finibus mi ac.</Label>
             <Input type = "email" className = "email-textfield" placeholder = "Your Email"></Input>
             <textarea class="form-control message-box" rows="6" placeholder = "Message"></textarea>
             <Row>
-                <Col className = "contactus-inner-column" xs = "12" md = "9" sm = "12">
+                <Col className = "contactus-inner-column" xs = "12" md = "7" sm = "12">
                     <Label className = "agree-label">By sending message you agree with our terms and conditions and privacy policy </Label>
                 </Col>
+                <Col className = "contactus-inner-column" xs = "12" md = "2" sm = "12"></Col>
                 <Col className = "contactus-inner-column-2" xs = "12" md = "3">
                     <Button color = "primary" size = "lg" block className = "send-button float-right">Send</Button>
                 </Col>
