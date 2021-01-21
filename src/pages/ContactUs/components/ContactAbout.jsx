@@ -9,12 +9,12 @@ const ContactAbout = () => {
                 
             </div> */}
             <Row xs = "12" md = "12" sm = "12" className = "contact-image-div ">
-                <Col>
+                <Col xs = "12" md = "12" className = "contact-us-image-column">
                     <img className = "contactus-image" src = {ContactusDemo}/>
                 </Col>
             </Row>
 
-            <h5 className = "about-dc-head" >About Double Cars</h5>
+            <h5 className = "about-dc-head" >A Little About Us</h5>
             <Label className = "about-dc-text">Maecenas ante lacus, viverra is in,
             egestas tincidunt nulla. Aliquam mi lectus,
             eleifend eget felis eget,Maecenas ante lacus,

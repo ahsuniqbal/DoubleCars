@@ -4,7 +4,7 @@
 
 /* Blogs css starts here.  */
 .blogs-column {
-    margin-top: 7%;
+    margin-top: 10%;
 }
 
 .blog-read-label {
@@ -19,12 +19,16 @@
 line-height: 140%;
 color: rgba(0, 0, 0, 0.85);
 }
-
+.blog-header-image {
+    border-radius: 6px;
+}
 .blog-content {
     font-weight: 300;
 font-size: 16px;
 line-height: 160%;
 color: rgba(0, 0, 0, 0.84);
+margin-top: 2rem;
+margin-bottom: 2rem;
 }
 
 .blog-sub-heading {
@@ -36,7 +40,7 @@ color: rgba(0, 0, 0, 0.84);
 
 .cell-heading {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 140%;
     color: rgba(0, 0, 0, 0.85);
     margin-top: 10%;

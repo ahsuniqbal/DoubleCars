@@ -5,7 +5,7 @@
 
 /* First column css starts here */
 .contactus-column {
-    margin-top: 7%;
+    margin-top: 16%;
 }
 
 .contactus-head {
@@ -49,6 +49,17 @@ select:required:invalid {
     background: #FFFFFF;
     margin-top: 1rem;
 }
+
+.fullname-textfield:focus, .fullname-textfield:active:focus,
+.email-textfield:focus, .email-textfield:active:focus,
+.message-box:focus, .message-box:active:focus,
+.contact-dropdown:focus, .contact-dropdown:active:focus
+{
+    box-shadow: none !important;
+    border: 1px solid #E9E9E9 !important;
+}
+
+
 .message-box {
     margin-top: 1rem;
     border-radius: 4px;
@@ -85,11 +96,15 @@ select:required:invalid {
     font-size: 15px !important;   
 } 
 
+.send-button:focus, .send-button:active:focus {
+    box-shadow: none !important;
+}
+
 /* End */
 
 /* Second column css starts here. */
 .about-contact-column {
-    margin-top: 5%;
+    margin-top: 12%;
 }
 .contact-image-div{
     margin-bottom: 1.9rem;
@@ -98,6 +113,9 @@ select:required:invalid {
 .contactus-image {
     height: 251px;
     width: 403px;
+}
+.contact-us-image-column {
+    margin-left: 2rem;
 }
 .about-dc-head {
     font-size: 18px;
@@ -127,7 +145,7 @@ select:required:invalid {
     margin-bottom: 6rem;
 }
 .contact-label-head {
-    font-weight: 500;
+    font-weight: bold;
     font-size: 15px;
     line-height: 17px;
     color: black;

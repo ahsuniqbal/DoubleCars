@@ -8,6 +8,12 @@
     max-width: 25rem;
 }
 
+.chatview-dashboard{
+    height: 69vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .message-bubble label {
     margin-bottom: 0;
 }
