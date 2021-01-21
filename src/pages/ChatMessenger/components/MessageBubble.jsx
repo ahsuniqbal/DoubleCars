@@ -1,25 +1,30 @@
 import React,{ useState, useEffect} from 'react'
 import { Label } from 'reactstrap';
 import '../styles/MessageBubble.css';
-
 import {getRecieverChat} from '../../../components/Firebase/database';
-
+const firebase = require('firebase').default
 
 const MessageBubble = (props) => {
     const [message,setMessage] = useState([])
     useEffect(() => {
-        console.log("props.chats.chat",props.chat)
+        const key = [props.chat.senderId, props.chat.receiverId].sort().join('-')
         if(props.chat){
-            getRecieverChat(props.chat.receiverId,props.chat.senderId)
-            .then(doc => {
-                console.log("chatDoc",doc)
-                setMessage(doc)
-            })
-            .catch(e => {
-                console.log(e.message)
+            firebase.firestore().collection("Chats").doc(key).collection('Messages')
+            .orderBy('messagedAt','asc')
+            .onSnapshot((snapshot) => {
+            let updatedData = snapshot.docs.map(doc => doc.data())
+            setMessage(updatedData)
             })
         }
     },[props.chat])
+
+    useEffect(() => {
+        //whenever message updates this will run to make sure view of chat is at the bottom, always.
+        const container = document.getElementById('chatview-dashboard');
+        if(container){
+            container.scrollTo(0, container.scrollHeight);
+        }
+    },[message])
 
 
     const checkURL = (url) => {
@@ -27,9 +32,7 @@ const MessageBubble = (props) => {
         if(url == null){
             return false
         }
-        console.log("url",url)
         var ext = url.substring(url.lastIndexOf(".")+1).split('?')[0];
-        console.log('ext',ext,url)
         for(let i = 0; i < arr.length; i++){
             if(arr[i] == ext){
                 return true
@@ -92,7 +95,7 @@ const MessageBubble = (props) => {
         return table
     }
     return (
-        <div>
+        <div className="chatview-dashboard" id="chatview-dashboard">
             {
                 message ? renderChatBubbels(message) : null
             }
