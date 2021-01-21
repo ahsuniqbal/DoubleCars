@@ -66,7 +66,7 @@ const FeaturedCars = () => {
             <Badge color="primary" className = "feature-car-badge1">New</Badge>
 
                 <div className="content-first">
-                  <h2 className='content-header1'>$30,500</h2>
+                  <Label className='content-header1'>$30,500</Label> <br/>
                   <Label className="content-text1">2019 Mercedes Benz Hybrid</Label>
                 </div>
             </Col>
@@ -75,14 +75,14 @@ const FeaturedCars = () => {
                     <Col md = "6" xs = "12" style = {FeaturedDemoImage2} className='main-coloumn'  onClick={()=>history.push('/products')}>
                     <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
-                        <h2 className='content-header2'>$12,500</h2>
+                        <Label className='content-header2'>$12,500</Label><br/>
                         <Label className="content-text2">2019 Mercedes Benz Hybrid</Label>
                       </div>
                     </Col>
                     <Col md = "6" xs = "12" style = {FeaturedDemoImage3} className='main-coloumn'  onClick={()=>history.push('/products')}>
                       
                       <div className="content">
-                        <h2 className='content-header2'>$8,520</h2>
+                        <Label className='content-header2'>$8,520</Label><br/>
                         <Label className="content-text2">2019 Mercedes Benz Hybrid</Label>
                       </div>
                     </Col>
@@ -91,7 +91,7 @@ const FeaturedCars = () => {
                     <Col md = "6" xs = "12" style = {FeaturedDemoImage4} className='main-coloumn'  onClick={()=>history.push('/products')}>
                       <div className="content">
 
-                        <h2 className='content-header2'>$30,500</h2>
+                        <Label className='content-header2'>$30,500</Label><br/>
                         <Label className="content-text2">2019 Mercedes Benz Hybrid</Label>
 
                       </div>
@@ -100,7 +100,7 @@ const FeaturedCars = () => {
                      <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
 
-                        <h2 className='content-header2'>$30,500</h2>
+                        <Label className='content-header2'>$30,500</Label><br/>
                         <Label className="content-text2">2019 Mercedes Benz Hybrid</Label>
                         
                       </div>

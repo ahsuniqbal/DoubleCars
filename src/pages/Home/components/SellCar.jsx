@@ -33,7 +33,7 @@ const SellCar = () => {
             </Row>
             
             <Row className='white-bg'>
-                <Col md={8} >
+                <Col md={8} className = "sell-car-column" >
                     <div className=''>
                         <div className='row d-flex'>
                             <div className='col-lg-3 md-12'>
