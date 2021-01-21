@@ -5,11 +5,12 @@ import Mp1 from '../../../../assets/Mp1.png'
 import Mp2 from '../../../../assets/Mp2.png'
 import Mp3 from '../../../../assets/Mp3.png'
 import Mp4 from '../../../../assets/Mp4.png'
-
+import {useHistory} from 'react-router-dom';
 
 const MostPopularCard = () => {
+    const history = useHistory()
     return(
-        <Card className = "most-popular-card">
+        <Card className = "most-popular-card" onClick={()=>history.push('/blogs')}>
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid mp-cell-card-image" src={Mp1} alt="Card image" />
@@ -26,8 +27,9 @@ const MostPopularCard = () => {
 
 
 const MostPopularCard1 = () => {
+    const history = useHistory()
     return(
-        <Card className = "most-popular-card">
+        <Card className = "most-popular-card" onClick={()=>history.push('/blogs')}>
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid mp-cell-card-image" src={Mp2} alt="Card image" />
@@ -43,8 +45,9 @@ const MostPopularCard1 = () => {
 
 
 const MostPopularCard2 = () => {
+    const history = useHistory()
     return(
-        <Card className = "most-popular-card">
+        <Card className = "most-popular-card" onClick={()=>history.push('/blogs')}>
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid mp-cell-card-image" src={Mp3} alt="Card image" />
@@ -59,8 +62,9 @@ const MostPopularCard2 = () => {
 }
 
 const MostPopularCard3 = () => {
+    const history = useHistory()
     return(
-        <Card className = "most-popular-card">
+        <Card className = "most-popular-card" onClick={()=>history.push('/blogs')}>
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid mp-cell-card-image" src={Mp4} alt="Card image" />

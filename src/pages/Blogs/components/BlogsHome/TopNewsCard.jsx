@@ -5,10 +5,12 @@ import TopNewsDummy2 from '../../../../assets/TopNewsDummy2.png'
 import TopNewsDummy4 from '../../../../assets/TopNewsDummy4.png'
 import TopNewsDummy5 from '../../../../assets/TopNewsDummy5.png'
 import TopNewsDummy6 from '../../../../assets/TopNewsDummy6.png'
+import {useHistory} from 'react-router-dom';
 
 const TopNewsCard = () => {
+    const history = useHistory()
     return(
-        <Card className = "top-news-card">
+        <Card className = "top-news-card" onClick={()=>history.push('/blogs')}>
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid top-news-cell-card-image"  src={TopNewsDummy2} alt="Card image" />
@@ -25,8 +27,9 @@ const TopNewsCard = () => {
 }
 
 const TopNewsCard1 = () => {
+    const history = useHistory()
     return(
-        <Card className = "top-news-card">
+        <Card className = "top-news-card" onClick={()=>history.push('/blogs')}>
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid top-news-cell-card-image"  src={TopNewsDummy4} alt="Card image" />
@@ -42,8 +45,9 @@ const TopNewsCard1 = () => {
     )
 }
 const TopNewsCard2 = () => {
+    const history = useHistory()
     return(
-        <Card className = "top-news-card">
+        <Card className = "top-news-card" onClick={()=>history.push('/blogs')}>
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid top-news-cell-card-image"  src={TopNewsDummy5} alt="Card image" />
@@ -59,8 +63,9 @@ const TopNewsCard2 = () => {
     )
 }
 const TopNewsCard3 = () => {
+    const history = useHistory()
     return(
-        <Card className = " top-news-card">
+        <Card className = " top-news-card" onClick={()=>history.push('/blogs')}>
             <Row className = "">
                 <Col md = "4">
                     <CardImg className = "img-fluid top-news-cell-card-image"  src={TopNewsDummy6} alt="Card image" />

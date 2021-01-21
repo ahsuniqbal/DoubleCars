@@ -61,11 +61,22 @@ const NavigationBar = () => {
         history.push('/');
     }
 
+    //code to hide navbar on scroll down and show on scroll up
+    // var prevScrollpos = window.pageYOffset;
+    // window.onscroll = function() {
+    // var currentScrollPos = window.pageYOffset;
+    //   if (prevScrollpos > currentScrollPos) {
+    //     document.querySelector(".navbar").style.top = "0";
+    //   } else {
+    //     document.querySelector(".navbar").style.top = "-100px";
+    //   }
+    //   prevScrollpos = currentScrollPos;
+    // }
     return (
         <> 
             <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top navigation-bar-box">
                 <Link to="/">
-                    <img  src = {DCLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px"/>
+                    <img  src = {DCLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px" />
                 </Link>
                 <button className="navbar-toggler"
                     type="button"
@@ -110,18 +121,18 @@ const NavigationBar = () => {
 
                             {
                                 localStorage.getItem("userId") ? null : <li className="nav-item">
-                                <NavLink className="nav-link navigation-items login-button" to="/" >Log in</NavLink>
+                                <NavLink className="nav-link navigation-items login-button" to="/login" >Log in</NavLink>
                                 </li>
                             }
                             {
                                 localStorage.getItem("userId") ? null : <li className="nav-item">
-                                <NavLink className="nav-link navigation-items signup-button" to="/">Sign up</NavLink>
+                                <NavLink className="nav-link navigation-items signup-button" to="/signup">Sign up</NavLink>
                                 </li>
                             }
 
                             {/* show this when user is login and route is profile */}
                             {
-                            path=='/profile' && localStorage.getItem("userId") ?  <li className="nav-item mt-3">
+                            path=='/profile' && localStorage.getItem("userId") ?  <li className="nav-item mt-1">
                              <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className='dropdown-img'>
                                     pic

@@ -2,7 +2,9 @@
     padding-left: 12px;
     padding-right: 12px;
 }
-
+.lower-section:hover{
+    cursor: pointer;
+}
 .upper-section-column {   
     background: linear-gradient(1800deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
     height: 200px;

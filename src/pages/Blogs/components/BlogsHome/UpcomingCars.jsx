@@ -3,8 +3,10 @@ import { Button, Row, Col } from 'reactstrap';
 import UpperSection from './UpperSection'
 import { Link } from 'react-router-dom';
 import '../../styles/BlogsHome.css'
+import {useHistory} from 'react-router-dom';
 
 const UpcomingCars = () => {
+  const history = useHistory()
     const UpcomingCarDemo3 = {
         backgroundImage: `url(${require("../../../../assets/UpcomingCarDemo3.png")})`,
         backgroundPosition: 'center',
@@ -45,10 +47,10 @@ const UpcomingCars = () => {
           <Col md = "3" xs = "12" style = {UpcomingCarDemo2}></Col> */}
           <Col md = "12" xs = "12">
             <Row className='upcoming-img'>
-                <Col md = "9" xs = "12" style = {UpcomingCarDemo1}></Col>
-                <Col md = "3" xs = "12" style = {UpcomingCarDemo2}></Col>
-                <Col md = "3" xs = "12" style = {UpcomingCarDemo3}></Col>
-                <Col md = "9" xs = "12" style = {UpcomingCarDemo4}></Col>
+                <Col md = "9" xs = "12" style = {UpcomingCarDemo1} onClick={()=>history.push('/blogs')} className='upcoming-coloumn'></Col>
+                <Col md = "3" xs = "12" style = {UpcomingCarDemo2} onClick={()=>history.push('/blogs')} className='upcoming-coloumn'></Col>
+                <Col md = "3" xs = "12" style = {UpcomingCarDemo3} onClick={()=>history.push('/blogs')} className='upcoming-coloumn'></Col>
+                <Col md = "9" xs = "12" style = {UpcomingCarDemo4} onClick={()=>history.push('/blogs')} className='upcoming-coloumn'></Col>
             </Row>
             {/* <Row>
                 <Col md = "12" xs = "12" style = {UpcomingCarDemo4}></Col>
