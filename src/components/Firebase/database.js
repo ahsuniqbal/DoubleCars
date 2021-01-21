@@ -56,10 +56,10 @@ export const getRecieverChat = (senderId,receiverId) => {
   return new Promise((resolve, reject) => {
     firestore.collection("Chats").doc(key).collection('Messages')
     .orderBy('messagedAt','asc')
-    .get().then((snapshot) => {
+    .onSnapshot((snapshot) => {
       let updatedData = snapshot.docs.map(doc => doc.data())
       resolve(updatedData)
-    }, reject)
+    })
   })
 }
 

@@ -11,8 +11,9 @@
   height: 100vh;
 }
 
-.double-car-logo {
+.logo-id-for-signup-login {
     margin-top: 3rem;
+    margin-left: 3rem;
 }
 .right-side-column {
     background-color: white;
@@ -78,7 +79,7 @@
     font-weight: normal;
     font-size: 13px;
     line-height: 22px;
-    margin-top: 0.8rem;
+    /* margin-top: 0.8rem; */
 }
 .remember-check {
     margin-top: 1.05rem;

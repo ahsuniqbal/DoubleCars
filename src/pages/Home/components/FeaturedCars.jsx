@@ -1,8 +1,10 @@
 import React from 'react';
 import { Col, Row, Label, Badge } from 'reactstrap';
 import '../styles/FeaturedCars.css'
+import { useHistory } from 'react-router-dom';
 
 const FeaturedCars = () => {
+  const history =useHistory()
     const FeaturedDemoImage1 = {
         backgroundImage: `url(${require("../../../assets/FearturedDemo11.png")})`,
         backgroundPosition: 'center',
@@ -60,41 +62,41 @@ const FeaturedCars = () => {
       
     return(
         <Row className='main-feature'>
-            <Col md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn'>
+            <Col md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn' onClick={()=>history.push('/products')}>
             <Badge color="primary" className = "feature-car-badge1">New</Badge>
 
                 <div className="content-first">
-                  <h2 className='content-header1'>$12,500</h2>
+                  <h2 className='content-header1'>$30,500</h2>
                   <Label className="content-text1">2019 Mercedes Benz Hybrid</Label>
                 </div>
             </Col>
             <Col md = "6" xs = "12">
                 <Row>
-                    <Col md = "6" xs = "12" style = {FeaturedDemoImage2} className='main-coloumn'>
+                    <Col md = "6" xs = "12" style = {FeaturedDemoImage2} className='main-coloumn'  onClick={()=>history.push('/products')}>
                     <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
-                        <h2 className='content-header2'>$30,500</h2>
+                        <h2 className='content-header2'>$12,500</h2>
                         <Label className="content-text2">2019 Mercedes Benz Hybrid</Label>
                       </div>
                     </Col>
-                    <Col md = "6" xs = "12" style = {FeaturedDemoImage3} className='main-coloumn'>
+                    <Col md = "6" xs = "12" style = {FeaturedDemoImage3} className='main-coloumn'  onClick={()=>history.push('/products')}>
                       
                       <div className="content">
-                        <h2 className='content-header2'>$42,520</h2>
+                        <h2 className='content-header2'>$8,520</h2>
                         <Label className="content-text2">2019 Mercedes Benz Hybrid</Label>
                       </div>
                     </Col>
                 </Row>
                 <Row>
-                    <Col md = "6" xs = "12" style = {FeaturedDemoImage4} className='main-coloumn'>
+                    <Col md = "6" xs = "12" style = {FeaturedDemoImage4} className='main-coloumn'  onClick={()=>history.push('/products')}>
                       <div className="content">
 
-                        <h2 className='content-header2'>$32,500</h2>
+                        <h2 className='content-header2'>$30,500</h2>
                         <Label className="content-text2">2019 Mercedes Benz Hybrid</Label>
 
                       </div>
                     </Col>
-                    <Col md = "6" xs = "12" style = {FeaturedDemoImage5} className='main-coloumn'>
+                    <Col md = "6" xs = "12" style = {FeaturedDemoImage5} className='main-coloumn'  onClick={()=>history.push('/products')}>
                      <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
 

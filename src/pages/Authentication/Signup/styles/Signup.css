@@ -10,8 +10,9 @@
   width: 100%;
   height: 100vh;
 }
-.double-car-logo {
+.logo-id-for-signup-login {
     margin-top: 3rem;
+    margin-left: 3rem;
 }
 .signup-right-side-column {
     background-color: white;

@@ -20,7 +20,8 @@ const Signup = (props) => {
     const [password,setPassword]=useState('')
     const [phNum,setNumber]=useState('')
     const [email,setEmail]=useState('')
-    const emailRegex= /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
+    // regex values
+    const emailRegex= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i
     const passwordRegex= /^[#\w@_-]{8,20}$/
     const NumberRegex=/^\d{11}$/
     const userNameRegex=  /^[a-zA-Z0-9]+$/
@@ -32,27 +33,15 @@ const Signup = (props) => {
         setPasswordShown(passwordShown ? false : true);
       };
 
-    //   regex
-    // const [inputFields,setinputFields] = useState({
-    //     // username: /^[a-z\d]{5,12}$/i,
-    //     errorEmail: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
-    //     errorPassword: /^[#\w@_-]{8,20}$/,
-    //     errorNumber:/^\d{11}$/
-    //   })
-   
     //   handle singup
     const handleSignUp = (e) => {
         e.preventDefault();
-        // var firstName = document.getElementById('firstName').value
-        // var lastName = document.getElementById('lastName').value
-        // var phNum = document.getElementById('phNum').value
-        // var email = document.getElementById('signup-email').value
-        // var password = document.getElementById('signup-password').value
         var obj = {
             firstName,lastName,phNum,email,password
         }
         console.log(obj)
         setLoading(true)
+
         userSignUp(obj)
         .then(doc => {
             console.log(doc)
@@ -64,7 +53,6 @@ const Signup = (props) => {
             }
             // regex errors
             else if (!userNameRegex.test(firstName+lastName)){
-                console.log('name')
                 let getError=document.createElement('div')
                 getError.innerHTML='username contains letters and number only'
                 getError.style.color='red'
@@ -72,7 +60,6 @@ const Signup = (props) => {
                 setTimeout(()=>getError.remove(),5000)
              }
              else if (!NumberRegex.test(phNum)){
-                console.log('number')
                 let getError=document.createElement('div')
                 getError.innerHTML='number must be of 11 digits'
                 getError.style.color='red'
@@ -80,7 +67,6 @@ const Signup = (props) => {
                 setTimeout(()=>getError.remove(),5000)
              }
              else if (!emailRegex.test(email)){
-                console.log('email')
                 let getError=document.createElement('div')
                 getError.innerHTML='invalid email format'
                 getError.style.color='red'
@@ -88,7 +74,6 @@ const Signup = (props) => {
                 setTimeout(()=>getError.remove(),5000)
              }
              else if (!passwordRegex.test(password)){
-                console.log('password')
                 let getError=document.createElement('div')
                 getError.innerHTML='password length must be greater than 8 '
                 getError.style.color='red'
@@ -107,7 +92,12 @@ const Signup = (props) => {
         .catch(e => {
             setLoading(false)
             console.log(e.message)
-            document.getElementById('error-label').textContent = e.message
+            let getError=document.createElement('div')
+            getError.innerHTML='Fill all fields'
+            getError.style.color='red'
+            document.getElementById('signup-error-label').appendChild(getError)
+            setTimeout(()=>getError.remove(),5000)
+            // document.getElementById('error-label').textContent = e.message
         })
         
     }
@@ -118,7 +108,7 @@ const Signup = (props) => {
                     <Row>
                         <Col xs = "12" lg = "7" sm = "12" className = "signup-left-image">
                             <Link to="/">
-                                <img  src = {DCWhiteLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px"/>
+                                <img  src = {DCWhiteLogo} alt = "Logo" className = "logo-id-for-signup-login" width = "144px" height = "28px"/>
                             </Link>
                         </Col>
                         
@@ -152,14 +142,14 @@ const Signup = (props) => {
 
                                     </Col>
                                 </Row>
-                                <Input id="phNum" className = "signup-register-textfield" type="number" 
+                                <Input id="phNum" className = "signup-register-textfield" type="text" 
                                 placeholder="Mobile Number"  
                                 value={phNum}
                                 onChange={(e)=>setNumber(e.target.value)}
                                
                                 />
 
-                                <Input id="signup-email" className = "signup-register-textfield" type="email" 
+                                <Input id="signup-email" className = "signup-register-textfield" type="text" 
                                 placeholder="Your Email"  
                                 value={email}
                                 onChange={(e)=>setEmail(e.target.value)}

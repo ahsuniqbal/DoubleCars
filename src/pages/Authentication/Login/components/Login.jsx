@@ -29,7 +29,7 @@ const Login = (props) => {
         setLoading(true)
         userLogin(obj)
         .then(doc => {
-            console.log(doc)
+            console.log('login',doc)
             setLoading(false)
             if(doc.ID !== -1){
                 console.log("log")
@@ -57,7 +57,7 @@ const Login = (props) => {
                     <Row  className='login-main'>
                         <Col lg='7' xs = "12"  sm = "12" className = "login-left-image">
                             <Link to="/">
-                                <img  src = {DCWhiteLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px"/>
+                                <img  src = {DCWhiteLogo} alt = "Logo" className = "logo-id-for-signup-login" width = "144px" height = "28px"/>
                             </Link>
                         </Col>
 

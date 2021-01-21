@@ -27,3 +27,6 @@
    -webkit-line-clamp: 2; /* number of lines to show */
    -webkit-box-orient: vertical;
 }
+.top-news-card:hover,.top-news-first-column:hover {
+    cursor: pointer;
+}

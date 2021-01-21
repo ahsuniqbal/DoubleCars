@@ -60,6 +60,8 @@
         margin-left: 2px;
     }
 }
-/* body{
-    overflow-x:hidden;
-} */
+
+/* upcomign cars css */
+.upcoming-coloumn:hover{
+    cursor: pointer;
+}

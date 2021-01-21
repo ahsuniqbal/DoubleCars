@@ -15,7 +15,9 @@
 }
 =======
 } */
-
+.main-coloumn:hover{
+    cursor: pointer;
+}
 .content {
     position: absolute;
     bottom: 0px !important;

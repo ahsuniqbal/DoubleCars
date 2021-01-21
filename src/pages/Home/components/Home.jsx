@@ -19,7 +19,7 @@ import '../styles/TrendingBodyTypes.css';
 import DCSlider from '../../../components/DcSlider'
 import TopBudget from './TopBudget'
 import ArticleCard from './ArticleCard'
-import {ArticleCard1,ArticleCard2,ArticleCard3} from './ArticleCard';
+import {ArticleCard1,ArticleCard2,ArticleCard3,ArticleCard4} from './ArticleCard';
 import FeaturedCars from './FeaturedCars';
 import CarSection1 from './CarSection1';
 import ServicesOffer from './ServicesOffer';
@@ -30,6 +30,7 @@ import CarsLogo from './CarsLogo';
 import OldFeaturedCars from './OldFeaturedCars';
 import NewFeaturedCars from './NewFeatureCars';
 import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
+import { useHistory } from 'react-router-dom';
 import { ActionSwapVerticalCircle } from 'material-ui/svg-icons';
 
 // function DrawProductCards(data){
@@ -148,6 +149,7 @@ const Home = () => {
     const [trending, setTrending] = useState(null);
      const [bodyTypes, setBodyTypes] = useState(null);
      const [homeData, setHomeData] = useState(null);
+     const history=useHistory()
 
     useEffect(() => {
         // calling Api function
@@ -157,7 +159,6 @@ const Home = () => {
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
             setHomeData(doc)
-            console.log(doc)  
         })
         .catch(error => {
             alert(error.message);
@@ -304,17 +305,17 @@ const Home = () => {
                 </Row>
                 <Container>
                 <Row style={{margin:'0'}}>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
-                        <ArticleCard/>
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/products')}>
+                        <ArticleCard />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
-                        <ArticleCard1/>
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/products')}>
+                        <ArticleCard1 />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
-                        <ArticleCard2/>
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/products')}>
+                        <ArticleCard2 />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}}>
-                        <ArticleCard3/>
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/products')}>
+                        <ArticleCard4 />
                     </Col>
                 </Row>
                 </Container>

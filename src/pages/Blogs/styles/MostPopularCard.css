@@ -4,6 +4,9 @@
     margin-bottom: 2rem;
     margin-left: -15px !important;
 }
+.most-popular-card:hover{
+    cursor: pointer;
+}
 .mp-cell-card-image {
     border-radius: 0px !important;
 }

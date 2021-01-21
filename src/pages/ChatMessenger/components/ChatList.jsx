@@ -8,6 +8,8 @@ import {getChatUserPics} from '../api/Get'
 
 const ChatList = () => {
     const [chats,setChats] = useState([])
+    const [constChats,setConstantChats] = useState([])
+
     
     useEffect(() => {
         // var user = localStorage.getItem("userId")
@@ -16,16 +18,18 @@ const ChatList = () => {
         .then(snap => {
             getChatUserPics(snap.userIds.toString())
             .then(doc => {
-            //  console.log('doc',doc)
+            console.log('docChat',doc)
             var newList = []
             for(let i = 0; i < doc.length; i++){
                 var obj = {
                     user : doc[i],
-                    chat : snap.chats[i]
+                    chat : snap.chats[i],
+                    username : doc[i].fullName.toLowerCase()
                 }
                 newList.push(obj)
             }
                setChats(newList)
+               setConstantChats(newList)
             })
             .catch(e => {
                 console.log(e.message)
@@ -42,6 +46,22 @@ const ChatList = () => {
             )
         }
         return table;
+    }
+
+    const onChangeText = (val) => {
+        if(val == ""){
+            setChats(constChats)
+            return;
+        }
+        val = val.toLowerCase()
+        var temp = []
+        for(let i = 0; i < constChats.length; i++){
+            if(constChats[i].username.includes(val)){
+
+                temp.push(constChats[i])
+            }
+        }
+        setChats(temp)
     }
 
     return (
@@ -65,7 +85,7 @@ const ChatList = () => {
                                         <Search width={15} />
                                     </InputGroupText>
                                 </InputGroupAddon>
-                                <Input className="chat-list-search-box" id="search-box" type="text" placeholder="Search" />
+                                <Input onChange={e => onChangeText(e.target.value)} className="chat-list-search-box" id="search-box" type="text" placeholder="Search" />
                             </InputGroup>
                         </Col>
                     </Row>

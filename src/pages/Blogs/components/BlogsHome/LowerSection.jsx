@@ -1,9 +1,10 @@
 import React from 'react';
 import { Row, Col, Label } from 'reactstrap';
-import '../../styles/LowerSection.css'
+import '../../styles/LowerSection.css';
+import {useHistory} from 'react-router-dom';
 
 const LowerSection = () => {
-
+  const history = useHistory()
     const LowerImage = {
         backgroundImage: `url(${require("../../../../assets/LowerSectionDummyImage.png")})`,
         backgroundPosition: 'center',
@@ -14,7 +15,7 @@ const LowerSection = () => {
      
 
     return(
-        <Row className='lower-section'>
+        <Row className='lower-section' onClick={()=>history.push('/blogs')}>
             <Col md = "12" xs = "12" style = {LowerImage}>
             <div className = "">
                 <Label className = "type-label">New Cars</Label>

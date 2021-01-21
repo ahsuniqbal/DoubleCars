@@ -1,6 +1,9 @@
 .main-feature{
     margin: 0;
 }
+.main-coloumn:hover{
+    cursor: pointer;
+}
 .content-first{
     position: absolute;
     bottom: 0px !important;

@@ -7,6 +7,7 @@ export const userLogin = (obj) => {
         axios.post(url,obj)
         .then(function (response) {
             // handle success
+            console.log('login',response)
         const data = response.data.results;
         let updatedData = data
         resolve(updatedData)
@@ -25,6 +26,7 @@ export const userSignUp = (obj) => {
         axios.post(url,obj)
         .then(function (response) {
             // handle success
+            console.log('signup',response)
         const data = response.data.results;
         let updatedData = data
         resolve(updatedData)

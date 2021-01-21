@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect,useState} from 'react';
 import { Col, Row } from 'reactstrap';
 import { connect } from 'react-redux';
 import Toolbar from './Toolbar';
@@ -14,6 +14,19 @@ const mapStateToProps = (state) => {
 
 const ChatView = (props) => {
     console.log("propsChatView",props.chats)
+    const [otherId,setOtherId] = useState(null)
+
+    useEffect(() => {
+        // var userId = localStorage.getItem('userId')
+        var userId = 73
+        if(props.chats && props.chats.chat){
+            if(props.chats.chat.senderId == userId){
+                setOtherId(props.chats.chat.receiverId)
+            }else{
+                setOtherId(props.chats.chat.senderId)
+            }
+        }
+    },[props.chats])
     
     return (
         <div>
@@ -31,7 +44,7 @@ const ChatView = (props) => {
 
             <Row>
                 <Col xs="12">
-                    <Compose />
+                    <Compose otherId={otherId}/>
                 </Col>
             </Row>
 

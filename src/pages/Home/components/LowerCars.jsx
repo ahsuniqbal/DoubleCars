@@ -5,6 +5,11 @@ import LowerCarsImage1 from '../../../assets/LowerCarsImage1.png';
 import LowerCarsImage2 from '../../../assets/LowerCarsImage2.png';
 import LowerCarsImage3 from '../../../assets/LowerCarsImage3.png';
 import LowerCarsImage4 from '../../../assets/LowerCarsImage4.png';
+import LowerCarsImage5 from '../../../assets/LC6.png';
+import LowerCarsImage6 from '../../../assets/LC2.png';
+import LowerCarsImage7 from '../../../assets/LowerSectionDummyImage.png';
+import LowerCarsImage8 from '../../../assets/TopStoriesCardDemoImage.png';
+
 import Slider from "react-slick";
 import {GetProductsOfBodyType} from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth'
@@ -73,7 +78,7 @@ const LowerCar = (props) => {
           </Slider> */}
             <Slider {...settings}>
                <div className = "lower-section-car">
-                    <img src={LowerCarsImage1} className='img-fluid'/>
+                    <img src={LowerCarsImage1} className='img-fluid lower-cars-carousel-images'/>
                     <p className='text'>Sedan</p>
                </div>
                <div>
@@ -90,20 +95,20 @@ const LowerCar = (props) => {
                </div>
                    
                <div>
-                    <img src={LowerCarsImage3} className='img-fluid lower-cars-carousel-images'/>
-                    <p className='text'>Sedan</p>
+                    <img src={LowerCarsImage5} className='img-fluid lower-cars-carousel-images'/>
+                    <p className='text'>Mecedez</p>
                </div>
                <div>
-                    <img src={LowerCarsImage2} className='img-fluid lower-cars-carousel-images'/>
-                    <p className='text'>Suv</p>
+                    <img src={LowerCarsImage6} className='img-fluid lower-cars-carousel-images'/>
+                    <p className='text'>Land Rover</p>
                </div>
                <div>
-                    <img src={LowerCarsImage1} className='img-fluid lower-cars-carousel-images'/>
-                    <p className='text'>Sports Car</p>
+                    <img src={LowerCarsImage7} className='img-fluid lower-cars-carousel-images'/>
+                    <p className='text'>Audi</p>
                </div>
                <div>
-                    <img src={LowerCarsImage3} className='img-fluid lower-cars-carousel-images'/>
-                    <p className='text'>Hatchback</p>
+                    <img src={LowerCarsImage8} className='img-fluid lower-cars-carousel-images'/>
+                    <p className='text'>Mercez Benz</p>
                </div>
           </Slider>
        </div>
