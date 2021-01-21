@@ -4,7 +4,7 @@ import '../styles/About.css'
 import AoutDealership from '../../../assets/about-dealership.svg'
 import AboutMarketing from '../../../assets/about-marketing.svg'
 import AboutPatnership from '../../../assets/about-partnership.svg'
-import { ChevronRight } from 'react-feather';//
+import { ChevronRight } from 'react-feather';
 const AboutDetails = () => {
     return(
         <Row className = "">
