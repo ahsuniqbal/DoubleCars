@@ -13,6 +13,17 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
+const checkURL = (url) => {
+    var arr = [ "jpeg", "jpg", "png", "gif" ];
+   var ext = url.substring(url.lastIndexOf(".")+1).split('?')[0];
+   for(let i = 0; i < arr.length; i++){
+       if(arr[i] == ext){
+           return true
+       }
+   }
+   return false
+}
+
 const ChatListItem = (props) => {
     return (
         <Row className="chatlist-item" style={{backgroundColor: 'white'}} onClick={() => props.selectChat(props.chat)}>
@@ -21,7 +32,7 @@ const ChatListItem = (props) => {
             </Col>
             <Col xs="6">
                 <Label className="name">{props.chat.user.fullName}</Label>
-                <Label className="last-msg">{props.chat.chat.lastMessage}</Label>
+                <Label className="last-msg">{checkURL(props.chat.chat.lastMessage) ? "Has sent a file" : props.chat.chat.lastMessage}</Label>
             </Col>
             <Col xs="3" className="text-center">
                 <Label className="time">12 min</Label>
