@@ -31,6 +31,7 @@ function App() {
         </Switch>
       </React.Suspense>
     </Router>
+    
   );
 }
 
