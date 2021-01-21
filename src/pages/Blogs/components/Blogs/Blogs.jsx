@@ -5,6 +5,7 @@ import BlogsDemoImage1 from '../../../../assets/BlogsDemoImage1.png'
 
 import BlogsDemoImage2 from '../../../../assets/BlogsDemoImage2.png' 
 import RelatedStoriesCell from './RelatedStoriesCell';
+import {RelatedStoriesCell1, RelatedStoriesCell2} from './RelatedStoriesCell'
 import SimilarCarCell from './SimilarCarCell';
 const Blogs = () => {
     return(
@@ -37,7 +38,8 @@ const Blogs = () => {
                     <Col md = "3" sm = "12" xs = "12">
                         <Label className = "cell-heading">Related Stories</Label>
                         <RelatedStoriesCell/>
-                        <RelatedStoriesCell/>
+                        <RelatedStoriesCell1/>
+                        <RelatedStoriesCell2/>
                         
                         <Label className = "cell-heading">Similar Cars for Sale</Label>
                         <SimilarCarCell/>
