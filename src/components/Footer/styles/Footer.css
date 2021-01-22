@@ -61,13 +61,13 @@
   font-size: 15px;
   font-weight: normal;
   text-align: justify;
-  font-family: 'Proxima Nova' !important;
+  
   
 }
 
 .nav-text-color {
   color: rgba(8, 11, 48, 0.85) !important;
-  font-family: 'Proxima Nova' !important;
+  
   cursor: pointer;
   text-align: left !important;
 }
@@ -78,7 +78,7 @@
   font-size: 16px;
   line-height: 19px;
   color: #080B30;
-  font-family: 'Proxima Nova' !important;
+  
   cursor: default;
   text-align: left !important;
 }

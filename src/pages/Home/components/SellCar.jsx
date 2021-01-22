@@ -33,7 +33,7 @@ const SellCar = () => {
             </Row>
             
             <Row className='white-bg'>
-                <Col md={8} >
+                <Col md={8} className = "sell-car-column" >
                     <div className=''>
                         <div className='row d-flex'>
                             <div className='col-lg-3 md-12'>
@@ -52,7 +52,7 @@ const SellCar = () => {
                                         <img src={Chat} className='white-section-icon'/>
                                         <h2 className='white-head  ml-5'>Get Leads</h2>
                                     </div>
-                                    <p className='white-text pt-2'>Get original leads and keep track on your cars stats</p>
+                                    <p className='white-text pt-2'>Get original leads and keep track on your Car Seat</p>
                                 </div>
                             </div>
                             <div className = "vertical-line"></div>

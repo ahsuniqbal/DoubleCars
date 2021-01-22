@@ -76,7 +76,7 @@ color: rgba(0, 0, 0, 0.84);
     object-fit: cover;
     width: 90px;
     height: 66px;
-    border-radius: 6px 0px 0px 6px;
+    border-radius: 4px;
 }
 
 .related-card-label {
@@ -98,7 +98,7 @@ color: rgba(0, 0, 0, 0.84);
     object-fit: cover;
     width: 100%;
     height: 96px;
-    border-radius: 6px 0px 0px 6px;
+    
 }
 .similar-car-title {
     font-size: 15px;

@@ -1,5 +1,5 @@
-import React,{useEffect} from 'react';
-import { Row, Col , Button, Card} from 'reactstrap';
+import React from 'react';
+import { Row, Col , Button, Label} from 'reactstrap';
 import '../styles/Header.css';
 // import headerVideo from '../../../assets/header-mov.mkv';
 
@@ -78,6 +78,7 @@ const Header = () => {
                                 </div>
 
                                 <div className = "col-12 col-md-7 col-sm-6 right-cover-section" style={{padding: '0'}}>
+                                    <Label className = "header-right-car-label float-right">Toyota Supra</Label>
                                     {/* <video width="100%" controls autoPlay loop>
                                         <source src={headerVideo} type="video/mp4" />
                                     </video> */}

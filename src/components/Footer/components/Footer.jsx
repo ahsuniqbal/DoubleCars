@@ -38,7 +38,7 @@ const Footer = () => {
                         <Col xs="12" md="3" className = "footer-columns">
                             <Nav vertical>
                                 <NavItem>
-                                    <h4 className = "footer-dc">Double Cars</h4>
+                                    <h2 className = "footer-dc">Double Cars</h2>
                                 </NavItem>
                                 <NavItem >
                                     <p className = "discription-dc-footer">Maecenas ante lacus, viverra is in, egestas tincidunt nulla. Aliquam mi lectus, eleifend eget felis eget</p>
