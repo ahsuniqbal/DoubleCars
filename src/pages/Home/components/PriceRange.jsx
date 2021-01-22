@@ -2,7 +2,10 @@ import React,{useState,useEffect} from 'react';
 import { Tab, TabPanel, Tabs, TabList } from "react-web-tabs";
 import "react-web-tabs/dist/react-web-tabs.css";
 import '../styles/PriceRange.css';
-import {PriceRangeCards1,PriceRangeCards2,PriceRangeCards3,PriceRangeCards4} from './PriceRangeCards'
+import {PriceRangeCards1,PriceRangeCards2,PriceRangeCards3,
+        PriceRangeCards4,PriceRangeCards5,PriceRangeCards6,
+        PriceRangeCards7,PriceRangeCards8,PriceRangeCards9} 
+from './PriceRangeCards'
 import Grid from '@material-ui/core/Grid';
 import {GetFilteredPriceList} from '../api/GetRequests'
 import { isLogin, getLogin } from '../../../config/LoginAuth'
@@ -48,7 +51,7 @@ const PriceRange = () => {
                                                 <PriceRangeCards2/>
                                         </Grid>
                                         <Grid item md={3}>
-                                                <PriceRangeCards1/>
+                                                <PriceRangeCards3/>
                                         </Grid>
                                         <Grid item md={3}>
                                                 <PriceRangeCards4/>
@@ -59,16 +62,16 @@ const PriceRange = () => {
                             <Grid container >
                                  
                                         <Grid item md={3} >
-                                                <PriceRangeCards4/>
+                                                <PriceRangeCards5/>
                                         </Grid>
                                         <Grid item md={3}>
-                                                <PriceRangeCards2/>
+                                                <PriceRangeCards6/>
                                         </Grid>
                                         <Grid item md={3}>
-                                                <PriceRangeCards1/>
+                                                <PriceRangeCards7/>
                                         </Grid>
                                         <Grid item md={3}>
-                                                <PriceRangeCards4/>
+                                                <PriceRangeCards8/>
                                         </Grid>
                             </Grid>
                         </TabPanel>
@@ -76,7 +79,7 @@ const PriceRange = () => {
                             <Grid container >
                                  
                                         <Grid item md={3} >
-                                                <PriceRangeCards2/>
+                                                <PriceRangeCards9/>
                                         </Grid>
                                         <Grid item md={3}>
                                                 <PriceRangeCards3/>
@@ -85,7 +88,7 @@ const PriceRange = () => {
                                                 <PriceRangeCards4/>
                                         </Grid>
                                         <Grid item md={3}>
-                                                <PriceRangeCards3/>
+                                                <PriceRangeCards5/>
                                         </Grid>
                             </Grid>
                         </TabPanel>
@@ -93,16 +96,16 @@ const PriceRange = () => {
                             <Grid container >
                                  
                                         <Grid item md={3} >
-                                                <PriceRangeCards2/>
+                                                <PriceRangeCards6/>
                                         </Grid>
                                         <Grid item md={3}>
-                                                <PriceRangeCards2/>
+                                                <PriceRangeCards7/>
                                         </Grid>
                                         <Grid item md={3}>
-                                                <PriceRangeCards2/>
+                                                <PriceRangeCards3/>
                                         </Grid>
                                         <Grid item md={3}>
-                                                <PriceRangeCards4/>
+                                                <PriceRangeCards1/>
                                         </Grid>
                             </Grid>
                         </TabPanel>
@@ -110,16 +113,16 @@ const PriceRange = () => {
                             <Grid container >
                                  
                                         <Grid item md={3} >
+                                                <PriceRangeCards5/>
+                                        </Grid>
+                                        <Grid item md={3}>
                                                 <PriceRangeCards4/>
+                                        </Grid>
+                                        <Grid item md={3}>
+                                                <PriceRangeCards9/>
                                         </Grid>
                                         <Grid item md={3}>
                                                 <PriceRangeCards3/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards4/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards1/>
                                         </Grid>
                             </Grid>
                         </TabPanel>
