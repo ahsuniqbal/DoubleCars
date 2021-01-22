@@ -26,6 +26,10 @@
     margin-bottom: 0;
 }
 
+.filters .MuiSlider-rail {
+    background-color: #EAEAEA;
+}
+
 .filters #continuous-slider{
     margin-left: -5px;
     font-size: 14px;

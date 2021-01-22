@@ -12,14 +12,14 @@ import { FiltersSkeleton } from '../../Skeletons/components/Skeleton';
 
 
 // Prepare the make list to show on the dropdown
-function concatMakeList(makeList){
-    var makeSelectBox = document.getElementById('make-list');
+// function concatMakeList(makeList){
+//     var makeSelectBox = document.getElementById('make-list');
 
-    for(let i = 0; i < makeList.length; i++){
-        var option = makeList[i];
-        makeSelectBox.options.add(new Option(option.name, option.name));
-    }
-}
+//     for(let i = 0; i < makeList.length; i++){
+//         var option = makeList[i];
+//         makeSelectBox.options.add(new Option(option.name, option.name));
+//     }
+// }
 
 
 // Concatinate model list to show on the dropdown
@@ -495,11 +495,11 @@ const Filters = (props) => {
                 {
                     // Every time the filters are updated change the heading number
                     Object.keys(filters).length > 0 
-                    ? <Label><b>Filter</b> ({Object.keys(filters).length})</Label>
-                    : <Label><b>Filter</b></Label>
+                    ? <Label style={{marginBottom: '0'}}><b>Filter</b> ({Object.keys(filters).length})</Label>
+                    : <Label style={{marginBottom: '0'}}><b>Filter</b></Label>
                 }
                 {/* Clear all button */}
-                <Button color="link" className="float-right" size="sm" onClick={() => window.location.reload()}>Clear</Button>
+                <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => window.location.reload()}>Clear</Button>
                 
                 {/******** Basic filters start here ************/}
 
@@ -554,13 +554,19 @@ const Filters = (props) => {
                             <h6>Make</h6>
                             {/* Make list will be fetched from vinaudit api
                             On changing the make, modal will be visible  */}
-                            <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }}>
+                            {
+                                makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }}>
                                 <option value="">Make</option>
                                 {
+                                    makeList.map((option, index) => {
+                                        return <option value={option.name}>{option.name}</option>
+                                    })
                                     // Make list will be populated using the results from vinaudit API
-                                    concatMakeList(makeList)
+                                    // concatMakeList(makeList)
                                 }
-                            </Input>
+                                </Input> : null
+                            }
+                            
                             
                             {/******** Model filter, model list will be 
                              * populated and visible once the make is selected ************/}

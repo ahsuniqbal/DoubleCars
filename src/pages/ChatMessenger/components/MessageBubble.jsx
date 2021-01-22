@@ -47,7 +47,7 @@ const MessageBubble = (props) => {
             if(list[i].senderId == 73){
                 if(checkURL(list[i].imageUrl)){
                     table.push(
-                        <div className="sent">
+                        <div className="message-bubble-img sent">
                         <img src = {list[i].imageUrl} className="img-fluid" />
                         <br/>
                     </div>
@@ -65,7 +65,7 @@ const MessageBubble = (props) => {
 
                 if(checkURL(list[i].imageUrl)){
                     table.push(
-                        <div className="received">
+                        <div className="message-bubble-img received">
                         <img src = {list[i].imageUrl} className="img-fluid" />
                         <br/>
                     </div>
