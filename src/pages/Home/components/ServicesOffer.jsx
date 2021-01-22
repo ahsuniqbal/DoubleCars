@@ -3,13 +3,16 @@ import { Col, Row, Label, CustomInput } from 'reactstrap';
 import ServicesDemoImage from '../../../assets/ServicesDemoImage.png'
 import '../styles/ServicesOffer.css';
 import CheckIcon from '@material-ui/icons/Check';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 const ServicesOffer = () => {
    
       
     return(
         <Row >
            <Col xs = "12" md = "6" className='service-col-img'>
-                <img src = {ServicesDemoImage} className = "img-fluid service-img" alt = "demo Image"/>
+           <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={ServicesDemoImage} className = "img-fluid service-img" /> 
+                {/* <img src = {ServicesDemoImage} className = "img-fluid service-img" alt = "demo Image"/> */}
            </Col>
            <Col xs = "12" md = "6" className='service-col'>
                 <h2 className='service-head'>What services do we offer?</h2>

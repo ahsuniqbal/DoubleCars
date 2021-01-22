@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Col, Row, Label, Badge } from 'reactstrap';
 import '../styles/FeaturedCars.css'
 import { useHistory } from 'react-router-dom';
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 const FeaturedCars = () => {
   const history =useHistory()
     const FeaturedDemoImage1 = {
@@ -12,8 +13,7 @@ const FeaturedCars = () => {
         backgroundRepeat: 'no-repeat',
         height: '70vh',
         border:'5px solid white',
-        borderRadius: '4px'
-        
+        borderRadius: '4px',
       };
 
       const FeaturedDemoImage2 = {
@@ -53,18 +53,13 @@ const FeaturedCars = () => {
         backgroundRepeat: 'no-repeat',
         height: '35vh',
         border:'5px solid white',
-
         borderRadius: '4px',
-
             };
-
-
       
     return(
         <Row className='main-feature'>
-            <Col md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn' onClick={()=>history.push('/products')}>
+            <Col md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn' onClick={()=>history.push('/products')}>            
             <Badge color="primary" className = "feature-car-badge1">New</Badge>
-
                 <div className="content-first">
                   <h2 className='content-header1'>$30,500</h2>
                   <Label className="content-text1">2019 Mercedes Benz Hybrid</Label>
