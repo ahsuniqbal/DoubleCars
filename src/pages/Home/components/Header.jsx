@@ -4,6 +4,59 @@ import '../styles/Header.css';
 // import headerVideo from '../../../assets/header-mov.mkv';
 
 const Header = () => {
+    //  useEffect(()=>{
+    //           lazyLoadFunction()
+    //         })
+    //         const lazyLoadFunction= function() {
+    //           var lazyloadImages;    
+            
+    //           if ("IntersectionObserver" in window) {
+    //             lazyloadImages = document.querySelectorAll(".col-12 col-md-7 col-sm-6 right-cover-section");
+    //             var imageObserver = new IntersectionObserver(function(entries, observer) {
+    //               entries.forEach(function(entry) {
+    //                   console.log('entry',entry)
+    //                 if (entry.isIntersecting) {
+    //                   var image = entry.target;
+    //                   image.classList.remove("col-12 col-md-7 col-sm-6 right-cover-section");
+    //                   imageObserver.unobserve(image);
+    //                 }
+    //               });
+    //             });
+            
+    //             lazyloadImages.forEach(function(image) {
+    //               imageObserver.observe(image);
+    //             });
+    //           } else {  
+    //             var lazyloadThrottleTimeout;
+    //             lazyloadImages = document.querySelectorAll(".col-12 col-md-7 col-sm-6 right-cover-section");
+                
+    //             function lazyload () {
+    //               if(lazyloadThrottleTimeout) {
+    //                 clearTimeout(lazyloadThrottleTimeout);
+    //               }    
+            
+    //               lazyloadThrottleTimeout = setTimeout(function() {
+    //                 var scrollTop = window.pageYOffset;
+    //                 lazyloadImages.forEach(function(img) {
+    //                     if(img.offsetTop < (window.innerHeight + scrollTop)) {
+    //                       img.src = img.dataset.src;
+    //                       img.classList.remove('col-12 col-md-7 col-sm-6 right-cover-section');
+    //                     }
+    //                 });
+    //                 if(lazyloadImages.length == 0) { 
+    //                   document.removeEventListener("scroll", lazyload);
+    //                   window.removeEventListener("resize", lazyload);
+    //                   window.removeEventListener("orientationChange", lazyload);
+    //                 }
+    //               }, 20);
+    //             }
+            
+    //             document.addEventListener("scroll", lazyload);
+    //             window.addEventListener("resize", lazyload);
+    //             window.addEventListener("orientationChange", lazyload);
+    //           }
+    //         }
+
     return(
         <div>
             <section className = "align-items-center header-section">

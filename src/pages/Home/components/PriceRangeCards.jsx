@@ -1,18 +1,18 @@
 
 import React from 'react';
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button,Row,Col
-  } from 'reactstrap';
+import {Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button,Row,Col} from 'reactstrap';
   import img1 from '../../../assets/TopNewsDummy2.png'
   import img2 from '../../../assets/TopNewsDummyImage.png'
   import img3 from '../../../assets/TopNewsDummy2.png'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
   import '../styles/PriceRange.css'
 
   const PriceRangeCards1 = () => { 
     return(
                         <Card className='main-card'>
-                            <CardImg top width="100%" src={img1} alt="Card image cap" />
+                            <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={img1} /> 
+                            {/* <CardImg top width="100%" src={img1} alt="Card image cap" /> */}
                             <CardBody>
                             <CardTitle className='head'>2019 Mercedes Benz Hybrid</CardTitle>
                             <CardSubtitle className="sub-head mb-2">19,850 mileage - california</CardSubtitle>
@@ -25,7 +25,8 @@ import {
 const PriceRangeCards2 = () => { 
     return(
                         <Card  className='main-card'>
-                            <CardImg top width="100%" src={img2} alt="Card image cap" />
+                            <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={img2} /> 
+                            {/* <CardImg top width="100%" src={img2} alt="Card image cap" /> */}
                             <CardBody>
                             <CardTitle className='head'>2019 Mercedes Benz Hybrid</CardTitle>
                             <CardSubtitle className="sub-head mb-2">19,850 mileage - california</CardSubtitle>
@@ -38,7 +39,8 @@ const PriceRangeCards2 = () => {
 const PriceRangeCards3 = () => { 
     return(
                         <Card  className='main-card'>
-                            <CardImg top width="100%" src={img3} alt="Card image cap" />
+                            <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={img3}/> 
+                            {/* <CardImg top width="100%" src={img3} alt="Card image cap" /> */}
                             <CardBody>
                             <CardTitle className='head'>2019 Mercedes Benz Hybrid</CardTitle>
                             <CardSubtitle className="sub-head mb-2">19,850 mileage - california</CardSubtitle>
@@ -51,7 +53,8 @@ const PriceRangeCards3 = () => {
 const PriceRangeCards4 = () => { 
     return(
                         <Card  className='main-card'>
-                            <CardImg top width="100%" src={img2} alt="Card image cap" />
+                            <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={img2} /> 
+                            {/* <CardImg top width="100%" src={img2} alt="Card image cap" /> */}
                             <CardBody>
                             <CardTitle className='head'>2019 Mercedes Benz Hybrid</CardTitle>
                             <CardSubtitle className="sub-head mb-2">19,850 mileage - california</CardSubtitle>
