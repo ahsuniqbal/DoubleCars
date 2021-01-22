@@ -18,13 +18,13 @@
     margin-bottom: 0;
 }
 
-.message-bubble.sent {
+.message-bubble.sent, .message-bubble-img.sent {
     background-color: #1C67CE;
     color: #FFFFFF;
     margin-right: auto;
 }
 
-.message-bubble.received {
+.message-bubble.received, .message-bubble-img.received {
     background-color: #EFF1F4;
     color: rgba(0, 0, 0, 0.85);
     margin-left: auto;
@@ -39,4 +39,23 @@
     border-radius: 8px;
     width: fit-content;
 
+}
+
+
+
+
+
+.message-bubble-img {
+    border-radius: 16px;
+    width: fit-content;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 1rem 0.5rem;
+    padding: 4px;
+    max-width: 25rem;
+}
+
+.message-bubble-img img {
+    border-radius: 16px;
+    max-width: 150px;
 }
