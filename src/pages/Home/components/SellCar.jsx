@@ -52,7 +52,7 @@ const SellCar = () => {
                                         <img src={Chat} className='white-section-icon'/>
                                         <h2 className='white-head  ml-5'>Get Leads</h2>
                                     </div>
-                                    <p className='white-text pt-2'>Get original leads and keep track on your Car Seat</p>
+                                    <p className='white-text pt-2'>Get original leads and keep track on your car's stats</p>
                                 </div>
                             </div>
                             <div className = "vertical-line"></div>

@@ -61,10 +61,10 @@ const ProductResults = ({match}) => {
     return(
         //Product Detail starts here.
         <body className = "product-detail-body">
-            <Container>
+            <Container >
                 <CardBody className = "product-detail-cardbody">
                     <Row>
-                        <Col className = "text-left" md = "6" >
+                        <Col className = "text-left" md = "6" style = {{marginTop: '6rem'}}>
                             <Button onClick={() => history.push("/products")} className="back-button-product mb-3" id = "back"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</Button>
                         </Col>
                         <Col md = "6" >
