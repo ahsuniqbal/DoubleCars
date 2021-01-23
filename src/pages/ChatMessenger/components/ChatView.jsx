@@ -13,7 +13,6 @@ const mapStateToProps = (state) => {
 }
 
 const ChatView = (props) => {
-    console.log("propsChatView",props.chats)
     const [otherId,setOtherId] = useState(null)
 
     useEffect(() => {
@@ -44,7 +43,9 @@ const ChatView = (props) => {
 
             <Row>
                 <Col xs="12">
-                    <Compose otherId={otherId}/>
+                    {
+                        props.chats.chat ? <Compose otherId={otherId}/> : null
+                    }
                 </Col>
             </Row>
 
