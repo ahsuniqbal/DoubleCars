@@ -2,8 +2,8 @@
 // const connectionString = "https://carsaleapi.herokuapp.com/";
 
 // Google compute base url connection string
-const connectionString = "https://magnetic-flare-280505.uc.r.appspot.com/";
-// const connectionString = "http://localhost:3002/";
+// const connectionString = "https://magnetic-flare-280505.uc.r.appspot.com/";
+const connectionString = "http://localhost:3002/";
 
 // Vinaudit base url
 const vinAuditBaseUrl = "https://specifications.vinaudit.com/v3/selections?format=json&key=";
