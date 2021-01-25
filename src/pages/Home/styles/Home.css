@@ -46,6 +46,10 @@
   padding-right: 7px;
 }
 
+.home-container .slick-track {
+  margin-left: unset;
+}
+
 .home-container .slick-slide .product-card .card-subtitle {
   white-space: nowrap;
 }

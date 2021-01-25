@@ -44,6 +44,8 @@ const DCSlider = (props) => {
         // centerMode: true,
         // centerPadding: '50px',
         dots: false,
+        // beforeChange: beforeChange,
+        
         // fade: true,
         responsive: [
           {
