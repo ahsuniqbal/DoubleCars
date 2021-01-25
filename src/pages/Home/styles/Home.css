@@ -1,5 +1,4 @@
 .home-container {
-  
   background-color: white;
 }
 
@@ -45,6 +44,10 @@
 .home-container .slick-slide {
   padding-left: 7px;
   padding-right: 7px;
+}
+
+.home-container .slick-track {
+  margin-left: unset;
 }
 
 .home-container .slick-slide .product-card .card-subtitle {

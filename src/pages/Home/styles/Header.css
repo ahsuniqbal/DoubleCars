@@ -1,8 +1,8 @@
 .header-main{
-  margin: 0;
-  margin-right: 15px;
-  margin-left: 15px;
-  margin-top: 5%;
+  /* margin: 0; */
+  /* margin-right: 15px;
+  margin-left: 15px; */
+  margin-top: 5.6rem;
 }
 /* left section css */
 .left-cover-section {
@@ -14,7 +14,7 @@
   height: 95vh;
   padding-left: 3rem;
   padding-right: 3rem;
-  padding-top: 11rem;
+  
   
 }
 
@@ -25,6 +25,7 @@
   font-size: 60px;
   line-height: 110%;
   color: #FFFFFF;
+  margin-top: 6rem;
 }
 
 .header-sub-head {

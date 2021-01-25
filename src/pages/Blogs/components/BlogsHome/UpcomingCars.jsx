@@ -13,7 +13,7 @@ const UpcomingCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '15vh',
-        borderRadius:'4px',
+        
       };
 
       const UpcomingCarDemo4 = {
@@ -22,7 +22,7 @@ const UpcomingCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '15vh',
-        borderRadius:'4px',
+        
       };
       
       const UpcomingCarDemo1 = {
@@ -31,7 +31,7 @@ const UpcomingCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '15vh',
-        borderRadius:'4px',
+        
       };
       const UpcomingCarDemo2 = {
         backgroundImage: `url(${require("../../../../assets/UpcomingCarDemo1.png")})`,
@@ -39,7 +39,7 @@ const UpcomingCars = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: '15vh',
-        borderRadius:'4px',
+        
       };
     return(
         <Row>
@@ -47,10 +47,18 @@ const UpcomingCars = () => {
           <Col md = "3" xs = "12" style = {UpcomingCarDemo2}></Col> */}
           <Col md = "12" xs = "12">
             <Row className='upcoming-img'>
-                <Col md = "9" xs = "12" style = {UpcomingCarDemo1} onClick={()=>history.push('/blogs')} className='upcoming-coloumn'></Col>
-                <Col md = "3" xs = "12" style = {UpcomingCarDemo2} onClick={()=>history.push('/blogs')} className='upcoming-coloumn'></Col>
-                <Col md = "3" xs = "12" style = {UpcomingCarDemo3} onClick={()=>history.push('/blogs')} className='upcoming-coloumn'></Col>
-                <Col md = "9" xs = "12" style = {UpcomingCarDemo4} onClick={()=>history.push('/blogs')} className='upcoming-coloumn'></Col>
+                <Col md = "9" xs = "12" style={{paddingLeft: '0px', paddingRight: '3px'}} onClick={()=>history.push('/blogs')}>
+                  <div style = {UpcomingCarDemo1}></div>
+                </Col>
+                <Col md = "3" xs = "12" style={{paddingLeft: '3px', paddingRight: '0px'}} onClick={()=>history.push('/blogs')}>
+                  <div style = {UpcomingCarDemo2}></div>
+                </Col>
+                <Col md = "3" xs = "12" style={{paddingLeft: '0px', paddingRight: '3px', paddingTop: '4px'}}  onClick={()=>history.push('/blogs')}>
+                  <div style = {UpcomingCarDemo2}></div>
+                </Col>
+                <Col md = "9" xs = "12" style={{paddingLeft: '3px', paddingRight: '0px', paddingTop: '4px'}}  onClick={()=>history.push('/blogs')}>
+                  <div style = {UpcomingCarDemo2}></div>
+                </Col>
             </Row>
             {/* <Row>
                 <Col md = "12" xs = "12" style = {UpcomingCarDemo4}></Col>

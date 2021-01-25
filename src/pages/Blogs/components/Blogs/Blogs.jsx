@@ -2,21 +2,44 @@ import React from 'react';
 import { Row, Col, Container, Label} from 'reactstrap';
 import '../../styles/Blogs.css'
 import BlogsDemoImage1 from '../../../../assets/BlogsDemoImage1.png' 
-
 import BlogsDemoImage2 from '../../../../assets/BlogsDemoImage2.png' 
 import RelatedStoriesCell from './RelatedStoriesCell';
 import {RelatedStoriesCell1, RelatedStoriesCell2} from './RelatedStoriesCell'
 import SimilarCarCell from './SimilarCarCell';
+import FBlogLogo from '../../../../assets/FBlogLogo.svg'
+import TBlogLogo from '../../../../assets/TBlogLogo.svg'
+import PBlogLogo from '../../../../assets/PBlogLogo.svg'
+
+
 const Blogs = () => {
     return(
         <body className = "blogs-body">
             <Container>
                 <Row>
                     <Col xs = "12" md = "12" sm = "12" className = "blogs-column">
-                       <Label className = "blog-read-label">23 December  •  2 min read </Label> <br/>
-                       <h3 className = "blogs-heading">The next generation car is here!</h3>
-                        <img src = {BlogsDemoImage1} className = "img-fluid blog-header-image" width= "100%"/>
+                            <Label className = "blog-read-label">23 December  •  2 min read </Label> <br/>
+                            <Row>
+                            <Col xs = "12" md = "6">
+                                <h3 className = "blogs-heading">The next generation car is here!</h3>
+                            </Col>
+                            <Col xs = "12" md = "6" className = "text-right">
+                                <img src = {PBlogLogo} className = "img-fluid"/>
+                                <img src = {FBlogLogo} className = "img-fluid"/>
+                                <img src = {TBlogLogo} className = "img-fluid"/>
+                            </Col>
+
+                            {/* <Col xs = "12" md = "1" className = "text-right">
+                                
+                            </Col>
+
+                            <Col xs = "12" md = "1" className = "text-right">
+                                <img src = {FBlogLogo} className = "img-fluid"/>
+                            </Col> */}
+                            </Row>
+                            
+                            <img src = {BlogsDemoImage1} className = "img-fluid blog-header-image" width= "100%"/>
                     </Col>
+                    
                 </Row>
                 <Row>
                     <Col md = "9" sm = "12" xs = "12">

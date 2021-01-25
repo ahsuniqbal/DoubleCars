@@ -192,16 +192,3 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
-.filters{
-    margin-top: 4rem;
-}
-@media screen and (max-width:768px){
-    .filters{
-        margin-top: 1.7rem !important;
-    }
-}
-@media screen and (max-width:500px){
-    .filters{
-        margin-top: 0 !important;
-    }
-}

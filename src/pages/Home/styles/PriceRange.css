@@ -11,7 +11,7 @@
 
 
 .rwt__tablist{
-    border-right: none !important;
+    border-left: 1px solid #F3F3F3;
 }
 .PriceRange{
     height:40vh;
@@ -56,6 +56,13 @@
 }
 .rwt__tab[aria-selected="true"]:after{
     border-right: 3px solid #1C67CE !important;
+    
+    
+}
+
+.rwt__tab[aria-selected="true"] {
+    background-color: #FAFAFA !important;
+    color: #1C67CE;
 }
 
 .Items:focus{

@@ -134,13 +134,13 @@ const Products = (props) => {
                     
         <Container className="products-container">        
             <Row>
-                <Col xs="12" md="3">
+                <Col xs="12" md="3" style = {{marginTop: '5rem'}}>
                     <Filters
                         onFilterChange={filterQueryChange}
                         isUsed={locationSearch.isUsed}
                     />
                 </Col>
-                <Col xs="12" md="9" className='product-column-margin'>
+                <Col xs="12" md="9" style = {{marginTop: '5rem'}}>
                     <Row className="search-heading mb-2">
                         <Col md="8">
                             {props.location.heading ? <h6>{props.location.heading}</h6> : null}
