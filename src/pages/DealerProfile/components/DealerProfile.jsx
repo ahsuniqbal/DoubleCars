@@ -88,7 +88,7 @@ const DealerProfile = ({match}) => {
                         </Col>
                     </Row>
                     
-                    <Row className="search-heading mb-2 mt-3">
+                    <Row className="search-heading mb-2 mt-5">
                         <Col md="8">
                             {
                                 inventory ? 

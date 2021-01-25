@@ -42,8 +42,9 @@ const NavigationBar = () => {
 
     //get user data to show dropdown at navbar
     const [userName,setUserName] = useState(null)
-    const path=window.location.pathname
-   
+    const path=window.location.pathname 
+    console.log(path)
+    useEffect(()=>{
     
     if(path=='/profile' && localStorage.getItem("userId")!=null){
         getUser(localStorage.getItem("userId"))
@@ -54,6 +55,7 @@ const NavigationBar = () => {
             alert(e.message)
         }) 
     }
+    },[])
    
     // logout function
     const handleLogout = () => {
@@ -61,6 +63,15 @@ const NavigationBar = () => {
         history.push('/');
     }
 
+    // to apply css on navbar active tab
+    // const navClickColorFunction=function (e) {
+    //     var elems = document.querySelector(".active");
+    //     if(elems !==null){
+    //      elems.classList.remove("active");
+    //     }
+    //    e.target.className = "active";
+    //   }
+      
     //code to hide navbar on scroll down and show on scroll up
     // var prevScrollpos = window.pageYOffset;
     // window.onscroll = function() {
@@ -81,7 +92,7 @@ const NavigationBar = () => {
                 <button className="navbar-toggler"
                     type="button"
                     data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
+                    data-target=".navigation-bar"
                     aria-controls="navbarSupportedContent"
                     aria-expanded="true"
                     aria-label="Toggle navigation">

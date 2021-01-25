@@ -3,7 +3,7 @@
 } */
 
 .signup-left-image {
-    background-image: url("../../../../assets/LoginDummyImage.png"); 
+    background-image: url("../../../../assets/SignupDummyImage.png"); 
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,13 +17,16 @@
 .signup-right-side-column {
     background-color: white;
     height: 100vh;
-    padding: 0px 77px;
+    padding: 0px 98px;
 }
 
 .register-head {
-    font-weight: bold;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
     font-size: 32px;
-    line-height: 46px;
+    line-height: 46px; 
+    text-align: center;
     margin-top: 3rem;
     color: rgba(0, 0, 0, 0.85);
 }
@@ -37,12 +40,13 @@
 }
 
 .signup-register-textfield  {
+    font-family:Ubuntu;
     background: #FFFFFF ;
     border-radius: 4px;
     border: 1px solid #E9E9E9;
     height: 48px ;
     background: #FFFFFF;
-    margin-top: 0.7rem; 
+    margin-top: 0.9rem; 
 }
 .signup-register-textfield::placeholder {
     color: rgba(0, 0, 0, 0.35);
@@ -61,8 +65,9 @@
     color: #ffffff !important ;
     font-size: 15px;
     line-height: 32px;
-    width: 142px;
+    width: 132px;
     height: 48px;
+    margin-left: -26px;
     font-weight: 500;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
 }
@@ -80,6 +85,8 @@
     font-weight: normal;
     font-size: 13px;
     line-height: 22px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-left:-8px;
 }
 
 .t-and-c {
@@ -100,8 +107,8 @@
     font-size: 15px;
     color: rgba(0, 0, 0, 0.45);
     font-weight: normal;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
  } 
    .or-label span { 
     background:#fff; 
@@ -110,12 +117,12 @@
 }
 
 .google-signup-button { 
-    border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    border-radius: 5px;
-    padding: 2% 0% 2% 2%;
-    width: 195px;
-    height: 48px;
+    padding:10px 13px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 6px;
     /* width: 195px;
     height: 48px;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -133,10 +140,12 @@
 .facebook-signup-button { 
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    border-radius: 5px;
-    padding: 2% 0% 2% 2%;
+    border-radius: 6px;
+    padding: 9px 10px;
+    margin-right: 0 !important;
+    /* padding: 2% 0% 2% 2%;
     width: 210px;
-    height: 48px;
+    height: 48px; */
         /* width: 195px;
     height: 48px;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -147,6 +156,14 @@
     background: url('../../../../assets//icons/fb-icon.svg') no-repeat left;
     float: center;
     justify-content: center; */
+}
+.icon-text{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.65);
 }
 .fb-icon{
     margin: 0 10px 0px 0px;
@@ -177,11 +194,11 @@
     }
     .signup-icon{
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
     }
-    .signup-icon div{
-        margin: 0% 2% 0% 0%;
-    }
+    /* .signup-icon div{
+        margin: 0% 25px 0% 0%;
+    } */
     .signup-bottom{
         display: none;
         text-align: center;
@@ -205,9 +222,9 @@
     .signup-right-side-column {
         padding: 0px 45px !important;
     }
-    .signup-icon div {
+    /* .signup-icon div {
         margin: 0% 5px 0% 0% !important;
-    }
+    } */
     .fb-icon {
         margin: 0 6px 0px 0px !important;
     }
@@ -219,29 +236,25 @@
     .signup-right-side-column {
         padding: 0px 40px !important;
     }
-    .signup-icon div {
+    /* .signup-icon div {
         margin: 0% 1px 0% 0% !important;
-    }
+    } */
     .fb-icon {
         margin: 0 6px 0px 0px !important;
     }
     .google-icon{
         margin: 0 6px 0px 0px !important;
     }
-    .icon-text{
-        font-size: 14px;
-    }
+   
 }
 @media screen and (max-width: 992px) {
     .signup-right-side-column {
         padding: 0px 200px !important;
     }
-    .signup-icon div {
+    /* .signup-icon div {
         margin: 0% 10px 0% 0% !important;
-    }
-    .icon-text{
-        font-size: 17px;
-    }
+    } */
+    
 }
 
 @media screen and (max-width: 890px) {
@@ -322,9 +335,9 @@
         padding: 4% 15%;
         margin-bottom:5%
     }
-    .signup-icon div {
+    /* .signup-icon div {
         margin: 0% 5px 5% 0% !important;
-    }
+    } */
 }
 @media screen and (max-width: 412px) {
     body{

@@ -140,7 +140,7 @@ const Products = (props) => {
                         isUsed={locationSearch.isUsed}
                     />
                 </Col>
-                <Col xs="12" md="9" >
+                <Col xs="12" md="9" className='product-column-margin'>
                     <Row className="search-heading mb-2">
                         <Col md="8">
                             {props.location.heading ? <h6>{props.location.heading}</h6> : null}

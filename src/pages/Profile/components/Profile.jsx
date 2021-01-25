@@ -13,7 +13,7 @@ const Profile = (props) => {
         //
         getUser(localStorage.getItem("userId"))
         .then(doc => {
-            console.log(doc)
+            console.log('profile',doc)
             setUser(doc[0])
         })
         .catch(e => {
