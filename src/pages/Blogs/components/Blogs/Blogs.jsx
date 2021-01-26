@@ -59,12 +59,12 @@ const Blogs = () => {
                     </Col>
 
                     <Col md = "3" sm = "12" xs = "12">
-                        <Label className = "cell-heading">Related Stories</Label>
+                        <Label className = "related-heading">Related Stories</Label>
                         <RelatedStoriesCell/>
                         <RelatedStoriesCell1/>
                         <RelatedStoriesCell2/>
                         
-                        <Label className = "cell-heading">Similar Cars for Sale</Label>
+                        <Label className = "similar-car-heading">Similar Cars for Sale</Label>
                         <SimilarCarCell/>
                         <SimilarCarCell/>
                     </Col>
