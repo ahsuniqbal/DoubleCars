@@ -17,7 +17,7 @@ const AboutDetails = () => {
             </Col>
 
             <Col md = "1" className = "">
-                <div className = "vertical-line"></div>
+                <div className = "about-vertical-line"></div>
             </Col>
             <Col xs = "12" md = "3" className = "">
                 <img src = {AoutDealership} alt = "message-icon" className = "mb-4"/> <br/>
@@ -27,7 +27,7 @@ const AboutDetails = () => {
             </Col>
         
             <Col md = "1" className = "">
-                <div className = "vertical-line"></div>
+                <div className = "about-vertical-line"></div>
             </Col>
             <Col xs = "12" md = "3" className = "">
                 <img src = {AboutMarketing} alt = "message-icon" className = "mb-4"/> <br/>
