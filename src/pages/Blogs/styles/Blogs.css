@@ -38,12 +38,21 @@ line-height: 38px;
 color: rgba(0, 0, 0, 0.84);
 }
 
-.cell-heading {
+.related-heading{
     font-weight: 500;
     font-size: 20px;
     line-height: 140%;
     color: rgba(0, 0, 0, 0.85);
     margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.similar-car-heading {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+    margin-top: 2%;
     margin-bottom: 5%;
 }
 
@@ -92,6 +101,8 @@ color: rgba(0, 0, 0, 0.84);
 
 .similar-card-cell {
     height: 97px;
+    border: 1px solid #E9E9E9;
+    border-radius: 6px;
 }
 
 .similar-cell-card-image {
