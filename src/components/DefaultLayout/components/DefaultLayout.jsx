@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import { PublicRoute, PrivateRoute } from '../../../navigation/RouteTypes';
 import routes from '../../../navigation/Routes';
+import ScrollToTop from '../../../navigation/ScrollToTop';
 
 
 const NavigationBar = React.lazy(() => import('../../NavigationBar'))
@@ -12,6 +13,7 @@ const Footer = React.lazy(() => import('../../Footer'));
 const DefaultLayout = () => {
     return(
         <div>
+            <ScrollToTop />
             {/* The navigation bar will be shown above every paged rendered inside the switch */}
             <NavigationBar />
                 <Switch>
@@ -19,7 +21,8 @@ const DefaultLayout = () => {
                         routes.map((route, idx) => {
                             return route.component ? (
                                 // Public route will be shown to every visitor
-                                route.public ? <PublicRoute 
+                                route.public ? 
+                                <PublicRoute 
                                 key={idx}
                                 path={route.path}
                                 exact={route.exact}

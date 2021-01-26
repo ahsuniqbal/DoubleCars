@@ -7,7 +7,6 @@ import { faUser, faStar, faMapPin, faPhone, faSearch, faEnvelope, faPlus, faMinu
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import logo from './assets/DCLogo.jpg';
 
-
 library.add(faUser, faStar, faBookmark, faMapPin, faPhone, faSearch, faEnvelope, faPlus, faMinus, faCheck);
 
 //fallback loading
@@ -24,10 +23,9 @@ function App() {
     <Router>
       <React.Suspense fallback={loading()}>
         <Switch>
-        <Route path="/login" component={Login}/>
+          <Route path="/login" component={Login}/>
           <Route path="/signup" component={SignUp}/>
           <Route path="/" render={props => <DefaultLayout {...props} /> } />
-          
         </Switch>
       </React.Suspense>
     </Router>
