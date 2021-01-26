@@ -9,6 +9,7 @@ import socketIOClient from "socket.io-client";
 import { useHistory } from 'react-router-dom';
 import {getUser} from '../../../pages/Profile/api/Get';
 import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
+import DummyTopProfile from '../../../assets/Dummy-short-profile.png'
 const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 
 const NavigationBar = () => {
@@ -143,10 +144,10 @@ const NavigationBar = () => {
 
                             {/* show this when user is login and route is profile */}
                             {
-                            path=='/profile' && localStorage.getItem("userId") ?  <li className="nav-item mt-1">
+                            path=='/profile' && localStorage.getItem("userId") ?  <li className="profile-nav-item">
                              <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className='dropdown-img'>
-                                    pic
+                                    <img src={DummyTopProfile}/>
                                 </DropdownToggle>
                                      
                                 <DropdownMenu right className='dropdown-menu'>
@@ -161,8 +162,6 @@ const NavigationBar = () => {
                                 </UncontrolledDropdown>
                              </li> : null
                             }
-                        
-                        
                        
                     </ul>   
                 </div>

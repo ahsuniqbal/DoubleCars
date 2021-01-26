@@ -2,9 +2,12 @@ import React,{ useState, useEffect} from 'react';
 import { Button, Container, Row, Col, Input, Label, Card,CardBody} from 'reactstrap';
 import '../styles/Profile.css'
 import { logout } from '../../../config/LoginAuth';
-// import profileImage from '../../../assets/Dummy-profile-image.png'
+import profileImage from '../../../assets/Dummy-profile-image.png'
 import {getUser} from '../api/Get'
 import {changePassword,updateUser} from '../api/Patch'
+import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
+import DummyTopProfile from '../../../assets/Dummy-short-profile.png'
+import {UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
 const Profile = (props) => {
 
     const [user,setUser] = useState(null)
@@ -73,6 +76,7 @@ const Profile = (props) => {
     const changePicture = () => {
         
     }
+
     return(
         // <div>
         //     Profile Private Page
@@ -83,18 +87,19 @@ const Profile = (props) => {
                 <Row>
                     <Col md='1'></Col>
                    
-                    <Col xs = "12" md = "3" className = "profile-column text-center">
-                    <Card>
+                    <Col xs = "12" md = "3" className = "profile-pic-column text-center">
+                    <Card className='py-3'>
                         
                         <CardBody>
-                            <img src = {user ? user.profilePic : null} class = "img-fluid profile-image" alt = "profile-image"/> <br/>
+                            {/* <img src = {user ? user.profilePic : null} class = "img-fluid profile-image" alt = "profile-image"/> <br/> */}
+                            <img src = {profileImage} class = "img-fluid profile-image" alt = "profile-image"/> <br/>
                             <Button onClick={e => changePicture()} className = "change-pic-button">Change Picture</Button> <br/>
                             <Button className = "remove-pic-button">Remove Picture</Button> 
                         </CardBody>
                     </Card>
                     </Col>
                     
-                    <Col xs = "12" md = "6" className = "profile-column">
+                    <Col xs = "12" md = "6" className = "profile-edit-column px-4">
                    
                         <h4 className = "profile-page-heading">Edit Profile</h4>
                         
@@ -113,25 +118,25 @@ const Profile = (props) => {
 
                         <Row>
                             <Col xs = "12" md = "6">
-                                <Label className = "profile-labels" id='mobile-zip-label'>Mobile Number</Label>
+                                <Label className = "profile-labels" id='giving-margin-top'>Mobile Number</Label>
                                 <Input id="phNum" className = "profile-text-field" type="number"  value={user ? user.phNum : "loading..."}/>
                             </Col>
 
                             <Col xs = "12" md = "6">
-                                <Label className = "profile-labels" id='mobile-zip-label'>Zip Code</Label>
-                                <Input id=""className = "profile-text-field" type="text" defaultValue={user ? user.fullName : "loading..."}/>
+                                <Label className = "profile-labels" id='giving-margin-top'>Zip Code</Label>
+                                <Input id=""className = "profile-text-field" type="text" defaultValue={user ? user.fullName : "75010"}/>
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <Label className = "profile-labels">Location</Label>
+                                <Label className = "profile-labels ">Location</Label>
                                 <Input id="" className = "profile-text-field" type="text" />
                             </Col>
                         </Row>
                         <Row>
                            <Col>
-                                <Label className = "profile-labels">Bio</Label>
-                                <textarea class="form-control bio-box" rows="4" placeholder = "Message (Optional)"></textarea>
+                                <Label className = "profile-labels" >Bio</Label>
+                                <textarea class="form-control bio-box" rows="5" placeholder = "Message (Optional)"></textarea>
                            </Col>
                         </Row>
                         <Row>
@@ -145,19 +150,19 @@ const Profile = (props) => {
                         
                         <Row>
                             <Col xs = "12" md = "12">
-                            <h4 className = "profile-page-heading">Change Password</h4>
-                        <hr/>
+                            <h4 className = "profile-page-heading" >Change Password</h4>
+                             <hr className='below-password-hr'/>
                             </Col>
                         </Row>
                         
                         <Row>
                             <Col xs = "12" md = "6">
-                                <Label className = "profile-labels">Old Pasword</Label>
+                                <Label className = "profile-labels" id='margin-password-fields'>Old Password</Label>
                                 <Input id="oldPass" className = "profile-text-field" type="text"/>
                             </Col>
 
                             <Col xs = "12" md = "6">
-                                <Label className = "profile-labels">New Password</Label>
+                                <Label className = "profile-labels " id='margin-password-fields'>New Password</Label>
                                 <Input id="newPass" className = "profile-text-field" type="text" />
                             </Col>
                         </Row>

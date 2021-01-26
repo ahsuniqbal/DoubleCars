@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/SellerDetails.css';
 import { Phone, Mail } from 'react-feather';
 import CommentModal from './CommentModal';
-
+import CheckMark from '../../../assets/dealersCheckMark.png'
 
 const SellerDetails = (props) => {
     const [modal, setModal] = useState(false);
@@ -29,17 +29,20 @@ const SellerDetails = (props) => {
                                     }
                                     
                                 </Col>
-                                <Col md = "10">
-                                    <Label className = "dealer-name">{props.fullName}</Label> <br/>
+                                <Col md = "10" className='dealer-profile-coloumn'>
+                                    <div className='d-flex '>
+                                        <Label className = "dealer-name">{props.fullName}</Label>
+                                        <img src={CheckMark} className='dealer-check'/>
+                                    </div>
                                     <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                     <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                     <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                     <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-2" />
                                     <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-2" />
-                                    <Label style= {{color: "#FFC061"}}>4.2</Label>
+                                    <Label className='rating-number'>4.2</Label>
                                 </Col>
                             </Row>
-                            <Row className = "mt-3">
+                            <Row className = "mt-4">
                                 <Col md = "7">
                                     <h6 className = "about-seller-head">About seller</h6>
                                     {
@@ -52,8 +55,8 @@ const SellerDetails = (props) => {
                                 <Col md = "5">
                                     <h6 className = "contact-details">Contact Details</h6>
                                     
-                                    <p className = "contact-details-p"><Phone color="#1C67CE" size={20} className = "mr-2"/>{props.phNum}</p>
-                                    <p className = "contact-details-p"><Mail color="#1C67CE" size={20} className = "mr-2"/>{props.email}</p>
+                                    <p className = "contact-details-p"><Phone color="#1C67CE" size={15} className = "mr-2"/>{props.phNum}</p>
+                                    <p className = "contact-details-p"><Mail color="#1C67CE" size={15} className = "mr-2"/>{props.email}</p>
                                 </Col>
                             </Row>
                         </Col>
@@ -63,16 +66,18 @@ const SellerDetails = (props) => {
                         
                         
                         
-                        <Col md = "3" xs = "12" sm = "12" className = "text-center">
+                        <Col md = "3" xs = "12" sm = "12" className = "">
                             
-                            <h1 className = "rate-label">4.45</h1>
-                            <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
-                            <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
-                            <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
-                            <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
-                            <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-1 font-rate-stars" /> <br/>
-                            <Label className = "reviews-label"> 154 reviews</Label> <br/>
-                            <Button size = "lg" block className = "read-reviews-button primary mt-4 float-left" onClick={toggle}>Read reviews</Button> 
+                           <div className='ml-4' >
+                                <h1 className = " rate-label">4.45</h1>
+                                <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
+                                <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
+                                <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
+                                <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-1 font-rate-stars" />
+                                <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-1 font-rate-stars" /> <br/>
+                                <Label className = "reviews-label"> 154 reviews</Label> <br/>
+                           </div>
+                            <Button size = "lg" block className = "read-reviews-button primary mt-4 float-left" onClick={toggle}>Read Reviews</Button> 
                             <CommentModal isOpen={modal} toggle={toggle} />
                            
                             
@@ -116,7 +121,7 @@ const SellerDetails = (props) => {
                                 <Col md = "4">
                                     <h6 className = "contact-details">Contact Details</h6>
                                     
-                                    <p className = "contact-details-p"><Phone color="#1C67CE" size={20} className = "mr-2"/>{props.phNum}</p>
+                                    <p className = "contact-details-p" id='dealer-number'><Phone color="#1C67CE" size={20} className = "mr-2"/>{props.phNum}</p>
                                     <p className = "contact-details-p"><Mail color="#1C67CE" size={20} className = "mr-2"/>{props.email}</p>
                                 </Col>
                             </Row>
