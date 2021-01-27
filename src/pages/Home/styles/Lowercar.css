@@ -9,6 +9,7 @@
 .lower-cars-carousel-images {
     height: 353px;
     width: 360px;
+    object-fit: cover;
     /* padding-right: 0px !important; */
 }
 .lower-main{

@@ -108,20 +108,20 @@ const Footer = () => {
                 <Container className = "lower-footer-container">
                     <Row>
                         <Col md = "3" xs = "12" className = "lower-footer-columns text-center">
-                            <p className = "bootom-footer nav-text-color mt-2">© DoubleCars All Rights Reservered</p>
+                            <p className = "bootom-footer nav-text-color-bottom mt-2">© DoubleCars All Rights Reservered</p>
                         </Col>
                         <Col md = "2" xs = "12" className = "lower-footer-columns text-center">
-                            <NavLink className = "bootom-footer nav-text-color" to="">Legal Information</NavLink>
+                            <NavLink className = "bootom-footer nav-text-color-bottom" to="">Legal Information</NavLink>
                         </Col>
                         <Col md = "2" xs = "12" className = "lower-footer-columns text-center">
                             {/* <NavLink className = "bootom-footer nav-text-color" to="">Privacy Policy</NavLink> */}
                             <Link to={'/privacypolicy/'}>
-                            <NavLink className = "bootom-footer nav-text-color">Privacy Policy</NavLink>
+                            <NavLink className = "bootom-footer nav-text-color-bottom">Privacy Policy</NavLink>
                         </Link>
                         </Col>
                         <Col md = "2" xs = "12" className = "text-center lower-footer-columns">
                         <Link to={'/termsandconditions/'}>
-                            <NavLink className = "bootom-footer nav-text-color">Terms and Conditions</NavLink>
+                            <NavLink className = "bootom-footer nav-text-color-bottom">Terms and Conditions</NavLink>
                         </Link>
                         </Col>
                         <Col md = "3" xs = "12" className = "lower-footer-columns">

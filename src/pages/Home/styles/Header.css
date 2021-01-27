@@ -2,7 +2,8 @@
   /* margin: 0; */
   /* margin-right: 15px;
   margin-left: 15px; */
-  margin-top: 5.6rem;
+  /* margin-top: 5.6rem; */
+  padding-top: 5rem;
 }
 /* left section css */
 .left-cover-section {
@@ -48,7 +49,12 @@
   font-size: 15px !important;
   line-height: 19px;
   font-weight: bold;
+  box-shadow: none;
 }
+.download-button-cover:focus{
+  box-shadow: none !important;
+}
+
   
   /* Right section css */
 .right-cover-section {

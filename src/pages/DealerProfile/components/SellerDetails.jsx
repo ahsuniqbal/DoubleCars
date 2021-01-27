@@ -42,17 +42,17 @@ const SellerDetails = (props) => {
                                     <Label className='rating-number'>4.2</Label>
                                 </Col>
                             </Row>
-                            <Row className = "mt-4">
+                            <Row className = "About-selleer-main-row">
                                 <Col md = "7">
                                     <h6 className = "about-seller-head">About seller</h6>
                                     {
                                         props.aboutMe ? 
                                         <p className = "seller-details-p">{props.aboutMe}</p>
                                         :
-                                        <p className = "seller-details-p">This seller has provided no information</p>
+                                        <p className = "seller-details-p">This seller has provided no information </p>
                                     }
                                 </Col>
-                                <Col md = "5">
+                                <Col md = "5" style={{padding:'0'}}>
                                     <h6 className = "contact-details">Contact Details</h6>
                                     
                                     <p className = "contact-details-p"><Phone color="#1C67CE" size={15} className = "mr-2"/>{props.phNum}</p>
@@ -98,31 +98,30 @@ const SellerDetails = (props) => {
                                     }
                                     
                                 </Col>
-                                <Col md = "10" xs = "12">
+                                <Col md = "10" xs = "12" className='second-condition-dealer-profile-coloumn'>
                                     <Label className = "dealer-name">{props.fullName}</Label> <br/>
-                                    <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
-                                    <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
-                                    <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
-                                    <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-2" />
-                                    <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-2" />
-                                    <Label style= {{color: "#FFC061"}}>4.2</Label>
+                                    <p className='private-seller'>Private Seller</p>
                                 </Col>
                             </Row>
-                            <Row className = "mt-3">
+                            <Row className = "mt-4">
                                 <Col md = "8">
                                     <h6 className = "about-seller-head">About seller</h6>
                                     {
                                         props.aboutMe ? 
                                         <p className = "seller-details-p">{props.aboutMe}</p>
                                         :
-                                        <p className = "seller-details-p"> This seller has provided no information</p>
+                                        <p className = "seller-details-p">
+                                             This seller has provided no information Lorem ipsum, dolor sit amet 
+                                            totam quas earum possimus doloremque libero, assumenda praesentium nemo 
+                                            debitis, modi quos quod.
+                                        </p>
                                     }
                                 </Col>
                                 <Col md = "4">
                                     <h6 className = "contact-details">Contact Details</h6>
                                     
-                                    <p className = "contact-details-p" id='dealer-number'><Phone color="#1C67CE" size={20} className = "mr-2"/>{props.phNum}</p>
-                                    <p className = "contact-details-p"><Mail color="#1C67CE" size={20} className = "mr-2"/>{props.email}</p>
+                                    <p className = "contact-details-p" id='dealer-number'><Phone color="#1C67CE" size={15} className = "mr-2"/>{props.phNum}</p>
+                                    <p className = "contact-details-p"><Mail color="#1C67CE" size={15} className = "mr-2"/>{props.email}</p>
                                 </Col>
                             </Row>
                         </Col>

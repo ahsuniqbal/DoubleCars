@@ -1,5 +1,6 @@
 .product-card {
     margin-bottom: 1.5rem;
+    
 }
 
 /* Name of the car */
@@ -50,6 +51,7 @@
     object-fit: cover;
     background-color: black;
     height: 200px;
+    border: none;
 }
 
 /* The badge over the primary image */

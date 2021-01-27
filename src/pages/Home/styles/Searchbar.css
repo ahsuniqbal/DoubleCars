@@ -104,6 +104,9 @@ select:required:invalid {
     font-size: 15px !important;
     line-height: 16px;   
 }
+.search-button:focus{
+    box-shadow: none !important;
+}
 .condition-dropdown select{
     display:none
 }
