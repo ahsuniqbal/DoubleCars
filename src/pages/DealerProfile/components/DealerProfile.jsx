@@ -66,12 +66,12 @@ const DealerProfile = ({match}) => {
 
        
             <Row>
-                <Col md = "3">
+                <Col md = "3" style = {{marginTop: '6rem'}}>
                     <Filters/>
                 </Col>
-                <Col md = "9">
+                <Col md = "9" style = {{marginTop: '2rem'}}>
                     <Row>
-                        <Col xs="12">
+                        <Col xs="12" >
                         {
                             dealer ?
                             <SellerDetails 
