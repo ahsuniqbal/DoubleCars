@@ -23,6 +23,10 @@
     width: 88%;
     text-align: center;
     font-size: 14px;
+}
+
+.read-reviews-button:focus, .read-reviews-button:active:focus {
+  box-shadow: none !important;
     font-weight: 500;
 }
 
