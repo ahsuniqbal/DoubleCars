@@ -17,18 +17,20 @@
     color: #1C67CE !important;
     border-color: #1C67CE !important;
     height: 40px;
-    width: 190px;
+    width: 88%;
     text-align: center;
     font-size: 14px;
 }
 
 .read-reviews-button:focus, .read-reviews-button:active:focus {
   box-shadow: none !important;
+    font-weight: 500;
 }
 
 .reviews-label {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.65);
+    margin-left: 15px;
 }
 
 .Dealer-Profile-image{
@@ -46,6 +48,7 @@
     font-weight: 600;
     color: rgba(0, 0, 0, 0.85);
     font-size: 15px;
+    margin-bottom: 1.3rem;
 }
 
 .dealer-name {
@@ -60,9 +63,14 @@
     color: rgba(0, 0, 0, 0.55);
 }
 .contact-details-p {
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
     font-size: 15px;
+    line-height: 17px;
     color: rgba(0, 0, 0, 0.65);
     overflow-wrap: break-word;
+    margin-bottom: 0.6rem;
 }
 .vertical-line {
     border-right: 1px solid rgba(0, 0, 0, 0.2);
@@ -70,8 +78,44 @@
     width: 0px !important;
 }
 
-
-
+.dealer-profile-coloumn{
+  margin-left: -10px;
+  margin-top: 6px;
+}
+.dealer-check{
+  width: 15.88px;
+  height: 15.88px;
+  margin: 4px 0px 0px 8px;
+}
+.rating-number{
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #FFC061;
+}
+#dealer-number{
+  margin-bottom: 0.8rem;
+}
+/* 2nd condtion */
+.second-condition-dealer-profile-coloumn{
+  margin-left: -3.3rem;
+    margin-top: 3px;
+}
+.private-seller{
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.45);
+  float :left;
+}
+.About-selleer-main-row{
+  margin-top:2rem;
+}
 @media (max-width: 980px) {
     .vertical-line{
         display: none;

@@ -26,7 +26,7 @@
     background: linear-gradient(1800deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
     color: white !important;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 .content-header1{
     font-family: Ubuntu;
@@ -62,7 +62,7 @@ line-height: 25px;
 .main-coloumn{
     padding-left: 0% !important;
     position: relative;
-    border-radius: 10px !important;   
+    border-radius: 8px !important;   
 }
 .feature-car-badge1{
     position: absolute;

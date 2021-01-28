@@ -9,12 +9,16 @@ import socketIOClient from "socket.io-client";
 import { useHistory } from 'react-router-dom';
 import {getUser} from '../../../pages/Profile/api/Get';
 import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
+import DummyTopProfile from '../../../assets/Dummy-short-profile.png'
+import {GetFilterResult} from '../../../pages/Products/api/GetRequests';
 const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 
 const NavigationBar = () => {
-
+    
+     
     const history = useHistory();
     useEffect(() => {
+        console.log(window.location.search)
         if(localStorage.getItem("userId")){
               const socket = socketIOClient.connect(ENDPOINT,{
                   reconnect: true
@@ -55,6 +59,7 @@ const NavigationBar = () => {
             alert(e.message)
         }) 
     }
+
     },[])
    
     // logout function
@@ -62,6 +67,16 @@ const NavigationBar = () => {
         localStorage.removeItem('userId')
         history.push('/');
     }
+    useEffect(()=>{
+        GetFilterResult(localStorage.getItem('Query Param'))
+        .then(doc=>{
+            console.log(doc)
+        })
+        .catch(e=>{
+            alert(e.message)
+        })
+     },[])
+   
 
     // to apply css on navbar active tab
     // const navClickColorFunction=function (e) {
@@ -73,16 +88,22 @@ const NavigationBar = () => {
     //   }
       
     //code to hide navbar on scroll down and show on scroll up
-    // var prevScrollpos = window.pageYOffset;
-    // window.onscroll = function() {
-    // var currentScrollPos = window.pageYOffset;
-    //   if (prevScrollpos > currentScrollPos) {
-    //     document.querySelector(".navbar").style.top = "0";
-    //   } else {
-    //     document.querySelector(".navbar").style.top = "-100px";
-    //   }
-    //   prevScrollpos = currentScrollPos;
-    // }
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.querySelector(".navbar").style.top = "0";
+      } else {
+        document.querySelector(".navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+
+    // style for new car /used car span
+    const styleDiv={
+        fontWeight:'bold',
+        color:'#1C67CE',
+    }
     return (
         <> 
             <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top navigation-bar-box">
@@ -102,19 +123,27 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse navigation-bar" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'New Cars', search: '?isUsed=false'}}>New Cars</NavLink>
+                            <NavLink className="nav-link navigation-items"  to={{pathname: '/products', heading:'New Cars', search: '?isUsed=false'}}>
+                                    {window.location.search=='?isUsed=false' ?
+                                    <span style={styleDiv}>New Cars</span>:
+                                    <span >New Cars</span>}
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'Used Cars', search: '?isUsed=true'}}>Used Cars</NavLink>
+                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'Used Cars', search: '?isUsed=true'}}>
+                                     {window.location.search=='?isUsed=true' ?
+                                    <span style={styleDiv}>Used Cars</span>:
+                                    <span >Used Cars</span>}
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to= {'/blogshome'}>Blog</NavLink>
+                            <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/blogshome'}>Blog</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to= {'/about'}>About</NavLink>
+                            <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/about'}>About</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={'/contactus'}>Contact</NavLink>
+                            <NavLink className="nav-link navigation-items" id='nav-link-id' to={'/contactus'}>Contact</NavLink>
                         </li>
                        
                         <li className="nav-item">
@@ -143,10 +172,10 @@ const NavigationBar = () => {
 
                             {/* show this when user is login and route is profile */}
                             {
-                            path=='/profile' && localStorage.getItem("userId") ?  <li className="nav-item mt-1">
+                            path=='/profile' && localStorage.getItem("userId") ?  <li className="profile-nav-item">
                              <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className='dropdown-img'>
-                                    pic
+                                    <img src={DummyTopProfile}/>
                                 </DropdownToggle>
                                      
                                 <DropdownMenu right className='dropdown-menu'>
@@ -161,8 +190,6 @@ const NavigationBar = () => {
                                 </UncontrolledDropdown>
                              </li> : null
                             }
-                        
-                        
                        
                     </ul>   
                 </div>

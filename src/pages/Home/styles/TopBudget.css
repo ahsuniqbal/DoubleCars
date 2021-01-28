@@ -36,3 +36,6 @@
     border-color: #1C67CE; 
     font-weight: 500;
 }
+.explore-button:focus{
+    box-shadow: none !important;
+}

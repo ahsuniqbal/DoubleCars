@@ -5,10 +5,10 @@
 .search-text-field {
     border-color: transparent !important;
 }
-
+/* 
 .input :focus {
     outline-offset: 0px !important;
-}
+} */
 .recommended-trending-cars-head{
     font-family: Poppins;
     font-style: normal;
@@ -17,6 +17,7 @@
     line-height: 120%;
     color: #080B30;
     margin-bottom: 1rem !important;
+    margin-left: 9px;
 }
 .feature-heading{
   font-weight: 600;
@@ -65,10 +66,37 @@
   display: flex;
   float: right;
 }
-.new-used-tab{
+/* .new-used-tab{
+  background-color: white !important;
+  border: none !important;
+  font-weight: normal !important; 
+} */
+.new-used-class{
   color: grey;
+  background-color: white !important;
 }
-.new-used-tab:focus{
+.col-md4-of-new-used>.rwt__tablist{
+  border-left: 0px !important; 
+}
+.col-md4-of-new-used>.rwt__tablist:not([aria-orientation="vertical"]){
+  border-bottom: 0px !important;
+}
+.new-used-class>.rwt__tab:hover{
+  background-color: white !important;
+}
+.new-used-class>.rwt__tab[aria-selected="true"]:hover{
+  color:  #1c67ce !important;
+  background-color: white !important;
+}
+.new-used-class>.rwt__tab[aria-selected="true"]{
+  color:  #1c67ce !important;
+  background-color: white !important;
+}
+.new-used-class>.rwt__tab[aria-selected="false"]{
+  color:  grey !important;
+  background-color: white !important;
+}
+/* .new-used-tab:focus{
   color: blue;
-}
+} */
 /*  */

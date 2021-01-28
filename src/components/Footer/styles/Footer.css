@@ -32,6 +32,9 @@
   font-size: 16px !important;
   font-weight: bold;
 }
+.learn-more-button-cover:focus{
+  box-shadow: none !important;
+}
 /* End */
 
 /* Mid footer css starts here */
@@ -45,9 +48,12 @@
   }
 
 .footer-dc {
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
   color: black;
   font-size: 24px;
-  font-weight: bolder;
+  /* font-weight: bolder; */
   line-height: 29px;
   font-style: normal;
   margin-top: 0.4rem;
@@ -55,22 +61,39 @@
  }
 
 .discription-dc-footer {
-  color: rgba(8, 11, 48, 0.85);
-  font-size: 15px;
-  font-weight: normal;
+
   text-align: justify;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 160%;
+  color: rgba(8, 11, 48, 0.85);
   
   
 }
 
 .nav-text-color {
-  color: rgba(8, 11, 48, 0.85) !important;
-  
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  color: rgba(8, 11, 48, 0.85); 
   cursor: pointer;
   text-align: left !important;
 }
+.nav-text-color-bottom{
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 140%;
+  color: rgba(8, 11, 48, 0.65);
+}
 
 .footer-contact-information {
+  font-family: Proxima Nova;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -81,6 +104,8 @@
   text-align: left !important;
 }
 .footer-contact {
+  font-family: Ubuntu;
+  font-style: normal;
   font-size: 16px !important;
   line-height: 18px;
   font-weight: 500 !important;

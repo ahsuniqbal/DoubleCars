@@ -1,5 +1,6 @@
 .main-card{
     margin: 30px 0px;
+    border: 0px;
 }
 .rwt__tabs{
     width: 100% !important;
@@ -54,15 +55,14 @@
     border-left: 0px !important;
     text-align: justify;
 }
-.rwt__tab[aria-selected="true"]:after{
-    border-right: 3px solid #1C67CE !important;
-    
-    
+.price-range-tablist>.rwt__tab[aria-selected="true"]:after{
+    border-right: 3px solid #1C67CE !important;   
 }
-
-.rwt__tab[aria-selected="true"] {
+.price-range-tablist>.rwt__tab[aria-selected="true"] {
     background-color: #FAFAFA !important;
     color: #1C67CE;
+    border-right: 3px solid #1C67CE !important;
+    font-weight: 700 !important; 
 }
 
 .Items:focus{
@@ -71,6 +71,7 @@
     border-right: 3px solid #1C67CE !important;
     font-weight: 700;
 }
+
 /* card */
 .head{
     font-family: Ubuntu;

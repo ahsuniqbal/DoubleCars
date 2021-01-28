@@ -88,7 +88,7 @@ const DealerProfile = ({match}) => {
                         </Col>
                     </Row>
                     
-                    <Row className="search-heading mb-2 mt-5">
+                    <Row className="search-heading my-4">
                         <Col md="8">
                             {
                                 inventory ? 
@@ -99,11 +99,11 @@ const DealerProfile = ({match}) => {
                             
                         </Col>
                         <Col md="2">
-                            <Label className="float-right mt-2">Sort by</Label>
+                            <Label className="sort-class float-right mt-2">Sort by</Label>
                         </Col>
-                        <Col md="2">
-                            <Input type="select" onChange={(e) => ProductSorting(e.target.value)}>
-                                <option value="relevance">Relevance</option>
+                        <Col md="2" className='relevance-select-option-class'>
+                            <Input type="select" onChange={(e) => ProductSorting(e.target.value)} className='relevance-class'>
+                                <option value="relevance">Relevence</option>
                                 <option value="price">Price</option>
                             </Input>
                         </Col>

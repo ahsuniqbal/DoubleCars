@@ -29,9 +29,9 @@ const PriceRange = () => {
                 <Grid container spacing={3}>
                     <Grid item sm={12}  md={4} lg={2} className='price-range-grid'>
 
-                        <TabList>
+                        <TabList className='price-range-tablist'>
                             <span className='price-head'>Price Range</span>
-                            <Tab tabFor="vertical-tab-one" className='Items'>Under $10,000</Tab>
+                            <Tab tabFor="vertical-tab-one" className='Items' id=''>Under $10,000</Tab>
                             <Tab tabFor="vertical-tab-two" className='Items'>Under $20,000</Tab>
                             <Tab tabFor="vertical-tab-three" className='Items'>Under $30,000</Tab>
                             <Tab tabFor="vertical-tab-four" className='Items'>Under $40,000</Tab>
