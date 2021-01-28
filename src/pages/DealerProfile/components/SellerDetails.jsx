@@ -17,7 +17,7 @@ const SellerDetails = (props) => {
                     props.userRole === "Dealership" ?
                 
                 <CardBody>
-                    <Row>
+                    <Row className='dealer-profile-row'>
                         <Col md = "8">
                             <Row>
                                 <Col md = "2">
@@ -86,7 +86,7 @@ const SellerDetails = (props) => {
                 </CardBody>
             :
                  <CardBody>
-                     <Row>
+                     <Row className='dealer-profile-row'>
                          <Col md = "12">
                              <Row>
                                  <Col md = "2" xs = "12">
@@ -111,9 +111,7 @@ const SellerDetails = (props) => {
                                         <p className = "seller-details-p">{props.aboutMe}</p>
                                         :
                                         <p className = "seller-details-p">
-                                             This seller has provided no information Lorem ipsum, dolor sit amet 
-                                            totam quas earum possimus doloremque libero, assumenda praesentium nemo 
-                                            debitis, modi quos quod.
+                                             This seller has provided no information .
                                         </p>
                                     }
                                 </Col>

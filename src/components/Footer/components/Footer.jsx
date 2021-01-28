@@ -134,7 +134,7 @@ const Footer = () => {
                                     {/* <Facebook color="#1C67CE" size={20} className = "feather-icon"/> */}
                                     <img  src = {FacebookFooter} className = ""/>
                                 </Col >
-                                <Col md = "2" xs = "" className = "icons-columns ">
+                                <Col md = "2" xs = "" className = "instra-icons-columns ">
                                     {/* <Instagram color="#1C67CE" size={20} className = "feather-icon"/> */}
                                     <img  src = {InstraFooter} className = ""/>
                                 </Col>

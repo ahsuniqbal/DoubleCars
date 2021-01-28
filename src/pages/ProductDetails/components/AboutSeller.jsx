@@ -7,7 +7,7 @@ import '../styles/AboutSeller.css'
 import { Link } from 'react-router-dom';
 import { GetSellerDetails } from '../api/GetRequests';
 import { Phone, Mail } from 'react-feather';
-
+import CheckMark from '../../../assets/dealersCheckMark.png';
 import DealerProfileImage from '../../../assets/DealerProfileImage.png'
 
 const SellerDetails = (props) => {
@@ -45,7 +45,11 @@ const SellerDetails = (props) => {
                                 
                             </Col>
                             <Col xs = "9" className = "seller-column">
-                                <Label className = "seller-name">{dealer.fullName}</Label> <br/>
+                              
+                                    <div className='d-flex '>
+                                        <Label className = "seller-name">{dealer.fullName}</Label>
+                                        <img src={CheckMark} className='seller-check'/>
+                                    </div>
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                 <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />

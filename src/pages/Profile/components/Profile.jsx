@@ -134,7 +134,7 @@ const Profile = (props) => {
                             </Col>
                         </Row>
                         <Row>
-                           <Col>
+                           <Col className='class-for-textarea'>
                                 <Label className = "profile-labels" >Bio</Label>
                                 <textarea class="form-control bio-box" rows="5" placeholder = "Message (Optional)"></textarea>
                            </Col>

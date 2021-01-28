@@ -74,8 +74,13 @@
     height: 56px ;
     background: #FFFFFF;
 }
-textarea{
-color: red !important;
+/* drag option of textarea */
+.class-for-textarea>textarea{
+        background: url('../../../assets/textarea-drag.png')no-repeat 100% 99% !important;
+        background-size: 12px !important;   
+}
+.class-for-textarea>::-webkit-resizer{
+    display: none !important;
 }
 .bio-box {
     

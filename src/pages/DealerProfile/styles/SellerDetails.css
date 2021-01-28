@@ -1,3 +1,6 @@
+.dealer-profile-row{
+  padding-bottom: 0.6rem !important;
+}
 .seller-card {
     background-color: #ffffff;
     margin-top: 4rem;
@@ -55,8 +58,12 @@
 }
 
 .seller-details-p {
-    font-size: 15px;
-    color: rgba(0, 0, 0, 0.55);
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 180%;
+  color: rgba(0, 0, 0, 0.55);
 }
 .contact-details-p {
     font-family: Ubuntu;
