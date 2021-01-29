@@ -17,14 +17,17 @@
 }
 .right-side-column {
     background-color: white;
-    padding:0px 79px;
+    padding:0px 105px;
 }
 
 .login-now-head {
-    font-weight: bold;
+    font-family: 'Poppins' !important;
+    font-style: normal;
+    font-weight: 600;
     font-size: 32px;
     line-height: 46px;
-    margin-top: 6rem;
+    text-align: center;
+    margin-top: 4rem;
     color: rgba(0, 0, 0, 0.85);
 }
 
@@ -37,6 +40,7 @@
 }
 
 .login-email,.login-password  {
+    font-family: Ubuntu;
     background: #FFFFFF ;
     border-radius: 4px;
     border: 1px solid #E9E9E9;
@@ -45,9 +49,11 @@
     margin-top: 1rem; 
 }
 .login-email::placeholder,.login-password::placeholder  {
-    color: rgba(0, 0, 0, 0.35);
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
     font-size: 14px;
-    line-height: 24px;
+    line-height: 22px;
 }
 .form-check{
     padding: 0 !important;
@@ -76,17 +82,20 @@
 }
 
 .remember-label {
+    font-family: Ubuntu;
+    font-style: normal;
     font-weight: normal;
-    font-size: 13px;
-    line-height: 22px;
-    /* margin-top: 0.8rem; */
+    font-size: 15px;
+    line-height: 26px;
+    text-align: center;
+    color: #1C67CE;
 }
 .remember-check {
     margin-top: 1.05rem;
 }
 
 .register-forgot-column {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 
 .not-register-label {
@@ -111,7 +120,7 @@
     text-align: center; 
     border-bottom: 1px solid #eff3f6; 
     line-height: 0.1em;
-    margin: 20px 0 30px; 
+    margin: 30px 0 30px; 
     font-size: 15px;
     color: rgba(0, 0, 0, 0.45);
     font-weight: normal;

@@ -63,3 +63,6 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+img{
+  box-shadow: none !important;
+}

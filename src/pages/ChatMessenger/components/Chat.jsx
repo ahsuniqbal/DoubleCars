@@ -8,15 +8,15 @@ const Chat = () => {
     return (
         <Container>
             <Row>
-                <Col md="3">
+                <Col md="3" style={{marginTop: '9rem'}} >
                     <ChatList />
                 </Col>
 
-                <Col md="6" style={{padding: '0'}}>
+                <Col md="6" style={{padding: '0', marginTop: '9rem'}}>
                     <ChatView />
                 </Col>
 
-                <Col xs="3" style={{padding: '0'}}>
+                <Col xs="3" style={{padding: '0', marginTop: '9rem'}}>
                     <ProfileView />
                 </Col>
             </Row>

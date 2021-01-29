@@ -83,7 +83,7 @@
     height: 25px;
 }
 
-.vertical-line {
+.about-vertical-line {
     border-right: 1px solid rgba(0, 0, 0, 0.05);
     height: 276px;
     width: 0px !important;
@@ -112,7 +112,7 @@
 .about-content {
     font-weight: 300;
     font-size: 16px;
-    line-height: 160%;
+    line-height: 26px;
     color: rgba(0, 0, 0, 0.84);
     margin-bottom: 5rem;
 }

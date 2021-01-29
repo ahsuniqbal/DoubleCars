@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ImageGallery from 'react-image-gallery';
 import '../styles/Gallery.css';
 import { Bookmark } from 'react-feather';
 
 const Gallery = (props) => {
+
     return(
         <div>    
             <ImageGallery

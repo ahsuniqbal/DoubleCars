@@ -8,6 +8,7 @@ import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
+import Eyepiece from '../../../../assets/eyepiece.png'
 
 const Login = (props) => {
     const [loading,setLoading] = useState(false)
@@ -70,10 +71,11 @@ const Login = (props) => {
                             </Row>
                             <Form onSubmit={e => handleLogin(e)}>
                                 
-                                <Input id="login-email" onChange={e => document.getElementById('error-label').textContent = ""} className = "login-email" type="email" placeholder="Enter Email" required />
+                                <Input id="login-email" onChange={e => document.getElementById('error-label').textContent = ""} className = "login-email" type="email" placeholder="Your Email Address" required />
                                 <div className='pass-wrapper'>
-                                    <Input id="login-password" onChange={e => document.getElementById('error-label').textContent = ""} className = "login-password"  type={passwordShown ? "text" : "password"} placeholder= "Enter password" required />
-                                    <i onClick={togglePasswordVisiblity}>{eye}</i>
+                                    <Input id="login-password" onChange={e => document.getElementById('error-label').textContent = ""} className = "login-password"  type={passwordShown ? "text" : "password"} placeholder= "Your Password" required />
+                                    <i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
+                                    
                                  </div>
                                 <div id="error-label"></div>
 
@@ -81,7 +83,7 @@ const Login = (props) => {
                                     <Col xs="6" md = "6" className = "remember-login-column">
                                     <FormGroup check>
                                         <Label check  className = "remember-label">
-                                        <Checkbox color="primary" />
+                                        <Checkbox color="primary" style={{marginLeft:'5px'}} />
                                         Remember Details?
                                         </Label>
                                     </FormGroup>

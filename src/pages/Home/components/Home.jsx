@@ -184,17 +184,17 @@ const Home = () => {
                         </Col>
                         <Col xs="2"></Col>
                     </Row>
-                    <Tabs defaultTab="feature-tab">
+                    <Tabs defaultTab="new-feature-tab">
                         <Row className='features-row'>
                             
                                 <Col xs = "12" md = "8" sm = "12" className = "">
                                     <h2 className = "feature-heading">Featured Cars</h2>
                                 </Col>
                             
-                                <Col md = "4" xs = "12" >
+                                <Col md = "4" xs = "12" className='col-md4-of-new-used'>
                                  <TabList className = "new-used-class">
-                                    <Tab tabFor="new-feature-tab" className='px-1'><Link className = "new-used-tab" to="">New</Link></Tab>
-                                    <Tab tabFor="old-feature-tab" className='px-1'><Link className = "new-used-tab" to="">Used</Link></Tab> 
+                                    <Tab tabFor="new-feature-tab" className='px-1'>New</Tab>
+                                    <Tab tabFor="old-feature-tab" className='px-1'>Used</Tab> 
                                  </TabList>
                                 </Col>
                            

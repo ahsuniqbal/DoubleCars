@@ -8,7 +8,6 @@ import { AddCommaToNumber } from "../../../utils/NumberManipulation";
 import '../styles/DCSlider.css'
 import nextIcon from '../../../assets/next-icon.png';
 import previousIcon from '../../../assets/prev-icon.png';
-import $ from 'jquery';
 
 const NextIcon=(props)=>{
   const { className, onClick } = props;
@@ -34,17 +33,16 @@ const PrevoiusIcon=(props)=>{
 }
 const DCSlider = (props) => {
 
+  const [activeSlide,setActiveSlide]=useState(0)
 
     let settings = {
         adaptiveHeight: true,
         autoplaySpeed: 2000,
         autoplay: false,
-        nextArrow: <NextIcon />,
-        prevArrow:<PrevoiusIcon/>,
-        // centerMode: true,
-        // centerPadding: '50px',
+        nextArrow: activeSlide==0 && <NextIcon />,
+         prevArrow:activeSlide!==0 && <PrevoiusIcon/>  ,
         dots: false,
-        // fade: true,
+        beforeChange: (current, next) => setActiveSlide(next),
         responsive: [
           {
             breakpoint: 576,
