@@ -48,6 +48,9 @@
     border-radius: 6px;
     margin: auto;
 }
+.cardslogo-main:hover , .cardslogo-main3:hover{
+    transform: scale(1.01);
+}
 /* firt row */
 .corolla-car{
 

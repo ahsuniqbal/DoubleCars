@@ -12,6 +12,9 @@
 .article-card-image {
     border-radius: 4px;
     }
+.article-card-main:hover{
+    transform: scale(1.01);
+}
 .article-image {
     border-radius: 4rem;
     width: auto;

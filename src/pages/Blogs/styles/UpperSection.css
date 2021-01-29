@@ -8,6 +8,7 @@
 .uper-section-coloumns{
     padding: 0 !important;
 }
+
 .type-label1 {
     text-transform: uppercase;
     position: absolute;
@@ -176,9 +177,16 @@
     height:291px;
     overflow: hidden;
 }
-.first-column:hover, .second-column:hover, .third-coloumn:hover{
+.first-column:hover, .second-column:hover, .third-coloumn:hover,.blog-third-column:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+}
+/* .third-coloumn:hover{
     cursor: pointer;
 }
+.blog-third-column-partone:hover , .blog-third-column-parttwo:hover{
+    transform: scale(1.01);
+} */
 
 .fucking-padding-left {
     padding-left: 5px;  

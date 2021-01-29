@@ -29,7 +29,7 @@ const UpperSection = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         border: '5px solid white',
-       
+       width:'95%'
         // height: '80vh',
       };
       
@@ -39,7 +39,7 @@ const UpperSection = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         border: '5px solid white',
-        borderLeft:'8px solid white',
+        borderLeft:'5px solid white',
         padding:'0',
       
         // height: '40vh',
@@ -50,7 +50,7 @@ const UpperSection = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         border: '5px solid white',
-        borderLeft:'8px solid white',
+        borderLeft:'5px solid white',
         padding:'0',
        
         // height: '40vh',
@@ -87,8 +87,8 @@ const UpperSection = () => {
             </Col>
             <Col md = "3" xs = "12"  className="uper-section-coloumns">
                 <Row>
-                    <Col md = "12" xs = "12" className=" pb-1" style={BlogpageImage3}>
-                      <div className='third-coloumn' onClick={()=>history.push('/blogs')}>
+                    <Col md = "12" xs = "12" className=" pb-1" style={BlogpageImage3} className='blog-third-column'>
+                      <div className='third-coloumn' onClick={()=>history.push('/blogs')} >
                         {/* <div className="">
                           <img src={img3} className="img-fluid" />
                         </div> */}
@@ -101,8 +101,8 @@ const UpperSection = () => {
                       
                     </Col>
                     
-                    <Col md = "12" xs = "12" className="pt-1" style={BlogpageImage4}>
-                     <div className='third-coloumn' onClick={()=>history.push('/blogs')}>
+                    <Col md = "12" xs = "12" className="pt-1" style={BlogpageImage4} className='blog-third-column'>
+                     <div className='third-coloumn' onClick={()=>history.push('/blogs')} >
                       {/* <div className="">
                           <img src={img4} className="img-fluid" />
                         </div> */}

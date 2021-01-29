@@ -12,11 +12,12 @@ import LowerCarsImage8 from '../../../assets/TopStoriesCardDemoImage.png';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Slider from "react-slick";
+import {useHistory} from 'react-router-dom'
 import {GetProductsOfBodyType} from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth'
 
 const LowerCar = (props) => {
-     
+     const history=useHistory()
 // data of api get through home.jsx
 //      const {bodyTypes}=props
 //     useEffect(()=>{
@@ -78,43 +79,43 @@ const LowerCar = (props) => {
                
           </Slider> */}
             <Slider {...settings}>
-               <div className = "lower-section-car">
+               <div className = "lower-section-car" >
                     <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage1} className='img-fluid lower-cars-carousel-images'/>
                     {/* <img src={LowerCarsImage1} className='img-fluid lower-cars-carousel-images'/> */}
                     <p className='text'>Sedan</p>
                </div>
-               <div>
+               <div className = "lower-section-car">
                <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage2} className='img-fluid lower-cars-carousel-images'/>
                     {/* <img src={LowerCarsImage2} className='img-fluid lower-cars-carousel-images'/> */}
                     <p className='text'>Suv</p>
                </div>
-               <div>
+               <div className = "lower-section-car">
                <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage3} className='img-fluid lower-cars-carousel-images'/>
                     {/* <img src={LowerCarsImage3} className='img-fluid lower-cars-carousel-images'/> */}
                     <p className='text'>Sports Car</p>
                </div>
-               <div>
+               <div className = "lower-section-car">
                <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage4} className='img-fluid lower-cars-carousel-images'/>
                     {/* <img src={LowerCarsImage4} className='img-fluid lower-cars-carousel-images'/> */}
                     <p className='text'>Hatchback</p>
                </div>
                    
-               <div>
+               <div className = "lower-section-car">
                <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage5} className='img-fluid lower-cars-carousel-images'/>
                     {/* <img src={LowerCarsImage5} className='img-fluid lower-cars-carousel-images'/> */}
                     <p className='text'>Mecedez</p>
                </div>
-               <div>
+               <div className = "lower-section-car">
                <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage6} className='img-fluid lower-cars-carousel-images'/>
                     {/* <img src={LowerCarsImage6} className='img-fluid lower-cars-carousel-images'/> */}
                     <p className='text'>Land Rover</p>
                </div>
-               <div>
+               <div className = "lower-section-car">
                <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage7} className='img-fluid lower-cars-carousel-images'/>
                     {/* <img src={LowerCarsImage7} className='img-fluid lower-cars-carousel-images'/> */}
                     <p className='text'>Audi</p>
                </div>
-               <div>
+               <div className = "lower-section-car" >
                <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage8} className='img-fluid lower-cars-carousel-images'/>
                     {/* <img src={LowerCarsImage8} className='img-fluid lower-cars-carousel-images'/> */}
                     <p className='text'>Mercez Benz</p>
