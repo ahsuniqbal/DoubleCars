@@ -87,8 +87,8 @@ const Profile = (props) => {
                     <Card>
                         
                         <CardBody>
-                            <img src = {user ? user.profilePic : null} class = "img-fluid profile-image" alt = "profile-image"/> <br/>
-                            <Button onClick={e => changePicture()} className = "change-pic-button">Change Picture</Button> <br/>
+                            <img src = {user ? user.profilePic : null} id="profile-img" class = "img-fluid profile-image" alt = "profile-image"/> <br/>
+                            <Button onClick={e => changePicture(e)} className = "change-pic-button">Change Picture</Button> <br/>
                             <Button className = "remove-pic-button">Remove Picture</Button> 
                         </CardBody>
                     </Card>
@@ -117,12 +117,12 @@ const Profile = (props) => {
                                 <Input id="phNum" className = "profile-text-field" type="number"  value={user ? user.phNum : "loading..."}/>
                             </Col>
 
-                            <Col xs = "12" md = "6">
+                            {/* <Col xs = "12" md = "6">
                                 <Label className = "profile-labels" id='mobile-zip-label'>Zip Code</Label>
                                 <Input id=""className = "profile-text-field" type="text" defaultValue={user ? user.fullName : "loading..."}/>
-                            </Col>
+                            </Col> */}
                         </Row>
-                        <Row>
+                        {/* <Row>
                             <Col>
                                 <Label className = "profile-labels">Location</Label>
                                 <Input id="" className = "profile-text-field" type="text" />
@@ -133,7 +133,7 @@ const Profile = (props) => {
                                 <Label className = "profile-labels">Bio</Label>
                                 <textarea class="form-control bio-box" rows="4" placeholder = "Message (Optional)"></textarea>
                            </Col>
-                        </Row>
+                        </Row> */}
                         <Row>
                             <Col>
                                 <Button onClick={e => saveProfileClick()} color="primary" className="save-profile-button float-right">
