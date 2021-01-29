@@ -91,6 +91,7 @@ const DCSlider = (props) => {
                             productSubtitle={AddCommaToNumber(item.mileage) + " mileage · " + item.zipCode}
                             productText={"$" + AddCommaToNumber(item.price)}
                             allowBookmark={props.allowBookmark}
+                           
                         />      
                     ))
                 : null

@@ -29,4 +29,5 @@
 }
 .top-news-card:hover,.top-news-first-column:hover {
     cursor: pointer;
+    transform: scale(1.01);
 }

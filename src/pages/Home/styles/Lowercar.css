@@ -1,16 +1,18 @@
-.lower-section-car {
+/* .lower-section-car {
     height: 352px;
-}
+} */
 
-.lower-section-img{
-    position: relative;
-} 
 
 .lower-cars-carousel-images {
     height: 353px;
     width: 360px;
     object-fit: cover;
+    transition: 0.5s all ease-in-out; 
     /* padding-right: 0px !important; */
+}
+.lower-cars-carousel-images:hover{
+    cursor: pointer;
+    transform: scale(1.01);
 }
 .lower-main{
     padding: 0% !important;

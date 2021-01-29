@@ -47,16 +47,16 @@ const UpcomingCars = () => {
           <Col md = "3" xs = "12" style = {UpcomingCarDemo2}></Col> */}
           <Col md = "12" xs = "12">
             <Row className='upcoming-img'>
-                <Col md = "9" xs = "12" style={{paddingLeft: '0px', paddingRight: '3px'}} onClick={()=>history.push('/blogs')}>
+                <Col md = "9" xs = "12" style={{paddingLeft: '0px', paddingRight: '3px'}} onClick={()=>history.push('/blogs')} className='upcoming-car-hover'>
                   <div style = {UpcomingCarDemo1}></div>
                 </Col>
-                <Col md = "3" xs = "12" style={{paddingLeft: '3px', paddingRight: '0px'}} onClick={()=>history.push('/blogs')}>
+                <Col md = "3" xs = "12" style={{paddingLeft: '3px', paddingRight: '0px'}} onClick={()=>history.push('/blogs')} className='upcoming-car-hover'>
                   <div style = {UpcomingCarDemo2}></div>
                 </Col>
-                <Col md = "3" xs = "12" style={{paddingLeft: '0px', paddingRight: '3px', paddingTop: '4px'}}  onClick={()=>history.push('/blogs')}>
+                <Col md = "3" xs = "12" style={{paddingLeft: '0px', paddingRight: '3px', paddingTop: '4px'}}  onClick={()=>history.push('/blogs')} className='upcoming-car-hover'>
                   <div style = {UpcomingCarDemo2}></div>
                 </Col>
-                <Col md = "9" xs = "12" style={{paddingLeft: '3px', paddingRight: '0px', paddingTop: '4px'}}  onClick={()=>history.push('/blogs')}>
+                <Col md = "9" xs = "12" style={{paddingLeft: '3px', paddingRight: '0px', paddingTop: '4px'}}  onClick={()=>history.push('/blogs')} className='upcoming-car-hover'>
                   <div style = {UpcomingCarDemo2}></div>
                 </Col>
             </Row>

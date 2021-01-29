@@ -9,7 +9,7 @@ const AboutChoose = () => {
     return(
         <Row >
            <Col xs = "12" md = "4" className = "about-choose-col">
-                <img src = {AboutChooseDummy} className = "img-fluid " alt = "demo Image"/>
+                <img src = {AboutChooseDummy} className = "img-fluid about-dummy-img" alt = "demo Image"/>
            </Col>
            <Col md = "1" className = "about-choose-col"></Col>
            <Col xs = "12" md = "7" className = "about-choose-col">

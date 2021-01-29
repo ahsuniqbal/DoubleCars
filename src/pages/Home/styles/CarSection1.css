@@ -9,6 +9,9 @@
     padding-right: 5px;
     background-color: white;
 }
+.car-section-coloumn:hover{
+    transform: scale(1.01);
+}
 .car-badge {
     position: absolute;
     left: 3%;
