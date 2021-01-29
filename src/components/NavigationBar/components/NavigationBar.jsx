@@ -46,6 +46,7 @@ const NavigationBar = () => {
 
     //get user data to show dropdown at navbar
     const [userName,setUserName] = useState(null)
+    const [profilePic,setProfilePic] = useState(null)
     const path=window.location.pathname 
     console.log(path)
     useEffect(()=>{
@@ -54,6 +55,7 @@ const NavigationBar = () => {
         getUser(localStorage.getItem("userId"))
         .then(doc => {
             setUserName(doc[0].fullName)
+            setProfilePic(doc[0].profilePic)
         })
         .catch(e => {
             alert(e.message)
@@ -175,7 +177,7 @@ const NavigationBar = () => {
                             path=='/profile' && localStorage.getItem("userId") ?  <li className="profile-nav-item">
                              <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className='dropdown-img'>
-                                    <img src={DummyTopProfile}/>
+                                    <img className="img-fluid" width="40px" src={profilePic ? profilePic : DummyTopProfile}/>
                                 </DropdownToggle>
                                      
                                 <DropdownMenu right className='dropdown-menu'>

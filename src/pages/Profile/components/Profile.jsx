@@ -1,17 +1,25 @@
 import React,{ useState, useEffect} from 'react';
-import { Button, Container, Row, Col, Input, Label, Card,CardBody} from 'reactstrap';
+import {  Container, Row, Col, Input, Label, Card,CardBody} from 'reactstrap';
 import '../styles/Profile.css'
-import { logout } from '../../../config/LoginAuth';
+// import { logout } from '../../../config/LoginAuth';
 import profileImage from '../../../assets/Dummy-profile-image.png'
 import {getUser} from '../api/Get'
+import {getBlob} from '../../../utils/Conversion'
 import {changePassword,updateUser} from '../api/Patch'
-import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
-import DummyTopProfile from '../../../assets/Dummy-short-profile.png'
-import {UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
+import {postImageToFTP} from '../../ChatMessenger/api/Post'
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+// import IconButton from '@material-ui/core/IconButton';
+// import PhotoCamera from '@material-ui/icons/PhotoCamera';
+
+// import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
+// import DummyTopProfile from '../../../assets/Dummy-short-profile.png'
+// import {UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
 const Profile = (props) => {
 
     const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(false)
+    const [loadingProfile,setLoadingProfile] = useState(false)
     useEffect(() => {
         //
         getUser(localStorage.getItem("userId"))
@@ -32,7 +40,6 @@ const Profile = (props) => {
         const obj = {
             firstName,lastName,phNum
         }
-
         updateUser(id,obj)
         .then(doc => {
             if(doc.code === 1){
@@ -73,9 +80,72 @@ const Profile = (props) => {
             alert(e.message)
         })
     }
-    const changePicture = () => {
-        
+
+    const removePicture = () => {
+        const objP = {
+            profilePic : null
+        }
+        updateUser(localStorage.getItem("userId"),objP)
+        .then(doc2 => {
+            window.location.reload()
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
     }
+
+    const changePicture = (e) => {
+        const img = e.target.files[0]
+        console.log(img)
+        document.getElementById('profile-img').src = URL.createObjectURL(img)
+        setLoadingProfile(true)
+        getBlob(img)
+        .then(doc => {
+            var obj = {
+                file : doc,
+                fileName : img.name
+            }
+            postImageToFTP([obj])
+            .then(doc1 => {
+                var url = doc1[0]
+                const objP = {
+                    profilePic : url
+                }
+                updateUser(localStorage.getItem("userId"),objP)
+                .then(doc2 => {
+                    setLoadingProfile(false)
+                    console.log(doc2)
+                })
+                .catch(e => {
+                    setLoadingProfile(false)
+                    console.log(e.message)
+                })
+            })
+            .catch(e => {
+                setLoadingProfile(false)
+                console.log(e.message)
+            })
+            
+        })
+        .catch(e => {
+            setLoadingProfile(false)
+            console.log(e.message)
+        })
+    }
+
+    const useStyles = makeStyles((theme) => ({
+        root: {
+          '& > *': {
+            margin: theme.spacing(1),
+          },
+        },
+        input: {
+          display: 'none',
+        },
+      }));
+      
+
+    const classes = useStyles();
 
     return(
         // <div>
@@ -91,9 +161,29 @@ const Profile = (props) => {
                     <Card className='py-3'>
                         
                         <CardBody>
-                            <img src = {user ? user.profilePic : null} id="profile-img" class = "img-fluid profile-image" alt = "profile-image"/> <br/>
-                            <Button onClick={e => changePicture(e)} className = "change-pic-button">Change Picture</Button> <br/>
-                            <Button className = "remove-pic-button">Remove Picture</Button> 
+                             <img src = {user ? user.profilePic ? user.profilePic : profileImage : profileImage} id="profile-img" class = "img-fluid profile-image" alt = "profile-image"/> <br/>
+                            {/*<Button onClick={e => changePicture(e)} className = "change-pic-button">Change Picture</Button> <br/> */}
+                                  <input
+                                    accept="image/*"
+                                    className={classes.input}
+                                    id="contained-button-file"
+                                    onChange={e => changePicture(e)}
+                                    type="file"
+                                />
+                                <label htmlFor="contained-button-file">
+                                    <Button variant="contained" color="primary" component="span">
+                                    {loadingProfile && <span>Changing...</span>}
+                                    {!loadingProfile && <span>Change Picture</span>}
+                                    </Button>
+                                </label>
+                                <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
+                                <label htmlFor="icon-button-file">
+                                    {/* <IconButton color="primary" aria-label="upload picture" component="span">
+                                    <PhotoCamera />
+                                    </IconButton> */}
+                                </label>
+
+                            <Button onClick={e => removePicture()} className = "remove-pic-button">Remove Picture</Button> 
                         </CardBody>
                     </Card>
                     </Col>
