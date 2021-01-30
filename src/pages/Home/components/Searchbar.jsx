@@ -35,10 +35,12 @@ const Searchbar = () => {
     const Search = (e) => {
         e.preventDefault();
         var searchInput = document.getElementById('search-box').value;
-        // sessionStorage.setItem('searchInput', searchInput);
+        var condition = document.getElementById('condition').value;
+
+        sessionStorage.setItem('searchInput', searchInput);
         history.push({
             pathname: '/products',
-            search: '?search=' + searchInput,
+            search: '?search=' + searchInput + '&isUsed=' + condition,
         })
     };
 
@@ -76,7 +78,7 @@ const Searchbar = () => {
                     <Row>
                         <Col xs="12" md="8" sm = "12" className='my-1'>
                         <InputGroup>
-                            <Input className="search-search-box" id="search-box" type="text" placeholder="Search Cars or Brand eg. Audi or Tesla" />
+                            <Input required className="search-search-box" id="search-box" type="text" placeholder="Search Cars or Brand eg. Audi or Tesla" />
                             <InputGroupAddon addonType="append">
                                 <InputGroupText>
                                     {/* <FontAwesomeIcon icon="search" size="1x" /> */}
@@ -93,15 +95,15 @@ const Searchbar = () => {
                                     <option value={false}>New</option>
                                     <option value={true}>Used</option>
                                 </Input> */}
-                                            <Input type="select" required className="condition-dropdown">
-                                            <option value=""disabled selected>Condition</option>
-                                            <option value="Option-1">New</option>
-                                            <option value="Option-2">Used</option>
+                                            <Input id="condition" type="select" required className="condition-dropdown">
+                                            <option value="" disabled selected>Condition</option>
+                                            <option value="false">New</option>
+                                            <option value="true">Used</option>
                                             </Input>
                             </Col>
 
                             <Col xs="12" sm="6" md="2" className='search-coloumn my-1'>
-                                <Button className = "search-button">Search</Button>
+                                <Button type="submit" className = "search-button">Search</Button>
                             </Col>
                
                         {/* <Col xs="6" sm="4" md="2">

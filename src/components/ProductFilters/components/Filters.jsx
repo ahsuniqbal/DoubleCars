@@ -440,7 +440,9 @@ const Filters = (props) => {
         GetFiltersList().then(doc => {
             setFiltersList(doc.listRanges);
             setPrice([0, doc.listRanges.ranges[0].maxPrice]);
-            handleCondition()
+            handleCondition();
+
+            
         }).catch(error => {
             alert(error.message);
         })
@@ -653,7 +655,8 @@ const Filters = (props) => {
                             {/******** Condition filter ************/}
                             <h6>Condition</h6>
                             <FormGroup check>
-                                <Input type="checkbox" id="condition-new" name="condition" onChange={() => handleCondition()} defaultChecked={props.isUsed ? props.isUsed === "true" ? false : true : false} />
+                                <Input type="checkbox" id="condition-new" name="condition" onChange={() => handleCondition()} 
+                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? false : true : false} />
                                 <Label check htmlFor="condition-new">New</Label>
                             </FormGroup>
                             <FormGroup check>

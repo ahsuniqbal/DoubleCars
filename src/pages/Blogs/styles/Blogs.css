@@ -105,6 +105,7 @@ margin-bottom: 1rem;
     height: 97px;
     border: 1px solid #E9E9E9;
     border-radius: 6px;
+    overflow: hidden;
 }
 
 .similar-cell-card-image {
