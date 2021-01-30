@@ -59,7 +59,7 @@
     box-shadow: 0 0 0 0.1rem rgb(13, 81, 170,0.1) ;
 }
 
-.signup-button {
+.register-button {
    background-color: #1C67CE !important;
     border-radius: 0.4rem  ;
     color: #ffffff !important ;
@@ -71,6 +71,10 @@
     font-weight: 500;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
 }
+
+.register-button:focus, .register-button:active:focus {
+    box-shadow: none !important;
+  }
 
 
 .terms-signup-column {
