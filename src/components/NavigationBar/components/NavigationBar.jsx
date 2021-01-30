@@ -159,8 +159,7 @@ const NavigationBar = () => {
                                 <Input className="search-box" type="text" placeholder="Search" id='top-search-box' />
                                 </InputGroup>
                             </Form>
-                        </li>
-
+                            </li>
                             {
                                 localStorage.getItem("userId") ? null : <li className="nav-item">
                                 <NavLink className="nav-link navigation-items login-button" to="/login" >Log in</NavLink>
@@ -176,8 +175,8 @@ const NavigationBar = () => {
                             {
                             path=='/profile' && localStorage.getItem("userId") ?  <li className="profile-nav-item">
                              <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret className='dropdown-img'>
-                                    <img className="img-fluid" width="40px" src={profilePic ? profilePic : DummyTopProfile}/>
+                                <DropdownToggle nav caret className='dropdown-toggle-image'>
+                                    <img className="img-fluid profile-navbar-image" src={profilePic ? profilePic : DummyTopProfile}/>
                                 </DropdownToggle>
                                      
                                 <DropdownMenu right className='dropdown-menu'>
