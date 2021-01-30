@@ -1,5 +1,5 @@
 import React,{ useState, useEffect} from 'react';
-import {  Container, Row, Col, Input, Label, Card,CardBody} from 'reactstrap';
+import {  Container, Row, Col, Input, Label, Card,CardBody, Button} from 'reactstrap';
 import '../styles/Profile.css'
 // import { logout } from '../../../config/LoginAuth';
 import profileImage from '../../../assets/Dummy-profile-image.png'
@@ -8,7 +8,7 @@ import {getBlob} from '../../../utils/Conversion'
 import {changePassword,updateUser} from '../api/Patch'
 import {postImageToFTP} from '../../ChatMessenger/api/Post'
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 // import IconButton from '@material-ui/core/IconButton';
 // import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
@@ -170,12 +170,12 @@ const Profile = (props) => {
                                     onChange={e => changePicture(e)}
                                     type="file"
                                 />
-                                <label htmlFor="contained-button-file">
-                                    <Button variant="contained" color="primary" component="span">
+                                {/* <label htmlFor="contained-button-file"> */}
+                                    <Button className = "change-pic-button">
                                     {loadingProfile && <span>Changing...</span>}
                                     {!loadingProfile && <span>Change Picture</span>}
                                     </Button>
-                                </label>
+                                {/* </label> */}
                                 <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
                                 <label htmlFor="icon-button-file">
                                     {/* <IconButton color="primary" aria-label="upload picture" component="span">
@@ -208,7 +208,7 @@ const Profile = (props) => {
                         <Row>
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels" id='giving-margin-top'>Mobile Number</Label>
-                                <Input id="phNum" className = "profile-text-field" type="number"  value={user ? user.phNum : "loading..."}/>
+                                <Input id="phNum" className = "profile-text-field" type="text"  value={user ? user.phNum : "loading..."}/>
                             </Col>
 
                             {/* <Col xs = "12" md = "6">

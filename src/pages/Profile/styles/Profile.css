@@ -45,6 +45,10 @@
     font-size: 14px;
     font-weight: 500;
 }
+
+.change-pic-button,.remove-pic-button:focus, .change-pic-button, .remove-pic-button:active:focus {
+    box-shadow: none !important;
+  }
 .profile-page-heading {
     font-weight: 500;
     font-size: 18px;
@@ -108,6 +112,10 @@
     margin-bottom: 1.6rem;
     margin-top: 1.6rem;
 }
+
+.save-profile-button,.change-password-button:focus, .save-profile-button, .change-password-button:active:focus {
+    box-shadow: none !important;
+  }
 
 .change-password-button {
     background-color: #1C67CE  !important;
