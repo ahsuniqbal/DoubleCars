@@ -103,7 +103,7 @@ const Profile = (props) => {
         .then(doc => {
             var obj = {
                 file : doc,
-                fileName : img.name
+                fileName : img.name.replace(/\s/g, '')
             }
             postImageToFTP([obj])
             .then(doc1 => {
