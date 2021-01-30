@@ -62,7 +62,10 @@ function DrawSkeleton(){
 
 
 const Products = (props) => {
+
+    
     let locationSearch = queryString.parse(props.location.search);
+
 
     const [sortFlag, setSortFlag] = useState(false);
     const [products, setProducts] = useState([]);
@@ -138,6 +141,7 @@ const Products = (props) => {
                     <Filters
                         onFilterChange={filterQueryChange}
                         isUsed={locationSearch.isUsed}
+                        search={locationSearch.search}
                     />
                 </Col>
                 <Col xs="12" md="9" style = {{marginTop: '5rem'}}>

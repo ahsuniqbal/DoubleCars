@@ -30,7 +30,7 @@ const BlogsHome = () => {
                     <Col xs = "12" md = "9">
                         <Label className = "top-news-heading">Top News</Label>
                         <TopNews/>
-                        <img className = "img-fluid" src = {AdImage} alt = "ad" style = {{marginLeft: '3rem'}}/>
+                        <img className = "img-fluid" src = {AdImage} alt = "ad" style = {{marginLeft: '7rem'}}/>
                         <h1 className = "article-heading">Latest Articles</h1>
                         <Row>
                             <Col  md = "4" sm = "12" className='decrease-margin-between-cards' onClick={()=>history.push('/blogs')}>
