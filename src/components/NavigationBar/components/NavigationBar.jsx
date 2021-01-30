@@ -90,16 +90,16 @@ const NavigationBar = () => {
     //   }
       
     //code to hide navbar on scroll down and show on scroll up
-    var prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.querySelector(".navbar").style.top = "0";
-      } else {
-        document.querySelector(".navbar").style.top = "-100px";
-      }
-      prevScrollpos = currentScrollPos;
-    }
+    // var prevScrollpos = window.pageYOffset;
+    // window.onscroll = function() {
+    // var currentScrollPos = window.pageYOffset;
+    //   if (prevScrollpos > currentScrollPos) {
+    //     document.querySelector(".navbar").style.top = "0";
+    //   } else {
+    //     document.querySelector(".navbar").style.top = "-100px";
+    //   }
+    //   prevScrollpos = currentScrollPos;
+    // }
 
     // style for new car /used car span
     const styleDiv={
