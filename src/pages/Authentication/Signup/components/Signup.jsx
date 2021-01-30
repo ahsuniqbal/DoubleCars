@@ -194,7 +194,7 @@ const Signup = (props) => {
                                     </Col>
 
                                     <Col xs="6" md = "4" className = "text-right terms-signup-column">
-                                        <Button type="submit" color="primary" className="signup-button">
+                                        <Button type="submit" color="primary" className="register-button">
                                         {loading && <span>Signing up....</span>}
                                         {!loading && <span>Sign Up</span>}
                                         </Button>
