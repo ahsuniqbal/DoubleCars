@@ -48,7 +48,7 @@
   }
 
 .footer-dc {
-  font-family: Proxima Nova;
+
   font-style: normal;
   font-weight: bold;
   color: black;
@@ -63,7 +63,7 @@
 .discription-dc-footer {
 
   text-align: justify;
-  font-family: Proxima Nova;
+
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
@@ -74,7 +74,7 @@
 }
 
 .nav-text-color {
-  font-family: Proxima Nova;
+
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
@@ -84,7 +84,6 @@
   text-align: left !important;
 }
 .nav-text-color-bottom{
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -93,7 +92,6 @@
 }
 
 .footer-contact-information {
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
