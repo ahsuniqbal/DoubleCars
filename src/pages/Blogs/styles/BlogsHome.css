@@ -54,6 +54,7 @@
 }
 .upcoming-car-hover:hover{
     transform: scale(1.01);
+    transition: transform 500ms !important;    
 }
 @media screen and (max-width:600px){
     .upcoming-img{

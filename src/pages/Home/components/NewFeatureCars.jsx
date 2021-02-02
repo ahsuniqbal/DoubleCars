@@ -107,7 +107,7 @@ const NewFeaturedCars = () => {
     return(
         <Row className='main-feature'>
             <Col md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn'  onClick={()=>history.push('/products')}>
-            <Badge color="primary" className = "feature-car-badge1">New</Badge>
+                <Badge color="primary" className = "feature-car-badge1">New</Badge>
                 <div className="content-first">
                   <h2 className='content-header1'>$30,500</h2>
                   <Label className="content-text1">2019 Mercedes Benz Hybrid</Label>

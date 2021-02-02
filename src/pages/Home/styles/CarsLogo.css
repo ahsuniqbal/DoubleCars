@@ -37,6 +37,7 @@
     box-sizing: border-box;
     border-radius: 6px;
     margin: auto;
+    transition: transform 500ms !important;
 }
 .cardslogo-main3{
     
@@ -47,9 +48,10 @@
     box-sizing: border-box;
     border-radius: 6px;
     margin: auto;
+    transition: transform 500ms !important;
 }
 .cardslogo-main:hover , .cardslogo-main3:hover{
-    transform: scale(1.01);
+    transform: scale(1.02);
 }
 /* firt row */
 .corolla-car{

@@ -8,7 +8,7 @@ import {useHistory} from 'react-router-dom';
 const UpcomingCars = () => {
   const history = useHistory()
     const UpcomingCarDemo3 = {
-        backgroundImage: `url(${require("../../../../assets/UpcomingCarDemo3.png")})`,
+        backgroundImage: `url(${require("../../../../assets/UpcomingCarDemo3.jpg")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -17,7 +17,7 @@ const UpcomingCars = () => {
       };
 
       const UpcomingCarDemo4 = {
-        backgroundImage: `url(${require("../../../../assets/UpcomingCarDemo4.png")})`,
+        backgroundImage: `url(${require("../../../../assets/UpcomingCarDemo4.jpg")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -26,7 +26,7 @@ const UpcomingCars = () => {
       };
       
       const UpcomingCarDemo1 = {
-        backgroundImage: `url(${require("../../../../assets/UpcomingCarDemo1.png")})`,
+        backgroundImage: `url(${require("../../../../assets/UpcomingCarDemo1.jpg")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -34,7 +34,7 @@ const UpcomingCars = () => {
         
       };
       const UpcomingCarDemo2 = {
-        backgroundImage: `url(${require("../../../../assets/UpcomingCarDemo1.png")})`,
+        backgroundImage: `url(${require("../../../../assets/UpcomingCarDemo1.jpg")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',

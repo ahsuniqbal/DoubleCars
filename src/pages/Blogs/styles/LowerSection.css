@@ -5,6 +5,7 @@
 .lower-section:hover{
     cursor: pointer;
     transform: scale(1.01);
+    transition: transform 500ms !important;
 }
 .upper-section-column {   
     background: linear-gradient(1800deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);

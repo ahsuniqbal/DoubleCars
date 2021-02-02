@@ -1,12 +1,11 @@
 .product-card {
     margin-bottom: 1.5rem;  
+    transition: transform 500ms !important;
+    margin-top: 2px;
 }
 .product-card:hover{
-    margin-top: 2px;
-    transform: scale(1.01);
-    
-  
-}
+   
+    transform:scale(1.01);}
 /* Name of the car */
 .product-card .card-title{
     font-weight: 500;

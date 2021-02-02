@@ -34,5 +34,7 @@
 }
 .article-card-main:hover{
     cursor: pointer;
+    transition: transform 500ms !important;
+    transform: scale(1.01);
 }
 /* End */
