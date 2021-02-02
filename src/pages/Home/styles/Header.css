@@ -50,6 +50,7 @@
   line-height: 19px;
   font-weight: bold;
   box-shadow: none;
+  border: transparent !important;
 }
 .download-button-cover:focus{
   box-shadow: none !important;
