@@ -115,6 +115,7 @@ select:required:invalid {
 .contactus-image {
     height: 251px;
     width: 403px;
+    transition: transform 500ms !important;
 }
 .contact-us-image-column {
     margin-left: 2rem;

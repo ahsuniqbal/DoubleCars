@@ -8,6 +8,7 @@
 .car-section-coloumn{
     padding-right: 5px;
     background-color: white;
+    transition: transform 500ms !important;
 }
 .car-section-coloumn:hover{
     transform: scale(1.01);

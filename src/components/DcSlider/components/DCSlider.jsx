@@ -10,24 +10,30 @@ import nextIcon from '../../../assets/next-icon.png';
 import previousIcon from '../../../assets/prev-icon.png';
 
 const NextIcon=(props)=>{
-  const { className, onClick } = props;
+  const { className, onClick,activeSlide } = props;
+  console.log(activeSlide)
   return (
-    <div
-      className={className}
-      onClick={onClick}
-    >
-      <img src={nextIcon} className='icon-image' id='show-sliders'/>
+    <div>
+      {activeSlide==0 &&  
+            <div className={className} onClick={onClick}>
+            <img src={nextIcon} className='icon-image' id='show-sliders'/>
+          </div>
+        }
     </div>
   );
 }
 const PrevoiusIcon=(props)=>{
-  const { className, onClick } = props;
+  const { className, onClick ,activeSlide} = props;
   return (
-    <div
-      className={className}
-      onClick={onClick}
-    >
-      <img src={previousIcon} className='prev-icon-image' id='show-sliders'/>
+    <div>
+      {activeSlide!==0 && 
+        <div
+        className={className}
+        onClick={onClick}
+      >
+        <img src={previousIcon} className='prev-icon-image' id='show-sliders'/>
+      </div>
+      }
     </div>
   );
 }
@@ -37,12 +43,16 @@ const DCSlider = (props) => {
 
     let settings = {
         adaptiveHeight: true,
-        autoplaySpeed: 2000,
-        autoplay: false,
-        nextArrow: activeSlide==0 && <NextIcon />,
-         prevArrow:activeSlide!==0 && <PrevoiusIcon/>  ,
+        speed:800,
+        nextArrow: <NextIcon activeSlide={activeSlide}/>,
+        prevArrow:<PrevoiusIcon activeSlide={activeSlide}/>,
         dots: false,
         beforeChange: (current, next) => setActiveSlide(next),
+        swipeToSlide: true,
+        slidesToScroll: 1,
+        slidesToShow: 5,
+        autoplay: false,
+        infinite: false,
         responsive: [
           {
             breakpoint: 576,
@@ -70,14 +80,11 @@ const DCSlider = (props) => {
           },
         ],
         // slidesPerRow: 1,
-        swipeToSlide: true,
-        slidesToScroll: 1,
-        slidesToShow: 5,
-        infinite: false,
+        
     }
 
     return (
-        <Slider {...settings} className='silder-class'>
+        <Slider {...settings}  className='silder-class'>
             {
                 props.items ? 
                     props.items.map((item, index) => (

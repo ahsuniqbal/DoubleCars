@@ -27,6 +27,9 @@
    -webkit-line-clamp: 2; /* number of lines to show */
    -webkit-box-orient: vertical;
 }
+.top-news-card, .top-news-first-column{
+    transition: transform 500ms !important;
+}
 .top-news-card:hover,.top-news-first-column:hover {
     cursor: pointer;
     transform: scale(1.01);
