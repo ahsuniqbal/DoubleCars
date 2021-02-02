@@ -4,8 +4,11 @@
     object-fit: contain;
     max-height: 200px;
 }
+.service-img{
+      transition: transform 500ms !important; 
+}
 .service-img:hover{
-    transform: scale(1.01);
+    transform: scale(1.02);
 }
 .service-head{
     font-family: Poppins;
@@ -40,7 +43,7 @@
 }
 .service-col-img{
         padding: 15% 2%;
-    
+       
 }
 .service-col{
     padding: 14% 3%;

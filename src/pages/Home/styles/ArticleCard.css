@@ -12,7 +12,11 @@
 .article-card-image {
     border-radius: 4px;
     }
+.article-card-main{
+    transition: transform 500ms !important;
+}
 .article-card-main:hover{
+    cursor: pointer;
     transform: scale(1.01);
 }
 .article-image {
@@ -44,7 +48,5 @@
     color: #000000;
     margin-top: 0.8rem;
 }
-.article-card-main:hover{
-    cursor: pointer;
-}
+
 /* End */

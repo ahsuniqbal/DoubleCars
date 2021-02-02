@@ -1,9 +1,12 @@
 .main-feature{
     margin: 0;
+
 }
+
 .main-coloumn:hover{
     cursor: pointer;
     transform: scale(1.01);
+
 }
 .content-first{
     position: absolute;
@@ -25,8 +28,8 @@
 }
 .content-header1{
     font-family: Ubuntu;
-font-style: normal;
-font-weight: bold;
+    font-style: normal;
+    font-weight: bold;
     font-size: 26px;
     line-height: 30px;
     margin-bottom:5px !important
@@ -58,6 +61,8 @@ line-height: 25px;
     padding-left: 0% !important;
     position: relative;
     border-radius: 8px !important;
+    transition: transform 500ms !important;
+    
 }
 .feature-car-badge1{
     position: absolute;

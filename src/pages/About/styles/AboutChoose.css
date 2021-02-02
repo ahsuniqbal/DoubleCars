@@ -1,6 +1,10 @@
 .about-choose-col {
     margin-bottom: 5rem;
 }
+.about-dummy-img:hover{
+    transform: scale(1.01);
+    transition: transform 500ms !important;
+}
 
 .choose-heading {
     font-family: 'Ubuntu' !important;
@@ -21,6 +25,6 @@
 .about-check-icon {
     margin-right: 1.3rem;
 }
-.about-dummy-img:hover{
+/* .about-dummy-img:hover{
     transform: scale(1.01);
-}
+} */
