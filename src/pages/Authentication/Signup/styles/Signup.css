@@ -70,6 +70,7 @@
     margin-left: -26px;
     font-weight: 500;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
+    border: transparent !important;
 }
 
 .register-button:focus, .register-button:active:focus {
