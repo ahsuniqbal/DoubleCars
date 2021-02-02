@@ -50,7 +50,7 @@ a:hover {
     font-weight: bold;
 } */
 .navbar-nav li{
-    margin-left:12px;
+    /* margin-left:12px; */
     margin-right:12px;
 }
 .navbar-buttons{
@@ -134,9 +134,6 @@ a:hover {
     border-radius: 0.4rem !important;
     color: #1C67CE !important;
     border: 1px solid #1C67CE !important;
-    /* text-decoration: none !important; */
-    /* height: 60%; */
-    /* width: 120%; */
     line-height: 16px;
     font-size: 14px;
     text-align: center;
@@ -145,7 +142,7 @@ a:hover {
     padding-top: 12px;
     padding-bottom: 12px;
     font-weight: 500 !important;
-    margin-top: 2px;
+    margin-top: 2px !important;
 }
 
 .login-button{
@@ -162,12 +159,22 @@ a:hover {
 }
 /* navbar dropdown */
 .profile-nav-item{
-    margin-right: -35px !important;
-    margin-top: -3px !important;
+    margin-right: -19px !important;
+    margin-top: -4px !important;
 }
-.dropdown-img{
+.dropdown-toggle-image {
+    margin-left: 0px !important;
+}
+.profile-navbar-image{
     border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
 }
+
 .dropdown-toggle::after{
     display: none;
 }

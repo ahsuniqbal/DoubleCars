@@ -107,7 +107,9 @@ const Footer = () => {
                 {/* Lower Footer starts here */}
                 <Container className = "lower-footer-container">
                     <Row>
-                        <Col md = "3" xs = "12" className = "lower-footer-columns text-center">
+                        <Col md="1"></Col>
+                        
+                        <Col md = "2" xs = "12" className = "lower-footer-columns text-center">
                             <p className = "bootom-footer nav-text-color-bottom mt-2">© DoubleCars All Rights Reservered</p>
                         </Col>
                         <Col md = "2" xs = "12" className = "lower-footer-columns text-center">
@@ -116,15 +118,15 @@ const Footer = () => {
                         <Col md = "2" xs = "12" className = "lower-footer-columns text-center">
                             {/* <NavLink className = "bootom-footer nav-text-color" to="">Privacy Policy</NavLink> */}
                             <Link to={'/privacypolicy/'}>
-                            <NavLink className = "bootom-footer nav-text-color-bottom">Privacy Policy</NavLink>
+                            <NavLink className = "bootom-footer nav-text-color-bottom">Terms and Conditions</NavLink>
                         </Link>
                         </Col>
                         <Col md = "2" xs = "12" className = "text-center lower-footer-columns">
                         <Link to={'/termsandconditions/'}>
-                            <NavLink className = "bootom-footer nav-text-color-bottom">Terms and Conditions</NavLink>
+                            <NavLink className = "bootom-footer nav-text-color-bottom">Privacy Policy</NavLink>
                         </Link>
                         </Col>
-                        <Col md = "3" xs = "12" className = "lower-footer-columns">
+                        <Col md = "2" xs = "12" className = "lower-footer-columns">
                         {/* <Facebook color="#1C67CE" size={20} className = "feather-icon"/>
                         <Instagram color="#1C67CE" size={20} className = "feather-icon"/>
                         <Twitter color="#1C67CE" size={20} className = "feather-icon"/> */}
@@ -144,6 +146,8 @@ const Footer = () => {
                                 </Col>
                             </Row>
                         </Col>
+
+                        <Col md="1"></Col>
                     </Row>
                 </Container>
             </body>

@@ -46,6 +46,7 @@ const NavigationBar = () => {
 
     //get user data to show dropdown at navbar
     const [userName,setUserName] = useState(null)
+    const [profilePic,setProfilePic] = useState(null)
     const path=window.location.pathname 
     console.log(path)
     useEffect(()=>{
@@ -54,6 +55,7 @@ const NavigationBar = () => {
         getUser(localStorage.getItem("userId"))
         .then(doc => {
             setUserName(doc[0].fullName)
+            setProfilePic(doc[0].profilePic)
         })
         .catch(e => {
             alert(e.message)
@@ -88,16 +90,16 @@ const NavigationBar = () => {
     //   }
       
     //code to hide navbar on scroll down and show on scroll up
-    var prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.querySelector(".navbar").style.top = "0";
-      } else {
-        document.querySelector(".navbar").style.top = "-100px";
-      }
-      prevScrollpos = currentScrollPos;
-    }
+    // var prevScrollpos = window.pageYOffset;
+    // window.onscroll = function() {
+    // var currentScrollPos = window.pageYOffset;
+    //   if (prevScrollpos > currentScrollPos) {
+    //     document.querySelector(".navbar").style.top = "0";
+    //   } else {
+    //     document.querySelector(".navbar").style.top = "-100px";
+    //   }
+    //   prevScrollpos = currentScrollPos;
+    // }
 
     // style for new car /used car span
     const styleDiv={
@@ -157,8 +159,7 @@ const NavigationBar = () => {
                                 <Input className="search-box" type="text" placeholder="Search" id='top-search-box' />
                                 </InputGroup>
                             </Form>
-                        </li>
-
+                            </li>
                             {
                                 localStorage.getItem("userId") ? null : <li className="nav-item">
                                 <NavLink className="nav-link navigation-items login-button" to="/login" >Log in</NavLink>
@@ -174,8 +175,8 @@ const NavigationBar = () => {
                             {
                             path=='/profile' && localStorage.getItem("userId") ?  <li className="profile-nav-item">
                              <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret className='dropdown-img'>
-                                    <img src={DummyTopProfile}/>
+                                <DropdownToggle nav caret className='dropdown-toggle-image'>
+                                    <img className="img-fluid profile-navbar-image" src={profilePic ? profilePic : DummyTopProfile}/>
                                 </DropdownToggle>
                                      
                                 <DropdownMenu right className='dropdown-menu'>

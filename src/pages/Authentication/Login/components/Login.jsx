@@ -94,7 +94,7 @@ const Login = (props) => {
                                     </Col>
 
                                     <Col xs="6" md = "6" className = "text-right remember-login-column">
-                                        <Button type="submit" color="primary" className="login-button">
+                                        <Button type="submit" color="primary" className="login-button-login">
                                         {loading && <span>Logging in...</span>}
                                         {!loading && <span>Login</span>}
                                         </Button>

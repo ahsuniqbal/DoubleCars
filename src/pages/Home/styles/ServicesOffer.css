@@ -2,6 +2,7 @@
     width: 100% !important;
     height: 100% !important;
     object-fit: contain;
+    max-height: 200px;
 }
 .service-img{
       transition: transform 500ms !important; 
