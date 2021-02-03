@@ -1,6 +1,8 @@
 // Heroku base url connection string
 // const connectionString = "https://carsaleapi.herokuapp.com/";
 
+// const connectionString = "https://doublecars.herokuapp.com/"
+
 // Google compute base url connection string
 const connectionString = "https://magnetic-flare-280505.uc.r.appspot.com/";
 // const connectionString = "http://localhost:3002/";

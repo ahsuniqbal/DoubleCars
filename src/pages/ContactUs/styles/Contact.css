@@ -96,6 +96,7 @@ select:required:invalid {
     color: #ffffff !important;
     margin-top: 0.7rem;
     font-size: 15px !important;   
+    border: transparent !important;
 } 
 
 .send-button:focus, .send-button:active:focus {
