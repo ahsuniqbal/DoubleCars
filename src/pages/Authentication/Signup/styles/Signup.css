@@ -27,7 +27,7 @@
     font-size: 32px;
     line-height: 46px; 
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     color: rgba(0, 0, 0, 0.85);
 }
 
@@ -46,7 +46,7 @@
     border: 1px solid #E9E9E9;
     height: 48px ;
     background: #FFFFFF;
-    margin-top: 0.9rem; 
+    margin-top: 0.7rem; 
 }
 .signup-register-textfield::placeholder {
     color: rgba(0, 0, 0, 0.35);
@@ -70,6 +70,7 @@
     margin-left: -26px;
     font-weight: 500;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
+    border: transparent !important;
 }
 
 .register-button:focus, .register-button:active:focus {
@@ -111,8 +112,8 @@
     font-size: 15px;
     color: rgba(0, 0, 0, 0.45);
     font-weight: normal;
-    margin-top: 2.4rem;
-    margin-bottom: 2.4rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
  } 
    .or-label span { 
     background:#fff; 
@@ -251,6 +252,17 @@
     }
    
 }
+@media screen and (max-width:1024px){
+    .or-label{
+        margin:22px 0px 25px;
+    }
+    .register-head{
+        margin-top: 2.3rem;
+    }
+    .register-button{
+        margin-left: -33px;
+    }
+}
 @media screen and (max-width: 992px) {
     .signup-right-side-column {
         padding: 0px 200px !important;
@@ -315,12 +327,6 @@
     /* .names{
         margin-left: 15px;
     } */
-    #firstName {
-        width: 288px
-    }
-    #lastName{
-        width: 288px
-    }
     .register-head {
         font-size: 28px;
         float: left;
@@ -329,14 +335,15 @@
         display: inline;
     }
     .google-signup-button{
-        width: 300px !important;
+        width: 355px !important;
         height: 55px;
-        padding: 4% 15%
+        padding: 4% 28%;
+        margin-bottom: 2%;
     }
     .facebook-signup-button{
-        width: 300px !important;
+        width: 355px !important;
         height: 55px;
-        padding: 4% 15%;
+        padding: 4% 28%;
         margin-bottom:5%
     }
     /* .signup-icon div {
@@ -359,10 +366,22 @@
         background-color: white !important;
     }
     #firstName {
-        width: 300px
+        width: 303px
     }
     #lastName{
-        width: 300px
+        width: 303px
+    }
+    .google-signup-button{
+        width: 308px !important;
+        height: 55px;
+        padding: 4% 27%;
+        margin-bottom: 2%;
+    }
+    .facebook-signup-button{
+        width: 308px !important;
+        height: 55px;
+        padding: 4% 25%;
+        margin-bottom: 2%;
     }
 }
 @media screen and (max-width: 360px) {
@@ -374,5 +393,28 @@
     }
     #lastName{
         width: 288px
+    }
+}
+@media screen and (max-width: 320px) {
+    body{
+        background-color: white !important;
+    }
+    #firstName {
+        width: 250px
+    }
+    #lastName{
+        width: 250px
+    }
+    .google-signup-button {
+        width: 251px !important;
+        height: 55px;
+        padding: 5% 20%;
+        margin-bottom: 2%;
+    }
+    .facebook-signup-button {
+        width: 251px !important;
+        height: 55px;
+        padding: 5% 19%;
+        margin-bottom: 2%;
     }
 }

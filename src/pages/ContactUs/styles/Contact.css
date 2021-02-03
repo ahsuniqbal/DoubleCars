@@ -96,6 +96,7 @@ select:required:invalid {
     color: #ffffff !important;
     margin-top: 0.7rem;
     font-size: 15px !important;   
+    border: transparent !important;
 } 
 
 .send-button:focus, .send-button:active:focus {
@@ -115,6 +116,7 @@ select:required:invalid {
 .contactus-image {
     height: 251px;
     width: 403px;
+    transition: transform 500ms !important;
 }
 .contact-us-image-column {
     margin-left: 2rem;

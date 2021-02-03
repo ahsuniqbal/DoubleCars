@@ -7,7 +7,8 @@
     height: 353px;
     width: 360px;
     object-fit: cover;
-    transition: 0.5s all ease-in-out; 
+    
+    transition: transform 500ms !important;
     /* padding-right: 0px !important; */
 }
 .lower-cars-carousel-images:hover{

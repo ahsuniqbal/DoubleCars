@@ -11,7 +11,7 @@ const ServicesOffer = () => {
     return(
         <Row >
            <Col xs = "12" md = "6" className='service-col-img'>
-           <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={ServicesDemoImage} className = "img-fluid service-img" /> 
+                  <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={ServicesDemoImage} className = "img-fluid service-img" /> 
                 {/* <img src = {ServicesDemoImage} className = "img-fluid service-img" alt = "demo Image"/> */}
            </Col>
            <Col xs = "12" md = "6" className='service-col'>

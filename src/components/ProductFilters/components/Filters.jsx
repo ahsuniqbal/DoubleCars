@@ -129,9 +129,9 @@ const Filters = (props) => {
     /////////////// Handle changes in filters ///////////////
     const handleRadius = (radius) => {
         setRadius(radius);
-        // filters['radius'] = radius;
-        // setFilters(filters);
-        // FilterQueryString(filters);    
+        filters['radius'] = radius;
+        setFilters(filters);
+        FilterQueryString(filters);    
     }
 
     const handleMake = (make) => {
@@ -149,7 +149,8 @@ const Filters = (props) => {
 
     const handleModel = (select) => {
         GetTrimFromMakeAndModel(selectedMake, select[select.length - 1]).then(doc => {
-            trimList.push(doc.makes[0].models[0].trims)
+            // trimList.push(doc.makes[0].models[0].trims)
+            setTrimList(doc.makes[0].models[0].trims)
         }).catch(error => {
             alert("Error fetching trims");
         });
@@ -616,7 +617,7 @@ const Filters = (props) => {
                                 <Col xs="6">
                                     {/* On selecting from year, to year will be enabled */}
                                     <Input type="select" onChange={(e) => handleFromYear(e.target.value)}>
-                                        <option>From</option>
+                                        <option disabled selected hidden>From</option>
                                         {
                                             // Populate from year
                                             dropdownYears.map((year, index) => {
@@ -628,7 +629,7 @@ const Filters = (props) => {
                                 <Col xs="6">
                                     {/* Disabled by default, will be enabled after from year is selected */}
                                     <Input id="toYear" type="select" onChange={(e) => handleToYear(e.target.value)} disabled>
-                                        <option>To</option>
+                                        <option disabled selected hidden>To</option>
                                         {
                                             // Populate to year
                                             dropdownToYears.map((year, index) => {
