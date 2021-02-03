@@ -67,12 +67,12 @@ const MapPopup = (props) => {
             <ModalBody>
                 <SearchPlaces center={props.center} panTo={panTo} />
                 <GoogleMap 
-                mapContainerStyle={mapContainerStyle} 
-                zoom={6} 
-                center={props.center}
-                options={options}
-                onClick={onMapClick}
-                onLoad={onMapLoad}
+                    mapContainerStyle={mapContainerStyle} 
+                    zoom={6} 
+                    center={props.center}
+                    options={options}
+                    onClick={onMapClick}
+                    onLoad={onMapLoad}
                 >
                     {
                         marker ? <Marker position={{ lat: marker.lat, lng: marker.lng }} onClick={() => setSelected({lat: marker.lat, lng: marker.lng})} /> : <Marker position={props.center} />
