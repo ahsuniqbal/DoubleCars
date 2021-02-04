@@ -23,11 +23,11 @@ const Signup = (props) => {
     const [email,setEmail]=useState('')
     // regex values
     const emailRegex= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    const passwordRegex=/^[0-9a-zA-Z@!#$%^&*()_+?.,'"\|]{8,}$/
+    const passwordRegex=/^[0-9a-zA-Z@!#$%^&*()_+?.,'"\|]{8,16}$/
     // const passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
     // const NumberRegex=/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
     const NumberRegex=/^\d+$/
-    const userNameRegex=  /^[a-zA-Z0-9]*$/
+    const userNameRegex=  /^[a-zA-Z]*$/
     const history=useHistory()
 
     // code to show passowrd on click of eye icon
@@ -52,7 +52,12 @@ const Signup = (props) => {
         setLoading(true)
         document.getElementById('signup-error-label').textContent = ''
           // regex errors
-          if(NumberRegex.test(email.split('@')[0])){
+          const checkEmailofQA=email.split('@')[1].split('.com')[0].split('').includes('.')
+        if(email.split('@')[1].split('.com')[0].split('').includes('.')) {
+            setLoading(false)
+            document.getElementById('signup-error-label').textContent = 'invalid email'
+            }        
+         else if(NumberRegex.test(email.split('@')[0])){
             setLoading(false)
             document.getElementById('signup-error-label').textContent = 'invalid email'
           }
@@ -65,7 +70,7 @@ const Signup = (props) => {
             document.getElementById('signup-error-label').textContent = 'invalid email'
          }
           else if (!userNameRegex.test(firstName+lastName)){
-            document.getElementById('signup-error-label').textContent = 'username contain letters and numbers only'
+            document.getElementById('signup-error-label').textContent = 'username contain letters only'
             setLoading(false)
          }
          else if (!NumberRegex.test(phNum)){
