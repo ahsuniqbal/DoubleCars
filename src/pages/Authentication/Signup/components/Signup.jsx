@@ -26,6 +26,7 @@ const Signup = (props) => {
     const passwordRegex=/^[0-9a-zA-Z@!#$%^&*()_+?.,'"\|]{8,16}$/
     // const passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
     // const NumberRegex=/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
+    const hasNumber=/\d/
     const NumberRegex=/^\d+$/
     const userNameRegex=  /^[a-zA-Z]*$/
     const history=useHistory()
@@ -61,7 +62,7 @@ const Signup = (props) => {
             setLoading(false)
             document.getElementById('signup-error-label').textContent = 'invalid email'
           }
-         else if(NumberRegex.test(email.split('@')[1])){
+         else if(hasNumber.test(email.split('@')[1].split('.com')[0])){
             setLoading(false)
             document.getElementById('signup-error-label').textContent = 'invalid email'
           }
@@ -79,7 +80,7 @@ const Signup = (props) => {
          }
         
          else if (!passwordRegex.test(password)){
-            document.getElementById('signup-error-label').textContent = 'passowrd should contain 8 characters'
+            document.getElementById('signup-error-label').textContent = 'passowrd should contain 8-16 characters'
             setLoading(false)
          }
          else{
