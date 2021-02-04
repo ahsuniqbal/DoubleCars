@@ -70,7 +70,7 @@ const Signup = (props) => {
             document.getElementById('signup-error-label').textContent = 'invalid email'
          }
           else if (!userNameRegex.test(firstName+lastName)){
-            document.getElementById('signup-error-label').textContent = 'username contain letters and numbers only'
+            document.getElementById('signup-error-label').textContent = 'username contain letters only'
             setLoading(false)
          }
          else if (!NumberRegex.test(phNum)){
