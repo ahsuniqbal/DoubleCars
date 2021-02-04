@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState,useEffect} from 'react';
 import '../styles/Signup.css'
 import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reactstrap'
 import { Link } from "react-router-dom";
@@ -23,9 +23,11 @@ const Signup = (props) => {
     const [email,setEmail]=useState('')
     // regex values
     const emailRegex= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    const passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
-    const NumberRegex=/^\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$/
-    const userNameRegex=  /^[a-zA-Z0-9]+$/
+    const passwordRegex=/^[0-9a-zA-Z@!#$%^&*()_+?.,'"\|]{8,}$/
+    // const passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+    // const NumberRegex=/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
+    const NumberRegex=/^\d+$/
+    const userNameRegex=  /^[a-zA-Z0-9]*$/
     const history=useHistory()
 
     // code to show passowrd on click of eye icon
@@ -40,78 +42,59 @@ const Signup = (props) => {
         var obj = {
             firstName,lastName,phNum,email,password
         }
+        userSignUp(obj).then(doc=>{
+            console.log('eee',doc)
+        })
+        .catch(e=>{
+            console.log(e.message)
+        })
         console.log(obj)
         setLoading(true)
-        if(firstName=='' || lastName==''){
-            let getError=document.createElement('div')
-            getError.innerHTML='fill all fields'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
-            setLoading(false)
-        }
+        document.getElementById('signup-error-label').textContent = ''
           // regex errors
-        else if (!emailRegex.test(email)){
-            let getError=document.createElement('div')
-            getError.innerHTML='invalid email format'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
+          if(NumberRegex.test(email.split('@')[0])){
             setLoading(false)
+            document.getElementById('signup-error-label').textContent = 'invalid email'
+          }
+         else if(NumberRegex.test(email.split('@')[1])){
+            setLoading(false)
+            document.getElementById('signup-error-label').textContent = 'invalid email'
+          }
+         else if (!emailRegex.test(email)){
+            setLoading(false)
+            document.getElementById('signup-error-label').textContent = 'invalid email'
          }
           else if (!userNameRegex.test(firstName+lastName)){
-            let getError=document.createElement('div')
-            getError.innerHTML='username contains letters and number only'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
+            document.getElementById('signup-error-label').textContent = 'username contain letters and numbers only'
             setLoading(false)
          }
          else if (!NumberRegex.test(phNum)){
-            let getError=document.createElement('div')
-            getError.innerHTML='enter correct phone number'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
+            document.getElementById('signup-error-label').textContent = 'incorrect number'
             setLoading(false)
          }
         
          else if (!passwordRegex.test(password)){
-            let getError=document.createElement('div')
-            getError.innerHTML='password should contain 8 digits and upper lower case'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
+            document.getElementById('signup-error-label').textContent = 'passowrd should contain 8 characters'
             setLoading(false)
          }
          else{
             userSignUp(obj)
             .then(doc => {
+                console.log('ddd',doc)
                 setLoading(false)
                 if(doc.code === 1){
                     localStorage.setItem('userId',doc.id)
                     localStorage.setItem('userToken',doc.Token)
                     props.history.push('/profile');
                 }
-               
                 else{
-                    // document.getElementById('error-label').textContent = doc.message (prev code)
-                    let getError=document.createElement('div')
-                    getError.innerHTML=doc.message
-                    getError.style.color='red'
-                    document.getElementById('signup-error-label').appendChild(getError)
-                    setTimeout(()=>getError.remove(),5000)
+                     document.getElementById('signup-error-label').textContent = doc.message
                 }
             })
             .catch(e => {
                 setLoading(false)
                 console.log(e.message)
-                let getError=document.createElement('div')
-                getError.innerHTML='Fill all fields'
-                getError.style.color='red'
-                document.getElementById('signup-error-label').appendChild(getError)
-                setTimeout(()=>getError.remove(),5000)
-                // document.getElementById('error-label').textContent = e.message
+                //  document.getElementById('signup-error-label').textContent = e.message
             })
          }
        
