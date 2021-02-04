@@ -17,7 +17,7 @@
 }
 .right-side-column {
     background-color: white;
-    padding:0px 105px;
+    padding:0px 85px;
 }
 
 .login-now-head {
@@ -59,6 +59,10 @@
     padding: 0 !important;
     padding-left: 0 !important;
 }
+.remember-login-column .MuiSvgIcon-root{
+    width: 18px !important;
+    height: 18px !important;
+}
 .form-control:focus {
     border-color: transparent;
     box-shadow: 0 0 0 0.1rem rgb(13, 81, 170,0.1) ;
@@ -70,7 +74,7 @@
     color: #ffffff !important;
     font-size: 15px;
     line-height: 32px;
-    width: 142px;
+    width: 100%;
     height: 48px;
     font-weight: 500;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
@@ -84,16 +88,17 @@
 
 .remember-login-column {
     margin-top: 1.5rem;
+    padding-left: 0px !important;
 }
 
 .remember-label {
     font-family: Ubuntu;
     font-style: normal;
     font-weight: normal;
-    font-size: 15px;
-    line-height: 26px;
-    text-align: center;
-    color: #1C67CE;
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 5px;
+    margin-left: 4px
 }
 .remember-check {
     margin-top: 1.05rem;
@@ -109,7 +114,6 @@
     line-height: 26px;
     font-weight: normal;
     cursor: pointer;
-    margin-left: 17px;
 }
 
 .forgot-label {
@@ -120,7 +124,7 @@
     cursor: pointer;
 }
 
-.or-label {
+.login-or-label {
     width: 100%; 
     text-align: center; 
     border-bottom: 1px solid #eff3f6; 
@@ -130,7 +134,7 @@
     color: rgba(0, 0, 0, 0.45);
     font-weight: normal;
  } 
-   .or-label span { 
+   .login-or-label span { 
     background:#fff; 
     padding:0 10px;  
     font-family: 'ubuntu';
@@ -208,33 +212,35 @@
 .head-text{
     text-align: center !important;
 }
-.col-md-6 {
-    padding-left: 0 !important;
-}
 /* Media query */
-
+@media screen and (max-width:1024px){
+    .login-now-head{
+        margin-top: 3rem;
+    }
+    .icons{
+        margin-top: -5px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .right-side-column  {
+        padding: 0px 200px !important;
+    }
+}
 
 @media screen and (max-width: 900px) {
     body{
         background-color: white !important;
     }
-    .login-label{
-        display: none;
-    }
-    .head-text{
-        text-align:left ;
-    }
     .right-side-column{
-        padding: 0px 100px !important;
+        padding: 0px 100px ;
     }
     .login-left-image {
        display: none;
     }
-    .login-now-head{
-        text-align: initial;
+    /* .login-now-head{
         margin-top: 8rem;
         font-size: 28px;
-    }
+    } */
     .login-button{
         /* width: 110px;
         height: 40px; */
@@ -245,7 +251,7 @@
         display: block;
         text-align: center;
         font-size: 14px;
-        margin: 5% 0%;
+        margin: 9% 0% 5%;
     }
     .right-side-column{
         margin-bottom:0%;
@@ -264,27 +270,7 @@
         padding: 0px 58px;
     }
 }
-@media screen and (max-width: 1100px) {
-    .right-side-column{
-        padding: 0px 70px;
-    }
-    .login-now-head{
-        margin-top: 8rem;
-        font-size: 28px;
-    }
-    .login-left-image {
-        background-image: url("../../../../assets/LoginDummyImage.png"); 
-        background-position: left;
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 50%;
-    }
-    .login-button{
-       margin:3% 0% 0% -20%;
-    }
-    
-} 
-
+/* 
 @media screen and (max-width: 1000px) {
     body{
         background-color: white !important;
@@ -300,8 +286,7 @@
     }
     
     .login-button{
-        /* width: 110px;
-        height: 40px; */
+       
         padding: 2%;
         margin-top: 12%;
     }
@@ -310,17 +295,23 @@
         padding: 0px 160px;
     }
 
-}
-@media screen and (max-width: 992px) {
+} */
+/* @media screen and (max-width: 992px) {
     .icons{
         display: flex;
         justify-content: center;
         margin: 4% 0%;
     } 
-}
-@media screen and (max-width: 800px) {
+} */
+@media screen and (max-width: 768px) {
     .right-side-column{
         padding: 0px 160px ;
+    }
+    .bottom {
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        margin: 6% 0% 5%;
     }
 }
 @media screen and (max-width: 600px) {
@@ -337,7 +328,5 @@
         height: 40px;
         margin: 15px 12px 0px 0px !important ;
     }
-    .col-md-6 {
-        padding: 0 !important;
-    }
+
 }
