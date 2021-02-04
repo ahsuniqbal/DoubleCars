@@ -5,14 +5,15 @@ import StarIcon from '../../../assets/star.svg';
 import { Link } from 'react-router-dom';
 import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import '../styles/ProductCard.css';
-
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import {postSaveCar} from '../api/post'
+import {postSaveCar} from '../api/post';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
 const ProductCard = (props) => {
     const [saveId, setSaveId] = useState(null)
-
+    const [savedCar,setSaveCar]=useState(false)
+    
     useEffect(() => {
         setSaveId(props.saveId)
     },[])
@@ -30,8 +31,10 @@ const ProductCard = (props) => {
         }
         postSaveCar(obj)
         .then(doc => {
+            setSaveCar(true)
             if(doc.code === -1){
                 setSaveId(doc.saveId)
+                alert(doc.message)
             }else{
                 alert(doc.message)
             }
@@ -77,8 +80,13 @@ const ProductCard = (props) => {
                         null
                     :
                     <Col xs="3">
-                        <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
+                        <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark"
+
+                        >
+                           {savedCar ? 
+                            <FontAwesomeIcon icon={faBookmark} style={{color:'#1C67CE'}} />:
                             <FontAwesomeIcon icon={["far", "bookmark"]} />
+                            }
                         </Button>
                     </Col>
                     : null
