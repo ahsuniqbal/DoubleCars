@@ -17,7 +17,7 @@
 .signup-right-side-column {
     background-color: white;
     height: 100vh;
-    padding: 0px 98px;
+    padding: 0px 65px;
 }
 
 .register-head {
@@ -65,7 +65,7 @@
     color: #ffffff !important ;
     font-size: 15px;
     line-height: 32px;
-    width: 132px;
+    width: 116%;
     height: 48px;
     margin-left: -26px;
     font-weight: 500;
@@ -79,8 +79,14 @@
 
 
 .terms-signup-column {
-    margin-top: 2rem;
+    margin-top: 1.8rem;
     /* padding-left: 0 !important; */
+}
+.first-name-col{
+    padding-right: 5px !important;
+}
+.last-name-col{
+    padding-left: 5px !important;
 }
 /* error label color */
 
@@ -93,7 +99,10 @@
     color: rgba(0, 0, 0, 0.65);
     margin-left:-8px;
 }
-
+.terms-signup-column .MuiSvgIcon-root{
+    width: 18px !important;
+    height: 18px !important;
+}
 .t-and-c {
     color:  #1C67CE;
     cursor: pointer;
@@ -101,6 +110,7 @@
 }
 .t-c-checkbox-form-class{
     padding-left: 0 !important;
+    margin-top: 5px;
 }
 
 .or-label {
@@ -112,7 +122,7 @@
     font-size: 15px;
     color: rgba(0, 0, 0, 0.45);
     font-weight: normal;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     margin-bottom: 2rem;
  } 
    .or-label span { 
@@ -122,45 +132,34 @@
 }
 
 .google-signup-button { 
-    cursor: pointer;
-    padding:10px 13px;
+    width: 50%;
+    margin-right: 10px;
+    padding:10px 0px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     border-radius: 6px;
-    /* width: 195px;
-    height: 48px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    border-radius: 5px;
-    cursor: pointer;
-    vertical-align: middle;
-    background: url('../../../../assets//icons/google-icon.svg') no-repeat left;
-    float: center;
-    justify-content: center; */
+    margin-bottom: 2%;
+
+}
+.fb-icon{
+    margin: 0 10px 0px 0px;
+    width: 7px;
+    height: 14px;
 }
 .google-icon{
     margin: 0 10px 0px 0px;
+    width: 16px;
+    height: 16px;
 }
 .facebook-signup-button { 
+    width: 50%;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    cursor: pointer;
     border-radius: 6px;
-    padding: 9px 10px;
+    background-color: white;
+    padding: 9px 0px;
     margin-right: 0 !important;
-    /* padding: 2% 0% 2% 2%;
-    width: 210px;
-    height: 48px; */
-        /* width: 195px;
-    height: 48px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    border-radius: 5px;
-    cursor: pointer;
-    vertical-align: middle;
-    background: url('../../../../assets//icons/fb-icon.svg') no-repeat left;
-    float: center;
-    justify-content: center; */
+    margin-bottom: 2%;
 }
 .icon-text{
     font-family: Ubuntu;
@@ -170,9 +169,7 @@
     line-height: 16px;
     color: rgba(0, 0, 0, 0.65);
 }
-.fb-icon{
-    margin: 0 10px 0px 0px;
-}
+
 .bottom-footer {
     display: none;
 }
@@ -186,7 +183,7 @@
   }
 .pass-wrapper i {
     position: absolute;
-    top: 44%;
+    top: 40%;
     right: 4%;
     color: rgb(158, 154, 154);
   }
@@ -201,9 +198,6 @@
         display: flex;
         justify-content: space-between;
     }
-    /* .signup-icon div{
-        margin: 0% 25px 0% 0%;
-    } */
     .signup-bottom{
         display: none;
         text-align: center;
@@ -218,32 +212,31 @@
     }
 /* Media query */
 
-@media screen and (max-width: 1310px) {
+ @media screen and (max-width: 1200px) {
+    .or-label{
+        margin-top: 1.5rem ;
+    }
     .signup-right-side-column {
-        padding: 0px 55px !important;
+        padding: 0px 45px;
     }
 }
+
+/*
 @media screen and (max-width: 1285px) {
     .signup-right-side-column {
         padding: 0px 45px !important;
     }
-    /* .signup-icon div {
-        margin: 0% 5px 0% 0% !important;
-    } */
     .fb-icon {
         margin: 0 6px 0px 0px !important;
     }
     .google-icon{
         margin: 0 6px 0px 0px !important;
     }
-}
-@media screen and (max-width: 1100px) {
+} */
+/* @media screen and (max-width: 1100px) {
     .signup-right-side-column {
         padding: 0px 40px !important;
     }
-    /* .signup-icon div {
-        margin: 0% 1px 0% 0% !important;
-    } */
     .fb-icon {
         margin: 0 6px 0px 0px !important;
     }
@@ -251,26 +244,29 @@
         margin: 0 6px 0px 0px !important;
     }
    
-}
+} */
 @media screen and (max-width:1024px){
     .or-label{
-        margin:22px 0px 25px;
+        margin:12px 0px 23px;
     }
     .register-head{
-        margin-top: 2.3rem;
+        margin-top: 2rem;
     }
     .register-button{
-        margin-left: -33px;
+        margin-left: -45px;
+    }
+    .signup-right-side-column {
+        padding: 0px 45px;
     }
 }
 @media screen and (max-width: 992px) {
     .signup-right-side-column {
         padding: 0px 200px !important;
     }
-    /* .signup-icon div {
-        margin: 0% 10px 0% 0% !important;
-    } */
-    
+    .or-label{
+        margin-top: 2.5rem;
+        margin-bottom: 2rem;
+    }
 }
 
 @media screen and (max-width: 890px) {
@@ -280,8 +276,11 @@
     .signup-left-image {
        display: none;
     }
-    .register-label{
-        display: none;
+    .first-name-col{
+        padding-right: 15px !important;
+    }
+    .last-name-col{
+        padding-left: 15px !important;
     }
     .signup-right-side-column {
         padding: 0px 110px !important;
@@ -291,23 +290,24 @@
         text-align: center;
         font-size: 14px;
         margin: 5% 0%;
+        padding-bottom: 3%;
+    }
+}
+@media screen and (max-width:768px){
+    .or-label{
+        margin-top: 2.3rem;
+        margin-bottom: 2rem;
     }
 }
 @media screen and (max-width: 650px) {
     body{
         background-color: white !important;
     }
-    .signup-right-side-column {
-        padding: 0px 80px !important;
-    }
-}
-@media screen and (max-width: 650px) {
-    body{
-        background-color: white !important;
-    }
+   
     .signup-right-side-column {
         padding: 0px 70px !important;
     }
+   
 }
 @media screen and (max-width: 480px) {
     body{
@@ -321,34 +321,15 @@
         height: 40px;
         margin: 15px 12px 0px 0px !important ;
     }
-    /* .col-md-6 {
-        padding: 0 !important;
-    } */
-    /* .names{
-        margin-left: 15px;
-    } */
     .register-head {
         font-size: 28px;
-        float: left;
     }
     .signup-icon {
         display: inline;
     }
-    .google-signup-button{
-        width: 355px !important;
-        height: 55px;
-        padding: 4% 28%;
-        margin-bottom: 2%;
+    .google-signup-button,.facebook-signup-button{
+        width: 100%;
     }
-    .facebook-signup-button{
-        width: 355px !important;
-        height: 55px;
-        padding: 4% 28%;
-        margin-bottom:5%
-    }
-    /* .signup-icon div {
-        margin: 0% 5px 5% 0% !important;
-    } */
 }
 @media screen and (max-width: 412px) {
     body{
@@ -371,18 +352,6 @@
     #lastName{
         width: 303px
     }
-    .google-signup-button{
-        width: 308px !important;
-        height: 55px;
-        padding: 4% 27%;
-        margin-bottom: 2%;
-    }
-    .facebook-signup-button{
-        width: 308px !important;
-        height: 55px;
-        padding: 4% 25%;
-        margin-bottom: 2%;
-    }
 }
 @media screen and (max-width: 360px) {
     body{
@@ -404,17 +373,5 @@
     }
     #lastName{
         width: 250px
-    }
-    .google-signup-button {
-        width: 251px !important;
-        height: 55px;
-        padding: 5% 20%;
-        margin-bottom: 2%;
-    }
-    .facebook-signup-button {
-        width: 251px !important;
-        height: 55px;
-        padding: 5% 19%;
-        margin-bottom: 2%;
     }
 }

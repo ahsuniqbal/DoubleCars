@@ -13,6 +13,7 @@ import Eyepiece from '../../../../assets/eyepiece.png'
 const Login = (props) => {
     const [loading,setLoading] = useState(false)
     const [passwordShown, setPasswordShown] = useState(false)
+    const emailRegex= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     const eye = <FontAwesomeIcon icon={faEyeSlash} />
     const history=useHistory()
     
@@ -28,28 +29,48 @@ const Login = (props) => {
             email,password
         }
         setLoading(true)
-        userLogin(obj)
-        .then(doc => {
-            console.log('login',doc)
+        if (!emailRegex.test(email)){
+            let getError=document.createElement('div')
+            getError.innerHTML='invalid email format'
+            getError.style.color='red'
+            document.getElementById('error-label').appendChild(getError)
+            setTimeout(()=>getError.remove(),4000)
             setLoading(false)
-            if(doc.ID !== -1){
-                console.log("log")
-                localStorage.setItem('userId',doc.ID)
-                localStorage.setItem('userToken',doc.Token)
-                props.history.push('/profile');
-            }else{
-                console.log("not")
-                document.getElementById('error-label').textContent = doc.Message
-                document.getElementById('error-label').style.color = "red"
-            }
-        })
-        .catch(e => {
-            setLoading(false)
-            console.log(e.message)
-            document.getElementById('error-label').textContent = e.message
-            document.getElementById('error-label').style.color = "red"
-        })
-        
+         }
+         else{
+            userLogin(obj)
+            .then(doc => {
+                console.log('login',doc)
+                setLoading(false)
+                if(doc.ID !== -1){
+                    console.log("log")
+                    localStorage.setItem('userId',doc.ID)
+                    localStorage.setItem('userToken',doc.Token)
+                    props.history.push('/profile');
+                }else{
+                    console.log("not")
+                    let getError=document.createElement('div')
+                    getError.innerHTML=doc.Message
+                    getError.style.color='red'
+                    document.getElementById('error-label').appendChild(getError)
+                    setTimeout(()=>getError.remove(),4000)
+                    // document.getElementById('error-label').textContent = doc.Message
+                    // document.getElementById('error-label').style.color = "red"
+
+                }
+            })
+            .catch(e => {
+                setLoading(false)
+                console.log(e.message)
+                let getError=document.createElement('div')
+                getError.innerHTML=e.message
+                getError.style.color='red'
+                document.getElementById('error-label').appendChild(getError)
+                setTimeout(()=>getError.remove(),4000)
+            })
+         
+         }
+           
     }
    
     return(
@@ -71,7 +92,7 @@ const Login = (props) => {
                             </Row>
                             <Form onSubmit={e => handleLogin(e)}>
                                 
-                                <Input id="login-email" onChange={e => document.getElementById('error-label').textContent = ""} className = "login-email" type="email" placeholder="Your Email Address" required />
+                                <Input id="login-email" onChange={e => document.getElementById('error-label').textContent = ""} className = "login-email" type="text" placeholder="Your Email Address" required />
                                 <div className='pass-wrapper'>
                                     <Input id="login-password" onChange={e => document.getElementById('error-label').textContent = ""} className = "login-password"  type={passwordShown ? "text" : "password"} placeholder= "Your Password" required />
                                     <i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
@@ -80,11 +101,11 @@ const Login = (props) => {
                                 <div id="error-label"></div>
 
                                 <Row>
-                                    <Col xs="6" md = "6" className = "remember-login-column">
+                                    <Col md = "8" className = "remember-login-column">
                                     <FormGroup check>
                                         <Label check  className = "remember-label">
-                                        <Checkbox color="primary" style={{marginLeft:'5px'}} />
-                                        Remember Details?
+                                        <Checkbox color="primary" className='login-checkbox' />
+                                            <span>Remember Details?</span>
                                         </Label>
                                     </FormGroup>
                                         {/* <FormGroup >
@@ -93,7 +114,7 @@ const Login = (props) => {
                                         </FormGroup> */}
                                     </Col>
 
-                                    <Col xs="6" md = "6" className = "text-right remember-login-column">
+                                    <Col md = "4" className = "text-right remember-login-column">
                                         <Button type="submit" color="primary" className="login-button-login">
                                         {loading && <span>Logging in...</span>}
                                         {!loading && <span>Login</span>}
@@ -109,12 +130,12 @@ const Login = (props) => {
 
                                     <Col xs="6" md = "6" className = "text-right register-forgot-column">
                                         <Label className="forgot-label">Forgot Details?</Label>
-                                        </Col>
+                                    </Col>
                                 </Row>
                                 
                             </Form>
 
-                            <h2 className = "or-label"><span>or continue with</span></h2>
+                            <h2 className = "login-or-label"><span>or continue with</span></h2>
 
                             <div className = "icons">
                                 <div className="google-button">

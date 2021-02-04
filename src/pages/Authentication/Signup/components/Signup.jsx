@@ -43,46 +43,46 @@ const Signup = (props) => {
         console.log(obj)
         setLoading(true)
         if(firstName=='' || lastName==''){
-            setLoading(false)
             let getError=document.createElement('div')
             getError.innerHTML='fill all fields'
             getError.style.color='red'
             document.getElementById('signup-error-label').appendChild(getError)
             setTimeout(()=>getError.remove(),4000)
+            setLoading(false)
         }
           // regex errors
         else if (!emailRegex.test(email)){
-            setLoading(false)
             let getError=document.createElement('div')
             getError.innerHTML='invalid email format'
             getError.style.color='red'
             document.getElementById('signup-error-label').appendChild(getError)
             setTimeout(()=>getError.remove(),4000)
+            setLoading(false)
          }
           else if (!userNameRegex.test(firstName+lastName)){
-            setLoading(false)
             let getError=document.createElement('div')
             getError.innerHTML='username contains letters and number only'
             getError.style.color='red'
-            document.getElementById('error-label').appendChild(getError)
+            document.getElementById('signup-error-label').appendChild(getError)
             setTimeout(()=>getError.remove(),4000)
+            setLoading(false)
          }
          else if (!NumberRegex.test(phNum)){
-            setLoading(false)
             let getError=document.createElement('div')
             getError.innerHTML='enter correct phone number'
             getError.style.color='red'
             document.getElementById('signup-error-label').appendChild(getError)
             setTimeout(()=>getError.remove(),4000)
+            setLoading(false)
          }
         
          else if (!passwordRegex.test(password)){
-            setLoading(false)
             let getError=document.createElement('div')
             getError.innerHTML='password should contain 8 digits and upper lower case'
             getError.style.color='red'
             document.getElementById('signup-error-label').appendChild(getError)
             setTimeout(()=>getError.remove(),4000)
+            setLoading(false)
          }
          else{
             userSignUp(obj)
@@ -139,42 +139,44 @@ const Signup = (props) => {
                             <Form onSubmit={e => handleSignUp(e)}>
                             
                                 <Row>
-                                    <Col xs = "12" md = "6" className='names'>
+                                    <Col xs = "12" md = "6" className='first-name-col'>
                                     <Input id="firstName" className = "signup-register-textfield" type="text" 
                                     placeholder="First Name"  
                                     value={firstName}
                                     onChange={(e)=>setFirstName(e.target.value)}
-                                  
+                                  required
                                     />
 
                                     </Col>
-                                    <Col xs = "12" md = "6" className='names'>
+                                    <Col xs = "12" md = "6" className='last-name-col'>
                                     <Input id="lastName" className = "signup-register-textfield" type="text" 
                                     placeholder="Last Name"  
                                     value={lastName}
                                     onChange={(e)=>setlastName(e.target.value)}
-                                  
+                                    required
                                     />
 
                                     </Col>
                                 </Row>
-                                <Input id="phNum" className = "signup-register-textfield" type="text" 
-                                placeholder="Mobile Number"  
-                                value={phNum}
-                                onChange={(e)=>setNumber(e.target.value)}
-                               
-                                />
+                                    <Input id="phNum" className = "signup-register-textfield" type="text" 
+                                    placeholder="Mobile Number"  
+                                    value={phNum}
+                                    onChange={(e)=>setNumber(e.target.value)}
+                                    required
+                                    />
 
-                                <Input id="signup-email" className = "signup-register-textfield" type="text" 
-                                placeholder="Your Email"  
-                                value={email}
-                                onChange={(e)=>setEmail(e.target.value)}
-                                />
+                                    <Input id="signup-email" className = "signup-register-textfield" type="text" 
+                                    placeholder="Your Email"  
+                                    value={email}
+                                    onChange={(e)=>setEmail(e.target.value)}
+                                    required
+                                    />
                                 <div className='pass-wrapper'>
                                     <Input id="signup-password" className = "signup-register-textfield" 
                                      type={passwordShown ? "text" : "password"} placeholder= "Create a Password"  
                                      value={password}
                                      onChange={(e)=>setPassword(e.target.value)}
+                                     required
                                      />
                                     <i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
                                  </div>
@@ -182,7 +184,7 @@ const Signup = (props) => {
                                 <div id="signup-error-label"></div>
 
                                 <Row>
-                                    <Col xs="6" md = "8" className = "terms-signup-column">
+                                    <Col xs="6" md = "7" className = "terms-signup-column">
                                         <FormGroup check className='t-c-checkbox-form-class'>
                                             <Label check  className = "remember-label">
                                             <Checkbox color="primary" style={{marginLeft:'-11px'}} />
@@ -193,7 +195,7 @@ const Signup = (props) => {
                                         </FormGroup>
                                     </Col>
 
-                                    <Col xs="6" md = "4" className = "text-right terms-signup-column">
+                                    <Col xs="6" md = "5" className = "text-right terms-signup-column">
                                         <Button type="submit" color="primary" className="register-button">
                                         {loading && <span>Signing up....</span>}
                                         {!loading && <span>Sign Up</span>}
@@ -218,15 +220,15 @@ const Signup = (props) => {
                             </Row> */}
                             <div className='signup-icon'>
                                 
-                                <div className="google-signup-button ">
+                                <button className="google-signup-button ">
                                     <img src={googleIcon} className='google-icon'/>
                                     <span className="icon-text">Sigup with Google</span>
-                                </div>
+                                </button>
                                
-                                <div className="facebook-signup-button">
+                                <button className="facebook-signup-button">
                                     <img src={FbIcon} className='fb-icon'/>
                                 <span className="icon-text">Signup with Facebook</span>
-                                </div>
+                                </button>
                                 
                             </div>
                             </Form>
