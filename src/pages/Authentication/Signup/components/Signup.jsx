@@ -60,29 +60,29 @@ const Signup = (props) => {
     //.com se phly dot na aye
         if(email.toLowerCase().split('@')[1].split('.com')[0].split('').includes('.')) {
             setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email1'
+            document.getElementById('signup-error-label').textContent = 'invalid email'
             }      
             //check start of mail is not a number
         else if (NumberRegex.test(email.split('@')[0].split('')[0])){
             setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email 2'   
+            document.getElementById('signup-error-label').textContent = 'invalid email'   
         }
         //check start should not be special character
         else if (email.split('@')[0].split('')[0]=='_' || email.split('@')[0].split('')[0]=='.'){
             setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email 3'   
+            document.getElementById('signup-error-label').textContent = 'invalid email'   
         }
          else if(NumberRegex.test(email.split('@')[0])){
             setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email 4'
+            document.getElementById('signup-error-label').textContent = 'invalid email'
           }
          else if(hasNumber.test(email.split('@')[1].split('.com')[0])){
             setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email 5'
+            document.getElementById('signup-error-label').textContent = 'invalid email'
           }
          else if (!emailRegex.test(email)){
             setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email original'
+            document.getElementById('signup-error-label').textContent = 'invalid email'
          }
        
           else if (!userNameRegex.test(firstName+lastName)){
