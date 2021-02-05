@@ -14,7 +14,7 @@ export const GetSearchResult = (queryParams) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+           // alert(error.message);
         })
     })
 };
@@ -32,7 +32,7 @@ export const GetFilterResult = (queryParams) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+           // alert(error.message);
         })
     })
 };
