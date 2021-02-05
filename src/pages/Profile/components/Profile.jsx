@@ -40,8 +40,10 @@ const Profile = (props) => {
         const obj = {
             firstName,lastName,phNum
         }
+        setLoading(true)
         updateUser(id,obj)
         .then(doc => {
+            setLoading(false)
             if(doc.code === 1){
                 window.location.reload()
             }else{
@@ -49,6 +51,7 @@ const Profile = (props) => {
             }
         })
         .catch(e => {
+            setLoading(false)
             console.log(e.message)
         })
     }
@@ -170,12 +173,12 @@ const Profile = (props) => {
                                     onChange={e => changePicture(e)}
                                     type="file"
                                 />
-                                {/* <label htmlFor="contained-button-file"> */}
+                                <label htmlFor="contained-button-file">
                                     <Button className = "change-pic-button">
-                                    {loadingProfile && <span>Changing...</span>}
-                                    {!loadingProfile && <span>Change Picture</span>}
+                                    {loadingProfile && "Changing..."}
+                                    {!loadingProfile && "Change Picture"}
                                     </Button>
-                                {/* </label> */}
+                                </label>
                                 <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
                                 <label htmlFor="icon-button-file">
                                     {/* <IconButton color="primary" aria-label="upload picture" component="span">
@@ -193,29 +196,28 @@ const Profile = (props) => {
                         <h4 className = "profile-page-heading">Edit Profile</h4>
                         
                         <hr/>
-                        <Row>
+                        {
+                            user ? <Row>
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">First Name</Label>
-                                <Input id="firstName" className = "profile-text-field" type="text" value={user ? user.fullName.split(' ')[0] : "loading..."} />
+                                <Input id="firstName" className = "profile-text-field" type="text" defaultValue={user.fullName.split(' ')[0]} />
                             </Col>
 
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">Last Name</Label>
-                                <Input id="lastName" className = "profile-text-field" type="text"  value={user ? user.fullName.split(' ')[1] : "loading..."}/>
+                                <Input id="lastName" className = "profile-text-field" type="text"  defaultValue={user.fullName.split(' ')[1]}/>
                             </Col>
-                        </Row>
-
-                        <Row>
+                        </Row> : "loading..."
+                        }
+                        {
+                            user ? <Row>
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels" id='giving-margin-top'>Mobile Number</Label>
-                                <Input id="phNum" className = "profile-text-field" type="text"  value={user ? user.phNum : "loading..."}/>
+                                <Input id="phNum" className = "profile-text-field" type="text"  defaultValue={user.phNum}/>
                             </Col>
-
-                            {/* <Col xs = "12" md = "6">
-                                <Label className = "profile-labels" id='mobile-zip-label'>Zip Code</Label>
-                                <Input id=""className = "profile-text-field" type="text" defaultValue={user ? user.fullName : "loading..."}/>
-                            </Col> */}
-                        </Row>
+                        </Row> : null
+                        }
+                        
                         {/* <Row>
                             <Col>
                                 <Label className = "profile-labels ">Location</Label>
@@ -231,8 +233,8 @@ const Profile = (props) => {
                         <Row>
                             <Col>
                                 <Button onClick={e => saveProfileClick()} color="primary" className="save-profile-button float-right">
-                                {loading && <span>Saving</span>}
-                                {!loading && <span>Save Profile</span>}
+                                {loading && "Saving"}
+                                {!loading && "Save Profile"}
                                 </Button>
                             </Col>
                         </Row>

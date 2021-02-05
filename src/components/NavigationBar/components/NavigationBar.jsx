@@ -51,7 +51,7 @@ const NavigationBar = () => {
     console.log(path)
     useEffect(()=>{
     
-    if(path=='/profile' && localStorage.getItem("userId")!=null){
+    if(localStorage.getItem("userId")!=null){
         getUser(localStorage.getItem("userId"))
         .then(doc => {
             setUserName(doc[0].fullName)
@@ -173,7 +173,7 @@ const NavigationBar = () => {
 
                             {/* show this when user is login and route is profile */}
                             {
-                            path=='/profile' && localStorage.getItem("userId") ?  <li className="profile-nav-item">
+                            localStorage.getItem("userId") ?  <li className="profile-nav-item">
                              <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className='dropdown-toggle-image'>
                                     <img className="img-fluid profile-navbar-image" src={profilePic ? profilePic : DummyTopProfile}/>
@@ -182,10 +182,10 @@ const NavigationBar = () => {
                                 <DropdownMenu right className='dropdown-menu'>
                                     <DropdownItem className='dropdown-arrow'><img src={AppbarDropdown} className='dropdown-arrow-pic'/> </DropdownItem>
                                     <DropdownItem style={{fontWeight:'bold'}} >{userName}</DropdownItem>
-                                    <DropdownItem >Edit Profile</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/profile')}>Edit Profile</DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem >Messages</DropdownItem>
-                                    <DropdownItem >Saved Cars</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/chat')}>Messages</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/saved-cars')}>Saved Cars</DropdownItem>
                                     <DropdownItem  onClick={e => handleLogout()}>Logout</DropdownItem>
                                 </DropdownMenu>
                                 </UncontrolledDropdown>
