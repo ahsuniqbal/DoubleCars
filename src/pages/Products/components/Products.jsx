@@ -94,7 +94,14 @@ const Products = (props) => {
       }, []);
     
     useEffect(() => {
-        GetSearchResult(locationSearch.search, pageNumber).then(doc => {
+        var tempStr = ""
+        if(locationSearch.search){
+            tempStr += `search=${locationSearch.search}&page=${pageNumber}`
+        }else{
+            tempStr += `page=${pageNumber}`
+        }
+        
+        GetSearchResult(tempStr).then(doc => {
             if(products.length > 0){
                 var temp = products
                 for(let i = 0; i < doc.length; i++){
@@ -108,14 +115,36 @@ const Products = (props) => {
             setFlag(!flag)
         })
         .catch(error => {
-            alert("err",error.message);
+            alert(error.message);
         });
     
     }, [isBottom]);
 
     const filterQueryChange = (queryStr) => {
-        GetFilterResult(queryStr).then(doc => {
-            setProducts(doc);
+        // GetFilterResult(queryStr).then(doc => {
+        //     setProducts(doc);
+        // })
+        // .catch(error => {
+        //     alert(error.message);
+        // });
+        var str = ""
+        if(locationSearch.search){
+            str = `search=${locationSearch.search}&page=${pageNumber}&${queryStr}`
+        }else{
+            str = `page=${pageNumber}&${queryStr}`
+        }
+        GetSearchResult(str).then(doc => {
+            if(products.length > 0){
+                var temp = products
+                for(let i = 0; i < doc.length; i++){
+                    temp.push(doc[i])
+                }
+                setProducts(temp);
+            }else{
+                setProducts(doc);
+                setBooleanFlag(true);
+            }
+            setFlag(!flag)
         })
         .catch(error => {
             alert(error.message);

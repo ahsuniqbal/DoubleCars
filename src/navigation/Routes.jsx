@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Home = React.lazy(() => import('../pages/Home'));
-const About = React.lazy(() => import('../pages/About/Components/About'));
+const About = React.lazy(() => import('../pages/About/components/About'));
 const BlogsHome = React.lazy(() => import('../pages/Blogs/components/BlogsHome/BlogsHome'));
 const Profile = React.lazy(() => import('../pages/Profile'));
 const Login = React.lazy(() => import('../pages/Authentication/Login'));
@@ -42,7 +42,7 @@ const routes = [
     { path: '/blogs', name: 'Blogs', public: true, restricted: false, component: Blogs },
     { path: '/chat', name: 'Chat', public: true, restricted: false, component: Chat },
     { path: '/blogs/:id', name: 'Blogs', public: true, restricted: false, component: Blogs },
-    { path: '/savedcars', name: 'SavedCars', public: true, restricted: false, component: SavedCars},
+    { path: '/saved-cars', name: 'SavedCars', public: true, restricted: false, component: SavedCars},
     
 ];
 

@@ -4,7 +4,7 @@
 // const connectionString = "https://doublecars.herokuapp.com/"
 
 // Google compute base url connection string
-const connectionString = "https://magnetic-flare-280505.uc.r.appspot.com/";
+const connectionString = "https://doublecars.herokuapp.com/";
 // const connectionString = "http://localhost:3002/";
 
 // Vinaudit base url
