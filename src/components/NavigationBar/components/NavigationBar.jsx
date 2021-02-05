@@ -69,15 +69,15 @@ const NavigationBar = () => {
         localStorage.removeItem('userId')
         history.push('/');
     }
-    useEffect(()=>{
-        GetFilterResult(localStorage.getItem('Query Param'))
-        .then(doc=>{
-            console.log(doc)
-        })
-        .catch(e=>{
-            alert(e.message)
-        })
-     },[])
+    // useEffect(()=>{
+    //     GetFilterResult(localStorage.getItem('Query Param'))
+    //     .then(doc=>{
+    //         console.log(doc)
+    //     })
+    //     .catch(e=>{
+    //         alert(e.message)
+    //     })
+    //  },[])
    
 
     // to apply css on navbar active tab
