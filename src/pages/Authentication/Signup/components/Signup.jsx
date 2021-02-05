@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState,useEffect} from 'react';
 import '../styles/Signup.css'
 import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reactstrap'
 import { Link } from "react-router-dom";
@@ -23,9 +23,12 @@ const Signup = (props) => {
     const [email,setEmail]=useState('')
     // regex values
     const emailRegex= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    const passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
-    const NumberRegex=/^\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$/
-    const userNameRegex=  /^[a-zA-Z0-9]+$/
+    const passwordRegex=/^[0-9a-zA-Z@!#$%^&*()_+?.,'"\|]{8,16}$/
+    // const passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+    // const NumberRegex=/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
+    const hasNumber=/\d/
+    const NumberRegex=/^\d+$/
+    const userNameRegex=  /^[a-zA-Z]*$/
     const history=useHistory()
 
     // code to show passowrd on click of eye icon
@@ -38,80 +41,81 @@ const Signup = (props) => {
     const handleSignUp = (e) => {
         e.preventDefault();
         var obj = {
-            firstName,lastName,phNum,email,password
+            firstName,lastName,phNum,
+            email,
+            password
         }
         console.log(obj)
+        userSignUp(obj).then(doc=>{
+            console.log('eee',doc)
+        })
+        .catch(e=>{
+            console.log(e.message)
+        })
+        console.log(obj)
         setLoading(true)
-        if(firstName=='' || lastName==''){
-            setLoading(false)
-            let getError=document.createElement('div')
-            getError.innerHTML='fill all fields'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
-        }
+        document.getElementById('signup-error-label').textContent = ''
+      
           // regex errors
-        else if (!emailRegex.test(email)){
+    //.com se phly dot na aye
+        if(email.toLowerCase().split('@')[1].split('.com')[0].split('').includes('.')) {
             setLoading(false)
-            let getError=document.createElement('div')
-            getError.innerHTML='invalid email format'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
+            document.getElementById('signup-error-label').textContent = 'invalid email'
+            }      
+            //check start of mail is not a number
+        else if (NumberRegex.test(email.split('@')[0].split('')[0])){
+            setLoading(false)
+            document.getElementById('signup-error-label').textContent = 'invalid email'   
+        }
+        //check start should not be special character
+        else if (email.split('@')[0].split('')[0]=='_' || email.split('@')[0].split('')[0]=='.'){
+            setLoading(false)
+            document.getElementById('signup-error-label').textContent = 'invalid email'   
+        }
+         else if(NumberRegex.test(email.split('@')[0])){
+            setLoading(false)
+            document.getElementById('signup-error-label').textContent = 'invalid email'
+          }
+         else if(hasNumber.test(email.split('@')[1].split('.com')[0])){
+            setLoading(false)
+            document.getElementById('signup-error-label').textContent = 'invalid email'
+          }
+         else if (!emailRegex.test(email)){
+            setLoading(false)
+            document.getElementById('signup-error-label').textContent = 'invalid email'
          }
+       
           else if (!userNameRegex.test(firstName+lastName)){
+            document.getElementById('signup-error-label').textContent = 'username contain letters only'
             setLoading(false)
-            let getError=document.createElement('div')
-            getError.innerHTML='username contains letters and number only'
-            getError.style.color='red'
-            document.getElementById('error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
          }
          else if (!NumberRegex.test(phNum)){
+            document.getElementById('signup-error-label').textContent = 'incorrect number'
             setLoading(false)
-            let getError=document.createElement('div')
-            getError.innerHTML='enter correct phone number'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
          }
         
          else if (!passwordRegex.test(password)){
+            document.getElementById('signup-error-label').textContent = 'passowrd should contain 8-16 characters'
             setLoading(false)
-            let getError=document.createElement('div')
-            getError.innerHTML='password should contain 8 digits and upper lower case'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
          }
          else{
             userSignUp(obj)
             .then(doc => {
+                console.log('ddd',doc)
                 setLoading(false)
                 if(doc.code === 1){
                     localStorage.setItem('userId',doc.id)
                     localStorage.setItem('userToken',doc.Token)
                     props.history.push('/profile');
                 }
-               
                 else{
-                    // document.getElementById('error-label').textContent = doc.message (prev code)
-                    let getError=document.createElement('div')
-                    getError.innerHTML=doc.message
-                    getError.style.color='red'
-                    document.getElementById('signup-error-label').appendChild(getError)
-                    setTimeout(()=>getError.remove(),5000)
+                     document.getElementById('signup-error-label').textContent = doc.message
                 }
             })
             .catch(e => {
                 setLoading(false)
                 console.log(e.message)
-                let getError=document.createElement('div')
-                getError.innerHTML='Fill all fields'
-                getError.style.color='red'
-                document.getElementById('signup-error-label').appendChild(getError)
-                setTimeout(()=>getError.remove(),5000)
-                // document.getElementById('error-label').textContent = e.message
+                //  document.getElementById('signup-error-label').textContent = e.message
             })
          }
        
@@ -139,42 +143,46 @@ const Signup = (props) => {
                             <Form onSubmit={e => handleSignUp(e)}>
                             
                                 <Row>
-                                    <Col xs = "12" md = "6" className='names'>
+                                    <Col xs = "12" md = "6" className='first-name-col'>
                                     <Input id="firstName" className = "signup-register-textfield" type="text" 
                                     placeholder="First Name"  
                                     value={firstName}
                                     onChange={(e)=>setFirstName(e.target.value)}
-                                  
+                                  required
                                     />
 
                                     </Col>
-                                    <Col xs = "12" md = "6" className='names'>
+                                    <Col xs = "12" md = "6" className='last-name-col'>
                                     <Input id="lastName" className = "signup-register-textfield" type="text" 
                                     placeholder="Last Name"  
                                     value={lastName}
                                     onChange={(e)=>setlastName(e.target.value)}
-                                  
+                                    required
                                     />
 
                                     </Col>
                                 </Row>
-                                <Input id="phNum" className = "signup-register-textfield" type="text" 
-                                placeholder="Mobile Number"  
-                                value={phNum}
-                                onChange={(e)=>setNumber(e.target.value)}
-                               
-                                />
+                                    <Input id="phNum" className = "signup-register-textfield" type="text" 
+                                    placeholder="Mobile Number"  
+                                    value={phNum}
+                                    onChange={(e)=>setNumber(e.target.value)}
+                                    required
+                                    />
 
-                                <Input id="signup-email" className = "signup-register-textfield" type="text" 
-                                placeholder="Your Email"  
-                                value={email}
-                                onChange={(e)=>setEmail(e.target.value)}
-                                />
+                                    <Input id="signup-email" className = "signup-register-textfield" type="text" 
+                                    placeholder="Your Email"  
+                                    value={email}
+                                    id='mail-id'
+                                    onChange={(e)=>setEmail(e.target.value)}
+                                    required
+                                    />
                                 <div className='pass-wrapper'>
                                     <Input id="signup-password" className = "signup-register-textfield" 
                                      type={passwordShown ? "text" : "password"} placeholder= "Create a Password"  
                                      value={password}
                                      onChange={(e)=>setPassword(e.target.value)}
+                                     required
+                                     maxLength={16}
                                      />
                                     <i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
                                  </div>
@@ -182,7 +190,7 @@ const Signup = (props) => {
                                 <div id="signup-error-label"></div>
 
                                 <Row>
-                                    <Col xs="6" md = "8" className = "terms-signup-column">
+                                    <Col xs="6" md = "7" className = "terms-signup-column">
                                         <FormGroup check className='t-c-checkbox-form-class'>
                                             <Label check  className = "remember-label">
                                             <Checkbox color="primary" style={{marginLeft:'-11px'}} />
@@ -193,7 +201,7 @@ const Signup = (props) => {
                                         </FormGroup>
                                     </Col>
 
-                                    <Col xs="6" md = "4" className = "text-right terms-signup-column">
+                                    <Col xs="6" md = "5" className = "text-right terms-signup-column">
                                         <Button type="submit" color="primary" className="register-button">
                                         {loading && <span>Signing up....</span>}
                                         {!loading && <span>Sign Up</span>}
@@ -218,15 +226,15 @@ const Signup = (props) => {
                             </Row> */}
                             <div className='signup-icon'>
                                 
-                                <div className="google-signup-button ">
+                                <button className="google-signup-button ">
                                     <img src={googleIcon} className='google-icon'/>
                                     <span className="icon-text">Sigup with Google</span>
-                                </div>
+                                </button>
                                
-                                <div className="facebook-signup-button">
+                                <button className="facebook-signup-button">
                                     <img src={FbIcon} className='fb-icon'/>
                                 <span className="icon-text">Signup with Facebook</span>
-                                </div>
+                                </button>
                                 
                             </div>
                             </Form>
