@@ -38,6 +38,15 @@ const Signup = (props) => {
       };
 
     //   handle singup
+
+    const regex = (obj) => {
+        //yahan per sara regex kaam krna hai. whatever the fuck it is, it will goes here.
+        var flag = true
+        //logic goes here
+        // if any regex gets failed the flag value will be false and will get return with a msg.
+        return flag
+    } 
+
     const handleSignUp = (e) => {
         e.preventDefault();
         var obj = {
@@ -46,78 +55,90 @@ const Signup = (props) => {
             password
         }
         console.log(obj)
-        userSignUp(obj).then(doc=>{
-            console.log('eee',doc)
-        })
-        .catch(e=>{
-            console.log(e.message)
-        })
-        console.log(obj)
+        if(regex(obj)){
         setLoading(true)
-        document.getElementById('signup-error-label').textContent = ''
-      
-          // regex errors
-    //.com se phly dot na aye
-        if(email.toLowerCase().split('@')[1].split('.com')[0].split('').includes('.')) {
-            setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email'
-            }      
-            //check start of mail is not a number
-        else if (NumberRegex.test(email.split('@')[0].split('')[0])){
-            setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email'   
-        }
-        //check start should not be special character
-        else if (email.split('@')[0].split('')[0]=='_' || email.split('@')[0].split('')[0]=='.'){
-            setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email'   
-        }
-         else if(NumberRegex.test(email.split('@')[0])){
-            setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email'
-          }
-         else if(hasNumber.test(email.split('@')[1].split('.com')[0])){
-            setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email'
-          }
-         else if (!emailRegex.test(email)){
-            setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email'
-         }
-       
-          else if (!userNameRegex.test(firstName+lastName)){
-            document.getElementById('signup-error-label').textContent = 'username contain letters only'
-            setLoading(false)
-         }
-         else if (!NumberRegex.test(phNum)){
-            document.getElementById('signup-error-label').textContent = 'incorrect number'
-            setLoading(false)
-         }
-        
-         else if (!passwordRegex.test(password)){
-            document.getElementById('signup-error-label').textContent = 'passowrd should contain 8-16 characters'
-            setLoading(false)
-         }
-         else{
-            userSignUp(obj)
+        userSignUp(obj)
             .then(doc => {
-                console.log('ddd',doc)
-                setLoading(false)
-                if(doc.code === 1){
-                    localStorage.setItem('userId',doc.id)
-                    localStorage.setItem('userToken',doc.Token)
-                    props.history.push('/profile');
-                }
-                else{
-                     document.getElementById('signup-error-label').textContent = doc.message
-                }
-            })
-            .catch(e => {
-                setLoading(false)
-                console.log(e.message)
-                //  document.getElementById('signup-error-label').textContent = e.message
-            })
-         }
+            console.log('ddd',doc)
+            setLoading(false)
+            if(doc.code === 1){
+                localStorage.setItem('userId',doc.id)
+                localStorage.setItem('userToken',doc.Token)
+                props.history.push('/profile');
+            }
+            else{
+                document.getElementById('signup-error-label').textContent = doc.message
+            }
+        })
+        .catch(e => {
+            setLoading(false)
+            console.log(e.message)
+            document.getElementById('signup-error-label').textContent = e.message
+        })
+        }
+      
+    //       // regex errors
+    // //.com se phly dot na aye
+    //     if(email.toLowerCase().split('@')[1].split('.com')[0].split('').includes('.')) {
+    //         setLoading(false)
+    //         document.getElementById('signup-error-label').textContent = 'invalid email'
+    //         }      
+    //         //check start of mail is not a number
+    //     else if (NumberRegex.test(email.split('@')[0].split('')[0])){
+    //         setLoading(false)
+    //         document.getElementById('signup-error-label').textContent = 'invalid email'   
+    //     }
+    //     //check start should not be special character
+    //     else if (email.split('@')[0].split('')[0]=='_' || email.split('@')[0].split('')[0]=='.'){
+    //         setLoading(false)
+    //         document.getElementById('signup-error-label').textContent = 'invalid email'   
+    //     }
+    //      else if(NumberRegex.test(email.split('@')[0])){
+    //         setLoading(false)
+    //         document.getElementById('signup-error-label').textContent = 'invalid email'
+    //       }
+    //      else if(hasNumber.test(email.split('@')[1].split('.com')[0])){
+    //         setLoading(false)
+    //         document.getElementById('signup-error-label').textContent = 'invalid email'
+    //       }
+    //      else if (!emailRegex.test(email)){
+    //         setLoading(false)
+    //         document.getElementById('signup-error-label').textContent = 'invalid email'
+    //      }
+       
+    //       else if (!userNameRegex.test(firstName+lastName)){
+    //         document.getElementById('signup-error-label').textContent = 'username contain letters only'
+    //         setLoading(false)
+    //      }
+    //      else if (!NumberRegex.test(phNum)){
+    //         document.getElementById('signup-error-label').textContent = 'incorrect number'
+    //         setLoading(false)
+    //      }
+        
+    //      else if (!passwordRegex.test(password)){
+    //         document.getElementById('signup-error-label').textContent = 'passowrd should contain 8-16 characters'
+    //         setLoading(false)
+    //      }
+    //      else{
+    //         userSignUp(obj)
+    //         .then(doc => {
+    //             console.log('ddd',doc)
+    //             setLoading(false)
+    //             if(doc.code === 1){
+    //                 localStorage.setItem('userId',doc.id)
+    //                 localStorage.setItem('userToken',doc.Token)
+    //                 props.history.push('/profile');
+    //             }
+    //             else{
+    //                  document.getElementById('signup-error-label').textContent = doc.message
+    //             }
+    //         })
+    //         .catch(e => {
+    //             setLoading(false)
+    //             console.log(e.message)
+    //             //  document.getElementById('signup-error-label').textContent = e.message
+    //         })
+    //      }
        
         
     }
