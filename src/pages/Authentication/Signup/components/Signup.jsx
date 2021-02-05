@@ -41,8 +41,11 @@ const Signup = (props) => {
     const handleSignUp = (e) => {
         e.preventDefault();
         var obj = {
-            firstName,lastName,phNum,email,password
+            firstName,lastName,phNum,
+            email,
+            password
         }
+        console.log(obj)
         userSignUp(obj).then(doc=>{
             console.log('eee',doc)
         })
@@ -52,24 +55,36 @@ const Signup = (props) => {
         console.log(obj)
         setLoading(true)
         document.getElementById('signup-error-label').textContent = ''
+      
           // regex errors
-          const checkEmailofQA=email.split('@')[1].split('.com')[0].split('').includes('.')
-        if(email.split('@')[1].split('.com')[0].split('').includes('.')) {
+    //.com se phly dot na aye
+        if(email.toLowerCase().split('@')[1].split('.com')[0].split('').includes('.')) {
             setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email'
-            }        
+            document.getElementById('signup-error-label').textContent = 'invalid email1'
+            }      
+            //check start of mail is not a number
+        else if (NumberRegex.test(email.split('@')[0].split('')[0])){
+            setLoading(false)
+            document.getElementById('signup-error-label').textContent = 'invalid email 2'   
+        }
+        //check start should not be special character
+        else if (email.split('@')[0].split('')[0]=='_' || email.split('@')[0].split('')[0]=='.'){
+            setLoading(false)
+            document.getElementById('signup-error-label').textContent = 'invalid email 3'   
+        }
          else if(NumberRegex.test(email.split('@')[0])){
             setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email'
+            document.getElementById('signup-error-label').textContent = 'invalid email 4'
           }
          else if(hasNumber.test(email.split('@')[1].split('.com')[0])){
             setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email'
+            document.getElementById('signup-error-label').textContent = 'invalid email 5'
           }
          else if (!emailRegex.test(email)){
             setLoading(false)
-            document.getElementById('signup-error-label').textContent = 'invalid email'
+            document.getElementById('signup-error-label').textContent = 'invalid email original'
          }
+       
           else if (!userNameRegex.test(firstName+lastName)){
             document.getElementById('signup-error-label').textContent = 'username contain letters only'
             setLoading(false)
@@ -157,6 +172,7 @@ const Signup = (props) => {
                                     <Input id="signup-email" className = "signup-register-textfield" type="text" 
                                     placeholder="Your Email"  
                                     value={email}
+                                    id='mail-id'
                                     onChange={(e)=>setEmail(e.target.value)}
                                     required
                                     />
@@ -166,6 +182,7 @@ const Signup = (props) => {
                                      value={password}
                                      onChange={(e)=>setPassword(e.target.value)}
                                      required
+                                     maxLength={16}
                                      />
                                     <i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
                                  </div>
