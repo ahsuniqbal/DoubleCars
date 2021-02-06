@@ -125,18 +125,18 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse navigation-bar" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'New Cars', search: '?isUsed=false'}}>
-                                {window.location.search=='?isUsed=false' ?
-                                <span style={styleDiv}>New Cars</span>:
-                                <span >New Cars</span>}
-                            </NavLink>
+                            <a className="nav-link navigation-items"  href='/products?isUsed=false' >
+                                    {window.location.search=='?isUsed=false' ?
+                                    <span style={styleDiv}>New Cars</span>:
+                                    <span >New Cars</span>}
+                            </a>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'Used Cars', search: '?isUsed=true'}}>
-                                {window.location.search=='?isUsed=true' ?
-                                <span style={styleDiv}>Used Cars</span>:
-                                <span >Used Cars</span>}
-                            </NavLink>
+                            <a className="nav-link navigation-items" href='/products?isUsed=true' >
+                                     {window.location.search=='?isUsed=true' ?
+                                    <span style={styleDiv}>Used Cars</span>:
+                                    <span >Used Cars</span>}
+                            </a>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/blogshome'}>Blog</NavLink>
