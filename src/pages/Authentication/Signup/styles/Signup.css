@@ -210,8 +210,9 @@
         font-weight: normal;
         cursor: pointer;
     }
-#signup-error-label{
+.error-label{
     color: red;
+    font-size: 12px;
 }
 /* Media query */
 

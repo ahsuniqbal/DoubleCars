@@ -11,16 +11,13 @@ import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
 import { useHistory } from "react-router-dom";
 import Eyepiece from '../../../../assets/eyepiece.png'
+import { emailValidation, mobileValidation, nameValidation, passwordValidation } from '../../../../utils/Validation';
 
 
 const Signup = (props) => {
     const [loading,setLoading] = useState(false)
     const [passwordShown, setPasswordShown] = useState(false)
-    const [firstName,setFirstName]=useState('')
-    const [lastName,setlastName]=useState('')
-    const [password,setPassword]=useState('')
-    const [phNum,setNumber]=useState('')
-    const [email,setEmail]=useState('')
+    
     // regex values
     const emailRegex= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     const passwordRegex=/^[0-9a-zA-Z@!#$%^&*()_+?.,'"\|]{8,16}$/
@@ -49,98 +46,79 @@ const Signup = (props) => {
 
     const handleSignUp = (e) => {
         e.preventDefault();
-        var obj = {
-            firstName,lastName,phNum,
-            email,
-            password
-        }
-        console.log(obj)
-        if(regex(obj)){
-        setLoading(true)
-        userSignUp(obj)
-            .then(doc => {
-            console.log('ddd',doc)
-            setLoading(false)
-            if(doc.code === 1){
-                localStorage.setItem('userId',doc.id)
-                localStorage.setItem('userToken',doc.Token)
-                props.history.push('/profile');
-            }
-            else{
-                document.getElementById('signup-error-label').textContent = doc.message
-            }
-        })
-        .catch(e => {
-            setLoading(false)
-            console.log(e.message)
-            document.getElementById('signup-error-label').textContent = e.message
-        })
-        }
-      
-    //       // regex errors
-    // //.com se phly dot na aye
-    //     if(email.toLowerCase().split('@')[1].split('.com')[0].split('').includes('.')) {
-    //         setLoading(false)
-    //         document.getElementById('signup-error-label').textContent = 'invalid email'
-    //         }      
-    //         //check start of mail is not a number
-    //     else if (NumberRegex.test(email.split('@')[0].split('')[0])){
-    //         setLoading(false)
-    //         document.getElementById('signup-error-label').textContent = 'invalid email'   
-    //     }
-    //     //check start should not be special character
-    //     else if (email.split('@')[0].split('')[0]=='_' || email.split('@')[0].split('')[0]=='.'){
-    //         setLoading(false)
-    //         document.getElementById('signup-error-label').textContent = 'invalid email'   
-    //     }
-    //      else if(NumberRegex.test(email.split('@')[0])){
-    //         setLoading(false)
-    //         document.getElementById('signup-error-label').textContent = 'invalid email'
-    //       }
-    //      else if(hasNumber.test(email.split('@')[1].split('.com')[0])){
-    //         setLoading(false)
-    //         document.getElementById('signup-error-label').textContent = 'invalid email'
-    //       }
-    //      else if (!emailRegex.test(email)){
-    //         setLoading(false)
-    //         document.getElementById('signup-error-label').textContent = 'invalid email'
-    //      }
-       
-    //       else if (!userNameRegex.test(firstName+lastName)){
-    //         document.getElementById('signup-error-label').textContent = 'username contain letters only'
-    //         setLoading(false)
-    //      }
-    //      else if (!NumberRegex.test(phNum)){
-    //         document.getElementById('signup-error-label').textContent = 'incorrect number'
-    //         setLoading(false)
-    //      }
         
-    //      else if (!passwordRegex.test(password)){
-    //         document.getElementById('signup-error-label').textContent = 'passowrd should contain 8-16 characters'
-    //         setLoading(false)
-    //      }
-    //      else{
-    //         userSignUp(obj)
-    //         .then(doc => {
-    //             console.log('ddd',doc)
-    //             setLoading(false)
-    //             if(doc.code === 1){
-    //                 localStorage.setItem('userId',doc.id)
-    //                 localStorage.setItem('userToken',doc.Token)
-    //                 props.history.push('/profile');
-    //             }
-    //             else{
-    //                  document.getElementById('signup-error-label').textContent = doc.message
-    //             }
-    //         })
-    //         .catch(e => {
-    //             setLoading(false)
-    //             console.log(e.message)
-    //             //  document.getElementById('signup-error-label').textContent = e.message
-    //         })
-    //      }
-       
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const phNum = document.getElementById('phNum').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+
+        if(nameValidation(firstName + lastName)) {
+            // Name is okay
+            document.getElementById('name-error-label').textContent = "";
+
+            if(mobileValidation(phNum)) {
+                // Mobile is okay
+                document.getElementById('phNum-error-label').textContent = "";
+
+                if(emailValidation(email)) {
+                    // Mobile is wrong
+                    document.getElementById('email-error-label').textContent = "";
+
+                    if(passwordValidation(password)) {
+                        // Password is okay
+                        document.getElementById('signup-error-label').textContent = "";
+
+                        var obj = {
+                            firstName,lastName,phNum,
+                            email,
+                            password
+                        }
+
+
+                        setLoading(true)
+                        userSignUp(obj)
+                            .then(doc => {
+                            setLoading(false)
+                            if(doc.code === 1){
+                                localStorage.setItem('userId',doc.id)
+                                localStorage.setItem('userToken',doc.Token)
+                                props.history.push('/profile');
+                            }
+                            else{
+                                document.getElementById('signup-error-label').textContent = doc.message
+                            }
+                        })
+                        .catch(e => {
+                            setLoading(false)
+                            console.log(e.message)
+                            document.getElementById('signup-error-label').textContent = e.message
+                        })
+                    }
+                    else {
+                        // Password is wrong
+                        document.getElementById('signup-error-label').textContent = "Password must be atleast eight characters long including atleast one letter and one number.";
+                    }
+                }
+                else {
+                    // Email wrong
+                    document.getElementById('email-error-label').textContent = "Please enter a valid email address";
+                }
+            }
+            else {
+                // Mobile is wrong
+                document.getElementById('phNum-error-label').textContent = "Please enter a valid mobile number";
+            }
+        }
+        else {
+            // Name is wrong
+            document.getElementById('name-error-label').textContent = "Please enter a valid name";
+        }
         
+
+        
+
+              
     }
 
     return(
@@ -165,50 +143,28 @@ const Signup = (props) => {
                             
                                 <Row>
                                     <Col xs = "12" md = "6" className='first-name-col'>
-                                    <Input id="firstName" className = "signup-register-textfield" type="text" 
-                                    placeholder="First Name"  
-                                    value={firstName}
-                                    onChange={(e)=>setFirstName(e.target.value)}
-                                  required
-                                    />
-
+                                        <Input id="firstName" className = "signup-register-textfield" type="text" placeholder="First Name"required />
+                                        <div id="name-error-label" className="error-label"></div>
                                     </Col>
                                     <Col xs = "12" md = "6" className='last-name-col'>
-                                    <Input id="lastName" className = "signup-register-textfield" type="text" 
-                                    placeholder="Last Name"  
-                                    value={lastName}
-                                    onChange={(e)=>setlastName(e.target.value)}
-                                    required
-                                    />
-
+                                        <Input id="lastName" className = "signup-register-textfield" type="text" placeholder="Last Name" required />
                                     </Col>
                                 </Row>
-                                    <Input id="phNum" className = "signup-register-textfield" type="text" 
-                                    placeholder="Mobile Number"  
-                                    value={phNum}
-                                    onChange={(e)=>setNumber(e.target.value)}
-                                    required
-                                    />
+                                    <Input id="phNum" className = "signup-register-textfield" type="text" placeholder="Mobile Number" required />
+                                    <div id="phNum-error-label" className="error-label"></div>
 
-                                    <Input id="signup-email" className = "signup-register-textfield" type="text" 
-                                    placeholder="Your Email"  
-                                    value={email}
-                                    id='mail-id'
-                                    onChange={(e)=>setEmail(e.target.value)}
-                                    required
-                                    />
-                                <div className='pass-wrapper'>
+                                    <Input id="signup-email" className = "signup-register-textfield" type="text" placeholder="Your Email" required />
+                                    <div id="email-error-label" className="error-label"></div>
+
+                                    <div className='pass-wrapper'>
                                     <Input id="signup-password" className = "signup-register-textfield" 
-                                     type={passwordShown ? "text" : "password"} placeholder= "Create a Password"  
-                                     value={password}
-                                     onChange={(e)=>setPassword(e.target.value)}
+                                     type={passwordShown ? "text" : "password"} placeholder= "Create a Password" 
                                      required
                                      maxLength={16}
                                      />
                                     <i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
                                  </div>
-                                {/* <Input id="signup-password" className = "register-textfield" type="password" placeholder= "Create a password" required/> */}
-                                <div id="signup-error-label"></div>
+                                <div id="signup-error-label" className="error-label"></div>
 
                                 <Row>
                                     <Col xs="6" md = "7" className = "terms-signup-column">

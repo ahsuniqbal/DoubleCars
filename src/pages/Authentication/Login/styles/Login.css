@@ -11,6 +11,11 @@
   height: 100vh;
 }
 
+.error {
+    color: red;
+    font-size: 12px;
+}
+
 .logo-id-for-signup-login {
     margin-top: 3rem;
     margin-left: 3rem;

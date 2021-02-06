@@ -8,7 +8,9 @@ import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
-import Eyepiece from '../../../../assets/eyepiece.png'
+import Eyepiece from '../../../../assets/eyepiece.png';
+import {emailValidation} from '../../../../utils/Validation.jsx';
+
 
 const Login = (props) => {
     const [loading,setLoading] = useState(false)
@@ -25,52 +27,36 @@ const Login = (props) => {
         e.preventDefault();
         var email = document.getElementById('login-email').value
         var password = document.getElementById('login-password').value
-        var obj = {
-            email,password
-        }
-        setLoading(true)
-        if (!emailRegex.test(email)){
-            let getError=document.createElement('div')
-            getError.innerHTML='invalid email format'
-            getError.style.color='red'
-            document.getElementById('error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
-            setLoading(false)
-         }
-         else{
-            userLogin(obj)
-            .then(doc => {
-                console.log('login',doc)
-                setLoading(false)
-                if(doc.ID !== -1){
-                    console.log("log")
+
+        if(emailValidation(email)) {
+            // Email is wrong
+            document.getElementById('email-error').textContent = "";
+
+            var obj = {
+                email,password
+            }
+
+            setLoading(true);
+
+            userLogin(obj).then(doc => {
+                setLoading(false);
+                
+                if(doc.code === 1) {
                     localStorage.setItem('userId',doc.ID)
                     localStorage.setItem('userToken',doc.Token)
                     props.history.push('/profile');
-                }else{
-                    console.log("not")
-                    let getError=document.createElement('div')
-                    getError.innerHTML=doc.Message
-                    getError.style.color='red'
-                    document.getElementById('error-label').appendChild(getError)
-                    setTimeout(()=>getError.remove(),4000)
-                    // document.getElementById('error-label').textContent = doc.Message
-                    // document.getElementById('error-label').style.color = "red"
-
                 }
+                else {
+                    document.getElementById("error-label").textContent = "Credentials doesn't match."
+                }
+            }).catch(error => {
+                document.getElementById("error-label").textContent = error.message;
             })
-            .catch(e => {
-                setLoading(false)
-                console.log(e.message)
-                let getError=document.createElement('div')
-                getError.innerHTML=e.message
-                getError.style.color='red'
-                document.getElementById('error-label').appendChild(getError)
-                setTimeout(()=>getError.remove(),4000)
-            })
-         
-         }
-           
+        }
+        else {
+            // Email is wrong
+            document.getElementById('email-error').textContent = "Email is badly formatted. Please enter a valid email address";
+        }   
     }
    
     return(
@@ -92,13 +78,15 @@ const Login = (props) => {
                             </Row>
                             <Form onSubmit={e => handleLogin(e)}>
                                 
-                                <Input id="login-email" onChange={e => document.getElementById('error-label').textContent = ""} className = "login-email" type="text" placeholder="Your Email Address" required />
+                                <Input id="login-email" className = "login-email" type="text" placeholder="Your Email Address" required />
+                                <div id="email-error" className="error"></div>
+
                                 <div className='pass-wrapper'>
-                                    <Input id="login-password" onChange={e => document.getElementById('error-label').textContent = ""} className = "login-password"  type={passwordShown ? "text" : "password"} placeholder= "Your Password" required />
+                                    <Input id="login-password" className = "login-password"  type={passwordShown ? "text" : "password"} placeholder= "Your Password" required />
                                     <i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
                                     
                                  </div>
-                                <div id="error-label"></div>
+                                <div id="error-label" className="error"></div>
 
                                 <Row>
                                     <Col md = "8" className = "remember-login-column">
