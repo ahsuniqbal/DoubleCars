@@ -10,7 +10,7 @@ const ProfileView = () => {
     return (
         <>
         <Card className="profile-view">
-            <CardBody style={{paddingRight: '0px', paddingLeft: '0px'}}>
+            <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
 
                 <div style={{paddingRight: '1.25rem', paddingLeft: '1.25rem'}}>
                     <h6>Inquiring For</h6>

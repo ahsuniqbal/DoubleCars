@@ -26,12 +26,12 @@ const checkURL = (url) => {
 
 const ChatListItem = (props) => {
     return (
-        <Row className="chatlist-item" style={{backgroundColor: 'white'}} onClick={() => props.selectChat(props.chat)}>
-            <Col xs="3">
+        <Row className="chatlist-item" onClick={() => props.selectChat(props.chat)}>
+            <Col xs="3" className="profile-img-parent">
                 <CardImg src={props.chat.user.profilePic} className="img-fluid" />    
             </Col>
-            <Col xs="6">
-                <Label className="name">{props.chat.user.fullName}</Label>
+            <Col xs="6" style={{paddingRight: '0px', paddingLeft: '5px'}}>
+                <p className="name">{props.chat.user.fullName}</p>
                 <Label className="last-msg">{checkURL(props.chat.chat.lastMessage) ? "Has sent a file" : props.chat.chat.lastMessage}</Label>
             </Col>
             <Col xs="3" className="text-center">
