@@ -1,5 +1,5 @@
 .chat-board {
-    height: calc(100vh - 260px);
+    height: calc(100vh - 130px);
     overflow-y: scroll;
 }
 

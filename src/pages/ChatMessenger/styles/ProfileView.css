@@ -14,6 +14,8 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 9px;
     padding: 15px;
+    margin-right: 0;
+    margin-left: 0;
 }
 
 .profile-view .inquaring-for-card .card-img {
@@ -48,5 +50,40 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
-    margin-top: 20px;
+    margin-top: 14px;
+}
+
+
+
+.profile-view .profile-details .card-img {
+    width: 87px;
+    height: auto;
+    object-fit: fill;
+}
+
+.profile-view .profile-details .rating-number {
+    font-weight: 500;
+    font-size: 14px;
+    font-family: Ubuntu;
+    color: #FFC061;
+}
+
+.profile-view .profile-details p {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+    font-style: normal;
+    font-weight: normal;
+}
+
+.profile-view button {
+    font-weight: 500;
+    font-size: 14px;
+    height: 40px;
+    border-radius: 6px;
+    border-color: #1C67CE;
+    margin-top: 40px;
+}
+
+.profile-view button:focus, .profile-view button:active {
+    box-shadow: none !important;
 }
