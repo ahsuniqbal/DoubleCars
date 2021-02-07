@@ -4,9 +4,27 @@ import { Paperclip, Send } from 'react-feather';
 import '../styles/Compose.css';
 import {getBlob} from '../../../utils/Conversion'
 import {postImageToFTP} from '../api/Post'
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+
 const firebase = require('firebase').default
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+    input: {
+      display: 'none',
+    },
+  }));
+  
 const Compose = (props) => {
 
+    const classes = useStyles();
 
     const messageValid = (txt) => (txt && txt.replace(/\s/g, '').length);
     
@@ -88,9 +106,16 @@ const Compose = (props) => {
     return (
         <div className="compose">
             
-            <Input onChange={e => onChangeImage(e)} id="image" type="file" accept="image/*">
+            {/* <Input  id="image" type="file" accept="image/*">
             <Paperclip color="#1C67CE" size={30}/>
-            </Input>
+            </Input> */}
+            <input accept="image/*" onChange={e => onChangeImage(e)} className={classes.input} id="icon-button-file" type="file" />
+            <label htmlFor="icon-button-file">
+                <IconButton color="primary" aria-label="upload picture" component="span">
+                <PhotoCamera />
+                </IconButton>
+            </label>
+
             
             <Input id="chatMessage" type="text" placeholder="Write a message..." />
             <Send onClick={e => sendMessage()} color="#1C67CE" size={30} />
