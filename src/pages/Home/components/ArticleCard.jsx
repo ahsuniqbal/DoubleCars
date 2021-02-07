@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Label, Button } from 'reactstrap';
+import { Label } from 'reactstrap';
 import CardImage1 from '../../../assets/TopStoriesCardDemoImage.png'
 import CardImage2 from '../../../assets/TopNewsDummy5.png'
 import CardImage6 from '../../../assets/BlogPageImage1.png';
@@ -12,7 +12,7 @@ import '../styles/ArticleCard.css'
 import { useHistory } from 'react-router-dom';
 
 const ArticlesCard = () => { 
-    const history=useHistory()
+    
     return(
         
            <div className='article-card-main' >

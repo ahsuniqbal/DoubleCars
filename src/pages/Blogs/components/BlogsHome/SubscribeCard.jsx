@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Card, Input, CardText,CardTitle, Button, Row, Col} from 'reactstrap';
+import {Card, Input, CardText,CardTitle, Button} from 'reactstrap';
  import '../../styles/SubscribeCard.css'
 
 const SubsribeCard = () => { 

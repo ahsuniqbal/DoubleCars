@@ -32,7 +32,7 @@ const SellerDetails = (props) => {
                                 <Col md = "10" className='dealer-profile-coloumn'>
                                     <div className='d-flex '>
                                         <Label className = "dealer-name">{props.fullName}</Label>
-                                        <img src={CheckMark} className='dealer-check'/>
+                                        <img src={CheckMark} className='dealer-check' alt=""/>
                                     </div>
                                     <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                                     <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
