@@ -57,7 +57,7 @@ const Signup = (props) => {
             // Name is okay
             document.getElementById('name-error-label').textContent = "";
 
-            if(mobileValidation(phNum)) {
+            if(Number.isInteger(parseInt(phNum))) {
                 // Mobile is okay
                 document.getElementById('phNum-error-label').textContent = "";
 
@@ -170,7 +170,7 @@ const Signup = (props) => {
                                     <Col xs="6" md = "7" className = "terms-signup-column">
                                         <FormGroup check className='t-c-checkbox-form-class'>
                                             <Label check  className = "remember-label">
-                                            <Checkbox color="primary" style={{marginLeft:'-11px'}} />
+                                            <Checkbox color="primary" style={{marginLeft:'-11px'}} required />
                                                 <span className='i-agree'>
                                                      I agree with <span to = {''} className = "t-and-c">Terms & Conditions</span>
                                                 </span>

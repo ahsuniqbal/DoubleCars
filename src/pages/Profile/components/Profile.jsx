@@ -174,7 +174,7 @@ const Profile = (props) => {
                                     onChange={e => changePicture(e)}
                                     type="file"
                                 />
-                                <label htmlFor="contained-button-file">
+                                <label htmlFor="contained-button-file" style = {{width: "100%"}}>
                                     <Button className = "change-pic-button">
                                     {loadingProfile && "Changing..."}
                                     {!loadingProfile && "Change Picture"}
