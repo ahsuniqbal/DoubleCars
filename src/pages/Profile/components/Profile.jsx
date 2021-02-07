@@ -20,6 +20,7 @@ const Profile = (props) => {
     const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(false)
     const [loadingProfile,setLoadingProfile] = useState(false)
+    const [loadingPassword,setLoadingPassword] = useState(false)
     useEffect(() => {
         //
         getUser(localStorage.getItem("userId"))
@@ -67,10 +68,10 @@ const Profile = (props) => {
         const obj = {
             currPassword,newPassword
         }
-        setLoading(true)
+        setLoadingPassword(true)
         changePassword(localStorage.getItem("userId"),obj)
         .then(doc => {
-            setLoading(false)
+            setLoadingPassword(false)
             if(doc.code === 1){
                 document.getElementById('oldPass').value = ""
                 document.getElementById('newPass').value = ""
@@ -79,7 +80,7 @@ const Profile = (props) => {
             }
         })
         .catch(e => {
-            setLoading(false)
+            setLoadingPassword(false)
             alert(e.message)
         })
     }
@@ -261,8 +262,8 @@ const Profile = (props) => {
                         <Row>
                            <Col>
                                 <Button color="primary" onClick={e => onChangePassword()} className="change-password-button float-right">
-                                {loading && <span>Changing...</span>}
-                                {!loading && <span>Change</span>}
+                                {loadingPassword && "Changing..."}
+                                {!loadingPassword && "Change"}
                                 </Button>
                            </Col>
                         </Row>
