@@ -14,6 +14,7 @@ import '../styles/Products.css';
 const ShowSearchResults = (products) => {
     var table = [];
     var adPlacement = 5;
+    console.log("products",products)
 
     for (let i = 0; i < products.length; i++) {
         if(i !== 0 && i % adPlacement === 0) {
@@ -94,7 +95,17 @@ const Products = (props) => {
       }, []);
     
     useEffect(() => {
-        GetSearchResult(locationSearch.search, pageNumber).then(doc => {
+        var tempStr = ""
+        const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
+        if(locationSearch.search){
+            tempStr += `search=${locationSearch.search}&page=${pageNumber}`
+        }else{
+            tempStr += `page=${pageNumber}`
+        }
+        tempStr += `&id=${userId}`
+
+        
+        GetSearchResult(tempStr).then(doc => {
             if(products.length > 0){
                 var temp = products
                 for(let i = 0; i < doc.length; i++){
@@ -108,14 +119,24 @@ const Products = (props) => {
             setFlag(!flag)
         })
         .catch(error => {
-            alert("err",error.message);
+            alert(error.message);
         });
     
     }, [isBottom]);
 
     const filterQueryChange = (queryStr) => {
-        GetFilterResult(queryStr).then(doc => {
-            setProducts(doc);
+        var str = ""
+        const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
+        if(locationSearch.search){
+            str = `search=${locationSearch.search}&page=${pageNumber}&${queryStr}`
+        }else{
+            str = `page=${pageNumber}&${queryStr}`
+        }
+        str += `&id=${userId}`
+        GetSearchResult(str).then(doc => {
+            console.log("doc",doc)
+            setProducts(doc)
+            setFlag(!flag)
         })
         .catch(error => {
             alert(error.message);
@@ -147,7 +168,7 @@ const Products = (props) => {
                 <Col xs="12" md="9" style = {{marginTop: '5rem'}}>
                     <Row className="search-heading mb-2">
                         <Col md="8">
-                            {props.location.heading ? <h6>{props.location.heading}</h6> : null}
+                            {locationSearch.isUsed ? locationSearch.isUsed == "false" ? <h6>New Cars</h6> : <h6>Used Cars</h6> : null}
                             {
                                 products ? 
                                 <Label className="output-num">{products.length} car(s) match your search...</Label> 

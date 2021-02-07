@@ -51,7 +51,7 @@ const NavigationBar = () => {
     console.log(path)
     useEffect(()=>{
     
-    if(path=='/profile' && localStorage.getItem("userId")!=null){
+    if(localStorage.getItem("userId")!=null){
         getUser(localStorage.getItem("userId"))
         .then(doc => {
             setUserName(doc[0].fullName)
@@ -69,15 +69,15 @@ const NavigationBar = () => {
         localStorage.removeItem('userId')
         history.push('/');
     }
-    useEffect(()=>{
-        GetFilterResult(localStorage.getItem('Query Param'))
-        .then(doc=>{
-            console.log(doc)
-        })
-        .catch(e=>{
-            alert(e.message)
-        })
-     },[])
+    // useEffect(()=>{
+    //     GetFilterResult(localStorage.getItem('Query Param'))
+    //     .then(doc=>{
+    //         console.log(doc)
+    //     })
+    //     .catch(e=>{
+    //         alert(e.message)
+    //     })
+    //  },[])
    
 
     // to apply css on navbar active tab
@@ -125,18 +125,18 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse navigation-bar" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items"  to={{pathname: '/products', heading:'New Cars', search: '?isUsed=false'}}>
+                            <a className="nav-link navigation-items"  href='/products?isUsed=false' >
                                     {window.location.search=='?isUsed=false' ?
                                     <span style={styleDiv}>New Cars</span>:
                                     <span >New Cars</span>}
-                            </NavLink>
+                            </a>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" to={{pathname: '/products', heading:'Used Cars', search: '?isUsed=true'}}>
+                            <a className="nav-link navigation-items" href='/products?isUsed=true' >
                                      {window.location.search=='?isUsed=true' ?
                                     <span style={styleDiv}>Used Cars</span>:
                                     <span >Used Cars</span>}
-                            </NavLink>
+                            </a>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/blogshome'}>Blog</NavLink>
@@ -173,7 +173,7 @@ const NavigationBar = () => {
 
                             {/* show this when user is login and route is profile */}
                             {
-                            path=='/profile' && localStorage.getItem("userId") ?  <li className="profile-nav-item">
+                            localStorage.getItem("userId") ?  <li className="profile-nav-item">
                              <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className='dropdown-toggle-image'>
                                     <img className="img-fluid profile-navbar-image" src={profilePic ? profilePic : DummyTopProfile}/>
@@ -182,10 +182,10 @@ const NavigationBar = () => {
                                 <DropdownMenu right className='dropdown-menu'>
                                     <DropdownItem className='dropdown-arrow'><img src={AppbarDropdown} className='dropdown-arrow-pic'/> </DropdownItem>
                                     <DropdownItem style={{fontWeight:'bold'}} >{userName}</DropdownItem>
-                                    <DropdownItem >Edit Profile</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/profile')}>Edit Profile</DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem >Messages</DropdownItem>
-                                    <DropdownItem >Saved Cars</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/chat')}>Messages</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/saved-cars')}>Saved Cars</DropdownItem>
                                     <DropdownItem  onClick={e => handleLogout()}>Logout</DropdownItem>
                                 </DropdownMenu>
                                 </UncontrolledDropdown>

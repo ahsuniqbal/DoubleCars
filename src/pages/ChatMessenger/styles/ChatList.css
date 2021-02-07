@@ -1,6 +1,9 @@
 .chat-list {
     background-color: #ffffff;
     border-right: 1px solid rgba(0, 0, 0, 0.125);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    min-height: 100%;
 }
 
 .chat-list h2 {
@@ -22,10 +25,15 @@
     padding: 5px;
 }
 
+.chat-list .input-group input:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
 .chat-list .scrollable {
     overflow-y: auto;
     overflow-x: hidden;
-    max-height:  calc(100vh - (130px + 100px));
+    max-height: calc(100vh - 100px);
 }
 
 .chat-list .scrollable::-webkit-scrollbar {

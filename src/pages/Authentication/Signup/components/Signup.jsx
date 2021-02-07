@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState,useEffect} from 'react';
 import '../styles/Signup.css'
 import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reactstrap'
 import { Link } from "react-router-dom";
@@ -11,21 +11,21 @@ import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
 import { useHistory } from "react-router-dom";
 import Eyepiece from '../../../../assets/eyepiece.png'
+import { emailValidation, mobileValidation, nameValidation, passwordValidation } from '../../../../utils/Validation';
 
 
 const Signup = (props) => {
     const [loading,setLoading] = useState(false)
     const [passwordShown, setPasswordShown] = useState(false)
-    const [firstName,setFirstName]=useState('')
-    const [lastName,setlastName]=useState('')
-    const [password,setPassword]=useState('')
-    const [phNum,setNumber]=useState('')
-    const [email,setEmail]=useState('')
+    
     // regex values
     const emailRegex= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    const passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
-    const NumberRegex=/^\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$/
-    const userNameRegex=  /^[a-zA-Z0-9]+$/
+    const passwordRegex=/^[0-9a-zA-Z@!#$%^&*()_+?.,'"\|]{8,16}$/
+    // const passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+    // const NumberRegex=/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
+    const hasNumber=/\d/
+    const NumberRegex=/^\d+$/
+    const userNameRegex=  /^[a-zA-Z]*$/
     const history=useHistory()
 
     // code to show passowrd on click of eye icon
@@ -35,87 +35,90 @@ const Signup = (props) => {
       };
 
     //   handle singup
+
+    const regex = (obj) => {
+        //yahan per sara regex kaam krna hai. whatever the fuck it is, it will goes here.
+        var flag = true
+        //logic goes here
+        // if any regex gets failed the flag value will be false and will get return with a msg.
+        return flag
+    } 
+
     const handleSignUp = (e) => {
         e.preventDefault();
-        var obj = {
-            firstName,lastName,phNum,email,password
-        }
-        console.log(obj)
-        setLoading(true)
-        if(firstName=='' || lastName==''){
-            let getError=document.createElement('div')
-            getError.innerHTML='fill all fields'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
-            setLoading(false)
-        }
-          // regex errors
-        else if (!emailRegex.test(email)){
-            let getError=document.createElement('div')
-            getError.innerHTML='invalid email format'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
-            setLoading(false)
-         }
-          else if (!userNameRegex.test(firstName+lastName)){
-            let getError=document.createElement('div')
-            getError.innerHTML='username contains letters and number only'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
-            setLoading(false)
-         }
-         else if (!NumberRegex.test(phNum)){
-            let getError=document.createElement('div')
-            getError.innerHTML='enter correct phone number'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
-            setLoading(false)
-         }
         
-         else if (!passwordRegex.test(password)){
-            let getError=document.createElement('div')
-            getError.innerHTML='password should contain 8 digits and upper lower case'
-            getError.style.color='red'
-            document.getElementById('signup-error-label').appendChild(getError)
-            setTimeout(()=>getError.remove(),4000)
-            setLoading(false)
-         }
-         else{
-            userSignUp(obj)
-            .then(doc => {
-                setLoading(false)
-                if(doc.code === 1){
-                    localStorage.setItem('userId',doc.id)
-                    localStorage.setItem('userToken',doc.Token)
-                    props.history.push('/profile');
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const phNum = document.getElementById('phNum').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+
+        if(nameValidation(firstName + lastName)) {
+            // Name is okay
+            document.getElementById('name-error-label').textContent = "";
+
+            if(mobileValidation(phNum)) {
+                // Mobile is okay
+                document.getElementById('phNum-error-label').textContent = "";
+
+                if(emailValidation(email)) {
+                    // Mobile is wrong
+                    document.getElementById('email-error-label').textContent = "";
+
+                    if(passwordValidation(password)) {
+                        // Password is okay
+                        document.getElementById('signup-error-label').textContent = "";
+
+                        var obj = {
+                            firstName,lastName,phNum,
+                            email,
+                            password
+                        }
+
+
+                        setLoading(true)
+                        userSignUp(obj)
+                            .then(doc => {
+                            setLoading(false)
+                            if(doc.code === 1){
+                                localStorage.setItem('userId',doc.id)
+                                localStorage.setItem('userToken',doc.Token)
+                                props.history.push('/profile');
+                            }
+                            else{
+                                document.getElementById('signup-error-label').textContent = doc.message
+                            }
+                        })
+                        .catch(e => {
+                            setLoading(false)
+                            console.log(e.message)
+                            document.getElementById('signup-error-label').textContent = e.message
+                        })
+                    }
+                    else {
+                        // Password is wrong
+                        document.getElementById('signup-error-label').textContent = "Password must be atleast eight characters long including atleast one letter and one number.";
+                    }
                 }
-               
-                else{
-                    // document.getElementById('error-label').textContent = doc.message (prev code)
-                    let getError=document.createElement('div')
-                    getError.innerHTML=doc.message
-                    getError.style.color='red'
-                    document.getElementById('signup-error-label').appendChild(getError)
-                    setTimeout(()=>getError.remove(),5000)
+                else {
+                    // Email wrong
+                    document.getElementById('email-error-label').textContent = "Please enter a valid email address";
                 }
-            })
-            .catch(e => {
-                setLoading(false)
-                console.log(e.message)
-                let getError=document.createElement('div')
-                getError.innerHTML='Fill all fields'
-                getError.style.color='red'
-                document.getElementById('signup-error-label').appendChild(getError)
-                setTimeout(()=>getError.remove(),5000)
-                // document.getElementById('error-label').textContent = e.message
-            })
-         }
-       
+            }
+            else {
+                // Mobile is wrong
+                document.getElementById('phNum-error-label').textContent = "Please enter a valid mobile number";
+            }
+        }
+        else {
+            // Name is wrong
+            document.getElementById('name-error-label').textContent = "Please enter a valid name";
+        }
         
+
+        
+
+              
     }
 
     return(
@@ -140,48 +143,28 @@ const Signup = (props) => {
                             
                                 <Row>
                                     <Col xs = "12" md = "6" className='first-name-col'>
-                                    <Input id="firstName" className = "signup-register-textfield" type="text" 
-                                    placeholder="First Name"  
-                                    value={firstName}
-                                    onChange={(e)=>setFirstName(e.target.value)}
-                                  required
-                                    />
-
+                                        <Input id="firstName" className = "signup-register-textfield" type="text" placeholder="First Name"required />
+                                        <div id="name-error-label" className="error-label"></div>
                                     </Col>
                                     <Col xs = "12" md = "6" className='last-name-col'>
-                                    <Input id="lastName" className = "signup-register-textfield" type="text" 
-                                    placeholder="Last Name"  
-                                    value={lastName}
-                                    onChange={(e)=>setlastName(e.target.value)}
-                                    required
-                                    />
-
+                                        <Input id="lastName" className = "signup-register-textfield" type="text" placeholder="Last Name" required />
                                     </Col>
                                 </Row>
-                                    <Input id="phNum" className = "signup-register-textfield" type="text" 
-                                    placeholder="Mobile Number"  
-                                    value={phNum}
-                                    onChange={(e)=>setNumber(e.target.value)}
-                                    required
-                                    />
+                                    <Input id="phNum" className = "signup-register-textfield" type="text" placeholder="Mobile Number" required />
+                                    <div id="phNum-error-label" className="error-label"></div>
 
-                                    <Input id="signup-email" className = "signup-register-textfield" type="text" 
-                                    placeholder="Your Email"  
-                                    value={email}
-                                    onChange={(e)=>setEmail(e.target.value)}
-                                    required
-                                    />
-                                <div className='pass-wrapper'>
+                                    <Input id="signup-email" className = "signup-register-textfield" type="text" placeholder="Your Email" required />
+                                    <div id="email-error-label" className="error-label"></div>
+
+                                    <div className='pass-wrapper'>
                                     <Input id="signup-password" className = "signup-register-textfield" 
-                                     type={passwordShown ? "text" : "password"} placeholder= "Create a Password"  
-                                     value={password}
-                                     onChange={(e)=>setPassword(e.target.value)}
+                                     type={passwordShown ? "text" : "password"} placeholder= "Create a Password" 
                                      required
+                                     maxLength={16}
                                      />
                                     <i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
                                  </div>
-                                {/* <Input id="signup-password" className = "register-textfield" type="password" placeholder= "Create a password" required/> */}
-                                <div id="signup-error-label"></div>
+                                <div id="signup-error-label" className="error-label"></div>
 
                                 <Row>
                                     <Col xs="6" md = "7" className = "terms-signup-column">

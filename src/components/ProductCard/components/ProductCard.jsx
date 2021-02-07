@@ -11,12 +11,8 @@ import {postSaveCar} from '../api/post';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
 const ProductCard = (props) => {
-    const [saveId, setSaveId] = useState(null)
-    const [savedCar,setSaveCar]=useState(false)
-    
-    useEffect(() => {
-        setSaveId(props.saveId)
-    },[])
+
+    const [savedProductId, setSavedProductId] = useState(props.isSave);
 
     const saveCarFunc = (productId) => {
         var userId;
@@ -31,13 +27,7 @@ const ProductCard = (props) => {
         }
         postSaveCar(obj)
         .then(doc => {
-            setSaveCar(true)
-            if(doc.code === -1){
-                setSaveId(doc.saveId)
-                alert(doc.message)
-            }else{
-                alert(doc.message)
-            }
+            setSavedProductId(doc.saveId)
         })
         .catch(e => {
             alert(e.message)
@@ -76,19 +66,19 @@ const ProductCard = (props) => {
                 {
                     // The bookmark button
                     props.allowBookmark ?
-                    saveId ?
-                        null
-                    :
-                    <Col xs="3">
-                        <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark"
-
-                        >
-                           {savedCar ? 
-                            <FontAwesomeIcon icon={faBookmark} style={{color:'#1C67CE'}} />:
-                            <FontAwesomeIcon icon={["far", "bookmark"]} />
-                            }
-                        </Button>
-                    </Col>
+                    
+                    savedProductId ? 
+                        <Col xs="3">
+                                <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
+                                    <FontAwesomeIcon icon={faBookmark} style={{color:'#1C67CE'}} />
+                                </Button>
+                            </Col>
+                        :
+                        <Col xs="3">
+                            <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
+                                <FontAwesomeIcon icon={["far", "bookmark"]} />
+                            </Button>
+                        </Col>
                     : null
                 }
             </Row>

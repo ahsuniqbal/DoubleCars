@@ -520,7 +520,7 @@ const Filters = (props) => {
                                 <InputGroup>
                                     {/* Zip code will be visible in this text box
                                     on clicking this text box a map will appear to get the location manually */}
-                                    <Input type="text" className="location-box" defaultValue={zipCode} onClick={() => toggleMapPopup()} readOnly />
+                                    <Input type="text" className="location-box" defaultValue={zipCode} value={zipCode} onClick={() => toggleMapPopup()} readOnly />
                                     {/* Google map popup to select the location manually from map
                                     the center of the map will be current Lattitude and Longitude */}
                                     <MapPopup toggle={toggleMapPopup} isOpen={mapPopup} GetLocationFromMap={GetLocationFromMap} center={currentLatLng} />

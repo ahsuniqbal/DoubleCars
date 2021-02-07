@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button,Row,Col} from 'reactstrap';
+import {Card, CardText, CardBody,CardTitle, CardSubtitle} from 'reactstrap';
   import img1 from '../../../assets/TopNewsDummy2.png'
   import img2 from '../../../assets/TopNewsDummyImage.png'
   import img3 from '../../../assets/LC1.png'
