@@ -40,14 +40,22 @@ const Login = (props) => {
 
             userLogin(obj).then(doc => {
                 setLoading(false);
-                
-                if(doc.code === 1) {
+                console.log(doc)
+                if(doc.ID !== -1) {
                     localStorage.setItem('userId',doc.ID)
                     localStorage.setItem('userToken',doc.Token)
-                    props.history.push('/profile');
+                    Promise.all([localStorage.setItem('userId',doc.ID),localStorage.setItem('userToken',doc.Token)])
+                    .then(doc => {
+                        props.history.push('/profile');
+                    })
+                    .catch(e => {
+                        console.log(e.message)
+                    })
+                    
+                    
                 }
                 else {
-                    document.getElementById("error-label").textContent = "Credentials doesn't match."
+                    document.getElementById("error-label").textContent = doc.Message
                 }
             }).catch(error => {
                 document.getElementById("error-label").textContent = error.message;
