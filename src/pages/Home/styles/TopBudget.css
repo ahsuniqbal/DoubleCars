@@ -34,8 +34,9 @@
     color: #ffffff ;
     font-size: 15px ;
     line-height: 16px; 
-    border-color: #1C67CE; 
+    border-color: #1C67CE !important; 
     font-weight: 500;
+
 }
 .explore-button:focus{
     box-shadow: none !important;
