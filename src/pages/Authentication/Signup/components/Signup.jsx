@@ -52,6 +52,7 @@ const Signup = (props) => {
         const phNum = document.getElementById('phNum').value;
         const email = document.getElementById('signup-email').value;
         const password = document.getElementById('signup-password').value;
+        
 
         if(nameValidation(firstName + lastName)) {
             // Name is okay
@@ -74,6 +75,9 @@ const Signup = (props) => {
                             email,
                             password
                         }
+
+
+                        console.log(obj)
 
 
                         setLoading(true)
@@ -120,6 +124,7 @@ const Signup = (props) => {
 
               
     }
+
 
     return(
         <div>

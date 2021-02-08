@@ -40,7 +40,6 @@ const Login = (props) => {
 
             userLogin(obj).then(doc => {
                 setLoading(false);
-                console.log(doc)
                 if(doc.ID !== -1) {
                     localStorage.setItem('userId',doc.ID)
                     localStorage.setItem('userToken',doc.Token)
