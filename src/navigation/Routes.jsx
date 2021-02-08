@@ -29,8 +29,9 @@ const SavedCars = React.lazy(() => import('../pages/SavedCars/components/SavedCa
 const routes = [
     { path: '/', exact: true, name: 'Home', public: true, restricted: false, component: Home },
     { path: '/about', name: 'About', public: true, restricted: true, component: About },
-    { path: '/blogshome', name: 'Blogs', public: true, restricted: false, component: BlogsHome },
-    { path: '/profile', exact: true, name: 'Profile', public: true, restricted: true, component: Profile }, // login signup k kaam k baad is route ko private krna ha
+    { path: '/blogs', name: 'Blogs', public: true, restricted: false, component: BlogsHome },
+    { path: '/blogs/:id', name: 'Blogs', public: true, restricted: false, component: Blogs },
+    { path: '/profile', exact: true, name: 'Profile', public: false, restricted: true, component: Profile }, // login signup k kaam k baad is route ko private krna ha
     { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
     { path: '/signup', exact: true, name: 'Signup', public: true, restricted: true, component: Signup },
     { path: '/products', exact: true, name: 'Products', public: true, restricted: true, component: Products },
@@ -39,10 +40,8 @@ const routes = [
     { path: '/termsandconditions', name: 'Terms and Condition', public: true, restricted: true, component: TermsAndCondition },
     { path: '/privacypolicy', name: 'Privacy and Policy', public: true, restricted: true, component: PrivacyPolicy },
     { path: '/contactus', name: 'Contact Us', public: true, restricted: true, component: ContactUs },
-    { path: '/blogs', name: 'Blogs', public: true, restricted: false, component: Blogs },
-    { path: '/chat', name: 'Chat', public: true, restricted: false, component: Chat },
-    { path: '/blogs/:id', name: 'Blogs', public: true, restricted: false, component: Blogs },
-    { path: '/saved-cars', name: 'SavedCars', public: true, restricted: false, component: SavedCars},
+    { path: '/chat', name: 'Chat', public: false, restricted: false, component: Chat },
+    { path: '/saved-cars', name: 'SavedCars', public: false, restricted: false, component: SavedCars},
     
 ];
 

@@ -16,7 +16,7 @@ const LatestArticlesCard = () => {
     const history=useHistory()
     return(
         
-           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
+           <div className='article-card-main' onClick={()=>history.push('/blogs')}>
                 <img src = {LC1} className = "img-fluid latest-article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">Video: BMW X5 M vs GLE 63 AMG and Audi RSQ8 comparison review</Label> 
                 <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
@@ -29,7 +29,7 @@ const LatestArticlesCard2 = () => {
     const history=useHistory()
     return(
         
-           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
+           <div className='article-card-main' onClick={()=>history.push('/blogs')}>
                 <img src = {LC2} className = "img-fluid latest-article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">2021 Ford Bronco Sport First Drive: Small SUV, Big Off-Road</Label> 
                 <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
@@ -43,7 +43,7 @@ const LatestArticlesCard3 = () => {
     const history=useHistory()
     return(
         
-           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
+           <div className='article-card-main' onClick={()=>history.push('/blogs')}>
                 <img src = {LC3} className = "img-fluid latest-article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">2021 Volvo XC60 Review | Swedish Design; no Assembly Required</Label> 
                 <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
@@ -56,7 +56,7 @@ const LatestArticlesCard4 = () => {
     const history=useHistory()
     return(
         
-           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
+           <div className='article-card-main' onClick={()=>history.push('/blogs')}>
                 <img src = {LC4} className = "img-fluid latest-article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">About 150 Cadillac Dealers would rather leave the Brand than Sell EVs</Label> 
                 <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
@@ -69,7 +69,7 @@ const LatestArticlesCard5 = () => {
     const history=useHistory()
     return(
         
-           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
+           <div className='article-card-main' onClick={()=>history.push('/blogs')}>
                 <img src = {LC5} className = "img-fluid latest-article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">George Russell Answers the Question of what He Can Do in ...</Label> 
                 <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
@@ -82,7 +82,7 @@ const LatestArticlesCard6 = () => {
     const history=useHistory()
     return(
         
-           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
+           <div className='article-card-main' onClick={()=>history.push('/blogs')}>
                 <img src = {LC6} className = "img-fluid latest-article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">The Next Generation Car Is Just Here, Checkout More</Label> 
                 <Label className = "article-date">Dec 15, 2020</Label><br/><br/>
@@ -96,7 +96,7 @@ const LatestArticlesCard7 = () => {
     const history=useHistory()
     return(
         
-           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
+           <div className='article-card-main' onClick={()=>history.push('/blogs')}>
                 <img src = {LC7} className = "img-fluid latest-article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">Hyundai Recalling 130,000 Santa Fe, Sonata Hybrid and Veloster models</Label> 
                 <Label className = "article-date">May 1, 2018</Label><br/><br/>
@@ -110,7 +110,7 @@ const LatestArticlesCard8 = () => {
     const history=useHistory()
     return(
         
-           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
+           <div className='article-card-main' onClick={()=>history.push('/blogs')}>
                 <img src = {LC8} className = "img-fluid latest-article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">Win One of the Most Luxurious off-roaders Made, the Mercedes AM</Label> 
                 <Label className = "article-date">Feb 15, 2020</Label><br/><br/>
@@ -124,7 +124,7 @@ const LatestArticlesCard9 = () => {
     const history=useHistory()
     return(
         
-           <div className='article-card-main' onClick={()=>history.push('/blogshome')}>
+           <div className='article-card-main' onClick={()=>history.push('/blogs')}>
                 <img src = {LC9} className = "img-fluid latest-article-card-image" alt = "demo-image"/>
                 <Label className = "tarticle-card-heading">Romain Grosjean's 28-Second Fight to Live, in His Own Words</Label> 
                 <Label className = "article-date">May 15, 2007</Label><br/><br/>

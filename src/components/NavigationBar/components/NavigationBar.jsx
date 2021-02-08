@@ -139,7 +139,7 @@ const NavigationBar = () => {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/blogshome'}>Blog</NavLink>
+                            <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/blogs'}>Blog</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/about'}>About</NavLink>
