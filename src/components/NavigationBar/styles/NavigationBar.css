@@ -1,8 +1,6 @@
 .double-car-logo {
     margin-left: 3rem;
 }
-
-
 .navbar {
     background-color: #ffffff !important;
 }
@@ -83,12 +81,23 @@ a:hover {
 } */
 
 /* Search bar css starts here. */
-
+.search-icon-image{
+    position: absolute;
+    z-index: 999;
+    top: 39%;
+    left: 13px;
+    color: rgba(0, 0, 0, 0.65);
+    height: 13.5px;
+    width: 13.5px;
+}
  .search-box{
     background-color: #F4F4F4;
     border-radius: 0px 8px 8px 0px;
     border: none;
-    padding-left: 0px !important;
+    /* padding-left: 0px !important; */
+    padding-left: 36px;
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
 }
 
 .search-box::placeholder {
@@ -120,7 +129,7 @@ a:hover {
 }
 
 .search-icon-navbar {
-    color: rgba(0, 0, 0, 0.65);;
+    color: rgba(0, 0, 0, 0.65);
     height: 13.5px;
     width: 13.5px;
 }

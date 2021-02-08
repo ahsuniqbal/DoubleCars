@@ -151,13 +151,16 @@ const NavigationBar = () => {
                         <li className="nav-item">
                             {/* <NavLink className="nav-link download-button" to="">Download App</NavLink> */}
                             <Form onSubmit={(e) => TopSearch(e)}>
-                                <InputGroup className="search-group">
+                            <InputGroup className="search-group">
+                                <img src = {NavbarSearchIcon} className = "search-icon-image"/>
+                                <Input className="search-box" type="text" placeholder="Search" id='top-search-box' />
+                            </InputGroup>
+                                {/* <InputGroup className="search-group">
                                     <InputGroupText className = "search-navigation-icon">
                                         <img src = {NavbarSearchIcon} className = "img-fluid"/>
-                                    {/* <Search className = "search-icon-navbar"/> */}
                                     </InputGroupText>
                                 <Input className="search-box" type="text" placeholder="Search" id='top-search-box' />
-                                </InputGroup>
+                                </InputGroup> */}
                             </Form>
                             </li>
                             {
