@@ -110,15 +110,16 @@ const Compose = (props) => {
             <Paperclip color="#1C67CE" size={30}/>
             </Input> */}
             <input accept="image/*" onChange={e => onChangeImage(e)} className={classes.input} id="icon-button-file" type="file" />
-            <label htmlFor="icon-button-file">
+            <label htmlFor="icon-button-file" className="mb-0">
                 <IconButton color="primary" aria-label="upload picture" component="span">
-                <PhotoCamera />
+                <Paperclip size={18} />
                 </IconButton>
             </label>
 
             
             <Input id="chatMessage" type="text" placeholder="Write a message..." />
-            <Send onClick={e => sendMessage()} color="#1C67CE" size={30} />
+            {/* <Send onClick={e => sendMessage()} color="#1C67CE" size={20} /> */}
+            <ion-icon onClick={e => sendMessage()} name="send"></ion-icon>
         </div>
     )
 }

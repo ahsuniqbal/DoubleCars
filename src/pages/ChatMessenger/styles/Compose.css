@@ -13,9 +13,6 @@
     border-right: 0;
 }
 
-.compose svg {
-    margin: 0rem 2rem;
-}
 
 .compose input {
     border: none;
@@ -32,4 +29,11 @@
     line-height: 18px;
 
     color: rgba(62, 62, 62, 0.55);
+}
+
+/* Send icon */
+ion-icon {
+    font-size: 21px;
+    color: #1C67CE;
+    margin-right: 25px;
 }
