@@ -52,8 +52,6 @@ import { ActionSwapVerticalCircle } from 'material-ui/svg-icons';
 //     return table;
 // }
 
-
-
 const DrawSkeleton = () => {
     var table = [];
     for(let i = 0; i < 4; i++){
@@ -152,6 +150,7 @@ const Home = () => {
      const history=useHistory()
 
     useEffect(() => {
+       
         // calling Api function
        
         // If User is logged in the you will send id param other wise no id param will be send

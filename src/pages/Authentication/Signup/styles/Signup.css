@@ -76,7 +76,11 @@
 .register-button:focus, .register-button:active:focus {
     box-shadow: none !important;
   }
-
+.password-eye{
+    width: 18px !important;
+    height: 18px !important;
+    opacity: 0.7;
+}
 
 .terms-signup-column {
     margin-top: 1.8rem;

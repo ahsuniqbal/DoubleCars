@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Row, Col, Label} from 'reactstrap';
 import UpperSection from './UpperSection'
 import '../../styles/BlogsHome.css'
@@ -15,10 +15,15 @@ import SubsribeCard from './SubscribeCard'
 import LatestArticlesCard from '../BlogsHome/LatestArticlesCard'
 import {LatestArticlesCard2, LatestArticlesCard3 ,LatestArticlesCard4, LatestArticlesCard5, LatestArticlesCard6 , LatestArticlesCard7, LatestArticlesCard8, LatestArticlesCard9 } from './LatestArticlesCard';
 import {useHistory} from 'react-router-dom';
+import { connectionString } from '../../../../config/ConnectionString';
 
 const BlogsHome = () => {
+    const axios = require('axios');
 
     const history = useHistory()
+    useEffect(()=>{
+        
+    },[])
     return(
         <body className = "blogs-home-body">
                             

@@ -7,7 +7,6 @@ export const GetRecommendationsTrendings = (id) => {
         var url = connectionString + "home/part-two?id=" + id;
         axios.get(url).then(function(response){
             const data = response.data.results;
-            
             resolve(data);
         })
         .catch(function(error){
@@ -52,9 +51,8 @@ export const GetProductsOfBodyType = (bodyType) => {
 
 export const GetFilteredPriceList = () => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + "products/price-filter?price=5000" ;
+        var url = connectionString + "products/price-filter?price=50000000" ;
         axios.get(url).then(function(response){
-            console.log('filter***',response)
             const data = response.data.results;
             resolve(data);
         })

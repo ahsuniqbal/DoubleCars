@@ -9,18 +9,9 @@ from './PriceRangeCards'
 import Grid from '@material-ui/core/Grid';
 import {GetFilteredPriceList} from '../api/GetRequests'
 import { isLogin, getLogin } from '../../../config/LoginAuth'
-const PriceRange = () => {
 
-        const [priceList ,setList]=useState(null)
-        useEffect(() => {
-                GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
-                    setList(doc)
-                     
-                })
-                .catch(error => {
-                    alert(error.message);
-                });
-            }, []);
+
+const PriceRange = () => {
 
     return(
         <div className="mt-3 price-range-main">
@@ -31,7 +22,7 @@ const PriceRange = () => {
 
                         <TabList className='price-range-tablist'>
                             <span className='price-head'>Price Range</span>
-                            <Tab tabFor="vertical-tab-one" className='Items' id=''>Under $10,000</Tab>
+                            <Tab tabFor="vertical-tab-one" className='Items'>Under $10,000</Tab>
                             <Tab tabFor="vertical-tab-two" className='Items'>Under $20,000</Tab>
                             <Tab tabFor="vertical-tab-three" className='Items'>Under $30,000</Tab>
                             <Tab tabFor="vertical-tab-four" className='Items'>Under $40,000</Tab>
@@ -40,91 +31,21 @@ const PriceRange = () => {
 
                     </Grid>
                     
-                    <Grid item sm={12}  md={8} lg={10}>
+                    <Grid item sm={12}  md={8} lg={10} className=''>
                         <TabPanel tabId="vertical-tab-one">
-                            <Grid container >
-                                 
-                                        <Grid item md={3} >
-                                                <PriceRangeCards1/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards2/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards3/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards4/>
-                                        </Grid>
-                            </Grid>
+                           <PriceRangeCards1/>
                         </TabPanel>
                         <TabPanel tabId="vertical-tab-two">
-                            <Grid container >
-                                 
-                                        <Grid item md={3} >
-                                                <PriceRangeCards5/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards6/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards7/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards8/>
-                                        </Grid>
-                            </Grid>
+                           <PriceRangeCards2/>
                         </TabPanel>
                         <TabPanel tabId="vertical-tab-three">
-                            <Grid container >
-                                 
-                                        <Grid item md={3} >
-                                                <PriceRangeCards9/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards3/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards4/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards5/>
-                                        </Grid>
-                            </Grid>
+                           <PriceRangeCards3/>
                         </TabPanel>
                         <TabPanel tabId="vertical-tab-four">
-                            <Grid container >
-                                 
-                                        <Grid item md={3} >
-                                                <PriceRangeCards6/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards7/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards3/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards1/>
-                                        </Grid>
-                            </Grid>
+                           <PriceRangeCards4/>
                         </TabPanel>
                         <TabPanel tabId="vertical-tab-five">
-                            <Grid container >
-                                 
-                                        <Grid item md={3} >
-                                                <PriceRangeCards5/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards4/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards9/>
-                                        </Grid>
-                                        <Grid item md={3}>
-                                                <PriceRangeCards3/>
-                                        </Grid>
-                            </Grid>
+                          <PriceRangeCards5/>
                         </TabPanel>
                     </Grid>                       
                             

@@ -9,18 +9,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Checkbox from '@material-ui/core/Checkbox';
 import Eyepiece from '../../../../assets/eyepiece.png';
+import Eye from '../../../../assets/eye.svg'
 import {emailValidation} from '../../../../utils/Validation.jsx';
-
 
 const Login = (props) => {
     const [loading,setLoading] = useState(false)
     const [passwordShown, setPasswordShown] = useState(false)
+    const [eyePiece,setEye]=useState(true)
     const emailRegex= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     const eye = <FontAwesomeIcon icon={faEyeSlash} />
     const history=useHistory()
     
+    //show passowrd on click of closed-eye icon
     const togglePasswordVisiblity = () => {
-        setPasswordShown(passwordShown ? false : true);
+        setPasswordShown('show');
+        setEye(false)
+      };
+       // hide passowrd on click of open-eye icon
+    const toggleEyeVisiblity= () => {
+        setPasswordShown('hide');
+        setEye(true)
       };
 
     const handleLogin = (e) => {
@@ -90,8 +98,10 @@ const Login = (props) => {
                                 <div id="email-error" className="error"></div>
 
                                 <div className='pass-wrapper'>
-                                    <Input id="login-password" className = "login-password"  type={passwordShown ? "text" : "password"} placeholder= "Your Password" required />
-                                    <i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
+                                    <Input id="login-password" className = "login-password"  type={passwordShown=='show' ? "text" : "password"} placeholder= "Your Password" required />
+                                     { eyePiece ?<i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
+                                   :<i onClick={toggleEyeVisiblity}><img src={Eye} className='password-eye'/></i>
+                                   }
                                     
                                  </div>
                                 <div id="error-label" className="error"></div>
