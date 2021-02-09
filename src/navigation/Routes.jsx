@@ -28,20 +28,20 @@ const SavedCars = React.lazy(() => import('../pages/SavedCars/components/SavedCa
 
 const routes = [
     { path: '/', exact: true, name: 'Home', public: true, restricted: false, component: Home },
-    { path: '/about', name: 'About', public: true, restricted: true, component: About },
+    { path: '/about', name: 'About', public: true, restricted: false, component: About },
     { path: '/blogs', name: 'Blogs', public: true, restricted: false, component: BlogsHome },
     { path: '/blogs/:id', name: 'Blogs', public: true, restricted: false, component: Blogs },
-    { path: '/profile', exact: true, name: 'Profile', public: false, restricted: true, component: Profile }, // login signup k kaam k baad is route ko private krna ha
+    { path: '/profile', exact: true, name: 'Profile', public: false, restricted: false, component: Profile },
     { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
     { path: '/signup', exact: true, name: 'Signup', public: true, restricted: true, component: Signup },
-    { path: '/products', exact: true, name: 'Products', public: true, restricted: true, component: Products },
+    { path: '/products', exact: true, name: 'Products', public: true, restricted: false, component: Products },
     { path: '/product/:id', exact: true, name: 'Product Details', public: true, restricted: false, component: ProductDetails },
     { path: '/dealer/:id', exact: true, name: 'Dealer Profile', public: true, restricted: false, component: DealerProfile },
-    { path: '/termsandconditions', name: 'Terms and Condition', public: true, restricted: true, component: TermsAndCondition },
-    { path: '/privacypolicy', name: 'Privacy and Policy', public: true, restricted: true, component: PrivacyPolicy },
-    { path: '/contactus', name: 'Contact Us', public: true, restricted: true, component: ContactUs },
-    { path: '/chat', name: 'Chat', public: false, restricted: false, component: Chat },
-    { path: '/saved-cars', name: 'SavedCars', public: false, restricted: false, component: SavedCars},
+    { path: '/termsandconditions', exact: true, name: 'Terms and Condition', public: true, restricted: false, component: TermsAndCondition },
+    { path: '/privacypolicy', exact: true, name: 'Privacy and Policy', public: true, restricted: false, component: PrivacyPolicy },
+    { path: '/contactus', exact: true, name: 'Contact Us', public: true, restricted: false, component: ContactUs },
+    { path: '/chat', exact: true, name: 'Chat', public: false, restricted: false, component: Chat },
+    { path: '/saved-cars', exact: true, name: 'SavedCars', public: false, restricted: false, component: SavedCars},
     
 ];
 
