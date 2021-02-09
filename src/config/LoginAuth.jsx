@@ -1,4 +1,4 @@
-const TOKEN_KEY = "login_token_key";
+const TOKEN_KEY = "userId";
 
 // If the person logs in this key is saved in the local storage
 export const login = () => {

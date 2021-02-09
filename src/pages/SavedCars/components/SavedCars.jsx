@@ -90,7 +90,7 @@ const  SavedCars = (props) => {
             <Container clsssName = "saved-container">
                 <Row>
                     <Col xs = "12" md = "12" className = "saved-car-col">
-                    <h2 className = "saved-car-label">Saved Cars {savedCars ? savedCars.length : null}</h2>
+                    <h2 className = "saved-car-label text-center">Saved Cars {savedCars ? savedCars.length : null}</h2>
                     </Col>
                 </Row>
 

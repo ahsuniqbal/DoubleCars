@@ -11,6 +11,7 @@ import {getUser} from '../../../pages/Profile/api/Get';
 import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
 import DummyTopProfile from '../../../assets/Dummy-short-profile.png'
 import {GetFilterResult} from '../../../pages/Products/api/GetRequests';
+import { User } from 'react-feather';
 const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 
 const NavigationBar = () => {
@@ -139,7 +140,7 @@ const NavigationBar = () => {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/blogshome'}>Blog</NavLink>
+                            <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/blogs'}>Blog</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/about'}>About</NavLink>
@@ -179,7 +180,7 @@ const NavigationBar = () => {
                             localStorage.getItem("userId") ?  <li className="profile-nav-item">
                              <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className='dropdown-toggle-image'>
-                                    <img className="img-fluid profile-navbar-image" src={profilePic ? profilePic : DummyTopProfile}/>
+                                    {profilePic ? <img className="img-fluid profile-navbar-image" src={profilePic}/> : <User size={25} className="mt-2" /> }
                                 </DropdownToggle>
                                      
                                 <DropdownMenu right className='dropdown-menu'>

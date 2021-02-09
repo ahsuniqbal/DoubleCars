@@ -23,20 +23,20 @@ const DefaultLayout = () => {
                                 // Public route will be shown to every visitor
                                 route.public ? 
                                 <PublicRoute 
-                                key={idx}
-                                path={route.path}
-                                exact={route.exact}
-                                name={route.name}
-                                restricted={route.restricted}
-                                component={route.component} />
+                                    key={idx}
+                                    path={route.path}
+                                    exact={route.exact}
+                                    name={route.name}
+                                    restricted={route.restricted}
+                                    component={route.component} />
                                 : 
                                 // Private route will be shown to only those visitors who are logged in
                                 <PrivateRoute
-                                key={idx}
-                                path={route.path}
-                                exact={route.exact}
-                                name={route.name}
-                                component={route.component} />
+                                    key={idx}
+                                    path={route.path}
+                                    exact={route.exact}
+                                    name={route.name}
+                                    component={route.component} />
                             ) : null;
                         })
                     }

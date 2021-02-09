@@ -1,5 +1,5 @@
 import React,{ useState, useEffect} from 'react';
-import {  Container, Row, Col, Input, Label, Card,CardBody, Button} from 'reactstrap';
+import {  Container, Row, Col, Input, Label, Card,CardBody } from 'reactstrap';
 import '../styles/Profile.css'
 // import { logout } from '../../../config/LoginAuth';
 import profileImage from '../../../assets/Dummy-profile-image.png'
@@ -8,7 +8,7 @@ import {getBlob} from '../../../utils/Conversion'
 import {changePassword,updateUser} from '../api/Patch'
 import {postImageToFTP} from '../../ChatMessenger/api/Post'
 import { makeStyles } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 // import IconButton from '@material-ui/core/IconButton';
 // import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
@@ -167,6 +167,7 @@ const Profile = (props) => {
                         <CardBody>
                              <img src = {user ? user.profilePic ? user.profilePic : profileImage : profileImage} id="profile-img" class = "img-fluid profile-image" alt = "profile-image"/> <br/>
                             {/*<Button onClick={e => changePicture(e)} className = "change-pic-button">Change Picture</Button> <br/> */}
+                            
                                   <input
                                     accept="image/*"
                                     className={classes.input}
@@ -175,16 +176,10 @@ const Profile = (props) => {
                                     type="file"
                                 />
                                 <label htmlFor="contained-button-file" style = {{width: "100%"}}>
-                                    <Button className = "change-pic-button">
-                                    {loadingProfile && "Changing..."}
-                                    {!loadingProfile && "Change Picture"}
+                                    <Button className = "change-pic-button" component="span">
+                                        {loadingProfile && "Changing..."}
+                                        {!loadingProfile && "Change Picture"}
                                     </Button>
-                                </label>
-                                <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
-                                <label htmlFor="icon-button-file">
-                                    {/* <IconButton color="primary" aria-label="upload picture" component="span">
-                                    <PhotoCamera />
-                                    </IconButton> */}
                                 </label>
 
                             <Button onClick={e => removePicture()} className = "remove-pic-button">Remove Picture</Button> 

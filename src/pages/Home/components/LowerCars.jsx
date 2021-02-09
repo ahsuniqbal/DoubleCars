@@ -118,7 +118,7 @@ const LowerCar = (props) => {
                <div className = "lower-section-car" >
                <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage8} className='img-fluid lower-cars-carousel-images'/>
                     {/* <img src={LowerCarsImage8} className='img-fluid lower-cars-carousel-images'/> */}
-                    <p className='text'>Mercez Benz</p>
+                    <p className='text'>Mecedez Benz</p>
                </div>
           </Slider>
        </div>
