@@ -26,12 +26,13 @@
     color: #ffffff !important;
     border: 1px solid #1C67CE !important;
     text-decoration: none !important;
-    height: 43px;
-    width: 68%;
-    line-height: 19px;
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 1rem;
+    height: 43px !important;
+    width: 68% !important;
+    line-height: 19px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-bottom: 1rem !important;
+    font-family: 'Ubuntu' !important;
 }
 .remove-pic-button {
     background-color: #ffffff !important;
@@ -39,11 +40,17 @@
     color: #1C67CE !important;
     border: 1px solid #1C67CE !important;
     text-decoration: none !important;
-    height: 43px;
-    width: 68%;
-    line-height: 19px;
-    font-size: 14px;
-    font-weight: 500;
+    height: 43px !important;
+    width: 68% !important;
+    line-height: 19px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    font-family: 'Ubuntu' !important;
+    
+}
+
+.MuiButton-root {
+    text-transform: none !important;
 }
 
 .change-pic-button,.remove-pic-button:focus, .change-pic-button, .remove-pic-button:active:focus {
@@ -104,13 +111,14 @@
     color: #ffffff !important;
     border: 1px solid #1C67CE !important;
     text-decoration: none !important;
-    height: 40px;
-    width: 127px;
-    line-height: 19px;
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 1.6rem;
-    margin-top: 1.6rem;
+    height: 40px !important;
+    width: 127px !important;
+    line-height: 19px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-bottom: 1.6rem !important;
+    margin-top: 1.6rem !important;
+    font-family: 'Ubuntu' !important;
 }
 
 .save-profile-button,.change-password-button:focus, .save-profile-button, .change-password-button:active:focus {
@@ -123,13 +131,14 @@
     color: #ffffff !important;
     border: 1px solid #1C67CE !important;
     text-decoration: none !important;
-    height: 40px;
-    width: 100px;
-    line-height: 19px;
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 1.6rem;
-    margin-top: 1.6rem;
+    height: 40px !important;
+    width: 100px !important;
+    line-height: 19px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-bottom: 1.6rem !important;
+    margin-top: 1.6rem !important;
+    font-family: 'Ubuntu' !important;
 }
 .below-password-hr{
     margin-top: 1.4rem !important;
