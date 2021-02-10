@@ -46,7 +46,10 @@
     font-size: 14px !important;
     font-weight: 500 !important;
     font-family: 'Ubuntu' !important;
-    
+}
+
+.remove-pic-button:focus {
+    border: 1px solid #1C67CE !important;
 }
 
 .MuiButton-root {
