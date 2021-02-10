@@ -10,7 +10,7 @@ const SimilarCarCell = () => {
         <Card className = "mb-4 similar-card-cell">
             <Row className = "">
                 <Col md = "6">
-                    <img className = "img-fluid similar-cell-card-image" src={SmilarCellDemoimg1} alt="Card image" />
+                    <img className = "img-fluid similar-cell-card-image" alt="Card image" src={SmilarCellDemoimg1}/>
                 </Col>
                 <Col md = "5" className = "mt-3">
                     <CardTitle className = "similar-car-title">2019 Mercedes Benz Hybrid</CardTitle>
@@ -27,7 +27,7 @@ const SimilarCarCell1 = () => {
         <Card className = "mb-4 similar-card-cell">
             <Row className = "">
                 <Col md = "6">
-                    <img className = "img-fluid similar-cell-card-image" src={SmilarCellDemoimg2} alt="Card image" />
+                    <img className = "img-fluid similar-cell-card-image" alt = "image loading..." src={SmilarCellDemoimg2} />
                 </Col>
                 <Col md = "5" className = "mt-3">
                     <CardTitle className = "similar-car-title">2019 Mercedes Benz Hybrid</CardTitle>
