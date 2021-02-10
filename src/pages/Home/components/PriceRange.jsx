@@ -1,14 +1,11 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import { Tab, TabPanel, Tabs, TabList } from "react-web-tabs";
 import "react-web-tabs/dist/react-web-tabs.css";
 import '../styles/PriceRange.css';
 import {PriceRangeCards1,PriceRangeCards2,PriceRangeCards3,
-        PriceRangeCards4,PriceRangeCards5,PriceRangeCards6,
-        PriceRangeCards7,PriceRangeCards8,PriceRangeCards9} 
+        PriceRangeCards4,PriceRangeCards5} 
 from './PriceRangeCards'
 import Grid from '@material-ui/core/Grid';
-import {GetFilteredPriceList} from '../api/GetRequests'
-import { isLogin, getLogin } from '../../../config/LoginAuth'
 
 
 const PriceRange = () => {

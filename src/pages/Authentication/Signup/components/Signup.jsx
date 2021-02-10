@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from 'react';
+import React, { useState} from 'react';
 import '../styles/Signup.css'
 import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reactstrap'
 import { Link } from "react-router-dom";
@@ -12,7 +12,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { useHistory } from "react-router-dom";
 import Eyepiece from '../../../../assets/eyepiece.png'
 import Eye from '../../../../assets/eye.svg'
-import { emailValidation, mobileValidation, nameValidation, passwordValidation } from '../../../../utils/Validation';
+import { emailValidation, nameValidation, passwordValidation } from '../../../../utils/Validation';
 
 
 const Signup = (props) => {
@@ -174,8 +174,8 @@ const Signup = (props) => {
                                      required
                                      maxLength={16}
                                      />
-                                   { eyePiece ?<i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
-                                   :<i onClick={toggleEyeVisiblity}><img src={Eye} className='password-eye'/></i>
+                                   { eyePiece ?<i onClick={togglePasswordVisiblity}><img alt = "loading..." src={Eyepiece}/></i>
+                                   :<i onClick={toggleEyeVisiblity}><img alt = "loading..." src={Eye} className='password-eye'/></i>
                                    }
                                  </div>
                                 <div id="signup-error-label" className="error-label"></div>
@@ -218,12 +218,12 @@ const Signup = (props) => {
                             <div className='signup-icon'>
                                 
                                 <button className="google-signup-button ">
-                                    <img src={googleIcon} className='google-icon'/>
+                                    <img src={googleIcon} alt = "loading..." className='google-icon'/>
                                     <span className="icon-text">Sigup with Google</span>
                                 </button>
                                
                                 <button className="facebook-signup-button">
-                                    <img src={FbIcon} className='fb-icon'/>
+                                    <img alt = "loading..." src={FbIcon} className='fb-icon'/>
                                 <span className="icon-text">Signup with Facebook</span>
                                 </button>
                                 

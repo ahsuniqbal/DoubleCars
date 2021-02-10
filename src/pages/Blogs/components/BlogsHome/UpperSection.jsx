@@ -1,11 +1,6 @@
 import React from 'react';
-import { Button } from 'reactstrap';
 import { Row, Col, Label, Badge } from 'reactstrap';
 import '../../styles/UpperSection.css'
-import img1 from '../../../../assets/BlogPageImage1.png'
-import img2 from '../../../../assets/BlogPageImage2.png'
-import img3 from '../../../../assets/BlogPageImage3.png'
-import img4 from '../../../../assets/BlogPageImage4.png'
 import {useHistory} from 'react-router-dom';
 
 

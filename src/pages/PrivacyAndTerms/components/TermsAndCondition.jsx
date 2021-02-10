@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/TermsAndCondition.css'
-import {Row, Col, Nav, NavItem, Button, NavLink, Container, CardBody} from 'reactstrap'
+import {Row, Col, Container} from 'reactstrap'
 const TermsAndCondition = () => {
     return(
         <body className = "terms-and-condition-body">

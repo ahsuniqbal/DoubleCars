@@ -10,7 +10,7 @@ const ContactAbout = () => {
             </div> */}
             <Row xs = "12" md = "12" sm = "12" className = "contact-image-div ">
                 <Col xs = "12" md = "12" className = "contact-us-image-column">
-                    <img className = "contactus-image" src = {ContactusDemo}/>
+                    <img className = "contactus-image" alt = "contactUSImage" src = {ContactusDemo}/>
                 </Col>
             </Row>
 

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header'
-import PopularMake from './PopularMake'
-import TrendingBodyTypes from './TrendingBodyTypes'
 import Searchbar from './Searchbar';
-import { Row, Col, Label, Container, CardBody} from 'reactstrap';
+import { Row, Col, Label, Container} from 'reactstrap';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
@@ -19,7 +17,7 @@ import '../styles/TrendingBodyTypes.css';
 import DCSlider from '../../../components/DcSlider'
 import TopBudget from './TopBudget'
 import ArticleCard from './ArticleCard'
-import {ArticleCard1,ArticleCard2,ArticleCard3,ArticleCard4} from './ArticleCard';
+import {ArticleCard1,ArticleCard2,ArticleCard4} from './ArticleCard';
 import FeaturedCars from './FeaturedCars';
 import CarSection1 from './CarSection1';
 import ServicesOffer from './ServicesOffer';
@@ -31,7 +29,6 @@ import OldFeaturedCars from './OldFeaturedCars';
 import NewFeaturedCars from './NewFeatureCars';
 import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 import { useHistory } from 'react-router-dom';
-import { ActionSwapVerticalCircle } from 'material-ui/svg-icons';
 
 // function DrawProductCards(data){
 //     var table = [];
