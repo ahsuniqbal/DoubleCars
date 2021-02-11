@@ -49,6 +49,7 @@ export const GetProductsOfBodyType = (bodyType) => {
     })
 };
 
+// filter list api
 export const GetFilteredPriceList = () => {
     return new Promise((resolve, reject) => {
         var url = connectionString + "products/price-filter?price=50000000" ;
@@ -64,3 +65,19 @@ export const GetFilteredPriceList = () => {
     })
 };
 
+// feature section Api
+export const GetFeaturedCars = () => {
+    return new Promise((resolve, reject) => {
+        var url = connectionString + "products/is-used?" ;
+        axios.get(url).then(function(response){
+            console.log('feature',response)
+            const data = response.data.results;
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            alert(error.message);
+        })
+    })
+};

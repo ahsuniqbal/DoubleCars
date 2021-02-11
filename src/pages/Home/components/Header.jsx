@@ -1,61 +1,12 @@
 import React from 'react';
 import { Row, Col , Button, Label} from 'reactstrap';
 import '../styles/Header.css';
+import Cover from '../../../assets/LandingPageHeaderImage.png';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 // import headerVideo from '../../../assets/header-mov.mkv';
 
 const Header = () => {
-    //  useEffect(()=>{
-    //           lazyLoadFunction()
-    //         })
-    //         const lazyLoadFunction= function() {
-    //           var lazyloadImages;    
-            
-    //           if ("IntersectionObserver" in window) {
-    //             lazyloadImages = document.querySelectorAll(".col-12 col-md-7 col-sm-6 right-cover-section");
-    //             var imageObserver = new IntersectionObserver(function(entries, observer) {
-    //               entries.forEach(function(entry) {
-    //                   console.log('entry',entry)
-    //                 if (entry.isIntersecting) {
-    //                   var image = entry.target;
-    //                   image.classList.remove("col-12 col-md-7 col-sm-6 right-cover-section");
-    //                   imageObserver.unobserve(image);
-    //                 }
-    //               });
-    //             });
-            
-    //             lazyloadImages.forEach(function(image) {
-    //               imageObserver.observe(image);
-    //             });
-    //           } else {  
-    //             var lazyloadThrottleTimeout;
-    //             lazyloadImages = document.querySelectorAll(".col-12 col-md-7 col-sm-6 right-cover-section");
-                
-    //             function lazyload () {
-    //               if(lazyloadThrottleTimeout) {
-    //                 clearTimeout(lazyloadThrottleTimeout);
-    //               }    
-            
-    //               lazyloadThrottleTimeout = setTimeout(function() {
-    //                 var scrollTop = window.pageYOffset;
-    //                 lazyloadImages.forEach(function(img) {
-    //                     if(img.offsetTop < (window.innerHeight + scrollTop)) {
-    //                       img.src = img.dataset.src;
-    //                       img.classList.remove('col-12 col-md-7 col-sm-6 right-cover-section');
-    //                     }
-    //                 });
-    //                 if(lazyloadImages.length == 0) { 
-    //                   document.removeEventListener("scroll", lazyload);
-    //                   window.removeEventListener("resize", lazyload);
-    //                   window.removeEventListener("orientationChange", lazyload);
-    //                 }
-    //               }, 20);
-    //             }
-            
-    //             document.addEventListener("scroll", lazyload);
-    //             window.addEventListener("resize", lazyload);
-    //             window.addEventListener("orientationChange", lazyload);
-    //           }
-    //         }
 
     return(
         <div>
@@ -77,12 +28,13 @@ const Header = () => {
                                     </div>
                                 </div>
 
-                                <div className = "col-12 col-md-7 col-sm-6 right-cover-section" style={{padding: '0'}}>
+                                <div className = "col-12 col-md-7 col-sm-6 right-side-cover-div">
+                                  <LazyLoadImage src={Cover} effect='blur' className='right-cover-section'/> 
                                     <Label className = "header-right-car-label float-right">Toyota Supra</Label>
                                     {/* <video width="100%" controls autoPlay loop>
                                         <source src={headerVideo} type="video/mp4" />
                                     </video> */}
-                                    {/* <img src = {Cover} alt = "Cover image" className = "img-fluid" width = "100%"/> */}
+                                   
                                 </div>
                           
                     </div>

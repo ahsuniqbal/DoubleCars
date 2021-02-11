@@ -4,6 +4,7 @@
   margin-left: 15px; */
   /* margin-top: 5.6rem; */
   padding-top: 5rem;
+  margin-right: 0px;
 }
 /* left section css */
 .left-cover-section {
@@ -58,15 +59,19 @@
 
   
   /* Right section css */
-.right-cover-section {
-    background-image: url("../../../assets/LandingPageHeaderImage.png"); 
+.right-side-cover-div{
+  padding: 0;
+  width: 100%;
+}
+.right-cover-section{
+    /* background-image: url("../../../assets/LandingPageHeaderImage.png");  */
+    object-fit: cover;
     background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
     height: 95vh;
-    width: 98%;
-   
-    
+    width: 100%;   
+
 }
 
 .header-right-car-label {
@@ -134,12 +139,15 @@ right: 2%;
     }
 } */
 @media screen and (max-width: 768px) {
+  .header-main{
+    padding-top: 3rem;
+  }
   .right-cover-section{
-    width: 100%;
-    height: 40vh;
+    height: 50vh;
+  }
+  .right-side-cover-div{
     min-width: 100%;
   }
-  
   .left-cover-section {
     padding-top: 45% !important;
     width: 100%;
@@ -148,7 +156,6 @@ right: 2%;
   }
 
   .cover-left-heading {
-  
     font-size: 50px;
     font-weight: bold;
     margin-top: -200px;
