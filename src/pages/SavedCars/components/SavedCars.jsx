@@ -1,5 +1,5 @@
-import React,{ useState, useEffect} from 'react';
-import { Button, Container, Row, Col, Input, Label, Card,CardBody} from 'reactstrap';
+import React,{ useState} from 'react';
+import {Container, Row, Col} from 'reactstrap';
 import '../styles/SavedCars.css'
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';

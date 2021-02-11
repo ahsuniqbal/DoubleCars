@@ -1,5 +1,4 @@
-import React ,{useEffect,useState} from 'react';
-import { Col, Row, Button, CustomInput } from 'reactstrap';
+import React  from 'react';
 import '../styles/Lowercar.css'
 import LowerCarsImage1 from '../../../assets/LowerCarsImage1.png';
 import LowerCarsImage2 from '../../../assets/LowerCarsImage2.png';
@@ -12,12 +11,9 @@ import LowerCarsImage8 from '../../../assets/TopStoriesCardDemoImage.png';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Slider from "react-slick";
-import {useHistory} from 'react-router-dom'
-import {GetProductsOfBodyType} from '../api/GetRequests';
-import { isLogin, getLogin } from '../../../config/LoginAuth'
 
 const LowerCar = (props) => {
-     const history=useHistory()
+
 // data of api get through home.jsx
 //      const {bodyTypes}=props
 //     useEffect(()=>{

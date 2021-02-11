@@ -1,9 +1,6 @@
 import React, { useState} from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink,  Button,  Row, Col, Label } from 'reactstrap';
-import PriceRange from './PriceRange'
-
+import {   Button,  Row, Col } from 'reactstrap';
 import '../styles/TopBudget.css'
-import classnames from 'classnames';
 
 const TopBudget = () => {
     const [activeTab, setActiveTab] = useState('1');

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/PrivacyPolicy.css'
-import {Row, Col, Nav, NavItem, Button, NavLink, Container, CardBody} from 'reactstrap'
+import {Row, Col, Container} from 'reactstrap'
 const PrivacyPolicy = () => {
     return(
         <body className = "privacy-policy-body">

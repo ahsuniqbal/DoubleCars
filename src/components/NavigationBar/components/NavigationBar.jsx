@@ -2,15 +2,12 @@ import React,{useEffect,useState} from "react"
 import { Link, NavLink } from "react-router-dom";
 import "../styles/NavigationBar.css"
 import DCLogo from '../../../assets/DCNewlogo.svg'
-import {Input, InputGroup, InputGroupText ,Form,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
-import { Search } from 'react-feather';
+import {Input, InputGroup ,Form,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
 import NavbarSearchIcon from '../../../assets/NavbarSearchIcon.svg'
 import socketIOClient from "socket.io-client";
 import { useHistory } from 'react-router-dom';
 import {getUser} from '../../../pages/Profile/api/Get';
 import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
-import DummyTopProfile from '../../../assets/Dummy-short-profile.png'
-import {GetFilterResult} from '../../../pages/Products/api/GetRequests';
 import { User } from 'react-feather';
 const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 

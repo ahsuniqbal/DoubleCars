@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Label, Button } from 'reactstrap';
+import {  Label } from 'reactstrap';
 import '../../styles/LatestArticlesCard.css'
 import LC1 from '../../../../assets/LC1.png'
 import LC2 from '../../../../assets/LC2.png'

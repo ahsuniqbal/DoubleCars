@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Label, Button } from 'reactstrap';
+import { Col, Row} from 'reactstrap';
 import AboutCheck from '../../../assets/AboutCheck.svg'
 import AboutChooseDummy from '../../../assets/AboutChooseDummy.png'
 import '../styles/AboutChoose.css'
