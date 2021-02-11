@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {Card, CardImg, CardText, CardBody,  CardTitle, CardSubtitle, Col,Row} from 'reactstrap';
+import {Card, Col,Row} from 'reactstrap';
 import '../styles/CarsLogo.css';
 import corolla from '../../../assets/Toyota.png'
 import ford from '../../../assets/Ford.png'
