@@ -12,6 +12,7 @@ import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
 import DummyTopProfile from '../../../assets/Dummy-short-profile.png'
 import {GetFilterResult} from '../../../pages/Products/api/GetRequests';
 import { User } from 'react-feather';
+import { connectionString } from "../../../config/ConnectionString";
 const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 
 const NavigationBar = () => {
@@ -43,6 +44,7 @@ const NavigationBar = () => {
             pathname: '/products',
             search: '?search=' + searchValue,
         })
+        window.location.reload();
     };
 
     //get user data to show dropdown at navbar
@@ -55,6 +57,7 @@ const NavigationBar = () => {
     if(localStorage.getItem("userId")!=null){
         getUser(localStorage.getItem("userId"))
         .then(doc => {
+            console.log("a", doc)
             setUserName(doc[0].fullName)
             setProfilePic(doc[0].profilePic)
         })

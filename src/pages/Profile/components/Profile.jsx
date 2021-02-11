@@ -196,12 +196,12 @@ const Profile = (props) => {
                             user ? <Row>
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">First Name</Label>
-                                <Input id="firstName" className = "profile-text-field" type="text" defaultValue={user.fullName.split(' ')[0]} />
+                                <Input id="firstName" className = "profile-text-field" type="text" defaultValue={user.firstName} />
                             </Col>
 
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">Last Name</Label>
-                                <Input id="lastName" className = "profile-text-field" type="text"  defaultValue={user.fullName.split(' ')[1]}/>
+                                <Input id="lastName" className = "profile-text-field" type="text"  defaultValue={user.lastName}/>
                             </Col>
                         </Row> : "loading..."
                         }
