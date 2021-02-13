@@ -21,7 +21,10 @@
     border: 1px solid rgb(233, 233, 233);
     height: 48px ;
 }
-
+.sellerPage-error-label{
+    color: red;
+    font-size: 12px;
+}
 .interested-textfield::placeholder, .message-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgba(0, 0, 0, 0.35);
     font-size: 15px;

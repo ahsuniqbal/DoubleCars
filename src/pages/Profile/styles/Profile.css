@@ -123,7 +123,13 @@
     margin-top: 1.6rem !important;
     font-family: 'Ubuntu' !important;
 }
-
+.save-profile-button:focus{
+    border:1px solid #1C67CE !important;
+}
+.profile-error-label{
+    color: red;
+    font-size: 12px;
+}
 .save-profile-button,.change-password-button:focus, .save-profile-button, .change-password-button:active:focus {
     box-shadow: none !important;
   }

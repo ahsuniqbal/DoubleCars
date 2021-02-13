@@ -2,13 +2,15 @@ import React,{ useState, useEffect} from 'react';
 import {  Container, Row, Col, Input, Label, Card,CardBody } from 'reactstrap';
 import '../styles/Profile.css'
 // import { logout } from '../../../config/LoginAuth';
-import profileImage from '../../../assets/Dummy-profile-image.png'
+import profileImage from '../../../assets/user.svg'
 import {getUser} from '../api/Get'
 import {getBlob} from '../../../utils/Conversion'
 import {changePassword,updateUser} from '../api/Patch'
 import {postImageToFTP} from '../../ChatMessenger/api/Post'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { nameValidation } from '../../../utils/Validation';
+import { User } from 'react-feather';
 // import IconButton from '@material-ui/core/IconButton';
 // import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
@@ -38,23 +40,43 @@ const Profile = (props) => {
         var firstName = document.getElementById('firstName').value
         var lastName = document.getElementById('lastName').value
         var phNum = document.getElementById('phNum').value
-        const obj = {
-            firstName,lastName,phNum
-        }
-        setLoading(true)
-        updateUser(id,obj)
-        .then(doc => {
-            setLoading(false)
-            if(doc.code === 1){
-                window.location.reload()
-            }else{
-                alert(doc.message)
+
+        if(nameValidation(firstName+lastName)){
+            // Name is okay
+            document.getElementById('profile-name-error-label').textContent = "";
+
+            if(Number.isInteger(parseInt(phNum))) {
+                // Mobile is okay
+                document.getElementById('profile-phNum-error-label').textContent = "";
+
+                const obj = {
+                    firstName,lastName,phNum
+                }
+                setLoading(true)
+                updateUser(id,obj)
+                .then(doc => {
+                    setLoading(false)
+                    if(doc.code === 1){
+                        window.location.reload()
+                    }else{
+                        alert(doc.message)
+                    }
+                })
+                .catch(e => {
+                    setLoading(false)
+                    console.log(e.message)
+                })
             }
-        })
-        .catch(e => {
-            setLoading(false)
-            console.log(e.message)
-        })
+             else {
+                // Mobile is wrong
+                document.getElementById('profile-phNum-error-label').textContent = "Please enter a valid mobile number";
+            }
+        }
+        else {
+            // Name is wrong
+            document.getElementById('profile-name-error-label').textContent = "Please enter a valid name";
+        }
+
     }
 
     const handleLogout = () => {
@@ -165,7 +187,9 @@ const Profile = (props) => {
                     <Card className='py-3'>
                         
                         <CardBody>
-                             <img src = {user ? user.profilePic ? user.profilePic : profileImage : profileImage} id="profile-img" class = "img-fluid profile-image" alt = "profile-image"/> <br/>
+                             <img src = {user ? user.profilePic ? user.profilePic : profileImage : profileImage}
+                              id="profile-img" class = "img-fluid profile-image" alt = "profile-image"/>
+                               <br/>
                             {/*<Button onClick={e => changePicture(e)} className = "change-pic-button">Change Picture</Button> <br/> */}
                             
                                   <input
@@ -197,6 +221,7 @@ const Profile = (props) => {
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels">First Name</Label>
                                 <Input id="firstName" className = "profile-text-field" type="text" defaultValue={user.firstName} />
+                                <div id="profile-name-error-label" className="profile-error-label"></div>
                             </Col>
 
                             <Col xs = "12" md = "6">
@@ -210,6 +235,7 @@ const Profile = (props) => {
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels" id='giving-margin-top'>Mobile Number</Label>
                                 <Input id="phNum" className = "profile-text-field" type="text"  defaultValue={user.phNum}/>
+                                <div id="profile-phNum-error-label" className="profile-error-label"></div>
                             </Col>
                         </Row> : null
                         }
@@ -228,7 +254,7 @@ const Profile = (props) => {
                         </Row> */}
                         <Row>
                             <Col>
-                                <Button onClick={e => saveProfileClick()} color="primary" className="save-profile-button float-right">
+                                <Button onClick={e => saveProfileClick(e)} color="primary" className="save-profile-button float-right">
                                 {loading && "Saving"}
                                 {!loading && "Save Profile"}
                                 </Button>

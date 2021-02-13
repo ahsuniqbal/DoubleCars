@@ -26,13 +26,16 @@
     line-height: 160%;
     color: rgba(0, 0, 0, 0.84);
 }
-.nav-Item{
+.service-nav-Item{
     font-family: Ubuntu;
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
     line-height: 160%;
     color: rgba(0, 0, 0, 0.84);
+}
+.service-nav-Item:hover{
+    cursor: pointer;
 }
 .check {
     background-color: #F7FAFC !important;

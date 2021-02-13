@@ -9,7 +9,7 @@ import { GetSellerDetails } from '../api/GetRequests';
 import { Phone, Mail } from 'react-feather';
 import CheckMark from '../../../assets/dealersCheckMark.png';
 import DealerProfileImage from '../../../assets/DealerProfileImage.png'
-
+import { emailValidation} from '../../../utils/Validation';
 import { isLogin } from '../../../config/LoginAuth';
 
 const SellerDetails = (props) => {
@@ -24,6 +24,19 @@ const SellerDetails = (props) => {
         });
     }, []);
 
+
+    const sendMessage=(e)=>{
+        e.preventDefault();
+        const email=document.getElementById('email-id')
+        if(emailValidation(email)) {
+            // mail is okay
+            document.getElementById('email-error-label').textContent = "";
+        }
+         else {
+            // mail is wrong
+            document.getElementById('email-error-label').textContent = "Please enter a valid email address";
+        }
+    }
     return(
         <div>
             {
@@ -36,9 +49,12 @@ const SellerDetails = (props) => {
                 <CardBody className = "interested-card">
                     <h6 className = "interest-label">Are you interested in this car?</h6>
                     <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
-                    <Input type = "email" className = "interested-textfield" placeholder = "Your email address"></Input>
+                   
+                    <Input type = "email" id='email-id' className = "interested-textfield" placeholder = "Your email address"></Input>
+                    <div id="email-error-label" className="sellerPage-error-label"></div>
+                    
                     <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
-                    <Button color = "primary" size = "lg" block className = "contact-seller-button mt-4">Send Message</Button>
+                    <Button color = "primary" onClick={(e)=>sendMessage(e)} size = "lg" block className = "contact-seller-button mt-4">Send Message</Button>
                 </CardBody>
             }
             
