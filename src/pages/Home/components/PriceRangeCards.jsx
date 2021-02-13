@@ -33,6 +33,7 @@ const PriceRangeCards1 = () => {
         <div className='price-filter-grid'>
             <Grid container >
                 {filterPrice1 && filterPrice1.map((items,index)=>{
+                    console.log("Curr", items)
                     return(
                         <Grid item md={3} >
                             <Card className='main-card'>
@@ -40,7 +41,7 @@ const PriceRangeCards1 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{`${items.currency} ${ items.price}`}</CardText>
+                                <CardText className='price'>{"$" + items.price}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -84,7 +85,7 @@ const PriceRangeCards2 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{items.currency + " " + items.price}</CardText>
+                                <CardText className='price'>{"$" + items.price}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -128,7 +129,7 @@ const PriceRangeCards3 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{items.currency + items.price}</CardText>
+                                <CardText className='price'>{"$" + items.price}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -172,7 +173,7 @@ const PriceRangeCards4 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{items.currency + items.price}</CardText>
+                                <CardText className='price'>{"$" + items.price}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -216,7 +217,7 @@ const PriceRangeCards5 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{items.currency + items.price}</CardText>
+                                <CardText className='price'>{"$" + items.price}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
