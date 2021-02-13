@@ -50,6 +50,26 @@ const DealerProfile = ({match}) => {
     }, []);
 
 
+    const filterQueryChange = (queryStr) => {
+        // var str = ""
+        // const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
+        // if(locationSearch.search){
+        //     str = `search=${locationSearch.search}&page=${pageNumber}&${queryStr}`
+        // }else{
+        //     str = `page=${pageNumber}&${queryStr}`
+        // }
+        // str += `&id=${userId}`
+        // GetSearchResult(str).then(doc => {
+        //     console.log("doc",doc)
+        //     setProducts(doc)
+        //     setFlag(!flag)
+        // })
+        // .catch(error => {
+        //     alert(error.message);
+        // });
+    }
+
+
     function ProductSorting(sortingType){
         if(sortingType === "relevance"){
             setInventory(SortByRelevance(inventory));
@@ -67,7 +87,9 @@ const DealerProfile = ({match}) => {
        
             <Row>
                 <Col md = "3" style = {{marginTop: '6rem'}}>
-                    <Filters/>
+                    <Filters
+                        onFilterChange={filterQueryChange}
+                    />
                 </Col>
                 <Col md = "9" style = {{marginTop: '2rem'}}>
                     <Row>

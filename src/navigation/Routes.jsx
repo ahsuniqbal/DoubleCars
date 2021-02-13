@@ -28,9 +28,9 @@ const SavedCars = React.lazy(() => import('../pages/SavedCars/components/SavedCa
 
 const routes = [
     { path: '/', exact: true, name: 'Home', public: true, restricted: false, component: Home },
-    { path: '/about', name: 'About', public: true, restricted: false, component: About },
-    { path: '/blogs', name: 'Blogs', public: true, restricted: false, component: BlogsHome },
-    { path: '/blogs/:id', name: 'Blogs', public: true, restricted: false, component: Blogs },
+    { path: '/about', exact: true, name: 'About', public: true, restricted: false, component: About },
+    { path: '/blogs', exact: true, name: 'Blogs home page', public: true, restricted: false, component: BlogsHome },
+    { path: '/blogs/:id', exact: true, name: 'Blogs', public: true, restricted: false, component: Blogs },
     { path: '/profile', exact: true, name: 'Profile', public: false, restricted: false, component: Profile },
     { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
     { path: '/signup', exact: true, name: 'Signup', public: true, restricted: true, component: Signup },

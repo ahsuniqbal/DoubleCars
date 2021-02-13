@@ -3,7 +3,7 @@ import { Row, Col, Label, Input, Container } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
-import { GetSearchResult, GetFilterResult } from '../api/GetRequests';
+import { GetSearchResult } from '../api/GetRequests';
 import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
 import adProducts from '../../../assets/ad_products.png';
 import { ProductSkeleton } from '../../../components/Skeletons';
