@@ -49,10 +49,9 @@ export const GetProductsOfBodyType = (bodyType) => {
     })
 };
 
-// filter list api
-export const GetFilteredPriceList = () => {
+export const GetFilteredPriceList = (price) => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + "products/price-filter?price=50000000" ;
+        var url = connectionString + `products/price-filter?price=${price}` ;
         axios.get(url).then(function(response){
             const data = response.data.results;
             resolve(data);

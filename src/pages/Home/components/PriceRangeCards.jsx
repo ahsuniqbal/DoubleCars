@@ -15,7 +15,7 @@ const PriceRangeCards1 = () => {
     const [priceList ,setList]=useState(null)
     const history=useHistory()
     useEffect(() => {
-            GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
+            GetFilteredPriceList(10000).then(doc => {
                 setList(doc)
                 console.log('filter res***',doc)
             })
@@ -35,6 +35,7 @@ const PriceRangeCards1 = () => {
         <div className='price-filter-grid'>
             <Grid container >
                 {filterPrice1 && filterPrice1.map((items,index)=>{
+                    console.log("Curr", items)
                     return(
                         <Grid item md={3} >
                             <Card className='main-card'  onClick={()=>history.push("/product/" + items.productId)}>
@@ -42,7 +43,7 @@ const PriceRangeCards1 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{`${items.currency} ${ items.price}`}</CardText>
+                                <CardText className='price'>{"$" + items.price}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -61,7 +62,7 @@ const PriceRangeCards2 = () => {
     const [priceList ,setList]=useState(null)
     const history=useHistory()
     useEffect(() => {
-            GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
+            GetFilteredPriceList(20000).then(doc => {
                 setList(doc)
             })
             .catch(error => {
@@ -87,7 +88,7 @@ const PriceRangeCards2 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{items.currency + items.price}</CardText>
+                                <CardText className='price'>{"$" + items.price}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -106,7 +107,7 @@ const PriceRangeCards3 = () => {
     const [priceList ,setList]=useState(null)
     const history=useHistory()
     useEffect(() => {
-            GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
+            GetFilteredPriceList(30000).then(doc => {
                 setList(doc)
             })
             .catch(error => {
@@ -132,7 +133,7 @@ const PriceRangeCards3 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{items.currency + items.price}</CardText>
+                                <CardText className='price'>{"$" + items.price}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -151,7 +152,7 @@ const PriceRangeCards4 = () => {
     const [priceList ,setList]=useState(null)
     const history=useHistory()
     useEffect(() => {
-            GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
+            GetFilteredPriceList(40000).then(doc => {
                 setList(doc)
             })
             .catch(error => {
@@ -177,7 +178,7 @@ const PriceRangeCards4 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{items.currency + items.price}</CardText>
+                                <CardText className='price'>{"$" + items.price}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -196,7 +197,7 @@ const PriceRangeCards5 = () => {
     const [priceList ,setList]=useState(null)
     const history=useHistory()
     useEffect(() => {
-            GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
+            GetFilteredPriceList(50000).then(doc => {
                 setList(doc)
             })
             .catch(error => {
@@ -222,7 +223,7 @@ const PriceRangeCards5 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{items.currency + items.price}</CardText>
+                                <CardText className='price'>{"$" + items.price}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
