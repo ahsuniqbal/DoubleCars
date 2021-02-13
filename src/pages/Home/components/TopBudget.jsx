@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import {   Button,  Row, Col } from 'reactstrap';
 import '../styles/TopBudget.css'
-
+import { Link } from 'react-router-dom';
 const TopBudget = () => {
     const [activeTab, setActiveTab] = useState('1');
     const mystyle = {
@@ -28,8 +28,10 @@ const TopBudget = () => {
                     <Col xs = "12" md = "12" className = "text-center">
                         <h1 className = "top-budget-label">Best cars for you under $5000</h1>
                         <h1 className = "top-budget-heading">Top Budget Cars</h1>
+                        <Link to = {'/about/'}>
                         <Button  className = "explore-button">Exlpore more</Button>
-                    </Col>
+                        </Link>
+                        </Col>
                 </Row>
                
 {/* 
