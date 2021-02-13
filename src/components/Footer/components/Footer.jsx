@@ -117,12 +117,12 @@ const Footer = () => {
                         </Col>
                         <Col md = "2" xs = "12" className = "lower-footer-columns text-center">
                             {/* <NavLink className = "bootom-footer nav-text-color" to="">Privacy Policy</NavLink> */}
-                            <Link to={'/privacypolicy/'}>
+                            <Link to={'/termsandconditions/'}>
                             <NavLink className = "bootom-footer nav-text-color-bottom">Terms and Conditions</NavLink>
                         </Link>
                         </Col>
                         <Col md = "2" xs = "12" className = "text-center lower-footer-columns">
-                        <Link to={'/termsandconditions/'}>
+                        <Link to={'/privacypolicy/'}>
                             <NavLink className = "bootom-footer nav-text-color-bottom">Privacy Policy</NavLink>
                         </Link>
                         </Col>
