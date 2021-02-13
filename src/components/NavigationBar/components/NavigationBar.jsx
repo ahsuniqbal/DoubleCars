@@ -8,8 +8,7 @@ import socketIOClient from "socket.io-client";
 import { useHistory } from 'react-router-dom';
 import {getUser} from '../../../pages/Profile/api/Get';
 import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
-import { User } from 'react-feather';
-import { connectionString } from "../../../config/ConnectionString";
+import { User } from 'react-feather'; 
 const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 
 const NavigationBar = () => {

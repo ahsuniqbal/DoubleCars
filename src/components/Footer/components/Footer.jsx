@@ -1,7 +1,6 @@
 import React from "react"
 import {Row, Col, Nav, NavItem, Button, NavLink, Container, Label} from 'reactstrap'
 import '../styles/Footer.css'
-import { Facebook, Instagram, Twitter } from 'react-feather';
 import FacebookFooter from '../../../assets/facebook-icon.png'
 import InstraFooter from '../../../assets/insta-icon.png'
 import TwitterFooter from '../../../assets/twitter-icon.png'
@@ -22,7 +21,10 @@ const Footer = () => {
                                 </Col>
                               
                                 <Col md = "6" xs = "12" className = "learn-more-button-class my-auto">
+                                    <Link to = {'/about/'}>
                                     <Button className="learn-more-button-cover">Learn More</Button>
+                                    </Link>
+                                    
                                 </Col>
                             </Row>
                         </Col>
@@ -49,13 +51,21 @@ const Footer = () => {
                         <Col xs="12" md="2" className = "footer-columns">
                             <Nav vertical>
                                 <Link to={'/products/'}>
-                                    <NavLink className = "nav-text-color" to = "">New Cars</NavLink>
+                                    <NavLink className = "nav-text-color" href='/products?isUsed=false'>
+                                    {window.location.search=='?isUsed=false' ?
+                                    <span >New Cars</span>:
+                                    <span >New Cars</span>}
+                                    </NavLink>
                                 </Link>
                                 <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" to = "">Popular Cars</NavLink>
                                 </Link>
                                 <Link to={'/products/'}>
-                                    <NavLink className = "nav-text-color" to = "">Used Cars</NavLink>
+                                    <NavLink className = "nav-text-color" href='/products?isUsed=true'>
+                                    {window.location.search=='?isUsed=true' ?
+                                    <span >Used Cars</span>:
+                                    <span >Used Cars</span>}
+                                    </NavLink>
                                 </Link>
                             </Nav>
                         </Col>

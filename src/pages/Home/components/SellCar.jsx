@@ -1,11 +1,12 @@
 import React from 'react';
-import { Col, Row, Button, CustomInput } from 'reactstrap';
+import { Col, Row, Button } from 'reactstrap';
 import '../styles/SellCar.css';
 import GooglePlayImg from '../../../assets/GooglePlayButton.png'
 import Mobile from '../../../assets/mobile Image.png'
 import Upload from '../../../assets/upload.png'
 import Chat from '../../../assets/message-square.png'
 import Checkbox from '../../../assets/check-square.png'
+import { Link } from 'react-router-dom';
 
 const SellCar = () => {
    
@@ -26,7 +27,10 @@ const SellCar = () => {
                         {/* <button className='google-play '> */}
                             <img src={GooglePlayImg} alt='get it on google play' className='google-play '/>
                             {/* </button> */}
-                        <Button outline className='learn-button '>Learn More</Button>
+                            <Link to = {'/about/'}>
+                            <Button outline className='learn-button '>Learn More</Button>
+                            </Link>
+                        
                     </div>
                 </Col>
                 <Col md={4} >
