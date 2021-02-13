@@ -1,12 +1,27 @@
-import React from 'react';
+import React,{ useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import { Card, CardBody, CardImg, CardTitle, CardSubtitle, CardText, Row, Col, Label, Button } from 'reactstrap';
 import BlogPageImage4 from '../../../assets/BlogPageImage4.png';
 import profileChat from '../../../assets/profile-chat.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Phone, Mail, MapPin } from 'react-feather';
 import '../styles/ProfileView.css';
-
+import {getUser} from '../api/Get'
 const ProfileView = () => {
+    const [user,setUser] = useState(null)
+
+    useEffect(() => {
+        getUser(localStorage.getItem("userId"))
+        .then(doc => {
+            console.log("dc",doc)
+            setUser(doc[0])
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
+    },[])
+
+
     return (
         <>
         <Card className="profile-view">
@@ -34,9 +49,9 @@ const ProfileView = () => {
 
                     <Row>
                         <Col xs="12" className="text-center">
-                            <CardImg src={profileChat} />
+                            <CardImg src={user ? user.profilePic ? user.profilePic : profileChat : profileChat} />
 
-                            <h6 className="mt-3">One Chance Auto <span className="ml-1"><FontAwesomeIcon icon={"check-circle"} style={{color:'#1C67CE'}} /></span></h6>
+                            <h6 className="mt-3">{user ? user.fullName : "loading..."} <span className="ml-1"><FontAwesomeIcon icon={"check-circle"} style={{color:'#1C67CE'}} /></span></h6>
 
                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
                             <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
@@ -51,15 +66,17 @@ const ProfileView = () => {
 
                     <Row>
                         <Col xs="12">
-                            <p><Phone color="#1C67CE" size={15} className="mr-3"/>+1 2345 78974</p>
-                            <p><Mail color="#1C67CE" size={15} className="mr-3"/>hellochance@gmail.com</p>
-                            <p><MapPin color="#1C67CE" size={15} className="mr-3"/>3296  Bobcat Drive, Rockville, MD</p>
+                            <p><Phone color="#1C67CE" size={15} className="mr-3"/>{user ? user.phNum : null}</p>
+                            <p><Mail color="#1C67CE" size={15} className="mr-3"/>{user ? user.email : null}</p>
+                            {/* <p><MapPin color="#1C67CE" size={15} className="mr-3"/>3296  Bobcat Drive, Rockville, MD</p> */}
                         </Col>
                     </Row>
 
                     <Row>
                         <Col xs="12">
+                        <Link className = "view-inv-link" to={'/dealer/' + localStorage.getItem('userId')}>
                             <Button color="primary" outline block>View Inventory</Button>
+                        </Link>
                         </Col>
                     </Row>
                 </div>

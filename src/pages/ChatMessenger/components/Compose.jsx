@@ -31,7 +31,7 @@ const Compose = (props) => {
     const sendMessage = () => {
         var msg = document.getElementById('chatMessage').value
         if(messageValid(msg)){
-            var userId = 73
+            var userId = localStorage.getItem('userId')
             var obj = {
                 messageId : "asdsa",
                 imageUrl : null,
@@ -70,7 +70,7 @@ const Compose = (props) => {
                 postImageToFTP([obj])
                 .then(doc => {
                     var url = doc[0]
-                    var userId = 73
+                    var userId = localStorage.getItem('userId')
                     var obj = {
                         messageId : "asdsa",
                         imageUrl : url,

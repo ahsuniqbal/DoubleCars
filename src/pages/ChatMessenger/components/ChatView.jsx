@@ -16,8 +16,8 @@ const ChatView = (props) => {
     const [otherId,setOtherId] = useState(null)
 
     useEffect(() => {
-        // var userId = localStorage.getItem('userId')
-        var userId = 73
+        var userId = localStorage.getItem('userId')
+        // var userId = 73
         if(props.chats && props.chats.chat){
             if(props.chats.chat.senderId == userId){
                 setOtherId(props.chats.chat.receiverId)
