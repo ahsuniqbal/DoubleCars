@@ -139,7 +139,7 @@ const Signup = (props) => {
                     <Row>
                         <Col xs = "12" lg = "7" sm = "12" className = "signup-left-image">
                             <Link to="/">
-                                <img  src = {DCWhiteLogo} alt = "Logo" className = "logo-id-for-signup-login" width = "144px" height = "28px"/>
+                                <img loading="lazy"  src = {DCWhiteLogo} alt = "Logo" className = "logo-id-for-signup-login" width = "144px" height = "28px"/>
                             </Link>
                         </Col>
                         
