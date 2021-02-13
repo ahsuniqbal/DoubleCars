@@ -5,7 +5,6 @@ import { Facebook, Instagram, Twitter } from 'react-feather';
 import FacebookFooter from '../../../assets/facebook-icon.png'
 import InstraFooter from '../../../assets/insta-icon.png'
 import TwitterFooter from '../../../assets/twitter-icon.png'
-import SearchBoxSearchIcon from '../../../assets/SearchBoxSearchIcon.svg'
 import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
@@ -49,42 +48,42 @@ const Footer = () => {
 
                         <Col xs="12" md="2" className = "footer-columns">
                             <Nav vertical>
-                                <NavItem>
+                                <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" to = "">New Cars</NavLink>
-                                </NavItem>
-                                <NavItem>
+                                </Link>
+                                <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" to = "">Popular Cars</NavLink>
-                                </NavItem>
-                                <NavItem>
+                                </Link>
+                                <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" to = "">Used Cars</NavLink>
-                                </NavItem>
+                                </Link>
                             </Nav>
                         </Col>
 
                         <Col xs="12" md="2" className = "footer-columns">
                             <Nav vertical>
-                                <NavItem>
+                                <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" to = "">Certified Cars</NavLink>
-                                </NavItem>
-                                <NavItem>
+                                </Link>
+                                <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" to = "">Recommended</NavLink>
-                                </NavItem>
-                                <NavItem>
+                                </Link>
+                                <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" to = "">Trending</NavLink>
-                                </NavItem>
+                                </Link>
                             </Nav>
                         </Col>
                         <Col xs="12" md="2" className = "footer-columns">
                             <Nav vertical>
-                                <NavItem>
+                                <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" to = "">Categories</NavLink>
-                                </NavItem>
-                                <NavItem>
+                                </Link>
+                                <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" to = "">Best Manufacturers</NavLink>
-                                </NavItem>
-                                <NavItem>
+                                </Link>
+                                <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" to = "">Best Offers</NavLink>
-                                </NavItem>
+                                </Link>
                             </Nav>
                         </Col>
                         <Col xs="12" md="3" className = "footer-columns">
@@ -113,7 +112,7 @@ const Footer = () => {
                             <p className = "bootom-footer nav-text-color-bottom mt-2">© DoubleCars All Rights Reservered</p>
                         </Col>
                         <Col md = "2" xs = "12" className = "lower-footer-columns text-center">
-                            <Link>
+                            <Link to={'/privacypolicy/'}>
                             <NavLink className = "bootom-footer nav-text-color-bottom" to="">Legal Information</NavLink>
                             </Link>
                         </Col>
