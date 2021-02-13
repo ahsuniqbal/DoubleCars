@@ -1,5 +1,5 @@
 import React from "react"
-import {Row, Col, Nav, NavItem, Button, NavLink, Container} from 'reactstrap'
+import {Row, Col, Nav, NavItem, Button, NavLink, Container, Label} from 'reactstrap'
 import '../styles/Footer.css'
 import { Facebook, Instagram, Twitter } from 'react-feather';
 import FacebookFooter from '../../../assets/facebook-icon.png'
@@ -90,7 +90,7 @@ const Footer = () => {
                         <Col xs="12" md="3" className = "footer-columns">
                             <Nav vertical>
                                 <NavItem>
-                                <NavLink className = "nav-text-color footer-contact-information" to="">Contact Information</NavLink>
+                                <Label className = "nav-text-color footer-contact-information" style = {{marginLeft: '1rem'}} to="">Contact Information</Label>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink to="" className = "footer-contact">support@doublecars.com</NavLink>
@@ -113,7 +113,9 @@ const Footer = () => {
                             <p className = "bootom-footer nav-text-color-bottom mt-2">© DoubleCars All Rights Reservered</p>
                         </Col>
                         <Col md = "2" xs = "12" className = "lower-footer-columns text-center">
+                            <Link>
                             <NavLink className = "bootom-footer nav-text-color-bottom" to="">Legal Information</NavLink>
+                            </Link>
                         </Col>
                         <Col md = "2" xs = "12" className = "lower-footer-columns text-center">
                             {/* <NavLink className = "bootom-footer nav-text-color" to="">Privacy Policy</NavLink> */}
