@@ -13,7 +13,7 @@ const PriceRangeCards1 = () => {
 
     const [priceList ,setList]=useState(null)
     useEffect(() => {
-            GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
+            GetFilteredPriceList(10000).then(doc => {
                 setList(doc)
                 console.log('filter res***',doc)
             })
@@ -58,7 +58,7 @@ const PriceRangeCards2 = () => {
 
     const [priceList ,setList]=useState(null)
     useEffect(() => {
-            GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
+            GetFilteredPriceList(20000).then(doc => {
                 setList(doc)
             })
             .catch(error => {
@@ -84,7 +84,7 @@ const PriceRangeCards2 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{items.currency + items.price}</CardText>
+                                <CardText className='price'>{items.currency + " " + items.price}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -102,7 +102,7 @@ const PriceRangeCards3 = () => {
 
     const [priceList ,setList]=useState(null)
     useEffect(() => {
-            GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
+            GetFilteredPriceList(30000).then(doc => {
                 setList(doc)
             })
             .catch(error => {
@@ -146,7 +146,7 @@ const PriceRangeCards4 = () => {
 
     const [priceList ,setList]=useState(null)
     useEffect(() => {
-            GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
+            GetFilteredPriceList(40000).then(doc => {
                 setList(doc)
             })
             .catch(error => {
@@ -190,7 +190,7 @@ const PriceRangeCards5 = () => {
 
     const [priceList ,setList]=useState(null)
     useEffect(() => {
-            GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
+            GetFilteredPriceList(50000).then(doc => {
                 setList(doc)
             })
             .catch(error => {
