@@ -37,9 +37,9 @@ const ContactForm = () => {
                 Donec laoreet ac ex eget rhoncus. Proin vel diam luctus, finibus mi ac.</Label>
             <Input type="select" required className="contact-dropdown">
                 <option value=""disabled selected>Select Purpose</option>
-                <option value="Option-1">Option 1</option>
-                <option value="Option-2">Option 2</option>
-                <option value="Option-3">Option 3</option>
+                <option value="Option-1">Car Information</option>
+                <option value="Option-2">Beta Version Complain</option>
+                <option value="Option-3">Payment issues</option>
             </Input>
             <Input type = "text" id='name-id' className = "fullname-textfield" placeholder = "Full Name"></Input>
             <div id="name-error-label" className="contact-error-label"></div>
