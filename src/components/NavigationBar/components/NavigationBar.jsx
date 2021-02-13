@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 import {getUser} from '../../../pages/Profile/api/Get';
 import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
 import { User } from 'react-feather';
+import { connectionString } from "../../../config/ConnectionString";
 const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
 
 const NavigationBar = () => {
@@ -40,6 +41,7 @@ const NavigationBar = () => {
             pathname: '/products',
             search: '?search=' + searchValue,
         })
+        window.location.reload();
     };
 
     //get user data to show dropdown at navbar
@@ -52,6 +54,7 @@ const NavigationBar = () => {
     if(localStorage.getItem("userId")!=null){
         getUser(localStorage.getItem("userId"))
         .then(doc => {
+            console.log("a", doc)
             setUserName(doc[0].fullName)
             setProfilePic(doc[0].profilePic)
         })
@@ -182,7 +185,7 @@ const NavigationBar = () => {
                                      
                                 <DropdownMenu right className='dropdown-menu'>
                                     <DropdownItem className='dropdown-arrow'><img src={AppbarDropdown} className='dropdown-arrow-pic'/> </DropdownItem>
-                                    <DropdownItem style={{fontWeight:'bold'}} >{userName}</DropdownItem>
+                                    <DropdownItem style={{fontWeight:'500'}} >{userName}</DropdownItem>
                                     <DropdownItem onClick={() => history.push('/profile')}>Edit Profile</DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem onClick={() => history.push('/chat')}>Messages</DropdownItem>
