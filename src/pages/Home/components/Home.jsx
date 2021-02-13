@@ -301,16 +301,16 @@ const Home = () => {
                 </Row>
                 <Container>
                 <Row style={{margin:'0'}}>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/products')}>
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
                         <ArticleCard />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/products')}>
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
                         <ArticleCard1 />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/products')}>
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
                         <ArticleCard2 />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/products')}>
+                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
                         <ArticleCard4 />
                     </Col>
                 </Row>
