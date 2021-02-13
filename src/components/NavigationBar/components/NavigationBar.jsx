@@ -184,7 +184,7 @@ const NavigationBar = () => {
                                 </DropdownToggle>
                                      
                                 <DropdownMenu right className='dropdown-menu'>
-                                    <DropdownItem className='dropdown-arrow'><img src={AppbarDropdown} className='dropdown-arrow-pic'/> </DropdownItem>
+                                    <DropdownItem className='dropdown-arrow' disabled><img src={AppbarDropdown} className='dropdown-arrow-pic'/> </DropdownItem>
                                     <DropdownItem style={{fontWeight:'500'}} >{userName}</DropdownItem>
                                     <DropdownItem onClick={() => history.push('/profile')}>Edit Profile</DropdownItem>
                                     <DropdownItem divider />

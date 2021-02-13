@@ -6,6 +6,7 @@
 }
 .main-card:hover{
     transform: scale(1.01);
+    cursor: pointer;
 }
 
 .rwt__tabs{
@@ -112,7 +113,7 @@
 }
 /* images */
 .filter-price-image{
-    width: 262px;
+    width: 100%;
     height: 173px;
     border: 0px solid;
     border-top-left-radius: 5px;
@@ -142,6 +143,11 @@
 @media screen and (max-width:768px){
     .price-filter-grid{
         padding: 0px 4rem !important;
+    }
+}
+@media screen and (max-width:968px){
+    .filter-price-image{
+        width: 262px !important;
     }
 }
 @media screen and (max-width:420px){

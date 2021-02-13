@@ -7,11 +7,13 @@ import {GetFilteredPriceList} from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth';
 import Grid from '@material-ui/core/Grid';
 import '../styles/PriceRange.css'
+import {useHistory} from 'react-router-dom'
 
 // price<10000 component
 const PriceRangeCards1 = () => { 
 
     const [priceList ,setList]=useState(null)
+    const history=useHistory()
     useEffect(() => {
             GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
                 setList(doc)
@@ -35,7 +37,7 @@ const PriceRangeCards1 = () => {
                 {filterPrice1 && filterPrice1.map((items,index)=>{
                     return(
                         <Grid item md={3} >
-                            <Card className='main-card'>
+                            <Card className='main-card'  onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
@@ -57,6 +59,7 @@ const PriceRangeCards1 = () => {
 const PriceRangeCards2 = () => { 
 
     const [priceList ,setList]=useState(null)
+    const history=useHistory()
     useEffect(() => {
             GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
                 setList(doc)
@@ -79,7 +82,7 @@ const PriceRangeCards2 = () => {
                 {filterPrice2 && filterPrice2.map((items,index)=>{
                     return(
                         <Grid item md={3} >
-                            <Card className='main-card'>
+                            <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
@@ -101,6 +104,7 @@ const PriceRangeCards2 = () => {
 const PriceRangeCards3 = () => { 
 
     const [priceList ,setList]=useState(null)
+    const history=useHistory()
     useEffect(() => {
             GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
                 setList(doc)
@@ -123,7 +127,7 @@ const PriceRangeCards3 = () => {
                 {filterPrice3 && filterPrice3.map((items,index)=>{
                     return(
                         <Grid item md={3} >
-                            <Card className='main-card'>
+                            <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
@@ -145,6 +149,7 @@ const PriceRangeCards3 = () => {
 const PriceRangeCards4 = () => { 
 
     const [priceList ,setList]=useState(null)
+    const history=useHistory()
     useEffect(() => {
             GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
                 setList(doc)
@@ -167,7 +172,7 @@ const PriceRangeCards4 = () => {
                 {filterPrice4 && filterPrice4.map((items,index)=>{
                     return(
                         <Grid item md={3} >
-                            <Card className='main-card'>
+                            <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
@@ -189,6 +194,7 @@ const PriceRangeCards4 = () => {
 const PriceRangeCards5 = () => { 
 
     const [priceList ,setList]=useState(null)
+    const history=useHistory()
     useEffect(() => {
             GetFilteredPriceList(isLogin() ? getLogin() : -1).then(doc => {
                 setList(doc)
@@ -211,7 +217,7 @@ const PriceRangeCards5 = () => {
                 {filterPrice5 && filterPrice5.map((items,index)=>{
                     return(
                         <Grid item md={3} >
-                            <Card className='main-card'>
+                            <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
