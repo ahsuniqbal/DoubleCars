@@ -10,6 +10,8 @@ import { Phone, Mail } from 'react-feather';
 import CheckMark from '../../../assets/dealersCheckMark.png';
 import DealerProfileImage from '../../../assets/DealerProfileImage.png'
 
+import { isLogin } from '../../../config/LoginAuth';
+
 const SellerDetails = (props) => {
     const [dealer, setDealer] = useState([]);
 
@@ -24,14 +26,25 @@ const SellerDetails = (props) => {
 
     return(
         <div>
-            <CardBody className = "interested-card">
-                <h6 className = "interest-label">Are you interested in this car?</h6>
-                <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
-                <Input type = "email" className = "interested-textfield" placeholder = "Your email address"></Input>
-                <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
-                <Button color = "primary" size = "lg" block className = "contact-seller-button mt-4">Send Message</Button>
-                
-            </CardBody>
+            {
+                isLogin ? 
+                <CardBody className = "interested-card">
+                    <h6 className = "interest-label">Are you interested in this car?</h6>
+                    <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
+                    <Button color = "primary" size = "lg" block className = "contact-seller-button mt-4">Chat with Seller</Button>
+                </CardBody> : 
+                <CardBody className = "interested-card">
+                    <h6 className = "interest-label">Are you interested in this car?</h6>
+                    <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
+                    <Input type = "email" className = "interested-textfield" placeholder = "Your email address"></Input>
+                    <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
+                    <Button color = "primary" size = "lg" block className = "contact-seller-button mt-4">Send Message</Button>
+                </CardBody>
+            }
+            
+
+
+            
             
             {
             dealer ?
