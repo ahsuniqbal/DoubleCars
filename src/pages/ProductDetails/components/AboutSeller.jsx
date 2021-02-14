@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {useHistory} from 'react-router-dom'
 import { Col,  Row, Label, Card,CardBody, CardImg, Button,Input} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Ad1 from '../../../assets/Advertisement3.png'
@@ -8,14 +9,14 @@ import { Link } from 'react-router-dom';
 import { GetSellerDetails } from '../api/GetRequests';
 import { Phone, Mail } from 'react-feather';
 import CheckMark from '../../../assets/dealersCheckMark.png';
-import DealerProfileImage from '../../../assets/DealerProfileImage.png'
+// import DealerProfileImage from '../../../assets/DealerProfileImage.png'
 import { emailValidation} from '../../../utils/Validation';
 import { isLogin } from '../../../config/LoginAuth';
 const firebase = require('firebase').default
 require('../../../components/Firebase/database')
 const SellerDetails = (props) => {
     const [dealer, setDealer] = useState([]);
-
+    const history = useHistory()
     useEffect(() => {
        
         GetSellerDetails(props.userId).then(doc => {
@@ -59,8 +60,29 @@ const SellerDetails = (props) => {
             firebase.firestore().collection("Chats").doc(strId).get()
             .then(snapshot => {
                 if(snapshot.exists){
-                    var data = snapshot.data()
-                    console.log("DATA",data)
+                    var updateObj = {
+                        lastMessage : messageText,
+                        lastMessageAt : firebase.firestore.Timestamp.now(),
+                    }
+                    firebase.firestore().collection("Chats").doc(strId)
+                    .update(updateObj).then(() => {
+                        var obj = {
+                            messageId : "asdsa",
+                            imageUrl : imageUrl,
+                            messageImage : imageUrl,
+                            multipleImagesList : null,
+                            messageText : messageText,
+                            messagedAt : firebase.firestore.Timestamp.now(),
+                            senderId : userId
+                        }
+                        
+                        firebase.firestore().collection("Chats").doc(strId).collection('Messages')
+                        .doc().set(obj).then(() => {
+                            //route kr k messenger per lay jaiga.
+                            history.push('/chat?id='+strId)
+                        })
+                    })
+                    
                 }else{
                     var updateObj = {
                         lastMessage : messageText,
@@ -86,9 +108,8 @@ const SellerDetails = (props) => {
                         
                         firebase.firestore().collection("Chats").doc(strId).collection('Messages')
                         .doc().set(obj).then(() => {
-                            alert('done')
                             //route kr k messenger per lay jaiga.
-                        // props.history.push('/chat')    
+                            history.push('/chat?id='+strId)
                         })
                     })
 
