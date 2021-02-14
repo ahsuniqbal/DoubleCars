@@ -29,3 +29,7 @@
     color: #FFFFFF;
     padding-left: 35px;
 }
+.prev-arr{
+    margin-left: 1.8rem !important;
+    transform: rotate(180deg);
+}
