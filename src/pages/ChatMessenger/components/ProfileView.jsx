@@ -23,18 +23,21 @@ const ProfileView = (props) => {
     // You can get the user id by props.chats.user.userId
     // Initial state me null hoga is lye code phate ga initial state me kch dalwana parega
     // Ya flag se agar kaam ho jata hai to flag laga lena
-    console.log(props.chats.user)
+    
 
     useEffect(() => {
-        getUser(localStorage.getItem("userId"))
-        .then(doc => {
-            console.log("dc",doc)
-            setUser(doc[0])
-        })
-        .catch(e => {
-            console.log(e.message)
-        })
-    },[])
+        console.log("ye dhek bc",props.chats)
+        if(props.chats.user){
+            getUser(props.chats.user.userId)
+            .then(doc => {
+                setUser(doc[0])
+            })
+            .catch(e => {
+                console.log(e.message)
+            })
+        }
+        
+    },[props.chats])
 
     return (
         <>

@@ -30,7 +30,7 @@ export const getChats = () => {
 
 export const getUserChats = (userId) => {
   return new Promise((resolve, reject) => {
-      firestore.collection("Chats").get().then((snapshot) => {
+      firestore.collection("Chats").orderBy('lastMessageAt','desc').get().then((snapshot) => {
       //console.log('onSnapshot Called!',snapshot.data())
       var arr = []
       var userArray = []
@@ -52,6 +52,30 @@ export const getUserChats = (userId) => {
 
 
 export const getRecieverChat = (senderId,receiverId) => {
+  const key = [senderId, receiverId].sort().join('-')
+  return new Promise((resolve, reject) => {
+    firestore.collection("Chats").doc(key).collection('Messages')
+    .orderBy('messagedAt','asc')
+    .onSnapshot((snapshot) => {
+      let updatedData = snapshot.docs.map(doc => doc.data())
+      resolve(updatedData)
+    })
+  })
+}
+
+export const postMessageChat = (senderId,receiverId) => {
+  const key = [senderId, receiverId].sort().join('-')
+  return new Promise((resolve, reject) => {
+    firestore.collection("Chats").doc(key).collection('Messages')
+    .orderBy('messagedAt','asc')
+    .onSnapshot((snapshot) => {
+      let updatedData = snapshot.docs.map(doc => doc.data())
+      resolve(updatedData)
+    })
+  })
+}
+
+export const postCreateChat = (senderId,receiverId) => {
   const key = [senderId, receiverId].sort().join('-')
   return new Promise((resolve, reject) => {
     firestore.collection("Chats").doc(key).collection('Messages')

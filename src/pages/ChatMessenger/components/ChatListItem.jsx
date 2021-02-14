@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Row, Col, CardImg, Label } from 'reactstrap';
 import { connect } from 'react-redux';
 import { selectChat } from '../../../redux/actions/ChatActions.jsx';
@@ -24,7 +24,24 @@ const checkURL = (url) => {
    return false
 }
 
+
+
+
 const ChatListItem = (props) => {
+    const getNotify = (chat) => {
+        console.log('chat',chat)
+        var userId = localStorage.getItem('userId')
+        if(chat.receiverId == userId){
+            return chat.receiverHasRead
+        }else if(chat.senderId == userId){
+            return chat.senderHasRead
+        }
+    }
+
+    const lastMsgAt = (timeStamp) => {
+
+    }
+    
     return (
         <Row className="chatlist-item" onClick={() => props.selectChat(props.chat)}>
             <Col xs="3" className="profile-img-parent">
@@ -36,7 +53,10 @@ const ChatListItem = (props) => {
             </Col>
             <Col xs="3" className="text-center">
                 <Label className="time">12 min</Label>
-                <div className="unread-number">1</div>
+                {
+                    getNotify(props.chat.chat) ? <div className="unread-number">1</div> : null
+                }
+                
             </Col>
         </Row>
     )

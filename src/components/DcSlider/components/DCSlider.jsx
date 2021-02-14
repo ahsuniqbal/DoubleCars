@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css";
 import ProductCard from '../../ProductCard';
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
-import '../styles/DCSlider.css'
 import nextIcon from '../../../assets/next-icon.png';
 import previousIcon from '../../../assets/prev-icon.png';
 
