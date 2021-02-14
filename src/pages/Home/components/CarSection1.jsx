@@ -121,77 +121,10 @@ const CarSection1 = () => {
         height: '35vh',
         cursor: 'pointer',
       };
-      const CarSection1DemoImage5= {
-        backgroundImage: `url(${require("../../../assets/DummyCarCard.png")})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        borderRadius: '4px',
-        height: '35vh',
-        cursor: 'pointer',
-      };
+
     return(
-
-        <div className='px-4 pb-5' style={{backgroundColor:'white'}}>
-        <Slider {...settings}  className='silder-class' >
-            <div  className='car-section-coloumn'>
-                <div  style = {CarSection1DemoImage1}  onClick={()=>history.push('/products')}>
-                    <div className='car-section-content'>
-                        <Badge color="primary" className = "car-badge">Hybrid</Badge>
-                        <h2 className = "car-title"> Plug-in Cars</h2>
-                        <h1 className = "price-label">Starting from $5000 <ChevronRight color="#ffffff" size={15} className = ""/></h1>
-                    </div>
-                </div>
-            </div>
-
-            <div className='car-section-coloumn'>
-                <div style = {CarSection1DemoImage2}  onClick={()=>history.push('/products')}>
-                    <div className='car-section-content'>
-                        <Badge color="primary" className = "car-badge">Hybrid</Badge>
-                        <h2 className = "car-title"> Electric Cars</h2>
-                        <h1 className = "price-label">Starting from $8000 <ChevronRight color="#ffffff" size={15} className = ""/></h1>
-                    </div>
-                </div>
-            </div>
-
-            <div className='car-section-coloumn'>
-                <div style = {CarSection1DemoImage3}  onClick={()=>history.push('/products')}> 
-                    <div className='car-section-content'>
-                        <Badge color="primary" className = "car-badge">Hybrid</Badge>
-                        <h2 className = "car-title">Self-Driving Cars</h2>
-                        <h1 className = "price-label">Starting from $12,500 <ChevronRight color="#ffffff" size={15} className = ""/></h1>
-                    </div>
-                </div>
-            </div>
-
-            <div className='car-section-coloumn'>
-                <div  style = {CarSection1DemoImage4}  onClick={()=>history.push('/products')}>
-                    <div className='car-section-content'>
-                        <Badge color="primary" className = "car-badge">Hybrid</Badge>
-                        <h2 className = "car-title"> Hybrid Cars</h2>
-                        <h1 className = "price-label">Starting from $9000 <ChevronRight color="#ffffff" size={15} className = ""/></h1>
-                    </div>
-                </div>
-            </div>
-
-            <div  className='car-section-coloumn'>
-                <div  style = {CarSection1DemoImage5}  onClick={()=>history.push('/products')}>
-                    <div className='car-section-content'>
-                        <Badge color="primary" className = "car-badge">Hybrid</Badge>
-                        <h2 className = "car-title"> Auto Cars</h2>
-                        <h1 className = "price-label">Starting from $1000 <ChevronRight color="#ffffff" size={15} className = ""/></h1>
-                    </div>
-                </div>
-            </div>
-        </Slider>
-        </div>
-
-    )
-  
-}
- export default CarSection1;
-// export {CarSection2,CarSection3,CarSection4,CarSection5}
-{/* <Col md = "3" xs = "12" className='car-section-coloumn'>
+      <Row className='car-section-row'>
+            <Col md = "3" xs = "12" className='car-section-coloumn'>
                 <Col md = "12" xs = "12"  style = {CarSection1DemoImage1}  onClick={()=>history.push('/products')}>
                     
                     <Badge color="primary" className = "car-badge">Hybrid</Badge>
@@ -222,4 +155,10 @@ const CarSection1 = () => {
                     <h2 className = "car-title">Hybird Cars</h2>
                     <h1 className = "price-label">Starting from $5000 <ChevronRight color="#ffffff" size={15} className = ""/></h1>
                 </Col>
-            </Col> */}
+            </Col>
+      </Row>
+
+    )
+  
+}
+ export default CarSection1;

@@ -1,4 +1,4 @@
-import React  from 'react';
+import React ,{useState} from 'react';
 import '../styles/Lowercar.css'
 import LowerCarsImage1 from '../../../assets/LowerCarsImage1.png';
 import LowerCarsImage2 from '../../../assets/LowerCarsImage2.png';
@@ -11,7 +11,36 @@ import LowerCarsImage8 from '../../../assets/TopStoriesCardDemoImage.png';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Slider from "react-slick";
+import RightArrow from '../../../assets/RightArrow.png'
 
+const NextIcon=(props)=>{
+     const { className, onClick,activeSlide } = props;
+     console.log(activeSlide)
+     return (
+       <div>
+         {activeSlide==0 &&  
+               <div className={className} onClick={onClick}>
+               <img src={RightArrow}  />
+             </div>
+           }
+       </div>
+     );
+   }
+   const PrevoiusIcon=(props)=>{
+     const { className, onClick ,activeSlide} = props;
+     return (
+       <div>
+         {activeSlide!==0 && 
+           <div
+           className={className}
+           onClick={onClick}
+         >
+           <img src={RightArrow} className='prev-arr'/>
+         </div>
+         }
+       </div>
+     );
+   }
 const LowerCar = (props) => {
 
 // data of api get through home.jsx
@@ -23,23 +52,28 @@ const LowerCar = (props) => {
 //           alert(e.message)
 //      })
 //     },[])
+const [activeSlide,setActiveSlide]=useState(0)
+
      var settings = {
           dots: false,
-          infinite: false,
-          speed: 500,
+          speed:800,
+          nextArrow: <NextIcon activeSlide={activeSlide}/>,
+          prevArrow:<PrevoiusIcon activeSlide={activeSlide}/>,
+          dots: false,
+          beforeChange: (current, next) => setActiveSlide(next),
+          swipeToSlide: true,
+          slidesToScroll: 1,
           slidesToShow: 4,
-          slidesToScroll: 4,
-          initialSlide: 0,
-          autoplay: true,
-          autoplaySpeed: 2000,
+          autoplay: false,
+          infinite: false,
           responsive: [
             {
               breakpoint: 1024,
               settings: {
                 slidesToShow: 3,
                 slidesToScroll: 3,
-                infinite: true,
-                dots: false
+               //  infinite: true,
+               //  dots: false
               }
             },
             {

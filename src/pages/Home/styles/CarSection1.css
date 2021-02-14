@@ -17,7 +17,7 @@
     transform: scale(1.01);
 }
 .car-badge {
-    /* position: absolute; */
+    position: absolute;
     left: 3%;
     bottom: 30%;
     font-weight: 500;
@@ -33,7 +33,7 @@
     font-size: 24px;
     line-height: 29px;
     color: #FFFFFF;
-    /* position: absolute; */
+    position: absolute;
     left: 3%;
     bottom: 11%;
     text-overflow: ellipsis; 
@@ -42,7 +42,7 @@
 }
 
 .price-label {
-    /* position: absolute; */
+    position: absolute;
     bottom: 3%;
     left: 3%;
     color: white;
@@ -53,7 +53,4 @@
     line-height: 17px;
     font-size: 14px;
     font-weight: 500;
-}
-.car-section-content{
-    padding: 45% 0% 5% 5%;
 }
