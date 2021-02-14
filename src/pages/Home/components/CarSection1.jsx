@@ -132,8 +132,8 @@ const CarSection1 = () => {
       };
     return(
 
-        <div className='px-4' style={{backgroundColor:'white'}}>
-        <Slider {...settings}  className='mb-5 silder-class' >
+        <div className='px-4 pb-5' style={{backgroundColor:'white'}}>
+        <Slider {...settings}  className='silder-class' >
             <div  className='car-section-coloumn'>
                 <div  style = {CarSection1DemoImage1}  onClick={()=>history.push('/products')}>
                     <div className='car-section-content'>
