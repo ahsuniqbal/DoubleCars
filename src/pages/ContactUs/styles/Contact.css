@@ -106,6 +106,12 @@ select:required:invalid {
     color: red;
     font-size: 12px;
 }
+.success-msg-label{
+    color: green;
+    font-size: 13px;
+    padding-top: 5px;
+}
+
 /* End */
 
 /* Second column css starts here. */

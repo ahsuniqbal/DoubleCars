@@ -142,6 +142,11 @@
     height: 15.88px;
     margin: 6px 0px 0px 8px;
   }
+.success-msg-label{
+    color: green;
+    font-size: 13px;
+    padding-top: 5px;
+}
 /* End */
 
 
