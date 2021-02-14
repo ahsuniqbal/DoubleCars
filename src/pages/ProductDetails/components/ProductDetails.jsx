@@ -23,6 +23,7 @@ const ProductResults = ({match}) => {
 
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
+            console.log('productDetails',doc)
             setProductDetails(doc);
         })
         .catch(error => {
@@ -110,6 +111,7 @@ const ProductResults = ({match}) => {
                             <Col md = "4">
                                 <AboutSeller
                                     userId={productDetails.details[0].userId}
+                                    details={productDetails.details[0]}
                                 />
                             </Col>
                         </Row> :

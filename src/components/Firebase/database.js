@@ -63,3 +63,27 @@ export const getRecieverChat = (senderId,receiverId) => {
   })
 }
 
+export const postMessageChat = (senderId,receiverId) => {
+  const key = [senderId, receiverId].sort().join('-')
+  return new Promise((resolve, reject) => {
+    firestore.collection("Chats").doc(key).collection('Messages')
+    .orderBy('messagedAt','asc')
+    .onSnapshot((snapshot) => {
+      let updatedData = snapshot.docs.map(doc => doc.data())
+      resolve(updatedData)
+    })
+  })
+}
+
+export const postCreateChat = (senderId,receiverId) => {
+  const key = [senderId, receiverId].sort().join('-')
+  return new Promise((resolve, reject) => {
+    firestore.collection("Chats").doc(key).collection('Messages')
+    .orderBy('messagedAt','asc')
+    .onSnapshot((snapshot) => {
+      let updatedData = snapshot.docs.map(doc => doc.data())
+      resolve(updatedData)
+    })
+  })
+}
+

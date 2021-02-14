@@ -12,8 +12,8 @@ const ChatList = () => {
 
     
     useEffect(() => {
-        // var user = localStorage.getItem("userId")
-        var user = 73
+        var user = localStorage.getItem("userId")
+        // var user = 73
         getUserChats(user)
         .then(snap => {
             getChatUserPics(snap.userIds.toString())

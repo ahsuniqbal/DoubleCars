@@ -11,11 +11,13 @@ import CheckMark from '../../../assets/dealersCheckMark.png';
 import DealerProfileImage from '../../../assets/DealerProfileImage.png'
 import { emailValidation} from '../../../utils/Validation';
 import { isLogin } from '../../../config/LoginAuth';
-
+const firebase = require('firebase').default
+require('../../../components/Firebase/database')
 const SellerDetails = (props) => {
     const [dealer, setDealer] = useState([]);
 
     useEffect(() => {
+       
         GetSellerDetails(props.userId).then(doc => {
             setDealer(doc[0]);
         })
@@ -37,6 +39,62 @@ const SellerDetails = (props) => {
             document.getElementById('email-error-label').textContent = "Please enter a valid email address";
         }
     }
+    const chatMsg = (dealerId) => {
+        var userId = localStorage.getItem('userId')
+        var messageText = `REGARDING VEHICLE: ${props.details.yearCar} ${props.details.carName} ${props.details.mileage} Mileage $${props.details.price}` 
+        var imageUrl = props.details.coverPic
+        var userId = localStorage.getItem('userId')
+            
+            const strId = [userId, dealerId].sort().join('-')
+            //var strId = "72-73"
+            // console.log("final thing to send",obj,strId)
+            firebase.firestore().collection("Chats").doc(strId).get()
+            .then(snapshot => {
+                if(snapshot.exists){
+                    var data = snapshot.data()
+                    console.log("DATA",data)
+                }else{
+                    var updateObj = {
+                        lastMessage : messageText,
+                        lastMessageAt : firebase.firestore.Timestamp.now(),
+                        receiverHasRead : false,
+                        profilePic : props.details.profilePic,
+                        senderId : userId,
+                        receiverId : dealerId,
+                        receiverHasRead : true,
+                        senderHasRead : false
+                    }
+                    firebase.firestore().collection("Chats").doc(strId)
+                    .set(updateObj).then(() => {
+                        var obj = {
+                            messageId : "asdsa",
+                            imageUrl : null,
+                            messageImage : imageUrl,
+                            multipleImagesList : null,
+                            messageText : messageText,
+                            messagedAt : firebase.firestore.Timestamp.now(),
+                            senderId : userId
+                        }
+                        
+                        firebase.firestore().collection("Chats").doc(strId).collection('Messages')
+                        .doc().set(obj).then(() => {
+                            alert('done')
+                            //route kr k messenger per lay jaiga.
+                        // props.history.push('/chat')    
+                        })
+                    })
+
+
+                    
+                }
+            })
+            .catch(e => {
+                console.log('1',e.message)
+            })
+            
+            
+    }
+
     return(
         <div>
             {
@@ -44,7 +102,7 @@ const SellerDetails = (props) => {
                 <CardBody className = "interested-card">
                     <h6 className = "interest-label">Are you interested in this car?</h6>
                     <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
-                    <Button color = "primary" size = "lg" block className = "contact-seller-button mt-4">Chat with Seller</Button>
+                    <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Chat with Seller</Button>
                 </CardBody> : 
                 <CardBody className = "interested-card">
                     <h6 className = "interest-label">Are you interested in this car?</h6>

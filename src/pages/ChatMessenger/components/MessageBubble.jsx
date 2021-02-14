@@ -44,7 +44,7 @@ const MessageBubble = (props) => {
     const renderChatBubbels = (list) => {
         var table = [];
         for(let i = 0; i < list.length; i++){
-            if(list[i].senderId == 73){
+            if(list[i].senderId == localStorage.getItem('userId')){
                 if(checkURL(list[i].imageUrl)){
                     table.push(
                         <div className="message-bubble-img received">

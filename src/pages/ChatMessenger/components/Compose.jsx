@@ -1,13 +1,13 @@
 import React from 'react'
 import { Input } from 'reactstrap';
-import { Paperclip, Send } from 'react-feather';
+import { Paperclip } from 'react-feather';
 import '../styles/Compose.css';
 import {getBlob} from '../../../utils/Conversion'
 import {postImageToFTP} from '../api/Post'
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
+// import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 const firebase = require('firebase').default
 
@@ -31,6 +31,7 @@ const Compose = (props) => {
     const sendMessage = () => {
         var msg = document.getElementById('chatMessage').value
         if(messageValid(msg)){
+            console.log('chala',msg,localStorage.getItem('userId'),props.otherId)
             var userId = localStorage.getItem('userId')
             var obj = {
                 messageId : "asdsa",
