@@ -5,10 +5,25 @@ import BlogPageImage4 from '../../../assets/BlogPageImage4.png';
 import profileChat from '../../../assets/profile-chat.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Phone, Mail, MapPin } from 'react-feather';
+import { connect } from 'react-redux';
 import '../styles/ProfileView.css';
 import {getUser} from '../api/Get'
-const ProfileView = () => {
-    const [user,setUser] = useState(null)
+
+
+const mapStateToProps = (state) => {
+    console.log("Map state", state)
+    return {
+        chats: state
+    }
+}
+
+const ProfileView = (props) => {
+    const [user,setUser] = useState(null);
+
+    // You can get the user id by props.chats.user.userId
+    // Initial state me null hoga is lye code phate ga initial state me kch dalwana parega
+    // Ya flag se agar kaam ho jata hai to flag laga lena
+    console.log(props.chats.user)
 
     useEffect(() => {
         getUser(localStorage.getItem("userId"))
@@ -20,7 +35,6 @@ const ProfileView = () => {
             console.log(e.message)
         })
     },[])
-
 
     return (
         <>
@@ -89,4 +103,4 @@ const ProfileView = () => {
     )
 }
 
-export default ProfileView
+export default connect(mapStateToProps, null)(ProfileView);

@@ -33,6 +33,14 @@ const SellerDetails = (props) => {
         if(emailValidation(email)) {
             // mail is okay
             document.getElementById('email-error-label').textContent = "";
+               // show success message
+               document.getElementById('name-id').value=''
+               document.getElementById('textarea-id').value='' 
+               let successMsg=document.createElement('DIV')
+               successMsg.className='success-msg-label'
+               successMsg.innerHTML='message sent successfully *'
+               document.querySelector('.success-msg').appendChild(successMsg)
+               setTimeout(()=>successMsg.remove(),3000) 
         }
          else {
             // mail is wrong
@@ -112,6 +120,7 @@ const SellerDetails = (props) => {
                     <div id="email-error-label" className="sellerPage-error-label"></div>
                     
                     <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
+                    <div className="success-msg"></div>
                     <Button color = "primary" onClick={(e)=>sendMessage(e)} size = "lg" block className = "contact-seller-button mt-4">Send Message</Button>
                 </CardBody>
             }

@@ -95,11 +95,18 @@
     padding: 15px 20px;
 
 }
-.save-gallery-icon {
-position: absolute;
-top: 33%;
-left: 28%;
-cursor: pointer;
+.un-save-gallery-icon {
+    position: absolute;
+    top: 33%;
+    left: 28%;
+    cursor: pointer;
+}
+.save-gallery-icon{
+    position: absolute;
+    left: 39%;
+    top: 34%;
+    border-top: 1px solid black;
+    border-radius: 4px;
 }
 
 /* Thumbnail images css */
