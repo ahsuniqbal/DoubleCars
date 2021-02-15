@@ -155,22 +155,22 @@ const Signup = (props) => {
                             
                                 <Row>
                                     <Col xs = "12" md = "6" className='first-name-col'>
-                                        <Input id="firstName" className = "signup-register-textfield" type="text" placeholder="First Name"required />
+                                        <Input id="firstName" className = "signup-register-textfield" type="text" placeholder="First Name *"required />
                                         <div id="name-error-label" className="error-label"></div>
                                     </Col>
                                     <Col xs = "12" md = "6" className='last-name-col'>
-                                        <Input id="lastName" className = "signup-register-textfield" type="text" placeholder="Last Name" required />
+                                        <Input id="lastName" className = "signup-register-textfield" type="text" placeholder="Last Name *" required />
                                     </Col>
                                 </Row>
-                                    <Input id="phNum" className = "signup-register-textfield" type="text" placeholder="Mobile Number" required />
+                                    <Input id="phNum" className = "signup-register-textfield" type="text" placeholder="Mobile Number *" required />
                                     <div id="phNum-error-label" className="error-label"></div>
 
-                                    <Input id="signup-email" className = "signup-register-textfield" type="text" placeholder="Your Email" required />
+                                    <Input id="signup-email" className = "signup-register-textfield" type="text" placeholder="Your Email *" required />
                                     <div id="email-error-label" className="error-label"></div>
 
                                     <div className='pass-wrapper'>
                                     <Input id="signup-password" className = "signup-register-textfield" 
-                                     type={passwordShown=='show' ? "text" : "password"} placeholder= "Create a Password" 
+                                     type={passwordShown=='show' ? "text" : "password"} placeholder= "Create a Password *" 
                                      required
                                      maxLength={16}
                                      />
