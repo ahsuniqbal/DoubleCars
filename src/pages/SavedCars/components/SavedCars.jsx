@@ -41,7 +41,7 @@ import {getSaveCars} from '../api/Get'
 //     }
 //     return table;
 // }
-const  SavedCars = (props) => {
+const  SavedCars = () => {
     const [savedCars,setSavedCars] = useState([])
     useState(() => {
         var userId = localStorage.getItem('userId')

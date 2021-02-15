@@ -20,14 +20,6 @@ const Signup = (props) => {
     const [passwordShown, setPasswordShown] = useState(false)
     const [eyePiece,setEye]=useState(true)
     
-    // regex values
-    const emailRegex= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    const passwordRegex=/^[0-9a-zA-Z@!#$%^&*()_+?.,'"\|]{8,16}$/
-    // const passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
-    // const NumberRegex=/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
-    const hasNumber=/\d/
-    const NumberRegex=/^\d+$/
-    const userNameRegex=  /^[a-zA-Z]*$/
     const history=useHistory()
 
     //show passowrd on click of closed-eye icon
@@ -94,7 +86,7 @@ const Signup = (props) => {
                             if(doc.code === 1){
                                 localStorage.setItem('userId',doc.id)
                                 localStorage.setItem('userToken',doc.Token)
-                                props.history.push('/profile');
+                                props.history.push('/');
                             }
                             else{
                                 document.getElementById('signup-error-label').textContent = doc.message
