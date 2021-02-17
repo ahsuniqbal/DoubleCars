@@ -127,7 +127,7 @@ const SellerDetails = (props) => {
     return(
         <div>
             {
-                isLogin ? 
+                isLogin() ? 
                 <CardBody className = "interested-card">
                     <h6 className = "interest-label">Are you interested in this car?</h6>
                     <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>

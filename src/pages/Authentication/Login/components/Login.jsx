@@ -53,7 +53,7 @@ const Login = (props) => {
                     localStorage.setItem('userToken',doc.Token)
                     Promise.all([localStorage.setItem('userId',doc.ID),localStorage.setItem('userToken',doc.Token)])
                     .then(doc => {
-                        props.history.push('/profile');
+                        props.history.push('/');
                     })
                     .catch(e => {
                         console.log(e.message)

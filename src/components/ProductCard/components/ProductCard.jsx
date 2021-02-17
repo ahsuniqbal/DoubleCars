@@ -30,7 +30,7 @@ const ProductCard = (props) => {
             setSavedProductId(doc.saveId)
         })
         .catch(e => {
-            alert(e.message)
+            console.log(e.message)
         })
     }
 

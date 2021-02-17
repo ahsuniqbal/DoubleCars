@@ -41,39 +41,23 @@ import {getSaveCars} from '../api/Get'
 //     }
 //     return table;
 // }
-// const  SavedCars = (props) => {
-//     const [savedCars,setSavedCars] = useState([])
-//     useState(() => {
-//         var userId = localStorage.getItem('userId')
-//         //var userId = 73
-//         getSaveCars(userId)
-//         .then(doc => {
-//             console.log(doc)
-//             if(doc.length > 0){
-//                 setSavedCars(doc)
-//             }
-//         })
-//         .catch(e => {
-//             console.log(e.message)
-//         })
-//     },[])
-    const  SavedCars = (props) => {
-        const [savedCars,setSavedCars] = useState([])
-        useState(() => {
-            var userId = localStorage.getItem('userId')
-            //var userId = 73
-            getSaveCars(userId)
-            .then(doc => {
-                console.log('saved',doc)
-                if(doc.length > 0){
-                    setSavedCars(doc)
-                }
-            })
-            .catch(e => {
-                console.log(e.message)
-            })
-        },[])
-        
+const  SavedCars = () => {
+    const [savedCars,setSavedCars] = useState([])
+    useState(() => {
+        var userId = localStorage.getItem('userId')
+        //var userId = 73
+        getSaveCars(userId)
+        .then(doc => {
+            console.log(doc)
+            if(doc.length > 0){
+                setSavedCars(doc)
+            }
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
+    },[])
+
     const renderSaveCars = (list) => {
         var table = [];
         for(let i = 0; i < list.length; i++){

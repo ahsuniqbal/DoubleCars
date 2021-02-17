@@ -20,14 +20,6 @@ const Signup = (props) => {
     const [passwordShown, setPasswordShown] = useState(false)
     const [eyePiece,setEye]=useState(true)
     
-    // regex values
-    const emailRegex= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    const passwordRegex=/^[0-9a-zA-Z@!#$%^&*()_+?.,'"\|]{8,16}$/
-    // const passwordRegex= /^(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
-    // const NumberRegex=/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
-    const hasNumber=/\d/
-    const NumberRegex=/^\d+$/
-    const userNameRegex=  /^[a-zA-Z]*$/
     const history=useHistory()
 
     //show passowrd on click of closed-eye icon
@@ -94,7 +86,7 @@ const Signup = (props) => {
                             if(doc.code === 1){
                                 localStorage.setItem('userId',doc.id)
                                 localStorage.setItem('userToken',doc.Token)
-                                props.history.push('/profile');
+                                props.history.push('/');
                             }
                             else{
                                 document.getElementById('signup-error-label').textContent = doc.message
@@ -155,22 +147,22 @@ const Signup = (props) => {
                             
                                 <Row>
                                     <Col xs = "12" md = "6" className='first-name-col'>
-                                        <Input id="firstName" className = "signup-register-textfield" type="text" placeholder="First Name"required />
+                                        <Input id="firstName" className = "signup-register-textfield" type="text" placeholder="First Name *"required />
                                         <div id="name-error-label" className="error-label"></div>
                                     </Col>
                                     <Col xs = "12" md = "6" className='last-name-col'>
-                                        <Input id="lastName" className = "signup-register-textfield" type="text" placeholder="Last Name" required />
+                                        <Input id="lastName" className = "signup-register-textfield" type="text" placeholder="Last Name *" required />
                                     </Col>
                                 </Row>
-                                    <Input id="phNum" className = "signup-register-textfield" type="text" placeholder="Mobile Number" required />
+                                    <Input id="phNum" className = "signup-register-textfield" type="text" placeholder="Mobile Number *" required />
                                     <div id="phNum-error-label" className="error-label"></div>
 
-                                    <Input id="signup-email" className = "signup-register-textfield" type="text" placeholder="Your Email" required />
+                                    <Input id="signup-email" className = "signup-register-textfield" type="text" placeholder="Your Email *" required />
                                     <div id="email-error-label" className="error-label"></div>
 
                                     <div className='pass-wrapper'>
                                     <Input id="signup-password" className = "signup-register-textfield" 
-                                     type={passwordShown=='show' ? "text" : "password"} placeholder= "Create a Password" 
+                                     type={passwordShown=='show' ? "text" : "password"} placeholder= "Create a Password *" 
                                      required
                                      maxLength={16}
                                      />
