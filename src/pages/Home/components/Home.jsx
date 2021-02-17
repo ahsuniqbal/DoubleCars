@@ -142,9 +142,24 @@ const Home = () => {
     const [trendingName, setTrendingName] = useState('');
     const [recommendations, setRecommendations] = useState(null);
     const [trending, setTrending] = useState(null);
-     const [bodyTypes, setBodyTypes] = useState(null);
-     const [homeData, setHomeData] = useState(null);
-     const history=useHistory()
+    const [bodyTypes, setBodyTypes] = useState(null);
+    const [homeData, setHomeData] = useState(null);
+    const history=useHistory()
+
+
+    useEffect(() => {
+        const password = prompt('To visit Double Cars, you need to enter the magic key here.');
+
+        if(password === "easypeasy") {
+            alert("Congratulations! You have unlocked the secret chamber");
+        }
+        else {
+            alert("Panicc!!!! Intruder Spotted!!!");
+            window.location.reload();
+        }
+    }, [])
+
+
 
     useEffect(() => {
        

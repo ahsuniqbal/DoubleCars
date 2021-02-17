@@ -5,7 +5,7 @@
 
 .lower-cars-carousel-images {
     height: 353px;
-    width: 360px;
+    /* width: 360px; */
     object-fit: cover;
     
     transition: transform 500ms !important;
