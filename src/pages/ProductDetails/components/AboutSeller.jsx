@@ -30,7 +30,7 @@ const SellerDetails = (props) => {
 
     const sendMessage=(e)=>{
         e.preventDefault();
-        const email=document.getElementById('email-id')
+        const email=document.getElementById('email-id').value
         if(emailValidation(email)) {
             // mail is okay
             document.getElementById('email-error-label').textContent = "";

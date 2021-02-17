@@ -50,11 +50,12 @@ const Profile = (props) => {
                 document.getElementById('profile-phNum-error-label').textContent = "";
 
                 const obj = {
-                    firstName,lastName,phNum
+                firstName,lastName,phNum
                 }
                 setLoading(true)
                 updateUser(id,obj)
                 .then(doc => {
+                    console.log('***',doc)
                     setLoading(false)
                     if(doc.code === 1){
                         window.location.reload()
