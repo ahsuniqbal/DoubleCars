@@ -44,7 +44,7 @@ const ChatView = (props) => {
             <Row>
                 <Col xs="12">
                     {
-                        props.chats.chat ? <Compose otherId={otherId}/> : null
+                        props.chats.chat ? <Compose otherId={otherId} chatInfo={props.chats.chat}/> : null
                     }
                 </Col>
             </Row>

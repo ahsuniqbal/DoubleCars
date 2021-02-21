@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import { Row, Col, CardImg, Label } from 'reactstrap';
 import { connect } from 'react-redux';
 import { selectChat } from '../../../redux/actions/ChatActions.jsx';
@@ -38,8 +38,44 @@ const ChatListItem = (props) => {
         }
     }
 
-    const lastMsgAt = (timeStamp) => {
+    const trimString =  (string, length) => {
+    return string.length > length ? 
+            string.substring(0, length) + '...' :
+            string;
+    };
+  
 
+    
+
+    const timeSince = (date) => {
+        let minute = 60;
+        let hour   = minute * 60;
+        let day    = hour   * 24;
+        let month  = day    * 30;
+        let year   = day    * 365;
+    
+        let suffix = ' ago';
+    
+        let elapsed = Math.floor((Date.now() - date) / 1000);
+    
+        if (elapsed < minute) {
+            return 'just now';
+        }
+    
+        // get an array in the form of [number, string]
+        let a = elapsed < hour  && [Math.floor(elapsed / minute), 'minute'] ||
+                elapsed < day   && [Math.floor(elapsed / hour), 'hour']     ||
+                elapsed < month && [Math.floor(elapsed / day), 'day']       ||
+                elapsed < year  && [Math.floor(elapsed / month), 'month']   ||
+                [Math.floor(elapsed / year), 'year'];
+    
+        // pluralise and append suffix
+        return a[0] + ' ' + a[1] + (a[0] === 1 ? '' : 's') + suffix;
+    }
+    
+    const lastMsgAt = (timeStamp) => {
+        var date = new Date(timeStamp.toDate())
+        return timeSince(date)
     }
     
     return (
@@ -49,10 +85,10 @@ const ChatListItem = (props) => {
             </Col>
             <Col xs="6" style={{paddingRight: '0px', paddingLeft: '5px'}}>
                 <p className="name">{props.chat.user.fullName}</p>
-                <Label className="last-msg">{checkURL(props.chat.chat.lastMessage) ? "Has sent a file" : props.chat.chat.lastMessage}</Label>
+                <Label className="last-msg">{checkURL(props.chat.chat.lastMessage) ? "Has sent a file" : trimString(props.chat.chat.lastMessage,20)}</Label>
             </Col>
             <Col xs="3" className="text-center">
-                <Label className="time">12 min</Label>
+                <Label className="time">{lastMsgAt(props.chat.chat.lastMessageAt)}</Label>
                 {
                     getNotify(props.chat.chat) ? <div className="unread-number">1</div> : null
                 }
