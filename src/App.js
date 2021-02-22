@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useLayoutEffect} from 'react';
 import { Switch, BrowserRouter  as Router, Route } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
@@ -18,7 +18,23 @@ const DefaultLayout = React.lazy(() => import('./components/DefaultLayout'));
 const Login = React.lazy(() => import('./pages/Authentication/Login'))
 const SignUp = React.lazy(() => import('./pages/Authentication/Signup'))
 
+
 function App() {
+
+  // to detect mobile screens 
+  // useEffect(()=>{
+  //   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+  //    window.location.href='https://www.google.com/'
+  //     }
+  // },[])
+  const resizeWindow=function(){
+      if (window.innerWidth <= 600) {
+        window.location = "https://www.google.com/";
+      }
+  }
+  window.addEventListener("resize", resizeWindow);
+ 
+
   return (
     <Router>
       <React.Suspense fallback={loading()}>

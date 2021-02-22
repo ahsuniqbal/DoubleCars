@@ -44,7 +44,7 @@ const ProfileView = (props) => {
         <Card className="profile-view">
             <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
 
-                <div style={{paddingRight: '1.25rem', paddingLeft: '1.25rem'}}>
+                {/* <div style={{paddingRight: '1.25rem', paddingLeft: '1.25rem'}}>
                     <h6>Inquiring For</h6>
 
                     <Row className="inquaring-for-card">
@@ -57,11 +57,11 @@ const ProfileView = (props) => {
                             <CardText>$25,664</CardText>
                         </Col>
                     </Row>
-                </div>
+                </div> */}
 
                 <hr className="mt-5 mb-4" />
-
-                <div className="profile-details" style={{paddingRight: '1.25rem', paddingLeft: '1.25rem'}}>
+                {
+                    user ? <div className="profile-details" style={{paddingRight: '1.25rem', paddingLeft: '1.25rem'}}>
                     <h6>Profile</h6>
 
                     <Row>
@@ -96,7 +96,10 @@ const ProfileView = (props) => {
                         </Link>
                         </Col>
                     </Row>
-                </div>
+                </div> : null
+                }
+
+                
                 
             </CardBody>
         </Card>

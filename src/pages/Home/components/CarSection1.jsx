@@ -123,6 +123,13 @@ const CarSection1 = () => {
       };
 
     return(
+      
+
+      <body className = "car-section-body">
+        <Container>
+
+        
+      
       <Row className='car-section-row'>
             <Col md = "3" xs = "12" className='car-section-coloumn'>
                 <Col md = "12" xs = "12"  style = {CarSection1DemoImage1}  onClick={()=>history.push('/products')}>
@@ -157,7 +164,8 @@ const CarSection1 = () => {
                 </Col>
             </Col>
       </Row>
-
+      </Container>
+      </body>
     )
   
 }

@@ -126,33 +126,23 @@ const Profile = (props) => {
         console.log(img)
         document.getElementById('profile-img').src = URL.createObjectURL(img)
         setLoadingProfile(true)
-        getBlob(img)
-        .then(doc => {
-            var obj = {
-                file : doc,
-                fileName : img.name.replace(/\s/g, '')
+        var formData = new FormData();
+        formData.append('profile',img)
+        postImageToFTP(formData)
+        .then(doc1 => {
+            var url = doc1[0]
+            const objP = {
+                profilePic : url
             }
-            postImageToFTP([obj])
-            .then(doc1 => {
-                var url = doc1[0]
-                const objP = {
-                    profilePic : url
-                }
-                updateUser(localStorage.getItem("userId"),objP)
-                .then(doc2 => {
-                    setLoadingProfile(false)
-                    console.log(doc2)
-                })
-                .catch(e => {
-                    setLoadingProfile(false)
-                    console.log(e.message)
-                })
+            updateUser(localStorage.getItem("userId"),objP)
+            .then(doc2 => {
+                setLoadingProfile(false)
+                console.log(doc2)
             })
             .catch(e => {
                 setLoadingProfile(false)
                 console.log(e.message)
             })
-            
         })
         .catch(e => {
             setLoadingProfile(false)

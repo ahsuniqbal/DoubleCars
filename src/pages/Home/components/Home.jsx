@@ -299,8 +299,12 @@ const Home = () => {
             
 
             </Container>
-          
+           
             <CarSection1/>
+            
+            
+            
+            
             <SellCar/>
             <LowerCar bodyTypes={bodyTypes}/>
             <Container>
