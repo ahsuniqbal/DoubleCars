@@ -39,7 +39,7 @@ const SellerDetails = (props) => {
                document.getElementById('textarea-id').value='' 
                let successMsg=document.createElement('DIV')
                successMsg.className='success-msg-label'
-               successMsg.innerHTML='message sent successfully *'
+               successMsg.innerHTML='Message sent successfully *'
                document.querySelector('.success-msg').appendChild(successMsg)
                setTimeout(()=>successMsg.remove(),3000) 
         }
