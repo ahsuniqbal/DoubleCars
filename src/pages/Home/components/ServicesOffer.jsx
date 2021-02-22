@@ -6,7 +6,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 const ServicesOffer = () => {
-    const bodys = document.querySelector('#root').scrollTo(0, 0);
+    // const bodys = document.querySelector('#root').scrollTo(0, 0);
 
     // body.scrollIntoView({
     //     behavior: 'smooth'
@@ -25,7 +25,7 @@ const ServicesOffer = () => {
                 <ul className="">
                     <div>
                         <CheckIcon className='check mr-3'/>
-                        <Label onClick={()=>window.scrollTo(10, 10)}><p className="service-nav-Item">Lorem ipsum dolor sit amet consectetur.</p></Label>
+                        <Label ><p className="service-nav-Item">Lorem ipsum dolor sit amet consectetur.</p></Label>
                     </div>
                     <div>
                         <CheckIcon className='check mr-3'/>

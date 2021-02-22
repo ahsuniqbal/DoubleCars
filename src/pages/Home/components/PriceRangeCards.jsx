@@ -17,7 +17,7 @@ const PriceRangeCards1 = () => {
     useEffect(() => {
             GetFilteredPriceList(10000).then(doc => {
                 setList(doc)
-                console.log('filter res***',doc)
+              
             })
             .catch(error => {
                 alert(error.message);
@@ -63,6 +63,7 @@ const PriceRangeCards2 = () => {
     const history=useHistory()
     useEffect(() => {
             GetFilteredPriceList(20000).then(doc => {
+             
                 setList(doc)
             })
             .catch(error => {
@@ -78,7 +79,7 @@ const PriceRangeCards2 = () => {
         }
 
     return(
-        <div>
+        <div className='price-filter-grid'>
             <Grid container >
                 {filterPrice2 && filterPrice2.map((items,index)=>{
                     return(
@@ -108,6 +109,7 @@ const PriceRangeCards3 = () => {
     const history=useHistory()
     useEffect(() => {
             GetFilteredPriceList(30000).then(doc => {
+            
                 setList(doc)
             })
             .catch(error => {
@@ -123,7 +125,7 @@ const PriceRangeCards3 = () => {
         }
 
     return(
-        <div>
+        <div className='price-filter-grid'>
             <Grid container >
                 {filterPrice3 && filterPrice3.map((items,index)=>{
                     return(
@@ -153,6 +155,7 @@ const PriceRangeCards4 = () => {
     const history=useHistory()
     useEffect(() => {
             GetFilteredPriceList(40000).then(doc => {
+                
                 setList(doc)
             })
             .catch(error => {
@@ -168,7 +171,7 @@ const PriceRangeCards4 = () => {
         }
 
     return(
-        <div>
+        <div className='price-filter-grid'>
             <Grid container >
                 {filterPrice4 && filterPrice4.map((items,index)=>{
                     return(
@@ -198,6 +201,7 @@ const PriceRangeCards5 = () => {
     const history=useHistory()
     useEffect(() => {
             GetFilteredPriceList(50000).then(doc => {
+                
                 setList(doc)
             })
             .catch(error => {
@@ -213,7 +217,7 @@ const PriceRangeCards5 = () => {
         }
 
     return(
-        <div>
+        <div className='price-filter-grid'>
             <Grid container >
                 {filterPrice5 && filterPrice5.map((items,index)=>{
                     return(

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Input } from 'reactstrap';
 import { Paperclip } from 'react-feather';
 import '../styles/Compose.css';
-import {getBlob} from '../../../utils/Conversion'
+// import {getBlob} from '../../../utils/Conversion'
 import {postImageToFTP} from '../api/Post'
 import { makeStyles } from '@material-ui/core/styles';
 // import Button from '@material-ui/core/Button';
@@ -25,6 +25,28 @@ const useStyles = makeStyles((theme) => ({
 const Compose = (props) => {
 
     const classes = useStyles();
+
+    useEffect(() => {
+        var input = document.getElementById('chatMessage')
+        input.addEventListener('keyup', function (e) {
+            console.log('Value:', input.value);
+            var userId = localStorage.getItem('userId')
+            const strId = [userId, props.chatInfo.receiverId].sort().join('-')
+            var obj = {}
+            if(props.chatInfo.receiverId == userId){
+                obj = {
+                    recieverTypeStatus : false
+                }
+            }else{
+                obj = {
+                    senderTypeStatus : false
+                }
+            }
+            firebase.firestore().collection("Chats").doc(strId)
+            .update(obj)
+            })
+        
+    },[]) 
 
     const messageValid = (txt) => (txt && txt.replace(/\s/g, '').length);
     
@@ -62,13 +84,9 @@ const Compose = (props) => {
         var images = e.target.files
         //console.log(images[0])
         if(images.length === 1){
-            getBlob(images[0])
-            .then(doc => {
-                var obj = {
-                    file : doc,
-                    fileName : images[0].name
-                }
-                postImageToFTP([obj])
+            var formData = new FormData();
+            formData.append('profile',images[0])
+            postImageToFTP(formData)
                 .then(doc => {
                     var url = doc[0]
                     var userId = localStorage.getItem('userId')
@@ -96,12 +114,26 @@ const Compose = (props) => {
                 .catch(e => {
                     console.log(e.message)
                 })
-            })
-            .catch(e => {
-                console.log(e.message)
-            })
         }
         
+    }
+
+    const TypingStatus = () => {
+        console.log("ty",props.chatInfo)
+        var userId = localStorage.getItem('userId')
+        const strId = [userId, props.chatInfo.receiverId].sort().join('-')
+        var obj = {}
+        if(props.chatInfo.receiverId == userId){
+            obj = {
+                recieverTypeStatus : true
+            }
+        }else{
+            obj = {
+                senderTypeStatus : true
+            }
+        }
+        firebase.firestore().collection("Chats").doc(strId)
+        .update(obj)
     }
 
     return (
@@ -110,7 +142,7 @@ const Compose = (props) => {
             {/* <Input  id="image" type="file" accept="image/*">
             <Paperclip color="#1C67CE" size={30}/>
             </Input> */}
-            <input accept="image/*" onChange={e => onChangeImage(e)} className={classes.input} id="icon-button-file" type="file" />
+            <input accept="image/*" onChange={e => onChangeImage(e)} className={classes.input} id="icon-button-file" type="file" multiple/>
             <label htmlFor="icon-button-file" className="mb-0">
                 <IconButton color="primary" aria-label="upload picture" component="span">
                 <Paperclip size={18} />
@@ -118,9 +150,9 @@ const Compose = (props) => {
             </label>
 
             
-            <Input id="chatMessage" type="text" placeholder="Write a message..." />
+            <Input onChange={e => TypingStatus()} id="chatMessage" type="text" placeholder="Write a message..." />
             {/* <Send onClick={e => sendMessage()} color="#1C67CE" size={20} /> */}
-            <ion-icon onClick={e => sendMessage()} name="send"></ion-icon>
+            <ion-icon className="cursor-pointer" onClick={e => sendMessage()} name="send"></ion-icon>
         </div>
     )
 }

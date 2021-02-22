@@ -58,7 +58,7 @@ const NavigationBar = () => {
             setProfilePic(doc[0].profilePic)
         })
         .catch(e => {
-            alert(e.message)
+            console.log(e.message)
         }) 
     }
 
