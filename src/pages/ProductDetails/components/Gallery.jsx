@@ -48,12 +48,13 @@ const Gallery = (props) => {
      
       postSaveCar(obj)
       .then(doc => {
+          console.log(doc)
           if(doc.code==-1){
               alert(doc.message)
           }
           else{
               console.log(doc.saveId)
-              setSaveIcon(true)
+              setSaveIcon(doc.saveId)
              //  setSavedProductId(doc.saveId)
           }
           
