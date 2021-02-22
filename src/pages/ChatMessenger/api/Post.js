@@ -1,11 +1,11 @@
 import { connectionString } from '../../../config/ConnectionString';
 const axios = require('axios')
 
-export const postImageToFTP = (obj) => {
+export const postImageToFTP = (data) => {
     return new Promise((resolve, reject) => {
         var url = connectionString + "product-images/ftp-file"
         console.log(url)
-        axios.post(url,obj)
+        axios.post(url,data)
         .then(function (response) {
             // handle success
         const data = response.data.results;
