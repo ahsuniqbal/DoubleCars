@@ -27,7 +27,7 @@ const Header = () => {
                                     <div>
                                         <div className = "col-md-12" className = "">
                                             <Button className="ml-3 mt-4 download-button-cover" to="" onClick={()=>window.location.href='https://play.google.com/store/apps'}>Download App</Button>
-                                            <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={toggle}>Read Reviews</Button> 
+                                            <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={toggle}>Temporary Button</Button> 
                                             <LoginModal isOpen={modal} toggle={toggle} />
                                         </div>
                                     </div>
