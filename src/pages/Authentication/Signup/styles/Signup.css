@@ -174,12 +174,12 @@
     color: rgba(0, 0, 0, 0.65);
 }
 
-.bottom-footer {
+/* .bottom-footer {
     display: none;
 }
 .footer-body{
     display: none;
-}
+} */
 .pass-wrapper {
     position: relative;
     display: flex;

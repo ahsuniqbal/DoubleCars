@@ -39,7 +39,7 @@ function App() {
         <Switch>
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={SignUp}/>
-          <Route path="/chat" exact component={Chat} />
+          <PrivateRoute path="/chat" exact component={Chat} />
           <Route path="/" render={props => <DefaultLayout {...props} /> } />
           
         </Switch>
