@@ -125,14 +125,14 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse navigation-bar" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <a className="nav-link navigation-items"  href='#/products?isUsed=false'>
+                            <a className="nav-link navigation-items"  href='/products?isUsed=false'>
                                     {window.location.search=='?isUsed=false' ?
                                     <span style={styleDiv}>New Cars</span>:
                                     <span >New Cars</span>}
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link navigation-items" href='#/products?isUsed=true'>
+                            <a className="nav-link navigation-items" href='/products?isUsed=true'>
                                      {window.location.search=='?isUsed=true' ?
                                     <span style={styleDiv}>Used Cars</span>:
                                     <span >Used Cars</span>}

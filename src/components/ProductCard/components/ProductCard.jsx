@@ -12,6 +12,8 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
 const ProductCard = (props) => {
 
+    console.log(props)
+
     const [savedProductId, setSavedProductId] = useState(props.isSave);
     
     const saveCarFunc = (productId) => {
@@ -96,7 +98,7 @@ const ProductCard = (props) => {
                             <Col xs="3">
                                 {/* Profile pic of the dealer */}
                                 {/* <div className="image-div"> */}
-                                    <CardImg src={props.dealerPic} alt="Company logo" />
+                                    <CardImg src={props.dealerPic ? props.dealerPic : dummyAvatar} alt={props.dealerName} />
                                 {/* </div> */}
                             </Col>
                             <Col xs="5" className="px-0">
@@ -122,7 +124,7 @@ const ProductCard = (props) => {
                             <Col xs="3">
                                 {/* Profile pic of the private seller */}
                                 {/* <div className="image-div"> */}
-                                    <CardImg src={props.dealerPic} alt="Company logo" />
+                                    <CardImg src={props.dealerPic ? props.dealerPic : dummyAvatar} alt={props.dealerName} />
                                 {/* </div> */}
                             </Col>
                             <Col xs="4" className="px-0">
