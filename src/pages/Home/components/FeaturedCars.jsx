@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import { Col, Row, Label, Badge } from 'reactstrap';
+import { Col, Row, Label, Badge , Container} from 'reactstrap';
 import '../styles/FeaturedCars.css'
 import { useHistory } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -57,6 +57,9 @@ const FeaturedCars = () => {
             };
       
     return(
+      <Container>
+
+      
         <Row className='main-feature'>
             <Col md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn' onClick={()=>history.push('/products')}>            
             <Badge color="primary" className = "feature-car-badge1">New</Badge>
@@ -103,6 +106,7 @@ const FeaturedCars = () => {
                 </Row>
             </Col>
         </Row>
+        </Container>
         
     )
   

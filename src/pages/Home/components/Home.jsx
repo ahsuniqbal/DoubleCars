@@ -196,6 +196,9 @@ const Home = () => {
                         <Col xs="2"></Col>
                     </Row>
                     <Tabs defaultTab="new-feature-tab">
+                        <Container>
+
+                        
                         <Row className='features-row'>
                             
                                 <Col xs = "12" md = "8" sm = "12" className = "">
@@ -208,9 +211,8 @@ const Home = () => {
                                     <Tab tabFor="old-feature-tab" className='px-1'>Used</Tab> 
                                  </TabList>
                                 </Col>
-                           
-
                         </Row>
+                        </Container>
                         <Row>
                             <Col className='featured-main-coloumn'>
                                 <TabPanel tabId="feature-tab">
