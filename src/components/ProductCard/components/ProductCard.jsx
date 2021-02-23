@@ -13,6 +13,8 @@ import LoginModal from '../../../pages/Authentication/Login/components/LoginModa
 
 const ProductCard = (props) => {
 
+    console.log(props)
+
     const [savedProductId, setSavedProductId] = useState(props.isSave);
     const [loginModal, setLoginModal] = useState(false);
     const loginToggle = () => setLoginModal(!loginModal);
@@ -123,7 +125,7 @@ console.log(props.isSave)
                             <Col xs="3">
                                 {/* Profile pic of the dealer */}
                                 {/* <div className="image-div"> */}
-                                    <CardImg src={props.dealerPic} alt="Company logo" />
+                                    <CardImg src={props.dealerPic ? props.dealerPic : dummyAvatar} alt={props.dealerName} />
                                 {/* </div> */}
                             </Col>
                             <Col xs="5" className="px-0">
@@ -149,7 +151,7 @@ console.log(props.isSave)
                             <Col xs="3">
                                 {/* Profile pic of the private seller */}
                                 {/* <div className="image-div"> */}
-                                    <CardImg src={props.dealerPic} alt="Company logo" />
+                                    <CardImg src={props.dealerPic ? props.dealerPic : dummyAvatar} alt={props.dealerName} />
                                 {/* </div> */}
                             </Col>
                             <Col xs="4" className="px-0">

@@ -6,6 +6,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faStar, faMapPin, faPhone, faSearch, faEnvelope, faPlus, faMinus, faCheck, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import logo from './assets/DCLogo.jpg';
+import { PrivateRoute } from './navigation/RouteTypes';
+import Chat from './pages/ChatMessenger/components/Chat';
 
 library.add(faUser, faStar, faBookmark, faMapPin, faPhone, faSearch, faEnvelope, faPlus, faMinus, faCheck, faCheckCircle);
 
@@ -37,7 +39,9 @@ function App() {
         <Switch>
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={SignUp}/>
+          {/* <Route path="/chat" exact component={Chat} /> */}
           <Route path="/" render={props => <DefaultLayout {...props} /> } />
+          
         </Switch>
       </React.Suspense>
     </Router>

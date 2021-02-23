@@ -81,6 +81,11 @@ const ProductResults = ({match}) => {
                                     items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)} />
                                     : <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} />
                                 }
+
+
+                                
+
+
                                 <Information
                                     details={productDetails.details[0]}
                                     attributes={productDetails.attributes}
