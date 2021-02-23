@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import '../styles/Signup.css'
-import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reactstrap'
+import {Row, Col, Input, Button, Label, FormGroup, Form, Modal, ModalHeader, ModalBody} from 'reactstrap'
 import { Link } from "react-router-dom";
 import {userSignUp} from '../../api/Post'
 import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
@@ -13,6 +13,7 @@ import { useHistory } from "react-router-dom";
 import Eyepiece from '../../../../assets/eyepiece.png'
 import Eye from '../../../../assets/eye.svg'
 import { emailValidation, nameValidation, passwordValidation } from '../../../../utils/Validation';
+import ModalFooter from 'reactstrap/lib/ModalFooter';
 
 
 const SignupModal = (props) => {
@@ -122,17 +123,17 @@ const SignupModal = (props) => {
 
 
     return(
-        <div>
-                <Container fluid = {true}>
+        <Modal {...props} className = "" size = "lg"  centered>
+        <ModalHeader {...props} charCode="X" ></ModalHeader>
+        <ModalBody className = "text-left">
+            <Row>
+                <Col lg='12' xs = "12" sm = "12" className = "right-side-column">
                     <Row>
-                        <Col xs = "12" lg = "12" sm = "12" className = "signup-right-side-column">
-                            <Row>
-                                <Col xs = "12" md = "12" className = "text-center">
-                                    <h2 className = "register-head">Register Account</h2>
-                                    <Label className = "register-label">Si sine causa, nollem me ab eo ortum, tam egregios viros censes tantas.</Label>
-                                </Col>
-                            </Row>
-                            <Form onSubmit={e => handleSignUp(e)}>
+                        <Col xs = "12" md = "12" >
+                        <h2 className = "register-head text-left">Signup</h2>
+                        </Col>
+                    </Row>
+                    <Form onSubmit={e => handleSignUp(e)}>
                             
                                 <Row>
                                     <Col xs = "12" md = "6" className='first-name-col'>
@@ -210,19 +211,18 @@ const SignupModal = (props) => {
                                 
                             </div>
                             </Form>
-
-                            
-                            <div className='signup-bottom'>
-                                <hr />
-                                <span>Already a member? <Label className='bottom-label' onClick={()=>history.push('/login')}>Login</Label></span>
-                            </div>
-                           
                         </Col>
-                    </Row>
-                </Container>
-           
-        </div>
-    );
+      </Row>
+
+        </ModalBody>
+        <ModalFooter className = "text-center">
+        <Label className="text-center">Already a member <a href="register">Sign up now</a></Label>
+        </ModalFooter>
+
+        
+    </Modal>
+   
+    )
 }
 
 export default SignupModal;

@@ -9,6 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Eyepiece from '../../../../assets/eyepiece.png';
 import Eye from '../../../../assets/eye.svg'
 import {emailValidation} from '../../../../utils/Validation.jsx';
+import ModalFooter from 'reactstrap/lib/ModalFooter';
 
 const LoginModal = (props) => {
     const [loading,setLoading] = useState(false)
@@ -73,69 +74,63 @@ const LoginModal = (props) => {
     }
    
     return(
-       
         <Modal {...props} className = "" size = "lg"  centered>
-        <ModalHeader {...props} charCode="X" >
-        </ModalHeader>
+        <ModalHeader {...props} charCode="X" ></ModalHeader>
+        <ModalBody className = "text-left">
+            <Row>
+                <Col lg='12' xs = "12" sm = "12" className = "right-side-column">
+                    <Row>
+                        <Col xs = "12" md = "12" >
+                            <h2 className = "login-now-head text-left">Login</h2>
+                        </Col>
+                    </Row>
+                    <Form onSubmit={e => handleLogin(e)}>
+                        <Input id="login-email" className = "login-email" type="text" placeholder="Your Email Address" required />
+                        <div id="email-error" className="error"></div>
 
-        <ModalBody>
-            
-      <Row>
-      <Col lg='12' xs = "12" sm = "12" className = "right-side-column">
-                            <Row>
-                                <Col xs = "12" md = "12" className = "text-center">
-                                    <h2 className = "login-now-head">Login now</h2>
-                                    <Label className = "login-label">Si sine causa, nollem me ab eo ortum, tam egregios viros censes tantas.</Label>
-                                </Col>
-                            </Row>
-                            <Form onSubmit={e => handleLogin(e)}>
-                                
-                                <Input id="login-email" className = "login-email" type="text" placeholder="Your Email Address" required />
-                                <div id="email-error" className="error"></div>
+                        <div className='pass-wrapper'>
+                            <Input id="login-password" className = "login-password"  type={passwordShown=='show' ? "text" : "password"} placeholder= "Your Password" required />
+                                { eyePiece ?<i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
+                            :<i onClick={toggleEyeVisiblity}><img src={Eye} className='password-eye'/></i>
+                            }
+                            
+                            </div>
+                        <div id="error-label" className="error"></div>
 
-                                <div className='pass-wrapper'>
-                                    <Input id="login-password" className = "login-password"  type={passwordShown=='show' ? "text" : "password"} placeholder= "Your Password" required />
-                                     { eyePiece ?<i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
-                                   :<i onClick={toggleEyeVisiblity}><img src={Eye} className='password-eye'/></i>
-                                   }
-                                    
-                                 </div>
-                                <div id="error-label" className="error"></div>
+                        <Row>
+                            <Col md = "8" className = "remember-login-column">
+                            <FormGroup check>
+                                <Label check  className = "remember-label">
+                                <Checkbox color="primary" className='login-checkbox' />
+                                    <span>Remember Details?</span>
+                                </Label>
+                            </FormGroup>
+                                {/* <FormGroup >
+                                    <Checkbox color="primary" />
+                                    <Label check htmlFor="remember" className = "remember-label">Remember Details?</Label>
+                                </FormGroup> */}
+                            </Col>
 
-                                <Row>
-                                    <Col md = "8" className = "remember-login-column">
-                                    <FormGroup check>
-                                        <Label check  className = "remember-label">
-                                        <Checkbox color="primary" className='login-checkbox' />
-                                            <span>Remember Details?</span>
-                                        </Label>
-                                    </FormGroup>
-                                        {/* <FormGroup >
-                                            <Checkbox color="primary" />
-                                            <Label check htmlFor="remember" className = "remember-label">Remember Details?</Label>
-                                        </FormGroup> */}
-                                    </Col>
+                            <Col md = "4" className = "text-right remember-login-column">
+                                <Button type="submit" color="primary" className="login-button-login">
+                                {loading && <span>Logging in...</span>}
+                                {!loading && <span>Login</span>}
+                                </Button>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs="6" md = "6" className = "register-forgot-column">
+                                <Label className="not-register-label"
+                                    onClick={()=>history.push('/signup')}
+                                >Not Registered?</Label>
+                            </Col>
 
-                                    <Col md = "4" className = "text-right remember-login-column">
-                                        <Button type="submit" color="primary" className="login-button-login">
-                                        {loading && <span>Logging in...</span>}
-                                        {!loading && <span>Login</span>}
-                                        </Button>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs="6" md = "6" className = "register-forgot-column">
-                                        <Label className="not-register-label"
-                                         onClick={()=>history.push('/signup')}
-                                        >Not Registered?</Label>
-                                    </Col>
-
-                                    <Col xs="6" md = "6" className = "text-right register-forgot-column">
-                                        <Label className="forgot-label">Forgot Details?</Label>
-                                    </Col>
-                                </Row>
-                                
-                            </Form>
+                            <Col xs="6" md = "6" className = "text-right register-forgot-column">
+                                <Label className="forgot-label">Forgot Details?</Label>
+                            </Col>
+                        </Row>
+                        
+                    </Form>
 
                             <h2 className = "login-or-label"><span>or continue with</span></h2>
 
@@ -156,6 +151,9 @@ const LoginModal = (props) => {
       </Row>
 
         </ModalBody>
+        <ModalFooter>
+        <Label className="text-center">Already a member <a href="register">Sign up now</a></Label>
+        </ModalFooter>
 
         
     </Modal>
