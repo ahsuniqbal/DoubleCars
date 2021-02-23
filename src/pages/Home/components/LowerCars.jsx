@@ -14,20 +14,22 @@ import Slider from "react-slick";
 import RightArrow from '../../../assets/RightArrow.png'
 
 const NextIcon=(props)=>{
-     const { className, onClick,activeSlide } = props;
-     console.log(activeSlide)
+     const { className, onClick,activeSlide ,length} = props;
+    console.log('next',activeSlide)
      return (
        <div>
-         {activeSlide==0 &&  
-               <div className={className} onClick={onClick}>
+         {activeSlide>=0 && (activeSlide!==length-4 ) ?
+               <div className={className}  onClick={onClick}>
                <img src={RightArrow}  />
              </div>
+             : null
            }
        </div>
      );
    }
    const PrevoiusIcon=(props)=>{
      const { className, onClick ,activeSlide} = props;
+     
      return (
        <div>
          {activeSlide!==0 && 
@@ -52,15 +54,55 @@ const LowerCar = (props) => {
 //           alert(e.message)
 //      })
 //     },[])
-const [activeSlide,setActiveSlide]=useState(0)
+
+  const [activeSlide,setActiveSlide]=useState(0)
+  const [length,setLength]=useState('')
+  const [lowerCar,setCars]=useState([
+    {
+    image:LowerCarsImage1,
+    text:'Sedan'
+  },
+  {
+    image:LowerCarsImage2,
+    text:'Suv'
+  },
+  {
+    image:LowerCarsImage3,
+    text:'Sports Car'
+  },
+  {
+    image:LowerCarsImage4,
+    text:'Hatchback'
+  },
+  {
+    image:LowerCarsImage5,
+    text:'Mecedez'
+  },
+  {
+    image:LowerCarsImage6,
+    text:'Land Rover'
+  },
+  {
+    image:LowerCarsImage7,
+    text:'Audi'
+  },
+  {
+    image:LowerCarsImage8,
+    text:'Mecedez Benz'
+  },
+  
+  ])
+
+  console.log(lowerCar.slice(-1))
 
      var settings = {
           dots: false,
           speed:800,
-          nextArrow: <NextIcon activeSlide={activeSlide}/>,
-          prevArrow:<PrevoiusIcon activeSlide={activeSlide}/>,
+          nextArrow: <NextIcon activeSlide={activeSlide} length={lowerCar.length} />,
+          prevArrow:<PrevoiusIcon activeSlide={activeSlide} />,
           dots: false,
           beforeChange: (current, next) => setActiveSlide(next),
+         
           swipeToSlide: true,
           slidesToScroll: 1,
           slidesToShow: 4,
@@ -93,63 +135,66 @@ const [activeSlide,setActiveSlide]=useState(0)
             }
           ]
         };
+
+      
     return(
        <div>
-            {/* <Slider {...settings}>
-                 {
-                      bodyTypes? bodyTypes.map((item,index)=>{
-                           return(
-                                <div>
-                                   <img src={Image1} className='img-fluid lower-section-img '/>
-                                   <p className='text'>{item}</p>  
-                                </div>
-                           )
-                      }) :null
-                 }
-               
-          </Slider> */}
-            <Slider {...settings}>
-               <div className = "lower-section-car" >
-                    <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage1} className='img-fluid lower-cars-carousel-images'/>
-                    {/* <img src={LowerCarsImage1} className='img-fluid lower-cars-carousel-images'/> */}
-                    <p className='text'>Sedan</p>
-               </div>
-               <div className = "lower-section-car">
-               <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage2} className='img-fluid lower-cars-carousel-images'/>
-                    {/* <img src={LowerCarsImage2} className='img-fluid lower-cars-carousel-images'/> */}
-                    <p className='text'>Suv</p>
-               </div>
-               <div className = "lower-section-car">
-               <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage3} className='img-fluid lower-cars-carousel-images'/>
-                    {/* <img src={LowerCarsImage3} className='img-fluid lower-cars-carousel-images'/> */}
-                    <p className='text'>Sports Car</p>
-               </div>
-               <div className = "lower-section-car">
-               <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage4} className='img-fluid lower-cars-carousel-images'/>
-                    {/* <img src={LowerCarsImage4} className='img-fluid lower-cars-carousel-images'/> */}
-                    <p className='text'>Hatchback</p>
-               </div>
-                   
-               <div className = "lower-section-car">
-               <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage5} className='img-fluid lower-cars-carousel-images'/>
-                    {/* <img src={LowerCarsImage5} className='img-fluid lower-cars-carousel-images'/> */}
-                    <p className='text'>Mecedez</p>
-               </div>
-               <div className = "lower-section-car">
-               <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage6} className='img-fluid lower-cars-carousel-images'/>
-                    {/* <img src={LowerCarsImage6} className='img-fluid lower-cars-carousel-images'/> */}
-                    <p className='text'>Land Rover</p>
-               </div>
-               <div className = "lower-section-car">
-               <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage7} className='img-fluid lower-cars-carousel-images'/>
-                    {/* <img src={LowerCarsImage7} className='img-fluid lower-cars-carousel-images'/> */}
-                    <p className='text'>Audi</p>
-               </div>
-               <div className = "lower-section-car" >
-               <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage8} className='img-fluid lower-cars-carousel-images'/>
-                    {/* <img src={LowerCarsImage8} className='img-fluid lower-cars-carousel-images'/> */}
-                    <p className='text'>Mecedez Benz</p>
-               </div>
+
+            <Slider {...settings} >
+
+             {lowerCar ?
+               lowerCar.map(item=>{
+                 return(
+                    <div className = "lower-section-car" >
+                          <LazyLoadImage width="100%" alt="demo image" effect="blur" src={item.image} className='img-fluid lower-cars-carousel-images'/>
+                          <p className='text'>{item.text}</p>
+                    </div>
+                 )
+               }) : null
+             }
+                 
+                  {/* <div className = "lower-section-car" >
+                        <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage1} className='img-fluid lower-cars-carousel-images'/>
+                        <p className='text'>Sedan</p>
+                  </div>
+                  <div className = "lower-section-car">
+                  <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage2} className='img-fluid lower-cars-carousel-images'/>
+                        <p className='text'>Suv</p>
+                  </div>
+                  <div className = "lower-section-car">
+                  <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage3} className='img-fluid lower-cars-carousel-images'/>
+                        <p className='text'>Sports Car</p>
+                  </div>
+                  <div className = "lower-section-car">
+                  <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage4} className='img-fluid lower-cars-carousel-images'/>
+                        <p className='text'>Hatchback</p>
+                  </div>
+                      
+                  <div className = "lower-section-car">
+                  <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage5} className='img-fluid lower-cars-carousel-images'/>
+                        <p className='text'>Mecedez</p>
+                  </div>
+                  <div className = "lower-section-car">
+                  <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage6} className='img-fluid lower-cars-carousel-images'/>
+                        <p className='text'>Land Rover</p>
+                  </div>
+                  <div className = "lower-section-car">
+                  <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage7} className='img-fluid lower-cars-carousel-images'/>
+                        <p className='text'>Audi</p>
+                  </div>
+                  <div className = "lower-section-car" >
+                  <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage8} className='img-fluid lower-cars-carousel-images'/>
+                        <p className='text'>Mecedez Benz</p>
+                  </div>
+                  <div className = "lower-section-car" >
+                  <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage8} className='img-fluid lower-cars-carousel-images'/>
+                        <p className='text'>Mecedez Benz</p>
+                  </div>
+                  <div className = "lower-section-car" >
+                  <LazyLoadImage width="100%" alt="demo image" effect="blur" src={LowerCarsImage8} className='img-fluid lower-cars-carousel-images'/>
+                        <p className='text'>Mecedez Benz</p>
+                  </div> */}
+            
           </Slider>
        </div>
         

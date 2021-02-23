@@ -22,17 +22,13 @@ const SignUp = React.lazy(() => import('./pages/Authentication/Signup'))
 function App() {
 
   // to detect mobile screens 
-  // useEffect(()=>{
-  //   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-  //    window.location.href='https://www.google.com/'
+
+  // const resizeWindow=function(){
+  //     if (window.innerWidth <= 600) {
+  //       window.location = "https://www.google.com/";
   //     }
-  // },[])
-  const resizeWindow=function(){
-      if (window.innerWidth <= 600) {
-        window.location = "https://www.google.com/";
-      }
-  }
-  window.addEventListener("resize", resizeWindow);
+  // }
+  // window.addEventListener("resize", resizeWindow);
  
 
   return (
