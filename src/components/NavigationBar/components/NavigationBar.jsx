@@ -184,12 +184,12 @@ const NavigationBar = () => {
                                      
                                 <DropdownMenu right className='dropdown-menu'>
                                     <DropdownItem className='dropdown-arrow' disabled><img src={AppbarDropdown} className='dropdown-arrow-pic'/> </DropdownItem>
-                                    <DropdownItem style={{fontWeight:'500'}} >{userName}</DropdownItem>
-                                    <DropdownItem onClick={() => history.push('/profile')}>Edit Profile</DropdownItem>
+                                    <DropdownItem disabled className='navigation-profile-name'>{userName}</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/profile')} className='navigation-profile-item'>Edit Profile</DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem onClick={() => history.push('/chat')}>Messages</DropdownItem>
-                                    <DropdownItem onClick={() => history.push('/saved-cars')}>Saved Cars</DropdownItem>
-                                    <DropdownItem  onClick={e => handleLogout()}>Logout</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/chat')} className='navigation-profile-item'>Messages</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/saved-cars')} className='navigation-profile-item'>Saved Cars</DropdownItem>
+                                    <DropdownItem  onClick={e => handleLogout()} className='navigation-profile-item'>Logout</DropdownItem>
                                 </DropdownMenu>
                                 </UncontrolledDropdown>
                              </li> : null

@@ -7,6 +7,7 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import {postSaveCar} from '../../../components/ProductCard/api/post';
 import { GetSearchResult } from '../../Products/api/GetRequests';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
+import LoginModal from '../../../pages/Authentication/Login/components/LoginModal'
 
 const Gallery = (props) => {
 
@@ -16,6 +17,8 @@ const Gallery = (props) => {
   const [products,setProducts]=useState([])
   const [savedProductId, setSavedProductId] = useState(false);
   const [saveIcon, setSaveIcon] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
+  const loginToggle = () => setLoginModal(!loginModal);
 
   useEffect(()=>{
       ShowSearchResults()
@@ -31,8 +34,8 @@ const Gallery = (props) => {
           alert(error.message);
       });
   }
+
   // save car function
- 
   const saveCarFunc = (productId) => {
       console.log('pd',productId)
       var userId;
@@ -75,14 +78,19 @@ const Gallery = (props) => {
                 {/* <FontAwesomeIcon icon={["far", "bookmark"]} color="gray" className = "save-gallery-icon"/> */}
                 {
                     !saveIcon ? 
+                    //condition to show login modal if user is not login
+                    localStorage.getItem('userId') ?
                     <Bookmark color="#000000" size={20} className = "un-save-gallery-icon" 
-                    onClick={() =>  saveCarFunc(savedProductId) }/> :
+                    onClick={() =>  saveCarFunc(savedProductId) }/>
+                     :
+                    <><Bookmark color="#000000" size={20} className = "un-save-gallery-icon" 
+                      onClick={loginToggle} />
+                     <LoginModal isOpen={loginModal} toggle={loginToggle} /></>
 
-                    
+                    :
                     <FontAwesomeIcon icon={faBookmark} className = "save-gallery-icon"  
                      onClick={() =>  saveCarFunc(savedProductId) }/> 
                  }
-                
                    
                 
             </div>

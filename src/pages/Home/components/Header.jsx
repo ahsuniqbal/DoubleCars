@@ -32,13 +32,16 @@ const Header = () => {
                                     <div>
                                         <div className = "col-md-12" className = "">
                                             <Button className="ml-3 mt-4 download-button-cover" to="" onClick={()=>window.location.href='https://play.google.com/store/apps'}>Download App</Button>
+                                           
+                                           {!localStorage.getItem('userId') ?
+                                           <>
                                             <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={loginToggle}>Temporary Button</Button> 
                                             <LoginModal isOpen={loginModal} toggle={loginToggle} />
 
 
                                             <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={signupToggle}>Temporary Button</Button> 
                                             <SignupModal isOpen={signupModal} toggle={signupToggle} />
-                                            
+                                            </> : null}                                            
                         
                                         </div>
                                     </div>

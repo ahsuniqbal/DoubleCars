@@ -18,7 +18,7 @@ const NextIcon=(props)=>{
     console.log('next',activeSlide)
      return (
        <div>
-         {activeSlide>=0 && (activeSlide!==length-4 ) ?
+         {activeSlide>=0 && activeSlide!==length-4 ?
                <div className={className}  onClick={onClick}>
                <img src={RightArrow}  />
              </div>
@@ -28,11 +28,11 @@ const NextIcon=(props)=>{
      );
    }
    const PrevoiusIcon=(props)=>{
-     const { className, onClick ,activeSlide} = props;
+     const { className, onClick ,activeSlide,activeSlide1} = props;
      
      return (
        <div>
-         {activeSlide!==0 && 
+         {activeSlide!==0 &&
            <div
            className={className}
            onClick={onClick}
@@ -56,7 +56,7 @@ const LowerCar = (props) => {
 //     },[])
 
   const [activeSlide,setActiveSlide]=useState(0)
-  const [length,setLength]=useState('')
+  const [activeSlide1,setActiveSlide1]=useState(0)
   const [lowerCar,setCars]=useState([
     {
     image:LowerCarsImage1,
@@ -93,7 +93,6 @@ const LowerCar = (props) => {
   
   ])
 
-  console.log(lowerCar.slice(-1))
 
      var settings = {
           dots: false,
@@ -102,7 +101,6 @@ const LowerCar = (props) => {
           prevArrow:<PrevoiusIcon activeSlide={activeSlide} />,
           dots: false,
           beforeChange: (current, next) => setActiveSlide(next),
-         
           swipeToSlide: true,
           slidesToScroll: 1,
           slidesToShow: 4,
@@ -114,6 +112,7 @@ const LowerCar = (props) => {
               settings: {
                 slidesToShow: 3,
                 slidesToScroll: 3,
+               
                //  infinite: true,
                //  dots: false
               }
