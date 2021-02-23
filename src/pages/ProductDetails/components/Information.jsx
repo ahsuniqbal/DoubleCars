@@ -83,7 +83,7 @@ const Information = (props) => {
             </Row>
             <Row>
                 <Col>
-                    <h4 className = "car-info mb-4">{details.mileage ? (AddCommaToNumber(details.mileage) + " miles ·") : null} {details.zipCode ? details.zipCode + " - " : null} {details.location ? details.location : "NaN"}</h4>
+                    <h4 className = "car-info mb-4">{details.mileage ? (AddCommaToNumber(details.mileage) + " miles ·") : null} {details.location ? details.location  + " - " : "NaN - "} {details.zipCode ? details.zipCode : null} </h4>
                 </Col>
             </Row>
             {/* <Row>
