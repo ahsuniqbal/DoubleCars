@@ -59,7 +59,7 @@ const ProfileView = (props) => {
                     </Row>
                 </div> */}
 
-                <hr className="mt-5 mb-4" />
+                {/* <hr className="mt-5 mb-4" /> */}
                 {
                     user ? <div className="profile-details" style={{paddingRight: '1.25rem', paddingLeft: '1.25rem'}}>
                     <h6>Profile</h6>
