@@ -39,7 +39,7 @@ const SellerDetails = (props) => {
                document.getElementById('textarea-id').value='' 
                let successMsg=document.createElement('DIV')
                successMsg.className='success-msg-label'
-               successMsg.innerHTML='message sent successfully *'
+               successMsg.innerHTML='Message sent successfully *'
                document.querySelector('.success-msg').appendChild(successMsg)
                setTimeout(()=>successMsg.remove(),3000) 
         }
@@ -126,13 +126,13 @@ const SellerDetails = (props) => {
 
     return(
         <div>
-            {
+            {/* {
                 isLogin() ? 
                 <CardBody className = "interested-card">
                     <h6 className = "interest-label">Are you interested in this car?</h6>
                     <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
                     <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Chat with Seller</Button>
-                </CardBody> : 
+                </CardBody> :  */}
                 <CardBody className = "interested-card">
                     <h6 className = "interest-label">Are you interested in this car?</h6>
                     <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
@@ -143,8 +143,12 @@ const SellerDetails = (props) => {
                     <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
                     <div className="success-msg"></div>
                     <Button color = "primary" onClick={(e)=>sendMessage(e)} size = "lg" block className = "contact-seller-button mt-4">Send Message</Button>
+
+                    <div className="text-center" style={{marginTop: '1rem', fontSize: '12px'}}>OR</div>
+
+                    <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Chat with Seller</Button>
                 </CardBody>
-            }
+            {/* } */}
             
 
 

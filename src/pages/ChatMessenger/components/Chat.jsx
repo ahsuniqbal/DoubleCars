@@ -4,11 +4,13 @@ import ChatList from './ChatList';
 import ChatView from './ChatView';
 import ProfileView from './ProfileView';
 
+import '../styles/Chat.css';
+
 const Chat = () => {
     return (
         <Container>
             <Row>
-                <Col md="3" style={{marginTop: '9rem'}} >
+                <Col md="3" className="chatlist-col" >
                     <ChatList />
                 </Col>
 

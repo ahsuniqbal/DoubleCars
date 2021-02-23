@@ -25,7 +25,9 @@ const SellCar = () => {
                             numquam illo provident distinctio voluptatem perferendis possimus est quaerat!
                         </p>
                         {/* <button className='google-play '> */}
-                            <img src={GooglePlayImg} alt='get it on google play' className='google-play '/>
+                            <Link to='https://play.google.com/store/apps'>
+                                <img src={GooglePlayImg} alt='get it on google play' className='google-play '/>
+                            </Link>
                             {/* </button> */}
                             <Link to = {'/about/'}>
                             <Button outline className='learn-button '>Learn More</Button>

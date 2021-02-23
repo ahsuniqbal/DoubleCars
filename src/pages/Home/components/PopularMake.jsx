@@ -46,7 +46,7 @@ const DrawCols = () => {
 
 const Home = () => {
     return(
-        <div className="popular-make"> 
+        <div className="popular-make" id="popular-make"> 
                 <ul className = "client-list">
                 {
                     DrawCols()
