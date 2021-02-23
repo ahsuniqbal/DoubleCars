@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { Col, Row, Label, Badge } from 'reactstrap';
+import { Col, Row, Label, Badge, Container } from 'reactstrap';
 import '../styles/FeaturedCars.css'
 import {useHistory} from 'react-router-dom'
 import { GetSearchResult } from '../../Products/api/GetRequests';
@@ -70,6 +70,9 @@ const NewFeaturedCars = () => {
 
       
     return(
+      <Container>
+
+     
         <Row className='main-feature'>
             <Col md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn'  onClick={()=>history.push('/product/'+ productId[0].productId)}>
                 <Badge color="primary" className = "feature-car-badge1">New</Badge>
@@ -113,7 +116,7 @@ const NewFeaturedCars = () => {
                 </Row>
             </Col>
         </Row>
-        
+        </Container>
     )
   
 }

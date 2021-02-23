@@ -1,13 +1,21 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { Button, Label} from 'reactstrap';
 import '../styles/Header.css';
 import Cover from '../../../assets/LandingPageHeaderImage.png';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {useHistory} from 'react-router-dom'
+import LoginModal from '../../Authentication/Login/components/LoginModal'
+import SignupModal from '../../Authentication/Signup/components/SignupModal'
+
 // import headerVideo from '../../../assets/header-mov.mkv';
 
 const Header = () => {
     const history=useHistory()
+    const [loginModal, setLoginModal] = useState(false);
+    const loginToggle = () => setLoginModal(!loginModal);
+
+    const [signupModal, setSignupModal] = useState(false);
+    const signupToggle = () => setSignupModal(!signupModal);
     return(
         <div>
             <section className = "align-items-center header-section">
@@ -24,6 +32,14 @@ const Header = () => {
                                     <div>
                                         <div className = "col-md-12" className = "">
                                             <Button className="ml-3 mt-4 download-button-cover" to="" onClick={()=>window.location.href='https://play.google.com/store/apps'}>Download App</Button>
+                                            <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={loginToggle}>Temporary Button</Button> 
+                                            <LoginModal isOpen={loginModal} toggle={loginToggle} />
+
+
+                                            <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={signupToggle}>Temporary Button</Button> 
+                                            <SignupModal isOpen={signupModal} toggle={signupToggle} />
+                                            
+                        
                                         </div>
                                     </div>
                                 </div>
