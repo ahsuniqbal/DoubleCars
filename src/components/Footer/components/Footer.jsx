@@ -102,10 +102,10 @@ const Footer = () => {
                                 <Label className = "nav-text-color footer-contact-information" style = {{marginLeft: '1rem'}} to="">Contact Information</Label>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink to="" className = "footer-contact">support@doublecars.com</NavLink>
+                                    <a href="mailto:support@doublecars.com" className = "footer-contact nav-link">support@doublecars.com</a>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink to="" className = "footer-contact">01 234 67890</NavLink>
+                                    <a href="tel:12345678" className = "footer-contact nav-link">01 234 67890</a>
                                 </NavItem>
                             </Nav>
                         </Col>
