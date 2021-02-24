@@ -41,10 +41,10 @@ body {
 }
 
 .preloader img{
-  width: 300px;
+  width: auto;
   position: absolute;
   top: 40%;
-  left: 38%;
+  left: 42%;
 }
 
 h1, h2 {

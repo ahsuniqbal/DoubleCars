@@ -52,6 +52,20 @@
     border-color: #1C67CE;
 }
 
+.contact-seller-button-2 {
+    background-color: transparent !important;
+    border-radius: 6px;
+    color: #1C67CE ;
+    font-size: 14px;
+    height: 48px;
+    font-weight: 500;
+    border-color: #1C67CE;
+}
+
+.contact-seller-button-2:hover {
+    background-color: #1C67CE !important;
+}
+
 .contact-seller-button:focus, .contact-seller-button:active:focus {
     box-shadow: none !important;
 }
@@ -166,4 +180,34 @@
     font-size: 10px;
     line-height: 26px;
     text-align: center;
+}
+
+
+
+.or-divider {
+    margin: 1.5625rem 0 0.9375rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.45);
+}
+  
+.or-divider:after {
+    content: "";
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: block;
+    height: 1px;
+    margin-left: 10px;
+}
+  
+.or-divider:before {
+    content: "";
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: block;
+    height: 1px;
+    margin-right: 10px;
 }

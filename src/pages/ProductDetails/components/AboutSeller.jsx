@@ -141,17 +141,21 @@ const SellerDetails = (props) => {
                 <CardBody className = "interested-card">
                     <h6 className = "interest-label">Are you interested in this car?</h6>
                     <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
+
+                    <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
+
+                    <span className="or-divider">or</span>
                    
                     <Input type = "email" id='email-id' className = "interested-textfield" placeholder = "Your email address"></Input>
                     <div id="email-error-label" className="sellerPage-error-label"></div>
                     
                     <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
                     <div className="success-msg"></div>
-                    <Button color = "primary" onClick={(e)=>sendMessage(e)} size = "lg" block className = "contact-seller-button mt-4">Send Message</Button>
+                    <Button color = "primary" onClick={(e)=>sendMessage(e)} size = "lg" block className = "contact-seller-button-2 mt-4">Send Message</Button>
 
-                    <div className="text-center" style={{marginTop: '1rem', fontSize: '12px'}}>OR</div>
+                    
 
-                    <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Chat with Seller</Button>
+                    
                 </CardBody>
             {/* } */}
             
