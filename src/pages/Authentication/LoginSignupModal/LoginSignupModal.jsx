@@ -13,6 +13,9 @@ import ModalFooter from 'reactstrap/lib/ModalFooter';
 import googleIcon from '../../../assets//icons/google-icon.svg';
 import FbIcon from '../../../assets//icons/fb-icon.svg';
 
+import closeModal from '../../../assets/icons/close-modal.svg';
+
+
 const LoginSignupModal = (props) => {
 
     const [loading,setLoading] = useState(false)
@@ -154,7 +157,7 @@ const LoginSignupModal = (props) => {
    
     return(
         <Modal {...props} className = "" size = "lg"  centered>
-        <ModalHeader {...props} charCode="X" ></ModalHeader>
+        <ModalHeader charCode={<img src={closeModal} />} {...props}></ModalHeader>
         
         {showSignUp ? 
         <>
@@ -236,7 +239,7 @@ const LoginSignupModal = (props) => {
 
         </ModalBody>
         <ModalFooter className = "text-center">
-        <Label className="text-center"  onClick={()=>setSignupModal(false)}> Already a member <span style={{color:'#1C67CE',cursor:'pointer'}}>Sign in now</span></Label>
+        <Label className="text-center not-a-member"  onClick={()=>setSignupModal(false)}> Already a member <span style={{color:'#1C67CE',cursor:'pointer'}}>Sign in now</span></Label>
         </ModalFooter>
         </>
         :
@@ -246,7 +249,7 @@ const LoginSignupModal = (props) => {
                 <Col lg='12' xs = "12" sm = "12" className = "right-side-column">
                     <Row>
                         <Col xs = "12" md = "12" >
-                            <h2 className = "login-now-head text-left">Login Modal</h2>
+                            <h2 className = "login-now-head text-left">Login</h2>
                         </Col>
                     </Row>
                     <Form onSubmit={e => handleLogin(e)}>
@@ -304,16 +307,16 @@ const LoginSignupModal = (props) => {
                                 </div>
                             </div>
 
-                            <div className='bottom'>
+                            {/* <div className='bottom'>
                                 <hr />
                                 <span>Not a member? <Label className='signup-label' >Sign up now</Label></span>
-                            </div>
+                            </div> */}
                         </Col>
             </Row>
         </ModalBody>
 
         <ModalFooter>
-            <Label className="text-center" onClick={()=>setSignupModal(true)}>Not a member <span style={{color:'#1C67CE',cursor:'pointer'}}>Sign up now</span></Label>
+            <Label className="text-center not-a-member" onClick={()=>setSignupModal(true)}>Not a member <span style={{color:'#1C67CE',cursor:'pointer'}}>Sign up now</span></Label>
         </ModalFooter> </>}
         
         
