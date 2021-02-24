@@ -14,13 +14,18 @@ import { emailValidation} from '../../../utils/Validation';
 import { isLogin } from '../../../config/LoginAuth';
 const firebase = require('firebase').default
 require('../../../components/Firebase/database')
+
+
 const SellerDetails = (props) => {
+
+    
     const [dealer, setDealer] = useState([]);
     const history = useHistory()
     useEffect(() => {
        
         GetSellerDetails(props.userId).then(doc => {
             setDealer(doc[0]);
+            console.log("asd", doc)
         })
         .catch(error => {
             alert(error.message);
@@ -169,14 +174,23 @@ const SellerDetails = (props) => {
                               
                                     <div className='d-flex '>
                                         <Label className = "seller-name">{dealer.fullName}</Label>
-                                        <img src={CheckMark} className='seller-check'/>
+                                        {
+                                            dealer.userRole === "Private User" ? null : <img src={CheckMark} className='seller-check'/>
+                                        }
+                                        
                                     </div>
-                                <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
-                                <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
-                                <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
-                                <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
-                                <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-2" />
-                                <Label className = "seller-rate">4.1</Label>
+
+                                    {
+                                        dealer.userRole === "Private User" ? null :
+                                    <>
+                                        <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
+                                        <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
+                                        <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
+                                        <FontAwesomeIcon icon={["fas", "star"]} color="#FFBB54" size="1x" className="mr-2" />
+                                        <FontAwesomeIcon icon={["fas", "star"]} color="#DBDBDB" size="1x" className="mr-2" />
+                                        <Label className = "seller-rate">4.1</Label>
+                                    </>
+                                    }
                             </Col>
                         </Row>
                         

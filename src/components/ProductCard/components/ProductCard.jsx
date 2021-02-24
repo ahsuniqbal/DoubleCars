@@ -13,8 +13,6 @@ import LoginModal from '../../../pages/Authentication/Login/components/LoginModa
 
 const ProductCard = (props) => {
 
-    console.log(props)
-
     const [savedProductId, setSavedProductId] = useState(props.isSave);
     const [loginModal, setLoginModal] = useState(false);
     const loginToggle = () => setLoginModal(!loginModal);
