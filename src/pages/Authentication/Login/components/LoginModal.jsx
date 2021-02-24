@@ -145,7 +145,7 @@ const LoginModal = (props) => {
                                 </div>
                             </div>
 
-                            <div className='bottom'>
+                            <div className='modal-bottom'>
                                 <hr />
                                 <span>Not a member? <Label className='signup-label'  onClick={()=>history.push('/signup')}>Sign up now</Label></span>
                             </div>

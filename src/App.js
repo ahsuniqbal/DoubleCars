@@ -7,7 +7,6 @@ import { faUser, faStar, faMapPin, faPhone, faSearch, faEnvelope, faPlus, faMinu
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import logo from './assets/DCLogo.jpg';
 import { PrivateRoute } from './navigation/RouteTypes';
-import Chat from './pages/ChatMessenger/components/Chat';
 
 library.add(faUser, faStar, faBookmark, faMapPin, faPhone, faSearch, faEnvelope, faPlus, faMinus, faCheck, faCheckCircle);
 
@@ -19,6 +18,7 @@ const loading = () => <div className="preloader">
 const DefaultLayout = React.lazy(() => import('./components/DefaultLayout'));
 const Login = React.lazy(() => import('./pages/Authentication/Login'))
 const SignUp = React.lazy(() => import('./pages/Authentication/Signup'))
+const Chat = React.lazy(() => import('./pages/ChatMessenger'));
 
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
         <Switch>
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={SignUp}/>
-          {/* <Route path="/chat" exact component={Chat} /> */}
+          <PrivateRoute path="/chat" exact component={Chat} />
           <Route path="/" render={props => <DefaultLayout {...props} /> } />
           
         </Switch>

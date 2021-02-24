@@ -1,3 +1,7 @@
+nav {
+    position: relative !important;
+}
+
 .chatlist-col {
-    margin-top: 9rem;
+    margin-top: 2rem;
 }

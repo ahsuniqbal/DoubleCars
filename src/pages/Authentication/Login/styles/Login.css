@@ -176,12 +176,12 @@
 .MuiCheckbox-colorPrimary.Mui-checked {
     color: #1C67CE !important;
     }
-.bottom-footer {
+/* .bottom-footer {
     display: none;
-}
-.footer-body{
+} */
+/* .footer-body{
     display: none;
-}
+} */
 
 .pass-wrapper {
     position: relative;
@@ -205,7 +205,7 @@
 .icons div{
     margin: 0% 3%;
 }
-.bottom{
+.modal-bottom{
     display: none;
     text-align: center;
     font-size: 14px;

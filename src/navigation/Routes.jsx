@@ -40,7 +40,7 @@ const routes = [
     { path: '/termsandconditions', exact: true, name: 'Terms and Condition', public: true, restricted: false, component: TermsAndCondition },
     { path: '/privacypolicy', exact: true, name: 'Privacy and Policy', public: true, restricted: false, component: PrivacyPolicy },
     { path: '/contactus', exact: true, name: 'Contact Us', public: true, restricted: false, component: ContactUs },
-    { path: '/chat', exact: true, name: 'Chat', public: false, restricted: false, component: Chat },
+    // { path: '/chat', exact: true, name: 'Chat', public: false, restricted: false, component: Chat },
     { path: '/saved-cars', exact: true, name: 'SavedCars', public: false, restricted: false, component: SavedCars},
     
 ];

@@ -8,6 +8,8 @@ import { isLogin, getLogin } from '../../../config/LoginAuth';
 import Grid from '@material-ui/core/Grid';
 import '../styles/PriceRange.css'
 import {useHistory} from 'react-router-dom'
+import { AddCommaToNumber } from '../../../utils/NumberManipulation'
+
 
 // price<10000 component
 const PriceRangeCards1 = () => { 
@@ -43,7 +45,7 @@ const PriceRangeCards1 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{"$" + items.price}</CardText>
+                                <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -89,7 +91,7 @@ const PriceRangeCards2 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{"$" + items.price}</CardText>
+                                <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -135,7 +137,7 @@ const PriceRangeCards3 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{"$" + items.price}</CardText>
+                                <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -181,7 +183,7 @@ const PriceRangeCards4 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{"$" + items.price}</CardText>
+                                <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
@@ -227,7 +229,7 @@ const PriceRangeCards5 = () => {
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{"$" + items.price}</CardText>
+                                <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
                                 </CardBody>
                             </Card>
                         </Grid>
