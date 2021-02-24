@@ -10,7 +10,7 @@ import Eyepiece from '../../../../assets/eyepiece.png';
 import Eye from '../../../../assets/eye.svg'
 import {emailValidation} from '../../../../utils/Validation.jsx';
 import ModalFooter from 'reactstrap/lib/ModalFooter';
-
+import SignupModal from '../../Signup/components/SignupModal'
 const LoginModal = (props) => {
     const [loading,setLoading] = useState(false)
     const [passwordShown, setPasswordShown] = useState(false)
@@ -30,6 +30,7 @@ const LoginModal = (props) => {
         setEye(true)
       };
 
+      
     const handleLogin = (e) => {
         e.preventDefault();
         var email = document.getElementById('login-email').value
@@ -76,6 +77,7 @@ const LoginModal = (props) => {
     return(
         <Modal {...props} className = "" size = "lg"  centered>
         <ModalHeader {...props} charCode="X" ></ModalHeader>
+        
         <ModalBody className = "text-left">
             <Row>
                 <Col lg='12' xs = "12" sm = "12" className = "right-side-column">
@@ -121,7 +123,7 @@ const LoginModal = (props) => {
                         <Row>
                             <Col xs="6" md = "6" className = "register-forgot-column">
                                 <Label className="not-register-label"
-                                    onClick={()=>history.push('/signup')}
+                                  
                                 >Not Registered?</Label>
                             </Col>
 
@@ -152,9 +154,9 @@ const LoginModal = (props) => {
 
         </ModalBody>
         <ModalFooter>
-        <Label className="text-center">Already a member <a href="register">Sign up now</a></Label>
-        </ModalFooter>
-
+        <Label className="text-center">Not a member <a href="register">Sign up now</a></Label>
+        </ModalFooter> 
+        
         
     </Modal>
    
