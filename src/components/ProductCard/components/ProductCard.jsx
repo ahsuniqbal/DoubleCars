@@ -9,15 +9,15 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import {postSaveCar} from '../api/post';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
-import LoginModal from '../../../pages/Authentication/Login/components/LoginModal'
+import LoginSignupModal from '../../../pages/Authentication/LoginSignupModal/LoginSignupModal';
 
 const ProductCard = (props) => {
 
     console.log(props)
 
     const [savedProductId, setSavedProductId] = useState(props.isSave);
-    const [loginModal, setLoginModal] = useState(false);
-    const loginToggle = () => setLoginModal(!loginModal);
+    const [popupModal, setPopupModal] = useState(false);
+    const popupToggle = () => setPopupModal(!popupModal);
 
     const saveCarFunc = (productId) => {
         var userId;
@@ -102,9 +102,9 @@ const ProductCard = (props) => {
                                     <FontAwesomeIcon icon={["far", "bookmark"]} />
                                 </Button> 
                                 :
-                                <Button onClick={loginToggle} color="link" className="bookmark">
+                                <Button onClick={popupToggle} color="link" className="bookmark">
                                     <FontAwesomeIcon icon={["far", "bookmark"]} />
-                                    <LoginModal isOpen={loginModal} toggle={loginToggle} />
+                                    <LoginSignupModal  isOpen={popupModal} toggle={popupToggle} />
                                 </Button>
                             }
                         </Col>
