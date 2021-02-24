@@ -11,6 +11,7 @@ import Eye from '../../../../assets/eye.svg'
 import {emailValidation} from '../../../../utils/Validation.jsx';
 import ModalFooter from 'reactstrap/lib/ModalFooter';
 import SignupModal from '../../Signup/components/SignupModal'
+import closeModal from '../../../assets/icons/close-modal.svg';
 const LoginModal = (props) => {
     const [loading,setLoading] = useState(false)
     const [passwordShown, setPasswordShown] = useState(false)
@@ -76,7 +77,7 @@ const LoginModal = (props) => {
    
     return(
         <Modal {...props} className = "" size = "lg"  centered>
-        <ModalHeader {...props} charCode="X" ></ModalHeader>
+        <ModalHeader {...props} charCode="Xzaaaaa" ></ModalHeader>
         
         <ModalBody className = "text-left">
             <Row>
