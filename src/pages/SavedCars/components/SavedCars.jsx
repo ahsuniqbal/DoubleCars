@@ -4,6 +4,7 @@ import '../styles/SavedCars.css'
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import {getSaveCars} from '../api/Get'
+import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
 
 // const ShowSearchResults = (products) => {
 //     var table = [];
@@ -43,6 +44,7 @@ import {getSaveCars} from '../api/Get'
 // }
 const  SavedCars = () => {
     const [savedCars,setSavedCars] = useState([])
+    const [sortFlag, setSortFlag] = useState(false);
     useState(() => {
         var userId = localStorage.getItem('userId')
         //var userId = 73
@@ -85,6 +87,17 @@ const  SavedCars = () => {
         return table
     }
 
+    function ProductSorting(sortingType){
+        if(sortingType === "relevance"){
+            setSavedCars(SortByRelevance(savedCars));
+            setSortFlag(!sortFlag);
+        }
+        else if(sortingType === "price"){
+            setSavedCars(SortByPrice(savedCars));
+            setSortFlag(!sortFlag);
+        }
+    }
+
     return(
         <body className = "saved-body">
             <Container clsssName = "saved-container">
@@ -92,16 +105,15 @@ const  SavedCars = () => {
                     <Col xs = "12" md = "8">
                     <h2 className = "saved-car-label">Saved Cars <span className='saved-car-count'>{savedCars ? savedCars.length : null}</span></h2>
                     </Col>
-                    <Col md="4" className="saved-sort-coloumn" >
-                            <Label className="mt-2">Sort by</Label>
-                            <Input type="select" className='saved-car-dropdown' >
-                                <option value="relevance">Newest</option>
-                                <option value="price">Recent</option>
-                            </Input>
-                        </Col>
-                        {/* <Col md="2">
-                           
-                        </Col> */}
+                    <Col md="2">
+                        <Label className="float-right mt-2">Sort by</Label>
+                    </Col>
+                    <Col md="2">
+                        <Input type="select"  onChange={(e) => ProductSorting(e.target.value)}>
+                            <option value="relevance">Relevance</option>
+                            <option value="price">Price</option>
+                        </Input>
+                    </Col>
                 </Row>
                 
                 <Row>
