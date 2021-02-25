@@ -30,7 +30,7 @@ const SellCar = () => {
                             </Link>
                             {/* </button> */}
                             <Link to = {'/about/'}>
-                            <Button outline className='learn-button '>Learn More</Button>
+                            <Button outline className='learn-button '>iOS Coming Soon</Button>
                             </Link>
                         
                     </div>
