@@ -64,32 +64,32 @@ const LowerCar = (props) => {
   },
   {
     image:LowerCarsImage2,
-    text:'Suv'
-  },
-  {
-    image:LowerCarsImage3,
-    text:'Sports Car'
-  },
-  {
-    image:LowerCarsImage4,
     text:'Hatchback'
   },
   {
-    image:LowerCarsImage5,
-    text:'Mecedez'
+    image:LowerCarsImage3,
+    text:'Coupe'
   },
   {
-    image:LowerCarsImage6,
-    text:'Land Rover'
+    image:LowerCarsImage4,
+    text:'Sports'
   },
-  {
-    image:LowerCarsImage7,
-    text:'Audi'
-  },
-  {
-    image:LowerCarsImage8,
-    text:'Mecedez Benz'
-  },
+  // {
+  //   image:LowerCarsImage5,
+  //   text:'Mecedez'
+  // },
+  // {
+  //   image:LowerCarsImage6,
+  //   text:'Land Rover'
+  // },
+  // {
+  //   image:LowerCarsImage7,
+  //   text:'Audi'
+  // },
+  // {
+  //   image:LowerCarsImage8,
+  //   text:'Mecedez Benz'
+  // },
   
   ])
 
