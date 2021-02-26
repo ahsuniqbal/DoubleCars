@@ -9,16 +9,20 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import {postSaveCar} from '../api/post';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import LoginSignupModal from '../../../pages/Authentication/LoginSignupModal/LoginSignupModal';
 
 const ProductCard = (props) => {
 
     const [savedProductId, setSavedProductId] = useState(props.isSave);
-    
+    const [popupModal, setPopupModal] = useState(false);
+    const popupToggle = () => setPopupModal(!popupModal);
+
     const saveCarFunc = (productId) => {
         var userId;
         if(localStorage.getItem("userId") && localStorage.getItem("userId") !== "undefined"){
             userId = localStorage.getItem('userId')
         }else{
+            
             alert('You need to login First')
             return
         }
@@ -27,7 +31,21 @@ const ProductCard = (props) => {
         }
         postSaveCar(obj)
         .then(doc => {
-            setSavedProductId(doc.saveId)
+            console.log(doc)
+            if(doc.code==-1){
+                // condition to remove car from save cars page
+                if(window.location.pathname=='/saved-cars')
+                {
+                    window.location.reload()
+                }
+                else{
+                    alert(doc.message)
+                }
+                
+            }
+            else{
+                setSavedProductId(doc.saveId)
+            }
         })
         .catch(e => {
             console.log(e.message)
@@ -71,13 +89,22 @@ const ProductCard = (props) => {
                         <Col xs="3">
                                 <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
                                     <FontAwesomeIcon icon={faBookmark} style={{color:'#1C67CE'}} />
-                                </Button>
+                                </Button> 
                             </Col>
                         :
                         <Col xs="3">
-                            <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
-                                <FontAwesomeIcon icon={["far", "bookmark"]} />
-                            </Button>
+                            {
+                            //condition to show login modal if user is not login on click of save icon
+                            localStorage.getItem('userId') ?
+                                <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
+                                    <FontAwesomeIcon icon={["far", "bookmark"]} />
+                                </Button> 
+                                :
+                                <Button onClick={popupToggle} color="link" className="bookmark">
+                                    <FontAwesomeIcon icon={["far", "bookmark"]} />
+                                    <LoginSignupModal  isOpen={popupModal} toggle={popupToggle} />
+                                </Button>
+                            }
                         </Col>
                     : null
                 }
@@ -96,7 +123,7 @@ const ProductCard = (props) => {
                             <Col xs="3">
                                 {/* Profile pic of the dealer */}
                                 {/* <div className="image-div"> */}
-                                    <CardImg src={props.dealerPic} alt="Company logo" />
+                                    <CardImg src={props.dealerPic ? props.dealerPic : dummyAvatar} alt={props.dealerName} />
                                 {/* </div> */}
                             </Col>
                             <Col xs="5" className="px-0">
@@ -122,7 +149,7 @@ const ProductCard = (props) => {
                             <Col xs="3">
                                 {/* Profile pic of the private seller */}
                                 {/* <div className="image-div"> */}
-                                    <CardImg src={props.dealerPic} alt="Company logo" />
+                                    <CardImg src={props.dealerPic ? props.dealerPic : dummyAvatar} alt={props.dealerName} />
                                 {/* </div> */}
                             </Col>
                             <Col xs="4" className="px-0">

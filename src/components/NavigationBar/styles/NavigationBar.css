@@ -27,7 +27,7 @@
     
     font-weight: normal; 
 }
-a:hover {
+.navigation-items:hover {
     color: #1C67CE !important;
     text-decoration: none !important;
   }
@@ -167,6 +167,23 @@ a:hover {
     /* padding-top: 0.6rem; */
 }
 /* navbar dropdown */
+.navigation-profile-item{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 5px 0px;
+}
+.navigation-profile-name{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    margin-top: 1.7rem;
+    color: rgba(0, 0, 0, 0.85) !important;
+}
 .profile-nav-item{
     margin-right: -19px !important;
     margin-top: -4px !important;
@@ -194,17 +211,21 @@ a:hover {
 }
 
 .dropdown-menu{
-    padding:65% 40% 35% 40%;
+    padding:65% 50% 35% 40%;
     border-radius: 8px;
     margin-top: 18%;
 }
 .dropdown-arrow{
     margin: -48px 0px 0px 0px;
-    padding-left: 82%;
+    padding-left: 84%;
 }
 .dropdown-arrow:hover , .dropdown-arrow:focus{
     background-color: transparent;
     cursor:context-menu;
+}
+.dropdown-arrow-pic{
+    position: absolute;
+    right: 2px;
 }
 /* media */
 @media screen and (max-width:1050px){

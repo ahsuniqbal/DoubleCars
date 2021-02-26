@@ -14,11 +14,11 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 const store = createStore(ChatReducer);
-
 ReactDOM.render(
+  
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+         <App />   
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

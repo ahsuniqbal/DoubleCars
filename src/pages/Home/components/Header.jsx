@@ -1,13 +1,23 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { Button, Label} from 'reactstrap';
 import '../styles/Header.css';
 import Cover from '../../../assets/LandingPageHeaderImage.png';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {useHistory} from 'react-router-dom'
+import LoginSignupModal from '../../Authentication/LoginSignupModal/LoginSignupModal'
+
 // import headerVideo from '../../../assets/header-mov.mkv';
 
 const Header = () => {
     const history=useHistory()
+    // const [loginModal, setLoginModal] = useState(false);
+    // const loginToggle = () => setLoginModal(!loginModal);
+    // const [signupModal, setSignupModal] = useState(false);
+    // const signupToggle = () => setSignupModal(!signupModal);
+
+    const [popupModal, setPopupModal] = useState(false);
+    const popupToggle = () => setPopupModal(!popupModal);
+
     return(
         <div>
             <section className = "align-items-center header-section">
@@ -24,6 +34,21 @@ const Header = () => {
                                     <div>
                                         <div className = "col-md-12" className = "">
                                             <Button className="ml-3 mt-4 download-button-cover" to="" onClick={()=>window.location.href='https://play.google.com/store/apps'}>Download App</Button>
+                                           
+                                           {/* {!localStorage.getItem('userId') ?
+                                           <>
+                                           <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={popupToggle}>Temporary Button</Button> 
+                                            <LoginSignupModal isOpen={popupModal} toggle={popupToggle} />
+                                            {/* <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={loginToggle}>Temporary Button</Button> 
+                                            <LoginModal isOpen={loginModal} toggle={loginToggle} /> */}
+
+                                           {/* {!localStorage.getItem('userId') ? 
+                                           <>
+                                           <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={popupToggle}>Temporary Button</Button> 
+                                            <LoginSignupModal isOpen={popupModal} toggle={popupToggle} /> </>: null
+                                        } */}
+                                           
+                        
                                         </div>
                                     </div>
                                 </div>

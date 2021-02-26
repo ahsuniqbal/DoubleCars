@@ -125,14 +125,14 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse navigation-bar" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <a className="nav-link navigation-items"  href='/products?isUsed=false' >
+                            <a className="nav-link navigation-items"  href='/products?isUsed=false'>
                                     {window.location.search=='?isUsed=false' ?
                                     <span style={styleDiv}>New Cars</span>:
                                     <span >New Cars</span>}
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link navigation-items" href='/products?isUsed=true' >
+                            <a className="nav-link navigation-items" href='/products?isUsed=true'>
                                      {window.location.search=='?isUsed=true' ?
                                     <span style={styleDiv}>Used Cars</span>:
                                     <span >Used Cars</span>}
@@ -184,12 +184,12 @@ const NavigationBar = () => {
                                      
                                 <DropdownMenu right className='dropdown-menu'>
                                     <DropdownItem className='dropdown-arrow' disabled><img src={AppbarDropdown} className='dropdown-arrow-pic'/> </DropdownItem>
-                                    <DropdownItem style={{fontWeight:'500'}} >{userName}</DropdownItem>
-                                    <DropdownItem onClick={() => history.push('/profile')}>Edit Profile</DropdownItem>
+                                    <DropdownItem disabled className='navigation-profile-name'>{userName}</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/profile')} className='navigation-profile-item'>Edit Profile</DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem onClick={() => history.push('/chat')}>Messages</DropdownItem>
-                                    <DropdownItem onClick={() => history.push('/saved-cars')}>Saved Cars</DropdownItem>
-                                    <DropdownItem  onClick={e => handleLogout()}>Logout</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/chat')} className='navigation-profile-item'>Messages</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/saved-cars')} className='navigation-profile-item'>Saved Cars</DropdownItem>
+                                    <DropdownItem  onClick={e => handleLogout()} className='navigation-profile-item'>Logout</DropdownItem>
                                 </DropdownMenu>
                                 </UncontrolledDropdown>
                              </li> : null

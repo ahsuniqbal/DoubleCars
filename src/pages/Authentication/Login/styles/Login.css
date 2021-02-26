@@ -60,10 +60,10 @@
     font-size: 14px;
     line-height: 22px;
 }
-.form-check{
+/* .form-check{
     padding: 0 !important;
     padding-left: 0 !important;
-}
+} */
 .remember-login-column .MuiSvgIcon-root{
     width: 18px !important;
     height: 18px !important;
@@ -176,12 +176,12 @@
 .MuiCheckbox-colorPrimary.Mui-checked {
     color: #1C67CE !important;
     }
-.bottom-footer {
+/* .bottom-footer {
     display: none;
-}
-.footer-body{
+} */
+/* .footer-body{
     display: none;
-}
+} */
 
 .pass-wrapper {
     position: relative;
@@ -205,7 +205,7 @@
 .icons div{
     margin: 0% 3%;
 }
-.bottom{
+.modal-bottom{
     display: none;
     text-align: center;
     font-size: 14px;

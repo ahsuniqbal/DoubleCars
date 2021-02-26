@@ -9,7 +9,8 @@ export const emailValidation = (email) => {
 };
 
 export const mobileValidation = (mobileNumber) => {
-    var regex = /^\+\d{1,3}-\d{9,10}$/;
+    // var regex = /^\+\d{1,3}-\d{9,10}$/; previous code
+    var regex=/\(\d{3}\)\d{3}[-]\d{3}/ //(123)123-123 format
     // var regex = /^\d{11}$/
     if(regex.test(mobileNumber)){
         return true;

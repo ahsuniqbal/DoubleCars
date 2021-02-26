@@ -52,6 +52,20 @@
     border-color: #1C67CE;
 }
 
+.contact-seller-button-2 {
+    background-color: transparent !important;
+    border-radius: 6px;
+    color: #1C67CE ;
+    font-size: 14px;
+    height: 48px;
+    font-weight: 500;
+    border-color: #1C67CE;
+}
+
+.contact-seller-button-2:hover {
+    background-color: #1C67CE !important;
+}
+
 .contact-seller-button:focus, .contact-seller-button:active:focus {
     box-shadow: none !important;
 }
@@ -68,8 +82,8 @@
 }
 
 .seller-name-image {
-    width:56px;
-    height:56px;
+    width:93px;
+    height:93px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -86,8 +100,13 @@
     object-fit: cover;
 }
 
-.seller-column {
+/* .seller-column {
     margin-left: -20px;
+} */
+.sellername-main-div{
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0 2rem;
 }
 .seller-name {
     font-size: 18px;
@@ -102,7 +121,9 @@
     line-height: 14px;
 }
 
-
+.contact-details-div{
+    margin: 2rem 0 2.5rem;
+}
 .contact-detail-head, .about-seller-head {
     color: rgba(0, 0, 0, 0.85);
     font-size: 15px;
@@ -115,6 +136,9 @@
     font-weight: normal;
 }
 
+.contact-detailed-hr{
+    margin-top: 0 !important;
+}
 .contact-detail-text{
     color: rgba(0, 0, 0, 0.65);
     line-height: 17px;
@@ -122,6 +146,34 @@
     font-weight: normal;
    display: block;
    margin-bottom: -10px;
+}
+.contact-detail-text:hover{
+    text-decoration: none !important;
+    color: #1C67CE !important;
+    cursor: pointer;
+}
+.contact-detail-text img{
+    margin-right: 15px;
+}
+.clock-icon-img {
+    width: 16px;
+    height: 16px;
+    object-fit: none;
+}
+.address-icon-img{
+    width: 16px;
+    height: 16px;
+    object-fit: none;
+}
+.phone-icon-img{
+    width: 14.6px;
+    height: 14.6px;
+    object-fit: none;
+}
+.message-icon-img{
+    width: 16.5px;
+    height: 12px;
+    object-fit: none;
 }
 .view-inv-link {
     text-decoration: none !important;
@@ -166,4 +218,34 @@
     font-size: 10px;
     line-height: 26px;
     text-align: center;
+}
+
+
+
+.or-divider {
+    margin: 1.5625rem 0 0.9375rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.45);
+}
+  
+.or-divider:after {
+    content: "";
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: block;
+    height: 1px;
+    margin-left: 10px;
+}
+  
+.or-divider:before {
+    content: "";
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: block;
+    height: 1px;
+    margin-right: 10px;
 }
