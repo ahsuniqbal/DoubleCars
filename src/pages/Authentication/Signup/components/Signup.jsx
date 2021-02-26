@@ -58,7 +58,7 @@ const Signup = (props) => {
             document.getElementById('name-error-label').textContent = "";
 
             // if(Number.isInteger(parseInt(phNum)))
-             if(mobileValidation(phNum)){
+             if(mobileValidation(phNum) && phNum.length===12){
                 // Mobile is okay
                 document.getElementById('phNum-error-label').textContent = "";
 
