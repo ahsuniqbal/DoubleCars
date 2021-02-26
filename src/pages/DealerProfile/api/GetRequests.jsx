@@ -19,7 +19,8 @@ export const GetSellerDetails = (id) => {
 
 export const GetSellerInventory = (id) => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + "products/seller/" + id;
+        const addQueryParams = localStorage.getItem('userId') ? `?userId=${localStorage.getItem('userId')}` : ""
+        var url = connectionString + "products/seller/" + id + addQueryParams;
         axios.get(url).then(function(response){
             const data = response.data.results;
             resolve(data);
