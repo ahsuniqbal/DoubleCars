@@ -82,8 +82,8 @@
 }
 
 .seller-name-image {
-    width:56px;
-    height:56px;
+    width:93px;
+    height:93px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -100,8 +100,13 @@
     object-fit: cover;
 }
 
-.seller-column {
+/* .seller-column {
     margin-left: -20px;
+} */
+.sellername-main-div{
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0 2rem;
 }
 .seller-name {
     font-size: 18px;
@@ -116,7 +121,9 @@
     line-height: 14px;
 }
 
-
+.contact-details-div{
+    margin: 2rem 0 2.5rem;
+}
 .contact-detail-head, .about-seller-head {
     color: rgba(0, 0, 0, 0.85);
     font-size: 15px;
@@ -129,6 +136,9 @@
     font-weight: normal;
 }
 
+.contact-detailed-hr{
+    margin-top: 0 !important;
+}
 .contact-detail-text{
     color: rgba(0, 0, 0, 0.65);
     line-height: 17px;
@@ -136,6 +146,34 @@
     font-weight: normal;
    display: block;
    margin-bottom: -10px;
+}
+.contact-detail-text:hover{
+    text-decoration: none !important;
+    color: #1C67CE !important;
+    cursor: pointer;
+}
+.contact-detail-text img{
+    margin-right: 15px;
+}
+.clock-icon-img {
+    width: 16px;
+    height: 16px;
+    object-fit: none;
+}
+.address-icon-img{
+    width: 16px;
+    height: 16px;
+    object-fit: none;
+}
+.phone-icon-img{
+    width: 14.6px;
+    height: 14.6px;
+    object-fit: none;
+}
+.message-icon-img{
+    width: 16.5px;
+    height: 12px;
+    object-fit: none;
 }
 .view-inv-link {
     text-decoration: none !important;

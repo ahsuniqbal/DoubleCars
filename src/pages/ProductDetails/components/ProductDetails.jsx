@@ -64,17 +64,21 @@ const ProductResults = ({match}) => {
         <body className = "product-detail-body">
             <Container >
                 <CardBody className = "product-detail-cardbody">
-                    <Row>
-                        <Col className = "text-left" md = "6" style = {{marginTop: '6rem'}}>
+                    <Row className='product-detailed-first-row'>
+                        <Col className = "text-left" md = "6" >
                             <Button onClick={() => history.push("/products")} className="back-button-product mb-3" id = "back"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</Button>
                         </Col>
                         <Col md = "6" >
-                            <NavLink className="float-right report-button">Report this car</NavLink>
+                            <div className='d-flex float-right'>
+                                <NavLink className="share-button">Share</NavLink>
+                                <NavLink className="report-button">Report this car</NavLink>
+                            </div>
+                            
                         </Col>
                     </Row>
                     {
                         productDetails ?
-                        <Row>
+                        <Row >
                             <Col md = "8">
                                 {
                                     productDetails.images[0].image !== "" ? <Gallery
