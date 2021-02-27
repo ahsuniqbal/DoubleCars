@@ -42,16 +42,23 @@ const ProductResults = ({match}) => {
 
 
     const DrawGallery = (images, coverPic, noOfSaves) => {
+        var desc;
+        if(noOfSaves === 0) {
+            desc = null;
+        }
+        else {
+            desc = noOfSaves + " person have saved this car";
+        }
         const galleryImages = [{
             original: coverPic,
             thumbnail: coverPic,
-            description: noOfSaves + " person have saved this car"
+            description: desc
         }];
         for(let i = 0; i < images.length; i++){
             var tempObj = {
                 original: images[i].image,
                 thumbnail: images[i].image,
-                description: noOfSaves + " person have saved this car"
+                description: desc
             };
             galleryImages.push(tempObj);
         }
