@@ -12,7 +12,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { useHistory } from "react-router-dom";
 import Eyepiece from '../../../../assets/eyepiece.png'
 import Eye from '../../../../assets/eye.svg'
-import { emailValidation, nameValidation, passwordValidation } from '../../../../utils/Validation';
+import { emailValidation, nameValidation, passwordValidation,mobileValidation } from '../../../../utils/Validation';
 
 
 const Signup = (props) => {
@@ -57,7 +57,8 @@ const Signup = (props) => {
             // Name is okay
             document.getElementById('name-error-label').textContent = "";
 
-            if(Number.isInteger(parseInt(phNum))) {
+            // if(Number.isInteger(parseInt(phNum)))
+             if(mobileValidation(phNum) && phNum.length===12){
                 // Mobile is okay
                 document.getElementById('phNum-error-label').textContent = "";
 

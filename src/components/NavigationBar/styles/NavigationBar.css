@@ -27,7 +27,7 @@
     
     font-weight: normal; 
 }
-a:hover {
+.navigation-items:hover {
     color: #1C67CE !important;
     text-decoration: none !important;
   }
