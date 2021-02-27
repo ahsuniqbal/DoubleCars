@@ -95,6 +95,8 @@ const Information = (props) => {
 
             
             {/* <Chart /> */}
+
+            {details.description ? <Label className="car-info">{details.description}</Label> : null}
             
             
 
