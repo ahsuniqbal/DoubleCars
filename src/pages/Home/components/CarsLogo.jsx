@@ -22,6 +22,8 @@ import Nissan from '../../../assets/nissan.png'
 import Jaguar from '../../../assets/jaguar.png'
 import Lexus2 from '../../../assets/Lexus-logo 2.png'
 import Horse from '../../../assets/horse.png'
+import Subaru from '../../../assets/subaru.png';
+import Volkswagen from '../../../assets/volkswagen.png';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -52,6 +54,16 @@ const CarsLogo = () => {
                                     <LazyLoadImage effect="blur" src={tesla} className='tesla-car'/>
                                 </Card>
                         </Col> */}
+                        <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
+                                <Card className='cardslogo-main'>
+                                    <LazyLoadImage effect="blur" src={Subaru} className='subaru-car'/>
+                                </Card>
+                        </Col>
+                        <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
+                                <Card className='cardslogo-main'>
+                                    <LazyLoadImage effect="blur" src={Volkswagen} className='volkswagen-car'/>
+                                </Card>
+                        </Col>
                         <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main'>
                                     <LazyLoadImage effect="blur" src={honda} className='honda-car'/>
