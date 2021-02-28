@@ -390,7 +390,7 @@ const Filters = (props) => {
         GetZipFromLatLong(latLong).then(doc => {
             if(doc.length > 0){
                 // Set the fetched zip code into the state variable
-                setZipCode(doc[0].address_components[0].long_name);
+                setZipCode(doc[0].address_components[1].long_name + ", " + doc[0].address_components[3].short_name + " - " + doc[0].address_components[0].long_name);
                 // Add the zip code into the filters array
                 filters['zipCode'] = doc[0].address_components[0].long_name;
                 setFilters(filters);
@@ -461,7 +461,7 @@ const Filters = (props) => {
             GetZipFromLatLong(latLong).then(doc => {
                 if(doc.length > 0){
                     // Set the fetched zip code into the state variable
-                    setZipCode(doc[0].address_components[0].long_name);
+                    setZipCode(doc[0].address_components[1].long_name + ", " + doc[0].address_components[3].short_name + " - " + doc[0].address_components[0].long_name);
                     // Add the zip code into the filters array
                     filters['zipCode'] = doc[0].address_components[0].long_name;
                     setFilters(filters);
