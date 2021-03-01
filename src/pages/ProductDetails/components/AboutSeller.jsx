@@ -219,13 +219,18 @@ const SellerDetails = (props) => {
                         <h6 className = "contact-detail-head mb-4">Contact Details</h6>*/}
                         
                         <div className='contact-details-div'>
-                            <a  className = "contact-detail-text"><img src={ClockIcon} className='clock-icon-img' />{dealer.openingTime ? dealer.openingTime : "NaN"}</a>
-                            <br/>
+                            {
+                                dealer.userRole === "Private User" ? null : <><a  className = "contact-detail-text"><img src={ClockIcon} className='clock-icon-img' />{dealer.openingTime ? dealer.openingTime : "NaN"}</a><br/></>
+                            }
+                            
                             <a href={"tel:" + dealer.phNum} className = "contact-detail-text"> <img src={PhoneIcon} className='phone-icon-img'/>{dealer.phNum}</a>
                             <br/>
                             <a href={"mailto:" + dealer.email} className = "contact-detail-text"><img src={MessageIcon} className='message-icon-img'/>{dealer.email}</a>
-                            <br/>
-                            <a   className = "contact-detail-text"><img src={AdrressPinIcon} className='address-icon-img'/>{dealer.address ? dealer.address : "NaN"}</a>
+                            
+                            {
+                                dealer.userRole === "Private User" ? null : <><br/><a className="contact-detail-text"><img src={AdrressPinIcon} className='address-icon-img'/>{dealer.address ? dealer.address : "NaN"}</a></>
+                            }
+                            
                         </div>
                             <Link className = "view-inv-link" to={'/dealer/' + props.userId}>
                                 <Button color = "primary" size = "lg" block className = "view-inventory-button  mt-4">View Inventory</Button>
