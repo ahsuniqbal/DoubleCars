@@ -5,11 +5,14 @@ import FacebookFooter from '../../../assets/facebook-icon.png'
 import InstraFooter from '../../../assets/insta-icon.png'
 import TwitterFooter from '../../../assets/twitter-icon.png'
 import { Link } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+
 const Footer = () => {
+
     return (
-        <div> 
+        <div  style={{display:window.location.pathname=='/dashboard' && 'none'}}> 
             {/* Upper Footer starts here */}
-            <section className = "bottom-footer ">
+            <section className ="bottom-footer ">
                 <div className = "container-fluid">
                     <Row>
                         <Col className = "footer-image">
@@ -21,8 +24,10 @@ const Footer = () => {
                                 </Col>
                               
                                 <Col md = "6" xs = "12" className = "learn-more-button-class my-auto">
-                                    <Link to = {'/about/'}>
-                                    <Button className="learn-more-button-cover">Learn More</Button>
+                                    <Link to = {'/dashboard'}>
+                                    <Button className="learn-more-button-cover"
+                                       
+                                    >Learn More</Button>
                                     </Link>
                                     
                                 </Col>

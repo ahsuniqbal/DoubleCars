@@ -5,6 +5,8 @@ import Cover from '../../../assets/LandingPageHeaderImage.png';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {useHistory} from 'react-router-dom'
 import LoginSignupModal from '../../Authentication/LoginSignupModal/LoginSignupModal'
+import Dashboard from '../../Dashboard/Components/Dashboard'
+import {Route} from 'react-router-dom'
 
 // import headerVideo from '../../../assets/header-mov.mkv';
 
@@ -34,7 +36,7 @@ const Header = () => {
                                     <div>
                                         <div className = "col-md-12" className = "">
                                             <Button className="ml-3 mt-4 download-button-cover" to="" onClick={()=>window.location.href='https://play.google.com/store/apps'}>Download App</Button>
-                                           
+                                            
                                            {/* {!localStorage.getItem('userId') ?
                                            <>
                                            <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={popupToggle}>Temporary Button</Button> 

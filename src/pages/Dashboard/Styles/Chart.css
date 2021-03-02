@@ -1,0 +1,59 @@
+.dashboard-chart-main{
+    background-color: white;
+    margin-top: 1rem;
+}
+.dashboard-chart-dropdown{
+    padding:0 !important;
+    margin-top: 0  !important;
+    box-shadow: none !important;
+}
+.dashboard-chart-brop-button{
+    width: 216px;
+    height: 48px;
+    background: #F5F5F5;
+    border-radius: 6px;
+    color: #333333 !important;
+    border: none  !important;
+}
+.dashboard-chart-brop-button:hover{
+    background: #F5F5F5 !important;
+    color: #333333 !important;
+    border: none  !important;
+}
+.dashboard-chart-downArrow{
+    float:right;
+    margin:8px 2px 0px 0px;
+}
+.dashboard-chart-drop-items{
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 15px;
+    color: #333333 ;
+    padding:1rem 3.9rem;
+}
+.chart-image{
+    width: 95%;
+    margin: 4px 4px 12px;
+}
+.dashboard-checkbox{
+    float: right;
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    color: #333333;
+}
+.label-checkbox{
+    /* border: 1px solid #CCCCCC !important; */
+    border-radius: 6px !important;
+    color:#1C67CE !important;
+}
+@media screen and (max-width:1000px){
+   .label-checkbox-col{
+    display: flex;
+    justify-content: center;
+   }
+}
