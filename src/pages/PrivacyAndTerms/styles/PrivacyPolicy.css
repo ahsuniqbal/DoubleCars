@@ -1,0 +1,14 @@
+.privacy-policy-body {
+    background-color: white !important;
+}
+
+.pp-column{
+    margin-top: 10%;
+}
+
+.pp-head {
+    font-weight: 500;
+    font-size: 32px;
+    color: rgba(0, 0, 0, 0.85);
+    
+}

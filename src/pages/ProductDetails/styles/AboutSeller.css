@@ -1,0 +1,251 @@
+/* About Seller css starts here. */
+.interested-card {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+}
+
+.interest-label {
+    font-size: 22px;
+    font-weight: 600px;
+    color: #222222;
+}
+.seller-know-label {
+    font-size: 15px;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.interested-textfield {
+    background: #FFFFFF ;
+    border-radius: 4px;
+    border: 1px solid rgb(233, 233, 233);
+    height: 48px ;
+}
+.sellerPage-error-label{
+    color: red;
+    font-size: 12px;
+}
+.interested-textfield::placeholder, .message-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 15px;
+}
+
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.1rem rgba(11, 20, 32, 0.1) ;
+}
+
+.message-box {
+    margin-top: 1rem;
+    border-radius: 4px;
+    border: 1px solid #E9E9E9;
+    background: #FFFFFF;
+    resize: none;
+}
+.contact-seller-button {
+    background-color: #1C67CE !important;
+    border-radius: 6px;
+    color: #ffffff ;
+    font-size: 14px;
+    height: 48px;
+    font-weight: 500;
+    border-color: #1C67CE;
+}
+
+.contact-seller-button-2 {
+    background-color: transparent !important;
+    border-radius: 6px;
+    color: #1C67CE ;
+    font-size: 14px;
+    height: 48px;
+    font-weight: 500;
+    border-color: #1C67CE;
+}
+
+.contact-seller-button-2:hover {
+    background-color: #1C67CE !important;
+}
+
+.contact-seller-button:focus, .contact-seller-button:active:focus {
+    box-shadow: none !important;
+}
+
+/* Ends */
+
+
+/* Seller card css starts here. */
+.about-seller-card {
+    background-color: white;
+    border-radius: 4px !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    margin-bottom: 25px;
+}
+
+.seller-name-image {
+    width:93px;
+    height:93px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    border-radius: 15px;
+      
+}
+
+.seller-img{
+    flex-shrink:0;
+    -webkit-flex-shrink: 0;
+    max-width:100%;
+    max-height:100%;
+    object-fit: cover;
+}
+
+/* .seller-column {
+    margin-left: -20px;
+} */
+.sellername-main-div{
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0 2rem;
+}
+.seller-name {
+    font-size: 18px;
+    color: #000000;
+    font-weight: 500;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+.seller-rate {
+    color: #FFC061;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.contact-details-div{
+    margin: 2rem 0 2.5rem;
+}
+.contact-detail-head, .about-seller-head {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.about-seller-text {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.contact-detailed-hr{
+    margin-top: 0 !important;
+}
+.contact-detail-text{
+    color: rgba(0, 0, 0, 0.65);
+    line-height: 17px;
+    font-size: 15px;
+    font-weight: normal;
+   display: block;
+   margin-bottom: -10px;
+}
+.contact-detail-text:hover{
+    text-decoration: none !important;
+    color: #1C67CE !important;
+    cursor: pointer;
+}
+.contact-detail-text img{
+    margin-right: 15px;
+}
+.clock-icon-img {
+    width: 16px;
+    height: 16px;
+    object-fit: none;
+}
+.address-icon-img{
+    width: 16px;
+    height: 16px;
+    object-fit: none;
+}
+.phone-icon-img{
+    width: 14.6px;
+    height: 14.6px;
+    object-fit: none;
+}
+.message-icon-img{
+    width: 16.5px;
+    height: 12px;
+    object-fit: none;
+}
+.view-inv-link {
+    text-decoration: none !important;
+}
+
+.view-inventory-button {
+    background-color: #ffffff !important;
+    border-radius: 6px !important;
+    color: #1C67CE !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    height: 48px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.seller-check{
+    width: 15.88px;
+    height: 15.88px;
+    margin: 6px 0px 0px 8px;
+  }
+.success-msg-label{
+    color: green;
+    font-size: 13px;
+    padding-top: 5px;
+}
+/* End */
+
+
+
+
+
+
+.add-title {
+    background-color: rgba(54, 54, 54, 0.1);
+    border-radius: 5px 0px 5px 0px;
+    position: absolute;
+    z-index: 999999999;
+    top: 0px;
+    width: 99px;
+    color: #FFFFFF;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 26px;
+    text-align: center;
+}
+
+
+
+.or-divider {
+    margin: 1.5625rem 0 0.9375rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.45);
+}
+  
+.or-divider:after {
+    content: "";
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: block;
+    height: 1px;
+    margin-left: 10px;
+}
+  
+.or-divider:before {
+    content: "";
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: block;
+    height: 1px;
+    margin-right: 10px;
+}

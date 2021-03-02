@@ -1,0 +1,88 @@
+.dealer-review-head {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 22px;
+    line-height: 25px;
+    font-weight: bolder;
+}
+
+.comment-img {
+    border-radius: 50%;
+    height: 80%;
+    width: 60%;
+}
+
+.comment-rate-label {
+    font-size: 60px;
+    line-height: 69px;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+}
+
+.comment-reviews-label {
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: normal;
+}
+
+.comment-username {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+.comment-date {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.45);
+    line-height: 15px;
+    
+}
+
+.comment-name-display {
+    display: inline-flex;
+}
+
+.user-comment {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.65);
+    line-height: 21px;
+    
+}
+
+
+.name-data-col {
+    margin-left: -8px;
+}
+
+.comment-progress-bar {
+    height: 10px;
+    margin-top: 6px;
+    
+}
+
+.bg-warning {
+    border-radius: 10px;
+    background-color: #FFC061 !important;
+}
+
+/* Comment image css */
+.comment-image {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+  
+}
+
+.user-comment-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 0px;
+    object-fit: cover;
+}
+
+.comment-labels {
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.65);
+}

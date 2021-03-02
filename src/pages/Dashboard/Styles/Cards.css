@@ -1,0 +1,41 @@
+
+.dashboard-cards-body{
+    border-radius: 6px;
+    padding:23px 9% 10px ;
+    border: 1px solid transparent;
+}
+.dashboard-cards-col{
+    margin: 5px 0;
+}
+.dashboard-cards{
+    display:flex;
+   
+}
+.card-head-dashboard{
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    color: #333333;
+}
+.subhead-dashboard{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgba(219, 215, 215, 0.781) !important;
+}
+.card-numbers-dashboard{
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 34px;
+    color: #1C67CE;
+    
+}
+.cards-arrow-img{
+    width: 16px;
+    height: 16px;
+    margin-right:6%;
+}

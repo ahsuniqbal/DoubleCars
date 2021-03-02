@@ -1,0 +1,259 @@
+.double-car-logo {
+    margin-left: 3rem;
+}
+.navbar {
+    background-color: #ffffff !important;
+}
+
+.navbar-brand {
+    font-size: 1.9rem !important;
+    color: #000000 !important;
+}
+
+/* .navigation-bar {
+    height: 80px; 
+} */
+.navigation-bar-box {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+    padding: 1.1rem 1rem 1.1rem 0 ;
+}
+
+.navbar-nav {
+    margin-right: 50px;
+}
+
+.navbar a {
+    font-size: 15px !important;
+    
+    font-weight: normal; 
+}
+.navigation-items:hover {
+    color: #1C67CE !important;
+    text-decoration: none !important;
+  }
+  /* a:active {
+    color: #1C67CE !important;
+  } */
+  #nav-link-id.active{
+    color: #1C67CE !important;
+    font-weight: bold;
+  }
+
+/* .nav-link:target{
+    color: #1C67CE !important;
+    font-weight: bold;
+}
+.nav-link:focus,.nav-link:active{
+    color: #1C67CE !important;
+    font-weight: bold;
+} */
+.navbar-nav li{
+    /* margin-left:12px; */
+    margin-right:12px;
+}
+.navbar-buttons{
+    margin-left:5px !important;
+    margin-right:10px !important;
+}
+.menu-active {
+    font-weight: bold !important;
+    border-bottom:  1px solid #565387;
+}
+
+
+.nav-item {
+    text-decoration: none !important;
+}
+.navigation-items {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.85) !important;
+}
+
+.navigation-items:hover {
+    text-decoration: none !important;
+}
+
+/* .navigation-items:active {
+    background-color: #f44336;      THW WORK TO BE DONE AFTER THE ROUTES OF ABOUT AND CONTACT US.
+    color: yellow;
+} */
+
+/* Search bar css starts here. */
+.search-icon-image{
+    position: absolute;
+    z-index: 999;
+    top: 39%;
+    left: 13px;
+    color: rgba(0, 0, 0, 0.65);
+    height: 13.5px;
+    width: 13.5px;
+}
+ .search-box{
+    background-color: #F4F4F4;
+    border-radius: 0px 8px 8px 0px;
+    border: none;
+    /* padding-left: 0px !important; */
+    padding-left: 36px;
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
+}
+
+.search-box::placeholder {
+    color: rgba(0, 0, 0, 0.45);  
+    font-size: 14px;
+    line-height: 23px;
+    color: rgba(0, 0, 0, 0.45);
+    text-align: left;
+    justify-content: center;
+
+}
+
+.search-box:focus{
+    box-shadow: none;
+    background-color: #F4F4F4;
+}
+.search-group {
+    width: 203px;
+    height: 48px;
+    margin-top: 0px;
+}
+.search-navigation-icon{
+    background-color: #F4F4F4;
+    color: #898989;
+    border: none;
+    height: 48px !important;
+    width: 36px;
+    border-radius: 8px 0px 0px 8px;
+}
+
+.search-icon-navbar {
+    color: rgba(0, 0, 0, 0.65);
+    height: 13.5px;
+    width: 13.5px;
+}
+
+.nav-item input {
+    height: 48px;
+}
+
+.signup-button {
+    background-color: #ffffff !important;
+    border-radius: 0.4rem !important;
+    color: #1C67CE !important;
+    border: 1px solid #1C67CE !important;
+    line-height: 16px;
+    font-size: 14px;
+    text-align: center;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-weight: 500 !important;
+    margin-top: 2px !important;
+}
+
+.login-button{
+    background-color: #ffffff !important;
+    border-radius: 0.4rem !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+    text-decoration: none !important;
+    height: 60%;
+    width: 100%;
+    line-height: 19px;
+    font-size: 14px;
+    text-align: center;
+    /* padding-top: 0.6rem; */
+}
+/* navbar dropdown */
+.navigation-profile-item{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 5px 0px;
+}
+.navigation-profile-name{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    margin-top: 1.7rem;
+    color: rgba(0, 0, 0, 0.85) !important;
+}
+.profile-nav-item{
+    margin-right: -19px !important;
+    margin-top: -4px !important;
+}
+.dropdown-toggle-image {
+    margin-left: 0px !important;
+}
+.profile-navbar-image{
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.dropdown-toggle::after{
+    display: none;
+}
+.dropdown-menu{
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 20px 0px #F4F4F4;
+    border-radius: 4px;
+}
+
+.dropdown-menu{
+    padding:65% 50% 35% 40%;
+    border-radius: 8px;
+    margin-top: 18%;
+}
+.dropdown-arrow{
+    margin: -48px 0px 0px 0px;
+    padding-left: 84%;
+}
+.dropdown-arrow:hover , .dropdown-arrow:focus{
+    background-color: transparent;
+    cursor:context-menu;
+}
+.dropdown-arrow-pic{
+    position: absolute;
+    right: 2px;
+}
+/* media */
+@media screen and (max-width:1050px){
+    .navbar-nav li{
+        margin-right:0 !important;
+        margin-left: 17px !important;
+      }
+}
+@media screen and (max-width:992px){
+    .search-group{
+        width: 100% !important;
+    }
+}
+@media screen and (max-width:500px){
+    .navigation-bar-box {
+        padding: 0.5rem 1.3rem 0.5rem 0 ;
+    }
+}
+/* COMMENTED CODE,  MAY BE USE LATER> */
+
+/* .download-button {
+    background-color: #1C67CE !important;
+    border-radius: 0.4rem !important;
+    width: 100% !important;
+    color: #ffffff !important;
+    cursor: pointer;
+    padding: 14px 28px !important;
+    font-size: 16px !important;
+    margin-top: 16px;
+    margin-bottom: 16px;    
+} */

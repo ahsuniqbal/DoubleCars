@@ -1,0 +1,32 @@
+
+/* Top Stories heading css starts here (HTML IN HOME) */
+.top-stories-heading {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: #080B30;
+}
+/* End */
+
+/* Top Stories cell css starts here */
+.top-stories-image {
+    border-radius: 0.4rem;
+    width: auto;
+    margin-bottom: 1rem;
+}
+.top-stories-card-heading {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    overflow: hidden;
+    color: #000000;
+    text-overflow: ellipsis;
+}
+
+.top-stories-date {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(0, 0, 0, 0.85);
+}
+/* End */

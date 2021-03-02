@@ -1,0 +1,52 @@
+
+/* Top Stories heading css starts here (HTML IN HOME) */
+.top-stories-heading {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: #080B30;
+}
+/* End */
+
+/* Top Stories cell css starts here */
+.article-card-image {
+    border-radius: 4px;
+    }
+.article-card-main{
+    transition: transform 500ms !important;
+}
+.article-card-main:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+}
+.article-image {
+    border-radius: 4rem;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.article-card-heading {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    overflow: hidden;
+    color: #000000;
+    text-overflow: ellipsis;
+    border-radius: 4px;
+}
+
+.article-date {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(0, 0, 0, 0.85);
+}
+.tarticle-card-heading{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    margin-top: 0.8rem;
+}
+
+/* End */

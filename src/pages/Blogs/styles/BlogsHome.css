@@ -1,0 +1,66 @@
+.blogs-home-body {
+    background-color: white !important;
+}
+.blog-home-container{
+    padding: 5px 30px;
+}
+.top-news-heading {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 13px;
+    margin-top: 33px;
+    
+}
+.upcoming-img{
+    margin-right: -5px !important;
+    
+}
+.upcoming-cars-heading {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 30px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 13px;
+    margin-top: 33px;
+    margin-left: -15px ;
+}
+
+.most-popular-heading {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 30px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-left: -15px;
+}
+
+.article-heading {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.decrease-margin-between-cards{
+    padding: 0px 5px 0px 15px;
+}
+.new-cars{
+    margin: 23px -20px 30px;
+    padding-right: -20%;
+}
+.upcoming-car-hover:hover{
+    transform: scale(1.01);
+    transition: transform 500ms !important;    
+}
+@media screen and (max-width:600px){
+    .upcoming-img{
+        margin-left: 0 !important;
+    }
+    .upcoming-cars-heading {
+        margin-left: 2px;
+    }
+}

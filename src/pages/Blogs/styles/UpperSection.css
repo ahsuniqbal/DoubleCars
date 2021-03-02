@@ -1,0 +1,268 @@
+.upper-section-column {   
+    background: linear-gradient(1800deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    height: 200px;
+    width: 105%;
+    margin-top: 16.9rem;
+    margin-left: -1rem;
+}
+.uper-section-coloumns{
+    padding: 0 !important;
+}
+
+.type-label1 {
+    text-transform: uppercase;
+    position: absolute;
+    left: 3%;
+    bottom: 135px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+
+.type-label2 {
+    text-transform: uppercase;
+    position: absolute;
+    left: 3%;
+    bottom: 86px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+.type-label3 {
+    text-transform: uppercase;
+    position: absolute;
+    left: 3%;
+    bottom: 86px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+.car-name {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 34px;
+    color: #FFFFFF;
+    position: absolute;
+    left: 3%;
+    bottom: 8%;
+    width: 100%;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+    width: 80%;
+}
+
+.car-name1 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    position: absolute;
+    left: 3%;
+    bottom: 8%;
+    width: 100%;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+    width: 80%;
+}
+
+
+.date-label {
+    position: absolute;
+    bottom: 46px;
+    left: 20px;
+    color: rgba(255, 255, 255, 0.85);
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    width: 80%;
+    line-height: 17px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
+
+.blogs-header label, h2 {
+    color: white;
+    z-index: 999;
+}
+
+.blogs-header .date {
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 120%;
+    color: rgba(255, 255, 255, 0.85);
+}
+.blog-page-label{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+}
+.blogs-header h2 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 120%;
+}
+
+/* .first-column label {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+} */
+
+.first-column h2 {
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 120%;
+}
+/* .second-column label {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+} */
+
+.second-column h2 {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 120%;
+}
+
+.blogs-header .content1 {
+    position: absolute;
+    bottom: 0px;
+    padding: 0px 20px 10px;
+    background: linear-gradient(1800deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    width:100%;
+}
+.content2 {
+    position: absolute;
+    bottom: 0px;
+    padding: 0px 20px 10px;
+    background: linear-gradient(1800deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    width:100%;
+}
+
+.blogs-header {
+    padding: 10% 20px 0% 15px;
+/* 
+    height: 70vh; */
+    overflow: hidden;
+}
+
+.first-column {
+    position: relative;
+    height: 610px;
+    overflow: hidden;
+    transition: transform 500ms !important;
+}
+.second-column {
+    position: relative;
+    height: 610px;
+    overflow: hidden;
+    transition: transform 500ms !important;
+}
+.third-coloumn {
+    position: relative;
+    height:291px;
+    overflow: hidden;
+}
+.blog-third-column{
+    transition: transform 500ms !important;
+}
+.first-column:hover, .second-column:hover, .third-coloumn:hover,.blog-third-column:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+}
+.fucking-padding-left {
+    padding-left: 5px;  
+}
+.fucking-padding-right {
+    padding-right: 5px;
+}
+/* media */
+
+  @media screen and (max-width: 768px) {       
+    .blogs-header {
+        padding: 15% 20px 0% 15px;
+    }
+  } 
+  @media screen and (max-width: 420px) {
+    .blogs-header {
+        padding: 25% 20px 0% 15px;
+    }
+  }
+  /*
+  @media screen and (max-width: 768px) {
+     
+    .first-column {
+        height: 467px !important;
+    width: 99%; 
+    }
+    .second-column {
+        height: 465px !important;      
+    }
+  }
+  @media screen and (max-width: 760px) {
+    .first-column {
+        height: 467px !important;     
+    }
+    .second-column{
+        display: none;
+    }
+    .third-coloumn{
+        display: none;
+    }
+  }
+@media screen and (max-width: 500px) {
+    .first-column {
+        height: 392px !important;  
+        width: 98%;   
+    }
+    .img1-fluid {
+        height: 380px !important;     
+    }
+    .second-column {
+        display: none !important;     
+    }
+     .third-coloumn {
+        display: none !important;     
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .blogs-header {
+        height: 50vh !important;
+    }
+    .img1-fluid {
+        height: 380px !important;     
+    }
+    .first-column {
+        width: 97%;    
+    }
+    .first-column h2 {
+        font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .first-column {
+        height: 325px !important; 
+        width: 97%;    
+    }
+    .img1-fluid {
+        height: 325px !important;     
+    }
+  } 
+  */

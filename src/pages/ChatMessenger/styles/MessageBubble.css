@@ -1,0 +1,61 @@
+.message-bubble {
+    border-radius: 16px;
+    width: fit-content;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 1rem 0.5rem;
+    padding: 20px;
+    max-width: 25rem;
+}
+
+.chatview-dashboard{
+    /* height: 69vh; */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.message-bubble label {
+    margin-bottom: 0;
+}
+
+.message-bubble.sent, .message-bubble-img.sent {
+    background-color: #1C67CE;
+    color: #FFFFFF;
+    margin-right: auto;
+}
+
+.message-bubble.received, .message-bubble-img.received {
+    background-color: #EFF1F4;
+    color: rgba(0, 0, 0, 0.85);
+    margin-left: auto;
+}
+
+.message-sent-date {
+    background-color: rgba(231, 233, 240, 0.45);
+    color: rgba(0, 0, 0, 0.65);
+    margin: 0 auto;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    width: fit-content;
+
+}
+
+
+
+
+
+.message-bubble-img {
+    border-radius: 16px;
+    width: fit-content;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 1rem 0.5rem;
+    padding: 4px;
+    max-width: 25rem;
+}
+
+.message-bubble-img img {
+    border-radius: 16px;
+    max-width: 150px;
+}

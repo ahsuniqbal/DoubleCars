@@ -1,0 +1,199 @@
+
+/* Upper footer css starts here.*/
+.footer-image {
+  background-image: url("../../../assets/Footer-image.png"); 
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 254px; 
+}
+
+.car-dealer-head {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.car-dealer-subhead{
+  font-weight: normal;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  position: absolute;
+}
+
+.learn-more-button-cover {
+  background-color: #ffffff !important;
+  border-radius: 0.4rem !important;
+  width: 160px !important;
+  height: 56px;
+  color: #1C67CE !important;
+  cursor: pointer;
+  padding: 14px 28px !important;
+  font-size: 16px !important;
+  font-weight: bold;
+  border: transparent !important;
+}
+.learn-more-button-cover:focus{
+  box-shadow: none !important;
+}
+/* End */
+
+/* Mid footer css starts here */
+.footer-body {
+  background-color: white !important;
+  overflow-x: hidden;
+}
+
+.footer-columns {
+  margin-top: 4rem;
+  }
+
+.footer-dc {
+
+  font-style: normal;
+  font-weight: bold;
+  color: black;
+  font-size: 24px;
+  /* font-weight: bolder; */
+  line-height: 29px;
+  font-style: normal;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+ }
+
+.discription-dc-footer {
+
+  text-align: justify;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 160%;
+  color: rgba(8, 11, 48, 0.85);
+  
+  
+}
+
+.nav-text-color {
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  color: rgba(8, 11, 48, 0.85); 
+  cursor: pointer;
+  text-align: left !important;
+}
+.nav-text-color-bottom{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 140%;
+  color: rgba(8, 11, 48, 0.65);
+}
+
+.footer-contact-information {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: #080B30;
+  
+  cursor: default;
+  text-align: left !important;
+}
+.footer-contact {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-size: 16px !important;
+  line-height: 18px;
+  font-weight: 500 !important;
+  color: #1C67CE;
+  font-weight: normal;
+  cursor: pointer;
+  text-align: left !important;
+}
+/* End */
+
+/* Lower Footer css starts here  */
+.lower-footer-container {
+  margin-top: 2rem;
+  align-items: center;
+ 
+}
+.lower-footer-columns {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  padding: 0;
+  
+ }
+
+.bootom-footer {
+  font-size: 14px !important;
+ 
+}
+
+.icons-columns {
+  margin-right: 10px;
+}
+.instra-icons-columns{
+  margin-right: 15px;
+}
+/* .feather-icon {
+  margin-left: 90px;
+} */
+.learn-more-button-class{
+  padding-left:20%
+}
+.car-dealer-class{
+  padding-left: 55px;
+}
+.icon-row{
+  padding: 0 20%;
+}
+/* media  */
+@media screen and (max-width: 1100px) {
+  .icon-row{
+    padding: 0 20% !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .h-100{
+     padding: 4% !important;
+  } 
+}
+@media screen and (max-width: 900px) {
+  .learn-more-button-class{
+    padding-left:15% !important
+  }
+  .footer-contact {
+    font-size: 12px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .learn-more-button-class{
+    padding-left:15% !important
+  }
+  .footer-contact {
+    font-size: 12px !important;
+  }
+}
+@media screen and (max-width: 420px) {
+  .lower-footer-columns {
+    padding-left: 10% !important;
+  }  
+  .car-dealer-class{
+    padding-left: 36px;
+  }
+  .learn-more-button-class{
+    padding-top: 10%;
+  }  
+}
+@media screen and (max-width: 375px) {
+  .h-100{
+    padding-left: 10% !important;
+ }
+ .car-dealer-class{
+  padding-left: 25px;
+}
+}

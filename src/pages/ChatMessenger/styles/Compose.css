@@ -1,0 +1,39 @@
+.compose {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-top: 1px solid #eeeef1;
+    position: relative;
+    width: 100%;
+    bottom: 0px;
+    border: 1px solid #E9E9E9;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-left: 0;
+    border-right: 0;
+}
+
+
+.compose input {
+    border: none;
+    height: 52px;
+}
+
+.compose input:focus {
+    box-shadow: none;
+}
+.compose input::placeholder {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+
+    color: rgba(62, 62, 62, 0.55);
+}
+
+/* Send icon */
+ion-icon {
+    font-size: 21px;
+    color: #1C67CE;
+    margin-right: 25px;
+}

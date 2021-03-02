@@ -1,0 +1,142 @@
+.about-body {
+    background-color: white !important;
+}
+
+/* about header css starts here */
+
+.aboutus-header {
+    background-image: url("../../../assets/AboutDemoImg.png"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    margin-top: 10rem;
+    
+}
+
+.about-header-content {
+    background: #0B54B8;
+    mix-blend-mode: normal;
+    opacity: 0.85;
+    height: 80vh;
+    
+}
+
+.about-header-heading {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 56px;
+    color: #FFFFFF;
+    margin-top: 40%;
+    margin-left: 2rem;
+}
+
+.about-header-subheading {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    margin-left: 2rem;
+}
+
+.join-mission-btn {
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem 0rem;
+    font-weight: bold;
+    text-align: left !important;
+    margin-top: 0.5rem;
+    margin-left: 2rem;
+}
+
+.join-mission-btn:hover {
+    color: white !important;
+}
+
+
+/* About Detail css starts here. */
+.about-detail-head {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    color: rgba(0, 0, 0, 0.84);
+}
+
+.about-detail-content {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+    color: rgba(0, 0, 0, 0.84);
+}
+
+.about-detail-contact-btn {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    margin-left: -17px;
+    color: #1C67CE;
+    cursor: pointer;
+}
+
+.about-contact-icon {
+    width: 20px;
+    height: 25px;
+}
+
+.about-vertical-line {
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    height: 276px;
+    width: 0px !important;
+}
+.vertical-line-01 {
+    /* border-right: 1px solid rgba(0, 0, 0, 0.2); */
+    height: 276px;
+    width: 0px !important;
+}
+/* End */
+
+
+/* About page css starts here. */
+
+.about-column {
+    margin-top: 7%;
+}
+
+.about-heading {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.about-content {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.84);
+    margin-bottom: 5rem;
+}
+
+.stats-heading {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 34px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-top: 5rem;
+    font-family: 'Ubuntu' !important;
+}
+
+.stats-content {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.84);
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 980px) {
+    .vertical-line{
+        display: none;
+    }
+
+}

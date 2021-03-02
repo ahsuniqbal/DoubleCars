@@ -1,0 +1,31 @@
+.most-popular-card {
+    border: transparent !important;
+    margin:28px 0px;
+    margin-bottom: 2rem;
+    margin-left: -15px !important;
+}
+.most-popular-card:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+    transition: transform 500ms !important;
+}
+.mp-cell-card-image {
+    border-radius: 0px !important;
+    width: 82.57px;
+    height: 54.35px;
+
+}
+
+.most-popular-title {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+

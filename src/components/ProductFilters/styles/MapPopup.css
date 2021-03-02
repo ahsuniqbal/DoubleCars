@@ -1,0 +1,73 @@
+.location-map .modal-header{
+    padding: 1.5rem 2rem;
+}
+
+.location-map .modal-body {
+    padding: 0;
+}
+
+.location-map .modal-content h5.modal-title{
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.location-map .modal-content .modal-body input {
+    border: none;
+}
+
+.location-map .modal-content .modal-body input:focus{
+    box-shadow: none;
+}
+
+.location-map .modal-content .modal-body input::placeholder {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.35);
+
+}
+
+.location-map .modal-content .modal-footer button {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    background-color: #1C67CE;
+    border-color: #1C67CE;
+    padding: 12px 30px;
+    border-radius: 6px;
+    margin-left: auto;
+}
+
+.location-map .modal-content .modal-footer h5 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 0;
+}
+
+.location-map .modal-content .modal-footer label{
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 0;
+}
+
+.location-map .modal-content .modal-footer {
+    padding: 1.5rem 2rem;
+}
+
+[data-reach-combobox-popover]{
+    z-index: 999999;
+    border-color: hsla(0, 0%, 0%, 0.05);
+    border-radius: 4px;
+}
+
+[data-reach-combobox]{
+    position: absolute;
+    z-index: 99;
+    top: 30px;
+    left: 30px;
+}

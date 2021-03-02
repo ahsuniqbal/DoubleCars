@@ -1,0 +1,33 @@
+.sidebar-head{
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    color: #1C67CE;
+    margin:2rem;
+}
+
+.sidebar-list{
+    padding-left:1rem !important;
+}
+.nested-list-items{
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 15px;
+    color: #828282;
+}
+.main-list-items{
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 15px;
+    color: #333333;
+    padding: 0.3rem !important;
+}
+.main-list-items:hover,.nested-list-items:hover,.nested-list-items:focus , .nested-list-items.active{
+    color: #1C67CE !important;
+}

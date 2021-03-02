@@ -1,0 +1,59 @@
+.car-section-body {
+    background-color: white !important;
+}
+.car-section-row{
+    padding-right: 2%;
+    padding-left: 1%;
+    padding-bottom: 4%;
+    margin: 0;
+    background-color: white !important;
+}
+.car-section-coloumn{
+    /* padding-right: 5px; */
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: white;
+    transition: transform 500ms !important;
+    display: block !important;
+}
+.car-section-coloumn:hover{
+    transform: scale(1.01);
+}
+.car-badge {
+    position: absolute;
+    left: 3%;
+    bottom: 30%;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+    background-color: #1c67ce;
+    
+}
+
+.car-title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    position: absolute;
+    left: 3%;
+    bottom: 11%;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    width: 80%;
+}
+
+.price-label {
+    position: absolute;
+    bottom: 3%;
+    left: 3%;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    width: 80%;
+    line-height: 17px;
+    font-size: 14px;
+    font-weight: 500;
+}

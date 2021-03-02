@@ -1,0 +1,47 @@
+.top-budget-main-row{
+    padding: 0 5px;
+}
+
+.topBudgetRow {
+    margin-top: 4rem;
+  display: flex;
+  align-items: center;
+}
+.top-budget-label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    /* identical to box height, or 17px */
+    
+    color: #FFFFFF;
+}
+
+.top-budget-heading {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 120%;
+    /* or 38px */
+    
+    color: #FFFFFF;
+}
+
+.explore-button {
+    margin-top: 1rem;
+    background-color: #1C67CE !important;
+    border-radius: 0.4rem !important;
+    width: 140px ;
+    height: 48px ; 
+    color: #ffffff ;
+    font-size: 15px ;
+    line-height: 16px; 
+    border-color: #1C67CE !important; 
+    font-weight: 500;
+
+}
+.explore-button:hover,.explore-button:focus{
+    box-shadow: none !important;
+    border: none !important;
+}
+.explore-button:hover{
+    border: 1px solid #1C67CE !important;
+}

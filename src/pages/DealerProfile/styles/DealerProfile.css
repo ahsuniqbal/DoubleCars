@@ -1,0 +1,52 @@
+
+.dealer-profile {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.inv-label{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+}
+.output-num {
+    font-size: 20px;
+    font-weight: 500;
+}
+.relevance-class{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(8, 11, 48, 0.65);
+}
+.sort-class{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #080B30;
+}
+/* to style drpodown arrow */
+.relevance-select-option-class select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  /* Add some styling */
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(8, 11, 48, 0.65);
+    width: 100%;
+    height: 40px;
+    display: block;
+    padding: 0px 18px;
+    background-image: url('../../../assets/dropdowArrow.png');
+    background-size: auto;
+    -ms-word-break: normal;
+    word-break: normal;
+}

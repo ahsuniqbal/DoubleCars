@@ -1,0 +1,163 @@
+
+.profile-body {
+    background-color: white !important;
+   
+}
+
+.profile-container {
+    padding: 0px 140px;
+}
+
+.profile-pic-column, .profile-edit-column {
+    margin-top: 10rem;
+}
+
+.profile-image {
+    width: 115px;
+    height: 115px;
+    border-radius: 24px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.change-pic-button {
+    background-color: #1C67CE  !important;
+    border-radius: 0.4rem !important;
+    color: #ffffff !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    height: 43px !important;
+    width: 68% !important;
+    line-height: 19px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-bottom: 1rem !important;
+    font-family: 'Ubuntu' !important;
+}
+.remove-pic-button {
+    background-color: #ffffff !important;
+    border-radius: 0.4rem !important;
+    color: #1C67CE !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    height: 43px !important;
+    width: 68% !important;
+    line-height: 19px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    font-family: 'Ubuntu' !important;
+}
+
+.remove-pic-button:focus {
+    border: 1px solid #1C67CE !important;
+}
+
+.MuiButton-root {
+    text-transform: none !important;
+}
+
+.change-pic-button,.remove-pic-button:focus, .change-pic-button, .remove-pic-button:active:focus {
+    box-shadow: none !important;
+  }
+.profile-page-heading {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.85);
+} 
+
+.profile-labels {
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-top: 5%;
+}
+#giving-margin-top{
+    margin-top: 10%;
+}
+#margin-password-fields{
+    margin-top: 6%;
+}
+.profile-text-field{
+    background: #FFFFFF ;
+    border-radius: 4px;
+    border: 1px solid #E9E9E9;
+    height: 56px ;
+    background: #FFFFFF;
+}
+/* drag option of textarea */
+.class-for-textarea>textarea{
+        background: url('../../../assets/textarea-drag.png')no-repeat 100% 99% !important;
+        background-size: 12px !important;   
+}
+.class-for-textarea>::-webkit-resizer{
+    display: none !important;
+}
+.bio-box {
+    
+    border-radius: 4px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.1rem rgba(11, 20, 32, 0.1) ;
+}
+
+.save-profile-button {
+    background-color: #1C67CE  !important;
+    border-radius: 0.4rem !important;
+    color: #ffffff !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    height: 40px !important;
+    width: 127px !important;
+    line-height: 19px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-bottom: 1.6rem !important;
+    margin-top: 1.6rem !important;
+    font-family: 'Ubuntu' !important;
+}
+.save-profile-button:focus{
+    border:1px solid #1C67CE !important;
+}
+.profile-error-label{
+    color: red;
+    font-size: 12px;
+}
+.save-profile-button,.change-password-button:focus, .save-profile-button, .change-password-button:active:focus {
+    box-shadow: none !important;
+  }
+
+.change-password-button {
+    background-color: #1C67CE  !important;
+    border-radius: 0.4rem !important;
+    color: #ffffff !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    height: 40px !important;
+    width: 100px !important;
+    line-height: 19px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-bottom: 1.6rem !important;
+    margin-top: 1.6rem !important;
+    font-family: 'Ubuntu' !important;
+}
+.below-password-hr{
+    margin-top: 1.4rem !important;
+}
+/* media */
+@media screen and (max-width:420px){
+    .profile-edit-column{
+        margin-top: 2rem ;
+    }
+    .profile-pic-column{
+        margin-top: 5rem;
+    }
+}

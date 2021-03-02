@@ -1,0 +1,103 @@
+.home-container {
+  background-color: white !important;
+}
+
+.search-text-field {
+    border-color: transparent !important;
+}
+/* 
+.input :focus {
+    outline-offset: 0px !important;
+} */
+.recommended-trending-cars-head{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: #080B30;
+    margin-bottom: 1rem !important;
+    margin-left: 9px;
+}
+.feature-heading{
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+  color: #080B30;
+  
+}
+.featured-main-coloumn{
+  padding:0 10px;
+}
+.download-app-label{
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.65);
+}
+.features-row{
+  margin-top:6% !important;
+}
+.recomended-coloumn{
+  margin-top: 47px;
+}
+
+.home-container .slick-slide {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.home-container .slick-track {
+  margin-left: unset;
+}
+
+.home-container .slick-slide .product-card .card-subtitle {
+  white-space: nowrap;
+}
+
+
+.trending-coloumn{
+  margin-top: 23px ;
+}
+.top-stories-main{
+  padding: 4% 0%;
+}
+.new-used-class{
+  display: flex;
+  float: right;
+}
+
+/* .new-used-tab{
+  background-color: white !important;
+  border: none !important;
+  font-weight: normal !important; 
+} */
+.new-used-class{
+  color: grey;
+  background-color: white !important;
+}
+.col-md4-of-new-used>.rwt__tablist{
+  border-left: 0px !important; 
+}
+.col-md4-of-new-used>.rwt__tablist:not([aria-orientation="vertical"]){
+  border-bottom: 0px !important;
+}
+.new-used-class>.rwt__tab:hover{
+  background-color: white !important;
+}
+.new-used-class>.rwt__tab[aria-selected="true"]:hover{
+  color:  #1c67ce !important;
+  background-color: white !important;
+}
+.new-used-class>.rwt__tab[aria-selected="true"]{
+  color:  #1c67ce !important;
+  background-color: white !important;
+}
+.new-used-class>.rwt__tab[aria-selected="false"]{
+  color:  grey !important;
+  background-color: white !important;
+}
+/* .new-used-tab:focus{
+  color: blue;
+} */
+/*  */

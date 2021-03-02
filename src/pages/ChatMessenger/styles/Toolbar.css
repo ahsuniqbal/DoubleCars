@@ -1,0 +1,36 @@
+.toolbar {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.toolbar h6 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 0;
+    margin-left: 1rem;
+}
+
+.toolbar label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.45);
+    margin-left: 1rem;
+}
+
+.toolbar .card-img {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.toolbar svg {
+    margin: 0rem 0.5rem;
+}

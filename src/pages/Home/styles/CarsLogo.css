@@ -1,0 +1,156 @@
+.card-main-head{
+        padding-bottom: 4%;
+        padding-right: 0;
+}
+.giving-padding{
+    padding: 25px 0px;
+}
+.giving-margin{
+    padding: 0;
+    margin: 0;
+}
+.popular-make{
+    margin: 0 !important;
+}
+.carslogo-head{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 120%;
+    color: #080B30;
+}
+.carslogo-text{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 120%;
+    color: rgba(8, 11, 48, 0.65);
+}
+.cardslogo-main{
+    
+    width: 85%;
+    height: 98%;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin: auto;
+    transition: transform 500ms !important;
+}
+.cardslogo-main3{
+    
+    width: 85%;
+    height: 92%;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin: auto;
+    transition: transform 500ms !important;
+}
+.cardslogo-main:hover , .cardslogo-main3:hover{
+    transform: scale(1.02);
+}
+/* firt row */
+.corolla-car{
+
+    width: 78%;
+    margin: 6% 20% 6% 10%;
+}
+.ford-car{
+    width: 120%;
+    margin:9% 0% 9% -12%;
+}
+.tesla-car{
+    margin: 25% 27%;
+    width: 46%;
+}
+
+.subaru-car{
+    margin: 25% 21%;
+    width: 60%;
+}
+
+.volkswagen-car{
+    margin: 15% 20%;
+    width: 62%;
+}
+
+.honda-car{
+    width: 57%;
+    margin: 23% 22%;
+}
+.bmw-car{
+    width: 50%;
+    margin: 21% 25%;
+}
+.jeep-car{
+    width: 75%;
+    margin: 20% 12%
+}
+/* second row */
+.suzuki-car{
+
+    width: 43%;
+    margin: 25% 29%;
+}
+.audi-car{
+    margin: 15% 6%;
+    width: 88%;
+}
+.mercedes-car{
+    margin: 29% 30%;
+    width: 41%;
+}
+.mitsubishi-car{
+    width: 44%;
+    margin: 26% 28%;
+}
+.lexus-car{
+    width: 60%;
+    margin: 28% 19%;
+}
+.plus-car{
+    width: 90%;
+    margin: 17% 5%;
+}
+/* third row */
+.suzuki2-car{
+    width: 50%;
+    margin: 22% 25%;
+}
+.mercedesbenz-car{
+    width: 48%;
+    margin: 24% 26%
+}
+.nissan-car{
+    margin: 23% 16%;
+    width: 66%;
+
+}
+.jaguar-car{
+    width: 71%;
+    margin: 18% 14%;
+}
+.lexus2-car{
+    width: 67%;
+    margin: 24% 15%;
+}
+.horse-car{
+    width: 75%;
+    margin: 23% 14%;
+}
+
+/*  */
+
+    @media screen and (max-width: 420px) {
+        .giving-margin{
+            margin-left: 15%;
+            }
+        .cardslogo-main , .cardslogo-main3{
+            margin: 0% 5%;
+        }
+      }
+    

@@ -1,0 +1,53 @@
+.service-img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    max-height: 200px;
+}
+.service-img{
+      transition: transform 500ms !important; 
+}
+.service-img:hover{
+    transform: scale(1.02);
+}
+.service-head{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    color: #080B30;
+}
+.service-text{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+    color: rgba(0, 0, 0, 0.84);
+}
+.service-nav-Item{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+    color: rgba(0, 0, 0, 0.84);
+}
+.service-nav-Item:hover{
+    cursor: pointer;
+}
+.check {
+    background-color: #F7FAFC !important;
+    color: #1C67CE !important;
+    width: 32px !important;
+    height: 32px !important;
+    padding: 3px;
+}
+.service-col-img{
+        padding: 15% 2%;
+       
+}
+.service-col{
+    padding: 14% 3%;
+}

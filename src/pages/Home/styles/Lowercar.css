@@ -1,0 +1,35 @@
+/* .lower-section-car {
+    height: 352px;
+} */
+
+
+.lower-cars-carousel-images {
+    height: 353px;
+    /* width: 360px; */
+    object-fit: cover;
+    
+    transition: transform 500ms !important;
+    /* padding-right: 0px !important; */
+}
+.lower-cars-carousel-images:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+}
+.lower-main{
+    padding: 0% !important;
+}
+.text{
+    position: absolute;
+    bottom: 3%;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bolder !important;
+    font-size: 22px;
+    line-height: 120%;
+    color: #FFFFFF;
+    padding-left: 35px;
+}
+.prev-arr{
+    margin-left: 1.8rem !important;
+    transform: rotate(180deg);
+}
