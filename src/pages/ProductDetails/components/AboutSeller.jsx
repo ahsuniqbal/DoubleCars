@@ -8,6 +8,7 @@ import '../styles/AboutSeller.css'
 import { Link } from 'react-router-dom';
 import { GetSellerDetails } from '../api/GetRequests';
 import { Phone, Mail } from 'react-feather';
+import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import ClockIcon from '../../../assets/clock-icon.png';
 import AdrressPinIcon from '../../../assets/pin-icon.png'
 import SellerCheckMark from '../../../assets/seller-check-icon.png';
@@ -32,7 +33,6 @@ const SellerDetails = (props) => {
        
         GetSellerDetails(props.userId).then(doc => {
             setDealer(doc[0]);
-            console.log("asd", doc)
         })
         .catch(error => {
             console.log(error.message);
@@ -184,7 +184,7 @@ const SellerDetails = (props) => {
                         <Row>
                             <Col style={{display:'flex',justifyContent:'center'}}>
                                 <div className = "seller-name-image">
-                                    <CardImg className = "seller-img" src={dealer.profilePic} alt={dealer.fullName} height = "100%" width = "100%"/>
+                                    <CardImg className = "seller-img" src={dealer.profilePic ? dealer.profilePic : dummyAvatar} alt={dealer.fullName} height = "100%" width = "100%"/>
                                 </div>
                                 
                             </Col>

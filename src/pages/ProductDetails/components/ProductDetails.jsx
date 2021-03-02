@@ -16,14 +16,12 @@ import { GetRecommendationsTrendings } from '../api/GetRequests';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
-    const [recommendations, setRecommendations] = useState(null);
     const [homeData, setHomeData] = useState(null);
 
     const history = useHistory();
 
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
-            console.log('productDetails',doc)
             setProductDetails(doc);
         })
         .catch(error => {
@@ -88,15 +86,12 @@ const ProductResults = ({match}) => {
                         <Row >
                             <Col md = "8">
                                 {
-                                    productDetails.images[0].image !== "" ? <Gallery
-                                    items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)} />
-                                    : <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} />
+                                    productDetails.images > 0 ?
+                                        productDetails.images[0].image !== "" ? 
+                                        <Gallery items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)} productId={productDetails.details[0].productId} />
+                                        : <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
+                                    : <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
                                 }
-
-
-                                
-
-
                                 <Information
                                     details={productDetails.details[0]}
                                     attributes={productDetails.attributes}
