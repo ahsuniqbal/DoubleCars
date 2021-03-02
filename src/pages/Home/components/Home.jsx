@@ -18,7 +18,6 @@ import DCSlider from '../../../components/DcSlider'
 import TopBudget from './TopBudget'
 import ArticleCard from './ArticleCard'
 import {ArticleCard1,ArticleCard2,ArticleCard4} from './ArticleCard';
-import FeaturedCars from './FeaturedCars';
 import CarSection1 from './CarSection1';
 import ServicesOffer from './ServicesOffer';
 import PriceRange from './PriceRange';
@@ -138,10 +137,7 @@ const DrawCarousel = (list) => {
 
 
 const Home = () => {
-    const [recommendationName, setRecommendationName] = useState('');
-    const [trendingName, setTrendingName] = useState('');
-    const [recommendations, setRecommendations] = useState(null);
-    const [trending, setTrending] = useState(null);
+
     const [bodyTypes, setBodyTypes] = useState(null);
     const [homeData, setHomeData] = useState(null);
     const history=useHistory()
@@ -172,7 +168,7 @@ const Home = () => {
             setHomeData(doc)
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
 
         //Get the list of all body types
@@ -180,7 +176,7 @@ const Home = () => {
             setBodyTypes(doc.bodyStyleList);
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
     }, []);
    
@@ -195,10 +191,9 @@ const Home = () => {
                         </Col>
                         <Col xs="2"></Col>
                     </Row>
-                    <Tabs defaultTab="new-feature-tab">
-                        <Container>
 
-                        
+                    <Tabs defaultTab="new-feature-tab">
+                      <Container>
                         <Row className='features-row'>
                             
                                 <Col xs = "12" md = "8" sm = "12" className = "">
@@ -212,12 +207,10 @@ const Home = () => {
                                  </TabList>
                                 </Col>
                         </Row>
-                        </Container>
+                      </Container>
                         <Row>
                             <Col className='featured-main-coloumn'>
-                                <TabPanel tabId="feature-tab">
-                                    <FeaturedCars/>
-                                </TabPanel>
+                               
                                 <TabPanel tabId="new-feature-tab">
                                     <NewFeaturedCars/>
                                 </TabPanel>

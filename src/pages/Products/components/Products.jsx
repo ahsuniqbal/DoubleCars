@@ -119,7 +119,7 @@ const Products = (props) => {
             setFlag(!flag)
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
     
     }, [isBottom]);
@@ -139,7 +139,7 @@ const Products = (props) => {
             setFlag(!flag)
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
     }
 

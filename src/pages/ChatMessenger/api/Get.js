@@ -12,7 +12,7 @@ export const getChatUserPics = (chats) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };
