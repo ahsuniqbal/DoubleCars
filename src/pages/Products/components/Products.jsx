@@ -72,8 +72,10 @@ const Products = (props) => {
     const [products, setProducts] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
     const [isBottom, setIsBottom] = useState(false);
-    const [flag,setFlag] = useState(false)
+    const [flag, setFlag] = useState(false)
     const [booleanFlag, setBooleanFlag] = useState(false);
+    const [globalQuery,setGloableQuery] = useState("")
+
     const handleScroll = () => {
         const scrollTop = (document.documentElement
             && document.documentElement.scrollTop)
@@ -81,32 +83,36 @@ const Products = (props) => {
         const scrollHeight = (document.documentElement
             && document.documentElement.scrollHeight)
             || document.body.scrollHeight;
-        if (scrollTop + window.innerHeight + 50 >= scrollHeight){
-            var page = pageNumber
-            page++;
-            setPageNumber(page)
-            setIsBottom(true);
+        if (scrollTop + window.innerHeight + 70 >= scrollHeight){
+            // console.log('page called')
+            // var page = pageNumber
+            // console.log(page)
+            // page++;
+            // console.log(page)
+            setPageNumber(pageNumber + 1)
+            setIsBottom(!isBottom);
         }
     }
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-      }, []);
+        // return () => window.removeEventListener('scroll', handleScroll);
+      }, [isBottom]);
     
     useEffect(() => {
         var tempStr = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         if(locationSearch.search){
-            tempStr += `search=${locationSearch.search}&page=${pageNumber}`
+            tempStr += `search=${locationSearch.search}&page=${pageNumber}&${globalQuery}`
         }else{
-            tempStr += `page=${pageNumber}`
+            tempStr += `page=${pageNumber}&${globalQuery}`
         }
         tempStr += `&id=${userId}`
 
-        
+        console.log("QQUERY",tempStr)
         GetSearchResult(tempStr).then(doc => {
             if(products.length > 0){
+                setBooleanFlag(false);
                 var temp = products
                 for(let i = 0; i < doc.length; i++){
                     temp.push(doc[i])
@@ -125,6 +131,7 @@ const Products = (props) => {
     }, [isBottom]);
 
     const filterQueryChange = (queryStr) => {
+        setGloableQuery(queryStr)
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         if(locationSearch.search){
@@ -133,6 +140,7 @@ const Products = (props) => {
             str = `page=${pageNumber}&${queryStr}`
         }
         str += `&id=${userId}`
+        console.log("QQUERY",str)
         GetSearchResult(str).then(doc => {
             console.log("doc",doc)
             setProducts(doc)
@@ -156,7 +164,8 @@ const Products = (props) => {
 
     return(
                     
-        <Container className="products-container">        
+        <Container className="products-container">  
+        
             <Row>
                 <Col xs="12" md="3" style = {{marginTop: '5rem'}}>
                     <Filters

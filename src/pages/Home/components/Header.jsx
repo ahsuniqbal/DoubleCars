@@ -26,7 +26,8 @@ const Header = () => {
                 
                     <div className = "row header-main">
                  
-                                <div className = "col-12 col-md-5 col-sm-6 left-cover-section width-1050">
+                            <div className = "col-12 col-md-5 col-sm-6 left-cover-section width-1050">
+                                <div className='left-cover-header-div'>
                                     <h1 className = "cover-left-heading ml-3">
                                         Find the most desireable car
                                     </h1>
@@ -50,10 +51,11 @@ const Header = () => {
                                             <LoginSignupModal isOpen={popupModal} toggle={popupToggle} /> </>: null
                                         } */}
                                            
-                        
+                                
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
                                 <div className = "col-12 col-md-7 col-sm-6 right-side-cover-div " style={{padding: '0'}}>
                                     <LazyLoadImage src={Cover} effect='blur' className=' right-cover-section'/>
