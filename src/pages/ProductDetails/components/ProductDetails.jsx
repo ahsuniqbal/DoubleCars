@@ -27,7 +27,7 @@ const ProductResults = ({match}) => {
             setProductDetails(doc);
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
 
 
@@ -36,7 +36,7 @@ const ProductResults = ({match}) => {
             setHomeData(doc) 
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
     }, []);
 

@@ -35,7 +35,7 @@ const SellerDetails = (props) => {
             console.log("asd", doc)
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
     }, []);
 

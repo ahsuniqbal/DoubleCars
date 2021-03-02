@@ -31,7 +31,7 @@ const Gallery = (props) => {
           
       })
       .catch(error => {
-          alert(error.message);
+          console.log(error.message);
       });
   }
 
@@ -53,7 +53,7 @@ const Gallery = (props) => {
       .then(doc => {
           console.log(doc)
           if(doc.code==-1){
-              alert(doc.message)
+              console.log(doc.message)
           }
           else{
               console.log(doc.saveId)
@@ -63,7 +63,7 @@ const Gallery = (props) => {
           
       })
       .catch(e => {
-          alert(e.message)
+          console.log(e.message)
       })
   }
     return(

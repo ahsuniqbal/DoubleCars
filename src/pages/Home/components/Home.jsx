@@ -172,7 +172,7 @@ const Home = () => {
             setHomeData(doc)
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
 
         //Get the list of all body types
@@ -180,7 +180,7 @@ const Home = () => {
             setBodyTypes(doc.bodyStyleList);
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
     }, []);
    

@@ -31,7 +31,7 @@ const Profile = (props) => {
             setUser(doc[0])
         })
         .catch(e => {
-            alert(e.message)
+            console.log(e.message)
         })
     },[])
 
@@ -60,7 +60,7 @@ const Profile = (props) => {
                     if(doc.code === 1){
                         window.location.reload()
                     }else{
-                        alert(doc.message)
+                        console.log(doc.message)
                     }
                 })
                 .catch(e => {
@@ -99,12 +99,12 @@ const Profile = (props) => {
                 document.getElementById('oldPass').value = ""
                 document.getElementById('newPass').value = ""
             }else{
-                alert(doc.message)
+                console.log(doc.message)
             }
         })
         .catch(e => {
             setLoadingPassword(false)
-            alert(e.message)
+            console.log(e.message)
         })
     }
 

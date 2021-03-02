@@ -407,7 +407,7 @@ const Filters = (props) => {
             }
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
     }
     
@@ -450,7 +450,7 @@ const Filters = (props) => {
 
             
         }).catch(error => {
-            alert(error.message);
+            console.log(error.message);
         })
 
         // Get the current location using HTML Geo location
@@ -475,14 +475,13 @@ const Filters = (props) => {
                 // If the zip code is not available
                 else{
                     var split = doc.plus_code.compound_code.split(" ");
-                    console.log(split[1] + " " + split[2] + " " + split[3])
                     setZipCode(split[1] + " " + split[2] + " " + split[3])
                     // setZipCode(doc.plus_code.compound_code);
                     // setZipCode("N/A");
                 }
             })
             .catch(error => {
-                alert(error.message);
+                console.log(error.message);
             });
         }
     }, [currentLatLng]);

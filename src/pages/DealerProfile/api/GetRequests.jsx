@@ -12,7 +12,7 @@ export const GetSellerDetails = (id) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };
@@ -28,7 +28,7 @@ export const GetSellerInventory = (id) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 }

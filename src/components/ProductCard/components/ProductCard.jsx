@@ -39,7 +39,7 @@ const ProductCard = (props) => {
                     window.location.reload()
                 }
                 else{
-                    alert(doc.message)
+                    console.log(doc.message)
                 }
                 
             }

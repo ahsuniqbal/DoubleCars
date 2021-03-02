@@ -28,7 +28,7 @@ export const GetAllBodyTypes = () => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };
@@ -44,7 +44,7 @@ export const GetProductsOfBodyType = (bodyType) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };
@@ -59,7 +59,7 @@ export const GetFilteredPriceList = (price) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };
@@ -76,7 +76,7 @@ export const GetFeaturedCars = () => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };

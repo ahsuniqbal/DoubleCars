@@ -18,7 +18,7 @@ const NewFeaturedCars = () => {
           setProductIds(doc)
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
     }
     const FeaturedDemoImage1 = {
