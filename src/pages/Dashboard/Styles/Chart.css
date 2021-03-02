@@ -47,10 +47,11 @@
     color: #333333;
 }
 .label-checkbox{
-    /* border: 1px solid #CCCCCC !important; */
     border-radius: 6px !important;
     color:#1C67CE !important;
+    background-color: white !important;
 }
+
 @media screen and (max-width:1000px){
    .label-checkbox-col{
     display: flex;

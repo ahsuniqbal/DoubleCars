@@ -41,7 +41,7 @@ function Chart (){
             
             <FormControl style={{float:'right'}}>
                 <FormGroup>
-                    <FormControlLabel control={<Checkbox className='label-checkbox'/>}label="Email Leads"/>
+                    <FormControlLabel control={<Checkbox className='label-checkbox' />}label="Email Leads"/>
                 </FormGroup>
                 <FormGroup>
                     <FormControlLabel control={<Checkbox className='label-checkbox'/>}label="Text Leads"/>

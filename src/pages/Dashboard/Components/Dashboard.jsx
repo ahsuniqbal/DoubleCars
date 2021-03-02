@@ -129,8 +129,8 @@ export default function Deashboard() {
      {!responsive ? <>
       <CssBaseline />
          
-      <AppBar position="fixed" className={clsx(classes.appBar, { [classes.appBarShift]: open,})}>
-        <Toolbar>
+      <AppBar position="fixed" className={clsx(classes.appBar, { [classes.appBarShift]: open,})} >
+        <Toolbar id='fix-outline'>
           <IconButton className='dashboard-toggle-button'
             color="inherit" aria-label="open drawer" onClick={counter%2==0 ? handleDrawerClose :handleDrawerOpen} edge="start" className={clsx(classes.menuButton)}>
             <MenuIcon className='dashboard-toggle-icon'/>
@@ -149,7 +149,7 @@ export default function Deashboard() {
       <>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar1}>
-        <Toolbar>
+        <Toolbar id='fix-outline'>
           <IconButton
             color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle1} className={classes.menuButton1}>
             <MenuIcon className='dashboard-toggle-icon'/>
