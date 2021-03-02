@@ -135,29 +135,46 @@ const Filters = (props) => {
     }
 
     const handleMake = (make) => {
-        GetModelFromMake(make).then(doc => {
-            setModelList(doc.makes[0].models);
-            setSelectedMake(make);
-            filters['carMake'] = make;
-            setFilters(filters);
-            FilterQueryString(filters);
-        })
-        .catch(error => {
-            alert("Error fetching models");
-        });
+        console.log("make",make)
+        setSelectedMake(make);
+        if(make){
+            GetModelFromMake(make).then(doc => {
+                setModelList(doc.makes[0].models);
+                filters['carMake'] = make;
+                setFilters(filters);
+                FilterQueryString(filters);
+            })
+            .catch(error => {
+                console.log(error.message)
+            });
+        }else{
+            setModelList([]);
+        }
+        
     }
 
     const handleModel = (select) => {
+        setSelectedModels(select);
+        if(select.length > 0){
+        setTrimCollapseOpen(true);
+        
         GetTrimFromMakeAndModel(selectedMake, select[select.length - 1]).then(doc => {
             // trimList.push(doc.makes[0].models[0].trims)
             setTrimList(doc.makes[0].models[0].trims)
         }).catch(error => {
-            alert("Error fetching trims");
+            console.log(error.message)
         });
-        setSelectedModels(select);
         filters['carModel'] = concatinateCommaToFilters(select);
         setFilters(filters);
         FilterQueryString(filters);
+        }else{
+            // console.log('filters1',filters)
+            delete filters['carModel']
+            // console.log('filters2',filters)
+            setFilters(filters);
+            FilterQueryString(filters);
+            setTrimCollapseOpen(false);
+        }
     }
 
     const handlePrice = (price) => {
@@ -185,15 +202,15 @@ const Filters = (props) => {
     const handleCondition = () => {
         var conditionNew = document.getElementById('condition-new');
         var conditionUsed = document.getElementById('condition-used');
-
+        console.log("Checing",conditionNew.checked,conditionUsed.checked)
         if(conditionNew.checked === true && conditionUsed.checked === true) {
             delete filters['isUsed'];
         }
         else if (conditionNew.checked === true) {
-            filters['isUsed'] = false;
+            filters['isUsed'] = 0;
         }
         else if (conditionUsed.checked === true) {
-            filters['isUsed'] = true;
+            filters['isUsed'] = 1;
         }
         else {
             delete filters['isUsed'];
@@ -447,8 +464,6 @@ const Filters = (props) => {
             setFiltersList(doc.listRanges);
             setPrice([0, doc.listRanges.ranges[0].maxPrice]);
             handleCondition();
-
-            
         }).catch(error => {
             console.log(error.message);
         })
@@ -588,7 +603,7 @@ const Filters = (props) => {
                                 <MultiSelect
                                     options={concatModelList(modelList)}
                                     selected={selectedModels}
-                                    onSelectedChanged={selected => { setTrimCollapseOpen(true); handleModel(selected) }} />
+                                    onSelectedChanged={selected => {  handleModel(selected) }} />
                                 
 
                                 {/******** Trim filter, trim list will be 
