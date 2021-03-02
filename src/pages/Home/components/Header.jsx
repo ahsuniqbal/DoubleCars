@@ -26,36 +26,36 @@ const Header = () => {
                 
                     <div className = "row header-main">
                  
-                                <div className = "col-12 col-md-5 col-sm-6 left-cover-section width-1050">
-                                    <div className='left-cover-section-inner-div'>
-                                        <h1 className = "cover-left-heading ml-3">
-                                            Find the most desireable car
-                                        </h1>
-                                        <h5 className = "my-3 header-sub-head ml-3">
-                                            Buy and sell cars with ease using our app!
-                                        </h5>
-                                        <div>
-                                            <div className = "col-md-12" className = "">
-                                                <Button className="ml-3 mt-4 download-button-cover" to="" onClick={()=>window.location.href='https://play.google.com/store/apps'}>Download App</Button>
-                                                
-                                            {/* {!localStorage.getItem('userId') ?
-                                            <>
-                                            <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={popupToggle}>Temporary Button</Button> 
-                                                <LoginSignupModal isOpen={popupModal} toggle={popupToggle} />
-                                                {/* <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={loginToggle}>Temporary Button</Button> 
-                                                <LoginModal isOpen={loginModal} toggle={loginToggle} /> */}
+                            <div className = "col-12 col-md-5 col-sm-6 left-cover-section width-1050">
+                                <div className='left-cover-header-div'>
+                                    <h1 className = "cover-left-heading ml-3">
+                                        Find the most desireable car
+                                    </h1>
+                                    <h5 className = "my-3 header-sub-head ml-3">
+                                        Buy and sell cars with ease using our app!
+                                    </h5>
+                                    <div>
+                                        <div className = "col-md-12" className = "">
+                                            <Button className="ml-3 mt-4 download-button-cover" to="" onClick={()=>window.location.href='https://play.google.com/store/apps'}>Download App</Button>
+                                            
+                                           {/* {!localStorage.getItem('userId') ?
+                                           <>
+                                           <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={popupToggle}>Temporary Button</Button> 
+                                            <LoginSignupModal isOpen={popupModal} toggle={popupToggle} />
+                                            {/* <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={loginToggle}>Temporary Button</Button> 
+                                            <LoginModal isOpen={loginModal} toggle={loginToggle} /> */}
 
-                                            {/* {!localStorage.getItem('userId') ? 
-                                            <>
-                                            <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={popupToggle}>Temporary Button</Button> 
-                                                <LoginSignupModal isOpen={popupModal} toggle={popupToggle} /> </>: null
-                                            } */}
+                                           {/* {!localStorage.getItem('userId') ? 
+                                           <>
+                                           <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={popupToggle}>Temporary Button</Button> 
+                                            <LoginSignupModal isOpen={popupModal} toggle={popupToggle} /> </>: null
+                                        } */}
                                            
-                                    
-                                            </div>
+                                
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
                                 <div className = "col-12 col-md-7 col-sm-6 right-side-cover-div " style={{padding: '0'}}>
                                     <LazyLoadImage src={Cover} effect='blur' className=' right-cover-section'/>

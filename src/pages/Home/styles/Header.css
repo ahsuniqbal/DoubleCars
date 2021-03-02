@@ -16,6 +16,8 @@
   height: 95vh;
   padding-left: 3rem;
   padding-right: 3rem;
+  
+  
 }
 
 .cover-left-heading {
@@ -25,15 +27,13 @@
   font-size: 60px;
   line-height: 110%;
   color: #FFFFFF;
- 
 }
-.left-cover-section-inner-div{
+.left-cover-header-div{
   position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
+  top: 45%;
   transform: translateY(-50%);
 }
+
 .header-sub-head {
   font-family: Ubuntu;
   font-style: normal;
@@ -165,7 +165,8 @@ right: 2%;
     margin-top: -235px;
 
     }
-    .left-cover-section-inner-div{
+    .left-cover-header-div{
+    
       transform: translateY(0);
     }
 }
@@ -177,7 +178,6 @@ right: 2%;
     padding-top: 5% !important;
     font-size: 30px !important;
     }
-    
 }
 @media screen and (max-width:420px){
   .left-cover-section{
