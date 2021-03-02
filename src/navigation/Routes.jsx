@@ -15,6 +15,8 @@ const ContactUs = React.lazy(() => import ('../pages/ContactUs'))
 const Blogs = React.lazy(() => import('../pages/Blogs/components/Blogs/Blogs'));
 const Chat = React.lazy(() => import('../pages/ChatMessenger'));
 const SavedCars = React.lazy(() => import('../pages/SavedCars/components/SavedCars'));
+
+const Dashboard=React.lazy(()=>import('../pages/Dashboard/Components/Dashboard'))
 /////////////////////// MUST READ BEFORE CREATING A ROUTE /////////////////////
 
 // To show the page to every visitor public keyword will be true
@@ -43,6 +45,8 @@ const routes = [
     // { path: '/chat', exact: true, name: 'Chat', public: false, restricted: false, component: Chat },
     { path: '/saved-cars', exact: true, name: 'SavedCars', public: false, restricted: false, component: SavedCars},
     
+    // dashboard route
+    { path: '/dashboard', exact: true, name: 'Dashboard', public: true, component: Dashboard },
 ];
 
 export default routes;

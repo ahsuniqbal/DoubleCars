@@ -107,7 +107,7 @@ const NavigationBar = () => {
         color:'#1C67CE',
     }
     return (
-        <> 
+        <div style={{display:window.location.pathname=='/dashboard' && 'none'}}> 
             <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top navigation-bar-box">
                 <Link to="/">
                     <img  src = {DCLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px" />
@@ -198,7 +198,7 @@ const NavigationBar = () => {
                     </ul>   
                 </div>
             </nav>
-        </>
+        </div>
     );
   }
   
