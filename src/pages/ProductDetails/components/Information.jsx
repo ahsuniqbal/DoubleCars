@@ -94,11 +94,13 @@ const Information = (props) => {
             {/* <hr  className = "info-bottom-line mb-5"/> */}
 
             
-            <Chart />
+            {/* <Chart /> */}
+
+            {details.description ? <Label className="car-info">{details.description}</Label> : null}
             
             
 
-            {/* <hr  className = "info-bottom-line mb-5"/> */}
+            <hr  className = "info-bottom-line mb-5"/>
 
             {/* Information section starts here.*/}
             <h4 className = "information-head">Information</h4>
@@ -203,14 +205,14 @@ const Information = (props) => {
                     </Col>
                     : null
                 }
-                {
+                {/* {
                     details.curb_weight ?
                     <Col xs = "6" md = "3">
                         <Label className = "info-sub-head">Curb Weight</Label> <br/>
                         <Label className = "car-detail">{details.curb_weight}</Label>
                     </Col>
                     : null
-                }
+                } */}
                 {
                     details.doors ?
                     <Col xs = "6" md = "3">
@@ -251,7 +253,7 @@ const Information = (props) => {
                     </Col>
                     : null
                 }
-                {
+                {/* {
                     details.made_in ?
                     <Col xs = "6" md = "3">
                         <Label className = "info-sub-head">Made in Country</Label> <br/>
@@ -268,7 +270,7 @@ const Information = (props) => {
                     : null
                 }
                 {
-                    details.made_in_city ?
+                    details.gross_vehicle_weight_rating ?
                     <Col xs = "6" md = "3">
                         <Label className = "info-sub-head">Gross Vehicle Weight</Label> <br/>
                         <Label className = "car-detail">{details.gross_vehicle_weight_rating}</Label>
@@ -298,7 +300,7 @@ const Information = (props) => {
                         <Label className = "car-detail">{details.overall_width}</Label>
                     </Col>
                     : null
-                }
+                } */}
                 {
                     details.size ?
                     <Col xs = "6" md = "3">
@@ -316,7 +318,7 @@ const Information = (props) => {
                     : null
                 }
                 {
-                    details.standard_seating ?
+                    details.style ?
                     <Col xs = "6" md = "3">
                         <Label className = "info-sub-head">Style</Label> <br/>
                         <Label className = "car-detail">{details.style}</Label>
@@ -339,14 +341,14 @@ const Information = (props) => {
                     </Col>
                     : null
                 }
-                {
+                {/* {
                     details.wheelbase_length ?
                     <Col xs = "6" md = "3">
                         <Label className = "info-sub-head">Wheel Base Length</Label> <br/>
                         <Label className = "car-detail">{details.wheelbase_length}</Label>
                     </Col>
                     : null
-                }
+                } */}
             </Row>
             {/* Information section ends here.*/}
 
