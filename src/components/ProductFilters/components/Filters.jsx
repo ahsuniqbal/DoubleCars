@@ -388,7 +388,6 @@ const Filters = (props) => {
         setCurrentLatLng({ lat: position.coords.latitude, lng: position.coords.longitude });
         // Get zip code from the Google's API using the current lattitude and longitude
         GetZipFromLatLong(latLong).then(doc => {
-            console.log("addasda", doc)
             if(doc.results.length > 0){
                 // Set the fetched zip code into the state variable
                 setZipCode(doc.results[0].address_components[1].long_name + ", " + doc.results[0].address_components[3].short_name + " - " + doc.results[0].address_components[0].long_name);
@@ -465,7 +464,6 @@ const Filters = (props) => {
             var latLong = currentLatLng.lat + "," + currentLatLng.lng;
             // Get zip code from the Google's API using the current lattitude and longitude
             GetZipFromLatLong(latLong).then(doc => {
-                console.log("addasda", doc)
                 if(doc.results.length > 0){
                     // Set the fetched zip code into the state variable
                     setZipCode(doc.results[0].address_components[1].long_name + ", " + doc.results[0].address_components[3].short_name + " - " + doc.results[0].address_components[0].long_name);

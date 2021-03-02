@@ -77,7 +77,7 @@ const LoginSignupModal = (props) => {
                             if(doc.code === 1){
                                 localStorage.setItem('userId',doc.id)
                                 localStorage.setItem('userToken',doc.Token)
-                                props.history.push('/');
+                                window.location.reload();
                             }
                             else{
                                 document.getElementById('signup-error-label').textContent = doc.message
@@ -134,7 +134,7 @@ const LoginSignupModal = (props) => {
                     localStorage.setItem('userToken',doc.Token)
                     Promise.all([localStorage.setItem('userId',doc.ID),localStorage.setItem('userToken',doc.Token)])
                     .then(doc => {
-                        props.history.push('/');
+                        window.location.reload();
                     })
                     .catch(e => {
                         console.log(e.message)
