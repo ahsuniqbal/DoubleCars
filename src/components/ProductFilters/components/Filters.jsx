@@ -388,17 +388,23 @@ const Filters = (props) => {
         setCurrentLatLng({ lat: position.coords.latitude, lng: position.coords.longitude });
         // Get zip code from the Google's API using the current lattitude and longitude
         GetZipFromLatLong(latLong).then(doc => {
-            if(doc.length > 0){
+            console.log("addasda", doc)
+            if(doc.results.length > 0){
                 // Set the fetched zip code into the state variable
-                setZipCode(doc[0].address_components[1].long_name + ", " + doc[0].address_components[3].short_name + " - " + doc[0].address_components[0].long_name);
+                setZipCode(doc.results[0].address_components[1].long_name + ", " + doc.results[0].address_components[3].short_name + " - " + doc.results[0].address_components[0].long_name);
                 // Add the zip code into the filters array
-                filters['zipCode'] = doc[0].address_components[0].long_name;
+                filters['zipCode'] = doc.results[0].address_components[0].long_name;
                 setFilters(filters);
                 FilterQueryString(filters);
             }
             // If the zip code is not available
             else{
-                setZipCode("N/A");
+                var split = doc.plus_code.compound_code.split(" ");
+                console.log(split[1] + split[2] + split[3])
+                setZipCode(split[1] + " " + split[2] + " " + split[3])
+                // console.log(split, "asdadadadadad")
+                // setZipCode(doc.plus_code.compound_code);
+                // setZipCode("N/A");
             }
         })
         .catch(error => {
@@ -459,17 +465,22 @@ const Filters = (props) => {
             var latLong = currentLatLng.lat + "," + currentLatLng.lng;
             // Get zip code from the Google's API using the current lattitude and longitude
             GetZipFromLatLong(latLong).then(doc => {
-                if(doc.length > 0){
+                console.log("addasda", doc)
+                if(doc.results.length > 0){
                     // Set the fetched zip code into the state variable
-                    setZipCode(doc[0].address_components[1].long_name + ", " + doc[0].address_components[3].short_name + " - " + doc[0].address_components[0].long_name);
+                    setZipCode(doc.results[0].address_components[1].long_name + ", " + doc.results[0].address_components[3].short_name + " - " + doc.results[0].address_components[0].long_name);
                     // Add the zip code into the filters array
-                    filters['zipCode'] = doc[0].address_components[0].long_name;
+                    filters['zipCode'] = doc.results[0].address_components[0].long_name;
                     setFilters(filters);
                     FilterQueryString(filters);
                 }
                 // If the zip code is not available
                 else{
-                    setZipCode("N/A");
+                    var split = doc.plus_code.compound_code.split(" ");
+                    console.log(split[1] + " " + split[2] + " " + split[3])
+                    setZipCode(split[1] + " " + split[2] + " " + split[3])
+                    // setZipCode(doc.plus_code.compound_code);
+                    // setZipCode("N/A");
                 }
             })
             .catch(error => {

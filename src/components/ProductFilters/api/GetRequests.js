@@ -52,7 +52,8 @@ export const GetZipFromLatLong = (latLong) => {
     return new Promise((resolve, reject) => {
         var url = GeoCodeString + /*"30.448,-90.752"*/ latLong;
         axios.get(url).then(function(response){
-            const data = response.data.results;
+            console.log('response', response)
+            const data = response.data;
             resolve(data);
         })
         .catch(function(error){
