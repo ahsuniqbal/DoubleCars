@@ -25,12 +25,12 @@ function App() {
 
   // to detect mobile screens 
 
-  const resizeWindow=function(){
-      if (window.innerWidth <= 600) {
-        window.location = "https://www.google.com/";
-      }
-  }
-  window.addEventListener("resize", resizeWindow);
+  // const resizeWindow=function(){
+  //     if (window.innerWidth <= 600) {
+  //       window.location = "https://www.google.com/";
+  //     }
+  // }
+  // window.addEventListener("resize", resizeWindow);
  
 
   return (

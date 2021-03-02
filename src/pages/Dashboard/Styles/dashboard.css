@@ -11,10 +11,18 @@
 .dashboard-toggle-icon{
     color:black !important;
     margin-top: 14px;
+    
 }
-.dashboard-toggle-icon:focus{
-    border: none !important;
+
+#fix-outline>.MuiButtonBase-root:focus{
+    outline: none !important;
 }
 .dashboard-toggle-button:focus{
     border:1px solid transparent !important;
+}
+@media screen and (max-width:1000px){
+    .dashboard-bilkul-main{
+        height:100%;
+        background-color:#F5F6FA !important;
+    }
 }

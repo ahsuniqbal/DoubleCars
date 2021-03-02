@@ -15,6 +15,9 @@ const ProductCard = (props) => {
 
     const [savedProductId, setSavedProductId] = useState(props.isSave);
     const [popupModal, setPopupModal] = useState(false);
+    const [alreadySave,setAlreadySave]=useState(false)
+    const [counter,setCounter]=useState(0)
+
     const popupToggle = () => setPopupModal(!popupModal);
 
     const saveCarFunc = (productId) => {
@@ -26,30 +29,43 @@ const ProductCard = (props) => {
             alert('You need to login First')
             return
         }
+        
         const obj = {
             productId,userId
         }
-        postSaveCar(obj)
-        .then(doc => {
-            console.log(doc)
-            if(doc.code==-1){
-                // condition to remove car from save cars page
-                if(window.location.pathname=='/saved-cars')
-                {
-                    window.location.reload()
-                }
-                else{
-                    console.log(doc.message)
-                }
+        
+            postSaveCar(obj)
+            .then(doc => {
+                console.log(doc)
                 
-            }
-            else{
-                setSavedProductId(doc.saveId)
-            }
-        })
-        .catch(e => {
-            console.log(e.message)
-        })
+                if( doc.code==-1){
+                    // setCounter(counter+1)
+                    //  to remove car from save cars page
+                   
+                    if(window.location.pathname=='/saved-cars')
+                    {
+                    
+                        window.location.reload()
+                    }
+                    else{
+                        alert(doc.message)
+                    }
+                    
+                }
+                else {
+                    setSavedProductId(doc.saveId)  
+                 }
+            
+                // else if(window.location.pathname!=='/saved-cars' && !alreadySave){
+                //    setSavedProductId(doc.saveId)  
+                //    setAlreadySave(false)
+                // }
+            })
+            .catch(e => {
+                console.log(e.message)
+            })
+        
+       
     }
 
 
