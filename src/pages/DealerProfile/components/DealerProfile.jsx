@@ -6,7 +6,7 @@ import Filters from '../../../components/ProductFilters/components/Filters';
 import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
-import { GetSellerDetails, GetSellerInventory } from '../api/GetRequests';
+import { GetSellerDetails, GetSellerInventory, GetSearchResult } from '../api/GetRequests';
 
 const ShowSearchResults = (inventory) => {
     var table = [];
@@ -15,11 +15,11 @@ const ShowSearchResults = (inventory) => {
             <Col key={inventory[i].productId} data-aos="fade-up" xs="12" sm="6" md="4">
                 <ProductCard
                     productId={inventory[i].productId}
-                    productTitle={inventory[i].yearCar + " " + inventory[i].carModel + " " + inventory[i].carMake}
+                    productTitle={inventory[i].carName}
                     productSubtitle={AddCommaToNumber(inventory[i].mileage) + " mileage · " + inventory[i].zipCode}
                     productText={"$" + AddCommaToNumber(inventory[i].price)}
                     productImg={inventory[i].coverPic}
-                    productName={inventory[i].yearCar + " " + inventory[i].carModel + " " + inventory[i].carMake}
+                    productName={inventory[i].carName}
                     productBadge={"TRENDING"}
                     userId={inventory[i].userId}
                     allowBookmark={true} />
@@ -31,9 +31,76 @@ const ShowSearchResults = (inventory) => {
 
 const DealerProfile = ({match}) => {
     const [dealer, setDealer] = useState(null);
-    const [inventory, setInventory] = useState(null);
+    const [inventory, setInventory] = useState([]);
     const [sortFlag, setSortFlag] = useState(false);
+
+
+    // Copying from products page
+    const [pageNumber, setPageNumber] = useState(0);
+    const [isBottom, setIsBottom] = useState(false);
+    const [flag, setFlag] = useState(false)
+    const [booleanFlag, setBooleanFlag] = useState(false);
+    const [globalQuery,setGloableQuery] = useState("")
     
+
+    const handleScroll = () => {
+        const scrollTop = (document.documentElement
+            && document.documentElement.scrollTop)
+            || document.body.scrollTop;
+        const scrollHeight = (document.documentElement
+            && document.documentElement.scrollHeight)
+            || document.body.scrollHeight;
+        if (scrollTop + window.innerHeight + 70 >= scrollHeight){
+            // console.log('page called')
+            // var page = pageNumber
+            // console.log(page)
+            // page++;
+            // console.log(page)
+            setPageNumber(pageNumber + 1)
+            setIsBottom(!isBottom);
+        }
+    }
+
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        // return () => window.removeEventListener('scroll', handleScroll);
+      }, [isBottom]);
+
+
+
+    useEffect(() => {
+        var tempStr = ""
+        const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
+        // if(locationSearch.search){
+        //     tempStr += `search=${locationSearch.search}&page=${pageNumber}&${globalQuery}`
+        // }else{
+            tempStr += `page=${pageNumber}&${globalQuery}&id=${userId}`
+        // }
+        // tempStr += `&id=${userId}`
+
+        console.log("QQUERY",tempStr)
+        GetSearchResult(tempStr).then(doc => {
+            if(inventory.length > 0){
+                setBooleanFlag(false);
+                var temp = inventory
+                for(let i = 0; i < doc.length; i++){
+                    temp.push(doc[i])
+                }
+                setInventory(temp);
+            }else{
+                setInventory(doc);
+                setBooleanFlag(true);
+            }
+            setFlag(!flag)
+        })
+        .catch(error => {
+            console.log(error.message);
+        });
+    
+    }, [isBottom]);
+
+
     useEffect(() => {
         GetSellerDetails(match.params.id).then(doc => {
             setDealer(doc[0]);
@@ -51,22 +118,25 @@ const DealerProfile = ({match}) => {
 
 
     const filterQueryChange = (queryStr) => {
-        // var str = ""
-        // const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
+        console.log(queryStr);
+        setGloableQuery(queryStr)
+        var str = ""
+        const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         // if(locationSearch.search){
         //     str = `search=${locationSearch.search}&page=${pageNumber}&${queryStr}`
         // }else{
-        //     str = `page=${pageNumber}&${queryStr}`
+            str = `page=${pageNumber}&${queryStr}&id=${userId}`
         // }
         // str += `&id=${userId}`
-        // GetSearchResult(str).then(doc => {
-        //     console.log("doc",doc)
-        //     setProducts(doc)
-        //     setFlag(!flag)
-        // })
-        // .catch(error => {
-        //     alert(error.message);
-        // });
+        console.log("QQUERY",str)
+        GetSearchResult(str).then(doc => {
+            console.log("doc",doc)
+            setInventory(doc)
+            setFlag(!flag)
+        })
+        .catch(error => {
+            console.log(error.message);
+        });
     }
 
 
@@ -89,6 +159,7 @@ const DealerProfile = ({match}) => {
                 <Col md = "3" style = {{marginTop: '6rem'}}>
                     <Filters
                         onFilterChange={filterQueryChange}
+                        // search={"audi"}
                     />
                 </Col>
                 <Col md = "9" style = {{marginTop: '2rem'}}>
@@ -132,7 +203,8 @@ const DealerProfile = ({match}) => {
                     </Row>
                     <Row>
                         {
-                            inventory ? ShowSearchResults(inventory) : null
+                            inventory.length > 0 ? ShowSearchResults(inventory) : 
+                            booleanFlag ? <h2 className="text-center">No result found</h2> : "loading..."
                         }
                     </Row>
                 </Col>
