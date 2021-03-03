@@ -2,6 +2,7 @@ import React,{useEffect,useState} from "react"
 import { Link, NavLink } from "react-router-dom";
 import "../styles/NavigationBar.css"
 import DCLogo from '../../../assets/DCNewlogo.svg'
+import DCWhiteLogo from '../../../assets/DCWhiteLogo.svg'
 import {Input, InputGroup ,Form,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
 import NavbarSearchIcon from '../../../assets/NavbarSearchIcon.svg'
 import socketIOClient from "socket.io-client";
@@ -108,9 +109,20 @@ const NavigationBar = () => {
     }
     return (
         <div style={{display:window.location.pathname=='/dashboard' && 'none'}}> 
-            <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top navigation-bar-box">
+            <nav className="navbar navbar-expand-lg navbar-light fixed-top navigation-bar-box"
+                // to change style on full view header page
+                style={{
+                    boxShadow: window.location.pathname=='/fullviewheader' ? 'none' : '0px 4px 4px rgba(0, 0, 0, 0.03)',
+                    backgroundColor:window.location.pathname=='/fullviewheader' ? '#1C67CE ' : '#ffffff',
+                    padding: '1.1rem 1rem 1.1rem 0 ',
+                }}
+            >
                 <Link to="/">
-                    <img  src = {DCLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px" />
+                    {window.location.pathname=='/fullviewheader' ?
+                    <img  src = {DCWhiteLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px" /> :
+                    <img  src = {DCLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px" />    
+                }
+                    
                 </Link>
                 <button className="navbar-toggler"
                     type="button"
@@ -125,27 +137,32 @@ const NavigationBar = () => {
                 <div className="collapse navbar-collapse navigation-bar" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <a className="nav-link navigation-items"  href='/products?isUsed=false'>
+                            <a className={window.location.pathname!=='/fullviewheader' ? "nav-link navigation-items" : 'nav-link white-navigation-item'}
+                              href='/products?isUsed=false'>
                                     {window.location.search=='?isUsed=false' ?
                                     <span style={styleDiv}>New Cars</span>:
                                     <span >New Cars</span>}
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link navigation-items" href='/products?isUsed=true'>
+                            <a className={window.location.pathname!=='/fullviewheader' ? "nav-link navigation-items" : 'nav-link white-navigation-item'}
+                                     href='/products?isUsed=true'>
                                      {window.location.search=='?isUsed=true' ?
                                     <span style={styleDiv}>Used Cars</span>:
                                     <span >Used Cars</span>}
                             </a>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/blogs'}>Blog</NavLink>
+                            <NavLink className={window.location.pathname!=='/fullviewheader' ? "nav-link navigation-items" : 'nav-link white-navigation-item'}
+                             id='nav-link-id' to= {'/blogs'}>Blog</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" id='nav-link-id' to= {'/about'}>About</NavLink>
+                            <NavLink className={window.location.pathname!=='/fullviewheader' ? "nav-link navigation-items" : 'nav-link white-navigation-item'}
+                             id='nav-link-id' to= {'/about'}>About</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link navigation-items" id='nav-link-id' to={'/contactus'}>Contact</NavLink>
+                            <NavLink className={window.location.pathname!=='/fullviewheader' ? "nav-link navigation-items" : 'nav-link white-navigation-item'}
+                            id='nav-link-id' to={'/contactus'}>Contact</NavLink>
                         </li>
                        
                         <li className="nav-item">
@@ -176,7 +193,9 @@ const NavigationBar = () => {
 
                             {/* show this when user is login and route is profile */}
                             {
-                            localStorage.getItem("userId") ?  <li className="profile-nav-item">
+                            localStorage.getItem("userId") &&
+                            window.location.pathname !== '/fullviewheader'
+                            ?  <li className="profile-nav-item">
                              <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className='dropdown-toggle-image'>
                                     {profilePic ? <img className="img-fluid profile-navbar-image" src={profilePic}/> : <User size={25} className="mt-2" /> }

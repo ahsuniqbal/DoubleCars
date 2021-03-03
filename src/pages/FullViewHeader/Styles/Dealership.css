@@ -1,0 +1,87 @@
+.dealership-main-div{
+    background-color: white
+}
+.dealership-main-top-div{
+    padding-top: 108px;
+    padding-bottom: 10px;
+}
+.dealership-heading{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+
+}
+.dealership-text{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.65);
+}
+/* 2nd portion */
+.dealership-center-main{
+    padding: 3rem 4rem 0 2rem;
+}
+.dealership-center-col{
+    padding: 2rem 7rem 0;
+}
+.dealership-image-text-main{
+    margin: 2rem 0rem;
+}
+.dealership-image-text{
+    display: flex;
+}
+.contract-img{
+    width: 20px;
+    height: 20px;
+}
+.inner-dealership-head{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.85);
+    margin-left: 10px;
+}
+.inner-dealership-text{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+/* image section */
+.dealership-images-div{
+    position: relative;
+    height: 645px;
+    margin-left: -2rem;
+}
+.light-blue-dealership{
+    position: absolute;
+}
+.dark-blue-dealership{
+    position: absolute;
+    margin: 5rem;
+}
+.mob-img-dealership{
+    position: absolute;
+    margin: -2rem 5.5rem 0;
+    transition: transform 500ms !important;
+}
+.mob-img-dealership:hover{
+    transform: scale(1.01);
+}
+/* third section */
+.dealership-center-col-third{
+    padding-left: 10rem;
+    padding-top: 2rem;
+}
