@@ -2,6 +2,10 @@ nav {
     position: relative !important;
 }
 
+.main-chat-row {
+    border-color: aqua !important;
+}
+
 .chatlist-col {
     margin-top: 2rem;
 }
