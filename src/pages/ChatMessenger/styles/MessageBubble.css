@@ -19,14 +19,14 @@
 }
 
 .message-bubble.sent, .message-bubble-img.sent {
-    background-color: #1C67CE;
-    color: #FFFFFF;
+    background-color: #EFF1F4;
+    color: rgba(0, 0, 0, 0.85);
     margin-right: auto;
 }
 
 .message-bubble.received, .message-bubble-img.received {
-    background-color: #EFF1F4;
-    color: rgba(0, 0, 0, 0.85);
+    background-color: #1C67CE;
+    color: #FFFFFF;
     margin-left: auto;
 }
 

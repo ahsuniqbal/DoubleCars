@@ -97,7 +97,7 @@ const Toolbar = (props) => {
 
                     <Col xs="2">
                         <Star color="rgba(0, 0, 0, 0.25)" size={20} />
-                        <Trash2 color="#E84D4D" size={20} />
+                        {/* <Trash2 color="#E84D4D" size={20} /> */}
                     </Col>
                 </Row>
             </CardBody>
