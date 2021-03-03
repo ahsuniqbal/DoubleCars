@@ -177,6 +177,23 @@ const Filters = (props) => {
         }
     }
 
+
+    const handleTrim = (selected) => {
+        console.log(selected)
+        setSelectedTrims(selected);
+        if(selected.length > 0){            
+            filters['trim'] = concatinateCommaToFilters(selected);
+            setFilters(filters);
+            FilterQueryString(filters);
+        }
+        else {
+            delete filters['trim']
+            setFilters(filters);
+            FilterQueryString(filters);
+        }
+
+    }
+
     const handlePrice = (price) => {
         setPrice(price);
         filters['minPrice'] = price[0];
@@ -613,7 +630,7 @@ const Filters = (props) => {
                                     <MultiSelect
                                         options={concatTrimList(trimList)}
                                         selected={selectedTrims}
-                                        onSelectedChanged={(console.log("trim"))} />
+                                        onSelectedChanged={selected => { handleTrim (selected) }} />
                                 </Collapse>
                             </Collapse>
 

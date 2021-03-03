@@ -36,6 +36,7 @@ export const GetTrimFromMakeAndModel = (makeId, modelId) => {
     return new Promise((resolve, reject) => {
         var url = vinAuditString + "&list=make+model+trim&make=" + makeId + "&model=" + modelId;
         axios.get(url).then(function(response){
+            console.log(response.data)
             const data = response.data.selections;
             resolve(data);
         })
