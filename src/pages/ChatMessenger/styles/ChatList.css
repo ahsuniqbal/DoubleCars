@@ -1,8 +1,10 @@
 .chat-list {
     background-color: #ffffff;
-    border-right: 1px solid rgba(0, 0, 0, 0.125);
-    border-top: 1px solid rgba(0, 0, 0, 0.125);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    border-right: 1px solid #E9E9E9;
+    border-top: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
+    border-left: 1px solid#E9E9E9;
+    border-radius: 6px 0px 0px 6px;
     min-height: 100%;
 }
 
@@ -11,6 +13,18 @@
     font-size: 24px;
     line-height: 28px;
     color: rgba(0, 0, 0, 0.85);
+}
+
+.chat-list-search-box::placeholder{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.45);
+}
+.chat-list-search-box {
+    height: 48px !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
 }
 
 .chat-list .input-group-text {

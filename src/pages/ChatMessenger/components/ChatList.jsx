@@ -68,7 +68,7 @@ const ChatList = () => {
         <Row className="chat-list">
             <Col xs="12" style={{padding: '0'}}>
                 <div style={{padding: '20px'}}>
-                    <Row>
+                    <Row style={{marginTop: '10px'}}>
                         <Col xs="10">
                             <h2>Messages</h2>
                         </Col>

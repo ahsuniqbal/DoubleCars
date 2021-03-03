@@ -14,12 +14,12 @@ const Chat = () => {
         <NavigationBar />
         <Container>
             
-            <Row>
+            <Row className = "main-chat-row">
                 <Col md="3" className="chatlist-col" >
                     <ChatList />
                 </Col>
 
-                <Col md="6" style={{padding: '0', marginTop: '2rem'}}>
+                <Col md="6" style={{padding: '0', borderRadius: '2rem', marginTop: '2rem'}}>
                     <ChatView />
                 </Col>
 

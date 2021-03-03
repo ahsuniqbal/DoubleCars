@@ -2,6 +2,10 @@
     border-radius: 0;
     border-left: 0;
     border-right: 0;
+   
+    border-top: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
+   
 }
 
 .toolbar h6 {
