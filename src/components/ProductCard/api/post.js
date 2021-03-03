@@ -7,7 +7,6 @@ export const postSaveCar = (obj) => {
         axios.post(url,obj)
         .then(function (response) {
             // handle success
-            console.log('post',response)
         const data = response.data.results;
         let updatedData = data
         resolve(updatedData)

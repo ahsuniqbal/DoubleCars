@@ -11,7 +11,7 @@ export const GetProductDetails = (id) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };
@@ -27,7 +27,7 @@ export const GetSellerDetails = (id) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };
@@ -36,6 +36,23 @@ export const GetSellerDetails = (id) => {
 export const GetRecommendationsTrendings = (id) => {
     return new Promise((resolve, reject) => {
         var url = connectionString + "home/part-two?id=" + id;
+        axios.get(url).then(function(response){
+            const data = response.data.results;
+            
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            console.log("Error: ", error);
+        })
+    })
+};
+
+
+export const GetIfSaved = (productId, userId) => {
+    return new Promise((resolve, reject) => {
+        var url = connectionString + "products/" + productId + "?id=" + userId;
         axios.get(url).then(function(response){
             const data = response.data.results;
             

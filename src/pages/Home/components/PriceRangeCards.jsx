@@ -22,7 +22,7 @@ const PriceRangeCards1 = () => {
               
             })
             .catch(error => {
-                alert(error.message);
+                console.log(error.message);
             });
         }, []);
 
@@ -69,7 +69,7 @@ const PriceRangeCards2 = () => {
                 setList(doc)
             })
             .catch(error => {
-                alert(error.message);
+                console.log(error.message);
             });
         }, []);
 
@@ -115,7 +115,7 @@ const PriceRangeCards3 = () => {
                 setList(doc)
             })
             .catch(error => {
-                alert(error.message);
+                console.log(error.message);
             });
         }, []);
 
@@ -161,7 +161,7 @@ const PriceRangeCards4 = () => {
                 setList(doc)
             })
             .catch(error => {
-                alert(error.message);
+                console.log(error.message);
             });
         }, []);
 
@@ -207,7 +207,7 @@ const PriceRangeCards5 = () => {
                 setList(doc)
             })
             .catch(error => {
-                alert(error.message);
+                console.log(error.message);
             });
         }, []);
 

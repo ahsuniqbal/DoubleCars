@@ -135,29 +135,63 @@ const Filters = (props) => {
     }
 
     const handleMake = (make) => {
-        GetModelFromMake(make).then(doc => {
-            setModelList(doc.makes[0].models);
-            setSelectedMake(make);
-            filters['carMake'] = make;
-            setFilters(filters);
-            FilterQueryString(filters);
-        })
-        .catch(error => {
-            alert("Error fetching models");
-        });
+        console.log("make",make)
+        setSelectedMake(make);
+        if(make){
+            GetModelFromMake(make).then(doc => {
+                setModelList(doc.makes[0].models);
+                filters['carMake'] = make;
+                setFilters(filters);
+                FilterQueryString(filters);
+            })
+            .catch(error => {
+                console.log(error.message)
+            });
+        }else{
+            setModelList([]);
+        }
+        
     }
 
     const handleModel = (select) => {
+        setSelectedModels(select);
+        if(select.length > 0){
+        setTrimCollapseOpen(true);
+        
         GetTrimFromMakeAndModel(selectedMake, select[select.length - 1]).then(doc => {
             // trimList.push(doc.makes[0].models[0].trims)
             setTrimList(doc.makes[0].models[0].trims)
         }).catch(error => {
-            alert("Error fetching trims");
+            console.log(error.message)
         });
-        setSelectedModels(select);
         filters['carModel'] = concatinateCommaToFilters(select);
         setFilters(filters);
         FilterQueryString(filters);
+        }else{
+            // console.log('filters1',filters)
+            delete filters['carModel']
+            // console.log('filters2',filters)
+            setFilters(filters);
+            FilterQueryString(filters);
+            setTrimCollapseOpen(false);
+        }
+    }
+
+
+    const handleTrim = (selected) => {
+        console.log(selected)
+        setSelectedTrims(selected);
+        if(selected.length > 0){            
+            filters['trim'] = concatinateCommaToFilters(selected);
+            setFilters(filters);
+            FilterQueryString(filters);
+        }
+        else {
+            delete filters['trim']
+            setFilters(filters);
+            FilterQueryString(filters);
+        }
+
     }
 
     const handlePrice = (price) => {
@@ -185,15 +219,15 @@ const Filters = (props) => {
     const handleCondition = () => {
         var conditionNew = document.getElementById('condition-new');
         var conditionUsed = document.getElementById('condition-used');
-
+        console.log("Checing",conditionNew.checked,conditionUsed.checked)
         if(conditionNew.checked === true && conditionUsed.checked === true) {
             delete filters['isUsed'];
         }
         else if (conditionNew.checked === true) {
-            filters['isUsed'] = false;
+            filters['isUsed'] = 0;
         }
         else if (conditionUsed.checked === true) {
-            filters['isUsed'] = true;
+            filters['isUsed'] = 1;
         }
         else {
             delete filters['isUsed'];
@@ -388,21 +422,26 @@ const Filters = (props) => {
         setCurrentLatLng({ lat: position.coords.latitude, lng: position.coords.longitude });
         // Get zip code from the Google's API using the current lattitude and longitude
         GetZipFromLatLong(latLong).then(doc => {
-            if(doc.length > 0){
+            if(doc.results.length > 0){
                 // Set the fetched zip code into the state variable
-                setZipCode(doc[0].address_components[0].long_name);
+                setZipCode(doc.results[0].address_components[1].long_name + ", " + doc.results[0].address_components[3].short_name + " - " + doc.results[0].address_components[0].long_name);
                 // Add the zip code into the filters array
-                filters['zipCode'] = doc[0].address_components[0].long_name;
+                filters['zipCode'] = doc.results[0].address_components[0].long_name;
                 setFilters(filters);
                 FilterQueryString(filters);
             }
             // If the zip code is not available
             else{
-                setZipCode("N/A");
+                var split = doc.plus_code.compound_code.split(" ");
+                console.log(split[1] + split[2] + split[3])
+                setZipCode(split[1] + " " + split[2] + " " + split[3])
+                // console.log(split, "asdadadadadad")
+                // setZipCode(doc.plus_code.compound_code);
+                // setZipCode("N/A");
             }
         })
         .catch(error => {
-            alert(error.message);
+            console.log(error.message);
         });
     }
     
@@ -442,10 +481,8 @@ const Filters = (props) => {
             setFiltersList(doc.listRanges);
             setPrice([0, doc.listRanges.ranges[0].maxPrice]);
             handleCondition();
-
-            
         }).catch(error => {
-            alert(error.message);
+            console.log(error.message);
         })
 
         // Get the current location using HTML Geo location
@@ -459,21 +496,24 @@ const Filters = (props) => {
             var latLong = currentLatLng.lat + "," + currentLatLng.lng;
             // Get zip code from the Google's API using the current lattitude and longitude
             GetZipFromLatLong(latLong).then(doc => {
-                if(doc.length > 0){
+                if(doc.results.length > 0){
                     // Set the fetched zip code into the state variable
-                    setZipCode(doc[0].address_components[0].long_name);
+                    setZipCode(doc.results[0].address_components[1].long_name + ", " + doc.results[0].address_components[3].short_name + " - " + doc.results[0].address_components[0].long_name);
                     // Add the zip code into the filters array
-                    filters['zipCode'] = doc[0].address_components[0].long_name;
+                    filters['zipCode'] = doc.results[0].address_components[0].long_name;
                     setFilters(filters);
                     FilterQueryString(filters);
                 }
                 // If the zip code is not available
                 else{
-                    setZipCode("N/A");
+                    var split = doc.plus_code.compound_code.split(" ");
+                    setZipCode(split[1] + " " + split[2] + " " + split[3])
+                    // setZipCode(doc.plus_code.compound_code);
+                    // setZipCode("N/A");
                 }
             })
             .catch(error => {
-                alert(error.message);
+                console.log(error.message);
             });
         }
     }, [currentLatLng]);
@@ -580,7 +620,7 @@ const Filters = (props) => {
                                 <MultiSelect
                                     options={concatModelList(modelList)}
                                     selected={selectedModels}
-                                    onSelectedChanged={selected => { setTrimCollapseOpen(true); handleModel(selected) }} />
+                                    onSelectedChanged={selected => {  handleModel(selected) }} />
                                 
 
                                 {/******** Trim filter, trim list will be 
@@ -590,7 +630,7 @@ const Filters = (props) => {
                                     <MultiSelect
                                         options={concatTrimList(trimList)}
                                         selected={selectedTrims}
-                                        onSelectedChanged={(console.log("trim"))} />
+                                        onSelectedChanged={selected => { handleTrim (selected) }} />
                                 </Collapse>
                             </Collapse>
 

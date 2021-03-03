@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, HashRouter as Router, Route } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -25,12 +25,12 @@ function App() {
 
   // to detect mobile screens 
 
-  const resizeWindow=function(){
-      if (window.innerWidth <= 600) {
-        window.location = "https://www.google.com/";
-      }
-  }
-  window.addEventListener("resize", resizeWindow);
+  // const resizeWindow=function(){
+  //     if (window.innerWidth <= 600) {
+  //       window.location = "https://www.google.com/";
+  //     }
+  // }
+  // window.addEventListener("resize", resizeWindow);
  
 
   return (

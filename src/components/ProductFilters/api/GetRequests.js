@@ -11,7 +11,7 @@ export const GetAllMakes = () => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };
@@ -26,7 +26,7 @@ export const GetModelFromMake = (makeId) => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };
@@ -36,13 +36,14 @@ export const GetTrimFromMakeAndModel = (makeId, modelId) => {
     return new Promise((resolve, reject) => {
         var url = vinAuditString + "&list=make+model+trim&make=" + makeId + "&model=" + modelId;
         axios.get(url).then(function(response){
+            console.log(response.data)
             const data = response.data.selections;
             resolve(data);
         })
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };
@@ -52,13 +53,13 @@ export const GetZipFromLatLong = (latLong) => {
     return new Promise((resolve, reject) => {
         var url = GeoCodeString + /*"30.448,-90.752"*/ latLong;
         axios.get(url).then(function(response){
-            const data = response.data.results;
+            const data = response.data;
             resolve(data);
         })
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };
@@ -73,7 +74,7 @@ export const GetFiltersList = () => {
         .catch(function(error){
             let updatedData = false;
             resolve(updatedData);
-            alert(error.message);
+            console.log(error.message);
         })
     })
 };

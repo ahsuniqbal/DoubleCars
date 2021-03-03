@@ -5,6 +5,10 @@ import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import {getSaveCars} from '../api/Get'
 import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
+import 'photoswipe/dist/photoswipe.css'
+import 'photoswipe/dist/default-skin/default-skin.css'
+
+import { Gallery, Item } from 'react-photoswipe-gallery'
 
 // const ShowSearchResults = (products) => {
 //     var table = [];
@@ -45,6 +49,7 @@ import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
 const  SavedCars = () => {
     const [savedCars,setSavedCars] = useState([])
     const [sortFlag, setSortFlag] = useState(false);
+    
     useState(() => {
         var userId = localStorage.getItem('userId')
         //var userId = 73
@@ -53,6 +58,7 @@ const  SavedCars = () => {
             console.log(doc)
             if(doc.length > 0){
                 setSavedCars(doc)
+             
             }
         })
         .catch(e => {
@@ -61,6 +67,8 @@ const  SavedCars = () => {
     },[])
 
     const renderSaveCars = (list) => {
+        
+    
         var table = [];
         for(let i = 0; i < list.length; i++){
             table.push(
@@ -81,12 +89,13 @@ const  SavedCars = () => {
                     // dealerRating={Math.floor(Math.random() * (5 * 100 - 1 * 100) + 1 * 100) / (1*100)}
                     allowBookmark={true}
                     />
+                    
                 </Col>
             )
         }
+
         return table
     }
-
     function ProductSorting(sortingType){
         if(sortingType === "relevance"){
             setSavedCars(SortByRelevance(savedCars));
@@ -103,7 +112,7 @@ const  SavedCars = () => {
             <Container clsssName = "saved-container">
                 <Row  className = "saved-car-col">
                     <Col xs = "12" md = "8">
-                    <h2 className = "saved-car-label">Saved Cars <span className='saved-car-count'>{savedCars ? savedCars.length : null}</span></h2>
+                    <h2 className = "saved-car-label">Saved Searches <span className='saved-car-count'>{savedCars ? savedCars.length : null}</span></h2>
                     </Col>
                     <Col md="2">
                         <Label className="float-right mt-2">Sort by</Label>
@@ -116,11 +125,19 @@ const  SavedCars = () => {
                     </Col>
                 </Row>
                 
-                <Row>
+                
+                 <Row>
                     {
                         savedCars ? renderSaveCars(savedCars) : "No List"
                     }
                </Row>
+               {/* <Row>
+                    {
+                        savedCars ? MyGallery(savedCars) : "No List"
+                    }
+               </Row>  */}
+                    
+                     
             </Container>
             {/* <Container clsssName = "saved-container">
                 <Row>
