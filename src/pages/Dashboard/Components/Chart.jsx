@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { Label, Input, Row, Col, ListGroup,ListGroupItem,UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import DownArrow from '../../../assets/DownArrow.png';
-import ChartDisplay from '../../../assets/viewChart.png';
-import FormLabel from '@material-ui/core/FormLabel';
+import ChartDisplay from '../../../assets/DashboardChartDisplay.png';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';

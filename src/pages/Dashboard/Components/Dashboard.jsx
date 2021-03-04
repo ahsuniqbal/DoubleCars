@@ -119,10 +119,12 @@ export default function Deashboard() {
     setCounter(counter+1)
   };
 
-
+// drawer open close on mobile view
   const handleDrawerToggle1 = () => {
     setMobileOpenResponsive(!mobileOpenResponsive);
   };
+
+ 
   return (
     // dashboard appbar / sidebar handling
     <div className='dashboard-bilkul-main'>

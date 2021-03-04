@@ -13,7 +13,9 @@
     margin-top: 14px;
     
 }
-
+#fix-outline{
+    padding-bottom: 0.5rem;
+}
 #fix-outline>.MuiButtonBase-root:focus{
     outline: none !important;
 }
