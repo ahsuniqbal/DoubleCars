@@ -10,7 +10,7 @@
 .dashboard-chart-brop-button{
     width: 216px;
     height: 48px;
-    background: #F5F5F5;
+    background: #F5F5F5 !important;
     border-radius: 6px;
     color: #333333 !important;
     border: none  !important;
@@ -19,6 +19,9 @@
     background: #F5F5F5 !important;
     color: #333333 !important;
     border: none  !important;
+}
+.dashboard-chart-brop-button:focus{
+    box-shadow: none !important;
 }
 .dashboard-chart-downArrow{
     float:right;
@@ -34,8 +37,7 @@
     padding:1rem 3.9rem;
 }
 .chart-image{
-    width: 95%;
-    margin: 4px 4px 12px;
+       margin: 4px 80px 12px;
 }
 .dashboard-checkbox{
     float: right;

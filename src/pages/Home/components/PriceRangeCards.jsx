@@ -39,7 +39,7 @@ const PriceRangeCards1 = () => {
                 {filterPrice1 && filterPrice1.map((items,index)=>{
                     console.log("Curr", items)
                     return(
-                        <Grid item md={3} >
+                        <Grid item md={3} key={index}>
                             <Card className='main-card'  onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>
@@ -85,7 +85,7 @@ const PriceRangeCards2 = () => {
             <Grid container >
                 {filterPrice2 && filterPrice2.map((items,index)=>{
                     return(
-                        <Grid item md={3} >
+                        <Grid item md={3} key={index}>
                             <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>
@@ -131,7 +131,7 @@ const PriceRangeCards3 = () => {
             <Grid container >
                 {filterPrice3 && filterPrice3.map((items,index)=>{
                     return(
-                        <Grid item md={3} >
+                        <Grid item md={3} key={index}>
                             <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>
@@ -177,7 +177,7 @@ const PriceRangeCards4 = () => {
             <Grid container >
                 {filterPrice4 && filterPrice4.map((items,index)=>{
                     return(
-                        <Grid item md={3} >
+                        <Grid item md={3} key={index}>
                             <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>
@@ -223,7 +223,7 @@ const PriceRangeCards5 = () => {
             <Grid container >
                 {filterPrice5 && filterPrice5.map((items,index)=>{
                     return(
-                        <Grid item md={3} >
+                        <Grid item md={3} key={index}>
                             <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>

@@ -108,17 +108,17 @@ const NavigationBar = () => {
         color:'#1C67CE',
     }
     return (
-        <div style={{display:window.location.pathname=='/dashboard' && 'none'}}> 
+        <div style={{display:window.location.pathname==='/dashboard' && 'none'}}> 
             <nav className="navbar navbar-expand-lg navbar-light fixed-top navigation-bar-box"
                 // to change style on full view header page
                 style={{
-                    boxShadow: window.location.pathname=='/fullviewheader' ? 'none' : '0px 4px 4px rgba(0, 0, 0, 0.03)',
-                    backgroundColor:window.location.pathname=='/fullviewheader' ? '#1C67CE ' : '#ffffff',
+                    boxShadow: window.location.pathname==='/fullviewheader' ? 'none' : '0px 4px 4px rgba(0, 0, 0, 0.03)',
+                    backgroundColor:window.location.pathname==='/fullviewheader' ? '#1C67CE ' : '#ffffff',
                     padding: '1.1rem 1rem 1.1rem 0 ',
                 }}
             >
                 <Link to="/">
-                    {window.location.pathname=='/fullviewheader' ?
+                    {window.location.pathname==='/fullviewheader' ?
                     <img  src = {DCWhiteLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px" /> :
                     <img  src = {DCLogo} alt = "Logo" className = "double-car-logo" width = "144px" height = "28px" />    
                 }
@@ -139,7 +139,7 @@ const NavigationBar = () => {
                         <li className="nav-item">
                             <a className={window.location.pathname!=='/fullviewheader' ? "nav-link navigation-items" : 'nav-link white-navigation-item'}
                               href='/products?isUsed=false'>
-                                    {window.location.search=='?isUsed=false' ?
+                                    {window.location.search==='?isUsed=false' ?
                                     <span style={styleDiv}>New Cars</span>:
                                     <span >New Cars</span>}
                             </a>
@@ -147,7 +147,7 @@ const NavigationBar = () => {
                         <li className="nav-item">
                             <a className={window.location.pathname!=='/fullviewheader' ? "nav-link navigation-items" : 'nav-link white-navigation-item'}
                                      href='/products?isUsed=true'>
-                                     {window.location.search=='?isUsed=true' ?
+                                     {window.location.search==='?isUsed=true' ?
                                     <span style={styleDiv}>Used Cars</span>:
                                     <span >Used Cars</span>}
                             </a>
@@ -169,7 +169,7 @@ const NavigationBar = () => {
                             {/* <NavLink className="nav-link download-button" to="">Download App</NavLink> */}
                             <Form onSubmit={(e) => TopSearch(e)}>
                             <InputGroup className="search-group">
-                                <img src = {NavbarSearchIcon} className = "search-icon-image"/>
+                                <img src = {NavbarSearchIcon} alt='seach-bar' className = "search-icon-image"/>
                                 <Input className="search-box" type="text" placeholder="Search" id='top-search-box' />
                             </InputGroup>
                                 {/* <InputGroup className="search-group">
@@ -198,11 +198,11 @@ const NavigationBar = () => {
                             ?  <li className="profile-nav-item">
                              <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret className='dropdown-toggle-image'>
-                                    {profilePic ? <img className="img-fluid profile-navbar-image" src={profilePic}/> : <User size={25} className="mt-2" /> }
+                                    {profilePic ? <img className="img-fluid profile-navbar-image" alt='profile-pic' src={profilePic}/> : <User size={25} className="mt-2" /> }
                                 </DropdownToggle>
                                      
                                 <DropdownMenu right className='dropdown-menu'>
-                                    <DropdownItem className='dropdown-arrow' disabled><img src={AppbarDropdown} className='dropdown-arrow-pic'/> </DropdownItem>
+                                    <DropdownItem className='dropdown-arrow' disabled><img src={AppbarDropdown} alt='' className='dropdown-arrow-pic'/> </DropdownItem>
                                     <DropdownItem disabled className='navigation-profile-name'>{userName}</DropdownItem>
                                     <DropdownItem onClick={() => history.push('/profile')} className='navigation-profile-item'>Edit Profile</DropdownItem>
                                     <DropdownItem divider />

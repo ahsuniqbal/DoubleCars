@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { Label, Input, Row, Col, ListGroup,ListGroupItem,UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import DownArrow from '../../../assets/DownArrow.png';
-import ChartDisplay from '../../../assets/ChartDisplay.PNG';
+import ChartDisplay from '../../../assets/viewChart.png';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -34,7 +34,7 @@ function Chart (){
 
             <Row>
                 <Col lg='7'>
-                    <img  src={ChartDisplay} className='chart-image'/>
+                    <img  src={ChartDisplay} alt='chart' className='chart-image'/>
                 </Col>
                 <Col  lg='4' className='label-checkbox-col'>
             

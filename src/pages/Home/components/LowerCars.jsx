@@ -142,9 +142,9 @@ const LowerCar = (props) => {
             <Slider {...settings} >
 
              {lowerCar ?
-               lowerCar.map(item=>{
+               lowerCar.map((item,index)=>{
                  return(
-                    <div className = "lower-section-car" >
+                    <div className = "lower-section-car" key={index}>
                           <LazyLoadImage width="100%" alt="demo image" effect="blur" src={item.image} className='img-fluid lower-cars-carousel-images'/>
                           <p className='text'>{item.text}</p>
                     </div>
