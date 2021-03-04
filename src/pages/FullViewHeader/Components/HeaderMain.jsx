@@ -17,7 +17,7 @@ function HeaderMain(){
                             Powerful Tools to Quickly Sell and Manage Your Invetory
                         </h1>
                         <div className='fullview-header-bttn-div'>
-                            <img src={GooglePlay} className='fullview-header-googleplay' />
+                            <img src={GooglePlay} alt='Google Play' className='fullview-header-googleplay' />
                             <Button className='ios-coming-soon-btn'><span className='ios-coming-soon-text'>iOS Coming Soon</span></Button>
                         </div>
                     </Col>

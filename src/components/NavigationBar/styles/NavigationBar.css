@@ -162,16 +162,31 @@
 }
 
 .login-button{
-    background-color: #ffffff !important;
+    /* background-color: #ffffff !important;
     border-radius: 0.4rem !important;
     color: rgba(0, 0, 0, 0.85) !important;
     text-decoration: none !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
     height: 60%;
     width: 100%;
     line-height: 19px;
     font-size: 14px;
+    text-align: center; */
+    background-color: #ffffff !important;
+    border-radius: 0.4rem !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+    text-decoration: none !important;
+    padding-left: 23px !important;
+    padding-right: 23px !important;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    margin-top: 3px;
+    line-height: 19px;
+    font-size: 14px;
     text-align: center;
-    /* padding-top: 0.6rem; */
 }
 /* navbar dropdown */
 .navigation-profile-item{
