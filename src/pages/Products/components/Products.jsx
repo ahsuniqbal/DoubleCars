@@ -135,9 +135,9 @@ const Products = (props) => {
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         if(locationSearch.search){
-            str = `search=${locationSearch.search}&page=${pageNumber}&${queryStr}`
+            str = `search=${locationSearch.search}&page=${0}&${queryStr}`
         }else{
-            str = `page=${pageNumber}&${queryStr}`
+            str = `page=${0}&${queryStr}`
         }
         str += `&id=${userId}`
         console.log("QQUERY",str)
