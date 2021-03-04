@@ -3,6 +3,8 @@ import {Row,Col} from 'reactstrap'
 import Chart from '../../../assets/viewChart.png'
 import Views from '../../../assets/totalview.png'
 import ProductTypeCard from '../../../assets/viewheaderCard.png'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import '../Styles/LowerMain.css'
 
 function LowerMain(){
@@ -12,8 +14,8 @@ function LowerMain(){
                 <Row style={{marginRight:'0'}}>
                     <Col md='6'>
                         <div style={{padding:' 6rem 6rem 0 8rem'}}>
-                            <img src={Chart} className='dealership-lower-img1'/>
-                            <img src={Views} className='dealership-lower-img2'/>
+                            <img src={Chart} alt='chart-display' className='dealership-lower-img1'/>
+                            <img src={Views} alt='views' className='dealership-lower-img2'/>
                         </div>
                         
                     </Col>
@@ -41,7 +43,7 @@ function LowerMain(){
                     </Col>
                     <Col  md='6' >
                         <div className='productCard-img-div'>
-                            <img src={ProductTypeCard} className='chart-design-img-div'/>
+                            <img src={ProductTypeCard} alt='Product' className='chart-design-img-div'/>
                         </div>
                         
                     </Col>

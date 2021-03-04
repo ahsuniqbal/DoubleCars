@@ -34,7 +34,7 @@
     transition: transform 500ms !important;
  }
  .dealership-lower-img1:hover{
-    transform: scale(1.01);
+     transform: scale(1.01);
  }
 .dealership-lower-img2{
     position: absolute;
