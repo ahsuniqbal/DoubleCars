@@ -135,24 +135,26 @@ const Products = (props) => {
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         if(locationSearch.search){
-            str = `search=${locationSearch.search}&page=${pageNumber}&${queryStr}`
+            str = `search=${locationSearch.search}&page=${0}&${queryStr}`
         }else{
-            str = `page=${pageNumber}&${queryStr}`
+            str = `page=${0}&${queryStr}`
         }
         str += `&id=${userId}`
         console.log("QQUERY",str)
         GetSearchResult(str).then(doc => {
-            if(products.length > 0){
-                setBooleanFlag(false);
-                var temp = products
-                for(let i = 0; i < doc.length; i++){
-                    temp.push(doc[i])
-                }
-                setProducts(temp);
-            }else{
-                setProducts(doc);
+            setProducts(doc);
                 setBooleanFlag(true);
-            }
+            // if(products.length > 0){
+            //     setBooleanFlag(false);
+            //     var temp = products
+            //     for(let i = 0; i < doc.length; i++){
+            //         temp.push(doc[i])
+            //     }
+            //     setProducts(temp);
+            // }else{
+                
+            //     setBooleanFlag(true);
+            // }
             setFlag(!flag)
         })
         .catch(error => {
