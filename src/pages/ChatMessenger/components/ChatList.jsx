@@ -4,14 +4,25 @@ import ChatListItem from './ChatListItem';
 import '../styles/ChatList.css';
 import { MoreVertical, Search } from 'react-feather';
 import {getUserChats,getRecieverChat} from '../../../components/Firebase/database'
+import { connect } from 'react-redux';
 import {getChatUserPics} from '../api/Get'
+import { selectChat } from '../../../redux/actions/ChatActions.jsx';
 
-const ChatList = () => {
+const mapDispatchToProps = (dispatch) => {
+    return {
+        selectChat: (chat) => {
+            dispatch(selectChat(chat));
+        }
+    }
+}
+
+const ChatList = (props) => {
     const [chats,setChats] = useState([])
     const [constChats,setConstantChats] = useState([])
 
     
     useEffect(() => {
+        
         var user = localStorage.getItem("userId")
         // var user = 73
         getUserChats(user)
@@ -28,6 +39,7 @@ const ChatList = () => {
                 }
                 newList.push(obj)
             }
+                props.selectChat(newList[0])
                setChats(newList)
                setConstantChats(newList)
             })
@@ -42,7 +54,7 @@ const ChatList = () => {
         var table = [];
         for(let i = 0; i < list.length; i++){
             table.push(
-                <ChatListItem chat={list[i]}/>
+                <ChatListItem  chat={list[i]}/>
             )
         }
         return table;
@@ -100,4 +112,4 @@ const ChatList = () => {
     )
 }
 
-export default ChatList;
+export default connect(null, mapDispatchToProps)(ChatList);

@@ -26,7 +26,6 @@ const ProfileView = (props) => {
     
 
     useEffect(() => {
-        console.log("ye dhek bc",props.chats)
         if(props.chats.user){
             getUser(props.chats.user.userId)
             .then(doc => {

@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import { Card, CardBody, CardImg, Row, Col, Label } from 'reactstrap';
+import { Card, CardBody, CardImg, Row, Col, Label,Badge } from 'reactstrap';
 // import companyLogo from '../../../assets/company-logo.png';
 import { Star, Trash2 } from 'react-feather';
 // import { selectChat } from '../../../redux/actions/ChatActions.jsx';
@@ -90,7 +90,7 @@ const Toolbar = (props) => {
                     </Col>
                     <Col xs="9">
                         <h6>{props.user.fullName}</h6>
-                        <Label>{props.user.onlineStatus == 1 ? "Online" : lastMsgAt(props.user.lastSeen)}</Label>
+                        <Label>{props.user.onlineStatus == 1 ? <Badge color="success">Online</Badge> : lastMsgAt(props.user.lastSeen)}</Label>
                         <br/>
                         <Label id="typing"></Label>
                     </Col>

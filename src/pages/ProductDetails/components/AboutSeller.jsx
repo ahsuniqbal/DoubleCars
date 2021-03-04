@@ -76,8 +76,15 @@ const SellerDetails = (props) => {
                         lastMessage : messageText,
                         lastMessageAt : firebase.firestore.Timestamp.now(),
                     }
+                    const objInq = {
+                        messageText : messageText,
+                        messageAt : firebase.firestore.Timestamp.now()
+                    }
                     firebase.firestore().collection("Chats").doc(strId)
-                    .update(updateObj).then(() => {
+                    .collection('inquiries').doc().set(objInq)
+                    .then(() => {
+                        firebase.firestore().collection("Chats").doc(strId)
+                        .update(updateObj).then(() => {
                         var obj = {
                             messageId : "asdsa",
                             imageUrl : imageUrl,
@@ -94,6 +101,8 @@ const SellerDetails = (props) => {
                             history.push('/chat?id='+strId)
                         })
                     })
+                    })
+                    
                     
                 }else{
                     var updateObj = {
