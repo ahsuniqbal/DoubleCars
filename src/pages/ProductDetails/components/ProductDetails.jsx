@@ -31,6 +31,7 @@ const ProductResults = ({match}) => {
 
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
+            console.log('omeData',doc)
             setHomeData(doc) 
         })
         .catch(error => {
