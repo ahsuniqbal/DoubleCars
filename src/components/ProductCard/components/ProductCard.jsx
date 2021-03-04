@@ -10,35 +10,62 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import {postSaveCar} from '../api/post';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import LoginSignupModal from '../../../pages/Authentication/LoginSignupModal/LoginSignupModal';
-import { getLogin, isLogin } from '../../../config/LoginAuth';
 
 const ProductCard = (props) => {
 
     const [savedProductId, setSavedProductId] = useState(props.isSave);
     const [popupModal, setPopupModal] = useState(false);
+    const [alreadySave,setAlreadySave]=useState(false)
+    const [counter,setCounter]=useState(0)
 
     const popupToggle = () => setPopupModal(!popupModal);
 
     const saveCarFunc = (productId) => {
-        var userId = getLogin();
+        var userId;
+        if(localStorage.getItem("userId") && localStorage.getItem("userId") !== "undefined"){
+            userId = localStorage.getItem('userId')
+        }else{
+            
+            alert('You need to login First')
+            return
+        }
         
         const obj = {
             productId,userId
         }
-        postSaveCar(obj).then(doc => {
-            console.log(doc);
-            setSavedProductId(doc.saveId)
-
-            if(doc.code === -1 && window.location.pathname=='/saved-cars') {
-                window.location.reload();
-            }
-            else {
-                console.log(doc.message)
-            }
+        
+            postSaveCar(obj)
+            .then(doc => {
+                console.log(doc)
+                
+                if( doc.code==-1){
+                    // setCounter(counter+1)
+                    //  to remove car from save cars page
+                   
+                    if(window.location.pathname=='/saved-cars')
+                    {
+                        window.location.reload()
+                    }
+                    else{
+                        alert(doc.message)
+                    }
+                    
+                }
+                else {
+                   
+                    setSavedProductId(doc.saveId)  
+                 }
+            
+                // else if(window.location.pathname!=='/saved-cars' && !alreadySave){
+                //    setSavedProductId(doc.saveId)  
+                //    setAlreadySave(false)
+                // }
             })
             .catch(e => {
                 console.log(e.message)
             })
+        
+       
     }
 
 
@@ -82,24 +109,18 @@ const ProductCard = (props) => {
                             </Col>
                         :
                         <Col xs="3">
-                            
-                                <Button onClick={() => isLogin() ? saveCarFunc(props.productId) : popupToggle()} color="link" className="bookmark">
+                            {
+                            //condition to show login modal if user is not login on click of save icon
+                            localStorage.getItem('userId') ?
+                                <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
                                     <FontAwesomeIcon icon={["far", "bookmark"]} />
                                 </Button> 
-                                <LoginSignupModal isOpen={popupModal} toggle={popupToggle} />
-                                
-                                
-                            {/* //condition to show login modal if user is not login on click of save icon
-                            // localStorage.getItem('userId') ?
-                            //     <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
-                            //         <FontAwesomeIcon icon={["far", "bookmark"]} />
-                            //     </Button> 
-                            //     :
-                            //     <Button onClick={popupToggle} color="link" className="bookmark">
-                            //         <FontAwesomeIcon icon={["far", "bookmark"]} />
-                                    
-                            //     </Button> */}
-                            
+                                :
+                                <Button onClick={popupToggle} color="link" className="bookmark">
+                                    <FontAwesomeIcon icon={["far", "bookmark"]} />
+                                    <LoginSignupModal  isOpen={popupModal} toggle={popupToggle} />
+                                </Button>
+                            }
                         </Col>
                     : null
                 }

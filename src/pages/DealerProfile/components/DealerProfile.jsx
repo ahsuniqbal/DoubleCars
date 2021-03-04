@@ -78,7 +78,7 @@ const DealerProfile = ({match}) => {
             tempStr += `page=${pageNumber}&${globalQuery}&id=${userId}`
         // }
         // tempStr += `&id=${userId}`
-
+        tempStr += `&dealerId=${match.params.id}`
         console.log("QQUERY",tempStr)
         GetSearchResult(tempStr).then(doc => {
             if(inventory.length > 0){
@@ -128,6 +128,7 @@ const DealerProfile = ({match}) => {
             str = `page=${pageNumber}&${queryStr}&id=${userId}`
         // }
         // str += `&id=${userId}`
+        str += `&dealerId=${match.params.id}`
         console.log("QQUERY",str)
         GetSearchResult(str).then(doc => {
             console.log("doc",doc)

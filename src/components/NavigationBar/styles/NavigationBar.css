@@ -1,9 +1,7 @@
 .double-car-logo {
     margin-left: 3rem;
 }
-.navbar {
-    background-color: #ffffff !important;
-}
+
 
 .navbar-brand {
     font-size: 1.9rem !important;
@@ -13,10 +11,14 @@
 /* .navigation-bar {
     height: 80px; 
 } */
-.navigation-bar-box {
+/* .navigation-bar-box {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
     padding: 1.1rem 1rem 1.1rem 0 ;
+} 
+.navbar {
+    background-color: #ffffff ;
 }
+*/
 
 .navbar-nav {
     margin-right: 50px;
@@ -70,7 +72,12 @@
     font-weight: 600;
     color: rgba(0, 0, 0, 0.85) !important;
 }
-
+.white-navigation-item{
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white !important;
+}
 .navigation-items:hover {
     text-decoration: none !important;
 }
@@ -240,9 +247,9 @@
     }
 }
 @media screen and (max-width:500px){
-    .navigation-bar-box {
+    /* .navigation-bar-box {
         padding: 0.5rem 1.3rem 0.5rem 0 ;
-    }
+    } */
 }
 /* COMMENTED CODE,  MAY BE USE LATER> */
 
