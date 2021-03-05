@@ -9,11 +9,11 @@ import nextIcon from '../../../assets/next-icon.png';
 import previousIcon from '../../../assets/prev-icon.png';
 
 const NextIcon=(props)=>{
-  const { className, onClick,activeSlide } = props;
+  const { className, onClick,activeSlide , length } = props;
   console.log(activeSlide)
   return (
     <div>
-      {activeSlide==0 &&  
+      {activeSlide>=0 && activeSlide!==length-5 &&
             <div className={className} onClick={onClick}>
             <img src={nextIcon} className='icon-image' id='show-sliders'/>
           </div>
@@ -43,7 +43,7 @@ const DCSlider = (props) => {
     let settings = {
         adaptiveHeight: true,
         speed:800,
-        nextArrow: <NextIcon activeSlide={activeSlide}/>,
+        nextArrow: <NextIcon activeSlide={activeSlide} length={props.items.length}/>,
         prevArrow:<PrevoiusIcon activeSlide={activeSlide}/>,
         dots: false,
         beforeChange: (current, next) => setActiveSlide(next),

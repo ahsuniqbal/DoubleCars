@@ -19,8 +19,8 @@
     font-size: 15px;
     margin-left: 0.2rem;
 }
-.back-button-product:focus{
-    box-shadow: none;
+.back-button-product:focus , .back-button-product:active{
+    box-shadow: none !important;
 }
 .share-button{
     font-family: Ubuntu;

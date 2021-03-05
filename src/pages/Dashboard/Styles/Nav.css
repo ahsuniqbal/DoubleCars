@@ -50,3 +50,52 @@
 .dashboard-nav-arrow:hover , .dashboard-bell-icon:hover{
     cursor: pointer;
 }
+
+/* user  */
+.dropdown-dashboard{
+    margin-top: -1.7rem;
+}
+.dashboard-dropdown-menu{
+    padding:65% 28% 35% 28%;
+}
+.user-icon-dashboard{
+    margin-top: 0.5rem;
+    color: black !important;
+}
+.dashboard-nav-dropdown-arrow{
+    margin: -55px 0px 0px 0px;
+    padding-left: 84%;
+}
+.dashboard-nav-dropdown-arrow:hover , .dashboard-nav-dropdown-arrow:focus{
+    background-color: transparent;
+    cursor:context-menu;
+}
+.dashboard-nav-dropdown-arrow-pic{
+    position: absolute;
+    right: 2px;
+}
+.dashboard-nav-arrow-pic{
+    position: absolute;
+    right: 2px;
+}
+.dashboard-nav-arrow-pic:hover , .dashboard-nav-arrow-pic:focus{
+    background-color: transparent;
+    cursor:context-menu;
+}
+.dashboard-nav-profile-item{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 5px 0px;
+}
+.dashboard-nav-profile-name{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    margin-top: 1.7rem;
+    color: rgba(0, 0, 0, 0.85) !important;
+}

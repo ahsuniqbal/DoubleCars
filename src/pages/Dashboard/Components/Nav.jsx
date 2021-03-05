@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import ProfilePic from '../../../assets/Profile Picture.png'
 import BellIcon from '../../../assets/Bell Icon.png'
-import DownArrow from '../../../assets/DownArrow.png'
+
+import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
 import {UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
 import {getUser} from '../../Profile/api/Get';
 import { User } from 'react-feather';
@@ -49,10 +50,29 @@ function Nav (){
                 </UncontrolledDropdown>
             </div>
             <div className='dashboard-nav-right'>
-            {profilePic ? <img className="img-fluid dashboard-nav-img" alt='profile-pic' src={profilePic}/> : <User size={25} className="mt-2 dashboard-user-icon" /> }
-                {/* <img src={ProfilePic} className='dashboard-nav-img'/> */}
+                     {
+                            localStorage.getItem("userId") &&
+                            window.location.pathname !== '/fullviewheader'
+                            ?  <div className="dropdown-dashboard">
+                             <UncontrolledDropdown nav inNavbar>
+                                <DropdownToggle nav caret className='dropdown-toggle-image'>
+                                    {profilePic ? <img className="img-fluid profile-navbar-image" alt='profile-pic' src={profilePic}/> : <User size={25} className="user-icon-dashboard" /> }
+                                </DropdownToggle>
+                                     
+                                <DropdownMenu right className='dashboard-dropdown-menu'>
+                                    <DropdownItem className='dashboard-nav-dropdown-arrow' disabled><img src={AppbarDropdown} alt='' className='dashboard-nav-arrow-pic'/> </DropdownItem>
+                                    <DropdownItem disabled className='dashboard-nav-profile-name'>{userName}</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/profile')} className='dashboard-nav-profile-item'>Edit Profile</DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem onClick={() => history.push('/chat')} className='dashboard-nav-profile-item'>Messages</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/saved-cars')} className='dashboard-nav-profile-item'>Saved Cars</DropdownItem>
+                                    <DropdownItem  onClick={e => handleLogout()} className='dashboard-nav-profile-item'>Logout</DropdownItem>
+                                </DropdownMenu>
+                                </UncontrolledDropdown>
+                             </div> : null
+                            }
+            {/* {profilePic ? <img className="img-fluid dashboard-nav-img" alt='profile-pic' src={profilePic}/> : <User size={25} className="mt-2 dashboard-user-icon" /> }
                 <p className='dashord-nav-text'>{userName}</p>
-                {/* <img src={DownArrow} className='dashboard-nav-arrow'/> */}
                 <UncontrolledDropdown nav inNavbar className='dasboard-drpdown'>
                     <DropdownToggle nav caret className=''>
                         <img  src={DownArrow} className='dashboard-nav-arrow'/> 
@@ -61,7 +81,7 @@ function Nav (){
                     <DropdownMenu right className='dashboard-drpdown-menu'>                                    
                         <DropdownItem  onClick={()=>handleLogout()} className=''>Logout</DropdownItem>
                     </DropdownMenu>
-                </UncontrolledDropdown>
+                </UncontrolledDropdown> */}
             </div>
         </div>
     )
