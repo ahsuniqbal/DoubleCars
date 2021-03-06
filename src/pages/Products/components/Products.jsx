@@ -83,7 +83,7 @@ const Products = (props) => {
         const scrollHeight = (document.documentElement
             && document.documentElement.scrollHeight)
             || document.body.scrollHeight;
-        if (scrollTop + window.innerHeight + 70 >= scrollHeight){
+        if (scrollTop + window.innerHeight + 800 >= scrollHeight){
             // console.log('page called')
             // var page = pageNumber
             // console.log(page)
@@ -96,7 +96,7 @@ const Products = (props) => {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
-        // return () => window.removeEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
       }, [isBottom]);
     
     useEffect(() => {
