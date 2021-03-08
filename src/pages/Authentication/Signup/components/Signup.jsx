@@ -43,12 +43,29 @@ const Signup = (props) => {
         return flag
     } 
 
+    // function to validate number on keypress event
+      const formatToPhone = (event) => {
+        // if(isModifierKey(event)) {return;}
+        const target = event.target;
+        const input = target.value.replace(/\D/g,'').substring(0,10); // First ten digits of input only
+        const areaCode = input.substring(0,3);
+        const middle = input.substring(3,6);
+        const last = input.substring(6,10);
+    
+        if(input.length > 6){target.value = `(${areaCode})${middle}-${last}`;}
+        else if(input.length > 3){target.value = `(${areaCode})${middle}`;}
+        else if(input.length > 0){target.value = `(${areaCode}`;}
+    };
+
+
+    // handle sign up
     const handleSignUp = (e) => {
         e.preventDefault();
         
         const firstName = document.getElementById('firstName').value;
         const lastName = document.getElementById('lastName').value;
         const phNum = document.getElementById('phNum').value;
+        // const phNum = value;
         const email = document.getElementById('signup-email').value;
         const password = document.getElementById('signup-password').value;
         
@@ -58,7 +75,7 @@ const Signup = (props) => {
             document.getElementById('name-error-label').textContent = "";
 
             // if(Number.isInteger(parseInt(phNum)))
-             if(mobileValidation(phNum) && phNum.length===12){
+             if(mobileValidation(phNum)){
                 // Mobile is okay
                 document.getElementById('phNum-error-label').textContent = "";
 
@@ -125,6 +142,7 @@ const Signup = (props) => {
               
     }
 
+ 
 
     return(
         <div>
@@ -155,7 +173,9 @@ const Signup = (props) => {
                                         <Input id="lastName" className = "signup-register-textfield" type="text" placeholder="Last Name *" required />
                                     </Col>
                                 </Row>
-                                    <Input id="phNum" className = "signup-register-textfield" type="text" placeholder="Mobile Number *" required />
+                                    <Input id="phNum" className = "signup-register-textfield" type="text" placeholder="Mobile Number *"  
+                                        onKeyPress={e => formatToPhone(e)}
+                                        maxLength={13} required />
                                     <div id="phNum-error-label" className="error-label"></div>
 
                                     <Input id="signup-email" className = "signup-register-textfield" type="text" placeholder="Your Email *" required />
