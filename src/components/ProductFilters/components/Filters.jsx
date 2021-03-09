@@ -163,7 +163,7 @@ const Filters = (props) => {
                 // trimList.push(doc.makes[0].models[0].trims)
                 setTrimCollapseOpen(true);
                 setTrimList(doc.makes[0].models[0].trims)
-                filters['carModel'] = concatinateCommaToFilters(select);
+                filters['carModel'] = select;
                 setFilters(filters);
                 FilterQueryString(filters);
             }).catch(error => {
