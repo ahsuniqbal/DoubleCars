@@ -90,7 +90,7 @@ const ProfileView = (props) => {
 
                     <Row>
                         <Col xs="12">
-                        <Link className = "view-inv-link" to={'/dealer/' + localStorage.getItem('userId')}>
+                        <Link className = "view-inv-link" to={'/dealer/' + props.chats.user.userId} >
                             <Button color="primary" outline block>View Inventory</Button>
                         </Link>
                         </Col>

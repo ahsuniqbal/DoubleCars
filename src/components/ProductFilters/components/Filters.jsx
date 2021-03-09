@@ -83,6 +83,8 @@ const Filters = (props) => {
     const [makeList, setMakeList] = useState([]);
     const [selectedMake, setSelectedMake] = useState(null);
     const [modelList, setModelList] = useState([]);
+    const [selectedModel, setSelectedModel] = useState(null);
+
     const [selectedModels, setSelectedModels] = useState([]);
     const [trimList, setTrimList] = useState([]);
     const [selectedTrims, setSelectedTrims] = useState([]);
@@ -154,19 +156,19 @@ const Filters = (props) => {
     }
 
     const handleModel = (select) => {
-        setSelectedModels(select);
-        if(select.length > 0){
-        setTrimCollapseOpen(true);
-        
-        GetTrimFromMakeAndModel(selectedMake, select[select.length - 1]).then(doc => {
-            // trimList.push(doc.makes[0].models[0].trims)
-            setTrimList(doc.makes[0].models[0].trims)
-        }).catch(error => {
-            console.log(error.message)
-        });
-        filters['carModel'] = concatinateCommaToFilters(select);
-        setFilters(filters);
-        FilterQueryString(filters);
+        console.log("model",select)
+        setSelectedModel(select);
+        if(select){
+            GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
+                // trimList.push(doc.makes[0].models[0].trims)
+                setTrimCollapseOpen(true);
+                setTrimList(doc.makes[0].models[0].trims)
+                filters['carModel'] = concatinateCommaToFilters(select);
+                setFilters(filters);
+                FilterQueryString(filters);
+            }).catch(error => {
+                console.log(error.message)
+            });
         }else{
             // console.log('filters1',filters)
             delete filters['carModel']
@@ -175,6 +177,31 @@ const Filters = (props) => {
             FilterQueryString(filters);
             setTrimCollapseOpen(false);
         }
+
+
+
+
+        // setSelectedModels(select);
+        // if(select.length > 0){
+        // setTrimCollapseOpen(true);
+        
+        // GetTrimFromMakeAndModel(selectedMake, select[select.length - 1]).then(doc => {
+        //     // trimList.push(doc.makes[0].models[0].trims)
+        //     setTrimList(doc.makes[0].models[0].trims)
+        // }).catch(error => {
+        //     console.log(error.message)
+        // });
+        // filters['carModel'] = concatinateCommaToFilters(select);
+        // setFilters(filters);
+        // FilterQueryString(filters);
+        // }else{
+        //     // console.log('filters1',filters)
+        //     delete filters['carModel']
+        //     // console.log('filters2',filters)
+        //     setFilters(filters);
+        //     FilterQueryString(filters);
+        //     setTrimCollapseOpen(false);
+        // }
     }
 
 
@@ -617,10 +644,22 @@ const Filters = (props) => {
                              * populated and visible once the make is selected ************/}
                             <Collapse isOpen={isModelCollapseOpen}>
                                 <h6>Model</h6>
-                                <MultiSelect
+
+                                <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)}>
+                                <option value="">Model</option>
+                                {
+                                    modelList.map((option, index) => {
+                                        return <option value={option.name}>{option.name}</option>
+                                    })
+                                }
+                                </Input>
+
+
+
+                                {/* <MultiSelect
                                     options={concatModelList(modelList)}
                                     selected={selectedModels}
-                                    onSelectedChanged={selected => {  handleModel(selected) }} />
+                                    onSelectedChanged={selected => {  handleModel(selected) }} /> */}
                                 
 
                                 {/******** Trim filter, trim list will be 
