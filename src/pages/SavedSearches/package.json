@@ -1,0 +1,7 @@
+{
+    "name": "saved-searches",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./components/SavedSearches.jsx"
+  }
+  
