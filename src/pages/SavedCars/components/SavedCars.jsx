@@ -112,7 +112,7 @@ const  SavedCars = () => {
             <Container clsssName = "saved-container">
                 <Row  className = "saved-car-col">
                     <Col xs = "12" md = "8">
-                    <h2 className = "saved-car-label">Saved Searches <span className='saved-car-count'>{savedCars ? savedCars.length : null}</span></h2>
+                    <h2 className = "saved-car-label">Saved Cars <span className='saved-car-count'>{savedCars ? savedCars.length : null}</span></h2>
                     </Col>
                     <Col md="2">
                         <Label className="float-right mt-2">Sort by</Label>

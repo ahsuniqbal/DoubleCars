@@ -34,7 +34,7 @@ function App() {
  
 
   return (
-    <Router>
+    <Router forceRefresh>
       <React.Suspense fallback={loading()}>
         <Switch>
           <Route path="/login" component={Login}/>

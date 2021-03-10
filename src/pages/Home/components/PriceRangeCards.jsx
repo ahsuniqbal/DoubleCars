@@ -37,7 +37,6 @@ const PriceRangeCards1 = () => {
         <div className='price-filter-grid'>
             <Grid container >
                 {filterPrice1 && filterPrice1.map((items,index)=>{
-                    console.log("Curr", items)
                     return(
                         <Grid item md={3} key={index}>
                             <Card className='main-card'  onClick={()=>history.push("/product/" + items.productId)}>
