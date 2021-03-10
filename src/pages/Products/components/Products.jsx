@@ -143,19 +143,15 @@ const Products = (props) => {
         console.log("QQUERY",str)
         GetSearchResult(str).then(doc => {
             console.log('doc',doc)
-            setProducts(doc);
+            if(doc.length > 0){
+                setProducts(doc)
+            }else{
+                setProducts([])
+            }
+            
+            if(!booleanFlag){
                 setBooleanFlag(true);
-            // if(products.length > 0){
-            //     setBooleanFlag(false);
-            //     var temp = products
-            //     for(let i = 0; i < doc.length; i++){
-            //         temp.push(doc[i])
-            //     }
-            //     setProducts(temp);
-            // }else{
-                
-            //     setBooleanFlag(true);
-            // }
+            }
             setFlag(!flag)
         })
         .catch(error => {
