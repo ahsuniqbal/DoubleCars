@@ -5,52 +5,111 @@ import '../styles/Information.css';
 
 const Information = (props) => {
     const details = props.details;
-    const attributes = props.attributes;
+    var attributes = props.attributes;
+    console.log("Att",attributes)
+
+
+    const makeList = (list) => {
+        var attName = ""
+        var arr = []
+        var index = -1
+        for(let i = 0; i < list.length; i++){
+            if(attName === ""){
+                attName = list[i].category
+                const obj = {
+                    title : list[i].category,
+                    property : [{
+                        attId : list[i].attId,
+                        isChecked : list[i].isChecked,
+                        productId : list[i].productId,
+                        itemName : list[i].itemName
+                        // image : list[i].image
+                    }]
+                }
+                arr.push(obj)
+                index++;
+            }else{
+                if(attName !== list[i].category){
+                    const obj = {
+                        title : list[i].category,
+                        property : [{
+                            attId : list[i].attId,
+                        isChecked : list[i].isChecked,
+                        productId : list[i].productId,
+                        itemName : list[i].itemName
+                            // image : list[i].image
+                        }]
+                    }
+                    arr.push(obj)
+                    index++;
+                    attName = list[i].category
+                }else{
+                    arr[index].property.push({
+                        attId : list[i].attId,
+                        isChecked : list[i].isChecked,
+                        productId : list[i].productId,
+                        itemName : list[i].itemName
+                        // image : list[i].image
+                    })
+                }
+            }
+        }
+        return arr
+    }
 
     function renderFeaturesList() {
-        var table = [];
+        var table = makeList(attributes);
 
-        if(attributes[0].category === attributes[attributes.length - 1].category) {
-            for(let i = 0; i < attributes.length; i++) {
-                table.push(
-                    <Col xs="6" md="3">
-                        <Label className = "car-feature">{attributes[i].itemName}</Label>
-                    </Col>
-                )
-            }
+
+        if(table.length > 1) {
+
         }
         else {
-            for(let i = 0; i < attributes.length; i++) {
-                table.push(
-                    <Col xs="6" md="3">
-                        <Label className = "info-sub-head">{attributes[i].category}</Label>
-                        {
-                            attributes.filter(attribute => i < attributes.length && attribute.category === attributes[i + 1].category).map((attribute) => {
-                                console.log(i, attribute.itemName)
-                                if(i < attributes.length) {
-                                    i++
+
+        }
+
+
+        // if(attributes[0].category === attributes[attributes.length - 1].category) {
+        //     for(let i = 0; i < attributes.length; i++) {
+        //         table.push(
+        //             <Col xs="6" md="3">
+        //                 <Label className = "car-feature">{attributes[i].itemName}</Label>
+        //             </Col>
+        //         )
+        //     }
+        // }
+        // else {
+        //     for(let i = 0; i < attributes.length; i++) {
+        //         table.push(
+        //             <Col xs="6" md="3">
+        //                 <Label className = "info-sub-head">{attributes[i].category}</Label>
+        //                 {
+        //                     attributes.filter(attribute => i < attributes.length && attribute.category === attributes[i + 1].category).map((attribute) => {
+        //                         console.log(i, attribute.itemName)
+        //                         if(i < attributes.length) {
+        //                             i++
                                     
-                                }
-                                return <Label className = "car-feature">{attribute.itemName}</Label>
-                                // else {
-                                //     i--
-                                // }
-                            })
+        //                         }
+        //                         return <Label className = "car-feature">{attribute.itemName}</Label>
+        //                         // else {
+        //                         //     i--
+        //                         // }
+        //                     })
 
                             
-                            // attributes.filter(attribute => attribute.category === attributes[i + 1].category).map(itemName => {
-                            //     if(i  < attributes.length) {
-                            //         i++
-                            //     }
-                            //     return <Label className = "car-feature">{itemName.itemName}</Label>
-                            // })
-                        }
-                        <Label className = "car-feature">{attributes[i].itemName}</Label>
-                    </Col>
-                )
+        //                     // attributes.filter(attribute => attribute.category === attributes[i + 1].category).map(itemName => {
+        //                     //     if(i  < attributes.length) {
+        //                     //         i++
+        //                     //     }
+        //                     //     return <Label className = "car-feature">{itemName.itemName}</Label>
+        //                     // })
+        //                 }
+        //                 <Label className = "car-feature">{attributes[i].itemName}</Label>
+        //             </Col>
+        //         )
                 
-            }
-        }
+        //     }
+        // }
 
 
         
@@ -98,8 +157,8 @@ const Information = (props) => {
                 // }
                 // else { 
 
-                
-            
+            //     }
+            // }
             // var categoryName = attributes[0].category;
             // for(let i = 0; i < attributes.length; i++) {
             //     if(categoryName === attributes[i].category)

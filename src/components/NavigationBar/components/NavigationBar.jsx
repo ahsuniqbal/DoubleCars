@@ -10,14 +10,14 @@ import { useHistory } from 'react-router-dom';
 import {getUser} from '../../../pages/Profile/api/Get';
 import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
 import { User } from 'react-feather'; 
-const ENDPOINT = "https://magnetic-flare-280505.uc.r.appspot.com/";
+
+import { connectionString } from '../../../config/ConnectionString'
 
 const NavigationBar = () => {
-    
-     
     const history = useHistory();
+    const ENDPOINT = connectionString;
+
     useEffect(() => {
-        console.log(window.location.search)
         if(localStorage.getItem("userId")){
               const socket = socketIOClient.connect(ENDPOINT,{
                   reconnect: true
