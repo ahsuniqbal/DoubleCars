@@ -6,8 +6,6 @@ import '../styles/Information.css';
 const Information = (props) => {
     const details = props.details;
     var attributes = props.attributes;
-    console.log("Att",attributes)
-
 
     const makeList = (list) => {
         var attName = ""
@@ -58,14 +56,40 @@ const Information = (props) => {
     }
 
     function renderFeaturesList() {
-        var table = makeList(attributes);
+        var attributeTable = makeList(attributes);
+        var table = [];
 
-
-        if(table.length > 1) {
-
+        if(attributeTable.length > 1) {
+            for(let i = 0; i < attributeTable.length; i++) {
+                table.push(
+                    <Col xs="6" md="3">
+                        <h6 className = "info-sub-head">{attributeTable[i].title}</h6>
+                        {
+                            attributeTable[i].property.map((feature) => 
+                                <Label className = "car-feature">{feature.itemName}</Label>
+                            )
+                        }
+                    </Col>
+                )
+            }
         }
         else {
+            for(let i = 0; i < attributeTable[0].property.length; i++) { 
+                table.push(
+                    <Col xs="6" md="3">
+                        <Label className = "car-feature">{attributeTable[0].property[i].itemName}</Label>
+                    </Col>
+                )
+            }
 
+            // console.log(attributeTable);
+            // attributeTable.map((attribute) => {
+            //     return(
+            //         <Col xs="6" md="3">
+            //             <Label className = "car-feature">{attribute.itemName}</Label>
+            //         </Col>
+            //     )
+            // })
         }
 
 

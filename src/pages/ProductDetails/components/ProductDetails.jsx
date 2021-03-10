@@ -23,6 +23,7 @@ const ProductResults = ({match}) => {
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
+            console.log(doc)
         })
         .catch(error => {
             console.log(error.message);
@@ -31,7 +32,6 @@ const ProductResults = ({match}) => {
 
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
-            console.log('omeData',doc)
             setHomeData(doc) 
         })
         .catch(error => {
@@ -91,7 +91,8 @@ const ProductResults = ({match}) => {
                                         productDetails.images[0].image !== "" ? 
                                         <Gallery items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)} productId={productDetails.details[0].productId} />
                                         : <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
-                                    : <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
+                                    : productDetails.details[0].coverPic ? <Gallery items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)} productId={productDetails.details[0].productId} /> :
+                                    <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
                                 }
                                 <Information
                                     details={productDetails.details[0]}

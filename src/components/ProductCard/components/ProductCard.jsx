@@ -15,8 +15,6 @@ const ProductCard = (props) => {
 
     const [savedProductId, setSavedProductId] = useState(props.isSave);
     const [popupModal, setPopupModal] = useState(false);
-    const [alreadySave,setAlreadySave]=useState(false)
-    const [counter,setCounter]=useState(0)
 
     const popupToggle = () => setPopupModal(!popupModal);
 
@@ -25,7 +23,6 @@ const ProductCard = (props) => {
         if(localStorage.getItem("userId") && localStorage.getItem("userId") !== "undefined"){
             userId = localStorage.getItem('userId')
         }else{
-            
             alert('You need to login First')
             return
         }
@@ -34,38 +31,26 @@ const ProductCard = (props) => {
             productId,userId
         }
         
-            postSaveCar(obj)
-            .then(doc => {
-                console.log(doc)
+        postSaveCar(obj)
+        .then(doc => {                
+            if(doc.code == -1){
                 
-                if( doc.code==-1){
-                    // setCounter(counter+1)
-                    //  to remove car from save cars page
-                   
-                    if(window.location.pathname=='/saved-cars')
-                    {
-                        window.location.reload()
-                    }
-                    else{
-                        alert(doc.message)
-                    }
-                    
+                if(window.location.pathname=='/saved-cars')
+                {
+                    window.location.reload()
                 }
-                else {
-                   
-                    setSavedProductId(doc.saveId)  
-                 }
-            
-                // else if(window.location.pathname!=='/saved-cars' && !alreadySave){
-                //    setSavedProductId(doc.saveId)  
-                //    setAlreadySave(false)
-                // }
-            })
-            .catch(e => {
-                console.log(e.message)
-            })
-        
-       
+                else{
+                    alert(doc.message)
+                }
+                
+            }
+            else {
+                setSavedProductId(doc.saveId)  
+            }
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
     }
 
 
