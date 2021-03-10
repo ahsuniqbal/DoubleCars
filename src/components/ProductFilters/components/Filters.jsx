@@ -84,10 +84,13 @@ const Filters = (props) => {
     const [selectedMake, setSelectedMake] = useState(null);
     const [modelList, setModelList] = useState([]);
     const [selectedModel, setSelectedModel] = useState(null);
-
-    const [selectedModels, setSelectedModels] = useState([]);
+    
     const [trimList, setTrimList] = useState([]);
-    const [selectedTrims, setSelectedTrims] = useState([]);
+    const [selectedTrim, setSelectedTrim] = useState(null);
+
+    // const [selectedModels, setSelectedModels] = useState([]);
+    // const [trimList, setTrimList] = useState([]);
+    // const [selectedTrims, setSelectedTrims] = useState([]);
 
     
 
@@ -206,18 +209,45 @@ const Filters = (props) => {
 
 
     const handleTrim = (selected) => {
-        console.log(selected)
-        setSelectedTrims(selected);
-        if(selected.length > 0){            
-            filters['trim'] = concatinateCommaToFilters(selected);
-            setFilters(filters);
-            FilterQueryString(filters);
-        }
-        else {
+        console.log("trim",selected)
+        setSelectedTrim(selected);
+        if(selected){
+            // GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
+            //     // trimList.push(doc.makes[0].models[0].trims)
+            //     setTrimCollapseOpen(true);
+            //     setTrimList(doc.makes[0].models[0].trims)
+                filters['trim'] = selected;
+                setFilters(filters);
+                FilterQueryString(filters);
+            // }).catch(error => {
+            //     console.log(error.message)
+            // });
+        }else{
+            // console.log('filters1',filters)
             delete filters['trim']
+            // console.log('filters2',filters)
             setFilters(filters);
             FilterQueryString(filters);
+            // setTrimCollapseOpen(false);
         }
+
+
+
+
+
+
+        // console.log(selected)
+        // setSelectedTrims(selected);
+        // if(selected.length > 0){            
+        //     filters['trim'] = concatinateCommaToFilters(selected);
+        //     setFilters(filters);
+        //     FilterQueryString(filters);
+        // }
+        // else {
+        //     delete filters['trim']
+        //     setFilters(filters);
+        //     FilterQueryString(filters);
+        // }
 
     }
 
@@ -666,10 +696,27 @@ const Filters = (props) => {
                                  * populated and visible once the model is selected ************/}
                                 <Collapse isOpen={isTrimCollapseOpen}>
                                     <h6>Trim</h6>
-                                    <MultiSelect
+
+
+                                    <Input id="trim-list" type="select" className="mb-4" onChange={(e) => handleTrim(e.target.value)}>
+                                    <option value="">Trim</option>
+                                    {
+                                        trimList.map((option, index) => {
+                                            return <option value={option.name}>{option.name}</option>
+                                        })
+                                    }
+                                    </Input>
+
+
+
+
+
+
+
+                                    {/* <MultiSelect
                                         options={concatTrimList(trimList)}
                                         selected={selectedTrims}
-                                        onSelectedChanged={selected => { handleTrim (selected) }} />
+                                        onSelectedChanged={selected => { handleTrim (selected) }} /> */}
                                 </Collapse>
                             </Collapse>
 
