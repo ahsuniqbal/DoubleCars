@@ -1,0 +1,56 @@
+.saved-searches.container {
+    margin-top: 9rem;
+    margin-bottom: 4rem;
+}
+
+.saved-searches .grid-parent {
+    border: 1px solid #E9E9E9;
+    border-radius: 6px;
+    padding: 16px 10px 0px 10px;
+    width: 320px;
+}
+
+.saved-searches h4 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 25px;
+}
+
+.saved-searches h4 span {
+    color: rgba(0, 0, 0, 0.45);
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    margin-left: 19px;
+}
+
+.saved-searches h6 {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.saved-searches .active-filters {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: rgba(36, 39, 44, 0.5);
+}
+
+.saved-searches .active-filters span {
+    color: #F53A3A;
+    cursor: pointer;
+}
+
+.saved-searches .active-filters span:hover {
+    text-decoration: underline;
+}

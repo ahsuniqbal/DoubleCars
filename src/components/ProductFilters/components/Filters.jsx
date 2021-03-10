@@ -349,6 +349,8 @@ const Filters = (props) => {
     // Body Styles render from API
     const DrawBodyStyles = (bodyStyleList) => {
         var table = [];
+
+        console.log(bodyStyleList)
         // const basicColor = '#595959'
         if(bodyStyleList.includes('Sedan')) {
             table.push(
