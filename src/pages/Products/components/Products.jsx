@@ -14,7 +14,6 @@ import '../styles/Products.css';
 const ShowSearchResults = (products) => {
     var table = [];
     var adPlacement = 5;
-    console.log("products",products)
 
     for (let i = 0; i < products.length; i++) {
         if(i !== 0 && i % adPlacement === 0) {
@@ -89,7 +88,7 @@ const Products = (props) => {
             // console.log(page)
             // page++;
             // console.log(page)
-            setPageNumber(pageNumber + 1)
+            // setPageNumber(pageNumber + 1)
             setIsBottom(!isBottom);
         }
     }
@@ -111,6 +110,7 @@ const Products = (props) => {
 
         console.log("QQUERY",tempStr)
         GetSearchResult(tempStr).then(doc => {
+            setPageNumber(pageNumber + 1)
             if(products.length > 0){
                 setBooleanFlag(false);
                 var temp = products
@@ -142,6 +142,7 @@ const Products = (props) => {
         str += `&id=${userId}`
         console.log("QQUERY",str)
         GetSearchResult(str).then(doc => {
+            console.log('doc',doc)
             setProducts(doc);
                 setBooleanFlag(true);
             // if(products.length > 0){

@@ -26,11 +26,11 @@ const SavedSearches = () => {
                 <Col xs="12" sm="6" md="3">
                     <div className="grid-parent">
                         <Row>
-                            <Col xs="7" style={{paddingLeft: '3px', paddingRight: '3px'}}>
-                                <img src={car1} className="img-fluid" alt="Car 1" />
+                            <Col xs="7" style={{paddingLeft: '14px', paddingRight: '3px'}}>
+                                <img src={car1} className="img-fluid" alt="Car 1" height = '100px'/>
                             </Col>
 
-                            <Col xs="5" style={{paddingLeft: '3px', paddingRight: '3px'}}>
+                            <Col xs="5" style={{paddingLeft: '3px', paddingRight: '14px'}}>
                                 <img src={car1} className="img-fluid" alt="Car 1" />
                                 <img src={car1} className="img-fluid" alt="Car 1" />
                             </Col>
