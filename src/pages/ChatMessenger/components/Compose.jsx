@@ -7,6 +7,7 @@ import {postImageToFTP} from '../api/Post'
 import { makeStyles } from '@material-ui/core/styles';
 // import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import { getLogin } from '../../../config/LoginAuth';
 // import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 const firebase = require('firebase').default

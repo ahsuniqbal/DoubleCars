@@ -44,7 +44,7 @@ export const nameValidation = (name) => {
 
 
 export const validateSpecialChars = (str) => {
-    if( /[^a-zA-Z0-9\-\/]/.test( str ) ) {
+    if( /[^a-zA-Z0-9\-\/]/.test(str) ) {
         //alert('Input is not alphanumeric');
         return false;
     }
