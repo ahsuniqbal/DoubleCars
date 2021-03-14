@@ -59,7 +59,7 @@ const Header = () => {
                             </div>
 
                                 <div className = "col-12 col-md-7 col-sm-6 right-side-cover-div " style={{padding: '0'}}>
-                                    <LazyLoadImage src={Cover} effect='blur' className=' right-cover-section'/>
+                                    <LazyLoadImage src={Cover} effect='blur' className=' right-cover-section' width="100%" />
                                     <Label className = "header-right-car-label float-right">Toyota Supra</Label>
                                     {/* <video width="100%" controls autoPlay loop>
                                         <source src={headerVideo} type="video/mp4" />

@@ -224,7 +224,7 @@ const Products = (props) => {
                     <Row>
                         {
                             products.length > 0 ? ShowSearchResults(products) : 
-                            booleanFlag ? <h2 className="text-center">No result found</h2> : DrawSkeleton()
+                            booleanFlag ? <Col xs="12"><h2 className="text-center">No result found</h2></Col> : DrawSkeleton()
                         }
                         {/* {
                             productss.map((product, index) => { 

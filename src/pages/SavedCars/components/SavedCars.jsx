@@ -80,7 +80,6 @@ const  SavedCars = () => {
                     productText={"$" + AddCommaToNumber(list[i].price)}
                     productImg={list[i].coverPic}
                     productName={list[i].carName}
-                    productBadge={""}
                     userId={list[i].userId}
                     dealerPic={list[i].userPic}
                     dealer={list[i].userRole}

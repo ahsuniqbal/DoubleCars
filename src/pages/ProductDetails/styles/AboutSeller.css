@@ -55,7 +55,7 @@
 .contact-seller-button-2 {
     background-color: transparent !important;
     border-radius: 6px;
-    color: #1C67CE ;
+    color: #1C67CE !important;
     font-size: 14px;
     height: 48px;
     font-weight: 500;
@@ -64,7 +64,10 @@
 
 .contact-seller-button-2:hover {
     background-color: #1C67CE !important;
+    color: white !important;
+    
 }
+
 
 .contact-seller-button:focus, .contact-seller-button:active:focus {
     box-shadow: none !important;

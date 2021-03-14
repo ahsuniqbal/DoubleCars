@@ -63,10 +63,10 @@ const Information = (props) => {
             for(let i = 0; i < attributeTable.length; i++) {
                 table.push(
                     <Col xs="6" md="3">
-                        <h6 className = "info-sub-head">{attributeTable[i].title}</h6>
+                        <h6 className = "info-sub-head" title={attributeTable[i].title}>{attributeTable[i].title}</h6>
                         {
                             attributeTable[i].property.map((feature) => 
-                                <Label className = "car-feature">{feature.itemName}</Label>
+                                <Label className = "car-feature" title={feature.itemName}>{feature.itemName}</Label>
                             )
                         }
                     </Col>

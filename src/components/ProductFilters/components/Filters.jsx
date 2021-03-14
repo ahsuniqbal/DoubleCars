@@ -124,7 +124,7 @@ const Filters = (props) => {
     const todayYear = (new Date()).getFullYear();
     // 100 years back from today's date
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
-    const dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index);
+    const dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index - 1);
 
     // Callback function to save the selected location from map to current location
     const GetLocationFromMap = useCallback((mapLocation) => {
@@ -141,7 +141,6 @@ const Filters = (props) => {
     }
 
     const handleMake = (make) => {
-        console.log("make",make)
         setSelectedMake(make);
         if(make){
             GetModelFromMake(make).then(doc => {

@@ -1,18 +1,18 @@
 import React, { useState, useEffect} from 'react'
 import { Col, Container, Row, Input, Label } from 'reactstrap'
 import '../styles/SavedSearches.css';
-import car1 from '../../../assets/LC1.png'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {getUserSavedSearches} from '../api/GetRequest'
 import {removeUserSearch} from '../api/PatchRequest'
+import { getLogin } from '../../../config/LoginAuth';
 
 const SavedSearches = () => {
 
     const [saved,setSaved] = useState(null)
 
     useEffect(() => {
-        getUserSavedSearches(localStorage.getItem("userId"))
+        getUserSavedSearches(getLogin())
         .then(doc => {
-            console.log(doc)
             if(doc.length > 0){
                 setSaved(doc)
             }
@@ -43,13 +43,14 @@ const SavedSearches = () => {
                 <Col xs="12" sm="6" md="3">
                     <div className="grid-parent">
                         <Row>
-                            <Col xs="7" style={{paddingLeft: '14px', paddingRight: '3px'}}>
-                                <img loading="lazy" src={list[i].image_one} className="img-fluid" alt="Car 1" height = '100px'/>
+                            <Col xs="7" style={{paddingRight: '3px'}}>
+                                <LazyLoadImage effect="blur" src={list[i].image_one} className="img-fluid first-img" alt="Car 1" />
                             </Col>
 
-                            <Col xs="5" style={{paddingLeft: '3px', paddingRight: '14px'}}>
-                                <img loading="lazy" src={list[i].image_two} className="img-fluid" alt="Car 1" />
-                                <img loading="lazy" src={list[i].image_three} className="img-fluid" alt="Car 1" />
+                            <Col xs="5" style={{paddingLeft: '3px'}}>
+                                <LazyLoadImage effect="blur" src={list[i].image_two} className="img-fluid" alt="Car 1" />
+                                <LazyLoadImage effect="blur" src={list[i].image_three} className="img-fluid mt-1" alt="Car 1" />
+                                <div className="overlay-text">138+</div>
                             </Col>
                         </Row>
                         
@@ -75,7 +76,7 @@ const SavedSearches = () => {
                 <Col xs="9">
                     <h4>Saved Searches <span>{saved ? saved.length : 0}</span></h4>
                 </Col>
-                <Col md="1">
+                {/* <Col md="1">
                     <Label className="float-right mt-2">Sort by</Label>
                 </Col>
                 <Col xs="2">
@@ -83,7 +84,7 @@ const SavedSearches = () => {
                         <option value="relevance">Relevance</option>
                         <option value="price">Price</option>
                     </Input>
-                </Col>
+                </Col> */}
             </Row>
 
 
