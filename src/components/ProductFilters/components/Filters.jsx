@@ -9,6 +9,7 @@ import gps from '../../../assets/gps.svg';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
 import '../styles/Filters.css';
 import { FiltersSkeleton } from '../../Skeletons/components/Skeleton';
+import {postSavedSearch} from '../api/PostRequest'
 
 
 // Prepare the make list to show on the dropdown
@@ -102,7 +103,7 @@ const Filters = (props) => {
     const [bodyList,setBodyList] = useState([])
 
     const [price, setPrice] = useState([0, 99999]);
-
+    const [globalFilterQuery,setGlobalFilterQuery] = useState("")
     const [mileage, setMileage] = useState([0, 99999]);
 
     const [selectedFromYear, setSelectedFromYear] = useState(null);
@@ -623,8 +624,30 @@ const Filters = (props) => {
                 str += "&";
             }
         }
+        setGlobalFilterQuery(str)
         // This function will be called from the parent class i.e products page
         props.onFilterChange(str);
+    }
+
+    const saveFilters = () => {
+        var count = Object.keys(filters).length
+        const obj = {
+            count,
+            filter_query : globalFilterQuery,
+            userId : localStorage.getItem('userId'),
+            image_one : props.savedSearch.image_one,
+            image_two : props.savedSearch.image_two,
+            image_three : props.savedSearch.image_three,
+            title : props.savedSearch.title,
+        }
+        console.log(props.savedSearch,obj)
+        postSavedSearch(obj)
+        .then(doc => {
+            console.log(doc.message)
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
     }
 
     return(
@@ -639,6 +662,7 @@ const Filters = (props) => {
                 }
                 {/* Clear all button */}
                 <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => window.location.reload()}>Clear</Button>
+                <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => saveFilters()}>save filters</Button>
                 
                 {/******** Basic filters start here ************/}
 
