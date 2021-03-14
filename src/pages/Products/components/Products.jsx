@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Label, Input, Container } from 'reactstrap';
+import { Row, Col, Label, Input, Container, Button } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
@@ -8,6 +8,7 @@ import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
 import adProducts from '../../../assets/ad_products.png';
 import { ProductSkeleton } from '../../../components/Skeletons';
 import queryString from 'query-string';
+import { Frown, Repeat } from 'react-feather';
 import '../styles/Products.css';
 
 
@@ -224,7 +225,15 @@ const Products = (props) => {
                     <Row>
                         {
                             products.length > 0 ? ShowSearchResults(products) : 
-                            booleanFlag ? <Col xs="12"><h2 className="text-center">No result found</h2></Col> : DrawSkeleton()
+                            booleanFlag ? 
+                                <Col xs="12" className="text-center mt-5">
+                                    <Frown size={100} color="rgba(0, 0, 0, 0.65)" />
+                                    <h4 className="my-2">No result found</h4>
+                                    <Label>We can't find any item matching your search</Label>
+                                    <br />
+                                    <Button outline onClick={() => window.location.reload()}><Repeat size={15} className="mr-2" />Reset filters</Button>
+                                </Col> 
+                            : DrawSkeleton()
                         }
                         {/* {
                             productss.map((product, index) => { 
