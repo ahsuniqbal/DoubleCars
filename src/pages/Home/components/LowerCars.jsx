@@ -145,7 +145,7 @@ const LowerCar = (props) => {
              {lowerCar ?
                lowerCar.map((item,index)=>{
                  return(
-                    <div className = "lower-section-car" key={index} onClick={()=>history.push('/carousalProducts')}>
+                    <div className = "lower-section-car" key={index} onClick={()=>history.push('/carousal-products')}>
                           <LazyLoadImage width="100%" alt="demo image" effect="blur" src={item.image} className='img-fluid lower-cars-carousel-images'/>
                           <p className='text'>{item.text}</p>
                     </div>
