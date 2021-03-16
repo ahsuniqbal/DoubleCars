@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Label, Input, Container } from 'reactstrap';
+import { Row, Col, Label, Input, Container, Button } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
@@ -8,13 +8,13 @@ import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
 import adProducts from '../../../assets/ad_products.png';
 import { ProductSkeleton } from '../../../components/Skeletons';
 import queryString from 'query-string';
+import { Frown, Repeat } from 'react-feather';
 import '../styles/Products.css';
 
 
 const ShowSearchResults = (products) => {
     var table = [];
     var adPlacement = 5;
-    console.log("products",products)
 
     for (let i = 0; i < products.length; i++) {
         if(i !== 0 && i % adPlacement === 0) {
@@ -75,7 +75,7 @@ const Products = (props) => {
     const [flag, setFlag] = useState(false)
     const [booleanFlag, setBooleanFlag] = useState(false);
     const [globalQuery,setGloableQuery] = useState("")
-
+    const [savedSearchObj,setSavedSearchObj] = useState({})
     const handleScroll = () => {
         const scrollTop = (document.documentElement
             && document.documentElement.scrollTop)
@@ -89,7 +89,7 @@ const Products = (props) => {
             // console.log(page)
             // page++;
             // console.log(page)
-            setPageNumber(pageNumber + 1)
+            // setPageNumber(pageNumber + 1)
             setIsBottom(!isBottom);
         }
     }
@@ -111,6 +111,16 @@ const Products = (props) => {
 
         console.log("QQUERY",tempStr)
         GetSearchResult(tempStr).then(doc => {
+            if(doc.length > 0){
+                var tempObj = {
+                    title : doc[0].carName,
+                    image_one : doc[0].coverPic,
+                    image_two : doc[1].coverPic ? doc[1].coverPic : null,
+                    image_three : doc[2].coverPic ? doc[2].coverPic : null,
+                }
+                setSavedSearchObj(tempObj)
+            }
+            setPageNumber(pageNumber + 1)
             if(products.length > 0){
                 setBooleanFlag(false);
                 var temp = products
@@ -142,20 +152,25 @@ const Products = (props) => {
         str += `&id=${userId}`
         console.log("QQUERY",str)
         GetSearchResult(str).then(doc => {
-            setProducts(doc);
+            console.log('doc',doc)
+            if(doc.length > 0){
+                setProducts(doc)
+                var tempObj = {
+                    title : doc[0].carName,
+                    image_one : doc[0].coverPic,
+                    image_two : doc[1].coverPic ? doc[1].coverPic : null,
+                    image_three : doc[2].coverPic ? doc[2].coverPic : null,
+                }
+                setSavedSearchObj(tempObj)
+            }else{
+                setProducts([])
+            }
+            
+            if(!booleanFlag){
                 setBooleanFlag(true);
-            // if(products.length > 0){
-            //     setBooleanFlag(false);
-            //     var temp = products
-            //     for(let i = 0; i < doc.length; i++){
-            //         temp.push(doc[i])
-            //     }
-            //     setProducts(temp);
-            // }else{
-                
-            //     setBooleanFlag(true);
-            // }
+            }
             setFlag(!flag)
+            
         })
         .catch(error => {
             console.log(error.message);
@@ -183,6 +198,7 @@ const Products = (props) => {
                         onFilterChange={filterQueryChange}
                         isUsed={locationSearch.isUsed}
                         search={locationSearch.search}
+                        savedSearch={savedSearchObj}
                     />
                 </Col>
                 <Col xs="12" md="9" style = {{marginTop: '5rem'}}>
@@ -209,7 +225,15 @@ const Products = (props) => {
                     <Row>
                         {
                             products.length > 0 ? ShowSearchResults(products) : 
-                            booleanFlag ? <h2 className="text-center">No result found</h2> : DrawSkeleton()
+                            booleanFlag ? 
+                                <Col xs="12" className="text-center mt-5">
+                                    <Frown size={100} color="rgba(0, 0, 0, 0.65)" />
+                                    <h4 className="my-2">No result found</h4>
+                                    <Label>We can't find any item matching your search</Label>
+                                    <br />
+                                    <Button outline onClick={() => window.location.reload()}><Repeat size={15} className="mr-2" />Reset filters</Button>
+                                </Col> 
+                            : DrawSkeleton()
                         }
                         {/* {
                             productss.map((product, index) => { 

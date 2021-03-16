@@ -47,8 +47,8 @@ const SellerDetails = (props) => {
             // mail is okay
             document.getElementById('email-error-label').textContent = "";
                // show success message
-               document.getElementById('name-id').value=''
-               document.getElementById('textarea-id').value='' 
+            //    document.getElementById('name-id').value=''
+            //    document.getElementById('textarea-id').value='' 
                let successMsg=document.createElement('DIV')
                successMsg.className='success-msg-label'
                successMsg.innerHTML='Message sent successfully *'
@@ -159,7 +159,7 @@ const SellerDetails = (props) => {
                     <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
 
                     {localStorage.getItem('userId') ?
-                        <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
+                        <Button disabled onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
                         :
                         <>
                         <Button onClick={popupToggle} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>

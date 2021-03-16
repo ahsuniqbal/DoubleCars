@@ -5,10 +5,93 @@ import '../styles/Information.css';
 
 const Information = (props) => {
     const details = props.details;
-    const attributes = props.attributes;
+    var attributes = props.attributes;
+
+    const makeList = (list) => {
+        var attName = ""
+        var arr = []
+        var index = -1
+        for(let i = 0; i < list.length; i++){
+            if(attName === ""){
+                attName = list[i].category
+                const obj = {
+                    title : list[i].category,
+                    property : [{
+                        attId : list[i].attId,
+                        isChecked : list[i].isChecked,
+                        productId : list[i].productId,
+                        itemName : list[i].itemName
+                        // image : list[i].image
+                    }]
+                }
+                arr.push(obj)
+                index++;
+            }else{
+                if(attName !== list[i].category){
+                    const obj = {
+                        title : list[i].category,
+                        property : [{
+                            attId : list[i].attId,
+                        isChecked : list[i].isChecked,
+                        productId : list[i].productId,
+                        itemName : list[i].itemName
+                            // image : list[i].image
+                        }]
+                    }
+                    arr.push(obj)
+                    index++;
+                    attName = list[i].category
+                }else{
+                    arr[index].property.push({
+                        attId : list[i].attId,
+                        isChecked : list[i].isChecked,
+                        productId : list[i].productId,
+                        itemName : list[i].itemName
+                        // image : list[i].image
+                    })
+                }
+            }
+        }
+        return arr
+    }
 
     function renderFeaturesList() {
+        var attributeTable = makeList(attributes);
         var table = [];
+
+        if(attributeTable.length > 1) {
+            for(let i = 0; i < attributeTable.length; i++) {
+                table.push(
+                    <Col xs="6" md="3">
+                        <h6 className = "info-sub-head" title={attributeTable[i].title}>{attributeTable[i].title}</h6>
+                        {
+                            attributeTable[i].property.map((feature) => 
+                                <Label className = "car-feature" title={feature.itemName}>{feature.itemName}</Label>
+                            )
+                        }
+                    </Col>
+                )
+            }
+        }
+        else {
+            for(let i = 0; i < attributeTable[0].property.length; i++) { 
+                table.push(
+                    <Col xs="6" md="3">
+                        <Label className = "car-feature">{attributeTable[0].property[i].itemName}</Label>
+                    </Col>
+                )
+            }
+
+            // console.log(attributeTable);
+            // attributeTable.map((attribute) => {
+            //     return(
+            //         <Col xs="6" md="3">
+            //             <Label className = "car-feature">{attribute.itemName}</Label>
+            //         </Col>
+            //     )
+            // })
+        }
+
 
         // if(attributes[0].category === attributes[attributes.length - 1].category) {
         //     for(let i = 0; i < attributes.length; i++) {
@@ -54,40 +137,40 @@ const Information = (props) => {
 
 
         
-        if(attributes[0].category === 'features') {
-            for(let i = 0; i < attributes.length; i++) {
-                table.push(
-                    <Col xs="6" md="3">
-                        <Label className = "car-feature">{attributes[i].itemName}</Label>
-                    </Col>
-                );
-            }
-        }
-        else {
-            for(let i = 0; i < attributes.length; i++) {
-                if(i < attributes.length - 1 && attributes[i].category === attributes[i + 1].category) {
-                    console.log("if chala")
-                    table.push(
-                        <Col xs="6" md="3">
-                            <Label className = "info-sub-head">{attributes[i].category}</Label><br />
-                            {
-                                attributes[i].category === attributes[i + 1].category ? 
-                                    attributes.map((category, itemName) => <Label className="car-feature">{itemName}</Label>)
-                                    // <Label className="car-feature">{attributes[i].itemName}</Label>
-                                : null
-                            }
-                        </Col>
-                    );
-                }
-                else {
-                    console.log("else chala")
-                    table.push(
-                        <Col xs="6" md="3">
-                            <Label className = "info-sub-head">{attributes[i].category}</Label><br />
-                                <Label className="car-feature">{attributes[i].itemName}</Label>
-                        </Col>
-                    );
-                }
+        // if(attributes[0].category === 'features') {
+        //     for(let i = 0; i < attributes.length; i++) {
+        //         table.push(
+        //             <Col xs="6" md="3">
+        //                 <Label className = "car-feature">{attributes[i].itemName}</Label>
+        //             </Col>
+        //         );
+        //     }
+        // }
+        // else {
+        //     for(let i = 0; i < attributes.length; i++) {
+        //         if(i < attributes.length - 1 && attributes[i].category === attributes[i + 1].category) {
+        //             console.log("if chala")
+        //             table.push(
+        //                 <Col xs="6" md="3">
+        //                     <Label className = "info-sub-head">{attributes[i].category}</Label><br />
+        //                     {
+        //                         attributes[i].category === attributes[i + 1].category ? 
+        //                             attributes.map((category, itemName) => <Label className="car-feature">{itemName}</Label>)
+        //                             // <Label className="car-feature">{attributes[i].itemName}</Label>
+        //                         : null
+        //                     }
+        //                 </Col>
+        //             );
+        //         }
+        //         else {
+        //             console.log("else chala")
+        //             table.push(
+        //                 <Col xs="6" md="3">
+        //                     <Label className = "info-sub-head">{attributes[i].category}</Label><br />
+        //                         <Label className="car-feature">{attributes[i].itemName}</Label>
+        //                 </Col>
+        //             );
+        //         }
                 
                 // if(attributes[i].category === attributes[i + 1].category) {
                 //     table.push(
@@ -98,8 +181,8 @@ const Information = (props) => {
                 // }
                 // else { 
 
-                }
-            }
+            //     }
+            // }
             // var categoryName = attributes[0].category;
             // for(let i = 0; i < attributes.length; i++) {
             //     if(categoryName === attributes[i].category)

@@ -9,6 +9,7 @@ import gps from '../../../assets/gps.svg';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
 import '../styles/Filters.css';
 import { FiltersSkeleton } from '../../Skeletons/components/Skeleton';
+import {postSavedSearch} from '../api/PostRequest'
 
 
 // Prepare the make list to show on the dropdown
@@ -83,9 +84,14 @@ const Filters = (props) => {
     const [makeList, setMakeList] = useState([]);
     const [selectedMake, setSelectedMake] = useState(null);
     const [modelList, setModelList] = useState([]);
-    const [selectedModels, setSelectedModels] = useState([]);
+    const [selectedModel, setSelectedModel] = useState(null);
+    
     const [trimList, setTrimList] = useState([]);
-    const [selectedTrims, setSelectedTrims] = useState([]);
+    const [selectedTrim, setSelectedTrim] = useState(null);
+
+    // const [selectedModels, setSelectedModels] = useState([]);
+    // const [trimList, setTrimList] = useState([]);
+    // const [selectedTrims, setSelectedTrims] = useState([]);
 
     
 
@@ -97,7 +103,7 @@ const Filters = (props) => {
     const [bodyList,setBodyList] = useState([])
 
     const [price, setPrice] = useState([0, 99999]);
-
+    const [globalFilterQuery,setGlobalFilterQuery] = useState("")
     const [mileage, setMileage] = useState([0, 99999]);
 
     const [selectedFromYear, setSelectedFromYear] = useState(null);
@@ -118,7 +124,7 @@ const Filters = (props) => {
     const todayYear = (new Date()).getFullYear();
     // 100 years back from today's date
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
-    const dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index);
+    const dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index - 1);
 
     // Callback function to save the selected location from map to current location
     const GetLocationFromMap = useCallback((mapLocation) => {
@@ -135,7 +141,6 @@ const Filters = (props) => {
     }
 
     const handleMake = (make) => {
-        console.log("make",make)
         setSelectedMake(make);
         if(make){
             GetModelFromMake(make).then(doc => {
@@ -149,24 +154,27 @@ const Filters = (props) => {
             });
         }else{
             setModelList([]);
+            delete filters['carMake']
+            setFilters(filters);
+            FilterQueryString(filters);
         }
         
     }
 
     const handleModel = (select) => {
-        setSelectedModels(select);
-        if(select.length > 0){
-        setTrimCollapseOpen(true);
-        
-        GetTrimFromMakeAndModel(selectedMake, select[select.length - 1]).then(doc => {
-            // trimList.push(doc.makes[0].models[0].trims)
-            setTrimList(doc.makes[0].models[0].trims)
-        }).catch(error => {
-            console.log(error.message)
-        });
-        filters['carModel'] = concatinateCommaToFilters(select);
-        setFilters(filters);
-        FilterQueryString(filters);
+        console.log("model",select)
+        setSelectedModel(select);
+        if(select){
+            GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
+                // trimList.push(doc.makes[0].models[0].trims)
+                setTrimCollapseOpen(true);
+                setTrimList(doc.makes[0].models[0].trims)
+                filters['carModel'] = select;
+                setFilters(filters);
+                FilterQueryString(filters);
+            }).catch(error => {
+                console.log(error.message)
+            });
         }else{
             // console.log('filters1',filters)
             delete filters['carModel']
@@ -175,22 +183,74 @@ const Filters = (props) => {
             FilterQueryString(filters);
             setTrimCollapseOpen(false);
         }
+
+
+
+
+        // setSelectedModels(select);
+        // if(select.length > 0){
+        // setTrimCollapseOpen(true);
+        
+        // GetTrimFromMakeAndModel(selectedMake, select[select.length - 1]).then(doc => {
+        //     // trimList.push(doc.makes[0].models[0].trims)
+        //     setTrimList(doc.makes[0].models[0].trims)
+        // }).catch(error => {
+        //     console.log(error.message)
+        // });
+        // filters['carModel'] = concatinateCommaToFilters(select);
+        // setFilters(filters);
+        // FilterQueryString(filters);
+        // }else{
+        //     // console.log('filters1',filters)
+        //     delete filters['carModel']
+        //     // console.log('filters2',filters)
+        //     setFilters(filters);
+        //     FilterQueryString(filters);
+        //     setTrimCollapseOpen(false);
+        // }
     }
 
 
     const handleTrim = (selected) => {
-        console.log(selected)
-        setSelectedTrims(selected);
-        if(selected.length > 0){            
-            filters['trim'] = concatinateCommaToFilters(selected);
-            setFilters(filters);
-            FilterQueryString(filters);
-        }
-        else {
+        console.log("trim",selected)
+        setSelectedTrim(selected);
+        if(selected){
+            // GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
+            //     // trimList.push(doc.makes[0].models[0].trims)
+            //     setTrimCollapseOpen(true);
+            //     setTrimList(doc.makes[0].models[0].trims)
+                filters['trim'] = selected;
+                setFilters(filters);
+                FilterQueryString(filters);
+            // }).catch(error => {
+            //     console.log(error.message)
+            // });
+        }else{
+            // console.log('filters1',filters)
             delete filters['trim']
+            // console.log('filters2',filters)
             setFilters(filters);
             FilterQueryString(filters);
+            // setTrimCollapseOpen(false);
         }
+
+
+
+
+
+
+        // console.log(selected)
+        // setSelectedTrims(selected);
+        // if(selected.length > 0){            
+        //     filters['trim'] = concatinateCommaToFilters(selected);
+        //     setFilters(filters);
+        //     FilterQueryString(filters);
+        // }
+        // else {
+        //     delete filters['trim']
+        //     setFilters(filters);
+        //     FilterQueryString(filters);
+        // }
 
     }
 
@@ -324,9 +384,9 @@ const Filters = (props) => {
                 </Col>
             );
         }
-        if(bodyStyleList.includes('SUV')) {
+        if(bodyStyleList.includes('Sport Utility Vehicle')) {
             table.push(
-                <Col onClick={() => bodyListFunc('SUV', 2)} xs="6" md="6" lg='4'>
+                <Col onClick={() => bodyListFunc('Sport Utility Vehicle', 2)} xs="6" md="6" lg='4'>
                     <svg width="58" height="26" viewBox="0 0 58 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M53.7974 19.9613H51.674C51.7071 19.7248 51.7239 19.4863 51.7242 19.2474C51.7242 17.9222 51.1978 16.6512 50.2607 15.7142C49.3236 14.7771 48.0527 14.2506 46.7274 14.2506C45.4022 14.2506 44.1312 14.7771 43.1941 15.7142C42.2571 16.6512 41.7306 17.9222 41.7306 19.2474C41.731 19.4863 41.7477 19.7248 41.7808 19.9613H15.9881C16.0207 19.7247 16.037 19.4862 16.0369 19.2474C16.048 18.5843 15.9269 17.9256 15.6808 17.3098C15.4347 16.6939 15.0685 16.1332 14.6034 15.6603C14.1384 15.1875 13.5839 14.8119 12.9722 14.5555C12.3606 14.2992 11.704 14.1672 11.0408 14.1672C10.3775 14.1672 9.72096 14.2992 9.1093 14.5555C8.49763 14.8119 7.94312 15.1875 7.47809 15.6603C7.01306 16.1332 6.64681 16.6939 6.40071 17.3098C6.1546 17.9256 6.03356 18.5843 6.04464 19.2474C6.04455 19.4862 6.06085 19.7247 6.09344 19.9613H3.54205C3.54205 19.9613 2.76687 19.9543 2.68462 19.9334C2.1604 19.8121 0.414856 19.2014 1.19979 16.5999C1.32912 16.1969 1.39681 15.7767 1.40056 15.3534V8.62921C1.40233 7.87876 1.66004 7.15136 2.13112 6.56718L5.4772 2.45847C5.65473 2.24084 5.87841 2.06539 6.13208 1.94482C6.38574 1.82426 6.66304 1.7616 6.9439 1.76137C14.6533 0.811334 22.45 0.808057 30.1601 1.75161C30.1981 1.75606 30.2362 1.75839 30.2745 1.75859C31.4723 1.77367 32.634 2.17132 33.5899 2.89346L40.296 7.99485C40.7681 8.35221 41.3277 8.57612 41.916 8.64315L51.3882 9.74736C52.7584 9.90574 54.0225 10.5623 54.94 11.5922C55.8575 12.622 56.3644 13.9533 56.3641 15.3325V15.603C56.372 15.8457 56.4431 16.0822 56.5705 16.2889C56.7485 16.7185 56.8112 17.1872 56.7523 17.6484C56.6935 18.1097 56.5151 18.5476 56.2348 18.9187C55.9546 19.2898 55.5823 19.5812 55.1548 19.7641C54.7272 19.9469 54.2593 20.0149 53.7974 19.9613Z" stroke={basicColor[2]} stroke-width="1.7" stroke-miterlimit="10"/>
                         <path d="M16.0328 19.2473C16.0329 19.486 16.0166 19.7246 15.984 19.9611C15.816 21.1542 15.2227 22.2466 14.3133 23.0369C13.4038 23.8273 12.2395 24.2626 11.0346 24.2626C9.82965 24.2626 8.66529 23.8273 7.75585 23.0369C6.84641 22.2466 6.25309 21.1542 6.08514 19.9611C6.05255 19.7246 6.03625 19.486 6.03634 19.2473C6.02526 18.5841 6.14631 17.9255 6.39241 17.3096C6.63852 16.6937 7.00476 16.133 7.46979 15.6602C7.93482 15.1873 8.48933 14.8117 9.101 14.5554C9.71267 14.299 10.3692 14.167 11.0325 14.167C11.6957 14.167 12.3523 14.299 12.9639 14.5554C13.5756 14.8117 14.1301 15.1873 14.5951 15.6602C15.0602 16.133 15.4264 16.6937 15.6725 17.3096C15.9186 17.9255 16.0397 18.5841 16.0286 19.2473H16.0328Z" stroke={basicColor[2]} stroke-width="1.7" stroke-miterlimit="10"/>
@@ -352,9 +412,9 @@ const Filters = (props) => {
                 </Col>
             );
         }
-        if(bodyStyleList.includes('Covertibale')) {
+        if(bodyStyleList.includes('Convertible')) {
             table.push(
-                <Col onClick={() => bodyListFunc('Covertibale', 4)} xs="6" md="6" lg='4' className="px-0">
+                <Col onClick={() => bodyListFunc('Convertible', 4)} xs="6" md="6" lg='4' className="px-0">
                     <svg width="58" height="19" viewBox="0 0 58 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M50.5434 13.5784C50.543 13.9979 50.481 14.415 50.3594 14.8165V14.8165C50.2834 15.0656 50.184 15.3069 50.0624 15.5373C49.6758 16.2543 49.1022 16.8534 48.4027 17.2709C47.7031 17.6884 46.9036 17.9089 46.089 17.9089C45.2743 17.9089 44.4748 17.6884 43.7753 17.2709C43.0757 16.8534 42.5022 16.2543 42.1155 15.5373C42.0569 15.4229 42.0026 15.3072 41.9552 15.1887C41.745 14.6779 41.6375 14.1307 41.6387 13.5784C41.6959 12.4352 42.1903 11.3577 43.0197 10.5688C43.8491 9.77991 44.9499 9.33997 46.0945 9.33997C47.2392 9.33997 48.34 9.77991 49.1694 10.5688C49.9988 11.3577 50.4932 12.4352 50.5504 13.5784H50.5434Z" stroke={basicColor[4]} stroke-width="1.7" stroke-miterlimit="10"/>
                         <path d="M16.2604 13.5784C16.26 13.9979 16.198 14.415 16.0764 14.8165V14.8165C16.0016 15.066 15.9021 15.3075 15.7794 15.5373C15.3785 16.2843 14.775 16.9031 14.0382 17.3227C13.3015 17.7422 12.4613 17.9455 11.6143 17.9091C10.7672 17.8727 9.9476 17.5981 9.24955 17.1169C8.5515 16.6357 8.00331 15.9674 7.66794 15.1887C7.57394 14.9602 7.50114 14.7236 7.45045 14.4818V14.4818C7.38635 14.185 7.3541 13.8821 7.35425 13.5784C7.41146 12.4352 7.90589 11.3577 8.73525 10.5688C9.56462 9.77991 10.6655 9.33997 11.8101 9.33997C12.9548 9.33997 14.0556 9.77991 14.885 10.5688C15.7143 11.3577 16.2088 12.4352 16.266 13.5784H16.2604Z" stroke={basicColor[4]} stroke-width="1.7" stroke-miterlimit="10"/>
@@ -363,14 +423,14 @@ const Filters = (props) => {
                         <path d="M20.9319 8.71777H25.4759" stroke={basicColor[4]} stroke-width="1.7" stroke-miterlimit="10"/>
                     </svg>
 
-                    <p style={{color: basicColor[4]}}>Covertibale</p>
+                    <p style={{color: basicColor[4]}}>Convertible</p>
                 </Col>
             );
         }
 
-        if(bodyStyleList.includes('Sport Utility Vehicle')) {
+        if(bodyStyleList.includes('Sports')) {
             table.push(
-                <Col onClick={() => bodyListFunc('Sport Utility Vehicle', 5)} xs="6" md="6" lg='4'>
+                <Col onClick={() => bodyListFunc('Sports', 5)} xs="6" md="6" lg='4'>
                     <svg width="59" height="22" viewBox="0 0 59 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M51.2556 15.9385C51.2552 16.358 51.1932 16.7751 51.0716 17.1766V17.1766C50.9956 17.4257 50.8961 17.667 50.7746 17.8974C50.3879 18.6144 49.8144 19.2135 49.1148 19.631C48.4153 20.0486 47.6158 20.269 46.8011 20.269C45.9865 20.269 45.187 20.0486 44.4874 19.631C43.7879 19.2135 43.2143 18.6144 42.8277 17.8974C42.7691 17.783 42.7147 17.6673 42.6673 17.5488C42.4572 17.038 42.3496 16.4909 42.3508 15.9385C42.4081 14.7953 42.9025 13.7178 43.7318 12.9289C44.5612 12.14 45.6621 11.7001 46.8067 11.7001C47.9513 11.7001 49.0522 12.14 49.8816 12.9289C50.7109 13.7178 51.2054 14.7953 51.2626 15.9385H51.2556Z" stroke={basicColor[5]} stroke-width="1.7" stroke-miterlimit="10"/>
                         <path d="M16.9706 15.9385C16.9702 16.358 16.9082 16.7751 16.7866 17.1766V17.1766C16.7118 17.4261 16.6123 17.6676 16.4896 17.8974C16.0887 18.6444 15.4852 19.2632 14.7484 19.6828C14.0117 20.1023 13.1715 20.3056 12.3245 20.2692C11.4774 20.2328 10.6578 19.9582 9.95975 19.477C9.2617 18.9958 8.71351 18.3275 8.37815 17.5488C8.28415 17.3204 8.21134 17.0837 8.16065 16.842V16.842C8.09655 16.5451 8.0643 16.2422 8.06445 15.9385C8.12167 14.7953 8.61609 13.7178 9.44546 12.9289C10.2748 12.14 11.3757 11.7001 12.5203 11.7001C13.665 11.7001 14.7658 12.14 15.5952 12.9289C16.4245 13.7178 16.919 14.7953 16.9762 15.9385H16.9706Z" stroke={basicColor[5]} stroke-width="1.7" stroke-miterlimit="10"/>
@@ -398,6 +458,40 @@ const Filters = (props) => {
                     </svg>
 
                     <p style={{color: basicColor[6]}}>Truck</p>
+                </Col>
+            );
+        }
+
+
+        if(bodyStyleList.includes('Pickup Truck')) {
+            table.push(
+                <Col onClick={() => bodyListFunc('Pickup Truck', 7)} xs="6" md="6" lg='4'>
+                    <svg width="55" height="25" viewBox="0 0 55 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50.5596 19.0987H51.3606C51.7702 19.1446 52.1852 19.0864 52.5643 18.9296C52.9434 18.7728 53.2736 18.523 53.5221 18.2049C53.7706 17.8868 53.9288 17.5114 53.981 17.116C54.0332 16.7206 53.9776 16.3188 53.8198 15.9506C53.7068 15.7733 53.6437 15.5706 53.6368 15.3625V15.1307C53.637 13.9483 53.1875 12.8071 52.3739 11.9242C51.5602 11.0414 50.4392 10.4786 49.2242 10.3428L44.5335 9.39619C44.0117 9.33873 43.5155 9.14679 43.0968 8.84044L38.2319 3.38535C37.3842 2.76629 36.3541 2.42541 35.2918 2.41248C35.2579 2.41231 35.2241 2.41032 35.1904 2.4065C31.9404 2.02202 25.7366 1.82092 22.4684 1.80322M40.66 18.4867C40.6603 18.6914 40.6752 18.8959 40.7045 19.0987H15.3591M6.5847 19.0987H4.32217C4.32217 19.0987 3.63475 19.0927 3.56181 19.0748C3.09694 18.9708 2.06781 18.573 2.06781 16.4091C2.06799 15.7924 2.06459 15.5038 2.06791 15.141V9.37666" stroke={basicColor[7]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M15.0501 19.1416C15.0502 19.3463 15.0361 19.5508 15.0079 19.7536C14.8625 20.7765 14.3488 21.713 13.5614 22.3906C12.774 23.0683 11.7659 23.4414 10.7228 23.4414C9.67956 23.4414 8.67149 23.0683 7.8841 22.3906C7.09672 21.713 6.58304 20.7765 6.43763 19.7536C6.40941 19.5508 6.3953 19.3463 6.39538 19.1416C6.38579 18.5731 6.49058 18.0083 6.70366 17.4803C6.91673 16.9523 7.23382 16.4716 7.63644 16.0662C8.03906 15.6608 8.51914 15.3388 9.04871 15.119C9.57829 14.8993 10.1467 14.7861 10.7209 14.7861C11.2951 14.7861 11.8636 14.8993 12.3932 15.119C12.9227 15.3388 13.4028 15.6608 13.8055 16.0662C14.2081 16.4716 14.5252 16.9523 14.7382 17.4803C14.9513 18.0083 15.0561 18.5731 15.0465 19.1416H15.0501Z" stroke={basicColor[7]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M49.6722 19.1057C49.6719 19.3122 49.6574 19.5184 49.6288 19.7228C49.4834 20.7543 48.9698 21.6986 48.1826 22.3819C47.3954 23.0652 46.3875 23.4414 45.3445 23.4414C44.3016 23.4414 43.2937 23.0652 42.5065 22.3819C41.7192 21.6986 41.2057 20.7543 41.0603 19.7228C41.0317 19.5184 41.0172 19.3122 41.0168 19.1057C41.0168 17.9601 41.4725 16.8614 42.2837 16.0513C43.0948 15.2412 44.195 14.7861 45.3421 14.7861C46.4892 14.7861 47.5894 15.2412 48.4005 16.0513C49.2117 16.8614 49.6674 17.9601 49.6674 19.1057H49.6722Z" stroke={basicColor[7]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M44.262 9.37659L29.5345 9.0897C29.2268 9.08266 28.9264 9.00846 28.6632 8.87438C28.3999 8.74031 28.1828 8.55099 28.0332 8.32507L28.0334 2.88507" stroke={basicColor[7]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M22.6235 0.721191C22.6235 3.14159 22.6025 5.91053 22.6025 8.17724L22.6237 8.93603L21.9076 9.37655H0.985352" stroke={basicColor[7]} stroke-width="1.7" stroke-miterlimit="10"/>
+                    </svg>
+
+                    <p style={{color: basicColor[7]}}>Pickup Truck</p>
+                </Col>
+            );
+        }
+
+
+        if(bodyStyleList.includes('Wagon')) {
+            table.push(
+                <Col onClick={() => bodyListFunc('Wagon', 8)} xs="6" md="6" lg='4'>
+                    <svg width="55" height="25" viewBox="0 0 55 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50.5596 19.0987H51.3606C51.7702 19.1446 52.1852 19.0864 52.5643 18.9296C52.9434 18.7728 53.2736 18.523 53.5221 18.2049C53.7706 17.8868 53.9288 17.5114 53.981 17.116C54.0332 16.7206 53.9776 16.3188 53.8198 15.9506C53.7068 15.7733 53.6437 15.5706 53.6368 15.3625V15.1307C53.637 13.9483 53.1875 12.8071 52.3739 11.9242C51.5602 11.0414 50.4392 10.4786 49.2242 10.3428L44.5335 9.39619C44.0117 9.33873 43.5155 9.14679 43.0968 8.84044L38.2319 3.38535C37.3842 2.76629 36.3541 2.42541 35.2918 2.41248C35.2579 2.41231 35.2241 2.41032 35.1904 2.4065C31.9404 2.02202 25.7366 1.82092 22.4684 1.80322M40.66 18.4867C40.6603 18.6914 40.6752 18.8959 40.7045 19.0987H15.3591M6.5847 19.0987H4.32217C4.32217 19.0987 3.63475 19.0927 3.56181 19.0748C3.09694 18.9708 2.06781 18.573 2.06781 16.4091C2.06799 15.7924 2.06459 15.5038 2.06791 15.141V9.37666" stroke={basicColor[8]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M15.0501 19.1416C15.0502 19.3463 15.0361 19.5508 15.0079 19.7536C14.8625 20.7765 14.3488 21.713 13.5614 22.3906C12.774 23.0683 11.7659 23.4414 10.7228 23.4414C9.67956 23.4414 8.67149 23.0683 7.8841 22.3906C7.09672 21.713 6.58304 20.7765 6.43763 19.7536C6.40941 19.5508 6.3953 19.3463 6.39538 19.1416C6.38579 18.5731 6.49058 18.0083 6.70366 17.4803C6.91673 16.9523 7.23382 16.4716 7.63644 16.0662C8.03906 15.6608 8.51914 15.3388 9.04871 15.119C9.57829 14.8993 10.1467 14.7861 10.7209 14.7861C11.2951 14.7861 11.8636 14.8993 12.3932 15.119C12.9227 15.3388 13.4028 15.6608 13.8055 16.0662C14.2081 16.4716 14.5252 16.9523 14.7382 17.4803C14.9513 18.0083 15.0561 18.5731 15.0465 19.1416H15.0501Z" stroke={basicColor[8]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M49.6722 19.1057C49.6719 19.3122 49.6574 19.5184 49.6288 19.7228C49.4834 20.7543 48.9698 21.6986 48.1826 22.3819C47.3954 23.0652 46.3875 23.4414 45.3445 23.4414C44.3016 23.4414 43.2937 23.0652 42.5065 22.3819C41.7192 21.6986 41.2057 20.7543 41.0603 19.7228C41.0317 19.5184 41.0172 19.3122 41.0168 19.1057C41.0168 17.9601 41.4725 16.8614 42.2837 16.0513C43.0948 15.2412 44.195 14.7861 45.3421 14.7861C46.4892 14.7861 47.5894 15.2412 48.4005 16.0513C49.2117 16.8614 49.6674 17.9601 49.6674 19.1057H49.6722Z" stroke={basicColor[8]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M44.262 9.37659L29.5345 9.0897C29.2268 9.08266 28.9264 9.00846 28.6632 8.87438C28.3999 8.74031 28.1828 8.55099 28.0332 8.32507L28.0334 2.88507" stroke={basicColor[8]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M22.6235 0.721191C22.6235 3.14159 22.6025 5.91053 22.6025 8.17724L22.6237 8.93603L21.9076 9.37655H0.985352" stroke={basicColor[8]} stroke-width="1.7" stroke-miterlimit="10"/>
+                    </svg>
+
+                    <p style={{color: basicColor[8]}}>Wagon</p>
                 </Col>
             );
         }
@@ -529,8 +623,30 @@ const Filters = (props) => {
                 str += "&";
             }
         }
+        setGlobalFilterQuery(str)
         // This function will be called from the parent class i.e products page
         props.onFilterChange(str);
+    }
+
+    const saveFilters = () => {
+        var count = Object.keys(filters).length
+        const obj = {
+            count,
+            filter_query : globalFilterQuery,
+            userId : localStorage.getItem('userId'),
+            image_one : props.savedSearch.image_one,
+            image_two : props.savedSearch.image_two,
+            image_three : props.savedSearch.image_three,
+            title : props.savedSearch.title,
+        }
+        console.log(props.savedSearch,obj)
+        postSavedSearch(obj)
+        .then(doc => {
+            console.log(doc.message)
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
     }
 
     return(
@@ -545,6 +661,7 @@ const Filters = (props) => {
                 }
                 {/* Clear all button */}
                 <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => window.location.reload()}>Clear</Button>
+                <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => saveFilters()}>save filters</Button>
                 
                 {/******** Basic filters start here ************/}
 
@@ -583,7 +700,9 @@ const Filters = (props) => {
                                         <RadiusSlider 
                                             min={0}
                                             max={200}
-                                            onHandleRadius={handleRadius} />
+                                            // onHandleRadius={handleRadius} 
+                                            onHandleRadius={() => console.log("radius")}
+                                        />
                                     </Col>
                                     {/* Changing the value of Radius on handle changing */}
                                     <Col xs="2" sm="1" md="3" lg="2" className="px-0">
@@ -617,20 +736,49 @@ const Filters = (props) => {
                              * populated and visible once the make is selected ************/}
                             <Collapse isOpen={isModelCollapseOpen}>
                                 <h6>Model</h6>
-                                <MultiSelect
+
+                                <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)}>
+                                <option value="">Model</option>
+                                {
+                                    modelList.map((option, index) => {
+                                        return <option value={option.name}>{option.name}</option>
+                                    })
+                                }
+                                </Input>
+
+
+
+                                {/* <MultiSelect
                                     options={concatModelList(modelList)}
                                     selected={selectedModels}
-                                    onSelectedChanged={selected => {  handleModel(selected) }} />
+                                    onSelectedChanged={selected => {  handleModel(selected) }} /> */}
                                 
 
                                 {/******** Trim filter, trim list will be 
                                  * populated and visible once the model is selected ************/}
                                 <Collapse isOpen={isTrimCollapseOpen}>
                                     <h6>Trim</h6>
-                                    <MultiSelect
+
+
+                                    <Input id="trim-list" type="select" className="mb-4" onChange={(e) => handleTrim(e.target.value)}>
+                                    <option value="">Trim</option>
+                                    {
+                                        trimList.map((option, index) => {
+                                            return <option value={option.name}>{option.name}</option>
+                                        })
+                                    }
+                                    </Input>
+
+
+
+
+
+
+
+                                    {/* <MultiSelect
                                         options={concatTrimList(trimList)}
                                         selected={selectedTrims}
-                                        onSelectedChanged={selected => { handleTrim (selected) }} />
+                                        onSelectedChanged={selected => { handleTrim (selected) }} /> */}
                                 </Collapse>
                             </Collapse>
 

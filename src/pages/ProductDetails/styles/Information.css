@@ -43,6 +43,11 @@
     font-weight: bold;
     line-height: 18px;
     margin-top: 12%;
+
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .car-detail {
@@ -68,4 +73,9 @@
     line-height: 17px;
     color: rgba(8, 11, 48, 0.85);   
     margin-bottom: 2rem;
+
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

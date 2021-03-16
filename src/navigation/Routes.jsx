@@ -18,7 +18,10 @@ const SavedCars = React.lazy(() => import('../pages/SavedCars/components/SavedCa
 
 const Dashboard=React.lazy(()=>import('../pages/Dashboard/Components/Dashboard'))
 const FullViewHeader=React.lazy(()=>import('../pages/FullViewHeader/Components/FullViewHeader'))
+const SavedSearches = React.lazy(() => import('../pages/SavedSearches'));
 const CarousalProducts=React.lazy(()=>import('../pages/CarousalProducts/components/CarousalProducts'))
+
+
 /////////////////////// MUST READ BEFORE CREATING A ROUTE /////////////////////
 
 // To show the page to every visitor public keyword will be true
@@ -33,8 +36,8 @@ const CarousalProducts=React.lazy(()=>import('../pages/CarousalProducts/componen
 const routes = [
     { path: '/', exact: true, name: 'Home', public: true, restricted: false, component: Home },
     { path: '/about', exact: true, name: 'About', public: true, restricted: false, component: About },
-    { path: '/blogs', exact: true, name: 'Blogs home page', public: true, restricted: false, component: BlogsHome },
-    { path: '/blogs/:id', exact: true, name: 'Blogs', public: true, restricted: false, component: Blogs },
+    { path: '/abcd', exact: true, name: 'Blogs home page', public: true, restricted: false, component: BlogsHome },
+    { path: '/abcd/:id', exact: true, name: 'Blogs', public: true, restricted: false, component: Blogs },
     { path: '/profile', exact: true, name: 'Profile', public: false, restricted: false, component: Profile },
     { path: '/login', exact: true, name: 'Login', public: true, restricted: true, component: Login },
     { path: '/signup', exact: true, name: 'Signup', public: true, restricted: true, component: Signup },
@@ -46,11 +49,12 @@ const routes = [
     { path: '/contactus', exact: true, name: 'Contact Us', public: true, restricted: false, component: ContactUs },
     // { path: '/chat', exact: true, name: 'Chat', public: false, restricted: false, component: Chat },
     { path: '/saved-cars', exact: true, name: 'SavedCars', public: false, restricted: false, component: SavedCars},
+    { path: '/saved-searches', exact: true, name: 'SavedCars', public: false, restricted: false, component: SavedSearches},
     
     // dashboard route
     { path: '/dashboard', exact: true, name: 'Dashboard', public: true, component: Dashboard },
     { path: '/fullviewheader', exact: true, name: 'Full View Header', public: true, component: FullViewHeader },
-    { path: '/carousalProducts', exact: true, name: 'Carousal Products', public: true, component: CarousalProducts },
+    { path: '/carousal-products', exact: true, name: 'Carousal Products', public: true, component: CarousalProducts },
 ];
 
 export default routes;
