@@ -1,0 +1,26 @@
+
+.slider-show-main-div{
+    padding:2rem;
+}
+.roll-ryce-slider-heading{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: #080B30;
+    margin: 2rem 2rem  1rem  2rem;
+}
+.view-all-link-col{
+    padding-top: 2rem !important;
+}
+.view-all-of-all-royce{
+    margin: 2rem 2rem  1rem  2rem;
+}
+.view-all-cars{
+    width: 233px;
+    height: 48px;
+    border: 1px solid #1C67CE;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
