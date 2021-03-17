@@ -13,7 +13,7 @@ function LowerMain(){
             <div className='lower-sec-dealership'>
                 <Row style={{marginRight:'0'}}>
                     <Col md='6'>
-                        <div style={{padding:' 6rem 6rem 0 8rem'}}>
+                        <div style={{padding:' 12% 8% 0 19%'}}>
                             <img src={Chart} alt='chart-display' className='dealership-lower-img1'/>
                             <img src={Views} alt='views' className='dealership-lower-img2'/>
                         </div>

@@ -18,7 +18,8 @@
     color: rgba(0, 0, 0, 0.45);
 }
 .chart-design-div{
-   margin: 8rem;
+   /* margin: 8rem; */
+   margin: 18%;
 }
 .chart-design-img-div{
     margin: 1rem;
@@ -44,4 +45,13 @@
 .productCard-img-div{
     text-align: center;
     padding: 3rem 3rem 5rem;
+}
+
+@media screen and (max-width:425px){
+    .dealership-lower-img1{
+        width: 100%;
+    }
+    .dealership-lower-img2{
+        width: 50%;
+    }
 }

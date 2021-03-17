@@ -23,7 +23,7 @@ function HeaderMain(){
                     </Col>
 
                     <Col lg='6' md='12'  className='fullview-header-right'>
-                        <LazyLoadImage alt="subsrcibe-image" effect="blur" src={FullViewHeaderImage} className='fullview-header-right-img'/>
+                        <LazyLoadImage alt="subsrcibe-image" effect="blur" src={FullViewHeaderImage} className='img-fluid fullview-header-right-img'/>
                     </Col>
                 </Row>
             </div>
