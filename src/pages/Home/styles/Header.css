@@ -65,7 +65,7 @@
   /* Right section css */
 .right-side-cover-div{
   padding: 0;
-  width: 100%;
+  /* width: 100%; */
 }
 .right-cover-section{
     /* background-image: url("../../../assets/LandingPageHeaderImage.png");  */

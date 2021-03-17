@@ -11,7 +11,8 @@ import LowerCarsImage8 from '../../../assets/TopStoriesCardDemoImage.png';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Slider from "react-slick";
-import RightArrow from '../../../assets/RightArrow.png'
+import RightArrow from '../../../assets/RightArrow.png';
+import {useHistory} from 'react-router-dom';
 
 const NextIcon=(props)=>{
      const { className, onClick,activeSlide ,length} = props;
@@ -54,7 +55,7 @@ const LowerCar = (props) => {
 //           alert(e.message)
 //      })
 //     },[])
-
+  const history=useHistory()
   const [activeSlide,setActiveSlide]=useState(0)
   const [activeSlide1,setActiveSlide1]=useState(0)
   const [lowerCar,setCars]=useState([
@@ -144,7 +145,7 @@ const LowerCar = (props) => {
              {lowerCar ?
                lowerCar.map((item,index)=>{
                  return(
-                    <div className = "lower-section-car" key={index}>
+                    <div className = "lower-section-car" key={index} onClick={()=>history.push('/carousal-products')}>
                           <LazyLoadImage width="100%" alt="demo image" effect="blur" src={item.image} className='img-fluid lower-cars-carousel-images'/>
                           <p className='text'>{item.text}</p>
                     </div>

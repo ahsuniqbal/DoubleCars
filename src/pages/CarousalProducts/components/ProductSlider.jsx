@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from "react"
-import '../styles/DCSlider.css'
+import '../styles/ProductSlider.css'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css";
-import ProductCard from '../../ProductCard';
+import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
 import nextIcon from '../../../assets/next-icon.png';
 import previousIcon from '../../../assets/prev-icon.png';
@@ -13,7 +13,7 @@ const NextIcon=(props)=>{
   console.log(activeSlide)
   return (
     <div>
-      {activeSlide>=0 && activeSlide!==length-5 &&
+      {activeSlide>=0 && activeSlide!==length-4 &&
             <div className={className} onClick={onClick}>
             <img src={nextIcon} className='icon-image' id='show-sliders'/>
           </div>
@@ -36,10 +36,10 @@ const PrevoiusIcon=(props)=>{
     </div>
   );
 }
-const DCSlider = (props) => {
+const PrdouctSlider = (props) => {
 
   const [activeSlide,setActiveSlide]=useState(0)
-
+    console.log('hello',props)
     let settings = {
         adaptiveHeight: true,
         speed:800,
@@ -49,7 +49,7 @@ const DCSlider = (props) => {
         beforeChange: (current, next) => setActiveSlide(next),
         swipeToSlide: true,
         slidesToScroll: 1,
-        slidesToShow: 5,
+        slidesToShow: 4,
         autoplay: false,
         infinite: false,
         responsive: [
@@ -84,7 +84,7 @@ const DCSlider = (props) => {
 
     return (
       
-        <Slider {...settings}  className='silder-class'>
+        <Slider {...settings}  className='carousal-silder-class'>
             {
                 props.items ? 
                     props.items.map((item, index) => (
@@ -97,8 +97,7 @@ const DCSlider = (props) => {
                             productTitle={item.carName}
                             productSubtitle={AddCommaToNumber(item.mileage) + " mileage · " + item.zipCode}
                             productText={"$" + AddCommaToNumber(item.price)}
-                            allowBookmark={props.allowBookmark}
-                           
+                            allowBookmark={props.allowBookmark}                            
                         />      
                     ))
                 : null
@@ -108,4 +107,4 @@ const DCSlider = (props) => {
     );
   }
   
-  export default DCSlider;
+  export default PrdouctSlider;

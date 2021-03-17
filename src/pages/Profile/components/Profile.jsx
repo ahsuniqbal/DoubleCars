@@ -35,6 +35,19 @@ const Profile = (props) => {
         })
     },[])
 
+    // function to validate number on keypress event
+    const formatToPhone = (event) => {
+        const target = event.target;
+        const input = target.value.replace(/\D/g,'').substring(0,10); // First ten digits of input only
+        const areaCode = input.substring(0,3);
+        const middle = input.substring(3,6);
+        const last = input.substring(6,10);
+    
+        if(input.length > 6){target.value = `(${areaCode})${middle}-${last}`;}
+        else if(input.length > 3){target.value = `(${areaCode})${middle}`;}
+        else if(input.length > 0){target.value = `(${areaCode}`;}
+    };
+
     const saveProfileClick = () => {
         const id = localStorage.getItem('userId')
         var firstName = document.getElementById('firstName').value
@@ -225,7 +238,9 @@ const Profile = (props) => {
                             user ? <Row>
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels" id='giving-margin-top'>Mobile Number</Label>
-                                <Input id="phNum" className = "profile-text-field" type="text"  defaultValue={user.phNum}/>
+                                <Input id="phNum" className = "profile-text-field" type="text"
+                                  onKeyPress={e => formatToPhone(e)} maxLength={13}
+                                defaultValue={user.phNum}/>
                                 <div id="profile-phNum-error-label" className="profile-error-label"></div>
                             </Col>
                         </Row> : null

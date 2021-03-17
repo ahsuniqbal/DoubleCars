@@ -26,6 +26,7 @@ import LowerCar from './LowerCars';
 import CarsLogo from './CarsLogo';
 import OldFeaturedCars from './OldFeaturedCars';
 import NewFeaturedCars from './NewFeatureCars';
+import TruckSection from './TruckSection';
 import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 import { useHistory } from 'react-router-dom';
 
@@ -283,7 +284,9 @@ const Home = () => {
                         <TopBudget/>
                         <Container>
                             <PriceRange/>
+                            <TruckSection/>
                             <ServicesOffer/>
+                            
                         </Container>
                         
                      

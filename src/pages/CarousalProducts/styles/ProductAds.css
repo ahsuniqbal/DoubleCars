@@ -1,0 +1,12 @@
+.product-ads-div{
+    border: 1px solid #F5F5F5;
+    height: 170px;
+    background: #F5F5F5;
+    border-radius: 6px;
+    margin: 0 2rem;
+    text-align: center;
+}
+.product-ads-Image{
+    /* transform:translateY((50%)) */
+    margin: 40px 0px;
+}
