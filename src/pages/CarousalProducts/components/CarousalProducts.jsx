@@ -39,8 +39,9 @@ function CarousalProducts (props) {
     return(
        <div style={{backgroundColor:'white'}}>
 
+           {/* first section */}
            <ProductHeader />
-       
+           {/* second section */}
            <div className='slider-show-main-div'>
                     {sliderData ? 
                         sliderData.map((item,index)=>{
@@ -81,12 +82,14 @@ function CarousalProducts (props) {
                         :null
                     }
             </div>
-
+            
+            {/* third section */}
             <ProductsPageAds/>
 
+            {/* last section */}
             <Row className='roll-ryce-row'>
                 <Col md = "6" xs = "12">
-                    <h2 className = "roll-ryce-slider-heading">All Rolls-Royce</h2>
+                    <h2 className = "roll-ryce-slider-heading-main">All Rolls-Royce</h2>
                 </Col>
 
                 <Col md = "6" xs = "12" className = "text-right view-all-link-col">
@@ -97,7 +100,7 @@ function CarousalProducts (props) {
             <ProductsLowerSection/>
 
             <div className='text-center py-5'>
-                <Button color='primary' outline className='view-all-cars' onClick={()=>history.push('/')}>View all Cars</Button>
+                <Button color='primary' outline className='view-all-cars' onClick={()=>history.push('/products')}>View all Cars</Button>
             </div>
        </div>
 

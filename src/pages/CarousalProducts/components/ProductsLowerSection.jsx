@@ -48,7 +48,7 @@ function DrawSkeleton(){
     var table = [];
     for(let i = 0; i < 6; i++){
         table.push(
-            <Col xs="12" sm="6" lg="4" key={i} className="my-2">
+            <Col xs="12" sm="6" lg="3" key={i} className="my-2">
                 <ProductSkeleton />
             </Col>
         );
@@ -57,11 +57,11 @@ function DrawSkeleton(){
 }
 
 
-const ProductsLowerSection = (props) => {
+const ProductsLowerSection = () => {
 
     const [products, setProducts] = useState([]);
-    const [pageNumber, setPageNumber] = useState(0);
-    const [isBottom, setIsBottom] = useState(false);
+    // const [pageNumber, setPageNumber] = useState(0);
+    // const [isBottom, setIsBottom] = useState(false);
     const [flag, setFlag] = useState(false)
     const [booleanFlag, setBooleanFlag] = useState(false);
 
