@@ -7,6 +7,7 @@ import ProductCard from '../../ProductCard';
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
 import nextIcon from '../../../assets/next-icon.png';
 import previousIcon from '../../../assets/prev-icon.png';
+import Fade from 'react-reveal/Fade';
 
 const NextIcon=(props)=>{
   const { className, onClick,activeSlide , length } = props;
@@ -83,7 +84,7 @@ const DCSlider = (props) => {
     }
 
     return (
-      
+      <Fade left>
         <Slider {...settings}  className='silder-class'>
             {
                 props.items ? 
@@ -104,7 +105,7 @@ const DCSlider = (props) => {
                 : null
             }
         </Slider>
-  
+      </Fade>
     );
   }
   

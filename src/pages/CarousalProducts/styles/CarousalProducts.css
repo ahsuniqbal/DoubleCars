@@ -9,13 +9,22 @@
     font-size: 20px;
     line-height: 120%;
     color: #080B30;
+    margin: 2rem 2rem  1rem  0.5rem;
+}
+.roll-ryce-slider-heading-main{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: #080B30;
     margin: 2rem 2rem  1rem  2rem;
 }
 .view-all-link-col{
     padding-top: 2rem !important;
 }
 .view-all-of-all-royce{
-    margin: 2rem 2rem  1rem  2rem;
+    margin: 2rem 0rem  1rem  0rem;
 }
 .view-all-cars{
     width: 233px;
@@ -23,4 +32,12 @@
     border: 1px solid #1C67CE;
     box-sizing: border-box;
     border-radius: 6px;
+}
+.view-all-cars:hover{
+    background-color: white !important;
+    color: #1C67CE !important;
+}
+
+.roll-ryce-row{
+    width: 100%;
 }
