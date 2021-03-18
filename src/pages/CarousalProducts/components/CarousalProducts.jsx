@@ -1,5 +1,5 @@
 import React ,{useState,useEffect} from 'react';
-import {Row,Col,Button} from 'reactstrap'
+import {Row,Col,Button,Container} from 'reactstrap'
 import {useHistory,Link} from 'react-router-dom'
 import ProductHeader from './ProductHeader'
 import ProductSlider from './ProductSlider'
@@ -40,7 +40,9 @@ function CarousalProducts (props) {
        <div style={{backgroundColor:'white'}}>
 
            <ProductHeader />
-       
+            <Container>
+
+            
            <div className='slider-show-main-div'>
                     {sliderData ? 
                         sliderData.map((item,index)=>{
@@ -99,6 +101,7 @@ function CarousalProducts (props) {
             <div className='text-center py-5'>
                 <Button color='primary' outline className='view-all-cars' onClick={()=>history.push('/')}>View all Cars</Button>
             </div>
+            </Container>
        </div>
 
        
