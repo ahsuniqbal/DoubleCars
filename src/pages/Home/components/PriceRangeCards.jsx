@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import '../styles/PriceRange.css'
 import {useHistory} from 'react-router-dom'
 import { AddCommaToNumber } from '../../../utils/NumberManipulation'
+import Fade from 'react-reveal/Fade';
 
 
 // price<10000 component
@@ -39,20 +40,22 @@ const PriceRangeCards1 = () => {
                 {filterPrice1 && filterPrice1.map((items,index)=>{
                     return(
                         <Grid item md={3} key={index}>
-                            <Card className='main-card'  onClick={()=>history.push("/product/" + items.productId)}>
-                                <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
-                                <CardBody>
-                                <CardTitle className='head'>{items.carName}</CardTitle>
-                                <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
-                                </CardBody>
-                            </Card>
+                            <Fade >
+                                <Card className='main-card'  onClick={()=>history.push("/product/" + items.productId)}>
+                                    <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
+                                    <CardBody>
+                                    <CardTitle className='head'>{items.carName}</CardTitle>
+                                    <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
+                                    <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
+                                    </CardBody>
+                                </Card>
+                            </Fade>   
                         </Grid>
                         )
                     })}
             </Grid>
         </div>
-                       
+                  
     )
   
 }
@@ -80,25 +83,28 @@ const PriceRangeCards2 = () => {
         }
 
     return(
-        <div className='price-filter-grid'>
-            <Grid container >
-                {filterPrice2 && filterPrice2.map((items,index)=>{
-                    return(
-                        <Grid item md={3} key={index}>
-                            <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
-                                <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
-                                <CardBody>
-                                <CardTitle className='head'>{items.carName}</CardTitle>
-                                <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
-                                </CardBody>
-                            </Card>
-                        </Grid>
-                        )
-                    })}
-            </Grid>
-        </div>
-                       
+        
+            <div className='price-filter-grid'>
+                <Grid container >
+                    {filterPrice2 && filterPrice2.map((items,index)=>{
+                        return(
+                            <Grid item md={3} key={index}>
+                                <Fade >
+                                    <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
+                                        <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
+                                        <CardBody>
+                                        <CardTitle className='head'>{items.carName}</CardTitle>
+                                        <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
+                                        <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
+                                        </CardBody>
+                                    </Card>
+                                </Fade>
+                            </Grid>
+                            )
+                        })}
+                </Grid>
+            </div>
+             
     )
   
 }
@@ -126,25 +132,28 @@ const PriceRangeCards3 = () => {
         }
 
     return(
-        <div className='price-filter-grid'>
-            <Grid container >
-                {filterPrice3 && filterPrice3.map((items,index)=>{
-                    return(
-                        <Grid item md={3} key={index}>
-                            <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
-                                <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
-                                <CardBody>
-                                <CardTitle className='head'>{items.carName}</CardTitle>
-                                <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
-                                </CardBody>
-                            </Card>
-                        </Grid>
-                        )
-                    })}
-            </Grid>
-        </div>
-                       
+       
+            <div className='price-filter-grid'>
+                <Grid container >
+                    {filterPrice3 && filterPrice3.map((items,index)=>{
+                        return(
+                            <Grid item md={3} key={index}>
+                                 <Fade >
+                                    <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
+                                        <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
+                                        <CardBody>
+                                        <CardTitle className='head'>{items.carName}</CardTitle>
+                                        <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
+                                        <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
+                                        </CardBody>
+                                    </Card>
+                                </Fade>
+                            </Grid>
+                            )
+                        })}
+                </Grid>
+            </div>
+                  
     )
   
 }
@@ -177,6 +186,7 @@ const PriceRangeCards4 = () => {
                 {filterPrice4 && filterPrice4.map((items,index)=>{
                     return(
                         <Grid item md={3} key={index}>
+                         <Fade >
                             <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>
@@ -185,12 +195,13 @@ const PriceRangeCards4 = () => {
                                 <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
                                 </CardBody>
                             </Card>
+                         </Fade>  
                         </Grid>
                         )
                     })}
             </Grid>
         </div>
-                       
+                   
     )
   
 }
@@ -223,20 +234,21 @@ const PriceRangeCards5 = () => {
                 {filterPrice5 && filterPrice5.map((items,index)=>{
                     return(
                         <Grid item md={3} key={index}>
-                            <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
-                                <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
-                                <CardBody>
-                                <CardTitle className='head'>{items.carName}</CardTitle>
-                                <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
-                                <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
-                                </CardBody>
-                            </Card>
+                            <Fade big>
+                                <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
+                                    <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
+                                    <CardBody>
+                                    <CardTitle className='head'>{items.carName}</CardTitle>
+                                    <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
+                                    <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
+                                    </CardBody>
+                                </Card>
+                            </Fade>
                         </Grid>
                         )
                     })}
             </Grid>
         </div>
-                       
     )
   
 }

@@ -54,9 +54,9 @@ function Dealership(){
                     {/* second column */}
                     <Col md='4'>
                         <div className='dealership-images-div'>
-                            <LazyLoadImage src={LightBlue} className='light-blue-dealership'/>
-                            <LazyLoadImage src={DarkBlue} className='dark-blue-dealership'/>
-                            <LazyLoadImage src={MobileImage} className='mob-img-dealership'/>
+                            <LazyLoadImage alt='background image'  src={LightBlue} className='light-blue-dealership'/>
+                            <LazyLoadImage alt='background image'  src={DarkBlue} className='dark-blue-dealership'/>
+                            <LazyLoadImage alt='mobile image' src={MobileImage} className='mob-img-dealership'/>
                         </div>
                     </Col>
 

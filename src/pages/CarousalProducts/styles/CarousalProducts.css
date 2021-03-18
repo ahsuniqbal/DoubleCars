@@ -1,6 +1,6 @@
 
 .slider-show-main-div{
-    padding:2rem;
+    padding:2rem 0.5rem;
 }
 .roll-ryce-slider-heading{
     font-family: Poppins;
@@ -18,7 +18,7 @@
     font-size: 20px;
     line-height: 120%;
     color: #080B30;
-    margin: 2rem 2rem  1rem  2rem;
+    margin: 2rem 0rem  1rem  0rem;
 }
 .view-all-link-col{
     padding-top: 2rem !important;
@@ -39,5 +39,5 @@
 }
 
 .roll-ryce-row{
-    width: 100%;
+    padding: 0 0.5rem;
 }

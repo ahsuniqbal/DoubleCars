@@ -1,5 +1,5 @@
 import React ,{useState,useEffect} from 'react';
-import {Row,Col,Button} from 'reactstrap'
+import {Row,Col,Button,Container} from 'reactstrap'
 import {useHistory,Link} from 'react-router-dom'
 import ProductHeader from './ProductHeader'
 import ProductSlider from './ProductSlider'
@@ -42,66 +42,68 @@ function CarousalProducts (props) {
            {/* first section */}
            <ProductHeader />
            {/* second section */}
-           <div className='slider-show-main-div'>
-                    {sliderData ? 
-                        sliderData.map((item,index)=>{
-                           if(index===0){
-                            return(
-                                <div>
-                                    <Row>
-                                        <Col md="12" xs="12">
-                                            <h2 className = "roll-ryce-slider-heading">New Rolls-Royce</h2>
-                                        </Col>
-                                    </Row>
-    
-                                    <ProductSlider
-                                        slidesToShow = {4}
-                                        items={item.data}
-                                        allowBookmark={true}
-                                    />
-                                </div>) 
-                           }
-                           if(index===1){
-                               return(
-                                <div>
-                                    <Row>
-                                        <Col md="12" xs="12">
-                                            <h2 className = "roll-ryce-slider-heading">Rolls-Royce Under $5000</h2>                         
-                                        </Col>
-                                    </Row>
+           <Container>
+            <div className='slider-show-main-div'>
+                        {sliderData ? 
+                            sliderData.map((item,index)=>{
+                            if(index===0){
+                                return(
+                                    <div>
+                                        <Row>
+                                            <Col md="12" xs="12">
+                                                <h2 className = "roll-ryce-slider-heading">New Rolls-Royce</h2>
+                                            </Col>
+                                        </Row>
+        
+                                        <ProductSlider
+                                            slidesToShow = {4}
+                                            items={item.data}
+                                            allowBookmark={true}
+                                        />
+                                    </div>) 
+                            }
+                            if(index===1){
+                                return(
+                                    <div>
+                                        <Row>
+                                            <Col md="12" xs="12">
+                                                <h2 className = "roll-ryce-slider-heading">Rolls-Royce Under $5000</h2>                         
+                                            </Col>
+                                        </Row>
 
-                                    <ProductSlider
-                                        slidesToShow = {4}
-                                        items={item.data}
-                                        allowBookmark={true}
-                                    />
-                                </div>
-                               )
-                           }
-                        })
-                        :null
-                    }
-            </div>
-            
-            {/* third section */}
-            <ProductsPageAds/>
+                                        <ProductSlider
+                                            slidesToShow = {4}
+                                            items={item.data}
+                                            allowBookmark={true}
+                                        />
+                                    </div>
+                                )
+                            }
+                            })
+                            :null
+                        }
+                </div>
+                
+                {/* third section */}
+                <ProductsPageAds/>
 
-            {/* last section */}
-            <Row className='roll-ryce-row'>
-                <Col md = "6" xs = "12">
-                    <h2 className = "roll-ryce-slider-heading-main">All Rolls-Royce</h2>
-                </Col>
+                {/* last section */}
+                <Row className='roll-ryce-row'>
+                    <Col md = "6" xs = "12">
+                        <h2 className = "roll-ryce-slider-heading-main">All Rolls-Royce</h2>
+                    </Col>
 
-                <Col md = "6" xs = "12" className = "text-right view-all-link-col">
-                    <Link className = "view-all-of-all-royce" to="/products">View All</Link>
-                </Col>
-            </Row>
+                    <Col md = "6" xs = "12" className = "text-right view-all-link-col">
+                        <Link className = "view-all-of-all-royce" to="/products">View All</Link>
+                    </Col>
+                </Row>
 
-            <ProductsLowerSection/>
+                <ProductsLowerSection/>
 
-            <div className='text-center py-5'>
-                <Button color='primary' outline className='view-all-cars' onClick={()=>history.push('/products')}>View all Cars</Button>
-            </div>
+                <div className='text-center py-5'>
+                    <Button color='primary' outline className='view-all-cars' onClick={()=>history.push('/products')}>View all Cars</Button>
+                </div>
+            </Container>
        </div>
 
        

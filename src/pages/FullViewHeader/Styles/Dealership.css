@@ -64,17 +64,22 @@
     position: relative;
     height: 645px;
     margin-left: -2rem;
+    padding-top: 5%;
 }
 .light-blue-dealership{
     position: absolute;
+    width: 100%;
 }
 .dark-blue-dealership{
     position: absolute;
-    margin: 5rem;
+    /* margin: 5rem; */
+    margin: 12%;
+    width: 75%;
 }
 .mob-img-dealership{
+    width: 84%;
     position: absolute;
-    margin: -2rem 5.5rem 0;
+    margin: -12% 12% 0;
     transition: transform 500ms !important;
 }
 .mob-img-dealership:hover{
@@ -85,4 +90,11 @@
     padding-left: 11%;
     padding-top: 2rem;
     
+}
+
+@media screen and (max-width:425px){
+    .dealership-images-div{
+        margin-left: 0;
+        height: 445px;
+    }
 }
