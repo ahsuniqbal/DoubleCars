@@ -8,6 +8,9 @@ import { ChevronRight } from 'react-feather';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import '../styles/TruckSection.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 function TruckSection(){
 
@@ -15,7 +18,7 @@ function TruckSection(){
     return (
       <div className='my-5'>
         <Row>
-            <Col md='6' className='truck-cars-col'>
+            <Col data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" md='6' className='truck-cars-col'>
             <LazyLoadImage className="card-img"  effect="blur" src={HeavyTruck} alt='Heavy Duty Trucks'/>
            
                 <div className='truck-cars-div'>  
@@ -26,7 +29,7 @@ function TruckSection(){
                     </span> 
                 </div>
             </Col>
-            <Col md='6' className='truck-cars-col'>
+            <Col data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" md='6' className='truck-cars-col'>
             <LazyLoadImage className="card-img"  effect="blur" src={BoxTruck} alt='Box Trucks'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
@@ -39,7 +42,7 @@ function TruckSection(){
         </Row>
 
         <Row>
-            <Col md='6' className='truck-cars-col'>
+            <Col data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" md='6' className='truck-cars-col'>
             <LazyLoadImage className="card-img"  effect="blur" src={ForkLifter} alt='Fork Lifter'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
@@ -49,7 +52,7 @@ function TruckSection(){
                     </span>
                 </div>
             </Col>
-            <Col md='6' className='truck-cars-col'>
+            <Col data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" md='6' className='truck-cars-col'>
             <LazyLoadImage className="card-img"  effect="blur" src={WorkVan} alt='Work Van'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>

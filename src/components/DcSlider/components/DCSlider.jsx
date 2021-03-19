@@ -7,7 +7,9 @@ import ProductCard from '../../ProductCard';
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
 import nextIcon from '../../../assets/next-icon.png';
 import previousIcon from '../../../assets/prev-icon.png';
-import Fade from 'react-reveal/Fade';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 const NextIcon=(props)=>{
   const { className, onClick,activeSlide , length } = props;
@@ -84,7 +86,7 @@ const DCSlider = (props) => {
     }
 
     return (
-      <Fade left>
+      <div data-aos="fade-right" data-aos-duration="1000">
         <Slider {...settings}  className='silder-class'>
             {
                 props.items ? 
@@ -105,7 +107,7 @@ const DCSlider = (props) => {
                 : null
             }
         </Slider>
-      </Fade>
+      </div>
     );
   }
   

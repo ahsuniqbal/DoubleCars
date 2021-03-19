@@ -69,7 +69,9 @@ const ProductCard = (props) => {
                 {/* <CardImg src={props.productImg ? props.productImg : dummyAvatar} alt={props.productName} /> */}
             </div>
         </Link>
+        
         <CardBody>
+
             <Row>
                 <Col xs="9">
                     {/* Link to the product details page */}
@@ -110,7 +112,9 @@ const ProductCard = (props) => {
                     : null
                 }
             </Row>
+            
             {
+
                 // If the dealer is present then show the bottom of the product card else hide it
                 props.dealer ? 
 
@@ -167,6 +171,7 @@ const ProductCard = (props) => {
                 null
             }
         </CardBody>
+       
     </Card>
   );
 }

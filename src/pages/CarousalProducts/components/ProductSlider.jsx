@@ -7,7 +7,6 @@ import ProductCard from '../../../components/ProductCard/components/ProductCard'
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
 import nextIcon from '../../../assets/next-icon.png';
 import previousIcon from '../../../assets/prev-icon.png';
-import Fade from 'react-reveal/Fade';
 
 const NextIcon=(props)=>{
   const { className, onClick,activeSlide , length } = props;
@@ -84,7 +83,7 @@ const PrdouctSlider = (props) => {
     }
 
     return (
-      <Fade left>
+   
         <Slider {...settings}  className='carousal-silder-class'>
             {
                 props.items ? 
@@ -98,13 +97,12 @@ const PrdouctSlider = (props) => {
                             productTitle={item.carName}
                             productSubtitle={AddCommaToNumber(item.mileage) + " mileage · " + item.zipCode}
                             productText={"$" + AddCommaToNumber(item.price)}
-                            allowBookmark={props.allowBookmark}                            
+                            // allowBookmark={props.allowBookmark}                            
                         />      
                     ))
                 : null
             }
         </Slider>
-      </Fade>
     );
   }
   

@@ -9,8 +9,6 @@ import Grid from '@material-ui/core/Grid';
 import '../styles/PriceRange.css'
 import {useHistory} from 'react-router-dom'
 import { AddCommaToNumber } from '../../../utils/NumberManipulation'
-import Fade from 'react-reveal/Fade';
-
 
 // price<10000 component
 const PriceRangeCards1 = () => { 
@@ -40,7 +38,7 @@ const PriceRangeCards1 = () => {
                 {filterPrice1 && filterPrice1.map((items,index)=>{
                     return(
                         <Grid item md={3} key={index}>
-                            <Fade >
+                           
                                 <Card className='main-card'  onClick={()=>history.push("/product/" + items.productId)}>
                                     <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                     <CardBody>
@@ -49,7 +47,7 @@ const PriceRangeCards1 = () => {
                                     <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
                                     </CardBody>
                                 </Card>
-                            </Fade>   
+                          
                         </Grid>
                         )
                     })}
@@ -89,7 +87,7 @@ const PriceRangeCards2 = () => {
                     {filterPrice2 && filterPrice2.map((items,index)=>{
                         return(
                             <Grid item md={3} key={index}>
-                                <Fade >
+                         
                                     <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                         <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                         <CardBody>
@@ -98,7 +96,7 @@ const PriceRangeCards2 = () => {
                                         <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
                                         </CardBody>
                                     </Card>
-                                </Fade>
+                             
                             </Grid>
                             )
                         })}
@@ -138,7 +136,7 @@ const PriceRangeCards3 = () => {
                     {filterPrice3 && filterPrice3.map((items,index)=>{
                         return(
                             <Grid item md={3} key={index}>
-                                 <Fade >
+                               
                                     <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                         <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                         <CardBody>
@@ -147,7 +145,7 @@ const PriceRangeCards3 = () => {
                                         <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
                                         </CardBody>
                                     </Card>
-                                </Fade>
+                              
                             </Grid>
                             )
                         })}
@@ -186,7 +184,7 @@ const PriceRangeCards4 = () => {
                 {filterPrice4 && filterPrice4.map((items,index)=>{
                     return(
                         <Grid item md={3} key={index}>
-                         <Fade >
+                       
                             <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                 <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                 <CardBody>
@@ -195,7 +193,7 @@ const PriceRangeCards4 = () => {
                                 <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
                                 </CardBody>
                             </Card>
-                         </Fade>  
+                     
                         </Grid>
                         )
                     })}
@@ -230,11 +228,12 @@ const PriceRangeCards5 = () => {
 
     return(
         <div className='price-filter-grid'>
+          
             <Grid container >
                 {filterPrice5 && filterPrice5.map((items,index)=>{
                     return(
                         <Grid item md={3} key={index}>
-                            <Fade big>
+                      
                                 <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
                                     <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
                                     <CardBody>
@@ -243,11 +242,12 @@ const PriceRangeCards5 = () => {
                                     <CardText className='price'>{"$" + AddCommaToNumber(items.price)}</CardText>
                                     </CardBody>
                                 </Card>
-                            </Fade>
+                         
                         </Grid>
                         )
                     })}
             </Grid>
+     
         </div>
     )
   
