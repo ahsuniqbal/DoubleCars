@@ -642,7 +642,8 @@ const Filters = (props) => {
         console.log(props.savedSearch,obj)
         postSavedSearch(obj)
         .then(doc => {
-            console.log(doc.message)
+            // console.log(doc.message)
+            alert(doc.message)
         })
         .catch(e => {
             console.log(e.message)
@@ -660,8 +661,8 @@ const Filters = (props) => {
                     : <Label style={{marginBottom: '0'}}><b>Filter</b></Label>
                 }
                 {/* Clear all button */}
-                <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => window.location.reload()}>Clear</Button>
-                <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => saveFilters()}>save filters</Button>
+                {/* <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => window.location.reload()}>Clear</Button> */}
+                <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => saveFilters()}>Save Filters</Button>
                 
                 {/******** Basic filters start here ************/}
 
