@@ -124,7 +124,8 @@ const ProductCard = (props) => {
                     <hr />
                     {/* Link to dealers profile page */}
                     <Link to={"/dealer/" + props.userId}>
-                        <Row className="company-details">
+                        {/* Remove private seller classname it's temporary used here to write label Dealer */}
+                        <Row className="company-details private-seller">
                             <Col xs="3">
                                 {/* Profile pic of the dealer */}
                                 {/* <div className="image-div"> */}
@@ -137,10 +138,13 @@ const ProductCard = (props) => {
                             </Col>
                             <Col xs="4" className="pl-0 text-right">
                                 {/* Rating star and numbers */}
-                                <div className="company-rating">
+                                {/* <div className="company-rating">
                                     <img src={StarIcon} alt="Star icon" className="img-fluid mr-2" />
                                     <Label>{props.dealerRating}</Label>
-                                </div>    
+                                </div>     */}
+                                
+                                <Label>Dealer</Label>    
+                            
                             </Col>
                         </Row>
                     </Link>
