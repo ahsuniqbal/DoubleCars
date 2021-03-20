@@ -101,15 +101,9 @@ function CarousalProducts (props) {
 
                 <ProductsLowerSection/>
 
-<<<<<<< HEAD
             <div className='text-center py-5'>
                 <Button color='primary' outline className='view-all-cars' onClick={()=>history.push('/products')}>View all Cars</Button>
             </div>
-=======
-                <div className='text-center py-5'>
-                    <Button color='primary' outline className='view-all-cars' onClick={()=>history.push('/products')}>View all Cars</Button>
-                </div>
->>>>>>> 7d9514432e1c068d08df86b337f9a033f4d97ab8
             </Container>
        </div>
 
