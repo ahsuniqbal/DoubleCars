@@ -72,38 +72,44 @@ function CarousalProducts (props) {
                                         </Col>
                                     </Row>
 
-                                    <ProductSlider
-                                        slidesToShow = {4}
-                                        items={item.data}
-                                        allowBookmark={true}
-                                    />
-                                </div>
-                               )
-                           }
-                        })
-                        :null
-                    }
-            </div>
-            
-            {/* third section */}
-            <ProductsPageAds/>
+                                        <ProductSlider
+                                            slidesToShow = {4}
+                                            items={item.data}
+                                            allowBookmark={true}
+                                        />
+                                    </div>
+                                )
+                            }
+                            })
+                            :null
+                        }
+                </div>
+                
+                {/* third section */}
+                <ProductsPageAds/>
 
-            {/* last section */}
-            <Row className='roll-ryce-row'>
-                <Col md = "6" xs = "12">
-                    <h2 className = "roll-ryce-slider-heading-main">All Rolls-Royce</h2>
-                </Col>
+                {/* last section */}
+                <Row className='roll-ryce-row'>
+                    <Col md = "6" xs = "12">
+                        <h2 className = "roll-ryce-slider-heading-main">All Rolls-Royce</h2>
+                    </Col>
 
-                <Col md = "6" xs = "12" className = "text-right view-all-link-col">
-                    <Link className = "view-all-of-all-royce" to="/products">View All</Link>
-                </Col>
-            </Row>
+                    <Col md = "6" xs = "12" className = "text-right view-all-link-col">
+                        <Link className = "view-all-of-all-royce" to="/products">View All</Link>
+                    </Col>
+                </Row>
 
-            <ProductsLowerSection/>
+                <ProductsLowerSection/>
 
+<<<<<<< HEAD
             <div className='text-center py-5'>
                 <Button color='primary' outline className='view-all-cars' onClick={()=>history.push('/products')}>View all Cars</Button>
             </div>
+=======
+                <div className='text-center py-5'>
+                    <Button color='primary' outline className='view-all-cars' onClick={()=>history.push('/products')}>View all Cars</Button>
+                </div>
+>>>>>>> 7d9514432e1c068d08df86b337f9a033f4d97ab8
             </Container>
        </div>
 

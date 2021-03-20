@@ -312,7 +312,7 @@ const Filters = (props) => {
             delete filters['userType'];
         }
         else if (dealer.checked === true) {
-            filters['userType'] = 0;
+            filters['userType'] = 2;
         }
         else if (privateSeller.checked === true) {
             filters['userType'] = 1;
@@ -495,6 +495,23 @@ const Filters = (props) => {
                 </Col>
             );
         }
+
+
+        if(bodyStyleList.includes('Minivan')) {
+            table.push(
+                <Col onClick={() => bodyListFunc('Minivan', 9)} xs="6" md="6" lg='4'>
+                    <svg width="55" height="25" viewBox="0 0 55 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50.5596 19.0987H51.3606C51.7702 19.1446 52.1852 19.0864 52.5643 18.9296C52.9434 18.7728 53.2736 18.523 53.5221 18.2049C53.7706 17.8868 53.9288 17.5114 53.981 17.116C54.0332 16.7206 53.9776 16.3188 53.8198 15.9506C53.7068 15.7733 53.6437 15.5706 53.6368 15.3625V15.1307C53.637 13.9483 53.1875 12.8071 52.3739 11.9242C51.5602 11.0414 50.4392 10.4786 49.2242 10.3428L44.5335 9.39619C44.0117 9.33873 43.5155 9.14679 43.0968 8.84044L38.2319 3.38535C37.3842 2.76629 36.3541 2.42541 35.2918 2.41248C35.2579 2.41231 35.2241 2.41032 35.1904 2.4065C31.9404 2.02202 25.7366 1.82092 22.4684 1.80322M40.66 18.4867C40.6603 18.6914 40.6752 18.8959 40.7045 19.0987H15.3591M6.5847 19.0987H4.32217C4.32217 19.0987 3.63475 19.0927 3.56181 19.0748C3.09694 18.9708 2.06781 18.573 2.06781 16.4091C2.06799 15.7924 2.06459 15.5038 2.06791 15.141V9.37666" stroke={basicColor[9]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M15.0501 19.1416C15.0502 19.3463 15.0361 19.5508 15.0079 19.7536C14.8625 20.7765 14.3488 21.713 13.5614 22.3906C12.774 23.0683 11.7659 23.4414 10.7228 23.4414C9.67956 23.4414 8.67149 23.0683 7.8841 22.3906C7.09672 21.713 6.58304 20.7765 6.43763 19.7536C6.40941 19.5508 6.3953 19.3463 6.39538 19.1416C6.38579 18.5731 6.49058 18.0083 6.70366 17.4803C6.91673 16.9523 7.23382 16.4716 7.63644 16.0662C8.03906 15.6608 8.51914 15.3388 9.04871 15.119C9.57829 14.8993 10.1467 14.7861 10.7209 14.7861C11.2951 14.7861 11.8636 14.8993 12.3932 15.119C12.9227 15.3388 13.4028 15.6608 13.8055 16.0662C14.2081 16.4716 14.5252 16.9523 14.7382 17.4803C14.9513 18.0083 15.0561 18.5731 15.0465 19.1416H15.0501Z" stroke={basicColor[9]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M49.6722 19.1057C49.6719 19.3122 49.6574 19.5184 49.6288 19.7228C49.4834 20.7543 48.9698 21.6986 48.1826 22.3819C47.3954 23.0652 46.3875 23.4414 45.3445 23.4414C44.3016 23.4414 43.2937 23.0652 42.5065 22.3819C41.7192 21.6986 41.2057 20.7543 41.0603 19.7228C41.0317 19.5184 41.0172 19.3122 41.0168 19.1057C41.0168 17.9601 41.4725 16.8614 42.2837 16.0513C43.0948 15.2412 44.195 14.7861 45.3421 14.7861C46.4892 14.7861 47.5894 15.2412 48.4005 16.0513C49.2117 16.8614 49.6674 17.9601 49.6674 19.1057H49.6722Z" stroke={basicColor[9]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M44.262 9.37659L29.5345 9.0897C29.2268 9.08266 28.9264 9.00846 28.6632 8.87438C28.3999 8.74031 28.1828 8.55099 28.0332 8.32507L28.0334 2.88507" stroke={basicColor[9]} stroke-width="1.7" stroke-miterlimit="10"/>
+                        <path d="M22.6235 0.721191C22.6235 3.14159 22.6025 5.91053 22.6025 8.17724L22.6237 8.93603L21.9076 9.37655H0.985352" stroke={basicColor[9]} stroke-width="1.7" stroke-miterlimit="10"/>
+                    </svg>
+
+                    <p style={{color: basicColor[9]}}>Minivan</p>
+                </Col>
+            );
+        }
         return table;
     }    
 
@@ -642,7 +659,8 @@ const Filters = (props) => {
         console.log(props.savedSearch,obj)
         postSavedSearch(obj)
         .then(doc => {
-            console.log(doc.message)
+            // console.log(doc.message)
+            alert(doc.message)
         })
         .catch(e => {
             console.log(e.message)
@@ -660,8 +678,8 @@ const Filters = (props) => {
                     : <Label style={{marginBottom: '0'}}><b>Filter</b></Label>
                 }
                 {/* Clear all button */}
-                <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => window.location.reload()}>Clear</Button>
-                <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => saveFilters()}>save filters</Button>
+                {/* <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => window.location.reload()}>Clear</Button> */}
+                <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => saveFilters()}>Save Filters</Button>
                 
                 {/******** Basic filters start here ************/}
 

@@ -208,6 +208,7 @@ const NavigationBar = () => {
                                     <DropdownItem divider />
                                     <DropdownItem onClick={() => history.push('/chat')} className='navigation-profile-item'>Messages</DropdownItem>
                                     <DropdownItem onClick={() => history.push('/saved-cars')} className='navigation-profile-item'>Saved Cars</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/saved-searches')} className='navigation-profile-item'>Saved Searches</DropdownItem>
                                     <DropdownItem  onClick={e => handleLogout()} className='navigation-profile-item'>Logout</DropdownItem>
                                 </DropdownMenu>
                                 </UncontrolledDropdown>

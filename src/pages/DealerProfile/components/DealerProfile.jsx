@@ -41,6 +41,7 @@ const DealerProfile = ({match}) => {
     const [flag, setFlag] = useState(false)
     const [booleanFlag, setBooleanFlag] = useState(false);
     const [globalQuery,setGloableQuery] = useState("")
+    const [savedSearchObj,setSavedSearchObj] = useState({})
     
 
     const handleScroll = () => {
@@ -82,6 +83,15 @@ const DealerProfile = ({match}) => {
         console.log("QQUERY",tempStr)
         GetSearchResult(tempStr).then(doc => {
             if(inventory.length > 0){
+                var tempObj = {
+                    title : doc[0].carName,
+                    image_one : doc[0].coverPic,
+                    image_two : doc[1].coverPic ? doc[1].coverPic : null,
+                    image_three : doc[2].coverPic ? doc[2].coverPic : null,
+                }
+                setSavedSearchObj(tempObj)
+
+                setPageNumber(pageNumber + 1)
                 setBooleanFlag(false);
                 var temp = inventory
                 for(let i = 0; i < doc.length; i++){
@@ -118,7 +128,6 @@ const DealerProfile = ({match}) => {
 
 
     const filterQueryChange = (queryStr) => {
-        console.log(queryStr);
         setGloableQuery(queryStr)
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
@@ -131,8 +140,25 @@ const DealerProfile = ({match}) => {
         str += `&dealerId=${match.params.id}`
         console.log("QQUERY",str)
         GetSearchResult(str).then(doc => {
-            console.log("doc",doc)
-            setInventory(doc)
+            if(doc.length > 0) {
+                setInventory(doc)
+                var tempObj = {
+                    title : doc[0].carName,
+                    image_one : doc[0].coverPic,
+                    image_two : doc[1].coverPic ? doc[1].coverPic : null,
+                    image_three : doc[2].coverPic ? doc[2].coverPic : null,
+                }
+                setSavedSearchObj(tempObj)
+            }
+            else {
+                setInventory([])
+            }
+
+            if(!booleanFlag){
+                setBooleanFlag(true);
+            }
+            // console.log("doc",doc)
+            // setInventory(doc)
             setFlag(!flag)
         })
         .catch(error => {
@@ -160,6 +186,7 @@ const DealerProfile = ({match}) => {
                 <Col md = "3" style = {{marginTop: '6rem'}}>
                     <Filters
                         onFilterChange={filterQueryChange}
+                        savedSearch={savedSearchObj}
                         // search={"audi"}
                     />
                 </Col>
