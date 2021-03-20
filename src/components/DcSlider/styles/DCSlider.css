@@ -28,7 +28,7 @@
     width: 50px;
     padding: 20px;
     border-radius: 13px;
-    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05) !important;
 }
 
 .silder-class:hover .prev-icon-image {

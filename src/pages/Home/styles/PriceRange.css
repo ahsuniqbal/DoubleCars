@@ -87,6 +87,9 @@
     font-size: 15.426px;
     line-height: 18px;
     color: rgba(0, 0, 0, 0.85);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .sub-head{
     
