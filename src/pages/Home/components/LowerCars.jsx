@@ -4,7 +4,7 @@ import LowerCarsImage1 from '../../../assets/LowerCarsImage1.png';
 import LowerCarsImage2 from '../../../assets/LowerCarsImage2.png';
 import LowerCarsImage3 from '../../../assets/LowerCarsImage3.png';
 import LowerCarsImage4 from '../../../assets/LowerCarsImage4.png';
-import LowerCarsImage5 from '../../../assets/LC6.png';
+import LowerCarsImage5 from '../../../assets/LowerCarsImage5.png';
 import LowerCarsImage6 from '../../../assets/LC2.png';
 import LowerCarsImage7 from '../../../assets/LowerSectionDummyImage.png';
 import LowerCarsImage8 from '../../../assets/TopStoriesCardDemoImage.png';
@@ -73,24 +73,24 @@ const LowerCar = (props) => {
   },
   {
     image:LowerCarsImage4,
-    text:'Sports'
+    text:'SUV'
   },
-  // {
-  //   image:LowerCarsImage5,
-  //   text:'Mecedez'
-  // },
-  // {
-  //   image:LowerCarsImage6,
-  //   text:'Land Rover'
-  // },
-  // {
-  //   image:LowerCarsImage7,
-  //   text:'Audi'
-  // },
-  // {
-  //   image:LowerCarsImage8,
-  //   text:'Mecedez Benz'
-  // },
+  {
+    image:LowerCarsImage5,
+    text:'Pickup Truck'
+  },
+  {
+    image:LowerCarsImage6,
+    text:'Wagon'
+  },
+  {
+    image:LowerCarsImage7,
+    text:'Convertible'
+  },
+  {
+    image:LowerCarsImage8,
+    text:'Minivan'
+  },
   
   ])
 
