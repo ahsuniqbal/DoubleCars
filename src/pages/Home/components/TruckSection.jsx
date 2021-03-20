@@ -19,7 +19,7 @@ function TruckSection(){
       <div className='my-5'>
         <Row>
             <Col data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" md='6' className='truck-cars-col'>
-            <LazyLoadImage className="card-img"  effect="blur" src={HeavyTruck} alt='Heavy Duty Trucks'/>
+            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={HeavyTruck} alt='Heavy Duty Trucks'/>
            
                 <div className='truck-cars-div'>  
                     <span className='trucks-images-gradient'>
@@ -30,7 +30,7 @@ function TruckSection(){
                 </div>
             </Col>
             <Col data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" md='6' className='truck-cars-col'>
-            <LazyLoadImage className="card-img"  effect="blur" src={BoxTruck} alt='Box Trucks'/>
+            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={BoxTruck} alt='Box Trucks'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
                         <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
@@ -43,7 +43,7 @@ function TruckSection(){
 
         <Row>
             <Col data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" md='6' className='truck-cars-col'>
-            <LazyLoadImage className="card-img"  effect="blur" src={ForkLifter} alt='Fork Lifter'/>
+            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={ForkLifter} alt='Fork Lifter'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
                         <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
@@ -53,7 +53,7 @@ function TruckSection(){
                 </div>
             </Col>
             <Col data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000" md='6' className='truck-cars-col'>
-            <LazyLoadImage className="card-img"  effect="blur" src={WorkVan} alt='Work Van'/>
+            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={WorkVan} alt='Work Van'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
                         <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
