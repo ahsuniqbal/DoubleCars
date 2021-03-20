@@ -312,7 +312,7 @@ const Filters = (props) => {
             delete filters['userType'];
         }
         else if (dealer.checked === true) {
-            filters['userType'] = 0;
+            filters['userType'] = 2;
         }
         else if (privateSeller.checked === true) {
             filters['userType'] = 1;

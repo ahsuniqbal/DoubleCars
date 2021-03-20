@@ -62,7 +62,7 @@ const Information = (props) => {
         if(attributeTable.length > 1) {
             for(let i = 0; i < attributeTable.length; i++) {
                 table.push(
-                    <Col xs="6" md="3">
+                    <Col xs="6" md="4">
                         <h6 className = "info-sub-head" title={attributeTable[i].title}>{attributeTable[i].title}</h6>
                         {
                             attributeTable[i].property.map((feature) => 
@@ -76,8 +76,8 @@ const Information = (props) => {
         else {
             for(let i = 0; i < attributeTable[0].property.length; i++) { 
                 table.push(
-                    <Col xs="6" md="3">
-                        <Label className = "car-feature">{attributeTable[0].property[i].itemName}</Label>
+                    <Col xs="6" md="4">
+                        <Label className = "car-feature" title={attributeTable[0].property[i].itemName}>{attributeTable[0].property[i].itemName}</Label>
                     </Col>
                 )
             }
