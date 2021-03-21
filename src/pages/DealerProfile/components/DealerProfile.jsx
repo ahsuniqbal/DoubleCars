@@ -118,12 +118,12 @@ const DealerProfile = ({match}) => {
         .catch(error => {
             console.log(error.message);
         });
-        GetSellerInventory(match.params.id).then(doc => {
-            setInventory(doc.inventory);
-        })
-        .catch(error => {
-            console.log(error.message);
-        });
+        // GetSellerInventory(match.params.id).then(doc => {
+        //     setInventory(doc.inventory);
+        // })
+        // .catch(error => {
+        //     console.log(error.message);
+        // });
     }, []);
 
 
@@ -141,22 +141,24 @@ const DealerProfile = ({match}) => {
         console.log("QQUERY",str)
         GetSearchResult(str).then(doc => {
             if(doc.length > 0) {
+                setBooleanFlag(false);
                 setInventory(doc)
                 var tempObj = {
                     title : doc[0].carName,
                     image_one : doc[0].coverPic,
-                    image_two : doc[1].coverPic ? doc[1].coverPic : null,
-                    image_three : doc[2].coverPic ? doc[2].coverPic : null,
+                    image_two : doc[1] ? doc[1].coverPic ? doc[1].coverPic : null : null,
+                    image_three : doc[2] ? doc[2].coverPic ? doc[2].coverPic : null : null
                 }
                 setSavedSearchObj(tempObj)
             }
             else {
+                setBooleanFlag(true);
                 setInventory([])
             }
 
-            if(!booleanFlag){
-                setBooleanFlag(true);
-            }
+            // if(!booleanFlag){
+            //     setBooleanFlag(true);
+            // }
             // console.log("doc",doc)
             // setInventory(doc)
             setFlag(!flag)
