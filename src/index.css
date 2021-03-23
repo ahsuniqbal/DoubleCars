@@ -70,3 +70,28 @@ select {
 img{
   box-shadow: none !important;
 }
+
+
+
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 9999; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #1C67CE; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  border-radius: 50%; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  box-shadow: grey 0px 1px 1px 0px;
+  height: 40px;
+  width: 40px;
+}
+
+#myBtn:hover {
+  background-color: #05459e; /* Add a dark-grey background on hover */
+}

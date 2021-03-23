@@ -117,6 +117,9 @@ const Filters = (props) => {
     //Map Popup
     const [mapPopup, setMapPopup] = useState(false);
 
+
+    const [loading, setLoading] = useState(false);
+
     // Toggle open or close map popup
     const toggleMapPopup = () => setMapPopup(!mapPopup);
 
@@ -141,6 +144,7 @@ const Filters = (props) => {
     }
 
     const handleMake = (make) => {
+        setLoading(true);
         setSelectedMake(make);
         if(make){
             GetModelFromMake(make).then(doc => {
@@ -148,15 +152,18 @@ const Filters = (props) => {
                 filters['carMake'] = make;
                 setFilters(filters);
                 FilterQueryString(filters);
+                setLoading(false);
             })
             .catch(error => {
                 console.log(error.message)
+                setLoading(false);
             });
         }else{
             setModelList([]);
             delete filters['carMake']
             setFilters(filters);
             FilterQueryString(filters);
+            setLoading(false);
         }
         
     }
@@ -737,7 +744,7 @@ const Filters = (props) => {
                             {/* Make list will be fetched from vinaudit api
                             On changing the make, modal will be visible  */}
                             {
-                                makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }}>
+                                makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }} disabled={loading ? true : false} >
                                 <option value="">Make</option>
                                 {
                                     makeList.map((option, index) => {
@@ -755,7 +762,7 @@ const Filters = (props) => {
                             <Collapse isOpen={isModelCollapseOpen}>
                                 <h6>Model</h6>
 
-                                <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)}>
+                                <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)} disabled={loading ? true : false}>
                                 <option value="">Model</option>
                                 {
                                     modelList.map((option, index) => {
@@ -778,7 +785,7 @@ const Filters = (props) => {
                                     <h6>Trim</h6>
 
 
-                                    <Input id="trim-list" type="select" className="mb-4" onChange={(e) => handleTrim(e.target.value)}>
+                                    <Input id="trim-list" type="select" className="mb-4" onChange={(e) => handleTrim(e.target.value)} disabled={loading ? true : false}>
                                     <option value="">Trim</option>
                                     {
                                         trimList.map((option, index) => {
@@ -822,7 +829,7 @@ const Filters = (props) => {
                             <Row>
                                 <Col xs="6">
                                     {/* On selecting from year, to year will be enabled */}
-                                    <Input type="select" onChange={(e) => handleFromYear(e.target.value)}>
+                                    <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading ? true : false}>
                                         <option disabled selected hidden>From</option>
                                         {
                                             // Populate from year
@@ -863,11 +870,12 @@ const Filters = (props) => {
                             <h6>Condition</h6>
                             <FormGroup check>
                                 <Input type="checkbox" id="condition-new" name="condition" onChange={() => handleCondition()} 
-                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? false : true : false} />
+                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? false : true : false}  disabled={loading ? true : false}/>
                                 <Label check htmlFor="condition-new">New</Label>
                             </FormGroup>
                             <FormGroup check>
-                                <Input type="checkbox" id="condition-used" name="condition" onChange={() => handleCondition()} defaultChecked={props.isUsed ? props.isUsed === "true" ? true : false : false} />
+                                <Input type="checkbox" id="condition-used" name="condition" onChange={() => handleCondition()} 
+                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? true : false : false} disabled={loading ? true : false} />
                                 <Label check htmlFor="condition-used">Used</Label>
                             </FormGroup>
 
@@ -876,11 +884,11 @@ const Filters = (props) => {
                             {/******** Seller type filter ************/}
                             <h6>Seller Type</h6>
                             <FormGroup check>
-                                <Input type="checkbox" id="dealer" name="seller-type" onChange={() => handleSellerType()} />
+                                <Input type="checkbox" id="dealer" name="seller-type" onChange={() => handleSellerType()} disabled={loading ? true : false} />
                                 <Label check htmlFor="dealer">Dealer</Label>
                             </FormGroup>
                             <FormGroup check>
-                                <Input type="checkbox" id="private-seller" name="seller-type" onChange={() => handleSellerType()} />
+                                <Input type="checkbox" id="private-seller" name="seller-type" onChange={() => handleSellerType()} disabled={loading ? true : false} />
                                 <Label check htmlFor="private-seller">Private Seller</Label>
                             </FormGroup>
                             {/******** Basic filters end here ************/}

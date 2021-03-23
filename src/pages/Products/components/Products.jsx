@@ -10,6 +10,8 @@ import { ProductSkeleton } from '../../../components/Skeletons';
 import queryString from 'query-string';
 import { Frown, Repeat } from 'react-feather';
 import '../styles/Products.css';
+import { ArrowUp } from "react-feather";
+import logo from '../../../assets/DCNewLogo.png';
 
 
 const ShowSearchResults = (products) => {
@@ -76,6 +78,8 @@ const Products = (props) => {
     const [booleanFlag, setBooleanFlag] = useState(false);
     const [globalQuery,setGloableQuery] = useState("")
     const [savedSearchObj,setSavedSearchObj] = useState({})
+
+
     const handleScroll = () => {
         const scrollTop = (document.documentElement
             && document.documentElement.scrollTop)
@@ -188,10 +192,27 @@ const Products = (props) => {
         }
     }
 
+
+     // When the user clicks on the button, scroll to the top of the document
+     const topFunction = (e) => {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    } 
+    function scrollFunction() {
+        const mybutton = document.getElementById("myBtn");
+        if (document.body.scrollTop > 1280 || document.documentElement.scrollTop > 1280) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+    }
+
     return(
                     
-        <Container className="products-container">  
-        
+        <Container className="products-container">        
             <Row>
                 <Col xs="12" md="3" style = {{marginTop: '5rem'}}>
                     <Filters
@@ -248,6 +269,7 @@ const Products = (props) => {
                     </Row>
                 </Col>
             </Row>
+            <button onClick={(e) => topFunction(e)} id="myBtn" title="Go to top"><ArrowUp size={16} /> </button>
             </Container>
          
         

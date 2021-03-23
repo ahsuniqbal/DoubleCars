@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/SellerDetails.css';
 import { Phone, Mail } from 'react-feather';
 import CommentModal from './CommentModal';
-import CheckMark from '../../../assets/dealersCheckMark.png'
+import CheckMark from '../../../assets/dealersCheckMark.png';
+import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 
 const SellerDetails = (props) => {
     const [modal, setModal] = useState(false);
@@ -25,7 +26,7 @@ const SellerDetails = (props) => {
                                         props.profilePic ?
                                         <CardImg className = "Dealer-Profile-image" src={props.profilePic} alt="Company logo" />
                                         :
-                                        null
+                                        <CardImg className = "Dealer-Profile-image" src={dummyAvatar} alt="Company logo" />
                                     }
                                     
                                 </Col>
