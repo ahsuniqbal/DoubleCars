@@ -3,7 +3,7 @@ import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputG
 import MultiSelect from "@khanacademy/react-multi-select";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Check } from 'react-feather';
-import { GetFiltersList, GetAllMakes, GetModelFromMake, GetTrimFromMakeAndModel, GetZipFromLatLong } from '../api/GetRequests';
+import { GetFiltersList, GetAllMakes, GetModelFromMake, GetTrimFromMakeAndModel, GetZipFromLatLong, GetZipCodesList } from '../api/GetRequests';
 import MapPopup from './MapPopup';
 import gps from '../../../assets/gps.svg';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
@@ -135,12 +135,47 @@ const Filters = (props) => {
     }, []);
 
 
+    const convertIntoQueryParams = (obj) => {
+        var str = "";
+        for(let i = 0; i < Object.keys(obj).length; i++){
+            str += Object.keys(obj)[i] + "=" + obj[Object.keys(obj)[i]];
+            if(i !== Object.keys(obj).length - 1){
+                str += "&";
+            }
+        }
+        return str;
+    }
+
+
     /////////////// Handle changes in filters ///////////////
     const handleRadius = (radius) => {
-        setRadius(radius);
-        filters['radius'] = radius;
-        setFilters(filters);
-        FilterQueryString(filters);    
+        const zip = zipCode.split('- ')
+
+        const obj = {
+            zip: zip[zip.length - 1],
+            radius: radius,
+        }
+        // console.log(convertIntoQueryParams(obj))
+        GetZipCodesList(convertIntoQueryParams(obj)).then(doc => {
+            if(doc.results.length > 0) {
+                setRadius(radius);            
+                filters['radius'] = radius;
+                console.log(doc)
+                filters['zipCode'] = doc.results.toString()
+                setFilters(filters);
+                FilterQueryString(filters);
+            }
+            else {
+                // If zip code is not available then do nothing
+            }
+            
+        }).catch(error => {
+            console.log(error)
+        })
+        // setRadius(radius);
+        // filters['radius'] = radius;
+        // setFilters(filters);
+        // FilterQueryString(filters);    
     }
 
     const handleMake = (make) => {
@@ -169,7 +204,7 @@ const Filters = (props) => {
     }
 
     const handleModel = (select) => {
-        console.log("model",select)
+        setLoading(true)
         setSelectedModel(select);
         if(select){
             GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
@@ -179,8 +214,10 @@ const Filters = (props) => {
                 filters['carModel'] = select;
                 setFilters(filters);
                 FilterQueryString(filters);
+                setLoading(false)
             }).catch(error => {
                 console.log(error.message)
+                setLoading(false)
             });
         }else{
             // console.log('filters1',filters)
@@ -189,6 +226,7 @@ const Filters = (props) => {
             setFilters(filters);
             FilterQueryString(filters);
             setTrimCollapseOpen(false);
+            setLoading(false)
         }
 
 
@@ -219,7 +257,7 @@ const Filters = (props) => {
 
 
     const handleTrim = (selected) => {
-        console.log("trim",selected)
+        setLoading(true)
         setSelectedTrim(selected);
         if(selected){
             // GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
@@ -229,6 +267,7 @@ const Filters = (props) => {
                 filters['trim'] = selected;
                 setFilters(filters);
                 FilterQueryString(filters);
+                setLoading(false)
             // }).catch(error => {
             //     console.log(error.message)
             // });
@@ -238,6 +277,7 @@ const Filters = (props) => {
             // console.log('filters2',filters)
             setFilters(filters);
             FilterQueryString(filters);
+            setLoading(false)
             // setTrimCollapseOpen(false);
         }
 
@@ -270,23 +310,27 @@ const Filters = (props) => {
     }
 
     const handleFromYear = (fromYear) => {
+        setLoading(true)
         document.getElementById("toYear").disabled = false;
         setSelectedFromYear(fromYear);
         filters['minYear'] = fromYear;
         setFilters(filters);
         FilterQueryString(filters);
+        setLoading(false)
     }
 
     const handleToYear = (toYear) => {
+        setLoading(true)
         filters['maxYear'] = toYear;
         setFilters(filters);
         FilterQueryString(filters);
+        setLoading(false)
     }
 
     const handleCondition = () => {
+        setLoading(true)
         var conditionNew = document.getElementById('condition-new');
         var conditionUsed = document.getElementById('condition-used');
-        console.log("Checing",conditionNew.checked,conditionUsed.checked)
         if(conditionNew.checked === true && conditionUsed.checked === true) {
             delete filters['isUsed'];
         }
@@ -301,6 +345,7 @@ const Filters = (props) => {
         }
         setFilters(filters);
         FilterQueryString(filters);
+        setLoading(false)
     }
 
     const handleMileage = (mileage) => {
@@ -312,6 +357,7 @@ const Filters = (props) => {
     }
 
     const handleSellerType = () => {
+        setLoading(true)
         var dealer = document.getElementById('dealer');
         var privateSeller = document.getElementById('private-seller');
 
@@ -329,6 +375,7 @@ const Filters = (props) => {
         }
         setFilters(filters);
         FilterQueryString(filters);
+        setLoading(false)
     }
 
     // Draw Skeleton if filters list in loading
@@ -344,6 +391,7 @@ const Filters = (props) => {
     }
 
     const bodyListFunc = (bodyStyle,index) => {
+        setLoading(true)
         if(bodyList.includes(bodyStyle)) {
             bodyList.splice(bodyList.indexOf(bodyStyle), 1)
         }
@@ -354,6 +402,7 @@ const Filters = (props) => {
         setFilters(filters);
         FilterQueryString(filters);
         basicColorSet(index)
+        setLoading(false)
     }
 
     // Body Styles render from API
@@ -534,6 +583,7 @@ const Filters = (props) => {
     
     // Get location using HTML 5 Browser Geo Location
     function ShowPosition(position){
+        setLoading(true)
         var latLong = position.coords.latitude + "," + position.coords.longitude;
         // Save the lattitude and longitude fetched from the browsers
         // Geo Location into the state variable of current location
@@ -547,11 +597,11 @@ const Filters = (props) => {
                 filters['zipCode'] = doc.results[0].address_components[0].long_name;
                 setFilters(filters);
                 FilterQueryString(filters);
+                setLoading(false)
             }
             // If the zip code is not available
             else{
                 var split = doc.plus_code.compound_code.split(" ");
-                console.log(split[1] + split[2] + split[3])
                 setZipCode(split[1] + " " + split[2] + " " + split[3])
                 // console.log(split, "asdadadadadad")
                 // setZipCode(doc.plus_code.compound_code);
@@ -560,6 +610,7 @@ const Filters = (props) => {
         })
         .catch(error => {
             console.log(error.message);
+            setLoading(false)
         });
     }
     
@@ -610,6 +661,7 @@ const Filters = (props) => {
 
     // This use effect will run every time the value of current Latitude and Longitude change
     useEffect(() => {
+        setLoading(true)
         if(currentLatLng) {
             var latLong = currentLatLng.lat + "," + currentLatLng.lng;
             // Get zip code from the Google's API using the current lattitude and longitude
@@ -621,17 +673,20 @@ const Filters = (props) => {
                     filters['zipCode'] = doc.results[0].address_components[0].long_name;
                     setFilters(filters);
                     FilterQueryString(filters);
+                    setLoading(false)
                 }
                 // If the zip code is not available
                 else{
                     var split = doc.plus_code.compound_code.split(" ");
                     setZipCode(split[1] + " " + split[2] + " " + split[3])
+                    setLoading(false)
                     // setZipCode(doc.plus_code.compound_code);
                     // setZipCode("N/A");
                 }
             })
             .catch(error => {
                 console.log(error.message);
+                setLoading(false)
             });
         }
     }, [currentLatLng]);
@@ -663,7 +718,6 @@ const Filters = (props) => {
             image_three : props.savedSearch.image_three,
             title : props.savedSearch.title,
         }
-        console.log(props.savedSearch,obj)
         postSavedSearch(obj)
         .then(doc => {
             // console.log(doc.message)
@@ -725,8 +779,9 @@ const Filters = (props) => {
                                         <RadiusSlider 
                                             min={0}
                                             max={200}
-                                            // onHandleRadius={handleRadius} 
-                                            onHandleRadius={() => console.log("radius")}
+                                            onHandleRadius={handleRadius}
+                                            disabled={loading}
+                                            // onHandleRadius={() => console.log("radius")}
                                         />
                                     </Col>
                                     {/* Changing the value of Radius on handle changing */}
@@ -744,7 +799,7 @@ const Filters = (props) => {
                             {/* Make list will be fetched from vinaudit api
                             On changing the make, modal will be visible  */}
                             {
-                                makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }} disabled={loading ? true : false} >
+                                makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }} disabled={loading} >
                                 <option value="">Make</option>
                                 {
                                     makeList.map((option, index) => {
@@ -762,7 +817,7 @@ const Filters = (props) => {
                             <Collapse isOpen={isModelCollapseOpen}>
                                 <h6>Model</h6>
 
-                                <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)} disabled={loading ? true : false}>
+                                <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)} disabled={loading}>
                                 <option value="">Model</option>
                                 {
                                     modelList.map((option, index) => {
@@ -785,7 +840,7 @@ const Filters = (props) => {
                                     <h6>Trim</h6>
 
 
-                                    <Input id="trim-list" type="select" className="mb-4" onChange={(e) => handleTrim(e.target.value)} disabled={loading ? true : false}>
+                                    <Input id="trim-list" type="select" className="mb-4" onChange={(e) => handleTrim(e.target.value)} disabled={loading}>
                                     <option value="">Trim</option>
                                     {
                                         trimList.map((option, index) => {
@@ -819,7 +874,9 @@ const Filters = (props) => {
                                     maxLabel={price[1]}
                                     step={1000}
                                     defaultValue={[0, filtersList.ranges[0].maxPrice]}
-                                    onHandlePrice={handlePrice} />
+                                    onHandlePrice={handlePrice} 
+                                    disabled={loading}
+                                />
                             </div>
                             
                             <hr />
@@ -829,7 +886,7 @@ const Filters = (props) => {
                             <Row>
                                 <Col xs="6">
                                     {/* On selecting from year, to year will be enabled */}
-                                    <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading ? true : false}>
+                                    <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading}>
                                         <option disabled selected hidden>From</option>
                                         {
                                             // Populate from year
@@ -870,12 +927,12 @@ const Filters = (props) => {
                             <h6>Condition</h6>
                             <FormGroup check>
                                 <Input type="checkbox" id="condition-new" name="condition" onChange={() => handleCondition()} 
-                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? false : true : false}  disabled={loading ? true : false}/>
+                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? false : true : false}  disabled={loading}/>
                                 <Label check htmlFor="condition-new">New</Label>
                             </FormGroup>
                             <FormGroup check>
                                 <Input type="checkbox" id="condition-used" name="condition" onChange={() => handleCondition()} 
-                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? true : false : false} disabled={loading ? true : false} />
+                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? true : false : false} disabled={loading} />
                                 <Label check htmlFor="condition-used">Used</Label>
                             </FormGroup>
 
@@ -884,11 +941,11 @@ const Filters = (props) => {
                             {/******** Seller type filter ************/}
                             <h6>Seller Type</h6>
                             <FormGroup check>
-                                <Input type="checkbox" id="dealer" name="seller-type" onChange={() => handleSellerType()} disabled={loading ? true : false} />
+                                <Input type="checkbox" id="dealer" name="seller-type" onChange={() => handleSellerType()} disabled={loading} />
                                 <Label check htmlFor="dealer">Dealer</Label>
                             </FormGroup>
                             <FormGroup check>
-                                <Input type="checkbox" id="private-seller" name="seller-type" onChange={() => handleSellerType()} disabled={loading ? true : false} />
+                                <Input type="checkbox" id="private-seller" name="seller-type" onChange={() => handleSellerType()} disabled={loading} />
                                 <Label check htmlFor="private-seller">Private Seller</Label>
                             </FormGroup>
                             {/******** Basic filters end here ************/}
