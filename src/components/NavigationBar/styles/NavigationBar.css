@@ -197,6 +197,13 @@
     line-height: 16px;
     margin: 5px 0px;
 }
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff !important;
+    text-decoration: none !important;
+    background-color: rgba(0, 0, 0, 0.65) !important;
+    border-color: rgba(0, 0, 0, 0.65) !important;
+}
 .navigation-profile-name{
     font-family: Ubuntu;
     font-style: normal;
