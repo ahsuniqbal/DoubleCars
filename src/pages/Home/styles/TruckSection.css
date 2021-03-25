@@ -9,6 +9,7 @@
     border-bottom-left-radius: 6px;
     top: 0;
     bottom: 0;
+    cursor: pointer;
     background: linear-gradient( 90deg , #233856 0%, rgba(33, 52, 80, 0) 100%);
 }
 .truck-cars-col{
@@ -16,7 +17,8 @@
 
 }
 .truck-cars-col:hover {
-    transform: scale(1.01);
+    transform: scale(1.01) !important;  
+    
 }
 .truck-car-badge{
     font-family: Ubuntu;
