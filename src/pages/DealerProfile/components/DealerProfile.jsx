@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col ,Row, Label, Input, Container} from 'reactstrap';
+import { Col ,Row, Label, Input, Container, Button} from 'reactstrap';
 import { SortByRelevance, SortByPrice } from '../../../utils/Sorting';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation'
 import Filters from '../../../components/ProductFilters/components/Filters';
@@ -7,6 +7,7 @@ import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { GetSellerDetails, GetSellerInventory, GetSearchResult } from '../api/GetRequests';
+import { ArrowUp } from "react-feather";
 
 const ShowSearchResults = (inventory) => {
     var table = [];
@@ -118,12 +119,12 @@ const DealerProfile = ({match}) => {
         .catch(error => {
             console.log(error.message);
         });
-        GetSellerInventory(match.params.id).then(doc => {
-            setInventory(doc.inventory);
-        })
-        .catch(error => {
-            console.log(error.message);
-        });
+        // GetSellerInventory(match.params.id).then(doc => {
+        //     setInventory(doc.inventory);
+        // })
+        // .catch(error => {
+        //     console.log(error.message);
+        // });
     }, []);
 
 
@@ -141,22 +142,24 @@ const DealerProfile = ({match}) => {
         console.log("QQUERY",str)
         GetSearchResult(str).then(doc => {
             if(doc.length > 0) {
+                setBooleanFlag(false);
                 setInventory(doc)
                 var tempObj = {
                     title : doc[0].carName,
                     image_one : doc[0].coverPic,
-                    image_two : doc[1].coverPic ? doc[1].coverPic : null,
-                    image_three : doc[2].coverPic ? doc[2].coverPic : null,
+                    image_two : doc[1] ? doc[1].coverPic ? doc[1].coverPic : null : null,
+                    image_three : doc[2] ? doc[2].coverPic ? doc[2].coverPic : null : null
                 }
                 setSavedSearchObj(tempObj)
             }
             else {
+                setBooleanFlag(true);
                 setInventory([])
             }
 
-            if(!booleanFlag){
-                setBooleanFlag(true);
-            }
+            // if(!booleanFlag){
+            //     setBooleanFlag(true);
+            // }
             // console.log("doc",doc)
             // setInventory(doc)
             setFlag(!flag)
@@ -175,6 +178,24 @@ const DealerProfile = ({match}) => {
         else if(sortingType === "price"){
             setInventory(SortByPrice(inventory));
             setSortFlag(!sortFlag);
+        }
+    }
+
+
+    // When the user clicks on the button, scroll to the top of the document
+    const topFunction = (e) => {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    } 
+    function scrollFunction() {
+        const mybutton = document.getElementById("myBtn");
+        if (document.body.scrollTop > 1280 || document.documentElement.scrollTop > 1280) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
         }
     }
 
@@ -202,7 +223,8 @@ const DealerProfile = ({match}) => {
                                 phNum={dealer.phNum}
                                 aboutMe={dealer.aboutMe}
                                 profilePic={dealer.profilePic}
-                                userRole={dealer.userRole} />
+                                userRole={dealer.userRole} 
+                            />
                             :
                             null
                         }
@@ -237,6 +259,7 @@ const DealerProfile = ({match}) => {
                     </Row>
                 </Col>
             </Row>
+            <button onClick={(e) => topFunction(e)} id="myBtn" title="Go to top"><ArrowUp size={16} /> </button>
             </Container>
     )
 }

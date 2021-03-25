@@ -18,6 +18,7 @@ const Gallery = (props) => {
 
     useEffect(() => {
         GetIfSaved(props.productId, getLogin()).then(doc => {
+            console.log(doc)
             setSaveId(doc.details[0].saveId);
         }).catch(error => {
             console.log(error)
@@ -31,6 +32,7 @@ const Gallery = (props) => {
             userId
         }
         postSaveCar(obj).then(doc => {
+            console.log(doc)
             // if(doc.code === 1) {
                 setSaveId(doc.saveId);
             // }

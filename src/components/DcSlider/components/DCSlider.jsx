@@ -13,7 +13,6 @@ AOS.init();
 
 const NextIcon=(props)=>{
   const { className, onClick,activeSlide , length } = props;
-  console.log(activeSlide)
   return (
     <div>
       {activeSlide>=0 && activeSlide!==length-5 &&
