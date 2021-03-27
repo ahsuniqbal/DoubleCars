@@ -54,7 +54,6 @@ const Compose = (props) => {
     const sendMessage = () => {
         var msg = document.getElementById('chatMessage').value
         if(messageValid(msg)){
-            console.log('chala',msg,localStorage.getItem('userId'),props.otherId)
             var userId = localStorage.getItem('userId')
             var obj = {
                 messageId : "asdsa",
@@ -63,11 +62,17 @@ const Compose = (props) => {
                 multipleImagesList : null,
                 messageText : msg,
                 messagedAt : firebase.firestore.Timestamp.now(),
-                senderId : userId
+                senderId : userId,
+                enquiry : false,
+                enquiryText : "",
+                vehicleImage : null,
+                vehiclePrice : null,
+                vehicleSubTitle  : null,
+                vehicleTitle : null,
             }
             const strId = [userId, props.otherId].sort().join('-')
             //var strId = "72-73"
-            console.log("final thing to send",obj,strId)
+            // console.log("final thing to send",obj,strId)
             firebase.firestore().collection("Chats").doc(strId).collection('Messages')
             .doc().set(obj)
             document.getElementById('chatMessage').value = ""

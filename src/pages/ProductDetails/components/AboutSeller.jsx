@@ -65,6 +65,9 @@ const SellerDetails = (props) => {
         var messageText = `REGARDING VEHICLE: ${props.details.yearCar} ${props.details.carName} ${props.details.mileage} Mileage $${props.details.price}` 
         var imageUrl = props.details.coverPic
         var userId = localStorage.getItem('userId')
+        var vehiclePrice = props.details.price
+        var vehicleSubTitle = props.details.mileage + " miles, " + props.details.location + ", " + props.details.zipCode
+        var vehicleTitle = props.details.carName
             
             const strId = [userId, dealerId].sort().join('-')
             //var strId = "72-73"
@@ -87,12 +90,18 @@ const SellerDetails = (props) => {
                         .update(updateObj).then(() => {
                         var obj = {
                             messageId : "asdsa",
-                            imageUrl : imageUrl,
-                            messageImage : imageUrl,
+                            imageUrl : null,
+                            messageImage : null,
                             multipleImagesList : null,
                             messageText : messageText,
                             messagedAt : firebase.firestore.Timestamp.now(),
-                            senderId : userId
+                            senderId : userId,
+                            enquiry : false,
+                            enquiryText : "",
+                            vehicleImage : null,
+                            vehiclePrice : null,
+                            vehicleSubTitle  : null,
+                            vehicleTitle : null,
                         }
                         
                         firebase.firestore().collection("Chats").doc(strId).collection('Messages')
@@ -112,8 +121,12 @@ const SellerDetails = (props) => {
                         profilePic : props.details.profilePic,
                         senderId : userId,
                         receiverId : dealerId,
+                        receiverUnreadCount : 0,
+                        senderUnreadCount : 0,
                         receiverHasRead : true,
-                        senderHasRead : false
+                        senderHasRead : false,
+                        receiverFToken : "",
+                        senderFToken : "",
                     }
                     firebase.firestore().collection("Chats").doc(strId)
                     .set(updateObj).then(() => {
@@ -124,7 +137,13 @@ const SellerDetails = (props) => {
                             multipleImagesList : null,
                             messageText : messageText,
                             messagedAt : firebase.firestore.Timestamp.now(),
-                            senderId : userId
+                            senderId : userId,
+                            enquiry : true,
+                            enquiryText : "Can i get your Phone Number ?",
+                            vehicleImage : imageUrl,
+                            vehiclePrice : vehiclePrice,
+                            vehicleSubTitle  : vehicleSubTitle,
+                            vehicleTitle : vehicleTitle,
                         }
                         
                         firebase.firestore().collection("Chats").doc(strId).collection('Messages')
