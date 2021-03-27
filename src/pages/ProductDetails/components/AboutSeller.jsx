@@ -80,11 +80,17 @@ const SellerDetails = (props) => {
                         lastMessageAt : firebase.firestore.Timestamp.now(),
                     }
                     const objInq = {
-                        messageText : messageText,
-                        messageAt : firebase.firestore.Timestamp.now()
+                        messageId : "asdas",
+                        enquiryText : messageText,
+                        messageAt : firebase.firestore.Timestamp.now(),
+                        vehicleImage : imageUrl,
+                        vehiclePrice : vehiclePrice,
+                        vehicleSubTitle  : vehicleSubTitle,
+                        vehicleTitle : vehicleTitle,
+
                     }
                     firebase.firestore().collection("Chats").doc(strId)
-                    .collection('inquiries').doc().set(objInq)
+                    .collection('Enquiries').doc().set(objInq)
                     .then(() => {
                         firebase.firestore().collection("Chats").doc(strId)
                         .update(updateObj).then(() => {
