@@ -9,7 +9,8 @@ import {changePassword,updateUser} from '../api/Patch'
 import {postImageToFTP} from '../../ChatMessenger/api/Post'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { nameValidation } from '../../../utils/Validation';
+// import { nameValidation } from '../../../utils/Validation';
+import { emailValidation, nameValidation, passwordValidation,mobileValidation } from '../../../utils/Validation';
 import { User } from 'react-feather';
 // import IconButton from '@material-ui/core/IconButton';
 // import PhotoCamera from '@material-ui/icons/PhotoCamera';
@@ -59,7 +60,7 @@ const Profile = (props) => {
             // Name is okay
             document.getElementById('profile-name-error-label').textContent = "";
 
-            if(Number.isInteger(parseInt(phNum))) {
+            if(mobileValidation(phNum)) {
                 // Mobile is okay
                 document.getElementById('profile-phNum-error-label').textContent = "";
 
@@ -242,7 +243,7 @@ const Profile = (props) => {
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels" id='giving-margin-top'>Mobile Number</Label>
                                 <Input id="phNum" className = "profile-text-field" type="text"
-                                  onKeyPress={e => formatToPhone(e)} maxLength={10}
+                                  onKeyPress={e => formatToPhone(e)} maxLength={13}
                                 defaultValue={user.phNum}/>
                                 <div id="profile-phNum-error-label" className="profile-error-label"></div>
                             </Col>
