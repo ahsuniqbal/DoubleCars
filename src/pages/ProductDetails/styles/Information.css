@@ -44,7 +44,7 @@
     line-height: 18px;
     margin-top: 12%;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 20;
     -webkit-box-orient: vertical;  
     overflow: hidden;
 }
@@ -72,7 +72,7 @@
     line-height: 17px;
     color: rgba(8, 11, 48, 0.85);   
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 20;
     -webkit-box-orient: vertical;  
     overflow: hidden;
 }
