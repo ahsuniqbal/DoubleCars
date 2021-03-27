@@ -98,15 +98,15 @@ const ProductCard = (props) => {
                         <Col xs="3">
                             {
                             //condition to show login modal if user is not login on click of save icon
-                            localStorage.getItem('userId') ?
-                                <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
-                                    <FontAwesomeIcon icon={["far", "bookmark"]} />
-                                </Button> 
+                                localStorage.getItem('userId') ?
+                                    <Button onClick={() => saveCarFunc(props.productId)} color="link" className="bookmark">
+                                        <FontAwesomeIcon icon={["far", "bookmark"]} />
+                                    </Button> 
                                 :
-                                <Button onClick={popupToggle} color="link" className="bookmark">
-                                    <FontAwesomeIcon icon={["far", "bookmark"]} />
-                                    <LoginSignupModal  isOpen={popupModal} toggle={popupToggle} />
-                                </Button>
+                                    <Button onClick={popupToggle} color="link" className="bookmark">
+                                        <FontAwesomeIcon icon={["far", "bookmark"]} />
+                                        <LoginSignupModal  isOpen={popupModal} toggle={popupToggle} />
+                                    </Button>
                             }
                         </Col>
                     : null
