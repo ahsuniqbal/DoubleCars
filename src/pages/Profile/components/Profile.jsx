@@ -37,6 +37,7 @@ const Profile = (props) => {
 
     // function to validate number on keypress event
     const formatToPhone = (event) => {
+        // if(isModifierKey(event)) {return;}
         const target = event.target;
         const input = target.value.replace(/\D/g,'').substring(0,10); // First ten digits of input only
         const areaCode = input.substring(0,3);
@@ -92,6 +93,8 @@ const Profile = (props) => {
         }
 
     }
+    
+
 
     const handleLogout = () => {
         localStorage.removeItem('userId')
@@ -239,7 +242,7 @@ const Profile = (props) => {
                             <Col xs = "12" md = "6">
                                 <Label className = "profile-labels" id='giving-margin-top'>Mobile Number</Label>
                                 <Input id="phNum" className = "profile-text-field" type="text"
-                                  onKeyPress={e => formatToPhone(e)} maxLength={13}
+                                  onKeyPress={e => formatToPhone(e)} maxLength={10}
                                 defaultValue={user.phNum}/>
                                 <div id="profile-phNum-error-label" className="profile-error-label"></div>
                             </Col>
