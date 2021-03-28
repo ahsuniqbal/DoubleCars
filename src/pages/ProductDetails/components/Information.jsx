@@ -77,7 +77,7 @@ const Information = (props) => {
             for(let i = 0; i < attributeTable[0].property.length; i++) { 
                 table.push(
                     <Col xs="6" md="4">
-                        <Label className = "car-feature" title={attributeTable[0].property[i].itemName}>{attributeTable[0].property[i].itemName}</Label>
+                        <Label className = "car-feature" style =  {{marginBottom: '24px'}}  title={attributeTable[0].property[i].itemName}>{attributeTable[0].property[i].itemName}</Label>
                     </Col>
                 )
             }

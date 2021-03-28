@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import '../styles/PriceRange.css'
 import {useHistory} from 'react-router-dom'
 import { AddCommaToNumber } from '../../../utils/NumberManipulation'
+import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 
 // price<10000 component
 const PriceRangeCards1 = () => { 
@@ -40,7 +41,7 @@ const PriceRangeCards1 = () => {
                         <Grid item md={3} key={index}>
                            
                                 <Card className='main-card'  onClick={()=>history.push("/product/" + items.productId)}>
-                                    <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
+                                    <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic ? items.coverPic: dummyAvatar} className='filter-price-image' /> 
                                     <CardBody>
                                     <CardTitle className='head'>{items.carName}</CardTitle>
                                     <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
@@ -89,7 +90,7 @@ const PriceRangeCards2 = () => {
                             <Grid item md={3} key={index}>
                          
                                     <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
-                                        <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
+                                        <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic ? items.coverPic: dummyAvatar} className='filter-price-image' /> 
                                         <CardBody>
                                         <CardTitle className='head'>{items.carName}</CardTitle>
                                         <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
@@ -138,7 +139,7 @@ const PriceRangeCards3 = () => {
                             <Grid item md={3} key={index}>
                                
                                     <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
-                                        <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
+                                        <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic ? items.coverPic: dummyAvatar} className='filter-price-image' /> 
                                         <CardBody>
                                         <CardTitle className='head'>{items.carName}</CardTitle>
                                         <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
@@ -186,7 +187,7 @@ const PriceRangeCards4 = () => {
                         <Grid item md={3} key={index}>
                        
                             <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
-                                <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
+                                <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic ? items.coverPic: dummyAvatar} className='filter-price-image' /> 
                                 <CardBody>
                                 <CardTitle className='head'>{items.carName}</CardTitle>
                                 <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
@@ -235,7 +236,7 @@ const PriceRangeCards5 = () => {
                         <Grid item md={3} key={index}>
                       
                                 <Card className='main-card' onClick={()=>history.push("/product/" + items.productId)}>
-                                    <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic} className='filter-price-image' /> 
+                                    <LazyLoadImage width="100%" alt="demo-image" effect="blur" src={items.coverPic ? items.coverPic: dummyAvatar} className='filter-price-image' /> 
                                     <CardBody>
                                     <CardTitle className='head'>{items.carName}</CardTitle>
                                     <CardSubtitle className="sub-head mb-2">{items.mileage} - california</CardSubtitle>
