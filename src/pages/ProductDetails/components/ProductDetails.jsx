@@ -12,18 +12,25 @@ import { useHistory } from 'react-router-dom';
 import DCSlider from '../../../components/DcSlider/components/DCSlider';
 import { Link } from 'react-router-dom';
 import { isLogin, getLogin } from '../../../config/LoginAuth';
-import { GetRecommendationsTrendings } from '../api/GetRequests';
+import { GetRecommendationsTrendings, getSimilarCars } from '../api/GetRequests';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
     const [homeData, setHomeData] = useState(null);
+    const [similarCars,setSimilarCars] = useState([]);
 
     const history = useHistory();
 
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
-            console.log(doc)
+            getSimilarCars(doc.details[0].carMake)
+            .then(doc => {
+                setSimilarCars(doc)
+            })
+            .catch(e => {
+                console.log(e.message)
+            })
         })
         .catch(error => {
             console.log(error.message);
@@ -175,29 +182,28 @@ const ProductResults = ({match}) => {
                         </Row>
                     }
                     {
-                        homeData ? 
-                            homeData.map((item, index) => {
-                                if(index === 1) {
-                                    return(
-                                        <>
-                                            <Row>
-                                                <Col md = "6" xs = "12">
-                                                    <h2 className = "similar-cars-head">Similar cars</h2>
-                                                </Col>
+                        similarCars.length > 0 ? 
+                        similarCars.map((item, index) => {
+                                    // return(
+                                    //     <>
+                                    //         <Row>
+                                    //             <Col md = "6" xs = "12">
+                                    //                 <h2 className = "similar-cars-head">Similar cars</h2>
+                                    //             </Col>
 
-                                                <Col md = "6" xs = "12" className = "text-right">
-                                                    <Link className = "view-all" to="/products">View All</Link>
-                                                </Col>
-                                            </Row>
+                                    //             <Col md = "6" xs = "12" className = "text-right">
+                                    //                 <Link className = "view-all" to="/products">View All</Link>
+                                    //             </Col>
+                                    //         </Row>
 
-                                            <DCSlider
-                                                slidesToShow={4}
-                                                items={item.data}
-                                                allowBookmark={false}
-                                            />
-                                        </>
-                                    )
-                                }
+                                    //         <DCSlider
+                                    //             slidesToShow={4}
+                                    //             items={item}
+                                    //             allowBookmark={false}
+                                    //         />
+                                    //     </>
+                                    // )
+                                
                             })
                         
                         : null
