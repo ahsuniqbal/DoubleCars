@@ -26,7 +26,9 @@ const ProfileView = (props) => {
     
 
     useEffect(() => {
-        if(props.chats.user){
+        
+        if(props.chats.length > 0){
+            console.log('props.chats',props.chats)
             getUser(props.chats.user.userId)
             .then(doc => {
                 setUser(doc[0])
@@ -97,9 +99,6 @@ const ProfileView = (props) => {
                     </Row>
                 </div> : null
                 }
-
-                
-                
             </CardBody>
         </Card>
 

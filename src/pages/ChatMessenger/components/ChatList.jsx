@@ -24,12 +24,13 @@ const ChatList = (props) => {
     useEffect(() => {
         
         var user = localStorage.getItem("userId")
+        console.log("USER",user)
         // var user = 73
         getUserChats(user)
         .then(snap => {
-            getChatUserPics(snap.userIds.toString())
+            if(snap.userIds.length > 0){
+                getChatUserPics(snap.userIds.toString())
             .then(doc => {
-            console.log('docChat',doc)
             var newList = []
             for(let i = 0; i < doc.length; i++){
                 var obj = {
@@ -46,7 +47,7 @@ const ChatList = (props) => {
             .catch(e => {
                 console.log(e.message)
             })
-            
+            }
         })
     },[])
 

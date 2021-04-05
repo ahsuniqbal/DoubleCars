@@ -16,13 +16,16 @@ const ChatView = (props) => {
     const [otherId,setOtherId] = useState(null)
 
     useEffect(() => {
+        console.log("props.chats",props.chats)
         var userId = localStorage.getItem('userId')
         // var userId = 73
-        if(props.chats && props.chats.chat){
-            if(props.chats.chat.senderId == userId){
-                setOtherId(props.chats.chat.receiverId)
-            }else{
-                setOtherId(props.chats.chat.senderId)
+        if(props.chats){
+            if(props.chats.chat){
+                if(props.chats.chat.senderId == userId){
+                    setOtherId(props.chats.chat.receiverId)
+                }else{
+                    setOtherId(props.chats.chat.senderId)
+                }
             }
         }
     },[props.chats])
@@ -31,20 +34,20 @@ const ChatView = (props) => {
         <div>
             <Row>
                 <Col xs="12">
-                    {props.chats.chat ? <Toolbar user={props.chats.user}/> : null}
+                    {props.chats ? props.chats.chat ? <Toolbar user={props.chats.user}/> : null : null}
                 </Col>
             </Row>
 
             <Row className="chat-board">
                 <Col xs="12" style={{paddingLeft: '25px', paddingRight: '25px'}}>
-                {props.chats.chat ? <MessageBubble chat={props.chats.chat}/> : null}
+                {props.chats ? props.chats.chat ? <MessageBubble chat={props.chats.chat}/> : null : null}
                 </Col>
             </Row>
 
             <Row>
                 <Col xs="12">
                     {
-                        props.chats.chat ? <Compose otherId={otherId} chatInfo={props.chats.chat}/> : null
+                        props.chats ? props.chats.chat ? <Compose otherId={otherId} chatInfo={props.chats.chat}/> : null : null
                     }
                 </Col>
             </Row>
