@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { Col, Row, Label, Badge, Container } from 'reactstrap';
 import '../styles/FeaturedCars.css'
 import {useHistory} from 'react-router-dom'
-import { GetSearchResult } from '../../Products/api/GetRequests';
+import { GetFeaturedCars } from '../api/GetRequests';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 AOS.init()
@@ -14,17 +14,15 @@ const NewFeaturedCars = () => {
    // getting products
    const[productId,setProductIds]=useState([])
     useEffect(()=>{
-        ShowSearchResults()
+      GetFeaturedCars().then(doc => {
+        console.log(doc)
+        setProductIds(doc)
+      })
+      .catch(error => {
+          console.log(error.message);
+      });
     },[])
-    const ShowSearchResults = () => {
-        GetSearchResult().then(doc => {
-          console.log(doc)
-          setProductIds(doc)
-        })
-        .catch(error => {
-            console.log(error.message);
-        });
-    }
+    
     const FeaturedDemoImage1 = {
         backgroundImage: `url(${require("../../../assets/FearturedDemo11.png")})`,
         backgroundPosition: 'center',
