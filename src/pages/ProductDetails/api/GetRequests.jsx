@@ -16,6 +16,21 @@ export const GetProductDetails = (id) => {
     })
 };
 
+export const getSimilarCars = (make) => {
+    return new Promise((resolve, reject) => {
+        var url = connectionString + "products/similar-cars?make=" + make;
+        axios.get(url).then(function(response){
+            const data = response.data.results;
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            console.log(error.message);
+        })
+    })
+};
+
 
 export const GetSellerDetails = (id) => {
     return new Promise((resolve, reject) => {

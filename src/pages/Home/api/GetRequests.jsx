@@ -67,9 +67,8 @@ export const GetFilteredPriceList = (price) => {
 // feature section Api
 export const GetFeaturedCars = () => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + "products/is-used?" ;
+        var url = connectionString + "products/featured-cars";
         axios.get(url).then(function(response){
-            console.log('feature',response)
             const data = response.data.results;
             resolve(data);
         })

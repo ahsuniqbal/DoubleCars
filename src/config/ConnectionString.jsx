@@ -22,7 +22,7 @@ const ReverseGeoCodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?key
 const ReverseGeoCodeLatLong = "&result_type=postal_code&latlng=";
 
 // Google api key
-const GoogleApiKey = "AIzaSyCxiSu4WWhFpMhN7Zi55WNX5FuB8ot6JA0";
+const GoogleApiKey = "AIzaSyByziDZpcK8k1jtGjIt1oEOaGWRRuhbyK4";
 
 
 const vinAuditConnectionString = vinAuditBaseUrl + vinAuditKey;

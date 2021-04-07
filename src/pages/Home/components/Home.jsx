@@ -166,7 +166,11 @@ const Home = () => {
         // Login not implemented yet that
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
-            setHomeData(doc)
+            if(doc){
+                console.log("recomm",doc)
+                setHomeData(doc)
+            }
+            
         })
         .catch(error => {
             console.log(error.message);
