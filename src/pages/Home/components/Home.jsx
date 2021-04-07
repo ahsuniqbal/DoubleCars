@@ -283,7 +283,7 @@ const Home = () => {
                         
                         <TopBudget/>
                         <Container>
-                            <PriceRange/>
+                            {/* <PriceRange/> */}
                             <TruckSection/>
                             <ServicesOffer/>
                             

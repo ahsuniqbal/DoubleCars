@@ -118,6 +118,44 @@ const CarsLogo = () => {
                                 </Card>
                         </Col>
                    </Row>
+
+                   <Row className='giving-margin'>
+                        {/* <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
+                                <Card className='cardslogo-main'>
+                                    <LazyLoadImage effect="blur" src={Suzuki} className='suzuki-car'/>
+                                </Card>
+                        </Col> */}
+                        <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
+                                <Card className='cardslogo-main'>
+                                    <LazyLoadImage effect="blur" src={Nissan} className='mercedes-car'/>
+                                </Card>
+                        </Col>
+                        <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
+                                <Card className='cardslogo-main'>
+                                    <LazyLoadImage effect="blur" src={tesla} className='audi-car'/>
+                                </Card>
+                        </Col>
+                        <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
+                                <Card className='cardslogo-main'>
+                                    <LazyLoadImage effect="blur" src={Mitsubishi} className='mitsubishi-car'/>
+                                </Card>
+                        </Col>
+                        <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
+                                <Card className='cardslogo-main'>
+                                    <LazyLoadImage effect="blur" src={Lexus} className='lexus-car'/>
+                                </Card>
+                        </Col>
+                        <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
+                                <Card className='cardslogo-main'>
+                                    <LazyLoadImage effect="blur" src={Plus} className='plus-car'/>
+                                </Card>
+                        </Col>
+                        <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
+                                <Card className='cardslogo-main3'>
+                                    <LazyLoadImage effect="blur" src={Suzuki2} className='suzuki2-car'/>
+                                </Card>
+                        </Col>
+                   </Row>
              
                    {/* <Row className='giving-margin'>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
