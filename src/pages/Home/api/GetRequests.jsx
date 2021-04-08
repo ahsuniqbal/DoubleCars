@@ -79,3 +79,20 @@ export const GetFeaturedCars = () => {
         })
     })
 };
+
+
+
+export const GetCommercialVehicles = () => {
+    return new Promise((resolve, reject) => {
+        var url = connectionString + "products/commercial-cars";
+        axios.get(url).then(function(response){
+            const data = response.data.results;
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            console.log(error.message);
+        })
+    })
+}

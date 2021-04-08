@@ -183,28 +183,23 @@ const ProductResults = ({match}) => {
                     }
                     {
                         similarCars.length > 0 ? 
-                        similarCars.map((item, index) => {
-                                    // return(
-                                    //     <>
-                                    //         <Row>
-                                    //             <Col md = "6" xs = "12">
-                                    //                 <h2 className = "similar-cars-head">Similar cars</h2>
-                                    //             </Col>
+                        <>
+                            <Row>
+                                <Col md = "6" xs = "12">
+                                    <h2 className = "similar-cars-head">Similar cars</h2>
+                                </Col>
 
-                                    //             <Col md = "6" xs = "12" className = "text-right">
-                                    //                 <Link className = "view-all" to="/products">View All</Link>
-                                    //             </Col>
-                                    //         </Row>
+                                <Col md = "6" xs = "12" className = "text-right">
+                                    <Link className = "view-all" to="/products">View All</Link>
+                                </Col>
+                            </Row>
 
-                                    //         <DCSlider
-                                    //             slidesToShow={4}
-                                    //             items={item}
-                                    //             allowBookmark={false}
-                                    //         />
-                                    //     </>
-                                    // )
-                                
-                            })
+                            <DCSlider
+                                slidesToShow={4}
+                                items={similarCars}
+                                allowBookmark={false}
+                            />
+                        </>
                         
                         : null
                     }
