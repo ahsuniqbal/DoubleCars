@@ -4,12 +4,12 @@ import {Card, Col,Row} from 'reactstrap';
 import '../styles/CarsLogo.css';
 import corolla from '../../../assets/Toyota.png'
 import ford from '../../../assets/Ford.png'
-import tesla from '../../../assets/Tesla.png'
+import dodge from '../../../assets/dodge.png'
 import honda from '../../../assets/Honda.png'
 import bmw from '../../../assets/BMW.png'
 import jeep from '../../../assets/Jeep.png'
 
-import Suzuki from '../../../assets/Suzuki.png'
+import LandRover from '../../../assets/LandRover.png'
 import Mercedes from '../../../assets/Mercedes.png'
 import Audi from '../../../assets/Audi.png'
 import Mitsubishi from '../../../assets/Mitsubishi.png'
@@ -17,9 +17,9 @@ import Lexus from '../../../assets/Lexus.png'
 import Plus from '../../../assets/plus.png'
 
 import Suzuki2 from '../../../assets/Suzuki2.png'
-import MercedesBenz from '../../../assets/mercedesBenz.png'
+import Porsche from '../../../assets/Porsche.png'
 import Nissan from '../../../assets/nissan.png'
-import Jaguar from '../../../assets/jaguar.png'
+import Tesla from '../../../assets/Tesla.png'
 import Lexus2 from '../../../assets/Lexus-logo 2.png'
 import Horse from '../../../assets/horse.png'
 import Subaru from '../../../assets/subaru.png';
@@ -132,27 +132,27 @@ const CarsLogo = () => {
                         </Col>
                         <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main'>
-                                    <LazyLoadImage effect="blur" src={tesla} className='audi-car'/>
+                                    <LazyLoadImage effect="blur" src={LandRover} className='audi-car'/>
                                 </Card>
                         </Col>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main'>
-                                    <LazyLoadImage effect="blur" src={Mitsubishi} className='mitsubishi-car'/>
+                                    <LazyLoadImage effect="blur" src={Porsche} className='mitsubishi-car'/>
                                 </Card>
                         </Col>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main'>
-                                    <LazyLoadImage effect="blur" src={Lexus} className='lexus-car'/>
+                                    <LazyLoadImage effect="blur" src={dodge} className='lexus-car'/>
                                 </Card>
                         </Col>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main'>
-                                    <LazyLoadImage effect="blur" src={Plus} className='plus-car'/>
+                                    <LazyLoadImage effect="blur" src={Tesla} className='plus-car'/>
                                 </Card>
                         </Col>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main3'>
-                                    <LazyLoadImage effect="blur" src={Suzuki2} className='suzuki2-car'/>
+                                    <LazyLoadImage effect="blur" src={Horse} className='suzuki2-car'/>
                                 </Card>
                         </Col>
                    </Row>
