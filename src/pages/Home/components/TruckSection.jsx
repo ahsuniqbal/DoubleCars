@@ -4,7 +4,7 @@ import HeavyTruck from '../../../assets/HeavyTruck.png';
 import BoxTruck from '../../../assets/BoxTruck.png';
 import ForkLifter from '../../../assets/ForkLifter.png';
 import WorkVan from '../../../assets/WorkVan.png';
-import dummyAvatar from '../../../assets/dummyAvatar.jpg';
+// import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import { ChevronRight } from 'react-feather';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
