@@ -27,6 +27,7 @@ export const getSimilarCars = (make) => {
             let updatedData = false;
             resolve(updatedData);
             console.log(error.message);
+            
         })
     })
 };
