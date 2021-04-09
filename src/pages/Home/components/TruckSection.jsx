@@ -14,6 +14,7 @@ import 'aos/dist/aos.css';
 import { GetCommercialVehicles } from '../api/GetRequests';
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
 
+
 AOS.init();
 
 const TruckSection = () => {
