@@ -1,0 +1,7 @@
+{
+    "name": "social-login",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./components/SocialLogin.jsx"
+  }
+  

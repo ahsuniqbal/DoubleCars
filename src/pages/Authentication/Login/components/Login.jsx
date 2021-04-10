@@ -11,6 +11,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Eyepiece from '../../../../assets/eyepiece.png';
 import Eye from '../../../../assets/eye.svg'
 import {emailValidation} from '../../../../utils/Validation.jsx';
+import SocialButton from '../../SocialLogin';
 
 const Login = (props) => {
     const [loading,setLoading] = useState(false)
@@ -72,6 +73,23 @@ const Login = (props) => {
             // Email is wrong
             document.getElementById('email-error').textContent = "Email is badly formatted. Please enter a valid email address";
         }   
+    }
+
+
+    const FBLoginSuccess = (user) => {
+        console.log(user)
+    }
+
+    const FBLoginFailure = (error) => {
+        console.log(error)
+    }
+
+    const GLoginSuccess = (user) => {
+        console.log(user)
+    }
+
+    const GLoginFailure = (error) => {
+        console.log(error)
     }
    
     return(
@@ -143,12 +161,28 @@ const Login = (props) => {
                             <h2 className = "login-or-label"><span>or continue with</span></h2>
 
                             <div className = "icons">
-                                <div className="google-button">
-                                    <span className=""></span>
-                                </div>
-                                <div className="facebook-button">
-                                    <span className=""></span>
-                                </div>
+                                {/* <SocialButton
+                                    provider='google'
+                                    appId='864485035255-voh1e1n1jr71rmk1kjmhonnplgg6el5g.apps.googleusercontent.com'
+                                    onLoginSuccess={GLoginSuccess}
+                                    onLoginFailure={GLoginFailure}
+                                > */}
+                                    <div className="google-button">
+                                        <span className=""></span>
+                                    </div>
+                                {/* </SocialButton> */}
+                                
+                                <SocialButton
+                                    provider='facebook'
+                                    appId='259221362572154'
+                                    onLoginSuccess={FBLoginSuccess}
+                                    onLoginFailure={FBLoginFailure}
+                                >
+                                    <div className="facebook-button">
+                                        <span className=""></span>
+                                    </div>
+                                </SocialButton>
+                                
                             </div>
 
                             <div className='bottom'>
