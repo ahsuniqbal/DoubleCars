@@ -6,6 +6,7 @@ import {getUserSavedSearches} from '../api/GetRequest'
 import {removeUserSearch} from '../api/PatchRequest'
 import { getLogin } from '../../../config/LoginAuth';
 
+
 const SavedSearches = () => {
 
     const [saved,setSaved] = useState(null)

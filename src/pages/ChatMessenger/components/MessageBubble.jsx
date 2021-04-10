@@ -1,7 +1,9 @@
 import React,{ useState, useEffect} from 'react'
-import { Label } from 'reactstrap';
+import { Label, Row, Col } from 'reactstrap';
 import '../styles/MessageBubble.css';
 import {getRecieverChat} from '../../../components/Firebase/database';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Audi from '../../../assets/RelatedStoriesDemoimg.png'
 const firebase = require('firebase').default
 
 const MessageBubble = (props) => {
@@ -54,9 +56,36 @@ const MessageBubble = (props) => {
                     )
                 }else{
                     table.push(
+                        <div>
+
+                        
                         <div className="message-bubble received">
                             <Label>{list[i].messageText}</Label>
                             <br/>
+                            {/* Image grid */}
+                            
+                        </div>
+                        <Col xs="12" sm="6" md="3">
+                                <div className="grid-parent">
+                                    <Row>
+                                        <Col xs="7" style={{paddingRight: '3px'}}>
+                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid first-img" alt="Car 1" />
+                                        </Col>
+
+                                        <Col xs="5" style={{paddingLeft: '3px'}}>
+                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
+                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid mt-1" alt="Car 1" />
+                                            <div className="overlay-text">138+</div>
+                                        </Col>
+                                    </Row>
+                            
+                                    <Row style={{marginTop: '20px', marginBottom: '17px'}}>
+                                        <Col xs="12">
+                                            <h6 className="cursor-pointer" onClick={() => console.log(list[i].filter_query)}>{list[i].title}</h6>
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </Col>
                         </div>
                     )
                 }
