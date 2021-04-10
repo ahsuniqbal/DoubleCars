@@ -43,11 +43,14 @@
     font-weight: bold;
     line-height: 18px;
     margin-top: 12%;
-    margin-bottom: -1rem;
+    /* margin-bottom: -1rem ; */
     display: -webkit-box;
     -webkit-line-clamp: 20;
     -webkit-box-orient: vertical;  
     overflow: hidden;
+}
+.margin-heading {
+    margin-bottom: -1rem;
 }
 
 .car-detail {
@@ -55,6 +58,7 @@
     color: rgba(0, 0, 0, 0.65);
     font-weight: normal;
     line-height: 18px;
+    
 }
 
 /* Car Feature css starts here. */
