@@ -12,7 +12,7 @@ const connectionString = "https://doublecarsnode.herokuapp.com/";
 const vinAuditBaseUrl = "https://specifications.vinaudit.com/v3/selections?format=json&key=";
 
 // Vinaudit paid key
-const vinAuditKey = "09P9CXBFSTGKA2G";
+const vinAuditKey = "W6ORUU5YI7HAPXH";
 
 // Vinaudit demo key
 // const vinAuditKey = "VA_DEMO_KEY";

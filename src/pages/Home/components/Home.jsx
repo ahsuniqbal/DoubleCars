@@ -6,7 +6,7 @@ import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import Skeleton from '@material-ui/lab/Skeleton';
-import { GetAllBodyTypes, GetRecommendationsTrendings } from '../api/GetRequests';
+import { GetAllBodyTypes, GetRecommendationsTrendings, GetFeaturedCars } from '../api/GetRequests';
 import { isLogin, getLogin } from '../../../config/LoginAuth'
 import ProductCard from '../../../components//ProductCard/components/ProductCard';
 import '../styles/Home.css'
@@ -141,6 +141,8 @@ const Home = () => {
 
     const [bodyTypes, setBodyTypes] = useState(null);
     const [homeData, setHomeData] = useState(null);
+    const [featuredCars, setFeaturedCars] = useState(null);
+
     const history=useHistory()
 
 
@@ -183,6 +185,14 @@ const Home = () => {
         .catch(error => {
             console.log(error.message);
         });
+
+
+        // Featured cars
+        GetFeaturedCars().then(doc => {
+            setFeaturedCars(doc);
+        }).catch(error => {
+            alert(error.message);
+        })
     }, []);
    
     return(
@@ -197,7 +207,11 @@ const Home = () => {
                         <Col xs="2"></Col>
                     </Row>
 
-                    <Tabs defaultTab="new-feature-tab">
+                    {
+                        featuredCars  ? 
+
+                    // {/* <Tabs defaultTab="new-feature-tab"> */}
+                    <>
                       <Container>
                         <Row className='features-row'>
                             
@@ -206,26 +220,30 @@ const Home = () => {
                                 </Col>
                             
                                 <Col md = "4" xs = "12" className='col-md4-of-new-used'>
-                                 <TabList className = "new-used-class">
+                                 {/* <TabList className = "new-used-class">
                                     <Tab tabFor="new-feature-tab" className='px-1'>New</Tab>
                                     <Tab tabFor="old-feature-tab" className='px-1'>Used</Tab> 
-                                 </TabList>
+                                 </TabList> */}
                                 </Col>
                         </Row>
                       </Container>
                         <Row>
                             <Col className='featured-main-coloumn'>
                                
-                                <TabPanel tabId="new-feature-tab">
-                                    <NewFeaturedCars/>
-                                </TabPanel>
-                                <TabPanel tabId="old-feature-tab">
+                                {/* <TabPanel tabId="new-feature-tab"> */}
+                                    <NewFeaturedCars
+                                        featuredCars={featuredCars}
+                                    />
+                                {/* </TabPanel> */}
+                                {/* <TabPanel tabId="old-feature-tab">
                                     <OldFeaturedCars/>
-                                </TabPanel>
+                                </TabPanel> */}
 
                             </Col>
                         </Row>
-                    </Tabs>
+                        </> : null
+                    // {/* </Tabs> */}
+                    }
                    {/* recomended trending and others sections */}
                    <Container>
                     {homeData ? 

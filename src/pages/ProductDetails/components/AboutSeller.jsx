@@ -184,7 +184,7 @@ const SellerDetails = (props) => {
                     <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
 
                     {localStorage.getItem('userId') ?
-                        <Button disabled onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
+                        <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
                         :
                         <>
                         <Button onClick={popupToggle} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
