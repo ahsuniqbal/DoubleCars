@@ -85,7 +85,7 @@ const DCSlider = (props) => {
     }
 
     return (
-      <div data-aos="fade-right" data-aos-duration="1000">
+      <div data-aos="" data-aos-duration="1000">
         <Slider {...settings}  className='silder-class'>
             {
                 props.items ? 

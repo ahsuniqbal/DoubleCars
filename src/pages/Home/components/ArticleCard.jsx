@@ -18,7 +18,7 @@ const ArticlesCard = () => {
     
     return(
         
-           <div className='article-card-main' data-aos="zoom-out-right">
+           <div className='article-card-main' data-aos="">
                <LazyLoadImage alt="demo-image" effect="blur" src={CardImage1} className = "img-fluid article-card-image"/>           
                  {/* <img src = {CardImage1} className = "img-fluid article-card-image" alt = "demo-image"/> */}
                     <Label className = "tarticle-card-heading">Video: BMW X5 M vs GLE 63 AMG and Audi RSQ8 comparison review</Label> 
@@ -33,7 +33,7 @@ const ArticlesCard = () => {
 const ArticleCard1 = () => { 
     const history=useHistory()
     return(
-           <div className='article-card-main' data-aos="zoom-out-right">
+           <div className='article-card-main' data-aos="">
                 <LazyLoadImage alt="demo-image" effect="blur" src={CardImage4} className = "img-fluid article-card-image"/>
                 {/* <img src = {CardImage4} className = "img-fluid article-card-image" alt = "demo-image"/> */}
                 <Label className = "tarticle-card-heading">2021 Ford Bronco Sport First Drive: Small SUV, Big Off-Road</Label> 
@@ -45,7 +45,7 @@ const ArticleCard1 = () => {
 const ArticleCard2 = () => { 
     const history=useHistory()
     return(
-           <div className='article-card-main' data-aos="zoom-out-right">
+           <div className='article-card-main' data-aos="">
                 <LazyLoadImage alt="demo-image" effect="blur" src={CardImage3} className = "img-fluid article-card-image"/>
                 {/* <img src = {CardImage3} className = "img-fluid article-card-image" alt = "demo-image"/> */}
                 <Label className = "tarticle-card-heading">2021 Volvo XC60 Review | Swedish Design; no Assembly Required</Label> 
@@ -69,7 +69,7 @@ const ArticleCard3 = () => {
 const ArticleCard4 = () => { 
     const history=useHistory()
     return(
-           <div className='article-card-main' data-aos="zoom-out-right">
+           <div className='article-card-main' data-aos="">
                 <LazyLoadImage alt="demo-image" effect="blur" src={CardImage2} className = "img-fluid article-card-image"/>
                 {/* <img src = {CardImage2} className = "img-fluid article-card-image" alt = "demo-image"/> */}
                 <Label className = "tarticle-card-heading">2009 Audi A4 Tiptronic Premium Unleaded</Label> 

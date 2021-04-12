@@ -66,7 +66,7 @@ const MessageBubble = (props) => {
                             
                         </div>
                         <Col xs="12" sm="6" md="3">
-                                <div className="grid-parent">
+                                <div className="grid-chat">
                                     <Row>
                                         <Col xs="7" style={{paddingRight: '3px'}}>
                                             <LazyLoadImage effect="blur" src={Audi} className="img-fluid first-img" alt="Car 1" />
@@ -74,8 +74,8 @@ const MessageBubble = (props) => {
 
                                         <Col xs="5" style={{paddingLeft: '3px'}}>
                                             <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
-                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid mt-1" alt="Car 1" />
-                                            <div className="overlay-text">138+</div>
+                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid mt-1" alt="Car 1"/>
+                                            <div className="overlay-text-image">138+</div>
                                         </Col>
                                     </Row>
                             

@@ -35,7 +35,7 @@ const TruckSection = () => {
             {
                 vehicles ?  vehicles.map((vehicle, index) => {
                     return (
-                        <Col key={index} data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'>
+                        <Col key={index} data-aos="" data-aos-duration="1000" md='6' className='truck-cars-col'>
                             <LazyLoadImage className="card-img img-fluid"  effect="blur" src={vehicle.image ? vehicle.image : HeavyTruck} alt='Heavy Duty Trucks'/>
                     
                             <div className='truck-cars-div'>  

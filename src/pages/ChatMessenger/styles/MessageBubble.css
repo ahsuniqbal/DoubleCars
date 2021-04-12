@@ -42,9 +42,6 @@
 }
 
 
-
-
-
 .message-bubble-img {
     border-radius: 16px;
     width: fit-content;
@@ -58,4 +55,31 @@
 .message-bubble-img img {
     border-radius: 16px;
     max-width: 150px;
+}
+
+.grid-chat {
+    /* border: 1px solid #E9E9E9;
+    border-radius: 6px; */
+    padding: 16px 10px 0px 10px;
+    width: 320px;
+}
+
+.overlay-text-image {
+    font-family: 'Ubuntu';
+    font-weight: 500;
+    font-size: 18px;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    /* width: 100%; */
+    color: white;
+    padding: 46px 39px;
+    text-align: center;
+    opacity: 1;
+}
+
+.first-img {
+    height: 100%;
+    max-height: 244px;
+    object-fit: cover;
 }
