@@ -7,7 +7,7 @@ const AboutStats = () => {
             
 
             <Row>
-                <Col xs = "6" md = "3" className = "text-center">
+                <Col xs = "12" md = "3" className = "text-center">
                     <Card className = "stats-card">
                         <CardBody>
                             <Label className = "stats-label">14,000+</Label> <br/>
@@ -16,7 +16,7 @@ const AboutStats = () => {
                     </Card>
                 </Col>
 
-                <Col xs = "6" md = "3" className = "text-center">
+                <Col xs = "12" md = "3" className = "text-center">
                     <Card className = "stats-card">
                         <CardBody>
                             <Label className = "stats-label">1000+</Label><br/>
@@ -25,7 +25,7 @@ const AboutStats = () => {
                     </Card>
                 </Col>
 
-                <Col xs = "6" md = "3" className = "text-center">
+                <Col xs = "12" md = "3" className = "text-center">
                     <Card className = "stats-card">
                         <CardBody>
                             <Label className = "stats-label">5,000+</Label><br/>
@@ -34,7 +34,7 @@ const AboutStats = () => {
                     </Card>
                 </Col>
 
-                <Col xs = "6" md = "3" className = "text-center">
+                <Col xs = "12" md = "3" className = "text-center">
                     <Card className = "stats-card">
                         <CardBody>
                             <Label className = "stats-label">50,000+</Label><br/>
