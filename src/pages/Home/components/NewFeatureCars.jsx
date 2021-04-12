@@ -76,7 +76,7 @@ const NewFeaturedCars = () => {
 
      
         <Row className='main-feature'>
-            <Col data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-sine" md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn' onClick={()=>history.push('/product/'+ productId[0].productId)}>
+            <Col data-aos="" data-aos-duration="1500" data-aos-easing="ease-in-sine" md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn' onClick={()=>history.push('/product/'+ productId[0].productId)}>
                 <Badge color="primary" className = "feature-car-badge1">New</Badge>
                 <div className="content-first">
                   <h2 className='content-header1'>$30,500</h2>
@@ -85,14 +85,14 @@ const NewFeaturedCars = () => {
             </Col>
             <Col md = "6" xs = "12">
                 <Row>
-                    <Col  data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-sine"  md = "6" xs = "12" style = {FeaturedDemoImage2} className='main-coloumn' onClick={()=>history.push('/product/'+ productId[1].productId)}>
+                    <Col  data-aos="" data-aos-duration="1500" data-aos-easing="ease-in-sine"  md = "6" xs = "12" style = {FeaturedDemoImage2} className='main-coloumn' onClick={()=>history.push('/product/'+ productId[1].productId)}>
                     <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
                         <h2 className='content-header2'>$12,500</h2>
                         <Label className="content-text2">2019 Mercedes Benz Hybrid</Label>
                       </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-sine"  md = "6" xs = "12" style = {FeaturedDemoImage3} className='main-coloumn'  onClick={()=>history.push('/product/'+ productId[2].productId)}>
+                    <Col data-aos="" data-aos-duration="1500" data-aos-easing="ease-in-sine"  md = "6" xs = "12" style = {FeaturedDemoImage3} className='main-coloumn'  onClick={()=>history.push('/product/'+ productId[2].productId)}>
                       <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
                         <h2 className='content-header2'>$26,700</h2>
@@ -101,14 +101,14 @@ const NewFeaturedCars = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-sine"  md = "6" xs = "12" style = {FeaturedDemoImage4} className='main-coloumn'  onClick={()=>history.push('/product/'+ productId[3].productId)}>
+                    <Col data-aos="" data-aos-duration="1500" data-aos-easing="ease-in-sine"  md = "6" xs = "12" style = {FeaturedDemoImage4} className='main-coloumn'  onClick={()=>history.push('/product/'+ productId[3].productId)}>
                     <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
                         <h2 className='content-header2'>$42,900</h2>
                         <Label className="content-text2">2019 Mercedes Benz Hybrid</Label>
                       </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-sine" md = "6" xs = "12" style = {FeaturedDemoImage5} className='main-coloumn'  onClick={()=>history.push('/product/'+ productId[4].productId)}>
+                    <Col data-aos="" data-aos-duration="1500" data-aos-easing="ease-in-sine" md = "6" xs = "12" style = {FeaturedDemoImage5} className='main-coloumn'  onClick={()=>history.push('/product/'+ productId[4].productId)}>
                      <Badge color="primary" className = "feature-car-badge2">New</Badge>
                       <div className="content">
                         <h2 className='content-header2'>$30,500</h2>
