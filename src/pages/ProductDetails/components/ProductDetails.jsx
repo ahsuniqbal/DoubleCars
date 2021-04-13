@@ -92,7 +92,7 @@ const ProductResults = ({match}) => {
                     {
                         productDetails ?
                         <Row >
-                            <Col md = "8">
+                            <Col md = "12">
                                 {
                                     productDetails.images > 0 ?
                                         productDetails.images[0].image !== "" ? 
@@ -101,6 +101,12 @@ const ProductResults = ({match}) => {
                                     : productDetails.details[0].coverPic ? <Gallery items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)} productId={productDetails.details[0].productId} /> :
                                     <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
                                 }
+
+                                
+                               
+
+                            </Col>
+                            <Col md = "8">
                                 <Information
                                     details={productDetails.details[0]}
                                     attributes={productDetails.attributes}
@@ -126,14 +132,18 @@ const ProductResults = ({match}) => {
                                     // security={productDetails.details[0].security}
                                     // others={productDetails.details[0].others}
                                 />
+                                </Col>
 
-                            </Col>
-                            <Col md = "4">
+                                <Col md = "4">
                                 <AboutSeller
                                     userId={productDetails.details[0].userId}
                                     details={productDetails.details[0]}
                                 />
-                            </Col>
+                                </Col>
+                            
+                            {/* <Col md = "4">
+                                
+                            </Col> */}
                         </Row> :
                         <Row>
                             <Col md="8">
