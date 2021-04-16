@@ -17,22 +17,22 @@ const DCAdBanner = () => {
     return(
         <Container>
             <Row className=''>
-            <Col md = "12" xs = "12" style={mystyle}>
-                <Row className = "">
-                    <Col xs = "12" md = "12" className = "text-center">
-                        <h1 className = "banner-heading">The perfect vehicle for a grand entrance.</h1>
-                        <Link to = {'/'}>
-                        <Button  className = "buynow-button">Buy Now</Button>
-                        </Link>
+                <Col md = "12" xs = "12" style={mystyle}>
+                    <Row className = "">
+                        <Col xs = "12" md = "12" className = "text-center">
+                            <Row className = "justify-content-left">
+                                <Col xs = "12" md = "5">
+                                    <h1 className = "banner-heading">The perfect vehicle for a grand entrance.</h1>
+                                    <Link>
+                                        <Button  className = "buynow-button">Buy Now</Button>
+                                    </Link>
+                                </Col>
+                            </Row>
+                            
                         </Col>
-                </Row>
-               
-
-
-                
-          
-            </Col>
-        </Row>
+                    </Row>
+                </Col>
+            </Row>
            
             
         </Container>
