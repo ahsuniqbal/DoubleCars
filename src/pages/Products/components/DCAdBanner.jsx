@@ -1,15 +1,18 @@
 import React from 'react';
 import '../styles/DCAdBanner.css'
-import {Row, Col, Container} from 'reactstrap'
+import {Row, Col, Container, Button} from 'reactstrap'
+import { Link } from 'react-router-dom';
 const DCAdBanner = () => {
 
     const mystyle = {
-        backgroundImage: `url(${require("../../../assets/TopBudgetCar.png")})`,
+        backgroundImage: `url(${require("../../../assets/DCAdBanner.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        height: '258px',
-        marginTop: '4rem',
+        height: '384px',
+        marginTop: '3rem',
+        borderRadius: '8px',
+
       };
     return(
         <Container>
@@ -17,11 +20,10 @@ const DCAdBanner = () => {
             <Col md = "12" xs = "12" style={mystyle}>
                 <Row className = "">
                     <Col xs = "12" md = "12" className = "text-center">
-                        <h1 className = "">Best cars for you under $5000</h1>
-                        <h1 className = "">Top Budget Cars</h1>
-                        {/* <Link to = {'/about/'}>
-                        <Button  className = "explore-button">Exlpore more</Button>
-                        </Link> */}
+                        <h1 className = "banner-heading">The perfect vehicle for a grand entrance.</h1>
+                        <Link to = {'/'}>
+                        <Button  className = "buynow-button">Buy Now</Button>
+                        </Link>
                         </Col>
                 </Row>
                

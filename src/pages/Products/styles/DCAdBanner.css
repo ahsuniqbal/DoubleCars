@@ -1,0 +1,10 @@
+.banner-heading {
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 46px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
+    
+}
