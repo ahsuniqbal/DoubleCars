@@ -12,12 +12,13 @@ const DCAdBanner = () => {
         height: '384px',
         marginTop: '3rem',
         borderRadius: '8px',
+        
 
       };
     return(
         <Container>
             <Row className=''>
-                <Col md = "12" xs = "12" style={mystyle}>
+                <Col className = "banner" md = "12" xs = "12" style={mystyle}>
                     <Row className = "">
                         <Col xs = "12" md = "12" className = "text-center">
                             <Row className = "justify-content-left">
