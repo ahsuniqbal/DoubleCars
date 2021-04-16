@@ -19,6 +19,8 @@ const loading = () => <div className="preloader">
 const DefaultLayout = React.lazy(() => import('./components/DefaultLayout'));
 const Login = React.lazy(() => import('./pages/Authentication/Login'))
 const SignUp = React.lazy(() => import('./pages/Authentication/Signup'))
+const ResetPassword=React.lazy(()=>import('./pages/Authentication/ResetPassword'))
+const ChangePassword=React.lazy(()=>import('./pages/Authentication/ResetPassword/components/ChangePassword'))
 const Chat = React.lazy(() => import('./pages/ChatMessenger'));
 
 
@@ -40,6 +42,8 @@ function App() {
         <Switch>
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={SignUp}/>
+          <Route path='/reset-password' component={ResetPassword}/>
+          <Route path='/change-password' component={ChangePassword}/>
           <PrivateRoute path="/chat" exact component={Chat} />
           <Route path="/" render={props => <DefaultLayout {...props} /> } />
           

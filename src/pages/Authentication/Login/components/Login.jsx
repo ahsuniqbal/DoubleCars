@@ -152,7 +152,8 @@ const Login = (props) => {
                                     </Col>
 
                                     <Col xs="6" md = "6" className = "text-right register-forgot-column">
-                                        <Label className="forgot-label">Forgot Details?</Label>
+                                        <Label className="forgot-label"
+                                        onClick={()=>history.push('/reset-Password')}>Forgot Details?</Label>
                                     </Col>
                                 </Row>
                                 
