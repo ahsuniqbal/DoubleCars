@@ -25,7 +25,7 @@ const DCAdBanner = () => {
                                 <Col xs = "12" md = "5">
                                     <h1 className = "banner-heading">The perfect vehicle for a grand entrance.</h1>
                                     <Link to='https://play.google.com/store/apps'>
-                                        <Button  className = "buynow-button">Buy Now</Button>
+                                        <Button  className = "buynow-button float-left">Buy Now</Button>
                                     </Link>
                                 </Col>
                             </Row>
