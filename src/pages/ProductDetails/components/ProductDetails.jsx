@@ -107,6 +107,7 @@ const ProductResults = ({match}) => {
 
                             </Col>
                             <Col md = "8">
+                           
                                 <Information
                                     details={productDetails.details[0]}
                                     attributes={productDetails.attributes}
@@ -132,6 +133,7 @@ const ProductResults = ({match}) => {
                                     // security={productDetails.details[0].security}
                                     // others={productDetails.details[0].others}
                                 />
+                                
                                 </Col>
 
                                 <Col md = "4">
@@ -226,6 +228,7 @@ const ProductResults = ({match}) => {
                      <DCSlider
                          slidesToShow={4}
                      /> */}
+                  
                 </CardBody>
             </Container>
         </body>

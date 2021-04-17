@@ -3,6 +3,7 @@ import { Row, Col,Label } from 'reactstrap';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import '../styles/Information.css';
 
+import CertifiedCarsCard from './CertifiedCarCard';
 const Information = (props) => {
     const details = props.details;
     var attributes = props.attributes;
@@ -224,11 +225,17 @@ const Information = (props) => {
 
             
             {/* <Chart /> */}
+            
+            <Row>
+                <Col xs = "12" md = "12">
+                <CertifiedCarsCard/>
+                </Col>
+            </Row>
 
             {details.description ? <Label className="car-info">{details.description}</Label> : null}
             
             
-
+            
             <hr  className = "info-bottom-line mb-5"/>
 
             {/* Information section starts here.*/}

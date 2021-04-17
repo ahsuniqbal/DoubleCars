@@ -1,0 +1,24 @@
+.certified-car-label {
+    font-weight: 500;
+font-size: 16px;
+line-height: 18px;
+
+color: rgba(0, 0, 0, 0.85);
+}
+.certified-car-sublabel {
+    font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+color: rgba(0, 0, 0, 0.65);
+}
+
+.request-report-button {
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    cursor: pointer;
+    color:#1C67CE !important;
+    
+}
