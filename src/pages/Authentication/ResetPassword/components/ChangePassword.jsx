@@ -1,16 +1,16 @@
 import React,{useState} from 'react';
-import '../styles/resetpassword.css'
+
 import {Row, Col, Button,Input, Container, Label, FormGroup, Form} from 'reactstrap'
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
 import Eyepiece from '../../../../assets/eyepiece.png';
 import Eye from '../../../../assets/eye.svg'
-import {emailValidation} from '../../../../utils/Validation.jsx';
+
 import '../styles/changepassword.css'
 
 
-const ResetPassword = () => {
+const ChangePassword = () => {
     const [passwordShown, setPasswordShown] = useState(false)
 const [eyePiece,setEye]=useState(true)
 
@@ -98,4 +98,4 @@ const [eyePiece,setEye]=useState(true)
     );
 }
 
-export default ResetPassword;
+export default ChangePassword;
