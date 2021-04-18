@@ -6,6 +6,8 @@ const BlogsHome = React.lazy(() => import('../pages/Blogs/components/BlogsHome/B
 const Profile = React.lazy(() => import('../pages/Profile'));
 const Login = React.lazy(() => import('../pages/Authentication/Login'));
 const Signup = React.lazy(() => import('../pages/Authentication/Signup'));
+const ResetPassword=React.lazy(()=>import ('../pages/Authentication/ResetPassword'))
+const ChangePassword=React.lazy(()=>import('../pages/Authentication/ResetPassword/components/ChangePassword'))
 const Products = React.lazy(() => import('../pages/Products'));
 const ProductDetails = React.lazy(() => import ('../pages/ProductDetails/components/ProductDetails'))
 const DealerProfile = React.lazy(() => import ('../pages/DealerProfile'))
@@ -55,6 +57,8 @@ const routes = [
     { path: '/dashboard', exact: true, name: 'Dashboard', public: true, component: Dashboard },
     { path: '/fullviewheader', exact: true, name: 'Full View Header', public: true, component: FullViewHeader },
     { path: '/carousal-products', exact: true, name: 'Carousal Products', public: true, component: CarousalProducts },
+    {path:'/reset-password', exact:true, name:'Reset Password', public:true, restricted:true, component:ResetPassword},
+    {path:'/change-password', exact:true, name:'Change Password', public: true, restricted:true, component:ChangePassword}
 ];
 
 export default routes;
