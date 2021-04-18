@@ -12,6 +12,7 @@ import { Frown, Repeat } from 'react-feather';
 import '../styles/Products.css';
 import { ArrowUp } from "react-feather";
 import logo from '../../../assets/DCNewLogo.png';
+import DCAdBanner from './DCAdBanner';
 
 
 const ShowSearchResults = (products) => {
@@ -219,7 +220,13 @@ const Products = (props) => {
 
     return(
                     
-        <Container className="products-container">        
+        <Container className="products-container">  
+            <Row>
+                <Col xs = "12" md = "12">
+                    {/* This is a Ad by Double Cars section */}
+                    <DCAdBanner/>
+                </Col>    
+            </Row>      
             <Row>
                 <Col xs="12" md="3" style = {{marginTop: '5rem'}}>
                     <Filters

@@ -1,7 +1,10 @@
 /* About Seller css starts here. */
 .interested-card {
-    background-color: #f9f9f9;
+    margin-top: 2rem;
+    background-color: white;
     border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.05));
 }
 
 .interest-label {

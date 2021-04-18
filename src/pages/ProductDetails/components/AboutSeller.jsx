@@ -68,7 +68,6 @@ const SellerDetails = (props) => {
         var userId = localStorage.getItem('userId')
         var messageText = `REGARDING VEHICLE: ${props.details.yearCar} ${props.details.carName} ${props.details.mileage} Mileage $${props.details.price}` 
         var imageUrl = props.details.coverPic
-        var userId = localStorage.getItem('userId')
         var vehiclePrice = props.details.price
         var vehicleSubTitle = props.details.mileage + " miles, " + props.details.location + ", " + props.details.zipCode
         var vehicleTitle = props.details.carName
@@ -105,7 +104,7 @@ const SellerDetails = (props) => {
                             multipleImagesList : null,
                             messageText : messageText,
                             messagedAt : firebase.firestore.Timestamp.now(),
-                            senderId : userId,
+                            senderId : userId + "",
                             enquiry : false,
                             enquiryText : "",
                             vehicleImage : null,
@@ -129,8 +128,8 @@ const SellerDetails = (props) => {
                         lastMessageAt : firebase.firestore.Timestamp.now(),
                         receiverHasRead : false,
                         profilePic : props.details.profilePic,
-                        senderId : userId,
-                        receiverId : dealerId,
+                        senderId : userId + "",
+                        receiverId : dealerId + "",
                         receiverUnreadCount : 0,
                         senderUnreadCount : 0,
                         receiverHasRead : true,
@@ -138,8 +137,22 @@ const SellerDetails = (props) => {
                         receiverFToken : "",
                         senderFToken : "",
                     }
+                    const objInq = {
+                        messageId : "asdas",
+                        enquiryText : messageText,
+                        messageAt : firebase.firestore.Timestamp.now(),
+                        vehicleImage : imageUrl,
+                        vehiclePrice : vehiclePrice,
+                        vehicleSubTitle  : vehicleSubTitle,
+                        vehicleTitle : vehicleTitle,
+
+                    }
+
                     firebase.firestore().collection("Chats").doc(strId)
-                    .set(updateObj).then(() => {
+                    .collection('Enquiries').doc().set(objInq)
+                    .then(() => {
+                        firebase.firestore().collection("Chats").doc(strId)
+                        .set(updateObj).then(() => {
                         var obj = {
                             messageId : "asdsa",
                             imageUrl : null,
@@ -147,7 +160,7 @@ const SellerDetails = (props) => {
                             multipleImagesList : null,
                             messageText : messageText,
                             messagedAt : firebase.firestore.Timestamp.now(),
-                            senderId : userId,
+                            senderId : userId + "",
                             enquiry : true,
                             enquiryText : "Can i get your Phone Number ?",
                             vehicleImage : imageUrl,
@@ -162,9 +175,7 @@ const SellerDetails = (props) => {
                             history.push('/chat?id='+strId)
                         })
                     })
-
-
-                    
+                    })
                 }
             })
             .catch(e => {

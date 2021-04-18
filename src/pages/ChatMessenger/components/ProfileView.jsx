@@ -26,11 +26,12 @@ const ProfileView = (props) => {
     
 
     useEffect(() => {
-        
-        if(props.chats.length > 0){
+        console.log('props....',props)
+        if(props.chats.user){
             console.log('props.chats',props.chats)
             getUser(props.chats.user.userId)
             .then(doc => {
+                console.log("dd",doc)
                 setUser(doc[0])
             })
             .catch(e => {
