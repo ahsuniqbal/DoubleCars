@@ -78,6 +78,7 @@ const Products = (props) => {
     const [booleanFlag, setBooleanFlag] = useState(false);
     const [globalQuery,setGloableQuery] = useState("")
     const [savedSearchObj,setSavedSearchObj] = useState({})
+    const [totalCount, setTotalCount] = useState(0)
 
 
     const handleScroll = () => {
@@ -114,7 +115,10 @@ const Products = (props) => {
         tempStr += `&id=${userId}`
 
         console.log("QQUERY",tempStr)
-        GetSearchResult(tempStr).then(doc => {
+        GetSearchResult(tempStr).then(doc1 => {
+            setTotalCount(doc1.totalCount)
+            console.log(doc1)
+            const doc = doc1.results;
             if(doc.length > 0){
                 var tempObj = {
                     title : doc[0].carName,
@@ -155,8 +159,11 @@ const Products = (props) => {
         }
         str += `&id=${userId}`
         console.log("QQUERY",str)
-        GetSearchResult(str).then(doc => {
-            console.log('doc',doc)
+        GetSearchResult(str).then(doc1 => {
+            setTotalCount(doc1.totalCount)
+            console.log(doc1)
+            const doc = doc1.results;
+            
             if(doc.length > 0){
                 setProducts(doc)
                 var tempObj = {
@@ -228,7 +235,7 @@ const Products = (props) => {
                             {locationSearch.isUsed ? locationSearch.isUsed == "false" ? <h6>New Cars</h6> : <h6>Used Cars</h6> : null}
                             {
                                 products ? 
-                                <Label className="output-num">{products.length} car(s) match your search...</Label> 
+                                <Label className="output-num">{totalCount} car(s) match your search...</Label> 
                                 : 
                                 <Label className="output-num">Loading your interested results, please wait...</Label>
                             }

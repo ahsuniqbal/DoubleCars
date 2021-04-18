@@ -17,6 +17,7 @@ import MessageIcon from '../../../assets/message-icon.png'
 // import DealerProfileImage from '../../../assets/DealerProfileImage.png'
 import { emailValidation} from '../../../utils/Validation';
 import LoginSignupModal from '../../Authentication/LoginSignupModal/LoginSignupModal'
+import { getLogin } from '../../../config/LoginAuth';
 const firebase = require('firebase').default
 require('../../../components/Firebase/database')
 
@@ -28,6 +29,9 @@ const SellerDetails = (props) => {
     const history = useHistory()
     const [popupModal, setPopupModal] = useState(false);
     const popupToggle = () => setPopupModal(!popupModal);
+
+
+    
 
     useEffect(() => {
        
@@ -179,32 +183,40 @@ const SellerDetails = (props) => {
                     <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
                     <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Chat with Seller</Button>
                 </CardBody> :  */}
-                <CardBody className = "interested-card">
-                    <h6 className = "interest-label">Are you interested in this car?</h6>
-                    <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
+                {
+                    getLogin() != props.userId ?
+                        <CardBody className = "interested-card">
+                            <h6 className = "interest-label">Are you interested in this car?</h6>
+                            <h6 className = "seller-know-label mb-3">Let the seller know about your interest</h6>
 
-                    {localStorage.getItem('userId') ?
-                        <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
-                        :
-                        <>
-                        <Button onClick={popupToggle} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
-                        <LoginSignupModal  isOpen={popupModal} toggle={popupToggle} />
-                        </>
-                    }
+                            
+                            
 
-                    <span className="or-divider">or</span>
-                   
-                    <Input type = "email" id='email-id' className = "interested-textfield" placeholder = "Your email address"></Input>
-                    <div id="email-error-label" className="sellerPage-error-label"></div>
-                    
-                    <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
-                    <div className="success-msg"></div>
-                    <Button color = "primary" onClick={(e)=>sendMessage(e)} size = "lg" block className = "contact-seller-button-2 mt-4">Send Message</Button>
+                            {
+                                localStorage.getItem('userId') ?
+                                    <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
+                                :
+                                <>
+                                    <Button onClick={popupToggle} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
+                                    <LoginSignupModal  isOpen={popupModal} toggle={popupToggle} />
+                                </>
+                            }
 
-                    
+                            <span className="or-divider">or</span>
+                        
+                            <Input type = "email" id='email-id' className = "interested-textfield" placeholder = "Your email address"></Input>
+                            <div id="email-error-label" className="sellerPage-error-label"></div>
+                            
+                            <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
+                            <div className="success-msg"></div>
+                            <Button color = "primary" onClick={(e)=>sendMessage(e)} size = "lg" block className = "contact-seller-button-2 mt-4">Send Message</Button>
 
-                    
-                </CardBody>
+                            
+
+                            
+                        </CardBody>
+                    : null 
+                }
             {/* } */}
             
 

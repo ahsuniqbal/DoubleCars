@@ -8,7 +8,7 @@ export const GetSearchResult = (queryParams) => {
         var url = connectionString + "products/search?" + queryParams
         console.log("url",url)
         axios.get(url).then(function(response){
-            const data = response.data.results;
+            const data = response.data;
             
             resolve(data);
         })
