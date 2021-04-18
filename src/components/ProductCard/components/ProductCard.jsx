@@ -73,7 +73,7 @@ const ProductCard = (props) => {
         <CardBody>
 
             <Row>
-                <Col xs="9">
+                <Col xs={props.allowBookmark ? "9" : "12"}>
                     {/* Link to the product details page */}
                     <Link to={"/product/" + props.productId}>
                         {/* Name of the car */}

@@ -83,6 +83,10 @@ const Compose = (props) => {
             }
             firebase.firestore().collection("Chats").doc(strId)
             .update(updateObj)
+
+            const chatBoard = document.getElementById('chat-board');
+
+            // chatBoard.scrollTop = chatBoard.scrollHeight + 100;
         }
     }
 

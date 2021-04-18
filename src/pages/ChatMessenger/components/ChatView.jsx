@@ -38,7 +38,7 @@ const ChatView = (props) => {
                 </Col>
             </Row>
 
-            <Row className="chat-board">
+            <Row id="chat-board" className="chat-board">
                 <Col xs="12" style={{paddingLeft: '25px', paddingRight: '25px'}}>
                 {props.chats ? props.chats.chat ? <MessageBubble chat={props.chats.chat}/> : null : null}
                 </Col>
