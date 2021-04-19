@@ -85,6 +85,7 @@
 .bmw-car{
     width: 50%;
     margin: 21% 25%;
+    
 }
 .jeep-car{
     width: 75%;
@@ -141,6 +142,10 @@
 .horse-car{
     width: 75%;
     margin: 23% 14%;
+}
+
+.image-hover:hover {
+    background-image: url("../../../assets/BMW.png"); 
 }
 
 /*  */
