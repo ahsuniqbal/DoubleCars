@@ -51,6 +51,7 @@ const Gallery = (props) => {
                 lazyLoad={true}
                 showFullscreenButton={false}
                 showPlayButton={false}
+                showFullscreenButton={true}
             />
             <div className = "save-icon-gallery">
                 <LoginSignupModal isOpen={popupModal} toggle={popupToggle} />
