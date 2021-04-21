@@ -1,20 +1,25 @@
 import React,{useState} from 'react';
 
 import {Row, Col, Button,Input, Container, Label, FormGroup, Form} from 'reactstrap'
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
 import Eyepiece from '../../../../assets/eyepiece.png';
 import Eye from '../../../../assets/eye.svg'
+import {passwordValidation} from '../../../../utils/Validation';
+import {ResetPwd, userLogin} from '../../api/Post';
+import {getUser, getUserInfo} from '../../api/Get';
 
 import '../styles/changepassword.css'
 
 
-const ChangePassword = () => {
+const ChangePassword = ({match}) => {
     const [passwordShown, setPasswordShown] = useState(false)
-const [eyePiece,setEye]=useState(true)
+    const [eyePiece,setEye]=useState(true)
+    const [loading, setLoading] = useState(false);
 
-    const history=useHistory()
+
+    const history = useHistory();
+    
    
     //const emailRegex= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     const togglePasswordVisiblity = () => {
@@ -25,13 +30,46 @@ const [eyePiece,setEye]=useState(true)
     const toggleEyeVisiblity= () => {
         setPasswordShown('hide');
         setEye(true)
-      };
+    };
 
 
     const handleLogin = (e) => {
         e.preventDefault();
-        var password = document.getElementById('login-password').value
-    
+        var password = document.getElementById('login-password').value;
+        var confirm = document.getElementById('confirm-password').value;
+
+        setLoading(true);
+
+        if(passwordValidation(password)) {
+            if(password !== confirm) {
+                setLoading(false);
+                document.getElementById('signup-error-label').textContent = "Password and confirm password are not matching.";
+            }
+            else {
+                getUser(match.params.id).then(doc => {
+                    const obj = {
+                        email: doc[0].email,
+                        password: password
+                    }
+                    ResetPwd(obj).then(doc => {
+                        setLoading(false);
+                        if(doc.code === 1) {
+                            history.push("/login")
+                        }
+                        else {
+                            document.getElementById('signup-error-label').textContent = doc.message;
+                        }
+                    })
+                }).catch(error => {
+                    setLoading(false);
+                    console.log(error)
+                })
+            }
+        }
+        else {
+            setLoading(false);
+            document.getElementById('signup-error-label').textContent = "Password must be atleast eight characters long including atleast one letter and one number.";
+        }
     }
 
 
@@ -66,21 +104,22 @@ const [eyePiece,setEye]=useState(true)
                                  </div>
 
                                  <div className='pass-wrapper'>
-                                    <Input id="login-password" className = "login-password"  type={passwordShown=='show' ? "text" : "password"} placeholder= "Retype New Password" required />
+                                    <Input id="confirm-password" className = "login-password"  type={passwordShown=='show' ? "text" : "password"} placeholder= "Retype New Password" required />
                                      { eyePiece ?<i onClick={togglePasswordVisiblity}><img src={Eyepiece}/></i>
                                    :<i onClick={toggleEyeVisiblity}><img src={Eye} className='password-eye'/></i>
                                    }
                                     
                                  </div>
+
+                                <div id="signup-error-label" className="error-label"></div>
                                
                                 <Row>
                                    <Col></Col>
 
                                     <Col md = "4" className = "text-right remember-login-column">
-                                        <Button type="submit" color="primary" className="login-button-login"
-                                        onClick={()=>history.push('/login')}>
+                                        <Button type="submit" color="primary" className="login-button-login" disabled={loading}>
                                        
-                                         <span>Login now</span>
+                                         <span>{loading ? "Loading..." : "Login now"}</span>
                                         </Button>
                                     </Col>
                                 </Row>

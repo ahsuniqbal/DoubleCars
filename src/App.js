@@ -43,7 +43,7 @@ function App() {
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={SignUp}/>
           <Route path='/reset-password' component={ResetPassword}/>
-          <Route path='/change-password' component={ChangePassword}/>
+          <Route path='/change-password/:id' component={ChangePassword}/>
           <PrivateRoute path="/chat" exact component={Chat} />
           <Route path="/" render={props => <DefaultLayout {...props} /> } />
           

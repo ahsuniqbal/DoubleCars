@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/resetpassword.css'
 import {Row, Col, Button,Input, Container, Label, FormGroup, Form} from 'reactstrap'
 import { Link } from "react-router-dom";
@@ -7,9 +7,12 @@ import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
 
 
 import {emailValidation} from '../../../../utils/Validation.jsx';
+import { SendEmailForgotPwd } from '../../api/Post';
 
 
 const ResetPassword = () => {
+
+    const [loading, setLoading] = useState(false);
     
     const history=useHistory()
    
@@ -19,6 +22,8 @@ const ResetPassword = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         var email = document.getElementById('login-email').value
+
+        setLoading(true);
       
 
         if(emailValidation(email)) {
@@ -28,7 +33,27 @@ const ResetPassword = () => {
             var obj = {
                 email
             }
+
+
+            SendEmailForgotPwd(obj).then(doc => {
+                setLoading(false);
+                if(doc.code === 1) {
+                    document.getElementById('email-error').textContent = "An email has been sent to you with password reset instructions.";
+                }
+                else {
+                    document.getElementById("error-label").textContent = doc.Message
+                }
+            }).catch(error => {
+                setLoading(false);
+                document.getElementById("error-label").textContent = error.message;
+            })
         }
+        else {
+            setLoading(false);
+            // Email is wrong
+            document.getElementById('email-error').textContent = "Email is badly formatted. Please enter a valid email address";
+        }
+        
    
     }
 
@@ -68,9 +93,9 @@ const ResetPassword = () => {
                                     </Col>
 
                                     <Col md = "4" className = "text-right remember-login-column">
-                                        <Button type="submit" color="primary" className="login-button-login">
+                                        <Button type="submit" color="primary" className="login-button-login" disabled={loading}>
                                        
-                                         <span>Submit</span>
+                                         <span>{loading ? "Loading..." : "Submit"}</span>
                                         </Button>
                                     </Col>
                                 </Row>
