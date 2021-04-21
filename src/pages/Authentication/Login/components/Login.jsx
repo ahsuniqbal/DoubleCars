@@ -50,8 +50,6 @@ const Login = (props) => {
             userLogin(obj).then(doc => {
                 setLoading(false);
                 if(doc.ID !== -1) {
-                    localStorage.setItem('userId',doc.ID)
-                    localStorage.setItem('userToken',doc.Token)
                     Promise.all([localStorage.setItem('userId',doc.ID),localStorage.setItem('userToken',doc.Token)])
                     .then(doc => {
                         props.history.push('/');
