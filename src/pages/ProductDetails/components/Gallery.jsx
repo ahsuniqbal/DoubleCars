@@ -51,8 +51,9 @@ const Gallery = (props) => {
                 lazyLoad={true}
                 showFullscreenButton={false}
                 showPlayButton={false}
+                showFullscreenButton={true}
             />
-            <div className = "save-icon-gallery">
+            <div className = "save-icon-gallery" onClick={() => isLogin() ? handleClick(props.productId, getLogin()) : popupToggle() }>
                 <LoginSignupModal isOpen={popupModal} toggle={popupToggle} />
                 {
                     saveId ? 
