@@ -50,12 +50,12 @@ const ProductResults = ({match}) => {
 
     const DrawGallery = (images, coverPic, noOfSaves) => {
         var desc;
-        if(noOfSaves === 0) {
-            desc = null;
-        }
-        else {
-            desc = noOfSaves + " person have saved this car";
-        }
+        // if(noOfSaves === 0) {
+        //     desc = null;
+        // }
+        // else {
+        //     desc = noOfSaves + " person have saved this car";
+        // }
         const galleryImages = [{
             original: coverPic,
             thumbnail: coverPic,
