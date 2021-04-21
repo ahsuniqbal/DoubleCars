@@ -13,6 +13,7 @@ import DCSlider from '../../../components/DcSlider/components/DCSlider';
 import { Link } from 'react-router-dom';
 import { isLogin, getLogin } from '../../../config/LoginAuth';
 import { GetRecommendationsTrendings, getSimilarCars } from '../api/GetRequests';
+import { Share2 } from 'react-feather';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
@@ -83,7 +84,7 @@ const ProductResults = ({match}) => {
                         </Col>
                         <Col md = "6" >
                             <div className='d-flex float-right'>
-                                <NavLink className="share-button">Share</NavLink>
+                                <NavLink className="share-button"><Share2 color="#1C67CE" size={20} className = "mr-1"/>Share</NavLink>
                                 <NavLink className="report-button">Report this car</NavLink>
                             </div>
                             
