@@ -66,17 +66,30 @@ const MessageBubble = (props) => {
                             
                         </div>
                         <Col xs="12" sm="6" md="3">
-                            {/* Image grid for 3 pictures */}
+                                {/* Grid Chat for 1 image */}
                                 <div className="grid-chat">
                                     <Row>
-                                    <Col xs="5" style={{paddingLeft: '3px'}}>
-                                           
-                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid mt-1" alt="Car 1"/>
+                                        <Col xs="12" style={{paddingRight: '3px'}}>
+                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid first-img" alt="Car 1" />
+                                        </Col>
+                                    </Row>
+                            
+                                    <Row style={{marginTop: '20px', marginBottom: '3px'}}>
+                                        <Col xs="12">
+                                            <h6 className="cursor-pointer" onClick={() => console.log(list[i].filter_query)}>{list[i].title}</h6>
+                                        </Col>
+                                    </Row>
+                                </div>
+
+                                {/* Grid Chat for 2 images(even no. of images) */}
+                                <div className="grid-chat">
+                                    <Row>
+                                        <Col xs="6" style={{paddingRight: '3px'}}>
+                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
                                         </Col>
 
-                                        <Col xs="5" style={{paddingLeft: '3px'}}>
+                                        <Col xs="6" style={{paddingLeft: '3px'}}>
                                             <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
-                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid mt-1" alt="Car 1"/>
                                         </Col>
                                     </Row>
                             
@@ -86,6 +99,31 @@ const MessageBubble = (props) => {
                                         </Col>
                                     </Row>
                                 </div>
+
+                                {/* Grid Chat for 3 images (odd no. of images*/}
+                                <div className="grid-chat">
+                                    <Row>
+                                        <Col xs="6" style={{paddingRight: '3px'}}>
+                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
+                                        </Col>
+
+                                        <Col xs="6" style={{paddingLeft: '3px'}}>
+                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col xs="6" style={{paddingRight: '3px', paddingTop: '7px'}}>
+                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
+                                        </Col>
+                                    </Row>
+                            
+                                    <Row style={{marginTop: '20px', marginBottom: '17px'}}>
+                                        <Col xs="12">
+                                            <h6 className="cursor-pointer" onClick={() => console.log(list[i].filter_query)}>{list[i].title}</h6>
+                                        </Col>
+                                    </Row>
+                                </div>
+
                             </Col>
                         </div>
                     )
