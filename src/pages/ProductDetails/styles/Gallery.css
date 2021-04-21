@@ -8,8 +8,8 @@
     border-radius: 20%;
     background-color: #ffffff;
     position: absolute;
-    top: 1%;
-    left: 88%;
+    top: 2%;
+    left: 92%;
     cursor: pointer;
 }
 
@@ -76,10 +76,13 @@
     color: #000;
     border-radius: 13px;
     padding: 15px;
+    margin-right: 2rem !important;
+    margin-left: 2rem !important;
 }
 
 .image-gallery-left-nav .image-gallery-svg polyline, .image-gallery-right-nav .image-gallery-svg polyline {
     stroke-width: 2px;
+   
 }
 
 .image-gallery-icon:focus{
