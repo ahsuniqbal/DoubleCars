@@ -8,6 +8,7 @@ const firebase = require('firebase').default
 
 const MessageBubble = (props) => {
     const [message,setMessage] = useState([])
+    const [imagesList,setImageList] = useState([Audi,Audi,Audi,Audi,Audi,Audi])
     useEffect(() => {
         const key = [props.chat.senderId, props.chat.receiverId].sort().join('-')
         if(props.chat){
@@ -43,11 +44,53 @@ const MessageBubble = (props) => {
         return false
     }
 
+    const multipleImagesCol = (index,list) => {
+        var render = []
+        for(let i = index; i < (index+2); i++){
+            if(i === list.length){
+                return render
+            }
+            render.push(
+                <Col xs="6" style={{paddingRight: '3px'}}>
+                    <LazyLoadImage effect="blur" src={list[i]} className="img-fluid" alt="Car 1" />
+                </Col>
+            )
+        }
+        return render
+    }
+
+    const multipleImagesRows = (list) => {
+        var render = []
+        for(let i = 0; i < list.length; i++){
+            render.push(
+            <Row>
+                {
+                    multipleImagesCol(i,list)
+                }
+            </Row>
+            )
+            i++
+        }
+        return render
+    }
+
     const renderChatBubbels = (list) => {
         var table = [];
         for(let i = 0; i < list.length; i++){
             if(list[i].senderId == localStorage.getItem('userId')){
-                if(checkURL(list[i].imageUrl)){
+
+                if(list[i].multipleImagesList && list[i].multipleImagesList.length > 0){
+                    table.push(
+                        <Col xs="12" sm="6" md="3">
+                            <div className="grid-chat received">
+                            {
+                                multipleImagesRows(list[i].multipleImagesList)
+                            }
+                            </div>
+                        </Col>
+
+                    )
+                }else if(checkURL(list[i].imageUrl)){
                     table.push(
                         <div className="message-bubble-img received">
                         <img src = {list[i].imageUrl} className="img-fluid" />
@@ -65,73 +108,33 @@ const MessageBubble = (props) => {
                             {/* Image grid */}
                             
                         </div>
-                        <Col xs="12" sm="6" md="3">
-                                {/* Grid Chat for 1 image */}
+                        {/* <Col xs="12" sm="6" md="3">
+                        
                                 <div className="grid-chat">
-                                    <Row>
-                                        <Col xs="12" style={{paddingRight: '3px'}}>
-                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid first-img" alt="Car 1" />
-                                        </Col>
-                                    </Row>
-                            
-                                    <Row style={{marginTop: '20px', marginBottom: '3px'}}>
-                                        <Col xs="12">
-                                            <h6 className="cursor-pointer" onClick={() => console.log(list[i].filter_query)}>{list[i].title}</h6>
-                                        </Col>
-                                    </Row>
+                                {
+                                    imagesList ? multipleImagesRows(imagesList) : null
+                                }         
                                 </div>
 
-                                {/* Grid Chat for 2 images(even no. of images) */}
-                                <div className="grid-chat">
-                                    <Row>
-                                        <Col xs="6" style={{paddingRight: '3px'}}>
-                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
-                                        </Col>
-
-                                        <Col xs="6" style={{paddingLeft: '3px'}}>
-                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
-                                        </Col>
-                                    </Row>
-                            
-                                    <Row style={{marginTop: '20px', marginBottom: '17px'}}>
-                                        <Col xs="12">
-                                            <h6 className="cursor-pointer" onClick={() => console.log(list[i].filter_query)}>{list[i].title}</h6>
-                                        </Col>
-                                    </Row>
-                                </div>
-
-                                {/* Grid Chat for 3 images (odd no. of images*/}
-                                <div className="grid-chat">
-                                    <Row>
-                                        <Col xs="6" style={{paddingRight: '3px'}}>
-                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
-                                        </Col>
-
-                                        <Col xs="6" style={{paddingLeft: '3px'}}>
-                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs="6" style={{paddingRight: '3px', paddingTop: '7px'}}>
-                                            <LazyLoadImage effect="blur" src={Audi} className="img-fluid" alt="Car 1" />
-                                        </Col>
-                                    </Row>
-                            
-                                    <Row style={{marginTop: '20px', marginBottom: '17px'}}>
-                                        <Col xs="12">
-                                            <h6 className="cursor-pointer" onClick={() => console.log(list[i].filter_query)}>{list[i].title}</h6>
-                                        </Col>
-                                    </Row>
-                                </div>
-
-                            </Col>
+                            </Col> */}
                         </div>
                     )
                 }
                 
             }else{
 
-                if(checkURL(list[i].imageUrl)){
+                if(list[i].multipleImagesList && list[i].multipleImagesList.length > 0){
+                    table.push(
+                        <Col xs="12" sm="6" md="3">
+                            <div className="grid-chat sent">
+                            {
+                                multipleImagesRows(list[i].multipleImagesList)
+                            }
+                            </div>
+                        </Col>
+
+                    )
+                }else if(checkURL(list[i].imageUrl)){
                     table.push(
                         <div className="message-bubble-img sent">
                         <img src = {list[i].imageUrl} className="img-fluid" />
