@@ -205,10 +205,10 @@ const SellerDetails = (props) => {
 
                             {
                                 localStorage.getItem('userId') ?
-                                    <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
+                                    <Button onClick={e => chatMsg(props.userId)} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Chat Now with Seller</Button>
                                 :
                                 <>
-                                    <Button onClick={popupToggle} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Live Chat with Seller</Button>
+                                    <Button onClick={popupToggle} color = "primary" size = "lg" block className = "contact-seller-button mt-4">Chat Now with Seller</Button>
                                     <LoginSignupModal  isOpen={popupModal} toggle={popupToggle} />
                                 </>
                             }
