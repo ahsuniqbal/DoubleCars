@@ -213,7 +213,7 @@ const Information = (props) => {
             </Row>
             <Row>
                 <Col>
-                    <h4 className = "car-info mb-4">{details.mileage ? (AddCommaToNumber(details.mileage) + " miles ·") : null} {details.location ? details.location  + " - " : "NaN - "} {details.zipCode ? details.zipCode : null} </h4>
+                    <h4 className = "car-info mb-4">{details.mileage ? (AddCommaToNumber(details.mileage) + " miles ·") : null} {details.location ? details.location  + " - " : "NaN - "} {details.zipCode ? details.zipCode : null} . 12 saves </h4>
                 </Col>
             </Row>
             {/* <Row>
@@ -226,11 +226,12 @@ const Information = (props) => {
             
             {/* <Chart /> */}
             
-            <Row>
+            {/* THIS IS COMMENTED UNTILL THE BACKEND IS IMPLEMENTED */}
+            {/* <Row>
                 <Col xs = "12" md = "12">
                 <CertifiedCarsCard/>
                 </Col>
-            </Row>
+            </Row> */}
 
             {details.description ? <Label className="car-info">{details.description}</Label> : null}
             
