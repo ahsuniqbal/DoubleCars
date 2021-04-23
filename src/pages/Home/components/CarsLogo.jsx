@@ -20,7 +20,7 @@ import Suzuki2 from '../../../assets/Suzuki2.png'
 import Porsche from '../../../assets/Porsche.png'
 import Nissan from '../../../assets/nissan.png'
 import Tesla from '../../../assets/Tesla.png'
-import Lexus2 from '../../../assets/Lexus-logo 2.png'
+import volvo from '../../../assets/volvo.png'
 import Horse from '../../../assets/horse.png'
 import Subaru from '../../../assets/subaru.png';
 import Volkswagen from '../../../assets/volkswagen.png';
@@ -152,7 +152,7 @@ const CarsLogo = () => {
                         </Col>
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main3'>
-                                    <LazyLoadImage effect="blur" src={Horse} className='subaru-car'/>
+                                    <LazyLoadImage effect="blur" src={volvo} className='ford-car'/>
                                 </Card>
                         </Col>
                    </Row>
