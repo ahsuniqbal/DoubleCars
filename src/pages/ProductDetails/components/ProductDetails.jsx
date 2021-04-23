@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import { isLogin, getLogin } from '../../../config/LoginAuth';
 import { GetRecommendationsTrendings, getSimilarCars } from '../api/GetRequests';
 import { Share2 } from 'react-feather';
+import UsersSlider from '../../../components/DcSlider/components/UsersSlider';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
@@ -207,10 +208,15 @@ const ProductResults = ({match}) => {
                                 </Col>
                             </Row>
 
-                            <DCSlider
+                            {/* <DCSlider
                                 slidesToShow={4}
                                 items={similarCars}
                                 allowBookmark={false}
+                            /> */}
+                            <UsersSlider
+                             slidesToShow={4}
+                             items={similarCars}
+                             allowBookmark={false}
                             />
                         </>
                         
