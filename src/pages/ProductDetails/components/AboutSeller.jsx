@@ -296,7 +296,7 @@ const SellerDetails = (props) => {
                     </CardBody>
                 </Card> : null
             }
-            <Row>
+            {/* <Row>
                 <Col className = "mt-3">
                     <div className="add-title">Ad by DoubleCars</div>
                     <img src = {Ad1} alt = "ad" className = "img-fluid"/>
@@ -306,7 +306,7 @@ const SellerDetails = (props) => {
                 <Col className = "mt-3">
                     <img src = {Ad2} alt = "ad" className = "img-fluid"/>
                 </Col>
-            </Row>
+            </Row> */}
         </div>
     )
 }
