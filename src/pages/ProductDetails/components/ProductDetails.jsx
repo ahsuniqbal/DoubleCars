@@ -195,7 +195,23 @@ const ProductResults = ({match}) => {
                             </Col>
                         </Row>
                     }
-                    {
+                   
+                        
+                            <Row>
+                                <Col md = "6" xs = "12">
+                                    <h2 className = "dealer-head">Top Acura MDX dealers</h2>
+                                </Col>
+                            </Row>
+
+                            <UsersSlider
+                             slidesToShow={4}
+                             items={similarCars}
+                           
+                            />
+                           
+                       
+                       
+                     {
                         similarCars.length > 0 ? 
                         <>
                             <Row>
@@ -208,16 +224,12 @@ const ProductResults = ({match}) => {
                                 </Col>
                             </Row>
 
-                            {/* <DCSlider
+                            <DCSlider
                                 slidesToShow={4}
                                 items={similarCars}
                                 allowBookmark={false}
-                            /> */}
-                            <UsersSlider
-                             slidesToShow={4}
-                             items={similarCars}
-                             allowBookmark={false}
                             />
+                            
                         </>
                         
                         : null

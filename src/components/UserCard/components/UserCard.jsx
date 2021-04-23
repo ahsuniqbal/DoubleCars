@@ -2,7 +2,7 @@ import React,{ useState, useEffect} from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Row, Col, Label, Button, Badge } from 'reactstrap';
 
 import { Link } from 'react-router-dom';
-import dummyAvatar from '../../../assets/dummyAvatar.jpg';
+import dummyuser from '../../../assets/profile-chat.png';
 import '../styles/UserCard.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -52,13 +52,12 @@ const UserCard = (props) => {
 
 
   return (
-    <Card className="product-card">
+    <Card className="user-card">
         {/* Link to the product details page */}
         <Link to={"/product/" + props.productId}>
-            <div className="product-img">
+            <div className="user-img">
                 {/* Lazy load component used for product cover image */}
-                <LazyLoadImage className="card-img"  effect="blur" 
-                    src={dummyAvatar} />
+                <LazyLoadImage className="card-img mx-auto"  effect="blur" src={dummyuser} />
             </div>
         </Link>
         
@@ -68,7 +67,10 @@ const UserCard = (props) => {
                     {/* Link to the product details page */}
                     <Link to={"/product/"}>
                         {/* Name of the car */}
-                        <CardTitle>{props.productTitle}</CardTitle>
+                        <CardTitle>One Chance Auto</CardTitle>
+                    </Link>
+                    <Link className = "view-inv-link" to={''}>
+                        <Button color = "primary" size = "lg" block className = "view-inv-button">View Inventory</Button>
                     </Link>
                 </Col>
             </Row>

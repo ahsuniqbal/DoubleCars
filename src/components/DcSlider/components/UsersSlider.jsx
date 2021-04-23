@@ -95,6 +95,7 @@ const UsersSlider = (props) => {
                             key={index}
                             productId={item.productId}
                             productTitle={item.carName}
+                            
                         />      
                     ))
                 : null
