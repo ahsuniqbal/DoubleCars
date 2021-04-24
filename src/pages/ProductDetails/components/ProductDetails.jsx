@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import { isLogin, getLogin } from '../../../config/LoginAuth';
 import { GetRecommendationsTrendings, getSimilarCars } from '../api/GetRequests';
 import { Share2 } from 'react-feather';
+import UsersSlider from '../../../components/DcSlider/components/UsersSlider';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
@@ -194,7 +195,23 @@ const ProductResults = ({match}) => {
                             </Col>
                         </Row>
                     }
-                    {
+                   
+                        
+                            <Row>
+                                <Col md = "6" xs = "12">
+                                    <h2 className = "dealer-head">Top Acura MDX dealers</h2>
+                                </Col>
+                            </Row>
+
+                            <UsersSlider
+                             slidesToShow={4}
+                             items={similarCars}
+                           
+                            />
+                           
+                       
+                       
+                     {
                         similarCars.length > 0 ? 
                         <>
                             <Row>
@@ -212,6 +229,7 @@ const ProductResults = ({match}) => {
                                 items={similarCars}
                                 allowBookmark={false}
                             />
+                            
                         </>
                         
                         : null
