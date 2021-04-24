@@ -50,7 +50,7 @@ const ChangePassword = ({match}) => {
 
                     console.log(doc)
                     const obj = {
-                        email: doc[0].email,
+                        email: doc.email,
                         password: password
                     }
                     ResetPwd(obj).then(doc => {
