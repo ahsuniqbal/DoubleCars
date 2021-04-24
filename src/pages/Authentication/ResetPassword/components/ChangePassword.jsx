@@ -7,7 +7,7 @@ import Eyepiece from '../../../../assets/eyepiece.png';
 import Eye from '../../../../assets/eye.svg'
 import {passwordValidation} from '../../../../utils/Validation';
 import {ResetPwd, userLogin} from '../../api/Post';
-import {getUser, getUserInfo} from '../../api/Get';
+import {getUserEmail, getUserInfo} from '../../api/Get';
 
 import '../styles/changepassword.css'
 
@@ -46,7 +46,9 @@ const ChangePassword = ({match}) => {
                 document.getElementById('signup-error-label').textContent = "Password and confirm password are not matching.";
             }
             else {
-                getUser(match.params.id).then(doc => {
+                getUserEmail(match.params.id).then(doc => {
+
+                    console.log(doc)
                     const obj = {
                         email: doc[0].email,
                         password: password

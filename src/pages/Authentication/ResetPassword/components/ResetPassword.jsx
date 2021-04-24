@@ -41,11 +41,11 @@ const ResetPassword = () => {
                     document.getElementById('email-error').textContent = "An email has been sent to you with password reset instructions.";
                 }
                 else {
-                    document.getElementById("error-label").textContent = doc.Message
+                    document.getElementById("email-error").textContent = doc.message
                 }
             }).catch(error => {
                 setLoading(false);
-                document.getElementById("error-label").textContent = error.message;
+                document.getElementById("email-error").textContent = error.message;
             })
         }
         else {
@@ -81,13 +81,13 @@ const ResetPassword = () => {
                             <Form onSubmit={e => handleLogin(e)}>
                                 
                                 <Input id="login-email" className = "login-email" type="text" placeholder="Your Email Address" required />
-                                <div id="email-error" className="error"></div>
+                                <div id="email-error" className="error text-success"></div>
 
 
                                 <Row>
                                     <Col md = "8" className = "remember-login-column">
                                     
-                                        <Label className="forgot-label"
+                                        <Label className="forgot-label" style={{marginTop: '10px'}}
                                         onClick={()=>history.push('/login')}>Back to login</Label>
                                         
                                     </Col>

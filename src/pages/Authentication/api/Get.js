@@ -2,9 +2,9 @@ import { connectionString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
 
-export const getUser = (id) => {
+export const getUserEmail = (id) => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + `users/${id}`;
+        var url = connectionString + `forgot-password/${id}`;
         axios.get(url).then(function(response){
             const data = response.data.results;
             resolve(data);
