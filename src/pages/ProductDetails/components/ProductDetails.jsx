@@ -15,6 +15,7 @@ import { isLogin, getLogin } from '../../../config/LoginAuth';
 import { GetRecommendationsTrendings, getSimilarCars } from '../api/GetRequests';
 import { Share2 } from 'react-feather';
 import UsersSlider from '../../../components/DcSlider/components/UsersSlider';
+import StatsTable from './StatsTable';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
@@ -113,37 +114,17 @@ const ProductResults = ({match}) => {
                                 <Information
                                     details={productDetails.details[0]}
                                     attributes={productDetails.attributes}
-                                    // transmission={productDetails.details[0].transmission}
-                                    // trim={productDetails.details[0].trim}
-                                    // fuelType={productDetails.details[0].fuelType}
-                                    // vin={productDetails.details[0].vin}
-                                    // yearCar={productDetails.details[0].yearCar}
-                                    // carModel={productDetails.details[0].carModel}
-                                    // carMake={productDetails.details[0].carMake}
-                                    // price={productDetails.details[0].price}
-                                    // mileage={productDetails.details[0].mileage}
-                                    // zipCode={productDetails.details[0].zipCode}
-                                    // exteriorColor={productDetails.details[0].exteriorColor}
-                                    // interiorColor={productDetails.details[0].interiorColor}
-                                    // engine={productDetails.details[0].engine}
-                                    // conditionCar={productDetails.details[0].conditionCar}
-                                    // gasMileage={productDetails.details[0].gasMileage}
-                                    // bodyStyle={productDetails.details[0].bodyStyle}
-                                    // type={productDetails.details[0].type}
-                                    // interior={productDetails.details[0].interior}
-                                    // exterior={productDetails.details[0].exterior}
-                                    // security={productDetails.details[0].security}
-                                    // others={productDetails.details[0].others}
                                 />
                                 
-                                </Col>
+                            </Col>
 
-                                <Col md = "4">
+                            <Col md = "4">
                                 <AboutSeller
                                     userId={productDetails.details[0].userId}
                                     details={productDetails.details[0]}
                                 />
-                                </Col>
+                                <StatsTable/>
+                            </Col>
                             
                             {/* <Col md = "4">
                                 
