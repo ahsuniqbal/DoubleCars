@@ -6,7 +6,7 @@ const StatsTable = () => {
     return(
        
         <div>
-            <Card className="mt-5">
+            <Card className="mt-5" styles = {{borderRadius: '4px'}}>
                 <CardBody>
                     <Row>
                         <Col md = "7" xs = "12">
