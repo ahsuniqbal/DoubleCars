@@ -14,13 +14,13 @@ const StatsTable = () => {
                         </Col>
 
                         
-                        <Col md="2">
-                            <Label className="float-right mt-2">by</Label>
+                        <Col md="1">
+                            <Label className="by-label">by</Label>
                         </Col>
                         <Col md="2">
-                            <Input type="select">
-                                <option value="relevance">Year</option>
-                                <option value="price">2020</option>
+                            <Input className = "year-dropdown" type="select">
+                                <option value="year">Year</option>
+                                <option value="year">2020</option>
                             </Input>
                         </Col>
                         

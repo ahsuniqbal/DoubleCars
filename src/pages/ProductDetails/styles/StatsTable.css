@@ -7,14 +7,31 @@
     border-color: transparent !important;
     font-weight: 500;
     font-size: 15px;
-    margin-left: -21px;
+    margin-left: -20px;
 }
 .view-all-cars-stats-button:focus , .view-all-cars-stats-button:active{
     box-shadow: none !important;
 }
 
-.table-borders {
-    border: none !important;
+.by-label {
+    font-weight: 450;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.year-dropdown {
+    border: 1px solid #E7E7E7 !important;
+   
+    width: 85px;
+}
+
+.table thead th {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1)!important;
+}
+
+.table thead tr {
+    border-top: none !important;
 }
 
 .table-heading {
