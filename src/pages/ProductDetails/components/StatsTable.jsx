@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/StatsTable.css'
-import { ChevronLeft } from 'react-feather';
+import { ChevronRight } from 'react-feather';
 import {Row, Col, Card, CardBody, Label, Input, Button} from 'reactstrap'
 const StatsTable = () => {
     return(
@@ -10,7 +10,7 @@ const StatsTable = () => {
                 <CardBody>
                     <Row>
                         <Col md = "7" xs = "12">
-                            <h4>More Acura MDX </h4>
+                            <h4 className = "table-heading">More Acura MDX </h4>
                         </Col>
 
                         
@@ -27,35 +27,42 @@ const StatsTable = () => {
                     </Row>
                     <table class="table">
                         <thead>
-                            <tr>
-                            <th scope="col">Year</th>
-                            <th scope="col">Starting From</th>
-                            <th scope="col">Available cars</th>
+                            <tr className = "table-borders">
+                                <th className = "table-col-heading" scope="col">Year</th>
+                                <th className = "table-col-heading" scope="col">Starting From</th>
+                                <th className = "table-col-heading" scope="col">Available cars</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                           
-                            <td>2020</td>
-                            <td>$5,000</td>
-                            <td>22,671</td>
+                                <td className = "table-year-label">2020</td>
+                                <td className = "table-label">$5,000</td>
+                                <td className = "table-label">22,671</td>
                             </tr>
                             <tr>
-                            
-                            <td>2019</td>
-                            <td>$5,000</td>
-                            <td>22,671</td>
+                                <td className = "table-year-label">2019</td>
+                                <td className = "table-label">$5,000</td>
+                                <td className = "table-label">22,671</td>
                             </tr>
                             <tr>
-                        
-                            <td>2018</td>
-                            <td>$5,000</td>
-                            <td>22,671</td>
+                                <td className = "table-year-label">2018</td>
+                                <td className = "table-label">$5,000</td>
+                                <td className = "table-label">22,671</td>
+                            </tr>
+                            <tr>
+                                <td className = "table-year-label">2017</td>
+                                <td className = "table-label">$5,000</td>
+                                <td className = "table-label">22,671</td>
+                            </tr>
+                            <tr>
+                                <td className = "table-year-label">2016</td>
+                                <td className = "table-label">$5,000</td>
+                                <td className = "table-label">22,671</td>
                             </tr>
                         </tbody>
                     </table>
                     <Col className = "text-left" md = "12" >
-                            <Button className="mb-3 view-all-cars-stats-button" id = "back"><ChevronLeft color="#1C67CE" size={20} className = "mr-1"/>Back to search results</Button>
+                        <Button className="mb-3 view-all-cars-stats-button" id = "forward">View all 5,250 Cars<ChevronRight color="#1C67CE" size={20} className = "mr-1"/></Button>
                     </Col>
 
                        
