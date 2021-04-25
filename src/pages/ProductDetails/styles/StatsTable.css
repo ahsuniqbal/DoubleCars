@@ -1,0 +1,14 @@
+.view-all-cars-stats-button {
+    cursor: pointer;
+    background-color: #ffffff !important;
+    color: #1C67CE !important;
+    border: 1px solid #1C67CE !important;
+    text-decoration: none !important;
+    border-color: transparent !important;
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: 0.2rem;
+}
+.view-all-cars-stats-button:focus , .view-all-cars-stats-button:active{
+    box-shadow: none !important;
+}
