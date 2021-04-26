@@ -37,8 +37,12 @@ const CarsLogo = () => {
                        <p className='carslogo-text'>Download app and upload your car in few steps</p>
                    </Col>
                 </Row>
+
+                <Row>
+                    Hello there! Developer is working on it. Stay tuned. 
+                </Row>
     
-                <Row className='giving-margin'>
+                {/* <Row className='giving-margin'>
                         <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main'>
                                     <LazyLoadImage effect="blur" src={corolla} className='corolla-car'/>
@@ -49,11 +53,7 @@ const CarsLogo = () => {
                                     <LazyLoadImage effect="blur" src={ford} className='ford-car'/>
                                 </Card>
                         </Col>
-                        {/* <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main'>
-                                    <LazyLoadImage effect="blur" src={tesla} className='tesla-car'/>
-                                </Card>
-                        </Col> */}
+                       
                         <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main'>
                                     <LazyLoadImage  effect="blur" src={Subaru} className='subaru-car'/>
@@ -74,19 +74,11 @@ const CarsLogo = () => {
                                     <LazyLoadImage onMouseOver= {bmw} onMouseOut= {bmw} effect="blur" src={bmwnew} className='bmw-car image-hover'/>
                                 </Card>
                         </Col>
-                        {/* <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main'>
-                                    <LazyLoadImage effect="blur" src={jeep} className='jeep-car'/>
-                                </Card>
-                        </Col> */}
+                       
                    </Row>
                     
                    <Row className='giving-margin'>
-                        {/* <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main'>
-                                    <LazyLoadImage effect="blur" src={Suzuki} className='suzuki-car'/>
-                                </Card>
-                        </Col> */}
+                      
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main'>
                                     <LazyLoadImage effect="blur" src={Mercedes} className='mercedes-car'/>
@@ -120,11 +112,7 @@ const CarsLogo = () => {
                    </Row>
 
                    <Row className='giving-margin'>
-                        {/* <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main'>
-                                    <LazyLoadImage effect="blur" src={Suzuki} className='suzuki-car'/>
-                                </Card>
-                        </Col> */}
+                       
                         <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
                                 <Card className='cardslogo-main'>
                                     <LazyLoadImage effect="blur" src={Nissan} className='subaru-car'/>
@@ -155,40 +143,9 @@ const CarsLogo = () => {
                                     <LazyLoadImage effect="blur" src={volvo} className='ford-car'/>
                                 </Card>
                         </Col>
-                   </Row>
+                   </Row> */}
              
-                   {/* <Row className='giving-margin'>
-                        <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main3'>
-                                    <LazyLoadImage effect="blur" src={Suzuki2} className='suzuki2-car'/>
-                                </Card>
-                        </Col> */}
-                        {/* <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main3'>
-                                    <LazyLoadImage effect="blur" src={MercedesBenz} className='mercedesbenz-car'/>
-                                </Card>
-                        </Col>
-                        <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main3'>
-                                    <LazyLoadImage effect="blur" src={Nissan} className='nissan-car'/>
-                                </Card>
-                        </Col>
-                        <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main3'>
-                                    <LazyLoadImage effect="blur" src={Jaguar} className='jaguar-car'/>
-                                </Card>
-                        </Col>
-                        <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main3'>
-                                    <LazyLoadImage effect="blur" src={Lexus2} className='lexus2-car'/>
-                                </Card>
-                        </Col>
-                        <Col  lg='2' md='4' sm='6' xs='12' className='giving-padding'>
-                                <Card className='cardslogo-main3'>
-                                    <LazyLoadImage effect="blur" src={Horse} className='horse-car'/>
-                                </Card>
-                        </Col> */}
-                   {/* </Row>  */}
+                  
                     
                 
            </div> 
