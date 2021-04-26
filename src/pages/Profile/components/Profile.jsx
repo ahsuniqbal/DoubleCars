@@ -9,15 +9,8 @@ import {changePassword,updateUser} from '../api/Patch'
 import {postImageToFTP} from '../../ChatMessenger/api/Post'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-// import { nameValidation } from '../../../utils/Validation';
 import { emailValidation, nameValidation, passwordValidation,mobileValidation } from '../../../utils/Validation';
-import { User } from 'react-feather';
-// import IconButton from '@material-ui/core/IconButton';
-// import PhotoCamera from '@material-ui/icons/PhotoCamera';
-
-// import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
-// import DummyTopProfile from '../../../assets/Dummy-short-profile.png'
-// import {UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem} from 'reactstrap';
+import {uploadImage} from '../../../utils/imageUploader'
 const Profile = (props) => {
 
     const [user,setUser] = useState(null)
@@ -143,11 +136,9 @@ const Profile = (props) => {
         console.log(img)
         document.getElementById('profile-img').src = URL.createObjectURL(img)
         setLoadingProfile(true)
-        var formData = new FormData();
-        formData.append('profile',img)
-        postImageToFTP(formData)
-        .then(doc1 => {
-            var url = doc1[0]
+        uploadImage(img,`/Profile Pictures/profilePicture_${localStorage.getItem('userId')}.${img.type.split('/')[1]}`)
+        .then(url => {
+            // console.log('hogaya',url)
             const objP = {
                 profilePic : url
             }
@@ -162,9 +153,30 @@ const Profile = (props) => {
             })
         })
         .catch(e => {
-            setLoadingProfile(false)
-            console.log(e.message)
+            console.log("urlError",e.message)
         })
+        // var formData = new FormData();
+        // formData.append('profile',img)
+        // postImageToFTP(formData)
+        // .then(doc1 => {
+        //     var url = doc1[0]
+        //     const objP = {
+        //         profilePic : url
+        //     }
+        //     updateUser(localStorage.getItem("userId"),objP)
+        //     .then(doc2 => {
+        //         setLoadingProfile(false)
+        //         console.log(doc2)
+        //     })
+        //     .catch(e => {
+        //         setLoadingProfile(false)
+        //         console.log(e.message)
+        //     })
+        // })
+        // .catch(e => {
+        //     setLoadingProfile(false)
+        //     console.log(e.message)
+        // })
     }
 
     const useStyles = makeStyles((theme) => ({

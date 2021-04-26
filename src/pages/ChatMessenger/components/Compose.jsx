@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import { getLogin } from '../../../config/LoginAuth';
 // import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import {uploadImage} from '../../../utils/imageUploader'
 
 const firebase = require('firebase').default
 
@@ -94,42 +95,39 @@ const Compose = (props) => {
         var images = e.target.files
         //console.log(images[0])
         if(images.length === 1){
-            var formData = new FormData();
-            formData.append('profile',images[0])
-            postImageToFTP(formData)
-                .then(doc => {
-                    var url = doc[0]
-                    var userId = localStorage.getItem('userId')
-                    var obj = {
-                        messageId : "asdsa",
-                        imageUrl : url,
-                        messageImage : null,
-                        multipleImagesList : null,
-                        messageText : null,
-                        messagedAt : firebase.firestore.Timestamp.now(),
-                        senderId : userId,
-                        enquiry : false,
-                        enquiryText : "",
-                        vehicleImage : null,
-                        vehiclePrice : null,
-                        vehicleSubTitle  : null,
-                        vehicleTitle : null,
-                    }
-                    const strId = [userId, props.otherId].sort().join('-')
-                    firebase.firestore().collection("Chats").doc(strId).collection('Messages')
-                    .doc().set(obj)
-                    document.getElementById('chatMessage').value = ""
-                    var updateObj = {
-                        lastMessage : url,
-                        lastMessageAt : firebase.firestore.Timestamp.now(),
-                        receiverHasRead : false
-                    }
-                    firebase.firestore().collection("Chats").doc(strId)
-                    .update(updateObj)
-                })
-                .catch(e => {
-                    console.log(e.message)
-                })
+        uploadImage(images[0],`/Attachment_Images/${new Date().toString()}${"_attachment"}.${images[0].type.split('/')[1]}`)
+        .then(url => {
+            var userId = localStorage.getItem('userId')
+            var obj = {
+                messageId : "asdsa",
+                imageUrl : url,
+                messageImage : null,
+                multipleImagesList : null,
+                messageText : null,
+                messagedAt : firebase.firestore.Timestamp.now(),
+                senderId : userId,
+                enquiry : false,
+                enquiryText : "",
+                vehicleImage : null,
+                vehiclePrice : null,
+                vehicleSubTitle  : null,
+                vehicleTitle : null,
+            }
+            const strId = [userId, props.otherId].sort().join('-')
+            firebase.firestore().collection("Chats").doc(strId).collection('Messages')
+            .doc().set(obj)
+            document.getElementById('chatMessage').value = ""
+            var updateObj = {
+                lastMessage : url,
+                lastMessageAt : firebase.firestore.Timestamp.now(),
+                receiverHasRead : false
+            }
+            firebase.firestore().collection("Chats").doc(strId)
+            .update(updateObj)
+        })
+        .catch(e => {
+            console.log("urlError",e.message)
+        })
         }
         
     }
