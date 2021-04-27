@@ -5,7 +5,7 @@
 .giving-padding{
     padding: 25px 0px;
 }
-
+/* THIS CLASS HAS SOOOOOOOO MUCH EXTRA CSS, KUCH BHI CHERNE SE PEHLE AB KO RABTA KIJYE SHUKRIYA!  */
 .carslogo-head{
     font-family: Poppins;
     font-style: normal;
@@ -54,96 +54,8 @@
 .cardslogo-main:hover , .cardslogo-main3:hover{
     transform: scale(1.02);
 }
-/* firt row */
-.corolla-car{
 
-    width: 78%;
-    margin: 6% 20% 6% 10%;
-}
-.ford-car{
-    width: 120%;
-    margin:9% 0% 9% -12%;
-}
-.tesla-car{
-    margin: 25% 27%;
-    width: 46%;
-}
 
-.subaru-car{
-    margin: 25% 21%;
-    width: 60%;
-}
-
-.volkswagen-car{
-    margin: 15% 20%;
-    width: 62%;
-}
-
-.honda-car{
-    width: 57%;
-    margin: 23% 22%;
-}
-.bmw-car{
-    width: 50%;
-    margin: 21% 25%;
-    
-}
-.jeep-car{
-    width: 75%;
-    margin: 20% 12%
-}
-/* second row */
-.suzuki-car{
-
-    width: 43%;
-    margin: 25% 29%;
-}
-.audi-car{
-    margin: 15% 6%;
-    width: 88%;
-}
-.mercedes-car{
-    margin: 29% 30%;
-    width: 41%;
-}
-.mitsubishi-car{
-    width: 44%;
-    margin: 26% 28%;
-}
-.lexus-car{
-    width: 60%;
-    margin: 28% 19%;
-}
-.plus-car{
-    width: 90%;
-    margin: 17% 5%;
-}
-/* third row */
-.suzuki2-car{
-    width: 50%;
-    margin: 22% 25%;
-}
-.mercedesbenz-car{
-    width: 48%;
-    margin: 24% 26%
-}
-.nissan-car{
-    margin: 23% 16%;
-    width: 66%;
-
-}
-.jaguar-car{
-    width: 71%;
-    margin: 18% 14%;
-}
-.lexus2-car{
-    width: 67%;
-    margin: 24% 15%;
-}
-.horse-car{
-    width: 75%;
-    margin: 23% 14%;
-}
 
 .image-hover:hover {
     background-image: url("../../../assets/BMW.png"); 
@@ -161,7 +73,7 @@
       }
 
 
-      /* Css by AB */
+/* correct Css by AB */
 .logo-card {
     height: 182px;
     cursor: pointer;
@@ -201,4 +113,4 @@
     text-decoration: none;
     color: #1C67CE;
 }
-    
+    /*  Ends here */
