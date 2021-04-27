@@ -5,13 +5,7 @@
 .giving-padding{
     padding: 25px 0px;
 }
-.giving-margin{
-    padding: 0;
-    margin: 0;
-}
-.popular-make{
-    margin: 0 !important;
-}
+
 .carslogo-head{
     font-family: Poppins;
     font-style: normal;
@@ -19,6 +13,13 @@
     font-size: 28px;
     line-height: 120%;
     color: #080B30;
+}
+.giving-margin{
+    padding: 0;
+    margin: 0;
+}
+.popular-make{
+    margin: 0 !important;
 }
 .carslogo-text{
     font-family: Ubuntu;
@@ -158,4 +159,46 @@
             margin: 0% 5%;
         }
       }
+
+
+      /* Css by AB */
+.logo-card {
+    height: 182px;
+    cursor: pointer;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+}
+.logo-div {
+    max-height: 138px;
+    overflow: hidden;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.car-logo-homepage {
+    margin-top: 0rem;
+  
+}
+
+.logos-row {
+    margin-bottom: 2rem;
+}
+
+.logo-listings {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    color: #1C67CE;
+}
+
+.logo-card a{
+    text-decoration: none;
+    color: #1C67CE;
+}
     

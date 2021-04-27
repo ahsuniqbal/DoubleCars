@@ -146,17 +146,17 @@ const Home = () => {
     const history=useHistory()
 
 
-    useEffect(() => {
-        const password = prompt('To visit Double Cars, you need to enter the magic key here.');
+    // useEffect(() => {
+    //     const password = prompt('To visit Double Cars, you need to enter the magic key here.');
 
-        if(password === "easypeasy") {
-            alert("Congratulations! You have unlocked the secret chamber");
-        }
-        else {
-            alert("Panicc!!!! Intruder Spotted!!!");
-            window.location.reload();
-        }
-    }, [])
+    //     if(password === "easypeasy") {
+    //         alert("Congratulations! You have unlocked the secret chamber");
+    //     }
+    //     else {
+    //         alert("Panicc!!!! Intruder Spotted!!!");
+    //         window.location.reload();
+    //     }
+    // }, [])
 
 
 
