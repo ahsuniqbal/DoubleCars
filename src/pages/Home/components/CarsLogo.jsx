@@ -56,7 +56,7 @@ const CarsLogo = () => {
                     <Col lg='2' md='4' sm='6' xs='12' className=''>
                         <Card className = "logo-card">
                             <div className = "logo-div">
-                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                                <LazyLoadImage effect="blur" src={ford} className='img-fluid mx-auto car-logo-homepage'/>
                             </div>
                             <Link to={"/product/"}>
                                 <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
@@ -67,7 +67,7 @@ const CarsLogo = () => {
                     <Col lg='2' md='4' sm='6' xs='12' className=''>
                         <Card className = "logo-card">
                             <div className = "logo-div">
-                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                                <LazyLoadImage effect="blur" src={Mercedes} className='img-fluid mx-auto car-logo-homepage' />
                             </div>
                             <Link to={"/product/"}>
                                 <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
@@ -78,7 +78,7 @@ const CarsLogo = () => {
                     <Col lg='2' md='4' sm='6' xs='12' className=''>
                         <Card className = "logo-card">
                             <div className = "logo-div">
-                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                                <LazyLoadImage effect="blur" src={honda} className='img-fluid mx-auto car-logo-homepage'/>
                             </div>
                             <Link to={"/product/"}>
                                 <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
