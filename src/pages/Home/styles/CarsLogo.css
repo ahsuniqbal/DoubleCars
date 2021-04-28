@@ -86,10 +86,12 @@
     overflow: hidden;
     justify-content: center !important;
     text-align: center !important;
+    margin-top: 1.4rem;
 }
 
 .car-logo-homepage {
-  
+  object-fit: contain;
+  height: 120px;
 }
 
 .logos-row {
