@@ -181,6 +181,11 @@ const Filters = (props) => {
     const handleMake = (make) => {
         setLoading(true);
         setSelectedMake(make);
+        setModelList([]);
+        delete filters['carModel']
+        setTrimList([]);
+        delete filters['trim']
+
         if(make){
             GetModelFromMake(make).then(doc => {
                 setModelList(doc.makes[0].models);
@@ -195,6 +200,9 @@ const Filters = (props) => {
             });
         }else{
             setModelList([]);
+            delete filters['carModel']
+            setTrimList([]);
+            delete filters['trim']
             delete filters['carMake']
             setFilters(filters);
             FilterQueryString(filters);
@@ -206,6 +214,9 @@ const Filters = (props) => {
     const handleModel = (select) => {
         setLoading(true)
         setSelectedModel(select);
+
+        setTrimList([]);
+        delete filters['trim']
         if(select){
             GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
                 // trimList.push(doc.makes[0].models[0].trims)
@@ -221,6 +232,8 @@ const Filters = (props) => {
             });
         }else{
             // console.log('filters1',filters)
+            setTrimList([]);
+            delete filters['trim']
             delete filters['carModel']
             // console.log('filters2',filters)
             setFilters(filters);
