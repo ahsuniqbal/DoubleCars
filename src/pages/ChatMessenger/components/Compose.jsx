@@ -90,8 +90,14 @@ const Compose = (props) => {
             // chatBoard.scrollTop = chatBoard.scrollHeight + 100;
         }
     }
+    const handleKeyDown = (event) => {
+        if(event.keyCode === 13) { 
+            console.log('Enter key pressed')
+            sendMessage()
+      }
+    }
 
-    const onChangeImage = (e) => {
+    const onChangeImage = async (e) => {
         var images = e.target.files
         //console.log(images[0])
         if(images.length === 1){
@@ -128,6 +134,40 @@ const Compose = (props) => {
         .catch(e => {
             console.log("urlError",e.message)
         })
+        }else if(images.length > 1){
+            console.log(typeof images)
+            var urls = []
+            for(let i = 0; i < images.length; i ++){
+                var url = await uploadImage(images[Object.keys(images)[i]],`/Attachment_Images/${new Date().toString()}${"_attachment"}.${images[Object.keys(images)[i]].type.split('/')[1]}`)
+                urls.push(url)    
+            }
+            var userId = localStorage.getItem('userId')
+            var obj = {
+                messageId : "asdsa",
+                imageUrl : null,
+                messageImage : null,
+                multipleImagesList : urls,
+                messageText : null,
+                messagedAt : firebase.firestore.Timestamp.now(),
+                senderId : userId,
+                enquiry : false,
+                enquiryText : "",
+                vehicleImage : null,
+                vehiclePrice : null,
+                vehicleSubTitle  : null,
+                vehicleTitle : null,
+            }
+            const strId = [userId, props.otherId].sort().join('-')
+            firebase.firestore().collection("Chats").doc(strId).collection('Messages')
+            .doc().set(obj)
+            document.getElementById('chatMessage').value = ""
+            var updateObj = {
+                lastMessage : "has sent "  + urls.length + " imags",
+                lastMessageAt : firebase.firestore.Timestamp.now(),
+                receiverHasRead : false
+            }
+            firebase.firestore().collection("Chats").doc(strId)
+            .update(updateObj)
         }
         
     }
@@ -164,7 +204,7 @@ const Compose = (props) => {
             </label>
 
             
-            <Input onChange={e => TypingStatus()} id="chatMessage" type="text" placeholder="Write a message..." />
+            <Input onChange={e => TypingStatus()} id="chatMessage" type="text" onKeyDown={e => handleKeyDown(e)} placeholder="Write a message..." />
             {/* <Send onClick={e => sendMessage()} color="#1C67CE" size={20} /> */}
             <ion-icon className="cursor-pointer" onClick={e => sendMessage()} name="send"></ion-icon>
         </div>

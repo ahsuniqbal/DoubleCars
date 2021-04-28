@@ -141,6 +141,7 @@ const DealerProfile = ({match}) => {
         str += `&dealerId=${match.params.id}`
         console.log("QQUERY",str)
         GetSearchResult(str).then(doc => {
+            console.log(doc)
             if(doc.length > 0) {
                 setBooleanFlag(false);
                 setInventory(doc)

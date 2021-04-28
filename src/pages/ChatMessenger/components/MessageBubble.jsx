@@ -4,6 +4,7 @@ import '../styles/MessageBubble.css';
 import {getRecieverChat} from '../../../components/Firebase/database';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Audi from '../../../assets/RelatedStoriesDemoimg.png'
+import $ from "jquery"
 const firebase = require('firebase').default
 
 const MessageBubble = (props) => {
@@ -23,13 +24,19 @@ const MessageBubble = (props) => {
 
     useEffect(() => {
         //whenever message updates this will run to make sure view of chat is at the bottom, always.
+        
         const container = document.getElementById('chatview-dashboard');
         if(container){
-            container.scrollTo(0, container.scrollHeight);
+            // container.scrollTo(0, container.scrollHeight);
+            // container.scrollTop = container.scrollHeight - container.clientHeight;
+         
+
+            $('#' + "chatview-dashboard").animate({
+                scrollTop: container.scrollHeight - container.clientHeight
+             }, 500);
         }
     },[message])
-
-
+    
     const checkURL = (url) => {
         var arr = [ "jpeg", "jpg", "png", "gif" ];
         if(url == null){
@@ -81,7 +88,7 @@ const MessageBubble = (props) => {
 
                 if(list[i].multipleImagesList && list[i].multipleImagesList.length > 0){
                     table.push(
-                        <Col xs="12" sm="6" md="3">
+                        <Col xs="12">
                             <div className="grid-chat received">
                             {
                                 multipleImagesRows(list[i].multipleImagesList)
@@ -125,8 +132,8 @@ const MessageBubble = (props) => {
 
                 if(list[i].multipleImagesList && list[i].multipleImagesList.length > 0){
                     table.push(
-                        <Col xs="12" sm="6" md="3">
-                            <div className="grid-chat sent">
+                        <Col xs="12">
+                            <div className="grid-chat sent float-right">
                             {
                                 multipleImagesRows(list[i].multipleImagesList)
                             }

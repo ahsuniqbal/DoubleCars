@@ -9,7 +9,7 @@
 }
 
 .chatview-dashboard{
-    /* height: 69vh; */
+    height: 69vh;
     overflow-y: auto;
     overflow-x: hidden;
 }

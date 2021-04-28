@@ -46,18 +46,16 @@ const SellerDetails = (props) => {
 
     const sendMessage=(e)=>{
         e.preventDefault();
+        const sent = document.getElementById('email-sent-label');
+        sent.textContent = ""
         const email=document.getElementById('email-id').value
         if(emailValidation(email)) {
             // mail is okay
             document.getElementById('email-error-label').textContent = "";
                // show success message
-            //    document.getElementById('name-id').value=''
-            //    document.getElementById('textarea-id').value='' 
-               let successMsg=document.createElement('DIV')
-               successMsg.className='success-msg-label'
-               successMsg.innerHTML='Message sent successfully *'
-               document.querySelector('.success-msg').appendChild(successMsg)
-               setTimeout(()=>successMsg.remove(),3000) 
+            
+            sent.textContent = "Message sent successfully *"
+               setTimeout(()=> sent.textContent="" ,3000) 
         }
          else {
             // mail is wrong
@@ -218,8 +216,10 @@ const SellerDetails = (props) => {
                             <Input type = "email" id='email-id' className = "interested-textfield" placeholder = "Your email address"></Input>
                             <div id="email-error-label" className="sellerPage-error-label"></div>
                             
+                            
                             <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
-                            <div className="success-msg"></div>
+                            {/* <div className="success-msg"></div> */}
+                            <div id="email-sent-label" className="text-success sellerPage-error-label"></div>
                             <Button color = "primary" onClick={(e)=>sendMessage(e)} size = "lg" block className = "contact-seller-button-2 mt-4">Send Message</Button>
 
                             
