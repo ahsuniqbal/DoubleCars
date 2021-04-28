@@ -1,6 +1,8 @@
 
 import React from 'react';
-import {Card, Col,Row} from 'reactstrap';
+import {Card, Col,Row, CardBody, CardTitle} from 'reactstrap';
+import dummyuser from '../../../assets/profile-chat.png';
+import { Link } from 'react-router-dom';
 import '../styles/CarsLogo.css';
 import corolla from '../../../assets/Toyota.png'
 import ford from '../../../assets/Ford.png'
@@ -25,6 +27,7 @@ import Horse from '../../../assets/horse.png'
 import Subaru from '../../../assets/subaru.png';
 import Volkswagen from '../../../assets/volkswagen.png';
 
+import { ChevronRight } from 'react-feather';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -38,9 +41,210 @@ const CarsLogo = () => {
                    </Col>
                 </Row>
 
-                <Row>
-                    Hello there! Developer is working on it. Stay tuned. 
+                <Row className = "logos-row">
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto d-block car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={ford} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={Mercedes} className='img-fluid mx-auto car-logo-homepage' />
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={honda} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
                 </Row>
+
+                <Row className = "logos-row">
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
+                </Row>
+
+                <Row className = "logos-row">
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
+
+                    <Col lg='2' md='4' sm='6' xs='12' className=''>
+                        <Card className = "logo-card">
+                            <div className = "logo-div">
+                                <LazyLoadImage effect="blur" src={corolla} className='img-fluid mx-auto car-logo-homepage'/>
+                            </div>
+                            <Link to={"/product/"}>
+                                <CardTitle className = "logo-listings ">5,485 Listings <ChevronRight color="#1C67CE" size={20} className = "mr-1"/></CardTitle>
+                            </Link>
+                        </Card>
+                    </Col>    
+                </Row>
+                
     
                 {/* <Row className='giving-margin'>
                         <Col lg='2' md='4' sm='6' xs='12' className='giving-padding'>
