@@ -88,7 +88,7 @@ const MessageBubble = (props) => {
 
                 if(list[i].multipleImagesList && list[i].multipleImagesList.length > 0){
                     table.push(
-                        <Col xs="12" sm="6" md="3">
+                        <Col xs="12">
                             <div className="grid-chat received">
                             {
                                 multipleImagesRows(list[i].multipleImagesList)
@@ -132,8 +132,8 @@ const MessageBubble = (props) => {
 
                 if(list[i].multipleImagesList && list[i].multipleImagesList.length > 0){
                     table.push(
-                        <Col xs="12" sm="6" md="3">
-                            <div className="grid-chat sent">
+                        <Col xs="12">
+                            <div className="grid-chat sent float-right">
                             {
                                 multipleImagesRows(list[i].multipleImagesList)
                             }
