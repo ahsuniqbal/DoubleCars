@@ -34,6 +34,7 @@ const DealerProfile = ({match}) => {
     const [dealer, setDealer] = useState(null);
     const [inventory, setInventory] = useState([]);
     const [sortFlag, setSortFlag] = useState(false);
+    const [totalCount, setTotalCount] = useState(0)
 
 
     // Copying from products page
@@ -58,7 +59,7 @@ const DealerProfile = ({match}) => {
             // console.log(page)
             // page++;
             // console.log(page)
-            setPageNumber(pageNumber + 1)
+            // setPageNumber(pageNumber + 1)
             setIsBottom(!isBottom);
         }
     }
@@ -77,29 +78,47 @@ const DealerProfile = ({match}) => {
         // if(locationSearch.search){
         //     tempStr += `search=${locationSearch.search}&page=${pageNumber}&${globalQuery}`
         // }else{
-            tempStr += `page=${pageNumber}&${globalQuery}&id=${userId}`
+            tempStr += `page=${pageNumber}&${globalQuery}&id=${userId}&dealerId=${match.params.id}`
         // }
         // tempStr += `&id=${userId}`
-        tempStr += `&dealerId=${match.params.id}`
-        console.log("QQUERY",tempStr)
-        GetSearchResult(tempStr).then(doc => {
-            if(inventory.length > 0){
+        // tempStr += `&dealerId=${match.params.id}`
+        
+        GetSearchResult(tempStr).then(doc1 => {
+            setTotalCount(doc1.totalCount);
+            const doc = doc1.results;
+            console.log(doc)
+
+            // This was the condition that was written previously
+            // I changed this condition copying products page
+            // if(inventory.length > 0)
+            if(doc.length > 0){
                 var tempObj = {
                     title : doc[0].carName,
                     image_one : doc[0].coverPic,
-                    image_two : doc[1].coverPic ? doc[1].coverPic : null,
-                    image_three : doc[2].coverPic ? doc[2].coverPic : null,
+                    image_two : doc[1] ? doc[1].coverPic ? doc[1].coverPic : null : null,
+                    image_three : doc[2] ? doc[2].coverPic ? doc[2].coverPic : null : null
                 }
                 setSavedSearchObj(tempObj)
-
-                setPageNumber(pageNumber + 1)
+            }
+            setPageNumber(pageNumber + 1);
+            if(inventory.length > 0) {
                 setBooleanFlag(false);
                 var temp = inventory
                 for(let i = 0; i < doc.length; i++){
                     temp.push(doc[i])
                 }
                 setInventory(temp);
-            }else{
+            }
+
+                // setPageNumber(pageNumber + 1)
+                // setBooleanFlag(false);
+                // var temp = inventory
+                // for(let i = 0; i < doc.length; i++){
+                //     temp.push(doc[i])
+                // }
+                // setInventory(temp);
+            // }
+            else{
                 setInventory(doc);
                 setBooleanFlag(true);
             }
@@ -135,15 +154,17 @@ const DealerProfile = ({match}) => {
         // if(locationSearch.search){
         //     str = `search=${locationSearch.search}&page=${pageNumber}&${queryStr}`
         // }else{
-            str = `page=${pageNumber}&${queryStr}&id=${userId}`
+            str = `page=${pageNumber}&${queryStr}&id=${userId}&dealerId=${match.params.id}`
         // }
         // str += `&id=${userId}`
-        str += `&dealerId=${match.params.id}`
+        // str += `&dealerId=${match.params.id}`
         console.log("QQUERY",str)
-        GetSearchResult(str).then(doc => {
-            console.log(doc)
+        GetSearchResult(str).then(doc1 => {
+            console.log(doc1)
+            setTotalCount(doc1.totalCount)
+            const doc = doc1.results;
             if(doc.length > 0) {
-                setBooleanFlag(false);
+                // setBooleanFlag(false);
                 setInventory(doc)
                 var tempObj = {
                     title : doc[0].carName,
@@ -154,13 +175,13 @@ const DealerProfile = ({match}) => {
                 setSavedSearchObj(tempObj)
             }
             else {
-                setBooleanFlag(true);
+                // setBooleanFlag(true);
                 setInventory([])
             }
 
-            // if(!booleanFlag){
-            //     setBooleanFlag(true);
-            // }
+            if(!booleanFlag){
+                setBooleanFlag(true);
+            }
             // console.log("doc",doc)
             // setInventory(doc)
             setFlag(!flag)
@@ -236,7 +257,7 @@ const DealerProfile = ({match}) => {
                         <Col md="8">
                             {
                                 inventory ? 
-                                <Label className="output-num">{inventory.length} car(s) found in inventory...</Label> 
+                                <Label className="output-num">{totalCount} car(s) found in inventory...</Label> 
                                 : 
                                 <Label className="output-num">Loading your interested results, please wait...</Label>
                             }
