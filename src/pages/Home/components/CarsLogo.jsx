@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {Card, Col,Row, CardBody, CardTitle, CardFooter} from 'reactstrap';
+import {Card, Col,Row, CardBody, CardFooter} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import '../styles/CarsLogo.css';
 
