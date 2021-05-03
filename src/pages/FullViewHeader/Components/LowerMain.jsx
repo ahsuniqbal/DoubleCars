@@ -1,5 +1,5 @@
 import React from'react'
-import {Row,Col} from 'reactstrap'
+import {Row,Col, Container} from 'reactstrap'
 import Chart from '../../../assets/viewChart.png'
 import Views from '../../../assets/totalview.png'
 import ProductTypeCard from '../../../assets/viewheaderCard.png'
@@ -9,7 +9,7 @@ import '../Styles/LowerMain.css'
 
 function LowerMain(){
     return(
-        <div>
+        <Container style = {{marginTop: '6rem'}}>
             <div className='lower-sec-dealership'>
                 <Row style={{marginRight:'0'}}>
                     <Col md='6'>
@@ -49,7 +49,7 @@ function LowerMain(){
                     </Col>
                 </Row>
             </div>
-        </div>
+        </Container>
     )
 }
 export default LowerMain

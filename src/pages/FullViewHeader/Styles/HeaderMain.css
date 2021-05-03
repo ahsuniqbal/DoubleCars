@@ -8,7 +8,7 @@
 .fullview-header-left{
     padding-top: 17%;
     padding-left: 10%;
-    padding-bottom: 10%;
+    /* padding-bottom: 10%; */
 }
 .fullview-header-right{
     padding-top: 9%;
@@ -32,7 +32,7 @@
     margin-right: 16px;
 }
 .ios-coming-soon-btn{
-    width: 144px;
+    width: 150px;
     height: 48px;
     border: 1px solid #FFFFFF;
     box-sizing: border-box;
@@ -43,7 +43,6 @@
     background-color:  #1C67CE !important;
 }
 .ios-coming-soon-text{
-    font-family: Proxima Nova;
     font-style: normal;
     font-weight: 600;
     font-size: 15px;

@@ -39,7 +39,7 @@ export const GetSearchResult = (queryParams) => {
     return new Promise((resolve, reject) => {
         var url = connectionString + "products/search?" + queryParams
         axios.get(url).then(function(response){
-            const data = response.data.results;
+            const data = response.data;
             
             resolve(data);
         })

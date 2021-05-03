@@ -10,6 +10,10 @@ import { useHistory } from 'react-router-dom';
 import {getUser} from '../../../pages/Profile/api/Get';
 import AppbarDropdown from '../../../assets/uper-arrow-appbar.png'
 import { User } from 'react-feather'; 
+import { MessageSquare } from 'react-feather';
+import { Bookmark } from 'react-feather';
+import { List } from 'react-feather';
+import { LogOut } from 'react-feather';
 
 import { connectionString } from '../../../config/ConnectionString'
 
@@ -206,10 +210,10 @@ const NavigationBar = () => {
                                     <DropdownItem disabled className='navigation-profile-name'>{userName}</DropdownItem>
                                     <DropdownItem onClick={() => history.push('/profile')} className='navigation-profile-item'>Edit Profile</DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem onClick={() => history.push('/chat')} className='navigation-profile-item'>Messages</DropdownItem>
-                                    <DropdownItem onClick={() => history.push('/saved-cars')} className='navigation-profile-item'>Saved Cars</DropdownItem>
-                                    <DropdownItem onClick={() => history.push('/saved-searches')} className='navigation-profile-item'>Saved Searches</DropdownItem>
-                                    <DropdownItem  onClick={e => handleLogout()} className='navigation-profile-item'>Logout</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/chat')} className='navigation-profile-item'><MessageSquare color="#000000" size={20} className = "mr-2"></MessageSquare>Messages</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/saved-cars')} className='navigation-profile-item'><Bookmark color="#000000" size={20} className = "mr-2"></Bookmark>Saved Cars</DropdownItem>
+                                    <DropdownItem onClick={() => history.push('/saved-searches')} className='navigation-profile-item'><List color="#000000" size={20} className = "mr-2"></List>Saved Searches</DropdownItem>
+                                    <DropdownItem  onClick={e => handleLogout()} className='navigation-profile-item'><LogOut color="#000000" size={20} className = "mr-2"></LogOut>Logout</DropdownItem>
                                 </DropdownMenu>
                                 </UncontrolledDropdown>
                              </li> : null

@@ -5,6 +5,7 @@ import FullViewHeaderImage from '../../../assets/fullviewheader.png'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import '../Styles/HeaderMain.css'
+import { Link } from 'react-router-dom';
 
 function HeaderMain(){
     return(
@@ -14,10 +15,13 @@ function HeaderMain(){
 
                     <Col lg='6' md='12' className='fullview-header-left'>
                         <h1 className='fullview-header-text'>
-                            Powerful Tools to Quickly Sell and Manage Your Invetory
+                            Powerful Tools to Quickly Sell and Manage Your Inventory
                         </h1>
                         <div className='fullview-header-bttn-div'>
-                            <img src={GooglePlay} alt='Google Play' className='fullview-header-googleplay' />
+                        <Link to='https://play.google.com/store/apps'>
+                                <img src={GooglePlay} alt='get it on google play' className='fullview-header-googleplay'/>
+                        </Link>
+                         
                             <Button className='ios-coming-soon-btn'><span className='ios-coming-soon-text'>iOS Coming Soon</span></Button>
                         </div>
                     </Col>

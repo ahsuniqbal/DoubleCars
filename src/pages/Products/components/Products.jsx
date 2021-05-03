@@ -118,7 +118,6 @@ const Products = (props) => {
         console.log("QQUERY",tempStr)
         GetSearchResult(tempStr).then(doc1 => {
             setTotalCount(doc1.totalCount)
-            console.log(doc1)
             const doc = doc1.results;
             if(doc.length > 0){
                 var tempObj = {
