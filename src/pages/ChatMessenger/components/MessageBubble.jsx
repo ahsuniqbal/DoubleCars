@@ -33,7 +33,7 @@ const MessageBubble = (props) => {
 
             $('#' + "chatview-dashboard").animate({
                 scrollTop: container.scrollHeight - container.clientHeight
-             }, 500);
+             }, 100);
         }
     },[message])
     
