@@ -85,7 +85,7 @@ const SellerDetails = (props) => {
                         enquiryText : messageText,
                         messageAt : firebase.firestore.Timestamp.now(),
                         vehicleImage : imageUrl,
-                        vehiclePrice : vehiclePrice,
+                        vehiclePrice : vehiclePrice + "",
                         vehicleSubTitle  : vehicleSubTitle,
                         vehicleTitle : vehicleTitle,
 
@@ -140,7 +140,7 @@ const SellerDetails = (props) => {
                         enquiryText : messageText,
                         messageAt : firebase.firestore.Timestamp.now(),
                         vehicleImage : imageUrl,
-                        vehiclePrice : vehiclePrice,
+                        vehiclePrice : vehiclePrice + "",
                         vehicleSubTitle  : vehicleSubTitle,
                         vehicleTitle : vehicleTitle,
 
@@ -162,7 +162,7 @@ const SellerDetails = (props) => {
                             enquiry : true,
                             enquiryText : "Can i get your Phone Number ?",
                             vehicleImage : imageUrl,
-                            vehiclePrice : vehiclePrice,
+                            vehiclePrice : vehiclePrice + "",
                             vehicleSubTitle  : vehicleSubTitle,
                             vehicleTitle : vehicleTitle,
                         }
