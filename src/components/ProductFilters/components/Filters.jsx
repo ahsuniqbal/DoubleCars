@@ -134,7 +134,7 @@ const Filters = (props) => {
     if (dropdownToYears.length==0) {
         dropdownToYears = [...dropdownToYears,Number(selectedFromYear)]
     }
-    console.log(dropdownToYears)
+    console.log("",dropdownToYears)
 
     // Callback function to save the selected location from map to current location
     const GetLocationFromMap = useCallback((mapLocation) => {
