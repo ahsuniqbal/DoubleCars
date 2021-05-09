@@ -130,7 +130,8 @@ const Filters = (props) => {
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
     console.log(dropdownYears)
     let dropdownToYears = [];
-    dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index);
+    dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index-1);
+    dropdownToYears.unshift(todayYear)
     if (dropdownToYears.length==0) {
         dropdownToYears = [...dropdownToYears,Number(selectedFromYear)]
     }
