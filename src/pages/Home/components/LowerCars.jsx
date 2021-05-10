@@ -102,7 +102,7 @@ const LowerCar = (props) => {
           prevArrow:<PrevoiusIcon activeSlide={activeSlide} />,
           dots: false,
           beforeChange: (current, next) => setActiveSlide(next),
-          swipeToSlide: true,
+          draggable: false,
           slidesToScroll: 1,
           slidesToShow: 4,
           autoplay: false,

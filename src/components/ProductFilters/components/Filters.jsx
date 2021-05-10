@@ -128,13 +128,14 @@ const Filters = (props) => {
     console.log(todayYear==selectedFromYear)
     // 100 years back from today's date
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
-    console.log(dropdownYears)
+    
     let dropdownToYears = [];
-    dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index);
+    dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index-1);
+    dropdownToYears.unshift(todayYear)
     if (dropdownToYears.length==0) {
         dropdownToYears = [...dropdownToYears,Number(selectedFromYear)]
     }
-    console.log("",dropdownToYears)
+    
 
     // Callback function to save the selected location from map to current location
     const GetLocationFromMap = useCallback((mapLocation) => {
@@ -164,6 +165,7 @@ const Filters = (props) => {
         }
         // console.log(convertIntoQueryParams(obj))
         GetZipCodesList(convertIntoQueryParams(obj)).then(doc => {
+            console.log(doc);
             if(doc.results.length > 0) {
                 setRadius(radius);            
                 filters['radius'] = radius;
