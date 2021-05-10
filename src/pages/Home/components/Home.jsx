@@ -146,17 +146,17 @@ const Home = () => {
     const history=useHistory()
 
 
-    useEffect(() => {
-        const password = prompt('To visit Double Cars, you need to enter the magic key here.');
+    // useEffect(() => {
+    //     const password = prompt('To visit Double Cars, you need to enter the magic key here.');
 
-        if(password === "easypeasy") {
-            alert("Congratulations! You have unlocked the secret chamber");
-        }
-        else {
-            alert("Panicc!!!! Intruder Spotted!!!");
-            window.location.reload();
-        }
-    }, [])
+    //     if(password === "easypeasy") {
+    //         alert("Congratulations! You have unlocked the secret chamber");
+    //     }
+    //     else {
+    //         alert("Panicc!!!! Intruder Spotted!!!");
+    //         window.location.reload();
+    //     }
+    // }, [])
 
 
 
@@ -228,67 +228,33 @@ const Home = () => {
                       </Container>
                         <Row>
                             <Col className='featured-main-coloumn'>
-                               
-                                {/* <TabPanel tabId="new-feature-tab"> */}
                                     <NewFeaturedCars
                                         featuredCars={featuredCars}
                                     />
-                                {/* </TabPanel> */}
-                                {/* <TabPanel tabId="old-feature-tab">
-                                    <OldFeaturedCars/>
-                                </TabPanel> */}
-
                             </Col>
                         </Row> 
                         </> : 
                         <Container>
-
-                        
-                        <Row>
-                        <Col md="8">
-                            <Skeleton variant="rect" width={800} height={378} animation="wave" />
-                            <Skeleton variant="text" height={80} animation="wave" />
-                            <Skeleton variant="text" animation="wave" />
-                            <Skeleton variant="text" animation="wave" />
-                            <Skeleton variant="text" animation="wave" />
-                            <Skeleton variant="text" animation="wave" />
-                            <Skeleton variant="text" animation="wave" />
-                            <Skeleton variant="text" animation="wave" />
-                        </Col>
-                        <Col md="4">
-                            <Row>
-                                <Col md = "12">
-                                <Skeleton variant="rect" width={390} height={270} animation="wave" className = "mb-3"/>
+                            <Row className = "mt-5">
+                                <Col md="6">
+                                    <Skeleton variant="rect" width={680} height={415} animation="wave" />
                                 </Col>
-                            </Row>
-                           
-                            <Row>
-                                <Col md = "2">
-                                    <Skeleton variant="rect" width={55} height={55} animation="wave" className = "seller-image-skeloton"/>
+                                <Col md="6">
+                                    <Row>
+                                        <Col md = "6">
+                                        <Skeleton variant="rect" width={300} height={200} animation="wave" className = "mb-3"/>
+                                        <Skeleton variant="rect" width={300} height={200} animation="wave" />
+                                        </Col>
+                                        <Col md = "6">
+                                        <Skeleton variant="rect" width={300} height={200} animation="wave" className = "mb-3"/>
+                                        <Skeleton variant="rect" width={300} height={200} animation="wave" />
+                                        </Col>
+                                        
+                                    </Row>
+                                    
+                                   
                                 </Col>
-                                <Col md = "8">
-                                <Skeleton variant="rect" width={260} height={20} animation="wave" className = "mb-2" className = "seller-default-skeloton" />
-                                <Skeleton variant="rect" width={200} height={20} animation="wave" className = "seller-default-skeloton"/>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col md = "12">
-                                <Skeleton variant="rect" width={260} height={10} animation="wave" className = "mb-2" className = "seller-default-skeloton" />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col md = "12">
-                                <Skeleton variant="rect" width={260} height={10} animation="wave" className = "mb-2" className = "seller-default-skeloton" />
-                                </Col>
-                            </Row>
-                            
-                            {/* <Skeleton variant="text" animation="wave" />
-                            <Skeleton variant="text" animation="wave" />
-                            <Skeleton variant="text" animation="wave" />
-                            <Skeleton variant="text" animation="wave" />
-                            <Skeleton variant="text" animation="wave" /> */}
-                        </Col>
-                    </Row>
+                        </Row>
                     </Container>
                     }
 
@@ -323,7 +289,30 @@ const Home = () => {
                                 />
                             </div>) 
                         })
-                        :null
+                        :
+                        <Container>
+                        <Row className = "mt-5">
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                            </Col>
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                            </Col>
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                            </Col>
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                            </Col>
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                            </Col>
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                            </Col>
+                            
+                    </Row>
+                </Container>
                     }
                     </Container>
                         {/* <Container>

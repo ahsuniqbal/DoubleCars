@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react"
-import {Row ,Col,Badge ,Label} from 'reactstrap'
+import {Row ,Col,Badge ,Label, Container} from 'reactstrap'
 import HeavyTruck from '../../../assets/HeavyTruck.png';
 import BoxTruck from '../../../assets/BoxTruck.png';
 import ForkLifter from '../../../assets/ForkLifter.png';
@@ -14,6 +14,7 @@ import 'aos/dist/aos.css';
 import { GetCommercialVehicles } from '../api/GetRequests';
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
 
+import Skeleton from '@material-ui/lab/Skeleton';
 
 AOS.init();
 
@@ -48,7 +49,20 @@ const TruckSection = () => {
                             </div>
                         </Col>
                     )
-                }) : null
+                }) : 
+                <Container>
+                <Row className = "mt-5">
+                    <Col md="6">
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "mb-4"/>
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" />
+                    </Col>
+                    <Col md="6">
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "mb-4"/>
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" />
+                    </Col>
+                    
+            </Row>
+        </Container>
             } 
             </Row>
         {/* <Row>
