@@ -71,7 +71,7 @@ const DealerProfile = ({match}) => {
       }, [isBottom]);
 
 
-
+    var firstFlag = false
     useEffect(() => {
         var tempStr = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
@@ -82,7 +82,8 @@ const DealerProfile = ({match}) => {
         // }
         // tempStr += `&id=${userId}`
         // tempStr += `&dealerId=${match.params.id}`
-        
+        console.log("QQUERY",tempStr)
+        setPageNumber(pageNumber + 1);
         GetSearchResult(tempStr).then(doc1 => {
             setTotalCount(doc1.totalCount);
             const doc = doc1.results;
@@ -100,7 +101,7 @@ const DealerProfile = ({match}) => {
                 }
                 setSavedSearchObj(tempObj)
             }
-            setPageNumber(pageNumber + 1);
+            
             if(inventory.length > 0) {
                 setBooleanFlag(false);
                 var temp = inventory
@@ -154,7 +155,7 @@ const DealerProfile = ({match}) => {
         // if(locationSearch.search){
         //     str = `search=${locationSearch.search}&page=${pageNumber}&${queryStr}`
         // }else{
-            str = `page=${pageNumber}&${queryStr}&id=${userId}&dealerId=${match.params.id}`
+            str = `page=${pageNumber}${queryStr ? "&"+queryStr : ""}&id=${userId}&dealerId=${match.params.id}`
         // }
         // str += `&id=${userId}`
         // str += `&dealerId=${match.params.id}`

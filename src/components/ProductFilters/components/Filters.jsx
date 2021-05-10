@@ -125,9 +125,16 @@ const Filters = (props) => {
 
     // Populating Years dropdowns
     const todayYear = (new Date()).getFullYear();
+    console.log(todayYear==selectedFromYear)
     // 100 years back from today's date
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
-    const dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index - 1);
+    console.log(dropdownYears)
+    let dropdownToYears = [];
+    dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index);
+    if (dropdownToYears.length==0) {
+        dropdownToYears = [...dropdownToYears,Number(selectedFromYear)]
+    }
+    console.log("",dropdownToYears)
 
     // Callback function to save the selected location from map to current location
     const GetLocationFromMap = useCallback((mapLocation) => {
@@ -323,6 +330,7 @@ const Filters = (props) => {
     }
 
     const handleFromYear = (fromYear) => {
+        console.log(fromYear)
         setLoading(true)
         document.getElementById("toYear").disabled = false;
         setSelectedFromYear(fromYear);

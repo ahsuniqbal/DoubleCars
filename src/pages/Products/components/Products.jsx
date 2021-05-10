@@ -116,6 +116,7 @@ const Products = (props) => {
         tempStr += `&id=${userId}`
 
         console.log("QQUERY",tempStr)
+        setPageNumber(pageNumber + 1)
         GetSearchResult(tempStr).then(doc1 => {
             setTotalCount(doc1.totalCount)
             const doc = doc1.results;
@@ -128,7 +129,7 @@ const Products = (props) => {
                 }
                 setSavedSearchObj(tempObj)
             }
-            setPageNumber(pageNumber + 1)
+            
             if(products.length > 0){
                 setBooleanFlag(false);
                 var temp = products
