@@ -1,6 +1,6 @@
 .truck-cars-col{
     position: relative;
-    margin: 14px 0px;
+    margin: 17px 0px;
     /* padding: 0px 0px !important; */
 }
 .card-img {
@@ -15,10 +15,7 @@
     bottom: 0;
     background: linear-gradient( 90deg , #233856 0%, rgba(33, 52, 80, 0) 100%);
 }
-.truck-cars-col{
-    transition: transform 500ms !important;
 
-}
 
 .truck-car-badge{
     font-family: Ubuntu;
