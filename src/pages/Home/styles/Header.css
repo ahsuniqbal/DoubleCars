@@ -32,6 +32,7 @@
   position: relative;
   top: 45%;
   transform: translateY(-50%);
+  padding-left: 3rem;
 }
 
 .header-sub-head {
