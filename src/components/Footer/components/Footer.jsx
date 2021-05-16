@@ -13,7 +13,8 @@ const Footer = () => {
         <div  style={{display:window.location.pathname=='/dashboard' && 'none'}}> 
             {/* Upper Footer starts here */}
             <section className ="bottom-footer ">
-                <div className = "container-fluid">
+                <div className = "container-fluid footer-image">
+                    <Container>
                     <Row>
                         <Col className = "footer-image">
                             <Row className = "h-100">
@@ -25,15 +26,14 @@ const Footer = () => {
                               
                                 <Col md = "6" xs = "12" className = "learn-more-button-class my-auto">
                                     <Link to = {'/fullviewheader'}>
-                                    <Button className="learn-more-button-cover"
-                                       
-                                    >Learn More</Button>
+                                    <Button className="learn-more-button-cover float-right">Learn More</Button>
                                     </Link>
                                     
                                 </Col>
                             </Row>
                         </Col>
                     </Row>
+                    </Container>
                 </div>
             </section>
             

@@ -143,11 +143,11 @@
   margin-left: 90px;
 } */
 .learn-more-button-class{
-  padding-left:20%
+  padding-right:8%
 }
-.car-dealer-class{
+/* .car-dealer-class{
   padding-left: 55px;
-}
+} */
 .icon-row{
   padding: 0 20%;
 }
@@ -182,9 +182,9 @@
   .lower-footer-columns {
     padding-left: 10% !important;
   }  
-  .car-dealer-class{
+  /* .car-dealer-class{
     padding-left: 36px;
-  }
+  } */
   .learn-more-button-class{
     padding-top: 10%;
   }  
@@ -193,7 +193,7 @@
   .h-100{
     padding-left: 10% !important;
  }
- .car-dealer-class{
+ /* .car-dealer-class{
   padding-left: 25px;
-}
+} */
 }
