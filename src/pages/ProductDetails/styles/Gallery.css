@@ -26,6 +26,10 @@
 }
 
 
+.image-gallery-content.fullscreen .image-gallery-slide {
+    max-height: 100vh;
+}
+
 
 /* Gallery thumbnails */
 .image-gallery-thumbnail{

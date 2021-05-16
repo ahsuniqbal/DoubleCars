@@ -169,7 +169,7 @@ const Home = () => {
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
             if(doc){
-                console.log("recomm",doc)
+                console.log("recomm", doc);
                 setHomeData(doc)
             }
             

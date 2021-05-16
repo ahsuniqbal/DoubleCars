@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, CardImg, Label } from 'reactstrap';
 import { connect } from 'react-redux';
 import { selectChat } from '../../../redux/actions/ChatActions.jsx';
+import dummyAvatar from '../../../assets/dummyAvatar.jpg'
 import '../styles/ChatListItem.css';
 
 
@@ -81,7 +82,7 @@ const ChatListItem = (props) => {
     return (
         <Row className="chatlist-item" onClick={() => props.selectChat(props.chat)}>
             <Col xs="3" className="profile-img-parent">
-                <CardImg src={props.chat.user.profilePic} className="img-fluid" />    
+                <CardImg src={props.chat.user.profilePic ? props.chat.user.profilePic : dummyAvatar} className="img-fluid" />    
             </Col>
             <Col xs="6" style={{paddingRight: '0px', paddingLeft: '5px'}}>
                 <p className="name">{props.chat.user.fullName}</p>

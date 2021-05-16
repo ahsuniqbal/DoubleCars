@@ -2,7 +2,7 @@ import React,{ useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { Card, CardBody, CardImg, CardTitle, CardSubtitle, CardText, Row, Col, Label, Button } from 'reactstrap';
 import BlogPageImage4 from '../../../assets/BlogPageImage4.png';
-import profileChat from '../../../assets/profile-chat.png';
+import profileChat from '../../../assets/dummyAvatar.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Phone, Mail, MapPin } from 'react-feather';
 import { connect } from 'react-redux';
