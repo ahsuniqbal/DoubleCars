@@ -125,7 +125,6 @@ const Filters = (props) => {
 
     // Populating Years dropdowns
     const todayYear = (new Date()).getFullYear();
-    console.log(todayYear==selectedFromYear)
     // 100 years back from today's date
     const dropdownYears = Array.from(new Array(100), (val, index) => todayYear - index);
     
@@ -332,8 +331,7 @@ const Filters = (props) => {
     }
 
     const handleFromYear = (fromYear) => {
-        console.log(fromYear)
-        setLoading(true)
+        setLoading(true);
         document.getElementById("toYear").disabled = false;
         setSelectedFromYear(fromYear);
         filters['minYear'] = fromYear;
