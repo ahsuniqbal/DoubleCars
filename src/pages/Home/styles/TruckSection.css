@@ -1,6 +1,10 @@
 .truck-cars-col{
     position: relative;
-    margin: 1rem 0rem;
+    margin: 14px 0px;
+    /* padding: 0px 0px !important; */
+}
+.card-img {
+    height: 274px;
 }
 .truck-cars-div{
     position: absolute;
