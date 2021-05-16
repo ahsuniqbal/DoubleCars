@@ -17,7 +17,7 @@ const CarSection1 = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         borderRadius: '4px',
-        height: '35vh',
+        height: '270px',
         cursor: 'pointer',
       };
       const CarSection1DemoImage2 = {
@@ -26,7 +26,7 @@ const CarSection1 = () => {
         backgroundSize: 'cover',
         borderRadius: '4px',
         backgroundRepeat: 'no-repeat',
-        height: '35vh',
+        height: '270px',
         cursor: 'pointer',
       };
 
@@ -36,7 +36,7 @@ const CarSection1 = () => {
         backgroundSize: 'cover',
         borderRadius: '4px',
         backgroundRepeat: 'no-repeat',
-        height: '35vh',
+        height: '270px',
         cursor: 'pointer',
       };
       const CarSection1DemoImage4 = {
@@ -45,7 +45,7 @@ const CarSection1 = () => {
         backgroundSize: 'cover',
         borderRadius: '4px',
         backgroundRepeat: 'no-repeat',
-        height: '35vh',
+        height: '270px',
         cursor: 'pointer',
       };
 

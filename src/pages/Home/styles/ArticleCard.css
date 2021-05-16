@@ -17,7 +17,7 @@
 }
 .article-card-main:hover{
     cursor: pointer;
-    transform: scale(1.01);
+  
 }
 .article-image {
     border-radius: 4rem;

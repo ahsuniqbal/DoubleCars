@@ -2,9 +2,7 @@
     border: transparent !important;
     margin-bottom: 1rem;
 }
-/* .top-news-card:hover{
-    transform: scale(1.01);
-} */
+
 .top-news-title {
     font-weight: 500;
     font-size: 15px;

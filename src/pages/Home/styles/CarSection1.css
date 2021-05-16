@@ -17,7 +17,7 @@
     display: block !important;
 }
 .car-section-coloumn:hover{
-    transform: scale(1.01);
+ 
 }
 .car-badge {
     position: absolute;
@@ -57,3 +57,5 @@
     font-size: 14px;
     font-weight: 500;
 }
+
+

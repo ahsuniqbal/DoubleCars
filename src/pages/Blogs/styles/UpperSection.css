@@ -184,7 +184,7 @@
 }
 .first-column:hover, .second-column:hover, .third-coloumn:hover,.blog-third-column:hover{
     cursor: pointer;
-    transform: scale(1.01);
+  
 }
 .fucking-padding-left {
     padding-left: 5px;  
