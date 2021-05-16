@@ -15,10 +15,7 @@
     transition: transform 500ms !important;
 
 }
-.truck-cars-col:hover {
-    transform: scale(1.01) !important;  
-    
-}
+
 .truck-car-badge{
     font-family: Ubuntu;
     font-style: normal;
