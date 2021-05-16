@@ -9,9 +9,7 @@
     top: 3%;
     transition: transform 500ms !important;
 }
-.mobile-img:hover{
-    transform: scale(1.01);
-}
+
 .blue-bg{
     background-color: #1C67CE ;
     width: 100%;

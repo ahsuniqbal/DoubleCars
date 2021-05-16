@@ -1,8 +1,6 @@
 
 /* Latest Card cell css starts here */
-.latest-article-card-image {
-   
-}
+
 .article-image {
     border-radius: 4rem;
     width: auto;
@@ -34,7 +32,5 @@
 }
 .article-card-main:hover{
     cursor: pointer;
-    transition: transform 500ms !important;
-    transform: scale(1.01);
 }
 /* End */
