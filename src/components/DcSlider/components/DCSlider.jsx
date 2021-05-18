@@ -45,7 +45,7 @@ const DCSlider = (props) => {
     let settings = {
         adaptiveHeight: true,
         speed:800,
-        nextArrow: <NextIcon activeSlide={activeSlide} length={props.items.length}/>,
+        nextArrow: <NextIcon  activeSlide={activeSlide} length={props.items.length}/>,
         prevArrow:<PrevoiusIcon activeSlide={activeSlide}/>,
         dots: false,
         beforeChange: (current, next) => setActiveSlide(next),

@@ -62,8 +62,10 @@
 
 .profile-view .profile-details .card-img {
     width: 87px;
-    height: auto;
-    object-fit: fill;
+    height: 87px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 24px;
 }
 
 .profile-view .profile-details .rating-number {

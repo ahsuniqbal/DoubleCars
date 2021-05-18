@@ -16,9 +16,6 @@
 .fullview-header-right-img{
     transition: transform 500ms !important;
 }
-.fullview-header-right-img:hover{
-    transform: scale(1.01);
-}
 .fullview-header-text{
     font-family: Poppins;
     font-style: normal;

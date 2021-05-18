@@ -1,5 +1,5 @@
 /* .lower-section-car {
-    height: 352px;
+    height: 600px;
 } */
 
 
@@ -13,7 +13,7 @@
 }
 .lower-cars-carousel-images:hover{
     cursor: pointer;
-    transform: scale(1.01);
+   
 }
 .lower-main{
     padding: 0% !important;
@@ -33,3 +33,5 @@
     margin-left: 1.8rem !important;
     transform: rotate(180deg);
 }
+
+

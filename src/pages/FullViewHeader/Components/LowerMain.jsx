@@ -2,6 +2,8 @@ import React from'react'
 import {Row,Col, Container} from 'reactstrap'
 import Chart from '../../../assets/viewChart.png'
 import Views from '../../../assets/totalview.png'
+import DealershipChart from '../../../assets/DealershipChart.png'
+
 import ProductTypeCard from '../../../assets/viewheaderCard.png'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -14,8 +16,9 @@ function LowerMain(){
                 <Row style={{marginRight:'0'}}>
                     <Col md='6'>
                         <div style={{padding:' 12% 8% 0 19%'}}>
-                            <img src={Chart} alt='chart-display' className='dealership-lower-img1'/>
-                            <img src={Views} alt='views' className='dealership-lower-img2'/>
+                            <img src = {DealershipChart}/>
+                            {/* <img src={Chart} alt='chart-display' className='dealership-lower-img1'/>
+                            <img src={Views} alt='views' className='dealership-lower-img2'/> */}
                         </div>
                         
                     </Col>

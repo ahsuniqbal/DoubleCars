@@ -120,6 +120,8 @@
     border-radius: 6px;
     margin-top: 3px;
     /* width: 100%; */
+    height: 32px;
+    object-fit: contain;
 }
 
 /* The label saying "Private Seller" */

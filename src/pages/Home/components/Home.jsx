@@ -146,17 +146,17 @@ const Home = () => {
     const history=useHistory()
 
 
-    useEffect(() => {
-        const password = prompt('To visit Double Cars, you need to enter the magic key here.');
+    // useEffect(() => {
+    //     const password = prompt('To visit Double Cars, you need to enter the magic key here.');
 
-        if(password === "easypeasy") {
-            alert("Congratulations! You have unlocked the secret chamber");
-        }
-        else {
-            alert("Panicc!!!! Intruder Spotted!!!");
-            window.location.reload();
-        }
-    }, [])
+    //     if(password === "easypeasy") {
+    //         alert("Congratulations! You have unlocked the secret chamber");
+    //     }
+    //     else {
+    //         alert("Panicc!!!! Intruder Spotted!!!");
+    //         window.location.reload();
+    //     }
+    // }, [])
 
 
 
@@ -169,7 +169,7 @@ const Home = () => {
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
             if(doc){
-                console.log("recomm",doc)
+                console.log("recomm", doc);
                 setHomeData(doc)
             }
             
@@ -189,6 +189,7 @@ const Home = () => {
 
         // Featured cars
         GetFeaturedCars().then(doc => {
+            console.log(doc)
             setFeaturedCars(doc);
         }).catch(error => {
             alert(error.message);
