@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { Input } from 'reactstrap';
+import { Input, Row, Col } from 'reactstrap';
 import { Paperclip } from 'react-feather';
 import '../styles/Compose.css';
 // import {getBlob} from '../../../utils/Conversion'
@@ -10,6 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { getLogin } from '../../../config/LoginAuth';
 // import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import {uploadImage} from '../../../utils/imageUploader'
+import chatDummy from '../../../assets/chat-dummy.png'
 
 const firebase = require('firebase').default
 
@@ -203,9 +204,19 @@ const Compose = (props) => {
                 </IconButton>
             </label>
 
+            {/* If someone is typing a text then to show this input box */}
+            <Input className="visible" onChange={e => TypingStatus()} id="chatMessage" type="text" onKeyDown={e => handleKeyDown(e)} placeholder="Write a message..." />
             
-            <Input onChange={e => TypingStatus()} id="chatMessage" type="text" onKeyDown={e => handleKeyDown(e)} placeholder="Write a message..." />
-            {/* <Send onClick={e => sendMessage()} color="#1C67CE" size={20} /> */}
+            {/* Otherwise if someone is sending an image then show the image preview */}
+            {/* <Row>
+                <Col xs="2">
+                    <div className="img-send">
+                        <img src={chatDummy} alt="Chat image" className="img-fluid" />
+                        
+                    </div>
+                </Col>
+            </Row> */}
+
             <ion-icon className="cursor-pointer" onClick={e => sendMessage()} name="send"></ion-icon>
         </div>
     )

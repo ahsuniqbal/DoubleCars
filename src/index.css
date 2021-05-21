@@ -52,9 +52,9 @@ h1, h2 {
 }
 
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 select {
   background: url('./assets/icons/dropdown-arrow.svg');

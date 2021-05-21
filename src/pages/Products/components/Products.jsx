@@ -23,7 +23,7 @@ const ShowSearchResults = (products) => {
         if(i !== 0 && i % adPlacement === 0) {
             table.push(
                 <Col key={products[i].productId} xs="12" sm="6" lg="4"style={{padding: '0 7px'}}>
-                    <img src={adProducts} alt="Advertisement" width="100%" className="img-fluid" style={{height: '380px'}} />
+                    <img src={adProducts} alt="Advertisement" width="100%" className="img-fluid" style={{height: '374px'}} />
                 </Col>
             );
         }
