@@ -105,7 +105,7 @@ const DrawCarouselCols = (list, index) => {
                     productImg={list[i].coverPic}
                     productName={list[i].name}
                     productTitle={list[i].name}
-                    productSubtitle={AddCommaToNumber(list[i].mileage) + " mileage · " + list[i].zipCode}
+                    productSubtitle={list[i].mileage === "" ? "NEW · " + list[i].zipCode : AddCommaToNumber(list[i].mileage) + " mileage · " + list[i].zipCode}
                     productText={"$" + AddCommaToNumber(list[i].price)}
                 />
                  : null
