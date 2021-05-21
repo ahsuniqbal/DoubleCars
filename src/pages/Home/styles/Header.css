@@ -180,11 +180,20 @@ right: 2%;
     font-size: 30px !important;
     }
 }
-@media screen and (max-width:420px){
-  .left-cover-section{
-    padding-top: 75% !important;
+
+
+
+/* @media all  and (min-width: 4000px) {
+  .cover-left-heading {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 90px;
+    line-height: 110%;
+    color: #FFFFFF;
+    
   }
-}
+} */
 
 @media screen and (max-width:1200px){
   .cover-left-heading {
