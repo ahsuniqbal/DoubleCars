@@ -37,3 +37,12 @@ ion-icon {
     color: #1C67CE;
     margin-right: 25px;
 }
+
+
+.img-send {
+    width: 89px;
+    height: 76px;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+}

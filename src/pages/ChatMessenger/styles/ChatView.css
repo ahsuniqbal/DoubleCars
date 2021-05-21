@@ -3,6 +3,10 @@
     overflow-y: scroll;
 }
 
-.chat-board::-webkit-scrollbar {
+/* .chat-board::-webkit-scrollbar {
+    visibility: hidden;
+} */
+
+.chatview-dashboard::-webkit-scrollbar {
     visibility: hidden;
 }
