@@ -11,6 +11,7 @@ import { getLogin } from '../../../config/LoginAuth';
 // import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import {uploadImage} from '../../../utils/imageUploader'
 import chatDummy from '../../../assets/chat-dummy.png'
+import cross from '../../../assets/icons/cross.svg'
 
 const firebase = require('firebase').default
 
@@ -197,27 +198,35 @@ const Compose = (props) => {
             {/* <Input  id="image" type="file" accept="image/*">
             <Paperclip color="#1C67CE" size={30}/>
             </Input> */}
-            <input accept="image/*" onChange={e => onChangeImage(e)} className={classes.input} id="icon-button-file" type="file" multiple/>
-            <label htmlFor="icon-button-file" className="mb-0">
-                <IconButton color="primary" aria-label="upload picture" component="span">
-                <Paperclip size={18} />
-                </IconButton>
-            </label>
-
-            {/* If someone is typing a text then to show this input box */}
-            <Input className="visible" onChange={e => TypingStatus()} id="chatMessage" type="text" onKeyDown={e => handleKeyDown(e)} placeholder="Write a message..." />
+            <Row>
+                <Col xs="1">
+                    <input accept="image/*" onChange={e => onChangeImage(e)} className={classes.input} id="icon-button-file" type="file" multiple/>
+                    <label htmlFor="icon-button-file" className="mb-0">
+                        <IconButton color="primary" aria-label="upload picture" component="span">
+                        <Paperclip size={18} />
+                        </IconButton>
+                    </label>
+                </Col>
             
-            {/* Otherwise if someone is sending an image then show the image preview */}
-            {/* <Row>
-                <Col xs="2">
+            
+
+                <Col xs="9">
+                    {/* If someone is typing a text then to show this input box */}
+                    <Input className="invisible" onChange={e => TypingStatus()} id="chatMessage" type="text" onKeyDown={e => handleKeyDown(e)} placeholder="Write a message..." />
+                    
+                    {/* Otherwise if someone is sending an image then show the image preview */}
                     <div className="img-send">
+                        <div className="cross-image">
+                            <img src={cross} alt="Cross image" className="img-fluid" />
+                        </div>
                         <img src={chatDummy} alt="Chat image" className="img-fluid" />
-                        
                     </div>
                 </Col>
-            </Row> */}
-
-            <ion-icon className="cursor-pointer" onClick={e => sendMessage()} name="send"></ion-icon>
+            
+                <Col xs="2" className="text-center">
+                    <ion-icon className="cursor-pointer" onClick={e => sendMessage()} name="send"></ion-icon>
+                </Col>
+            </Row>
         </div>
     )
 }
