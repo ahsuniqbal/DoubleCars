@@ -7,6 +7,7 @@ import Ad2 from '../../../assets/Advertisment2.png'
 import '../styles/AboutSeller.css'
 import { Link } from 'react-router-dom';
 import { GetSellerDetails } from '../api/GetRequests';
+import { SendEmail } from '../api/PostRequest';
 import { Phone, Mail } from 'react-feather';
 import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import ClockIcon from '../../../assets/clock-icon.png';
@@ -48,14 +49,29 @@ const SellerDetails = (props) => {
         e.preventDefault();
         const sent = document.getElementById('email-sent-label');
         sent.textContent = ""
-        const email=document.getElementById('email-id').value
+        const email = document.getElementById('email-id').value;
+        const msg = document.getElementById('message').value;
+
+
+        console.log(props.details);
+        
         if(emailValidation(email)) {
             // mail is okay
             document.getElementById('email-error-label').textContent = "";
-               // show success message
+               
+            const obj = {
+                email: email,
+                message: msg,
+                productId: props.details.productId
+            }
             
-            sent.textContent = "Message sent successfully *"
-               setTimeout(()=> sent.textContent="" ,3000) 
+            SendEmail(obj).then(doc => {
+                sent.textContent = "Message sent successfully *"
+                setTimeout(()=> sent.textContent="" ,3000);
+            }).catch(error => {
+                document.getElementById('email-error-label').textContent = error.message;
+            })
+            
         }
          else {
             // mail is wrong
@@ -217,7 +233,7 @@ const SellerDetails = (props) => {
                             <div id="email-error-label" className="sellerPage-error-label"></div>
                             
                             
-                            <textarea class="form-control message-box" rows="4" placeholder = "Message (Optional)"></textarea>
+                            <textarea class="form-control message-box" id="message" rows="4" placeholder = "Message (Optional)"></textarea>
                             {/* <div className="success-msg"></div> */}
                             <div id="email-sent-label" className="text-success sellerPage-error-label"></div>
                             <Button color = "primary" onClick={(e)=>sendMessage(e)} size = "lg" block className = "contact-seller-button-2 mt-4">Send Message</Button>

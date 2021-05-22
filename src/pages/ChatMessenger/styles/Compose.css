@@ -1,6 +1,6 @@
 .compose {
     padding: 10px;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     background: white;
     border-top: 1px solid #eeeef1;
@@ -13,6 +13,20 @@
     border-right: 0;
 }
 
+
+.compose .cross-image {
+    width: 100%;
+    display: flex;
+    padding-right: 5px;
+    flex-direction: row-reverse;
+}
+
+.compose .cross-image img {
+    padding-top: 5px;
+    position: absolute;
+    left: auto;
+    cursor: pointer;
+}
 
 .compose input {
     border: none;
@@ -36,4 +50,13 @@ ion-icon {
     font-size: 21px;
     color: #1C67CE;
     margin-right: 25px;
+}
+
+
+.img-send {
+    width: 89px;
+    height: 76px;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
 }
