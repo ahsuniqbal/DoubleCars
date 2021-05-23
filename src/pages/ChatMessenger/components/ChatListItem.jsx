@@ -14,6 +14,15 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
+
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        message: state.MessageReducer
+    }
+}
+
+
 const checkURL = (url) => {
     var arr = [ "jpeg", "jpg", "png", "gif" ];
    var ext = url.substring(url.lastIndexOf(".")+1).split('?')[0];
@@ -86,7 +95,10 @@ const ChatListItem = (props) => {
             </Col>
             <Col xs="6" style={{paddingRight: '0px', paddingLeft: '5px'}}>
                 <p className="name">{props.chat.user.fullName}</p>
-                <Label className="last-msg">{checkURL(props.chat.chat.lastMessage) ? "Has sent a file" : trimString(props.chat.chat.lastMessage,20)}</Label>
+                <Label className="last-msg">
+                    {checkURL(props.chat.chat.lastMessage) ? "Has sent a file" : trimString(props.chat.chat.lastMessage,20)}
+                    {/* {props.message.chat ? checkURL(props.message.chat) ? "Has sent a file" : trimString(props.message.chat,20) : ""} */}
+                </Label>
             </Col>
             <Col xs="3" className="text-center">
                 <Label className="time">{lastMsgAt(props.chat.chat.lastMessageAt)}</Label>
@@ -99,4 +111,4 @@ const ChatListItem = (props) => {
     )
 }
 
-export default connect(null, mapDispatchToProps)(ChatListItem);
+export default connect(mapStateToProps, mapDispatchToProps)(ChatListItem);

@@ -7,12 +7,20 @@ import {getUserChats,getRecieverChat} from '../../../components/Firebase/databas
 import { connect } from 'react-redux';
 import {getChatUserPics} from '../api/Get'
 import { selectChat } from '../../../redux/actions/ChatActions.jsx';
+const firebase = require('firebase').default
 
 const mapDispatchToProps = (dispatch) => {
     return {
         selectChat: (chat) => {
             dispatch(selectChat(chat));
         }
+    }
+}
+
+
+const mapStateToProps = (state) => {
+    return {
+        chats: state
     }
 }
 
@@ -50,6 +58,28 @@ const ChatList = (props) => {
             }
         })
     },[])
+
+
+
+    // useEffect(() => {
+    //     console.log("props.chats",props.chats)
+    //     // var userId = localStorage.getItem('userId')
+    //     // var userId = 73
+        
+    //     const key = [props.chat.senderId, props.chat.receiverId].sort().join('-')
+    //     if(props.chat){
+    //         firebase.firestore().collection("Chats").doc(key).collection('Messages')
+    //         .orderBy('messagedAt','asc')
+    //         .onSnapshot((snapshot) => {
+    //         let updatedData = snapshot.docs.map(doc => doc.data())
+    //         // setMessage(updatedData)
+    //         console.log(updatedData);
+    //     })
+            
+    //     }
+    // },[props.chats])
+
+
 
     const renderChatList = (list) => {
         var table = [];
@@ -113,4 +143,4 @@ const ChatList = (props) => {
     )
 }
 
-export default connect(null, mapDispatchToProps)(ChatList);
+export default connect(mapStateToProps, mapDispatchToProps)(ChatList);

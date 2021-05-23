@@ -8,7 +8,7 @@ import '../styles/ChatView.css';
 
 const mapStateToProps = (state) => {
     return {
-        chats: state
+        chats: state.ChatReducer
     }
 }
 

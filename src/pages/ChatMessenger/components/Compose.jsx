@@ -12,6 +12,9 @@ import { getLogin } from '../../../config/LoginAuth';
 import {uploadImage} from '../../../utils/imageUploader'
 import chatDummy from '../../../assets/chat-dummy.png'
 import cross from '../../../assets/icons/cross.svg'
+import { connect } from 'react-redux';
+import { messageChat } from '../../../redux/actions/MessageAction';
+
 
 const firebase = require('firebase').default
 
@@ -25,6 +28,16 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   }));
+
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        messageChat: (chat) => {
+            dispatch(messageChat(chat));
+        }
+    }
+}
   
 const Compose = (props) => {
 
@@ -57,6 +70,7 @@ const Compose = (props) => {
     const sendMessage = () => {
         var msg = document.getElementById('chatMessage').value
         if(messageValid(msg)){
+            props.messageChat(msg)
             var userId = localStorage.getItem('userId')
             var obj = {
                 messageId : "asdsa",
@@ -103,6 +117,7 @@ const Compose = (props) => {
         var images = e.target.files
         //console.log(images[0])
         if(images.length === 1){
+            props.messageChat("Has sent a file")
         uploadImage(images[0],`/Attachment_Images/${new Date().toString()}${"_attachment"}.${images[0].type.split('/')[1]}`)
         .then(url => {
             var userId = localStorage.getItem('userId')
@@ -212,7 +227,7 @@ const Compose = (props) => {
 
                 <Col xs="9">
                     {/* If someone is typing a text then to show this input box */}
-                    <Input className="invisible" onChange={e => TypingStatus()} id="chatMessage" type="text" onKeyDown={e => handleKeyDown(e)} placeholder="Write a message..." />
+                    <Input className="visible" onChange={e => TypingStatus()} id="chatMessage" type="text" onKeyDown={e => handleKeyDown(e)} placeholder="Write a message..." />
                     
                     {/* Otherwise if someone is sending an image then show the image preview */}
                     <div className="img-send">
@@ -231,4 +246,4 @@ const Compose = (props) => {
     )
 }
 
-export default Compose
+export default connect(null, mapDispatchToProps)(Compose);
