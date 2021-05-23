@@ -135,3 +135,28 @@
 .image-gallery {
     padding: 0 20px;
 }
+
+
+
+@media (min-width: 576px) { 
+    /* Gallery image size */
+    .image-gallery-slide{
+        max-height: 600px;
+    }
+}
+
+
+@media (min-width: 768px) { 
+    /* Gallery image size */
+    .image-gallery-slide{
+        max-height: 500px;
+    }
+}
+
+
+@media (min-width: 992px) { 
+    /* Gallery image size */
+    .image-gallery-slide{
+        max-height: 800px;
+    }
+}
