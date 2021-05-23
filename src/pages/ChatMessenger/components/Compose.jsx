@@ -12,6 +12,9 @@ import { getLogin } from '../../../config/LoginAuth';
 import {uploadImage} from '../../../utils/imageUploader'
 import chatDummy from '../../../assets/chat-dummy.png'
 import cross from '../../../assets/icons/cross.svg'
+import { connect } from 'react-redux';
+import { messageChat } from '../../../redux/actions/MessageAction';
+
 
 const firebase = require('firebase').default
 
@@ -25,6 +28,16 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   }));
+
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        messageChat: (chat) => {
+            dispatch(messageChat(chat));
+        }
+    }
+}
   
 const Compose = (props) => {
 
@@ -132,6 +145,7 @@ const Compose = (props) => {
     const onSendImages = async () => {
         var images = images1
         if(images.length === 1){
+            props.messageChat("Has sent a file")
         uploadImage(images[0],`/Attachment_Images/${new Date().toString()}${"_attachment"}.${images[0].type.split('/')[1]}`)
         .then(url => {
             var userId = localStorage.getItem('userId')
@@ -354,4 +368,4 @@ const Compose = (props) => {
     )
 }
 
-export default Compose
+export default connect(null, mapDispatchToProps)(Compose);
