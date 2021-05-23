@@ -335,6 +335,8 @@ const Filters = (props) => {
         document.getElementById("toYear").disabled = false;
         setSelectedFromYear(fromYear);
         filters['minYear'] = fromYear;
+
+        delete filters['maxYear'];
         setFilters(filters);
         FilterQueryString(filters);
         setLoading(false)
