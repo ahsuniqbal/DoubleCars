@@ -96,7 +96,10 @@ const ChatListItem = (props) => {
             <Col xs="6" style={{paddingRight: '0px', paddingLeft: '5px'}}>
                 <p className="name">{props.chat.user.fullName}</p>
                 <Label className="last-msg">
+                    {/* Message from firebase */}
                     {checkURL(props.chat.chat.lastMessage) ? "Has sent a file" : trimString(props.chat.chat.lastMessage,20)}
+
+                    {/* Message from redux */}
                     {/* {props.message.chat ? checkURL(props.message.chat) ? "Has sent a file" : trimString(props.message.chat,20) : ""} */}
                 </Label>
             </Col>
