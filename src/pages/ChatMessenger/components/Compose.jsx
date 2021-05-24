@@ -347,7 +347,7 @@ const Compose = (props) => {
             
             
 
-                <Col xs="9">
+                <Col xs="9" className="d-flex">
                     {/* If someone is typing a text then to show this input box */}
                     {
                         !isImageSelected ? <Input className="visible" onChange={e => TypingStatus()} id="chatMessage" type="text" onKeyDown={e => handleKeyDown(e)} placeholder="Write a message..." /> 

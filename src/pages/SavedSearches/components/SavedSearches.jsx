@@ -5,6 +5,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {getUserSavedSearches} from '../api/GetRequest'
 import {removeUserSearch} from '../api/PatchRequest'
 import { getLogin } from '../../../config/LoginAuth';
+import { Link } from 'react-router-dom';
 
 
 const SavedSearches = () => {
@@ -14,6 +15,7 @@ const SavedSearches = () => {
     useEffect(() => {
         getUserSavedSearches(getLogin())
         .then(doc => {
+            console.log(doc);
             if(doc.length > 0){
                 setSaved(doc)
             }
@@ -57,7 +59,9 @@ const SavedSearches = () => {
                         
                         <Row style={{marginTop: '20px', marginBottom: '17px'}}>
                             <Col xs="12">
-                                <h6 className="cursor-pointer" onClick={() => console.log(list[i].filter_query)}>{list[i].title}</h6>
+                                <Link to="/products">
+                                    <h6 className="cursor-pointer" onClick={() => console.log(list[i].filter_query)}>{list[i].title}</h6>
+                                </Link>
                             </Col>
                             <Col xs="12">
                                 <Label className="active-filters">{list[i].count} filters activated &nbsp;·&nbsp; <span onClick={() => remove(list[i].saved_search_id)}>Remove</span></Label>
