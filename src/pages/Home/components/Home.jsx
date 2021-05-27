@@ -105,7 +105,7 @@ const DrawCarouselCols = (list, index) => {
                     productImg={list[i].coverPic}
                     productName={list[i].name}
                     productTitle={list[i].name}
-                    productSubtitle={AddCommaToNumber(list[i].mileage) + " mileage · " + list[i].zipCode}
+                    productSubtitle={list[i].mileage === "" ? "NEW · " + list[i].zipCode : AddCommaToNumber(list[i].mileage) + " mileage · " + list[i].zipCode}
                     productText={"$" + AddCommaToNumber(list[i].price)}
                 />
                  : null
@@ -146,17 +146,17 @@ const Home = () => {
     const history=useHistory()
 
 
-    // useEffect(() => {
-    //     const password = prompt('To visit Double Cars, you need to enter the magic key here.');
+    useEffect(() => {
+        const password = prompt('To visit Double Cars, you need to enter the magic key here.');
 
-    //     if(password === "easypeasy") {
-    //         alert("Congratulations! You have unlocked the secret chamber");
-    //     }
-    //     else {
-    //         alert("Panicc!!!! Intruder Spotted!!!");
-    //         window.location.reload();
-    //     }
-    // }, [])
+        if(password === "easypeasy") {
+            alert("Congratulations! You have unlocked the secret chamber");
+        }
+        else {
+            alert("Panicc!!!! Intruder Spotted!!!");
+            window.location.reload();
+        }
+    }, [])
 
 
 

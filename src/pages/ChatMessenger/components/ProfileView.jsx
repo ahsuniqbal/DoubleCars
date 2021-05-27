@@ -13,7 +13,7 @@ import {getUser} from '../api/Get'
 const mapStateToProps = (state) => {
     console.log("Map state", state)
     return {
-        chats: state
+        chats: state.ChatReducer
     }
 }
 
