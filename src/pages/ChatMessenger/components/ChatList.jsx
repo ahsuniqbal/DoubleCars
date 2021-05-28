@@ -29,7 +29,7 @@ const ChatList = (props) => {
     const [chats,setChats] = useState([])
     const [constChats,setConstantChats] = useState([])
     const [updateView,setViewUpdate] = useState(null)
-
+    const [flag,setFlag] = useState(true)
     useEffect(() => {
         console.log("chala")
     },[props.up])
@@ -55,7 +55,11 @@ const ChatList = (props) => {
                 }
                 newList.push(obj)
             }
-                props.selectChat(newList[0])
+                if(flag){
+                    props.selectChat(newList[0])
+                    setFlag(false)
+                }
+                
                setChats(newList)
                setConstantChats(newList)
             })
@@ -64,7 +68,7 @@ const ChatList = (props) => {
             })
             }
         })
-    },[])
+    },[props.up])
 
 
 

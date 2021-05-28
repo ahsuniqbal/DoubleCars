@@ -25,7 +25,7 @@ const MessageBubble = (props) => {
 
     useEffect(() => {
         //whenever message updates this will run to make sure view of chat is at the bottom, always.
-        // props.updateFunc(true)
+        props.updateFunc(true)
         const container = document.getElementById('chatview-dashboard');
         if(container){
             // container.scrollTo(0, container.scrollHeight);
