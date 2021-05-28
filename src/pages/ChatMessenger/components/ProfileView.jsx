@@ -8,7 +8,7 @@ import { Phone, Mail, MapPin } from 'react-feather';
 import { connect } from 'react-redux';
 import '../styles/ProfileView.css';
 import {getUser} from '../api/Get'
-
+import { getChatEnquires } from '../../../components/Firebase/database'
 
 const mapStateToProps = (state) => {
     console.log("Map state", state)
@@ -19,6 +19,7 @@ const mapStateToProps = (state) => {
 
 const ProfileView = (props) => {
     const [user,setUser] = useState(null);
+    const [enquiry,setEnquiry] = useState([])
 
     // You can get the user id by props.chats.user.userId
     // Initial state me null hoga is lye code phate ga initial state me kch dalwana parega
@@ -26,8 +27,19 @@ const ProfileView = (props) => {
     
 
     useEffect(() => {
+
+        
+
         console.log('props....',props)
         if(props.chats.user){
+            getChatEnquires(props.chats.chat.receiverId,props.chats.chat.senderId)
+        .then(doc => {
+            console.log('enquiry',doc)
+            setEnquiry(doc)
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
             console.log('props.chats',props.chats)
             getUser(props.chats.user.userId)
             .then(doc => {
@@ -45,21 +57,23 @@ const ProfileView = (props) => {
         <>
         <Card className="profile-view">
             <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
-
-                {/* <div style={{paddingRight: '1.25rem', paddingLeft: '1.25rem'}}>
+                {
+                    enquiry.length > 0 ? <div style={{paddingRight: '1.25rem', paddingLeft: '1.25rem'}}>
                     <h6>Inquiring For</h6>
 
                     <Row className="inquaring-for-card">
                         <Col xs="5" className="px-0">
-                            <CardImg src={BlogPageImage4} />
+                            <CardImg loading="lazy" src={enquiry[0].vehicleImage} />
                         </Col>
                         <Col xs="7" className="px-0">
-                            <CardTitle title="2019 Acura MDX Hy...">2019 Acura MDX Hy...</CardTitle>
-                            <CardSubtitle>17,863 Mileage · California</CardSubtitle>
-                            <CardText>$25,664</CardText>
+                            <CardTitle title="2019 Acura MDX Hy...">{enquiry[0].enquiryText}</CardTitle>
+                            <CardSubtitle>{enquiry[0].vehicleSubTitle}</CardSubtitle>
+                            <CardText>${enquiry[0].vehiclePrice}</CardText>
                         </Col>
                     </Row>
-                </div> */}
+                </div> : null
+                }
+                
 
                 {/* <hr className="mt-5 mb-4" /> */}
                 {
