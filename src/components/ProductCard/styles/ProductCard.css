@@ -131,6 +131,9 @@
     line-height: 16px;
     color: rgba(0, 0, 0, 0.45);
     margin-top: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* Rating div */
