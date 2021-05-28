@@ -40,7 +40,7 @@ const ChatView = (props) => {
 
             <Row id="chat-board" className="chat-board">
                 <Col xs="12" style={{paddingLeft: '25px', paddingRight: '25px'}} className="pr-0">
-                {props.chats ? props.chats.chat ? <MessageBubble chat={props.chats.chat}/> : null : null}
+                {props.chats ? props.chats.chat ? <MessageBubble updateFunc={props.updateFunc} chat={props.chats.chat}/> : null : null}
                 </Col>
             </Row>
 

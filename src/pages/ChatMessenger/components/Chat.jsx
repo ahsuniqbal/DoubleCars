@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Row, Col, Container } from 'reactstrap';
 import ChatList from './ChatList';
 import ChatView from './ChatView';
@@ -9,6 +9,14 @@ import NavigationBar from '../../../components/NavigationBar';
 import '../styles/Chat.css';
 
 const Chat = () => {
+
+    const [up,setUp] = useState(false)
+
+    const updateFunc = (updateView) => {
+        setUp(!up)
+    }
+
+
     return (
         <>
         <NavigationBar />
@@ -16,11 +24,11 @@ const Chat = () => {
             
             <Row className = "main-chat-row">
                 <Col md="3" className="chatlist-col" >
-                    <ChatList />
+                    <ChatList up={up}/>
                 </Col>
 
                 <Col md="6" style={{padding: '0', borderRadius: '2rem', marginTop: '2rem'}}>
-                    <ChatView />
+                    <ChatView updateFunc={updateFunc} />
                 </Col>
 
                 <Col xs="3" style={{padding: '0', marginTop: '2rem'}}>

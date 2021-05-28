@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect,useState} from 'react';
 import { Row, Col, CardImg, Label } from 'reactstrap';
 import { connect } from 'react-redux';
 import { selectChat } from '../../../redux/actions/ChatActions.jsx';
@@ -38,6 +38,9 @@ const checkURL = (url) => {
 
 
 const ChatListItem = (props) => {
+
+    const [flag,setFlag] = useState(false)
+
     const getNotify = (chat) => {
         console.log('chat',chat)
         var userId = localStorage.getItem('userId')
@@ -54,7 +57,9 @@ const ChatListItem = (props) => {
             string;
     };
   
-
+    useEffect(() => {
+        setFlag(!flag)
+    },[props.chat])
     
 
     const timeSince = (date) => {

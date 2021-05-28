@@ -24,10 +24,17 @@ const mapStateToProps = (state) => {
     }
 }
 
+
 const ChatList = (props) => {
     const [chats,setChats] = useState([])
     const [constChats,setConstantChats] = useState([])
+    const [updateView,setViewUpdate] = useState(null)
 
+    useEffect(() => {
+        console.log("chala")
+    },[props.up])
+
+    
     
     useEffect(() => {
         
@@ -85,7 +92,7 @@ const ChatList = (props) => {
         var table = [];
         for(let i = 0; i < list.length; i++){
             table.push(
-                <ChatListItem  chat={list[i]}/>
+                <ChatListItem chat={list[i]}/>
             )
         }
         return table;

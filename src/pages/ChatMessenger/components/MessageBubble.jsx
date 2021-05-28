@@ -3,13 +3,13 @@ import { Label, Row, Col } from 'reactstrap';
 import '../styles/MessageBubble.css';
 import {getRecieverChat} from '../../../components/Firebase/database';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Audi from '../../../assets/RelatedStoriesDemoimg.png'
+// import Audi from '../../../assets/RelatedStoriesDemoimg.png'
 import $ from "jquery"
 const firebase = require('firebase').default
 
 const MessageBubble = (props) => {
     const [message,setMessage] = useState([])
-    const [imagesList,setImageList] = useState([Audi,Audi,Audi,Audi,Audi,Audi])
+    // const [imagesList,setImageList] = useState([Audi,Audi,Audi,Audi,Audi,Audi])
     useEffect(() => {
         const key = [props.chat.senderId, props.chat.receiverId].sort().join('-')
         if(props.chat){
@@ -18,13 +18,14 @@ const MessageBubble = (props) => {
             .onSnapshot((snapshot) => {
             let updatedData = snapshot.docs.map(doc => doc.data())
             setMessage(updatedData)
+            
             })
         }
     },[props.chat])
 
     useEffect(() => {
         //whenever message updates this will run to make sure view of chat is at the bottom, always.
-        
+        // props.updateFunc(true)
         const container = document.getElementById('chatview-dashboard');
         if(container){
             // container.scrollTo(0, container.scrollHeight);
