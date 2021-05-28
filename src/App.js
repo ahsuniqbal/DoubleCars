@@ -33,16 +33,16 @@ const Chat = React.lazy(() => import('./pages/ChatMessenger'));
 function App() {
   const container = useRef(null)
 
-useEffect(()=> {
-  lottie.loaadanimation({
-    container: container.current,
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    animationData: require('./assets/DDCar.json')
-  })
+// useEffect(()=> {
+//   lottie.loaadanimation({
+//     container: container.current,
+//     renderer: 'svg',
+//     loop: true,
+//     autoplay: true,
+//     animationData: require('./assets/DDCar.json')
+//   })
 
-},[])
+// },[])
 
   // to detect mobile screens 
 

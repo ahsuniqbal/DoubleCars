@@ -25,7 +25,7 @@ const ShowSearchResults = (products) => {
                     <ProductCard
                         productId={products[i].productId}
                         productTitle={products[i].carName}
-                        productSubtitle={products[i].mileage === "" ? "NEW · " + products[i].zipCode : AddCommaToNumber(products[i].mileage) + " mileage · " + products[i].zipCode}
+                        productSubtitle={products[i].mileage === "" || products[i].mileage === null ? "NEW · " + products[i].zipCode : AddCommaToNumber(products[i].mileage) + " mileage · " + products[i].zipCode}
                         productText={"$" + AddCommaToNumber(products[i].price)}
                         productImg={products[i].coverPic}
                         productName={products[i].carName}

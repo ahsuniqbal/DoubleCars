@@ -97,7 +97,7 @@ const DCSlider = (props) => {
                             productImg={item.coverPic}
                             productName={item.productName}
                             productTitle={item.carName}
-                            productSubtitle={item.mileage === "" ? "NEW · " + item.zipCode : AddCommaToNumber(item.mileage) + " mileage · " + item.zipCode}
+                            productSubtitle={item.mileage === "" || item.mileage === null ? "NEW · " + item.zipCode : AddCommaToNumber(item.mileage) + " mileage · " + item.zipCode}
                             productText={"$" + AddCommaToNumber(item.price)}
                             allowBookmark={props.allowBookmark}
                            
