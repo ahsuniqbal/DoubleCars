@@ -1,10 +1,20 @@
-import React from 'react';
-import { Row, Col,Label } from 'reactstrap';
-import { AddCommaToNumber } from '../../../utils/NumberManipulation';
+import React, { useState } from 'react';
+import { Row, Col,Label, Collapse } from 'reactstrap';
+import { AddCommaToNumber, TrimText } from '../../../utils/NumberManipulation';
 import '../styles/Information.css';
 
 import CertifiedCarsCard from './CertifiedCarCard';
 const Information = (props) => {
+
+    // read more state
+    const [readMore, setReadMore] = useState(false);
+
+
+    // read more toggle
+    const toggleReadMore = () => {
+        setReadMore(!readMore);
+    }
+
     const details = props.details;
     var attributes = props.attributes;
 
@@ -233,7 +243,31 @@ const Information = (props) => {
                 </Col>
             </Row> */}
 
-            {details.description ? <Label className="car-info">{details.description}</Label> : null}
+            {/* If description exists than show other wise null */}
+            {details.description ? 
+
+                // If description is greater than this length then show read more thing
+                // Other wise show full text
+                details.description.length > 400 ?
+                    <>
+                        {/* If read more is false then short text and read more button is shown */}
+                        {!readMore && <Label className="car-info">{TrimText(details.description, 400)}...</Label>}
+                        {!readMore && <a style={{textDecoration: 'underline', cursor: 'pointer', color: '#007bff'}} onClick={() => toggleReadMore()}>Read More</a>}
+
+                        
+                        <Collapse isOpen={readMore}>
+                            <Label className="car-info">{details.description}</Label>
+                            {/* If read more is true then long text and read less button is shown */}
+                            {readMore && <a style={{textDecoration: 'underline', cursor: 'pointer', color: '#007bff'}} onClick={() => toggleReadMore()}>Read Less</a>}
+                        </Collapse>
+                    </>
+
+                // If description is greater than the length defined show read more thing
+                // Other wise show full text
+                : <Label className="car-info">{details.description}</Label>
+
+            // If description exists than show other wise null
+            : null}
             
             
             

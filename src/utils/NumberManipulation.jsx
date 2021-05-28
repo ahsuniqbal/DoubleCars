@@ -7,3 +7,12 @@ export const AddCommaToNumber = (number) => {
         console.error("Invalid format", error.message);
     }
 }
+
+
+
+// Trim text
+export const TrimText = (text, max) => {
+    if(text.length > max)
+        return text.slice(0, max);
+    return text;
+}
