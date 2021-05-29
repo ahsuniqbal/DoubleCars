@@ -8,7 +8,7 @@
       transition: transform 500ms !important; 
 }
 .service-img:hover{
-    transform: scale(1.02);
+    /* transform: scale(1.02); */
 }
 .service-head{
     font-family: Poppins;

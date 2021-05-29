@@ -83,3 +83,120 @@
     max-height: 244px;
     object-fit: cover;
 }
+
+.chat-view {
+    border-radius: 0px 6px 6px 0px;
+    height: 100%; 
+    border: 1px solid #E9E9E9;
+    ;
+    /* border-right: 1px solid #E9E9E9;
+    border-top: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
+    border-left: 1px solid#E9E9E9; */
+}
+
+.chat-view h6 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+
+.chat-view .inquiring-container {
+    border-bottom: 1px solid #E9E9E9;
+    padding-bottom: 2rem;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+    margin-bottom: 2rem;
+
+}
+
+.chat-view .inquaring-for-card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 9px;
+    padding: 15px;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 2rem;
+    width: 50%;
+    height: 10%;
+    
+}
+
+.chat-view .inquaring-for-card .card-img {
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100px;
+    object-fit: fill;
+    margin-right: 10px;
+    height: 70%;
+}
+
+
+
+.chat-view .inquaring-for-card .card-title {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    max-width: 100%;
+    color: rgba(0, 0, 0, 0.85);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chat-view .inquaring-for-card .card-subtitle {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    color: rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chat-view .inquaring-for-card .card-text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 14px;
+}
+
+
+
+.chat-view .profile-details .card-img {
+    width: 87px;
+    height: 87px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 24px;
+}
+
+.chat-view .profile-details .rating-number {
+    font-weight: 500;
+    font-size: 14px;
+    font-family: Ubuntu;
+    color: #FFC061;
+}
+
+.chat-view .profile-details p {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+    font-style: normal;
+    font-weight: normal;
+}
+
+.chat-view button {
+    font-weight: 500;
+    font-size: 14px;
+    height: 40px;
+    border-radius: 6px;
+    border-color: #1C67CE;
+    margin-top: 40px;
+}
+
+.chat-view button:focus, .chat-view button:active {
+    box-shadow: none !important;
+}

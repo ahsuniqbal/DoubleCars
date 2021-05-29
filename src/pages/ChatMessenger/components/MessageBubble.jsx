@@ -180,7 +180,7 @@ const MessageBubble = (props) => {
             }
 
 
-        <Card className="profile-view">
+        <Card className="chat-view">
             <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
                 <div className="inquiring-container" >
                     <h6>Inquiring For</h6>
