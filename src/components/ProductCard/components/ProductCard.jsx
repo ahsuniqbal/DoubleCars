@@ -126,13 +126,13 @@ const ProductCard = (props) => {
                     <Link to={"/dealer/" + props.userId}>
                         {/* Remove private seller classname it's temporary used here to write label Dealer */}
                         <Row className="company-details private-seller">
-                            <Col xs="3">
+                            <Col xs="2">
                                 {/* Profile pic of the dealer */}
                                 {/* <div className="image-div"> */}
                                     <CardImg src={props.dealerPic ? props.dealerPic : dummyAvatar} alt={props.dealerName} />
                                 {/* </div> */}
                             </Col>
-                            <Col xs="5" className="px-0">
+                            <Col xs="6" style={{paddingLeft: '10px'}}>
                                 {/* Name of the dealer */}
                                 <CardTitle title={props.dealerName}>{props.dealerName}</CardTitle>
                             </Col>
@@ -155,17 +155,17 @@ const ProductCard = (props) => {
                     {/* Link to private seller's profile page */}
                     <Link to={"/dealer/" + props.userId}>
                         <Row className="company-details private-seller">
-                            <Col xs="3">
+                            <Col xs="2">
                                 {/* Profile pic of the private seller */}
                                 {/* <div className="image-div"> */}
                                     <CardImg src={props.dealerPic ? props.dealerPic : dummyAvatar} alt={props.dealerName} />
                                 {/* </div> */}
                             </Col>
-                            <Col xs="4" className="px-0">
+                            <Col xs="6" style={{paddingLeft: '10px'}}>
                                 {/* Name of the private seller */}
                                 <CardTitle title={props.dealerName}>{props.dealerName}</CardTitle>
                             </Col>
-                            <Col xs="5" className="pl-0 text-right">
+                            <Col xs="4" className="pl-0 text-right">
                                 <Label>Private Seller</Label>    
                             </Col>
                         </Row>

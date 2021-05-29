@@ -45,7 +45,7 @@ const Gallery = (props) => {
     }
 
     return(
-        <div>    
+        <div>
             <ImageGallery
                 items={props.items}
                 lazyLoad={true}

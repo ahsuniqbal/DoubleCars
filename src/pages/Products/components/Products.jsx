@@ -117,7 +117,6 @@ const Products = (props) => {
         }
         tempStr += `&id=${userId}`
 
-        console.log("QQUERY",tempStr)
         setPageNumber(pageNumber + 1)
         GetSearchResult(tempStr).then(doc1 => {
             setTotalCount(doc1.totalCount)
@@ -161,7 +160,6 @@ const Products = (props) => {
             str = `page=${0}&${queryStr}`
         }
         str += `&id=${userId}`
-        console.log("QQUERY",str)
         GetSearchResult(str).then(doc1 => {
             setTotalCount(doc1.totalCount)
             console.log(doc1)
