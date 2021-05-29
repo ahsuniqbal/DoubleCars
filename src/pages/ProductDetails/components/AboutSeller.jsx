@@ -149,7 +149,7 @@ const SellerDetails = (props) => {
                         if(doc.code === 1){
                             console.log('Mail went successfully')
                         }else{
-                            console.log('Something went wrong with mail serves')
+                            console.log('Something went wrong with mail servers')
                         }
                         
                     })
