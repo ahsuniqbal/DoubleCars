@@ -58,20 +58,21 @@ const ProfileView = (props) => {
         <Card className="profile-view">
             <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
                 {
-                    enquiry.length > 0 ? <div style={{paddingRight: '1.25rem', paddingLeft: '1.25rem'}}>
-                    <h6>Inquiring For</h6>
+                    enquiry.length > 0 ? 
+                    <div className="inquiring-container" >
+                        <h6>Inquiring For</h6>
 
-                    <Row className="inquaring-for-card">
-                        <Col xs="5" className="px-0">
-                            <CardImg loading="lazy" src={enquiry[0].vehicleImage} />
-                        </Col>
-                        <Col xs="7" className="px-0">
-                            <CardTitle title="2019 Acura MDX Hy...">{enquiry[0].enquiryText}</CardTitle>
-                            <CardSubtitle>{enquiry[0].vehicleSubTitle}</CardSubtitle>
-                            <CardText>${enquiry[0].vehiclePrice}</CardText>
-                        </Col>
-                    </Row>
-                </div> : null
+                        <Row className="inquaring-for-card">
+                            <Col xs="5" className="px-0">
+                                <CardImg loading="lazy" src={enquiry[0].vehicleImage} />
+                            </Col>
+                            <Col xs="7" className="px-0">
+                                <CardTitle title={enquiry[0].enquiryText}>{enquiry[0].enquiryText}</CardTitle>
+                                <CardSubtitle title={enquiry[0].vehicleSubTitle}>{enquiry[0].vehicleSubTitle}</CardSubtitle>
+                                <CardText>{enquiry[0].vehiclePrice}</CardText>
+                            </Col>
+                        </Row>
+                    </div> : null
                 }
                 
 

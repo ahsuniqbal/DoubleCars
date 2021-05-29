@@ -1,9 +1,9 @@
 import React,{ useState, useEffect} from 'react'
-import { Label, Row, Col } from 'reactstrap';
+import { Label, Row, Col, CardBody, Card, CardImg, CardTitle, CardSubtitle, CardText } from 'reactstrap';
 import '../styles/MessageBubble.css';
 import {getRecieverChat} from '../../../components/Firebase/database';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-// import Audi from '../../../assets/RelatedStoriesDemoimg.png'
+import Audi from '../../../assets/RelatedStoriesDemoimg.png'
 import $ from "jquery"
 const firebase = require('firebase').default
 
@@ -178,6 +178,26 @@ const MessageBubble = (props) => {
             {
                 message ? renderChatBubbels(message) : null
             }
+
+
+        <Card className="profile-view">
+            <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
+                <div className="inquiring-container" >
+                    <h6>Inquiring For</h6>
+
+                    <Row className="inquaring-for-card">
+                        <Col xs="5" className="px-0">
+                            <CardImg loading="lazy" src={Audi} />
+                        </Col>
+                        <Col xs="7" className="px-0">
+                            <CardTitle title="2019 Acura MDX ...">2019 Acura MDX ...</CardTitle>
+                            <CardSubtitle title="2019 Acura MDX ...">2019 Acura MDX ...</CardSubtitle>
+                            <CardText>2019 Acura MDX ...</CardText>
+                        </Col>
+                    </Row>
+                </div>
+            </CardBody>
+        </Card>
         </div>
     )
 }
