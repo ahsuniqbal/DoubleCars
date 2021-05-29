@@ -88,6 +88,7 @@ const MessageBubble = (props) => {
             if(list[i].senderId == localStorage.getItem('userId')){
 
                 if(list[i].enquiry){
+                    //for Left
                     table.push(
                         <div className="inquiring-chat-view">
                         <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
@@ -150,8 +151,28 @@ const MessageBubble = (props) => {
                 }
                 
             }else{
-
-                if(list[i].multipleImagesList && list[i].multipleImagesList.length > 0){
+                if(list[i].enquiry){
+                    //for Right
+                    table.push(
+                        <div className="inquiring-chat-view">
+                        <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
+                            <div className="inquiring-container" >
+                                <Row className="inquaring-for-card">
+                                    <Col xs="5" className="px-0">
+                                        <CardImg loading="lazy" src={list[i].vehicleImage ? list[i].vehicleImage : null} />
+                                    </Col>
+                                    <Col xs="7" className="px-0">
+                                        <CardTitle title="2019 Acura MDX ...">{list[i].vehicleTitle ? list[i].vehicleTitle : ""}</CardTitle>
+                                        <CardSubtitle title="2019 Acura MDX ...">{list[i].vehicleSubTitle ? list[i].vehicleSubTitle : ""}</CardSubtitle>
+                                        <CardText>${list[i].vehiclePrice ? list[i].vehiclePrice : ""}</CardText>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </CardBody>
+                    </div>
+                    )
+                }
+                else if(list[i].multipleImagesList && list[i].multipleImagesList.length > 0){
                     table.push(
                         <Col xs="12">
                             <div className="grid-chat sent float-right">
