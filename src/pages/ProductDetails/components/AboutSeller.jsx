@@ -37,6 +37,7 @@ const SellerDetails = (props) => {
     useEffect(() => {
        
         GetSellerDetails(props.userId).then(doc => {
+            console.log(doc)
             setDealer(doc[0]);
         })
         .catch(error => {
@@ -293,7 +294,7 @@ const SellerDetails = (props) => {
                         
                         <div className='contact-details-div'>
                             {
-                                dealer.userRole === "Private User" ? null : <><a  className = "contact-detail-text"><img src={ClockIcon} className='clock-icon-img' />{dealer.openingTime ? dealer.openingTime : "NaN"}</a><br/></>
+                                dealer.userRole === "Private Seller" ? null : <><a  className = "contact-detail-text"><img src={ClockIcon} className='clock-icon-img' />{dealer.openingTime ? dealer.openingTime : "NaN"}</a><br/></>
                             }
                             
                             <a href={"tel:" + dealer.phNum} className = "contact-detail-text"> <img src={PhoneIcon} className='phone-icon-img'/>{dealer.phNum}</a>
@@ -301,7 +302,7 @@ const SellerDetails = (props) => {
                             <a href={"mailto:" + dealer.email} className = "contact-detail-text"><img src={MessageIcon} className='message-icon-img'/>{dealer.email}</a>
                             
                             {
-                                dealer.userRole === "Private User" ? null : <><br/><a className="contact-detail-text"><img src={AdrressPinIcon} className='address-icon-img'/>{dealer.address ? dealer.address : "NaN"}</a></>
+                                dealer.userRole === "Private Seller" ? null : <><br/><a className="contact-detail-text"><img src={AdrressPinIcon} className='address-icon-img'/>{dealer.address ? dealer.address : "NaN"}</a></>
                             }
                             
                         </div>
