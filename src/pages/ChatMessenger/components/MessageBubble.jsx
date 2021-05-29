@@ -5,6 +5,7 @@ import {getRecieverChat} from '../../../components/Firebase/database';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Audi from '../../../assets/RelatedStoriesDemoimg.png'
 import $ from "jquery"
+import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 const firebase = require('firebase').default
 
 const MessageBubble = (props) => {
@@ -98,9 +99,9 @@ const MessageBubble = (props) => {
                                         <CardImg loading="lazy" src={list[i].vehicleImage ? list[i].vehicleImage : null} />
                                     </Col>
                                     <Col xs="7" className="px-0">
-                                        <CardTitle title="2019 Acura MDX ...">{list[i].vehicleTitle ? list[i].vehicleTitle : ""}</CardTitle>
-                                        <CardSubtitle title="2019 Acura MDX ...">{list[i].vehicleSubTitle ? list[i].vehicleSubTitle : ""}</CardSubtitle>
-                                        <CardText>${list[i].vehiclePrice ? list[i].vehiclePrice : ""}</CardText>
+                                        <CardTitle title={list[i].vehicleTitle ? list[i].vehicleTitle : ""}>{list[i].vehicleTitle ? list[i].vehicleTitle : ""}</CardTitle>
+                                        <CardSubtitle title={list[i].vehicleSubTitle ? list[i].vehicleSubTitle : ""}>{list[i].vehicleSubTitle ? list[i].vehicleSubTitle : ""}</CardSubtitle>
+                                        <CardText>${AddCommaToNumber(list[i].vehiclePrice ? list[i].vehiclePrice : "")}</CardText>
                                     </Col>
                                 </Row>
                             </div>
@@ -157,14 +158,14 @@ const MessageBubble = (props) => {
                         <div className="inquiring-chat-view">
                         <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
                             <div className="inquiring-container" >
-                                <Row className="inquaring-for-card">
+                                <Row className="inquaring-for-card float-right">
                                     <Col xs="5" className="px-0">
                                         <CardImg loading="lazy" src={list[i].vehicleImage ? list[i].vehicleImage : null} />
                                     </Col>
                                     <Col xs="7" className="px-0">
-                                        <CardTitle title="2019 Acura MDX ...">{list[i].vehicleTitle ? list[i].vehicleTitle : ""}</CardTitle>
-                                        <CardSubtitle title="2019 Acura MDX ...">{list[i].vehicleSubTitle ? list[i].vehicleSubTitle : ""}</CardSubtitle>
-                                        <CardText>${list[i].vehiclePrice ? list[i].vehiclePrice : ""}</CardText>
+                                        <CardTitle title={list[i].vehicleTitle ? list[i].vehicleTitle : ""}>{list[i].vehicleTitle ? list[i].vehicleTitle : ""}</CardTitle>
+                                        <CardSubtitle title={list[i].vehicleSubTitle ? list[i].vehicleSubTitle : ""}>{list[i].vehicleSubTitle ? list[i].vehicleSubTitle : ""}</CardSubtitle>
+                                        <CardText>${AddCommaToNumber(list[i].vehiclePrice ? list[i].vehiclePrice : "")}</CardText>
                                     </Col>
                                 </Row>
                             </div>

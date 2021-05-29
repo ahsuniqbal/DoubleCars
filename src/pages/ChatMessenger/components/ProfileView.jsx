@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import '../styles/ProfileView.css';
 import {getUser} from '../api/Get'
 import { getChatEnquires } from '../../../components/Firebase/database'
+import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 
 const mapStateToProps = (state) => {
     console.log("Map state", state)
@@ -69,7 +70,7 @@ const ProfileView = (props) => {
                             <Col xs="7" className="pr-0">
                                 <CardTitle title={enquiry[0].enquiryText}>{enquiry[0].enquiryText}</CardTitle>
                                 <CardSubtitle title={enquiry[0].vehicleSubTitle}>{enquiry[0].vehicleSubTitle}</CardSubtitle>
-                                <CardText>{enquiry[0].vehiclePrice}</CardText>
+                                <CardText>${AddCommaToNumber(enquiry[0].vehiclePrice)}</CardText>
                             </Col>
                         </Row>
                     </div> : null
