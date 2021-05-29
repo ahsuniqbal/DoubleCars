@@ -180,24 +180,22 @@ const MessageBubble = (props) => {
             }
 
 
-        <Card className="chat-view">
+        <div className="inquiring-chat-view">
             <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
                 <div className="inquiring-container" >
-                    <h6>Inquiring For</h6>
-
                     <Row className="inquaring-for-card">
                         <Col xs="5" className="px-0">
                             <CardImg loading="lazy" src={Audi} />
                         </Col>
                         <Col xs="7" className="px-0">
-                            <CardTitle title="2019 Acura MDX ...">2019 Acura MDX ...</CardTitle>
-                            <CardSubtitle title="2019 Acura MDX ...">2019 Acura MDX ...</CardSubtitle>
-                            <CardText>2019 Acura MDX ...</CardText>
+                            <CardTitle title="2019 Acura MDX ...">2019 Acura MDX 2019 Acura MDX</CardTitle>
+                            <CardSubtitle title="2019 Acura MDX ...">2019 Acura MDX 2019 Acura MDX</CardSubtitle>
+                            <CardText>$17,299</CardText>
                         </Col>
                     </Row>
                 </div>
             </CardBody>
-        </Card>
+        </div>
         </div>
     )
 }
