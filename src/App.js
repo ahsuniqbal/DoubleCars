@@ -5,8 +5,9 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faStar, faMapPin, faPhone, faSearch, faEnvelope, faPlus, faMinus, faCheck, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import logo from './assets/DCNewLogo.png';
-import lottie from 'react-lottie';
+import logo from './assets/DCloader.gif';
+import * as lottie from 'lottie-web';
+import dclogo from './assets/DDCar.json'
 
 import { PrivateRoute } from './navigation/RouteTypes';
 
@@ -52,15 +53,30 @@ function App() {
   //     }
   // }
   // window.addEventListener("resize", resizeWindow);
+
+
+  const loading = () => {
+  //   return lottie.loadAnimation({
+  //     container: document.getElementById('main-div'), // the dom element that will contain the animation
+  //     renderer: 'svg',
+  //     loop: true,
+  //     autoplay: true,
+  //     path: dclogo // the path to the animation json
+  //   });
+
+    return <div className="preloader">
+        <img src={logo} alt="Double Cars preloader" className="img-fluid" />
+      </div>
+    
+  }
  
 
   return (  
-<div>
-
-      {/* Hello Ji :)  */}
+    <div>
+    {/* Hello Ji :)  */}
     <div className = "container" ref = {container}> </div> 
     <Router forceRefresh>
-      <React.Suspense fallback>
+      <React.Suspense fallback={loading()}>
         <Switch>
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={SignUp}/>
