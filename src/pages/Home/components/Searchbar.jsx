@@ -78,7 +78,7 @@ const Searchbar = () => {
                     <Row>
                         <Col xs="12" md="8" sm = "12" className='my-1'>
                         <InputGroup>
-                            <Input required className="search-search-box" id="search-box" type="text" placeholder="Search for Cars or Modeks. eg 2019 Toyota Camry" />
+                            <Input required className="search-search-box" id="search-box" type="text" placeholder="Search for Cars or Models. eg 2019 Toyota Camry" />
                             <InputGroupAddon addonType="append">
                                 <InputGroupText>
                                     {/* <FontAwesomeIcon icon="search" size="1x" /> */}
