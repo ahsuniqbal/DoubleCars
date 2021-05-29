@@ -7,7 +7,7 @@ import Ad2 from '../../../assets/Advertisment2.png'
 import '../styles/AboutSeller.css'
 import { Link } from 'react-router-dom';
 import { GetSellerDetails } from '../api/GetRequests';
-import { SendEmail } from '../api/PostRequest';
+import { SendEmail,messageChatMail } from '../api/PostRequest';
 import { Phone, Mail } from 'react-feather';
 import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import ClockIcon from '../../../assets/clock-icon.png';
@@ -88,6 +88,7 @@ const SellerDetails = (props) => {
         var vehicleTitle = props.details.carName
             
             const strId = [userId, dealerId].sort().join('-')
+            
             //var strId = "72-73"
             // console.log("final thing to send",obj,strId)
             firebase.firestore().collection("Chats").doc(strId).get()
@@ -138,6 +139,23 @@ const SellerDetails = (props) => {
                     
                     
                 }else{
+                    const mailObj = {
+                        carEnq : messageText,
+                        recieverId : dealerId,
+                        senderId : userId,
+                    }
+                    messageChatMail(mailObj)
+                    .then(doc => {
+                        if(doc.code === 1){
+                            console.log('Mail went successfully')
+                        }else{
+                            console.log('Something went wrong with mail serves')
+                        }
+                        
+                    })
+                    .catch(e => {
+                        console.log(e.message)
+                    })
                     var updateObj = {
                         lastMessage : messageText,
                         lastMessageAt : firebase.firestore.Timestamp.now(),
