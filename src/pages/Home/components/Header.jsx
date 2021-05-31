@@ -54,8 +54,6 @@ const Header = () => {
                                            <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={popupToggle}>Temporary Button</Button> 
                                             <LoginSignupModal isOpen={popupModal} toggle={popupToggle} /> </>: null
                                         } */}
-                                           
-                                
                                         </div>
                                     </div>
                                 </div>
