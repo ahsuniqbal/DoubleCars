@@ -42,7 +42,6 @@ const ChatListItem = (props) => {
     const [flag,setFlag] = useState(false)
 
     const getNotify = (chat) => {
-        console.log('chat',chat)
         var userId = localStorage.getItem('userId')
         if(chat.receiverId == userId){
             return chat.receiverHasRead
