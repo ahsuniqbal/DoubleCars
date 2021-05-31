@@ -24,7 +24,7 @@
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
-  font-size: 60px;
+  font-size: 70px;
   line-height: 110%;
   color: #FFFFFF;
 }
@@ -183,46 +183,8 @@ right: 2%;
 
 
 
-/* @media all  and (min-width: 4000px) {
-  .cover-left-heading {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 90px;
-    line-height: 110%;
-    color: #FFFFFF;
-    
-  }
-} */
-
-@media screen and (max-width:1200px){
-  .cover-left-heading {
-    font-size: 100px;
-  }
-
-}
-
-
-@media screen and (max-width:992px){
-  .cover-left-heading {
-    font-size: 80px;
-  }
-}
-
-
-@media screen and (max-width:768px){
-  .cover-left-heading {
-    font-size: 60px;
-  }
-}
 
   
-@media screen and (max-width:600px){
-  .cover-left-heading {
-    font-size: 60px;
-  }
-
-}
 
 
 

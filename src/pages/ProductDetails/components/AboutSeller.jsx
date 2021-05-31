@@ -248,7 +248,7 @@ const SellerDetails = (props) => {
 
                             <span className="or-divider">or</span>
                         
-                            <Input type = "email" id='email-id' className = "interested-textfield" placeholder = "Your email address"></Input>
+                            <Input type = "email" id='email-id' className = "interested-textfield" placeholder = "Your email address or Phone number"></Input>
                             <div id="email-error-label" className="sellerPage-error-label"></div>
                             
                             
