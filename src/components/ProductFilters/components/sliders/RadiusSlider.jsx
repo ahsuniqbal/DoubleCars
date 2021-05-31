@@ -7,22 +7,16 @@ const RadiusSlider = (props) => {
     };
 
 
-    const marks = (min, max, minLabel, maxLabel) => [
-        {
-          value: min,
-          label: minLabel,
-        },
-        {
-          value: max,
-          label: maxLabel,
-        }
-    ];
+    const handleRadiusValue = (event, newValue) => {
+        props.onHandleRadiusValue(newValue);
+    };
 
     return(
         <Slider 
             min={props.min}
             max={props.max}
             defaultValue={props.max}
+            onChange={handleRadiusValue}
             onChangeCommitted={handleChange} />
     )
 }

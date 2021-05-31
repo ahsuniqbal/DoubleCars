@@ -13,6 +13,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { GetCommercialVehicles } from '../api/GetRequests';
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
+import { Link } from 'react-router-dom';
 
 import Skeleton from '@material-ui/lab/Skeleton';
 
@@ -43,7 +44,9 @@ const TruckSection = () => {
                             <div className='truck-cars-div'>  
                                 <span className='trucks-images-gradient'>
                                     <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
-                                    <h1 className='trucks-head'>{vehicle.category}</h1>
+                                    <Link to={`/products?${vehicle.category}`}>
+                                        <h1 className='trucks-head'>{vehicle.category}</h1>
+                                    </Link>
                                     <Label className='trucks-label'>Starting from ${AddCommaToNumber(vehicle.price) }<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
                                 </span> 
                             </div>

@@ -62,7 +62,7 @@ const Footer = () => {
                                     <span >New Cars</span>}
                                     </NavLink>
                                 </Link>
-                                <Link to={'/products/'}>
+                                <Link to={'/products?cars=popular'}>
                                     <NavLink className = "nav-text-color" to = "">Popular Cars</NavLink>
                                 </Link>
                                 <Link to={'/products/'}>
@@ -77,13 +77,13 @@ const Footer = () => {
 
                         <Col xs="12" md="2" className = "footer-columns">
                             <Nav vertical>
-                                <Link to={'/products/'}>
+                                <Link to={'/products?cars=certified'}>
                                     <NavLink className = "nav-text-color" to = "">Certified Cars</NavLink>
                                 </Link>
-                                <Link to={'/products/'}>
+                                <Link to={'/products?cars=recommended'}>
                                     <NavLink className = "nav-text-color" to = "">Recommended</NavLink>
                                 </Link>
-                                <Link to={'/products/'}>
+                                <Link to={'/products?cars=trending'}>
                                     <NavLink className = "nav-text-color" to = "">Trending</NavLink>
                                 </Link>
                             </Nav>

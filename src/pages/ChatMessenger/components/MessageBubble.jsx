@@ -114,7 +114,7 @@ const MessageBubble = (props) => {
                 if(list[i].enquiry){
                     // Inquiry message for left
                     table.push(
-                        <div className="inquiring-chat-view">
+                        <div className="inquiring-chat-view cursor-pointer">
                         <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
                             <div className="inquiring-container" >
                                 <Row className="inquaring-for-card">
@@ -184,7 +184,7 @@ const MessageBubble = (props) => {
                 if(list[i].enquiry){
                     // Inquiry for message for right
                     table.push(
-                        <div className="inquiring-chat-view">
+                        <div className="inquiring-chat-view cursor-pointer">
                         <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
                             <div className="inquiring-container" >
                                 <Row className="inquaring-for-card float-right">

@@ -99,7 +99,7 @@ const Filters = (props) => {
     const [isModelCollapseOpen, setModelCollapseOpen] = useState(false);
     const [isTrimCollapseOpen, setTrimCollapseOpen] = useState(false);
 
-    const [radius, setRadius] = useState(0);
+    const [radius, setRadius] = useState(200);
     const [bodyList,setBodyList] = useState([])
 
     const [price, setPrice] = useState([0, 99999]);
@@ -157,6 +157,7 @@ const Filters = (props) => {
     /////////////// Handle changes in filters ///////////////
     const handleRadius = (radius) => {
         const zip = zipCode.split('- ')
+        setRadius(radius);
 
         const obj = {
             zip: zip[zip.length - 1],
@@ -164,7 +165,6 @@ const Filters = (props) => {
         }
         // console.log(convertIntoQueryParams(obj))
         GetZipCodesList(convertIntoQueryParams(obj)).then(doc => {
-            console.log(doc);
             if(doc.results.length > 0) {
                 setRadius(radius);            
                 filters['radius'] = radius;
@@ -184,6 +184,11 @@ const Filters = (props) => {
         // filters['radius'] = radius;
         // setFilters(filters);
         // FilterQueryString(filters);    
+    }
+
+    // This function is to handle the radius value only
+    const handleRadiusValue = (radius) => {
+        setRadius(radius);
     }
 
     const handleMake = (make) => {
@@ -803,6 +808,7 @@ const Filters = (props) => {
                                             min={0}
                                             max={200}
                                             onHandleRadius={handleRadius}
+                                            onHandleRadiusValue={handleRadiusValue}
                                             disabled={loading}
                                             // onHandleRadius={() => console.log("radius")}
                                         />
