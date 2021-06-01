@@ -19,7 +19,7 @@ import MessageIcon from '../../../assets/message-icon.png'
 import { emailValidation } from '../../../utils/Validation';
 import LoginSignupModal from '../../Authentication/LoginSignupModal/LoginSignupModal'
 import { getLogin } from '../../../config/LoginAuth';
-import {AddCommaToNumber} from '../../../utils/NumberManipulation'
+import { AddCommaToNumber } from '../../../utils/NumberManipulation'
 const firebase = require('firebase').default
 require('../../../components/Firebase/database')
 
@@ -122,12 +122,12 @@ const SellerDetails = (props) => {
                                         messageText: messageText,
                                         messagedAt: firebase.firestore.Timestamp.now(),
                                         senderId: userId + "",
-                                        enquiry: false,
-                                        enquiryText: "",
-                                        vehicleImage: null,
-                                        vehiclePrice: null,
-                                        vehicleSubTitle: null,
-                                        vehicleTitle: null,
+                                        enquiry: true,
+                                        enquiryText: messageText,
+                                        vehicleImage: imageUrl,
+                                        vehiclePrice: vehiclePrice + "",
+                                        vehicleSubTitle: vehicleSubTitle,
+                                        vehicleTitle: vehicleTitle,
                                     }
 
                                     firebase.firestore().collection("Chats").doc(strId).collection('Messages')
@@ -196,11 +196,11 @@ const SellerDetails = (props) => {
                                         messagedAt: firebase.firestore.Timestamp.now(),
                                         senderId: userId + "",
                                         enquiry: true,
-                                        enquiryText: "Can i get your Phone Number ?",
+                                        enquiryText: messageText,
                                         vehicleImage: imageUrl,
                                         vehiclePrice: AddCommaToNumber(vehiclePrice),
                                         vehicleSubTitle: vehicleSubTitle,
-                                        vehicleTitle: vehicleTitle,
+                                        vehicleTitle: vehicleTitle
                                     }
 
                                     firebase.firestore().collection("Chats").doc(strId).collection('Messages')

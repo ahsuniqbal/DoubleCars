@@ -5,6 +5,7 @@ import {getRecieverChat} from '../../../components/Firebase/database';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import $ from "jquery"
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
+import dummyAvatar from '../../../assets/dummyAvatar.jpg'
 const firebase = require('firebase').default
 
 const MessageBubble = (props) => {
@@ -114,12 +115,13 @@ const MessageBubble = (props) => {
                 if(list[i].enquiry){
                     // Inquiry message for left
                     table.push(
+                        <>
                         <div className="inquiring-chat-view cursor-pointer">
                         <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
                             <div className="inquiring-container" >
-                                <Row className="inquaring-for-card">
+                                <Row className="inquaring-for-card float-right">
                                     <Col xs="5" className="px-0">
-                                        <CardImg loading="lazy" src={list[i].vehicleImage ? list[i].vehicleImage : null} />
+                                        <CardImg loading="lazy" src={list[i].vehicleImage ? list[i].vehicleImage : dummyAvatar } />
                                     </Col>
                                     <Col xs="7" className="px-0">
                                         <CardTitle title={list[i].vehicleTitle ? list[i].vehicleTitle : ""}>{list[i].vehicleTitle ? list[i].vehicleTitle : ""}</CardTitle>
@@ -130,6 +132,14 @@ const MessageBubble = (props) => {
                             </div>
                         </CardBody>
                     </div>
+                    {
+                        list[i].enquiryText &&
+                        <div className="message-bubble received">
+                            <Label>{list[i].enquiryText}</Label>
+                            <br/>
+                        </div>
+                    }
+                    </>
                     )
                 }
                 else if(list[i].multipleImagesList && list[i].multipleImagesList.length > 0){
@@ -184,12 +194,13 @@ const MessageBubble = (props) => {
                 if(list[i].enquiry){
                     // Inquiry for message for right
                     table.push(
+                        <>
                         <div className="inquiring-chat-view cursor-pointer">
-                        <CardBody style={{paddingRight: '0px', paddingLeft: '0px', paddingBottom: '3.7rem'}}>
-                            <div className="inquiring-container" >
-                                <Row className="inquaring-for-card float-right">
+                        <CardBody style={{paddingRight: '0px', paddingLeft: '0px'}} className="pb-0">
+                            <div className="inquiring-container pb-0 mb-0" >
+                                <Row className="inquaring-for-card">
                                     <Col xs="5" className="px-0">
-                                        <CardImg loading="lazy" src={list[i].vehicleImage ? list[i].vehicleImage : null} />
+                                        <CardImg loading="lazy" src={list[i].vehicleImage ? list[i].vehicleImage : dummyAvatar } />
                                     </Col>
                                     <Col xs="7" className="px-0">
                                         <CardTitle title={list[i].vehicleTitle ? list[i].vehicleTitle : ""}>{list[i].vehicleTitle ? list[i].vehicleTitle : ""}</CardTitle>
@@ -200,6 +211,14 @@ const MessageBubble = (props) => {
                             </div>
                         </CardBody>
                     </div>
+                    {
+                        list[i].enquiryText &&
+                        <div className="message-bubble sent">
+                            <Label>{list[i].enquiryText}</Label>
+                            <br/>
+                        </div>
+                    }
+                </>
                     )
                 }
                 else if(list[i].multipleImagesList && list[i].multipleImagesList.length > 0){
