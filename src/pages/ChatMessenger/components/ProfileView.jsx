@@ -10,6 +10,7 @@ import '../styles/ProfileView.css';
 import {getUser} from '../api/Get'
 import { getChatEnquires } from '../../../components/Firebase/database'
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
+import dummyAvatar from '../../../assets/dummyAvatar.jpg'
 
 const mapStateToProps = (state) => {
     console.log("Map state", state)
@@ -65,7 +66,7 @@ const ProfileView = (props) => {
 
                         <Row className="inquaring-for-card">
                             <Col xs="5" className="px-0">
-                                <CardImg loading="lazy" src={enquiry[0].vehicleImage} />
+                                <CardImg loading="lazy" src={enquiry[0].vehicleImage ? enquiry[0].vehicleImage : dummyAvatar} />
                             </Col>
                             <Col xs="7" className="pr-0">
                                 <CardTitle title={enquiry[0].enquiryText}>{enquiry[0].enquiryText}</CardTitle>

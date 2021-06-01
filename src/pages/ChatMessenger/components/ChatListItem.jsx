@@ -77,11 +77,11 @@ const ChatListItem = (props) => {
         }
     
         // get an array in the form of [number, string]
-        let a = elapsed < hour  && [Math.floor(elapsed / minute), 'minute'] ||
-                elapsed < day   && [Math.floor(elapsed / hour), 'hour']     ||
+        let a = elapsed < hour  && [Math.floor(elapsed / minute), 'min'] ||
+                elapsed < day   && [Math.floor(elapsed / hour), 'hr']     ||
                 elapsed < month && [Math.floor(elapsed / day), 'day']       ||
                 elapsed < year  && [Math.floor(elapsed / month), 'month']   ||
-                [Math.floor(elapsed / year), 'year'];
+                [Math.floor(elapsed / year), 'yrs'];
     
         // pluralise and append suffix
         return a[0] + ' ' + a[1] + (a[0] === 1 ? '' : 's') + suffix;

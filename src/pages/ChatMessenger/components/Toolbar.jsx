@@ -101,7 +101,7 @@ const Toolbar = (props) => {
                     </Col>
 
                     <Col xs="2">
-                        <Star color="rgba(0, 0, 0, 0.25)" size={20} />
+                        <Star color="rgba(0, 0, 0, 0.25)" className="invisible" size={20} />
                         <Trash2 color="#E84D4D" className="invisible" size={20} />
                     </Col>
                 </Row>

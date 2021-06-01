@@ -48,22 +48,39 @@ const Compose = (props) => {
     useEffect(() => {
         var input = document.getElementById('chatMessage')
         input.addEventListener('keyup', function (e) {
-            console.log('Value:', input.value);
-            var userId = localStorage.getItem('userId')
-            const strId = [userId, props.chatInfo.receiverId].sort().join('-')
-            var obj = {}
-            if(props.chatInfo.receiverId == userId){
-                obj = {
-                    recieverTypeStatus : false
-                }
-            }else{
-                obj = {
-                    senderTypeStatus : false
-                }
+            console.log(e)
+            if(e.KeyCode === 13) {
+                // console.log('Value:', input.value);
+                // var userId = localStorage.getItem('userId')
+                // console.log("propsChatInfo",props.chatInfo)
+                // var strId = ""
+                // var obj = {}
+                // if(props.chatInfo.receiverId == userId){
+                //     strId = [userId, props.chatInfo.senderId].sort().join('-')
+                //     obj = {
+                //         recieverTypeStatus : false,
+                //         senderHasRead : false,
+                //         senderUnreadCount : props.chatInfo.senderUnreadCount++
+                        
+                //     }
+                // }else{
+                //     strId = [userId, props.chatInfo.receiverId].sort().join('-')
+                //     obj = {
+                //         senderTypeStatus : false,
+                //         receiverHasRead : false,
+                //         receiverUnreadCount : props.chatInfo.receiverUnreadCount++
+                //     }
+                // }
+                // firebase.firestore().collection("Chats").doc(strId)
+                // .update(obj).then(res => {
+                //     console.log("res33",res)
+                // })
+                // .catch(e => {
+                //     console.log("e33",e)
+                // })    
             }
-            firebase.firestore().collection("Chats").doc(strId)
-            .update(obj)
-            })
+            
+        })
         
     },[]) 
 
@@ -97,20 +114,31 @@ const Compose = (props) => {
                 const strId = [userId, props.otherId].sort().join('-')
                 //var strId = "72-73"
                 // console.log("final thing to send",obj,strId)
+
                 firebase.firestore().collection("Chats").doc(strId).collection('Messages')
                 .doc().set(obj)
                 document.getElementById('chatMessage').value = ""
-                var updateObj = {
-                    lastMessage : msg,
+                var updateObj = {}
+                if(props.chatInfo.receiverId == userId){
+                    updateObj = {
+                        recieverTypeStatus : false,
+                        senderHasRead : false,
+                        senderUnreadCount : props.chatInfo.senderUnreadCount++,
+                        lastMessage : msg,
                     lastMessageAt : firebase.firestore.Timestamp.now(),
-                    receiverHasRead : false
+                        
+                    }
+                }else{
+                    updateObj = {
+                        senderTypeStatus : false,
+                        receiverHasRead : false,
+                        receiverUnreadCount : props.chatInfo.receiverUnreadCount++,
+                        lastMessage : msg,
+                    lastMessageAt : firebase.firestore.Timestamp.now(),
+                    }
                 }
                 firebase.firestore().collection("Chats").doc(strId)
                 .update(updateObj)
-    
-                const chatBoard = document.getElementById('chat-board');
-    
-                // chatBoard.scrollTop = chatBoard.scrollHeight + 100;
             }
         }
     }
