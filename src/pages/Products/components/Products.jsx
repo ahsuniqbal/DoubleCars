@@ -39,7 +39,7 @@ const ShowSearchResults = (products) => {
                         productText={"$" + AddCommaToNumber(products[i].price)}
                         productImg={products[i].coverPic}
                         productName={products[i].carName}
-                        productBadge={"TRENDING"}
+                        // productBadge={"TRENDING"}
                         userId={products[i].userId}
                         dealerPic={products[i].userPic}
                         dealer={products[i].userRole}

@@ -156,6 +156,10 @@ const Filters = (props) => {
 
     /////////////// Handle changes in filters ///////////////
     const handleRadius = (radius) => {
+        if(!zipCode) {
+            alert("Please allow the location first");
+            return;
+        }
         const zip = zipCode.split('- ')
         setRadius(radius);
 
@@ -165,6 +169,7 @@ const Filters = (props) => {
         }
         // console.log(convertIntoQueryParams(obj))
         GetZipCodesList(convertIntoQueryParams(obj)).then(doc => {
+            console.log(doc)
             if(doc.results.length > 0) {
                 setRadius(radius);            
                 filters['radius'] = radius;
@@ -611,7 +616,7 @@ const Filters = (props) => {
     
     // Get location using HTML 5 Browser Geo Location
     function ShowPosition(position){
-        setLoading(true)
+        setLoading(true);
         var latLong = position.coords.latitude + "," + position.coords.longitude;
         // Save the lattitude and longitude fetched from the browsers
         // Geo Location into the state variable of current location
@@ -701,6 +706,7 @@ const Filters = (props) => {
                     filters['zipCode'] = doc.results[0].address_components[0].long_name;
                     setFilters(filters);
                     FilterQueryString(filters);
+
                     setLoading(false)
                 }
                 // If the zip code is not available

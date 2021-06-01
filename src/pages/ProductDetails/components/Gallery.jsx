@@ -8,13 +8,29 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import {postSaveCar} from '../../../components/ProductCard/api/post';
 import LoginSignupModal from '../../Authentication/LoginSignupModal/LoginSignupModal'
 import { getLogin, isLogin } from '../../../config/LoginAuth';
+import Lottie from 'react-lottie';
+import saveAnimation from '../../../assets/animations/save.json';
 
 const Gallery = (props) => {
 
     const [saveId, setSaveId] = useState(null);
     const [popupModal, setPopupModal] = useState(false);
+
+    const [isSaveStopped, setIsSaveStopped] = useState(false);
     
     const popupToggle = () => setPopupModal(!popupModal);
+
+
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: saveAnimation,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice"
+        }
+    };
+
 
     useEffect(() => {
         GetIfSaved(props.productId, getLogin()).then(doc => {
@@ -24,6 +40,9 @@ const Gallery = (props) => {
             console.log(error)
         })
     }, [])
+
+
+    
 
 
     const handleClick = (productId, userId) => {
@@ -57,7 +76,12 @@ const Gallery = (props) => {
                 <LoginSignupModal isOpen={popupModal} toggle={popupToggle} />
                 {
                     saveId ? 
+                    // <>
+                    // <Lottie 
+                    //     options={defaultOptions}
+                    // />
                     <FontAwesomeIcon icon={faBookmark} className = "save-gallery-icon" onClick={() => handleClick(props.productId, getLogin())} />
+                    // </>
                     :
                     <Bookmark color="#000000" size={20} className = "un-save-gallery-icon" onClick={() => isLogin() ? handleClick(props.productId, getLogin()) : popupToggle() } />
                 }

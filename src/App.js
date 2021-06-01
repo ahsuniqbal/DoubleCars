@@ -6,8 +6,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faStar, faMapPin, faPhone, faSearch, faEnvelope, faPlus, faMinus, faCheck, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import logo from './assets/DCloader.gif';
-import * as lottie from 'lottie-web';
-import dclogo from './assets/DDCar.json'
+import Lottie from 'react-lottie';
+// import * as lottie from 'lottie-web';
+import dclogo from './assets/animations/DDCar.json'
 
 import { PrivateRoute } from './navigation/RouteTypes';
 
@@ -55,6 +56,16 @@ function App() {
   // window.addEventListener("resize", resizeWindow);
 
 
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: dclogo,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
+
   const loading = () => {
   //   return lottie.loadAnimation({
   //     container: document.getElementById('main-div'), // the dom element that will contain the animation
@@ -67,6 +78,11 @@ function App() {
     return <div className="preloader">
         <img src={logo} alt="Double Cars preloader" className="img-fluid" />
       </div>
+
+
+    // return <Lottie 
+    // options={defaultOptions}
+    // />
     
   }
  
