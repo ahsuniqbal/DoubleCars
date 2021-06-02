@@ -49,37 +49,30 @@ const Compose = (props) => {
         var input = document.getElementById('chatMessage')
         input.addEventListener('keyup', function (e) {
             console.log(e)
-            if(e.KeyCode === 13) {
-                // console.log('Value:', input.value);
-                // var userId = localStorage.getItem('userId')
-                // console.log("propsChatInfo",props.chatInfo)
-                // var strId = ""
-                // var obj = {}
-                // if(props.chatInfo.receiverId == userId){
-                //     strId = [userId, props.chatInfo.senderId].sort().join('-')
-                //     obj = {
-                //         recieverTypeStatus : false,
-                //         senderHasRead : false,
-                //         senderUnreadCount : props.chatInfo.senderUnreadCount++
+                console.log('Value:', input.value);
+                var userId = localStorage.getItem('userId')
+                console.log("propsChatInfo",props.chatInfo)
+                var strId = ""
+                var obj = {}
+                if(props.chatInfo.receiverId == userId){
+                    strId = [userId, props.chatInfo.senderId].sort().join('-')
+                    obj = {
+                        recieverTypeStatus : false,
                         
-                //     }
-                // }else{
-                //     strId = [userId, props.chatInfo.receiverId].sort().join('-')
-                //     obj = {
-                //         senderTypeStatus : false,
-                //         receiverHasRead : false,
-                //         receiverUnreadCount : props.chatInfo.receiverUnreadCount++
-                //     }
-                // }
-                // firebase.firestore().collection("Chats").doc(strId)
-                // .update(obj).then(res => {
-                //     console.log("res33",res)
-                // })
-                // .catch(e => {
-                //     console.log("e33",e)
-                // })    
-            }
-            
+                    }
+                }else{
+                    strId = [userId, props.chatInfo.receiverId].sort().join('-')
+                    obj = {
+                        senderTypeStatus : false,
+                    }
+                }
+                firebase.firestore().collection("Chats").doc(strId)
+                .update(obj).then(res => {
+                    console.log("res33",res)
+                })
+                .catch(e => {
+                    console.log("e33",e)
+                })    
         })
         
     },[]) 
@@ -121,7 +114,6 @@ const Compose = (props) => {
                 var updateObj = {}
                 if(props.chatInfo.receiverId == userId){
                     updateObj = {
-                        recieverTypeStatus : false,
                         senderHasRead : false,
                         senderUnreadCount : props.chatInfo.senderUnreadCount++,
                         lastMessage : msg,
@@ -130,7 +122,6 @@ const Compose = (props) => {
                     }
                 }else{
                     updateObj = {
-                        senderTypeStatus : false,
                         receiverHasRead : false,
                         receiverUnreadCount : props.chatInfo.receiverUnreadCount++,
                         lastMessage : msg,
