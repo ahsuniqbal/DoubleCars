@@ -100,7 +100,7 @@ const Compose = (props) => {
                     enquiry : false,
                     enquiryText : "",
                     vehicleImage : null,
-                    vehiclePrice : null,
+                    vehiclePrice : "",
                     vehicleSubTitle  : null,
                     vehicleTitle : null,
                 }
@@ -179,7 +179,7 @@ const Compose = (props) => {
                 enquiry : false,
                 enquiryText : "",
                 vehicleImage : null,
-                vehiclePrice : null,
+                vehiclePrice : "",
                 vehicleSubTitle  : null,
                 vehicleTitle : null,
             }
@@ -217,7 +217,7 @@ const Compose = (props) => {
                 enquiry : false,
                 enquiryText : "",
                 vehicleImage : null,
-                vehiclePrice : null,
+                vehiclePrice : "",
                 vehicleSubTitle  : null,
                 vehicleTitle : null,
             }

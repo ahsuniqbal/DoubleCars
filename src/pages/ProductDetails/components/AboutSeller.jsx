@@ -104,7 +104,7 @@ const SellerDetails = (props) => {
                         enquiryText: messageText,
                         messagedAt: firebase.firestore.Timestamp.now(),
                         vehicleImage: imageUrl,
-                        vehiclePrice: vehiclePrice + "",
+                        vehiclePrice: "$" + AddCommaToNumber(vehiclePrice),
                         vehicleSubTitle: vehicleSubTitle,
                         vehicleTitle: vehicleTitle,
 
@@ -125,7 +125,7 @@ const SellerDetails = (props) => {
                                         enquiry: true,
                                         enquiryText: messageText,
                                         vehicleImage: imageUrl,
-                                        vehiclePrice: vehiclePrice + "",
+                                        vehiclePrice: "$" + AddCommaToNumber(vehiclePrice),
                                         vehicleSubTitle: vehicleSubTitle,
                                         vehicleTitle: vehicleTitle,
                                     }
@@ -176,7 +176,7 @@ const SellerDetails = (props) => {
                         enquiryText: messageText,
                         messagedAt: firebase.firestore.Timestamp.now(),
                         vehicleImage: imageUrl,
-                        vehiclePrice: AddCommaToNumber(vehiclePrice),
+                        vehiclePrice: "$" + AddCommaToNumber(vehiclePrice),
                         vehicleSubTitle: vehicleSubTitle,
                         vehicleTitle: vehicleTitle,
 
@@ -198,7 +198,7 @@ const SellerDetails = (props) => {
                                         enquiry: true,
                                         enquiryText: messageText,
                                         vehicleImage: imageUrl,
-                                        vehiclePrice: AddCommaToNumber(vehiclePrice),
+                                        vehiclePrice: "$" + AddCommaToNumber(vehiclePrice),
                                         vehicleSubTitle: vehicleSubTitle,
                                         vehicleTitle: vehicleTitle
                                     }
