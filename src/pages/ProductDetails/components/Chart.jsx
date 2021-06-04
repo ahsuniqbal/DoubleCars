@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardBody } from 'reactstrap';
+import { CardBody,Progress } from 'reactstrap';
 import { Line } from 'react-chartjs-2';
 import '../styles/Chart.css';
 
@@ -41,7 +41,8 @@ const options = {
 
 const Chart = () => {
     return (
-        <div className="chart-wrapper">
+        <div className="chart-wrapper p-4" >
+            
             <Line data={line} options={options} height={100} width={100} />
         </div>
     )
