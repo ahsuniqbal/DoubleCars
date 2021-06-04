@@ -187,3 +187,66 @@
 .chat-view button:focus, .chat-view button:active {
     box-shadow: none !important;
 }
+
+
+
+.img-container {
+    clear: both;
+    padding: 10px;
+}
+
+
+.img-container .single-img {
+    width: 324px;
+    height: 210px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+}
+
+
+.multiple-img-container {
+    width: 88px;
+    padding: 5px;
+}
+
+.multiple-img-container .multiple-image {
+    width: 100%;
+    height: 88px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+
+
+
+
+
+
+
+.modal-img {
+    height: 30rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.modal-content {
+    background-color: transparent;
+    border: none;
+}
+
+.modal-body {
+    background-color: transparent;
+}
+
+.close-btn {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    font-size: 20px;
+    color: white;
+}

@@ -114,6 +114,7 @@ const ProductResults = ({match}) => {
                                 <Information
                                     details={productDetails.details[0]}
                                     attributes={productDetails.attributes}
+                                    saveCount={productDetails.totalSaves[0]}
                                 />
                                 
                             </Col>

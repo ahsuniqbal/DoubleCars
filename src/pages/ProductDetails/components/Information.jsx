@@ -223,7 +223,7 @@ const Information = (props) => {
             </Row>
             <Row>
                 <Col>
-                    <h4 className = "car-info mb-4">{details.mileage ? (AddCommaToNumber(details.mileage) + " miles ·") : null} {details.location ? details.location  + " - " : "NaN - "} {details.zipCode ? details.zipCode : null} . 12 saves </h4>
+                    <h4 className = "car-info mb-4">{details.mileage ? (AddCommaToNumber(details.mileage) + " miles ·") : null} {details.location ? details.location  + " - " : "NaN - "} {details.zipCode ? details.zipCode : null} · {props.saveCount.count} save(s) </h4>
                 </Col>
             </Row>
             {/* <Row>

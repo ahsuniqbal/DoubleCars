@@ -18,9 +18,10 @@ import DCAdBanner from './DCAdBanner';
 const ShowSearchResults = (products) => {
     var table = [];
     var adPlacement = 5;
+    var flag = false;
 
     for (let i = 0; i < products.length; i++) {
-        if(i !== 0 && i % adPlacement === 0) {
+        if(i !== 0 && i % adPlacement === 0 && !flag) {
             table.push(
                 <>
                 <Col key={products[i].productId} xs="12" sm="6" lg="4"style={{padding: '0 7px'}}>
@@ -28,8 +29,11 @@ const ShowSearchResults = (products) => {
                 </Col>
                 </>
             );
+            i--
+            flag = true;
         }
         else {
+            flag = false
             table.push(
                 <Col key={products[i].productId} xs="12" sm="6" lg="4" style={{padding: '0 7px'}}>
                     <ProductCard
@@ -39,7 +43,7 @@ const ShowSearchResults = (products) => {
                         productText={"$" + AddCommaToNumber(products[i].price)}
                         productImg={products[i].coverPic}
                         productName={products[i].carName}
-                        productBadge={"TRENDING"}
+                        // productBadge={"TRENDING"}
                         userId={products[i].userId}
                         dealerPic={products[i].userPic}
                         dealer={products[i].userRole}

@@ -99,7 +99,7 @@ const Filters = (props) => {
     const [isModelCollapseOpen, setModelCollapseOpen] = useState(false);
     const [isTrimCollapseOpen, setTrimCollapseOpen] = useState(false);
 
-    const [radius, setRadius] = useState(0);
+    const [radius, setRadius] = useState(200);
     const [bodyList,setBodyList] = useState([])
 
     const [price, setPrice] = useState([0, 99999]);
@@ -156,7 +156,12 @@ const Filters = (props) => {
 
     /////////////// Handle changes in filters ///////////////
     const handleRadius = (radius) => {
+        if(!zipCode) {
+            alert("Please allow the location first");
+            return;
+        }
         const zip = zipCode.split('- ')
+        setRadius(radius);
 
         const obj = {
             zip: zip[zip.length - 1],
@@ -164,7 +169,7 @@ const Filters = (props) => {
         }
         // console.log(convertIntoQueryParams(obj))
         GetZipCodesList(convertIntoQueryParams(obj)).then(doc => {
-            console.log(doc);
+            console.log(doc)
             if(doc.results.length > 0) {
                 setRadius(radius);            
                 filters['radius'] = radius;
@@ -184,6 +189,11 @@ const Filters = (props) => {
         // filters['radius'] = radius;
         // setFilters(filters);
         // FilterQueryString(filters);    
+    }
+
+    // This function is to handle the radius value only
+    const handleRadiusValue = (radius) => {
+        setRadius(radius);
     }
 
     const handleMake = (make) => {
@@ -606,7 +616,7 @@ const Filters = (props) => {
     
     // Get location using HTML 5 Browser Geo Location
     function ShowPosition(position){
-        setLoading(true)
+        setLoading(true);
         var latLong = position.coords.latitude + "," + position.coords.longitude;
         // Save the lattitude and longitude fetched from the browsers
         // Geo Location into the state variable of current location
@@ -696,6 +706,7 @@ const Filters = (props) => {
                     filters['zipCode'] = doc.results[0].address_components[0].long_name;
                     setFilters(filters);
                     FilterQueryString(filters);
+
                     setLoading(false)
                 }
                 // If the zip code is not available
@@ -803,6 +814,7 @@ const Filters = (props) => {
                                             min={0}
                                             max={200}
                                             onHandleRadius={handleRadius}
+                                            onHandleRadiusValue={handleRadiusValue}
                                             disabled={loading}
                                             // onHandleRadius={() => console.log("radius")}
                                         />

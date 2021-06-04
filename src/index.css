@@ -95,3 +95,9 @@ img{
 #myBtn:hover {
   background-color: #05459e; /* Add a dark-grey background on hover */
 }
+
+
+
+.cursor-pointer {
+  cursor: pointer;
+}
