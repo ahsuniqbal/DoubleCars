@@ -85,7 +85,7 @@ const SellerDetails = (props) => {
         var messageText = `REGARDING VEHICLE: ${props.details.yearCar} ${props.details.carName} ${props.details.mileage} Mileage $${props.details.price}`
         var imageUrl = props.details.coverPic
         var vehiclePrice = props.details.price
-        var vehicleSubTitle = props.details.mileage + " miles, " + props.details.location + ", " + props.details.zipCode
+        var vehicleSubTitle = (props.details.mileage ? props.details.mileage + " miles" : "New,") + props.details.location + ", " + props.details.zipCode
         var vehicleTitle = props.details.carName
 
         const strId = [userId, dealerId].sort().join('-')
@@ -119,10 +119,11 @@ const SellerDetails = (props) => {
                                         imageUrl: null,
                                         messageImage: null,
                                         multipleImagesList: null,
-                                        messageText: messageText,
+                                        messageText: null,
                                         messagedAt: firebase.firestore.Timestamp.now(),
                                         senderId: userId + "",
                                         enquiry: true,
+                                        productId : Number(props.details.productId),
                                         enquiryText: messageText,
                                         vehicleImage: imageUrl,
                                         vehiclePrice: "$" + AddCommaToNumber(vehiclePrice),
@@ -190,12 +191,13 @@ const SellerDetails = (props) => {
                                     var obj = {
                                         messageId: "asdsa",
                                         imageUrl: null,
-                                        messageImage: imageUrl,
+                                        messageImage: null,
                                         multipleImagesList: null,
-                                        messageText: messageText,
+                                        messageText: null,
                                         messagedAt: firebase.firestore.Timestamp.now(),
                                         senderId: userId + "",
                                         enquiry: true,
+                                        productId : Number(props.details.productId),
                                         enquiryText: messageText,
                                         vehicleImage: imageUrl,
                                         vehiclePrice: "$" + AddCommaToNumber(vehiclePrice),
