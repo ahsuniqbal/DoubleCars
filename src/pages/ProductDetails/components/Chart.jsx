@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardBody } from 'reactstrap';
+import { Card, CardBody, Col, Label, Row } from 'reactstrap';
 import { Line } from 'react-chartjs-2';
 import '../styles/Chart.css';
 
@@ -7,7 +7,7 @@ const line = {
     labels: ['Jan \'21', 'Feb \'21', 'Mar \'21', 'Apr \'21', 'May \'21', 'Jun \'21', 'Jul \'21'],
     datasets: [
     {
-        label: 'My First dataset',
+        label: 'Price History',
         fill: false,
         lineTension: 0.1,
         backgroundColor: 'rgba(75,192,192,0.4)',
@@ -18,7 +18,7 @@ const line = {
         borderJoinStyle: 'miter',
         pointBorderColor: 'rgba(75,192,192,1)',
         pointBackgroundColor: '#fff',
-        pointBorderWidth: 1,
+        pointBorderWidth: 0,
         pointHoverRadius: 5,
         pointHoverBackgroundColor: 'rgba(75,192,192,1)',
         pointHoverBorderColor: 'rgba(220,220,220,1)',
@@ -41,9 +41,18 @@ const options = {
 
 const Chart = () => {
     return (
-        <div className="chart-wrapper">
-            <Line data={line} options={options} height={100} width={100} />
-        </div>
+        <Card>
+            <CardBody>
+                <Row>
+                    <Col xs="6">
+                        <Label>The similar cars in this marketplace typcially range between $12000-16000.</Label>
+                    </Col>
+                </Row>
+            </CardBody>
+            <div className="chart-wrapper">
+                <Line data={line} options={options} height={100} width={100} />
+            </div>
+        </Card>
     )
 }
 

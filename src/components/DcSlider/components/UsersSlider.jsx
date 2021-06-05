@@ -94,8 +94,8 @@ const UsersSlider = (props) => {
                         <UserCard 
                             key={index}
                             productId={item.productId}
-                            productTitle={item.carName}
-                            
+                            productTitle={item.fullName}
+                            productImg={item.coverPic}
                         />      
                     ))
                 : null
