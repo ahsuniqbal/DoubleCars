@@ -81,3 +81,21 @@ export const GetIfSaved = (productId, userId) => {
         })
     })
 };
+
+
+
+export const GetTopDealers = (make, model) => {
+    return new Promise((resolve, reject) => {
+        var url = connectionString + `products/top-dealers-make-model?make=${make}&model=${model}`;
+        axios.get(url).then(function(response){
+            const data = response.data.results;
+            
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            console.log("Error: ", error);
+        })
+    })
+}

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Row, Col, Button, Container, CardBody } from 'reactstrap';
+import { NavLink, Row, Col, Button, Container, CardBody, Tooltip } from 'reactstrap';
 import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import Gallery from './Gallery';
 import Information from './Information';
 import AboutSeller from './AboutSeller';
-import { GetProductDetails } from '../api/GetRequests';
+import { GetProductDetails, GetTopDealers } from '../api/GetRequests';
 import '../styles/ProductDetails.css';
 import { Skeleton } from '@material-ui/lab';
 import { ChevronLeft } from 'react-feather';
@@ -16,19 +16,39 @@ import { GetRecommendationsTrendings, getSimilarCars } from '../api/GetRequests'
 import { Share2 } from 'react-feather';
 import UsersSlider from '../../../components/DcSlider/components/UsersSlider';
 import StatsTable from './StatsTable';
+import Chart from './Chart';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
     const [homeData, setHomeData] = useState(null);
     const [similarCars,setSimilarCars] = useState([]);
+    const [topDealers, setTopDealers] = useState([]);
+    const [tableData, setTableData] = useState(null);
+    const [shareTipOpen, setShareTipOpen] = useState(false);
 
     const history = useHistory();
+
+    const toggleShareTip = () => {
+        setShareTipOpen(!shareTipOpen);
+    }
 
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
-            getSimilarCars(doc.details[0].carMake)
-            .then(doc => {
+
+            console.log(doc);
+
+            
+
+            GetTopDealers(doc.details[0].carMake, doc.details[0].carModel).then(doc => {
+                setTopDealers(doc.topDealers);
+                setTableData(doc.tableData);
+            }).catch(error => {
+                console.log(error);
+            })
+
+
+            getSimilarCars(doc.details[0].carMake).then(doc => {
                 setSimilarCars(doc)
             })
             .catch(e => {
@@ -47,7 +67,20 @@ const ProductResults = ({match}) => {
         .catch(error => {
             console.log(error.message);
         });
+
+
+        
     }, []);
+
+
+    const copyToClipBoard = () => {
+        navigator.clipboard.writeText(window.location.href);
+        setShareTipOpen(true);
+
+        setTimeout(() => {
+            setShareTipOpen(false);
+        }, [2000])
+    }
 
 
     const DrawGallery = (images, coverPic, noOfSaves) => {
@@ -86,8 +119,11 @@ const ProductResults = ({match}) => {
                         </Col>
                         <Col md = "6" >
                             <div className='d-flex float-right'>
-                                <NavLink className="share-button"><Share2 color="#1C67CE" size={20} className = "mr-1"/>Share</NavLink>
-                                <NavLink className="report-button">Report this car</NavLink>
+                                <Tooltip placement="top-start" isOpen={shareTipOpen} target="share-btn">URL copied to the clipboard</Tooltip>
+                                <NavLink className="share-button" id="share-btn" onClick={() => copyToClipBoard()}>
+                                    <Share2 color="#1C67CE" size={20} className = "mr-1"/>Share
+                                </NavLink>
+                                {/* <NavLink className="report-button">Report this car</NavLink> */}
                             </div>
                             
                         </Col>
@@ -104,11 +140,12 @@ const ProductResults = ({match}) => {
                                     : productDetails.details[0].coverPic ? <Gallery items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)} productId={productDetails.details[0].productId} /> :
                                     <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
                                 }
-
-                                
-                               
-
                             </Col>
+
+                            {/* <Col xs="12" md="8">
+                                <Chart />
+                            </Col> */}
+
                             <Col md = "8">
                            
                                 <Information
@@ -124,7 +161,15 @@ const ProductResults = ({match}) => {
                                     userId={productDetails.details[0].userId}
                                     details={productDetails.details[0]}
                                 />
-                                <StatsTable/>
+                                {
+                                    tableData && productDetails &&
+                                    <StatsTable
+                                        carMake={productDetails.details[0].carMake}
+                                        carModel={productDetails.details[0].carModel}
+                                        tableData={tableData.data}
+                                        totalCount={tableData.totalCount}
+                                    />
+                                }
                             </Col>
                             
                             {/* <Col md = "4">
@@ -181,14 +226,13 @@ const ProductResults = ({match}) => {
                         
                             <Row>
                                 <Col md = "6" xs = "12">
-                                    <h2 className = "dealer-head">Top Acura MDX dealers</h2>
+                                    <h2 className = "dealer-head">Top {productDetails && productDetails.details[0].carMake} {productDetails && productDetails.details[0].carModel} dealers</h2>
                                 </Col>
                             </Row>
 
                             <UsersSlider
-                             slidesToShow={4}
-                             items={similarCars}
-                           
+                                slidesToShow={4}
+                                items={topDealers}
                             />
                            
                        
