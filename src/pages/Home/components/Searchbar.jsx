@@ -63,6 +63,7 @@ const Searchbar = () => {
     // }, []);
 
     return(
+        <div className="searchbar-container">
         <Card className="searchbar">
             <CardBody>
 
@@ -89,17 +90,17 @@ const Searchbar = () => {
                             
                         </Col>
                        
-                            <Col xs="12" sm="6" md="2" className='search-bar-padding my-1'>
+                            <Col xs="12" sm="6" md="2" className='m-1' >
                                 {/* <Input id="make-list" type="select" className = "condition-dropdown">
                                     <option value="" hidden selected>Condition</option>
                                     <option value={false}>New</option>
                                     <option value={true}>Used</option>
                                 </Input> */}
-                                            <Input id="condition" type="select" required className="condition-dropdown">
-                                            <option value="" disabled selected>Condition</option>
-                                            <option value="false">New</option>
-                                            <option value="true">Used</option>
-                                            </Input>
+                                <Input id="condition" type="select" required className="condition-dropdown">
+                                <option value="" disabled selected>Condition</option>
+                                <option value="false">New</option>
+                                <option value="true">Used</option>
+                                </Input>
                             </Col>
 
                             <Col xs="12" sm="6" md="2" className='search-coloumn my-1'>
@@ -133,6 +134,7 @@ const Searchbar = () => {
                 </Form>
             </CardBody>
         </Card>
+        </div>
     );
 }
 

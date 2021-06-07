@@ -38,7 +38,7 @@ const Header = () => {
                                         Buy and sell cars with ease using our app!
                                     </h5>
                                     <div>
-                                        <div className = "col-md-12" className = "">
+                                        <div className = "col-md-12" className = "mb-4">
                                             <Button className="ml-3 mt-4 download-button-cover" to="" onClick={()=>window.location.href='https://play.google.com/store/apps'}>Download App</Button>
                                             
                                 

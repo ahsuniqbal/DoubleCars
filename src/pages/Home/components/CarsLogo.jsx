@@ -87,7 +87,7 @@ const CarsLogo = () => {
                 <Row className="popular-makes-logos">
                     {
                         popularMakes && logos.map((logo, index) => {
-                            return <Col xs="12" sm="6" md="4" lg="2" className="my-3" key={index}>
+                            return <Col xs="6" sm="6" md="12" lg="2" className="my-3" key={index}>
                                 <Card>
                                     <CardBody>
                                         <LazyLoadImage effect="blur" src={logo.img} className='img-fluid mx-auto'/>
