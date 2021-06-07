@@ -162,6 +162,10 @@ select:required:invalid {
    .searchbar-container{
        margin: 20px;
    }
+   .search-bar-padding{
+        padding: 0px 15px;
+    }   
+
    /* .searchbar {
        margin-top: -30rem;
        position: absolute;
