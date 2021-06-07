@@ -43,9 +43,10 @@
     border: 1px solid #E7E7E7 !important;
     height: 56px;
     overflow: hidden;
+    width: 100% !important;
     border-radius: 6px;
     border: 1px solid #E9E9E9;
-    color: rgba(0, 0, 0, 0.45) !important;
+    color: #00000073 !important;
     background-position: calc(100% - 20px) calc(100% - 25px);
 }
 
