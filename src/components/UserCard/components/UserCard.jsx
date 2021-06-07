@@ -57,7 +57,7 @@ const UserCard = (props) => {
         <Link to={"/product/" + props.productId}>
             <div className="user-img">
                 {/* Lazy load component used for product cover image */}
-                <LazyLoadImage className="card-img mx-auto"  effect="blur" src={dummyuser} />
+                <LazyLoadImage className="card-img mx-auto"  effect="blur" src={props.productImg} />
             </div>
         </Link>
         
@@ -67,9 +67,9 @@ const UserCard = (props) => {
                     {/* Link to the product details page */}
                     <Link to={"/product/"}>
                         {/* Name of the car */}
-                        <CardTitle>One Chance Auto</CardTitle>
+                        <CardTitle>{props.productTitle}</CardTitle>
                     </Link>
-                    <Link className = "view-inv-link" to={''}>
+                    <Link className = "view-inv-link" to={"/product/" + props.productId}>
                         <Button color = "primary" size = "lg" block className = "view-inv-button">View Inventory</Button>
                     </Link>
                 </Col>

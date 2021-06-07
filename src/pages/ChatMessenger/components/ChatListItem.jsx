@@ -9,6 +9,7 @@ import '../styles/ChatListItem.css';
 const mapDispatchToProps = (dispatch) => {
     return {
         selectChat: (chat) => {
+            console.log('Hello Ashar chat',chat)
             dispatch(selectChat(chat));
         }
     }
