@@ -177,8 +177,12 @@
   .learn-more-button-class{
     /* padding-left:15% !important */
   }
-  .footer-contact {
-    font-size: 12px !important;
+
+  .learn-more-button-cover {
+    text-align: center;
+    height: 50px;
+    width: 112px;
+    justify-content: center;
   }
   .car-dealer-class{
     margin-top: 40px !important;
