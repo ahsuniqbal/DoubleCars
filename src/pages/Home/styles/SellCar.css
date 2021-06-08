@@ -1,6 +1,6 @@
 
 .main{
-    position: relative;
+    position: relative !important;
      /* margin-top: 4% !important; */
 }
 .mobile-img{
@@ -12,12 +12,13 @@
 
 .blue-bg{
     background-color: #1C67CE ;
-    width: 100%;
+    width: 100% !important;
     padding: 5% 4px 5% 30px;
     margin-left: 0px !important;
 }
 .white-bg{
     background-color: white;
+    margin-top: 100px;
     width: 100%;
     padding: 4% 4px 4% 0px;
     margin-left: 0px !important;
@@ -102,6 +103,14 @@
     width: 0px !important;
 }
 
+#app-buttons{
+    width: 100% !important;
+}
+
+.app-container{
+    width: 100% !important;
+}
+
 @media screen and (max-width:768px){
     .blue-head{
         font-size: 40px !important;
@@ -112,20 +121,162 @@
         right: 0 !important;
     }
 } */
+@media screen and (max-width: 769px) {
+    .mobile-img{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        /* padding: 0px 150px; */
+        /* top: -1000px; */
+    }
+ 
+}
 @media screen and (max-width: 760px) {
     .mobile-img{
-        position: unset;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        padding: 0px 150px;
+        /* top: -1000px; */
+    }
+    .blue-text{
+        display: none;
+    }
+    .blue-bg{
+        height: 546px;
+    }
+    
+    .blue-head{
+        margin-top: 40px;
+        font-size: 24px !important;
+        text-align: center;
+        font-weight: 300px;
+    }
+    #app-buttons{
+        display: flex;
+        width: 100% !important;
+        margin-top: 30px;
+        justify-content: center;
+    }
+    
+    .white-bg{
+        margin-top: 250px !important;
+        /* background-color: red; */
+    }
+    #break{
+        display: none;
+    }
+    #app-buttons a{
+        margin: 0px 10px;
+        /* margin-left: 0px !important;
+        padding-left: 0px !important; */
+    }
+    .blue-bg{
+        padding: 0px !important;
+
     }
 }
-@media screen and (max-width:420px){
+@media screen and (max-width:411px){
     .mobile-img{
-        position: unset;
+        /* position: unset; */
+        margin-top: 30px;
+        /* top: -1000px; */
+
     }
+    .blue-bg{
+        height: 546px;
+    }
+    
     .main{
         margin-top: 10% !important;
- }
- .learn-button{
+    }
+    .learn-button{
+        margin: 5px 0px 5px !important;
+    }
+    .blue-text{
+        display: none;
+    }
+    .blue-head{
+        margin-top: 40px;
+        font-size: 24px !important;
+        text-align: center;
+        font-weight: 300px;
+    }
+    #app-buttons{
+        display: flex;
+        margin-top: 30px;
+        width: 100% !important;
+        justify-content: center;
+    }
+    #break{
+        display: none;
+    }
+    #app-buttons a{
+        margin:5px;
+    }
+    .white-bg{
+        margin-top: 270px;
+        
+        /* background-color: red; */
+    }
+    .blue-bg{
+        padding: 0px !important;
 
-    margin: 5px 0px 5px !important;
+    }
 }
+
+
+
+@media screen and (max-width:330px){
+    .white-bg{
+        margin-top: 10px !important;
+    }
+    .blue-bg{
+        padding: 0px !important;
+
+    }
+    .mobile-img{
+        padding: 30px;
+    }
+    .white-bg{
+        margin-top: 160px !important; 
+    }
 }
+
+
+
+@media (max-width:415px){
+    .white-bg{
+        margin-top: 300px !important;
+    }
+    .blue-bg{
+        padding: 0px !important;
+
+    }
+    .mobile-img{
+        position: absolute;
+        left: 5%;
+        padding: 30px;
+    }
+}
+
+@media (max-width:375px){
+    .white-bg{
+        margin-top: 260px !important;
+    }
+    #app-buttons{
+        width: 100% !important;
+    }
+    .mobile-img{
+        /* position: absolute; */
+        /* left: 5%; */
+        padding: 30px;
+    }
+    .blue-bg{
+        padding: 0px !important;
+    }
+}
+
+
+
+

@@ -26,7 +26,7 @@ const Footer = () => {
                               
                                 <Col md = "6" xs = "12" className = "learn-more-button-class my-auto">
                                     <Link to = {'/fullviewheader'}>
-                                    <Button className="learn-more-button-cover float-right">Learn More</Button>
+                                        <Button className="learn-more-button-cover float-right">Learn More</Button>
                                     </Link>
                                     
                                 </Col>

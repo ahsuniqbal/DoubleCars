@@ -19,27 +19,29 @@ const SellCar = () => {
                     <Container>
 
                     <Row>
-                        <Col md={8} >
-                            <div className=''>
-                                <h2 className='blue-head'>
-                                    Sell Your Car on Our Platform <br/> With Ease.
+                        <Col xs={12} sm={12} md={8} >
+                            <div className='app-container'>
+                                <h2 className='blue-head mb-5'>
+                                    Sell Your Car on Our Platform <br id="break" /> With Ease.
                                 </h2>
                                 <p className='blue-text'> 
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit.Impedit laborum blanditiis repellat sapiente harum veniam labore,
                                     numquam illo provident distinctio voluptatem perferendis possimus est quaerat!
                                 </p>
                                 {/* <button className='google-play '> */}
-                                    <Link to='https://play.google.com/store/apps'>
-                                        <img src={GooglePlayImg} alt='get it on google play' className='google-play '/>
-                                    </Link>
-                                    {/* </button> */}
-                                    <Link to = {'/about/'}>
-                                    <Button outline className='learn-button '>iOS Coming Soon</Button>
-                                    </Link>
+                                    <div id="app-buttons">
+                                        <Link to='https://play.google.com/store/apps'>
+                                            <img src={GooglePlayImg} alt='get it on google play' className='google-play '/>
+                                        </Link>
+                                        {/* </button> */}
+                                        <Link to = {'/about/'}>
+                                            <Button outline className='learn-button '>iOS Coming Soon</Button>
+                                        </Link>
+                                    </div>
                                 
                             </div>
                         </Col>
-                        <Col md={4} >
+                        <Col md={4} xs={12} sm={12}>
                             <img src={Mobile} className='img-fluid mobile-img'/>
                         </Col>
                         </Row>
