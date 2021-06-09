@@ -4,7 +4,12 @@ import { Line } from 'react-chartjs-2';
 import '../styles/Chart.css';
 
 const line = {
-    labels: ['Jan \'21', 'Feb \'21', 'Mar \'21', 'Apr \'21', 'May \'21', 'Jun \'21', 'Jul \'21'],
+    labels: [
+        "June 2nd",
+        "June 3rd",
+        "June 4th",
+        "June 9th"
+    ],
     datasets: [
     {
         label: 'Price History',
@@ -25,7 +30,12 @@ const line = {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40, 93, 30, 71, 79, 70, 60, 50, 30, 10],
+        data: [
+            310000,
+            300000,
+            370000,
+            270000
+        ],
     },
 ],
 };

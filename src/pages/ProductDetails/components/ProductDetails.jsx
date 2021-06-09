@@ -138,9 +138,9 @@ const ProductResults = ({match}) => {
                                 }
                             </Col>
 
-                            {/* <Col xs="12" md="8">
+                            <Col xs="12" md="8">
                                 <Chart />
-                            </Col> */}
+                            </Col>
 
                             <Col md = "8">
                            
