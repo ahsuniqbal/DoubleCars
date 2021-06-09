@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { Row, Col,Label, Collapse } from 'reactstrap';
 import { AddCommaToNumber, TrimText } from '../../../utils/NumberManipulation';
 import '../styles/Information.css';
@@ -8,6 +8,42 @@ const Information = (props) => {
 
     // read more state
     const [readMore, setReadMore] = useState(false);
+    const [matched,setMatched]  = useState(false)
+    
+    useEffect(() => {
+       
+
+        function handleResize() {
+            console.log('resized to: ', window.innerWidth, 'x', window.innerHeight)
+            if(window.innerWidth<=Number(768)){
+                console.log('matched')
+                setMatched(true)
+            }else{
+                setMatched(false)
+
+                console.log("Not matched")
+            }
+        }   
+
+       
+        
+
+        window.addEventListener('resize', handleResize)
+
+        if(window.innerWidth<=Number(768)){
+            console.log('matched')
+            setMatched(true)
+        }else{
+            console.log("Not matched")
+            setMatched(false)
+
+        }
+
+
+    }, [])
+
+
+    
 
 
     // read more toggle
@@ -214,16 +250,34 @@ const Information = (props) => {
         <div>
             {/* Car name and price section starts here. */}
             <Row>
-                <Col md = "8" className = "mt-5">
+                <Col md = "8" sm="12" className = "info mt-5">
                     <h2 className = "car-name" title={details.yearCar + " " + details.carMake + " " + details.carModel + " " + details.trim}>{details.yearCar + " " + details.carMake + " " + details.carModel + " " + details.trim}</h2>
+                    {
+                        matched ? 
+                        <>
+                         <small className="car-info">
+                             {details.mileage ? (AddCommaToNumber(details.mileage) + " miles ·") : null} {details.location ? details.location  + " - " : "NaN - "} {details.zipCode ? details.zipCode : null} · {props.saveCount.count} save(s) 
+                         </small>
+                        </>
+                        :
+                        null
+
+                    }
                 </Col>
-                <Col className = "text-right mt-5" md = "4">
+                <Col className = "text-md-right mt-5" md = "4">
                     <h2 className = "car-price">{details.price ? ("$" + AddCommaToNumber(details.price)) : null}</h2>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h4 className = "car-info mb-4">{details.mileage ? (AddCommaToNumber(details.mileage) + " miles ·") : null} {details.location ? details.location  + " - " : "NaN - "} {details.zipCode ? details.zipCode : null} · {props.saveCount.count} save(s) </h4>
+                    {
+                        matched ==false ?
+                        <h4 className = "car-info mb-4">
+                            {details.mileage ? (AddCommaToNumber(details.mileage) + " miles ·") : null} {details.location ? details.location  + " - " : "NaN - "} {details.zipCode ? details.zipCode : null} · {props.saveCount.count} save(s) 
+                        </h4>
+                        :
+                        null
+                    }
                 </Col>
             </Row>
             {/* <Row>

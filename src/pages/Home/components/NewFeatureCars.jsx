@@ -74,7 +74,7 @@ const NewFeaturedCars = (props) => {
 
       
     return(
-      <Container>
+      <Container className="new-feature">
 
      
         <Row className='main-feature'>

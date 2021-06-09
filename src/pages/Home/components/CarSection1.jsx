@@ -19,6 +19,8 @@ const CarSection1 = () => {
         borderRadius: '4px',
         height: '352px',
         cursor: 'pointer',
+        marginTop: '10px'
+
       };
       const CarSection1DemoImage2 = {
         backgroundImage: `url(${require("../../../assets/FeaturedDemo3.png")})`,
@@ -28,6 +30,8 @@ const CarSection1 = () => {
         backgroundRepeat: 'no-repeat',
         height: '352px',
         cursor: 'pointer',
+        marginTop: '10px'
+
       };
 
       const CarSection1DemoImage3 = {
@@ -38,6 +42,8 @@ const CarSection1 = () => {
         backgroundRepeat: 'no-repeat',
         height: '352px',
         cursor: 'pointer',
+        marginTop: '10px'
+
       };
       const CarSection1DemoImage4 = {
         backgroundImage: `url(${require("../../../assets/FeaturedDemo5.png")})`,
@@ -47,6 +53,8 @@ const CarSection1 = () => {
         backgroundRepeat: 'no-repeat',
         height: '352px',
         cursor: 'pointer',
+        marginTop: '10px'
+
       };
 
     return(

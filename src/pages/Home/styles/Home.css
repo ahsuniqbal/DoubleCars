@@ -104,3 +104,9 @@
   color: blue;
 } */
 /*  */
+
+@media only screen and (max-width: 600px) {
+  .feature-heading{
+    margin-top: 20px;
+  }
+}

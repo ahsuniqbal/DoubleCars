@@ -3,9 +3,8 @@
     box-shadow: 0px 4px 20px rgba(44, 44, 44, 0.08);
     border-radius: 8px;
     border-color: white ;
-    width: 100%;
+    width: 100% !important;
     height: auto;
-    
 
 }
 .search-bar-padding{
@@ -45,10 +44,10 @@
     overflow: hidden;
     border-radius: 6px;
     border: 1px solid #E9E9E9;
-    color: rgba(0, 0, 0, 0.45) !important;
+
+    color: #00000073 !important;
     background-position: calc(100% - 20px) calc(100% - 25px);
 }
-
 .search-search-box{
     background-color: #F9F9F9;
     border-radius: 6px;
@@ -126,8 +125,8 @@ select:required:invalid {
 
     .searchbar .card-title{
         font-weight: 600;
-    font-size: 15px;
-    line-height: 120%;
+        font-size: 15px;
+        line-height: 120%;
 
     }
 }
@@ -160,9 +159,37 @@ select:required:invalid {
    .searchbar .card-title button{
        display: none;
    }
-   .searchbar {
-       margin-top: -30rem;
+   .searchbar-container{
+       margin: 20px;
    }
-    
+   .search-bar-padding{
+        padding: 0px 15px;
+    }   
 
+   /* .searchbar {
+       margin-top: -30rem;
+       position: absolute;
+       top: 420px;
+       width: 100% !important;
+       text-align: start;
+    }
+    .searchbar-container{
+        position: relative;
+        width: 100%;
+    } */
+
+}
+
+@media (max-width:350px) {
+    .condition-dropdown{
+        border: 1px solid #E7E7E7 !important;
+        height: 56px;
+        overflow: hidden;
+        /* width: 100% !important; */
+        border-radius: 6px;
+        border: 1px solid #E9E9E9;
+        color: #00000073 !important;
+        background-position: calc(100% - 10px) calc(100% - 25px);
+    }
+   
 }

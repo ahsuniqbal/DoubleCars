@@ -201,8 +201,8 @@ const Home = () => {
             <Header/>
                 <Container fluid className = "home-container">
                     <Row>
-                        <Col xs="2"></Col>
-                        <Col xs="8" style={{padding: '0'}}> 
+                        <Col xs="2" md="2"></Col>
+                        <Col xs="12" md="8" style={{padding: '0'}}> 
                             <Searchbar />
                         </Col>
                         <Col xs="2"></Col>
@@ -227,6 +227,7 @@ const Home = () => {
                                 </Col>
                         </Row>
                       </Container>
+                      <div  className="Feature ">
                         <Row>
                             <Col className='featured-main-coloumn'>
                                     <NewFeaturedCars
@@ -234,6 +235,7 @@ const Home = () => {
                                     />
                             </Col>
                         </Row> 
+                      </div>
                         </> : 
                         <Container>
                             <Row className = "mt-5">

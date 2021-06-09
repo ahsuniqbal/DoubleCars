@@ -159,12 +159,15 @@
 }
 @media screen and (max-width: 500px) {
   .h-100{
-     padding: 4% !important;
+     /* padding: 4% !important; */
   } 
+  .learn-more-button-class{
+    padding-left:0 !important
+  }
 }
 @media screen and (max-width: 900px) {
   .learn-more-button-class{
-    padding-left:15% !important
+    /* padding-left:15% !important */
   }
   .footer-contact {
     font-size: 12px !important;
@@ -172,26 +175,50 @@
 }
 @media screen and (max-width: 768px) {
   .learn-more-button-class{
-    padding-left:15% !important
+    /* padding-left:15% !important */
   }
-  .footer-contact {
-    font-size: 12px !important;
+
+  .learn-more-button-cover {
+    text-align: center;
+    height: 50px;
+    width: 112px;
+    justify-content: center;
+  }
+  .car-dealer-class{
+    margin-top: 40px !important;
   }
 }
 @media screen and (max-width: 420px) {
   .lower-footer-columns {
-    padding-left: 10% !important;
+    /* padding-left: 10% !important; */
   }  
   /* .car-dealer-class{
     padding-left: 36px;
   } */
   .learn-more-button-class{
     padding-top: 10%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0px !important;
+    margin-bottom: 40px !important; 
   }  
+
+  .car-dealer-head{
+    font-size: 22px !important;
+    font-weight: 500px;
+    margin-left: 0px !important;
+    text-align: center;
+  }
+  .car-dealer-subhead{
+    text-align: center;
+    margin-left: 0px !important;
+    font-size: 14px;
+  }
+  
 }
 @media screen and (max-width: 375px) {
   .h-100{
-    padding-left: 10% !important;
+    /* padding-left: 10% !important; */
  }
  /* .car-dealer-class{
   padding-left: 25px;
