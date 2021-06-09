@@ -35,11 +35,7 @@ const ProductResults = ({match}) => {
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
-
             console.log(doc);
-
-            
-
             GetTopDealers(doc.details[0].carMake, doc.details[0].carModel).then(doc => {
                 setTopDealers(doc.topDealers);
                 setTableData(doc.tableData);
@@ -83,14 +79,14 @@ const ProductResults = ({match}) => {
     }
 
 
-    const DrawGallery = (images, coverPic, noOfSaves) => {
+    const DrawGallery =     (images, coverPic, noOfSaves) => {
         var desc;
         // if(noOfSaves === 0) {
         //     desc = null;
         // }
         // else {
         //     desc = noOfSaves + " person have saved this car";
-        // }
+        // }    
         const galleryImages = [{
             original: coverPic,
             thumbnail: coverPic,
@@ -131,7 +127,7 @@ const ProductResults = ({match}) => {
                     {
                         productDetails ?
                         <Row >
-                            <Col md = "12">
+                            <Col className="react-image" sm="12" md = "12">
                                 {
                                     productDetails.images > 0 ?
                                         productDetails.images[0].image !== "" ? 
@@ -221,6 +217,7 @@ const ProductResults = ({match}) => {
                                 <Skeleton variant="text" animation="wave" /> */}
                             </Col>
                         </Row>
+                    
                     }
                    
                         
@@ -273,7 +270,7 @@ const ProductResults = ({match}) => {
                      <DCSlider
                          slidesToShow={4}
                      /> */}
-                  
+                
                 </CardBody>
             </Container>
         </body>
