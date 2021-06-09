@@ -178,6 +178,19 @@
     .react-image{
         padding: 0px !important;
     }
+    .car-info{
+
+    }
+    .car-price{
+        /* font-weight: 500 !important;
+        font-size: 20px !important;
+         */
+         font-weight: bold !important;
+    }
+    .car-name{
+        font-weight: bold !important;
+
+    }
 
     .image-gallery {
         padding: 0px;
