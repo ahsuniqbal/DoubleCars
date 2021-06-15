@@ -11,7 +11,6 @@ import queryString from 'query-string';
 import { Frown, Repeat } from 'react-feather';
 import '../styles/Products.css';
 import { ArrowUp } from "react-feather";
-import logo from '../../../assets/DCNewLogo.png';
 import DCAdBanner from './DCAdBanner';
 
 

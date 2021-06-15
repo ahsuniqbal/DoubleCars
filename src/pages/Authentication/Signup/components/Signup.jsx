@@ -55,6 +55,9 @@ const Signup = (props) => {
         if(input.length > 6){target.value = `(${areaCode})${middle}-${last}`;}
         else if(input.length > 3){target.value = `(${areaCode})${middle}`;}
         else if(input.length > 0){target.value = `(${areaCode}`;}
+
+        document.getElementById('phNum-error-label').textContent = "";
+        
     };
 
 
@@ -166,15 +169,19 @@ const Signup = (props) => {
                             
                                 <Row>
                                     <Col xs = "12" md = "6" className='first-name-col'>
-                                        <Input id="firstName" className = "signup-register-textfield" type="text" placeholder="First Name *"required />
+                                        <Input id="firstName" className = "signup-register-textfield" type="text" placeholder="First Name *"required
+                                            onKeyDown={() => document.getElementById('name-error-label').textContent = ""}
+                                        />
                                         <div id="name-error-label" className="error-label"></div>
                                     </Col>
                                     <Col xs = "12" md = "6" className='last-name-col'>
-                                        <Input id="lastName" className = "signup-register-textfield" type="text" placeholder="Last Name *" required />
+                                        <Input id="lastName" className = "signup-register-textfield" type="text" placeholder="Last Name *" required
+                                            onKeyDown={() => document.getElementById('name-error-label').textContent = ""}
+                                        />
                                     </Col>
                                 </Row>
                                     <Input id="phNum" className = "signup-register-textfield" type="text" placeholder="Mobile Number *"  
-                                        onKeyPress={e => formatToPhone(e)}
+                                        onKeyDown={e => formatToPhone(e)}
                                         maxLength={13} required />
                                     <div id="phNum-error-label" className="error-label"></div>
 
@@ -185,6 +192,7 @@ const Signup = (props) => {
                                     <Input id="signup-password" className = "signup-register-textfield" 
                                      type={passwordShown=='show' ? "text" : "password"} placeholder= "Create a Password *" 
                                      required
+                                     onKeyDown={() => document.getElementById('signup-error-label').textContent = ""}
                                      maxLength={16}
                                      />
                                    { eyePiece ?<i onClick={togglePasswordVisiblity}><img alt = "loading..." src={Eyepiece}/></i>

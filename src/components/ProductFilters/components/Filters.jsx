@@ -117,6 +117,9 @@ const Filters = (props) => {
     //Map Popup
     const [mapPopup, setMapPopup] = useState(false);
 
+    // Selected Exterior colors
+    const [extColors, setExtColors] = useState([]);
+
 
     const [loading, setLoading] = useState(false);
 
@@ -762,6 +765,15 @@ const Filters = (props) => {
         })
     }
 
+
+    const handleExtColors = (elId) => {
+        let tempArr = [...extColors];
+        let indexOfItem = tempArr.indexOf(elId);
+        indexOfItem === -1 ? tempArr.push(elId) : tempArr.splice(tempArr.indexOf(elId), 1);
+        console.log(tempArr)
+        setExtColors(tempArr);
+    }
+
     return(
         <Card className="filters">
             <CardBody>
@@ -907,7 +919,7 @@ const Filters = (props) => {
                                     max={filtersList.ranges[0].maxPrice}
                                     minLabel={price[0]}
                                     maxLabel={price[1]}
-                                    step={1000}
+                                    step={5000}
                                     defaultValue={[0, filtersList.ranges[0].maxPrice]}
                                     onHandlePrice={handlePrice} 
                                     disabled={loading}
@@ -1017,7 +1029,15 @@ const Filters = (props) => {
 
                             <Collapse isOpen={advancedFiltersShown}>    
                                 <h6>Transmission</h6>
-                                <FormGroup check>
+                                {
+                                    filtersList && filtersList.transmission.map((transmission, index) => {
+                                        return <FormGroup check key={index}>
+                                            <Input type="checkbox" id="manual" name="transmission" />
+                                            <Label check htmlFor="manual">{transmission}</Label>
+                                        </FormGroup>
+                                    })
+                                }
+                                {/* <FormGroup check>
                                     <Input type="checkbox" id="manual" name="transmission" />
                                     <Label check htmlFor="manual">Manual</Label>
                                 </FormGroup>
@@ -1032,7 +1052,7 @@ const Filters = (props) => {
                                 <FormGroup check>
                                     <Input type="checkbox" id="random" name="transmission" />
                                     <Label check htmlFor="random">Random</Label>
-                                </FormGroup>
+                                </FormGroup> */}
 
 
                                 <hr />
@@ -1055,29 +1075,47 @@ const Filters = (props) => {
                                 <h6>Exterior Color</h6>
                                 <Row className="exterior-color text-center">
                                     <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'black'}}>
-                                            <Check />
+                                        <div className="color-swatch" id="black" style={{backgroundColor: 'black'}} onClick={() => handleExtColors("black")}>
+                                            {
+                                                extColors.length > 0 && extColors.includes("black") ? <Check /> : null
+                                            }
                                         </div>
                                         <p>Black</p>
                                     </Col>
 
                                     <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'white'}}></div>
+                                        <div className="color-swatch" id="white" style={{backgroundColor: 'white'}} onClick={() => handleExtColors("white")}>
+                                            {
+                                                extColors.length > 0 && extColors.includes("white") ? <Check /> : null
+                                            }
+                                        </div>
                                         <p>White</p>
                                     </Col>
 
                                     <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'gray'}}></div>
+                                        <div className="color-swatch" id="gray" style={{backgroundColor: 'gray'}} onClick={() => handleExtColors("gray")}>
+                                            {
+                                                extColors.length > 0 && extColors.includes("gray") ? <Check /> : null
+                                            }
+                                        </div>
                                         <p>Gray</p>
                                     </Col>
 
                                     <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'red'}}></div>
+                                        <div className="color-swatch" style={{backgroundColor: 'red'}}  onClick={() => handleExtColors("red")}>
+                                            {
+                                                extColors.length > 0 && extColors.includes("red") ? <Check /> : null
+                                            }
+                                        </div>
                                         <p>Red</p>
                                     </Col>
 
                                     <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'orange'}}></div>
+                                        <div className="color-swatch" style={{backgroundColor: 'orange'}} onClick={() => handleExtColors("orange")}>
+                                            {
+                                                extColors.length > 0 && extColors.includes("orange") ? <Check /> : null
+                                            }
+                                        </div>
                                         <p>Orange</p>
                                     </Col>
                                 </Row>
