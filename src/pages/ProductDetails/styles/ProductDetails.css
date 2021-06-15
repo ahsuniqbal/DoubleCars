@@ -1,5 +1,7 @@
 /* Product Details css starts here */
 .product-detail-body {
+    margin: 0px !important;
+    padding: 0px !important;
     background-color: white !important;
 }
 .product-detailed-first-row{

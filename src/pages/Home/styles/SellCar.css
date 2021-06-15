@@ -121,6 +121,7 @@
         right: 0 !important;
     }
 } */
+
 @media screen and (max-width: 769px) {
     .mobile-img{
         display: flex;
@@ -180,6 +181,7 @@
     .mobile-img{
         /* position: unset; */
         margin-top: 30px;
+        padding: 20px !important ;
         /* top: -1000px; */
 
     }
@@ -256,7 +258,7 @@
     .mobile-img{
         position: absolute;
         left: 5%;
-        padding: 30px;
+        padding: 30px !important;
     }
 }
 

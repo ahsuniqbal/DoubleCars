@@ -4,7 +4,7 @@ import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import Gallery from './Gallery';
 import Information from './Information';
 import AboutSeller from './AboutSeller';
-import { GetProductDetails, GetTopDealers } from '../api/GetRequests';
+import { GetProductDetails, GetTopDealers, getSimilarCars, GetRecommendationsTrendings } from '../api/GetRequests';
 import '../styles/ProductDetails.css';
 import { Skeleton } from '@material-ui/lab';
 import { ChevronLeft } from 'react-feather';
@@ -12,11 +12,11 @@ import { useHistory } from 'react-router-dom';
 import DCSlider from '../../../components/DcSlider/components/DCSlider';
 import { Link } from 'react-router-dom';
 import { isLogin, getLogin } from '../../../config/LoginAuth';
-import { GetRecommendationsTrendings, getSimilarCars } from '../api/GetRequests';
 import { Share2 } from 'react-feather';
 import UsersSlider from '../../../components/DcSlider/components/UsersSlider';
 import StatsTable from './StatsTable';
 import Chart from './Chart';
+import { ProductGraph } from '../api/PostRequest';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
@@ -25,6 +25,7 @@ const ProductResults = ({match}) => {
     const [topDealers, setTopDealers] = useState([]);
     const [tableData, setTableData] = useState(null);
     const [shareTipOpen, setShareTipOpen] = useState(false);
+    const [graphData, setGraphData] = useState(null);
 
     const history = useHistory();
 
@@ -35,14 +36,19 @@ const ProductResults = ({match}) => {
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
-
             console.log(doc);
-
-            
-
             GetTopDealers(doc.details[0].carMake, doc.details[0].carModel).then(doc => {
                 setTopDealers(doc.topDealers);
                 setTableData(doc.tableData);
+
+
+                // Get graph
+                ProductGraph({productId: match.params.id}).then(doc => {
+                    setGraphData(doc);
+                }).catch(error => {
+                    console.log(error);
+                })
+
             }).catch(error => {
                 console.log(error);
             })
@@ -83,14 +89,14 @@ const ProductResults = ({match}) => {
     }
 
 
-    const DrawGallery = (images, coverPic, noOfSaves) => {
+    const DrawGallery =     (images, coverPic, noOfSaves) => {
         var desc;
         // if(noOfSaves === 0) {
         //     desc = null;
         // }
         // else {
         //     desc = noOfSaves + " person have saved this car";
-        // }
+        // }    
         const galleryImages = [{
             original: coverPic,
             thumbnail: coverPic,
@@ -131,7 +137,7 @@ const ProductResults = ({match}) => {
                     {
                         productDetails ?
                         <Row >
-                            <Col md = "12">
+                            <Col className="react-image" sm="12" md = "12">
                                 {
                                     productDetails.images > 0 ?
                                         productDetails.images[0].image !== "" ? 
@@ -142,9 +148,12 @@ const ProductResults = ({match}) => {
                                 }
                             </Col>
 
-                            {/* <Col xs="12" md="8">
-                                <Chart />
-                            </Col> */}
+                            <Col xs="12" md="8">
+                                {
+                                    graphData && <Chart data={graphData} />
+                                }
+                                
+                            </Col>
 
                             <Col md = "8">
                            
@@ -221,6 +230,7 @@ const ProductResults = ({match}) => {
                                 <Skeleton variant="text" animation="wave" /> */}
                             </Col>
                         </Row>
+                    
                     }
                    
                         
@@ -273,7 +283,7 @@ const ProductResults = ({match}) => {
                      <DCSlider
                          slidesToShow={4}
                      /> */}
-                  
+                
                 </CardBody>
             </Container>
         </body>

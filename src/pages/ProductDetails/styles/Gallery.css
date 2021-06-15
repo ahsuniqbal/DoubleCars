@@ -16,6 +16,7 @@
 /* Gallery image size */
 .image-gallery-slide{
     max-height: 500px;
+
     background-color: black;
 }
 
@@ -65,6 +66,10 @@
 
 .image-gallery-slide .image-gallery-image{
     object-fit: contain;
+}
+
+.image-gallery-image{
+    width: 100% !important;
 }
 
 /* Gallery navs */
@@ -136,6 +141,9 @@
     padding: 0 20px;
 }
 
+.image-gallery-container{
+    width: 100% !important;
+}
 
 
 @media (min-width: 576px) { 
@@ -150,8 +158,65 @@
     /* Gallery image size */
     .image-gallery-slide{
         max-height: 500px;
+        width: 100% !important;
+    }
+    
+    
+}
+@media (max-width: 768px) { 
+    /* Gallery image size */
+    .image-gallery-slide{
+        max-height: 500px;
+        width: 100% !important;
+    }
+    .product-detail-cardbody{
+        padding: 0px !important;
+    }
+    body{
+        position: relative;
+    }
+    .react-image{
+        padding: 0px !important;
+    }
+    .car-info{
+
+    }
+    .car-price{
+        /* font-weight: 500 !important;
+        font-size: 20px !important;
+         */
+         font-weight: bold !important;
+    }
+    .car-name{
+        font-weight: bold !important;
+
+    }
+
+    .image-gallery {
+        padding: 0px;
+        margin-top: 60px;
+        
+    }
+    .product-detailed-first-row{
+        display: none;
+    }
+    
+    /* Save icon css */
+    .save-icon-gallery {
+        height: 48px;
+        width: 48px;
+        border-radius: 20%;
+        background-color: #ffffff;
+        position: absolute;
+        top: 30%;
+        left :80% !important;
+        cursor: pointer;
+    }
+    .info{
+        margin-top: 0px !important;
     }
 }
+
 
 
 @media (min-width: 992px) { 

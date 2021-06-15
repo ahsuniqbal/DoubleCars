@@ -99,3 +99,19 @@ export const postCreateChat = (senderId,receiverId) => {
   })
 }
 
+
+export const postReadCount = (senderId,receiverId,obj) => {
+  const key = [senderId, receiverId].sort().join('-')
+  console.log('asharKey',key)
+  return new Promise((resolve, reject) => {
+    firestore.collection("Chats").doc(key)
+    .update(obj)
+    .then(doc => {
+      resolve(true)
+    })
+    .catch(e => {
+      reject(e)
+    })
+  })
+}
+
