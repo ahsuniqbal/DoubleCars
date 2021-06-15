@@ -1,7 +1,7 @@
 import React,{ useState } from 'react';
 import { Button, Label} from 'reactstrap';
 import '../styles/Header.css';
-import Cover from '../../../assets/LandingPageHeaderImage.png';
+import Cover from '../../../assets/HomeHeaderImage.jpeg';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {useHistory} from 'react-router-dom'
 import LoginSignupModal from '../../Authentication/LoginSignupModal/LoginSignupModal'
@@ -64,7 +64,7 @@ const Header = () => {
                                 // style={{padding: '0'}}
                                 >
                                     <LazyLoadImage  data-aos="fade-down" src={Cover} effect='blur' className=' right-cover-section' width="100%" />
-                                    <Label className = "header-right-car-label float-right">Toyota Supra</Label>
+                                    {/* <Label className = "header-right-car-label float-right">Toyota Supra</Label> */}
                                     {/* <video width="100%" controls autoPlay loop>
                                         <source src={headerVideo} type="video/mp4" />
                                     </video> */}
