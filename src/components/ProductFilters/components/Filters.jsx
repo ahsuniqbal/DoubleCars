@@ -119,6 +119,8 @@ const Filters = (props) => {
 
     // Selected Exterior colors
     const [extColors, setExtColors] = useState([]);
+    // Selected Interior colors
+    const [intColors, setIntColors] = useState([]);
 
 
     const [loading, setLoading] = useState(false);
@@ -769,9 +771,33 @@ const Filters = (props) => {
     const handleExtColors = (elId) => {
         let tempArr = [...extColors];
         let indexOfItem = tempArr.indexOf(elId);
-        indexOfItem === -1 ? tempArr.push(elId) : tempArr.splice(tempArr.indexOf(elId), 1);
-        console.log(tempArr)
+
+        if (indexOfItem === -1) {
+            tempArr.push(elId);
+        }
+        else {
+            tempArr.splice(tempArr.indexOf(elId), 1)
+        }
+        filters['exteriorColor'] = concatinateCommaToFilters(tempArr);
+        setFilters(filters);
+        FilterQueryString(filters);
         setExtColors(tempArr);
+    }
+
+    const handleInteriorColors = (elId) => {
+        let tempArr = [...intColors];
+        let indexOfItem = tempArr.indexOf(elId);
+
+        if (indexOfItem === -1) {
+            tempArr.push(elId);
+        }
+        else {
+            tempArr.splice(tempArr.indexOf(elId), 1)
+        }
+        filters['interiorColor'] = concatinateCommaToFilters(tempArr);
+        setFilters(filters);
+        FilterQueryString(filters);
+        setIntColors(tempArr);
     }
 
     return(
@@ -1037,23 +1063,6 @@ const Filters = (props) => {
                                         </FormGroup>
                                     })
                                 }
-                                {/* <FormGroup check>
-                                    <Input type="checkbox" id="manual" name="transmission" />
-                                    <Label check htmlFor="manual">Manual</Label>
-                                </FormGroup>
-                                <FormGroup check>
-                                    <Input type="checkbox" id="automatic" name="transmission" />
-                                    <Label check htmlFor="automatic">Automatic</Label>
-                                </FormGroup>
-                                <FormGroup check>
-                                    <Input type="checkbox" id="electric" name="transmission" />
-                                    <Label check htmlFor="electric">Electric</Label>
-                                </FormGroup>
-                                <FormGroup check>
-                                    <Input type="checkbox" id="random" name="transmission" />
-                                    <Label check htmlFor="random">Random</Label>
-                                </FormGroup> */}
-
 
                                 <hr />
 
@@ -1074,50 +1083,18 @@ const Filters = (props) => {
 
                                 <h6>Exterior Color</h6>
                                 <Row className="exterior-color text-center">
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" id="black" style={{backgroundColor: 'black'}} onClick={() => handleExtColors("black")}>
-                                            {
-                                                extColors.length > 0 && extColors.includes("black") ? <Check /> : null
-                                            }
-                                        </div>
-                                        <p>Black</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" id="white" style={{backgroundColor: 'white'}} onClick={() => handleExtColors("white")}>
-                                            {
-                                                extColors.length > 0 && extColors.includes("white") ? <Check /> : null
-                                            }
-                                        </div>
-                                        <p>White</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" id="gray" style={{backgroundColor: 'gray'}} onClick={() => handleExtColors("gray")}>
-                                            {
-                                                extColors.length > 0 && extColors.includes("gray") ? <Check /> : null
-                                            }
-                                        </div>
-                                        <p>Gray</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'red'}}  onClick={() => handleExtColors("red")}>
-                                            {
-                                                extColors.length > 0 && extColors.includes("red") ? <Check /> : null
-                                            }
-                                        </div>
-                                        <p>Red</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'orange'}} onClick={() => handleExtColors("orange")}>
-                                            {
-                                                extColors.length > 0 && extColors.includes("orange") ? <Check /> : null
-                                            }
-                                        </div>
-                                        <p>Orange</p>
-                                    </Col>
+                                    {
+                                        filtersList && filtersList.colors.map((extColorFilter, index) => {
+                                            return <Col xs="4" sm="2" md="4" key={index}>
+                                                <div className="color-swatch" id={extColorFilter.name} style={{backgroundColor: extColorFilter.color}} onClick={() => handleExtColors(extColorFilter.name)}>
+                                                    {
+                                                        extColors.length > 0 && extColors.includes(extColorFilter.name) ? <Check /> : null
+                                                    }
+                                                </div>
+                                                <p>{extColorFilter.name}</p>
+                                            </Col>
+                                        })
+                                    }
                                 </Row>
 
 
@@ -1128,37 +1105,18 @@ const Filters = (props) => {
 
                                 <h6>Interior Color</h6>
                                 <Row className="exterior-color text-center">
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'black'}}>
-                                            <Check />
-                                        </div>
-                                        <p>Black</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'white'}}></div>
-                                        <p>White</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'gray'}}></div>
-                                        <p>Gray</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'red'}}></div>
-                                        <p>Red</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'orange'}}></div>
-                                        <p>Orange</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'yellow'}}></div>
-                                        <p>Yellow</p>
-                                    </Col>
+                                    {
+                                        filtersList && filtersList.colors.map((extColorFilter, index) => {
+                                            return <Col xs="4" sm="2" md="4" key={index}>
+                                                <div className="color-swatch" id={extColorFilter.name} style={{backgroundColor: extColorFilter.color}} onClick={() => handleInteriorColors(extColorFilter.name)}>
+                                                    {
+                                                        intColors.length > 0 && intColors.includes(extColorFilter.name) ? <Check /> : null
+                                                    }
+                                                </div>
+                                                <p>{extColorFilter.name}</p>
+                                            </Col>
+                                        })
+                                    }
                                 </Row>
                             </Collapse>
                         </div>
