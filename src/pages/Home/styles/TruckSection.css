@@ -6,6 +6,12 @@
 .card-img {
     height: 274px;
 }
+
+
+.lazy-load-image-background img.card-img {
+    object-fit: cover;
+}
+
 .truck-cars-div{
     position: absolute;
     padding: 22% 2rem 10%;
@@ -70,5 +76,18 @@
     }
     .truck-cars-div{
         padding-top: 12%;
+    }
+}
+
+
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .card-img {
+        height: 180px;
+    }
+
+    .truck-cars-div {
+        padding: 25% 1rem 10%;
     }
 }

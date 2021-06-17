@@ -65,7 +65,7 @@ const SellCar = () => {
                                             <p className='white-text pt-2'>Download the app and upload your car in few steps</p>
                                         </div>
                                     </div>
-                                    <div className = "vertical-line"></div>
+                                    <div className = "vertical-line invisible md-visible"></div>
                                     <div className='col-lg-3 md-12 px-0'>
                                         <div  className='white-main'>
                                             <div className='d-flex'>
@@ -75,7 +75,7 @@ const SellCar = () => {
                                             <p className='white-text pt-2'>Get original leads and keep track on your car's stats</p>
                                         </div>
                                     </div>
-                                    <div className = "vertical-line"></div>
+                                    <div className = "vertical-line invisible md-visible"></div>
                                     <div className='col-lg-3 md-12 px-0'>
                                         <div className='white-main'>
                                             <div className='d-flex'>

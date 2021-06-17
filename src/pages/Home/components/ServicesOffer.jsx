@@ -23,15 +23,15 @@ const ServicesOffer = () => {
                 <h2 className='service-head'>What services do we offer?</h2>
                 <p className='service-text' id='root'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci lorem, mattis at porta vitae, accumsan vel libero. In sit amet magna nunc. Curabitur at purus iaculis, rutrum neque sit amet.</p>
                 <ul className="">
-                    <div>
+                    <div className="d-flex d-md-block">
                         <CheckIcon className='check mr-3'/>
                         <Label ><p className="service-nav-Item">Lorem ipsum dolor sit amet consectetur.</p></Label>
                     </div>
-                    <div>
+                    <div className="d-flex d-md-block">
                         <CheckIcon className='check mr-3'/>
                         <Label><p className="service-nav-Item">Lorem ipsum dolor sit amet consectetur.</p></Label>
                     </div>
-                    <div>
+                    <div className="d-flex d-md-block">
                         <CheckIcon className='check mr-3'/>
                         <Label><p className="service-nav-Item">Lorem ipsum dolor sit amet consectetur.</p></Label>
                     </div>

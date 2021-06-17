@@ -34,7 +34,7 @@ const Header = () => {
                                     <h1 className = "cover-left-heading ml-3">
                                         Find the most desireable car
                                     </h1>
-                                    <h5 className = "my-3 header-sub-head ml-3">
+                                    <h5 className = "my-3 header-sub-head d-md-ml-3">
                                         Buy and sell cars with ease using our app!
                                     </h5>
                                     <div>

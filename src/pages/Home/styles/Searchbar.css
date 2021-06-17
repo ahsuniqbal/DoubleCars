@@ -193,3 +193,11 @@ select:required:invalid {
     }
    
 }
+
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .search-search-box {
+        padding-left: 21px !important;
+    }
+}

@@ -224,3 +224,41 @@
   padding-left: 25px;
 } */
 }
+
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+  .learn-more-button-class {
+    padding-left: 0px !important;
+    padding-right: 0px;
+    padding-top: 14%;
+  }
+
+  .car-dealer-class {
+    margin-top: 30px !important;
+  }
+
+  .footer-columns:first-of-type {
+    margin-top: 4rem;
+  }
+
+  .footer-columns {
+    margin-top: 2rem;
+  }
+
+  .footer-columns .nav-text-color {
+    padding: 0.5rem 0rem;
+  }
+
+  .footer-columns .nav-link {
+    padding: 0.5rem 0rem;
+  }
+
+  .lower-footer-columns {
+    margin-bottom: 0;
+  }
+
+  .icon-row {
+    margin-bottom: 3rem;
+  }
+}

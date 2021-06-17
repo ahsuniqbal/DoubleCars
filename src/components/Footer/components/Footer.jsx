@@ -104,7 +104,7 @@ const Footer = () => {
                         <Col xs="12" md="3" className = "footer-columns">
                             <Nav vertical>
                                 <NavItem>
-                                <Label className = "nav-text-color footer-contact-information" style = {{marginLeft: '1rem'}} to="">Contact Information</Label>
+                                <Label className = "nav-text-color footer-contact-information" style = {window.screen.width > 768 ? {marginLeft: '1rem'} : null } to="">Contact Information</Label>
                                 </NavItem>
                                 <NavItem>
                                     <a href="mailto:support@doublecars.com" className = "footer-contact nav-link">support@doublecars.com</a>

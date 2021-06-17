@@ -16,8 +16,6 @@
   height: 95vh;
   padding-left: 3rem;
   padding-right: 3rem;
-  
-  
 }
 
 .cover-left-heading {
@@ -142,5 +140,21 @@ right: 2%;
   
 
 
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) { 
+  .left-cover-section {
+    padding-left: 0px;
+    text-align: center;
+  }
+
+  .header-main{
+    padding-top: 5rem;
+  }
+
+  .header-sub-head {
+    font-size: 16px;
+  }
+}
 
 

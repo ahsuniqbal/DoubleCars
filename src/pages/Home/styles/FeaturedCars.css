@@ -143,3 +143,11 @@ line-height: 25px;
     } */
 }
 
+
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .feature-car-badge1, .feature-car-badge2 {
+        left: 78% !important;
+    }
+}

@@ -146,17 +146,17 @@ const Home = () => {
     const history=useHistory()
 
 
-    useEffect(() => {
-        const password = prompt('To visit Double Cars, you need to enter the magic key here.');
+    // useEffect(() => {
+    //     const password = prompt('To visit Double Cars, you need to enter the magic key here.');
 
-        if(password === "easypeasy") {
-            alert("Congratulations! You have unlocked the secret chamber");
-        }
-        else {
-            alert("Panicc!!!! Intruder Spotted!!!");
-            window.location.reload();
-        }
-    }, [])
+    //     if(password === "easypeasy") {
+    //         alert("Congratulations! You have unlocked the secret chamber");
+    //     }
+    //     else {
+    //         alert("Panicc!!!! Intruder Spotted!!!");
+    //         window.location.reload();
+    //     }
+    // }, [])
 
 
 
@@ -382,16 +382,16 @@ const Home = () => {
                 
                 <Container>
                 <Row style={{margin:'0'}}>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
+                    <Col xs = "12" md = "3" style={window.screen.width > 768 ? { padding:'1.5rem' } : { padding: '1rem'} } onClick={()=>history.push('/blogs')}>
                         <ArticleCard />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
+                    <Col xs = "12" md = "3" style={window.screen.width > 768 ? { padding:'1.5rem' } : { padding: '1rem'} } onClick={()=>history.push('/blogs')}>
                         <ArticleCard1 />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
+                    <Col xs = "12" md = "3" style={window.screen.width > 768 ? { padding:'1.5rem' } : { padding: '1rem'} } onClick={()=>history.push('/blogs')}>
                         <ArticleCard2 />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
+                    <Col xs = "12" md = "3" style={window.screen.width > 768 ? { padding:'1.5rem' } : { padding: '1rem'} } onClick={()=>history.push('/blogs')}>
                         <ArticleCard4 />
                     </Col>
                 </Row>
