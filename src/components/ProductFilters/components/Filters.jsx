@@ -161,6 +161,7 @@ const Filters = (props) => {
 
     /////////////// Handle changes in filters ///////////////
     const handleRadius = (radius) => {
+        console.log('chalaaa')
         if(!zipCode) {
             alert("Please allow the location first");
             return;
@@ -172,6 +173,7 @@ const Filters = (props) => {
             zip: zip[zip.length - 1],
             radius: radius,
         }
+        console.log(obj)
         // console.log(convertIntoQueryParams(obj))
         GetZipCodesList(convertIntoQueryParams(obj)).then(doc => {
             console.log(doc)
@@ -179,7 +181,8 @@ const Filters = (props) => {
                 setRadius(radius);            
                 filters['radius'] = radius;
                 console.log(doc)
-                filters['zipCode'] = doc.results.toString()
+                filters['zipCode'] = doc.results[0]+"-"+doc.results[doc.results.length - 1]
+               // console.log(doc.results[0]+"-"+doc.results[doc.results.length - 1])
                 setFilters(filters);
                 FilterQueryString(filters);
             }
