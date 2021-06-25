@@ -75,6 +75,7 @@ const Filters = (props) => {
 
     //basicColor for BodyList svg
     const [basicColor, setBasicColors] = useState(['#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959'])
+    const [basicBodyStyle,setBodyStyle] = useState(['Sedan','Hatchback','SUV','Coupe','Convertible','Pickup Truck','Wagon','Minivan'])
     const basicColorSet = (index) => {
         var modelTemp = basicColor.slice();
         modelTemp[index] = basicColor[index] === '#595959' ? '#1C67CE' : '#595959'
@@ -136,8 +137,10 @@ const Filters = (props) => {
     let dropdownToYears = [];
     dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index-1);
     dropdownToYears.unshift(todayYear)
+    console.log("YEARSSSSS1",dropdownToYears)
     if (dropdownToYears.length==0) {
         dropdownToYears = [...dropdownToYears,Number(selectedFromYear)]
+        console.log("YEARSSSSS",dropdownToYears)
     }
     
 
@@ -202,6 +205,51 @@ const Filters = (props) => {
     // This function is to handle the radius value only
     const handleRadiusValue = (radius) => {
         setRadius(radius);
+    }
+
+    const handleMake2 = (make) => {
+        setLoading(true);
+        setSelectedMake(make);
+        setModelList([]);
+        delete filters['carModel']
+        setTrimList([]);
+        delete filters['trim']
+
+        if(make){
+            GetModelFromMake(make).then(doc => {
+                setModelList(doc.makes[0].models);
+                console.log("MODEL",props.carModel,doc.makes[0].models)
+                if(props.carMake){
+                    if(props.carModel){
+                        if(doc.makes[0].models.findIndex(a => a.name === props.carModel) !== -1){
+                            filters['carMake'] = make;
+                            handleModel(props.carModel)
+                        setFilters(filters);
+                        //FilterQueryString(filters);
+                        setLoading(false);
+                        }
+                    }
+                }
+                // filters['carMake'] = make;
+                // setFilters(filters);
+                // FilterQueryString(filters);
+                // setLoading(false);
+            })
+            .catch(error => {
+                console.log(error.message)
+                setLoading(false);
+            });
+        }else{
+            setModelList([]);
+            delete filters['carModel']
+            setTrimList([]);
+            delete filters['trim']
+            delete filters['carMake']
+            setFilters(filters);
+            FilterQueryString(filters);
+            setLoading(false);
+        }
+        
     }
 
     const handleMake = (make) => {
@@ -425,7 +473,7 @@ const Filters = (props) => {
 
         for(let i = 0; i < 4; i++) {
             table.push(
-                <FiltersSkeleton />
+                <FiltersSkeleton index={i}/>
             );
         }
         return table;
@@ -680,8 +728,33 @@ const Filters = (props) => {
     // This use effect will run only on first render
     useEffect(() => {
         // Get the list of makes from vin audit api and store it in the makes state variable
+        console.log('Filters',props.carMake)
+        if(props.bodyStyle){
+            var index = basicBodyStyle.findIndex(a => a === props.bodyStyle)
+            if(index !== -1){
+                basicColorSet(index)
+            }
+        }
         GetAllMakes().then(doc => {
-            setMakeList(doc.makes);
+           setMakeList(doc.makes);
+            //console.log('chala',doc.makes)
+            if(props.carMake){
+                if(doc.makes.findIndex(a => a.name === props.carMake) !== -1){
+                    console.log('ye challlaa')
+                    setModelCollapseOpen(true)
+                    handleMake2(props.carMake)
+                }
+            }
+            // setTimeout(() =>{
+                
+            //     if(props.carMake){
+            //         if(doc.makes.includes(props.carMake)){
+            //             console.log('ye challlaa')
+            //             setModelCollapseOpen(true)
+            //         }
+            //     }
+            // },1500)
+            
         })
         .catch(error => {
             alert(error.message);
@@ -875,7 +948,7 @@ const Filters = (props) => {
                             {/* Make list will be fetched from vinaudit api
                             On changing the make, modal will be visible  */}
                             {
-                                makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }} disabled={loading} >
+                                makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }} disabled={loading} defaultValue={props.carMake ? props.carMake : ""}>
                                 <option value="">Make</option>
                                 {
                                     makeList.map((option, index) => {
@@ -893,7 +966,7 @@ const Filters = (props) => {
                             <Collapse isOpen={isModelCollapseOpen}>
                                 <h6>Model</h6>
 
-                                <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)} disabled={loading}>
+                                <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)} disabled={loading} defaultValue={props.carModel ? props.carModel : ""}>
                                 <option value="">Model</option>
                                 {
                                     modelList.map((option, index) => {
@@ -949,7 +1022,7 @@ const Filters = (props) => {
                                     minLabel={price[0]}
                                     maxLabel={price[1]}
                                     step={5000}
-                                    defaultValue={[0, filtersList.ranges[0].maxPrice]}
+                                    defaultValue={[props.minPrice ? props.minPrice : 0, props.maxPrice ? props.maxPrice :filtersList.ranges[0].maxPrice]}
                                     onHandlePrice={handlePrice} 
                                     disabled={loading}
                                 />
@@ -962,7 +1035,7 @@ const Filters = (props) => {
                             <Row>
                                 <Col xs="6">
                                     {/* On selecting from year, to year will be enabled */}
-                                    <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading}>
+                                    <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading} defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
                                         <option disabled selected hidden>From</option>
                                         {
                                             // Populate from year
@@ -974,7 +1047,7 @@ const Filters = (props) => {
                                 </Col>
                                 <Col xs="6">
                                     {/* Disabled by default, will be enabled after from year is selected */}
-                                    <Input id="toYear" type="select" onChange={(e) => handleToYear(e.target.value)} disabled>
+                                    <Input id="toYear" type="select" onChange={(e) => handleToYear(e.target.value)} disabled defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
                                         <option disabled selected hidden>To</option>
                                         {
                                             // Populate to year
@@ -993,7 +1066,7 @@ const Filters = (props) => {
 
                             <Row className="body-types text-center">
                                 {
-                                    filtersList ? DrawBodyStyles(filtersList.bodyStyleList) :null
+                                    filtersList ? DrawBodyStyles(filtersList.bodyStyleList) : null
                                 }
                             </Row>
                             

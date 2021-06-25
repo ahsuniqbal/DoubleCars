@@ -112,14 +112,18 @@ const Products = (props) => {
     
     useEffect(() => {
         var tempStr = ""
+        //bodyStyle=Sedan
+        //carMake=Audi
+        //carModel=ACX
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
+        console.log('searchLocation',locationSearch)
         if(locationSearch.search){
             tempStr += `search=${locationSearch.search}&page=${pageNumber}&${globalQuery}`
         }else{
             tempStr += `page=${pageNumber}&${globalQuery}`
         }
         tempStr += `&id=${userId}`
-
+        console.log('tempStr',tempStr)
         setPageNumber(pageNumber + 1)
         GetSearchResult(tempStr).then(doc1 => {
             setTotalCount(doc1.totalCount)
@@ -235,6 +239,12 @@ const Products = (props) => {
                     <Filters
                         onFilterChange={filterQueryChange}
                         isUsed={locationSearch.isUsed}
+                        bodyStyle={locationSearch.bodyStyle}
+                        carMake={locationSearch.carMake}
+                        carModel={locationSearch.carModel}
+                        minPrice={locationSearch.minPrice}
+                        maxPrice={locationSearch.maxPrice}
+                        yearCar={locationSearch.yearCar}
                         search={locationSearch.search}
                         savedSearch={savedSearchObj}
                     />
