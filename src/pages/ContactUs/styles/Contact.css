@@ -127,7 +127,8 @@ select:required:invalid {
     transition: transform 500ms !important;
 }
 .contact-us-image-column {
-    margin-left: 2rem;
+    margin-left: -1rem;
+    margin: -11px;
 }
 .about-dc-head {
     font-size: 18px;
@@ -191,4 +192,18 @@ overflow: hidden;
         display: none;
     }
 
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .contactus-head {
+        margin-top: 5rem;
+    }
+   .send-button {
+    width: 100% !important;
+   }
+   
+   .contactus-image {
+    margin: 0px;
+   }
 }

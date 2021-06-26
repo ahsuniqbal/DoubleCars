@@ -239,17 +239,17 @@ const Home = () => {
                         </> : 
                         <Container>
                             <Row className = "mt-5">
-                                <Col md="6">
-                                    <Skeleton variant="rect" width={680} height={415} animation="wave" />
+                                <Col  md="6">
+                                    <Skeleton variant="rect" width={680} height={415} animation="wave" className = "skeleton-feature-car" />
                                 </Col>
                                 <Col md="6">
                                     <Row>
-                                        <Col md = "6">
-                                        <Skeleton variant="rect" width={300} height={200} animation="wave" className = "mb-3"/>
-                                        <Skeleton variant="rect" width={300} height={200} animation="wave" />
+                                        <Col md = "6" xs = "12">
+                                        <Skeleton variant="rect" width={300} height={200} animation="wave" className = "mb-3 skeleton-feature-car-2"/>
+                                        <Skeleton variant="rect" width={300} height={200} animation="wave" className = "skeleton-feature-car-2"/>
                                         </Col>
                                         <Col md = "6">
-                                        <Skeleton variant="rect" width={300} height={200} animation="wave" className = "mb-3"/>
+                                        <Skeleton variant="rect" width={300} height={200} animation="wave" className = "mb-3 "/>
                                         <Skeleton variant="rect" width={300} height={200} animation="wave" />
                                         </Col>
                                         
@@ -296,22 +296,22 @@ const Home = () => {
                         <Container>
                         <Row className = "mt-5">
                             <Col md="2">
-                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
                             </Col>
                             <Col md="2">
-                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
                             </Col>
                             <Col md="2">
-                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
                             </Col>
                             <Col md="2">
-                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
                             </Col>
                             <Col md="2">
-                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
                             </Col>
                             <Col md="2">
-                                <Skeleton variant="rect" width={200} height={200} animation="wave" />
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
                             </Col>
                             
                     </Row>
