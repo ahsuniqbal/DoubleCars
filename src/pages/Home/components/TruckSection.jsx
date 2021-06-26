@@ -44,7 +44,7 @@ const TruckSection = () => {
                             <div className='truck-cars-div'>  
                                 <span className='trucks-images-gradient'>
                                     <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
-                                    <Link to={`/products?${vehicle.category}`}>
+                                    <Link to={`/products?bodyStyle=Pickup Truck`}>
                                         <h1 className='trucks-head'>{vehicle.category}</h1>
                                     </Link>
                                     <Label className='trucks-label'>Starting from ${AddCommaToNumber(vehicle.price) }<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
