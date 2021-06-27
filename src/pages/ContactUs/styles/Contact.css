@@ -206,4 +206,22 @@ overflow: hidden;
    .contactus-image {
     margin: 0px;
    }
+
+   .v-line {
+       display: none !important;
+   }
+
+   .lower-outer-col {
+       margin-top:0rem;
+       margin-bottom: 0rem;
+   }
+   .icons-row-mobile {
+       text-align: center !important;
+       justify-content: center !important;
+       margin-bottom: 1rem;
+   }
+
+   .contact-detail {
+       margin-bottom: 2rem;
+   }
 }
