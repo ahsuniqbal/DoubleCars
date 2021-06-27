@@ -184,3 +184,15 @@
 
 }
 
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+   .about-detail-col{
+       
+    text-align: center !important;
+   }
+  .vertical-line-col{
+      display: none !important;
+  }
+  
+  }
+

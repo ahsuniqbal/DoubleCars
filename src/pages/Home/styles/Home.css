@@ -109,4 +109,16 @@
   .feature-heading{
     margin-top: 20px;
   }
+ 
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+  .skeleton-feature-car {
+    width: 100% !important;
+    height: 20% !important;
+  }
+  .skeleton-feature-car-2 {
+   display: none !important;
+  }
 }

@@ -137,10 +137,8 @@ const Filters = (props) => {
     let dropdownToYears = [];
     dropdownToYears = Array.from(new Array(todayYear - selectedFromYear), (val, index) => todayYear - index-1);
     dropdownToYears.unshift(todayYear)
-    console.log("YEARSSSSS1",dropdownToYears)
     if (dropdownToYears.length==0) {
         dropdownToYears = [...dropdownToYears,Number(selectedFromYear)]
-        console.log("YEARSSSSS",dropdownToYears)
     }
     
 
@@ -218,13 +216,13 @@ const Filters = (props) => {
         if(make){
             GetModelFromMake(make).then(doc => {
                 setModelList(doc.makes[0].models);
-                console.log("MODEL",props.carModel,doc.makes[0].models)
+                // console.log("MODEL",props.carModel,doc.makes[0].models)
                 if(props.carMake){
                     if(props.carModel){
                         if(doc.makes[0].models.findIndex(a => a.name === props.carModel) !== -1){
-                            filters['carMake'] = make;
-                            handleModel(props.carModel)
-                        setFilters(filters);
+                            // filters['carMake'] = make;
+                            handleModel2(props.carModel)
+                        // setFilters(filters);
                         //FilterQueryString(filters);
                         setLoading(false);
                         }
@@ -234,6 +232,40 @@ const Filters = (props) => {
                 // setFilters(filters);
                 // FilterQueryString(filters);
                 // setLoading(false);
+            })
+            .catch(error => {
+                console.log(error.message)
+                setLoading(false);
+            });
+        }else{
+            // setModelList([]);
+            // delete filters['carModel']
+            // setTrimList([]);
+            // delete filters['trim']
+            // delete filters['carMake']
+            // setFilters(filters);
+            // FilterQueryString(filters);
+            // setLoading(false);
+        }
+        
+    }
+
+    const handleMake = (make) => {
+        console.log("MAKEMAKE",make)
+        setLoading(true);
+        setSelectedMake(make);
+        setModelList([]);
+        delete filters['carModel']
+        setTrimList([]);
+        delete filters['trim']
+
+        if(make){
+            GetModelFromMake(make).then(doc => {
+                setModelList(doc.makes[0].models);
+                filters['carMake'] = make;
+                setFilters(filters);
+               FilterQueryString(filters);
+                setLoading(false);
             })
             .catch(error => {
                 console.log(error.message)
@@ -251,38 +283,36 @@ const Filters = (props) => {
         }
         
     }
+    const handleModel2 = (select) => {
+        setLoading(true)
+        setSelectedModel(select);
 
-    const handleMake = (make) => {
-        setLoading(true);
-        setSelectedMake(make);
-        setModelList([]);
-        delete filters['carModel']
         setTrimList([]);
         delete filters['trim']
-
-        if(make){
-            GetModelFromMake(make).then(doc => {
-                setModelList(doc.makes[0].models);
-                filters['carMake'] = make;
-                setFilters(filters);
-                FilterQueryString(filters);
-                setLoading(false);
-            })
-            .catch(error => {
+        if(select){
+            GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
+                // trimList.push(doc.makes[0].models[0].trims)
+                setTrimCollapseOpen(true);
+                setTrimList(doc.makes[0].models[0].trims)
+                // filters['carModel'] = select;
+                // setFilters(filters);
+                // FilterQueryString(filters);
+                setLoading(false)
+            }).catch(error => {
                 console.log(error.message)
-                setLoading(false);
+                setLoading(false)
             });
         }else{
-            setModelList([]);
-            delete filters['carModel']
-            setTrimList([]);
-            delete filters['trim']
-            delete filters['carMake']
-            setFilters(filters);
-            FilterQueryString(filters);
-            setLoading(false);
+            // console.log('filters1',filters)
+            // setTrimList([]);
+            // delete filters['trim']
+            // delete filters['carModel']
+            // // console.log('filters2',filters)
+            // setFilters(filters);
+            // FilterQueryString(filters);
+            // setTrimCollapseOpen(false);
+            // setLoading(false)
         }
-        
     }
 
     const handleModel = (select) => {
@@ -315,31 +345,6 @@ const Filters = (props) => {
             setTrimCollapseOpen(false);
             setLoading(false)
         }
-
-
-
-
-        // setSelectedModels(select);
-        // if(select.length > 0){
-        // setTrimCollapseOpen(true);
-        
-        // GetTrimFromMakeAndModel(selectedMake, select[select.length - 1]).then(doc => {
-        //     // trimList.push(doc.makes[0].models[0].trims)
-        //     setTrimList(doc.makes[0].models[0].trims)
-        // }).catch(error => {
-        //     console.log(error.message)
-        // });
-        // filters['carModel'] = concatinateCommaToFilters(select);
-        // setFilters(filters);
-        // FilterQueryString(filters);
-        // }else{
-        //     // console.log('filters1',filters)
-        //     delete filters['carModel']
-        //     // console.log('filters2',filters)
-        //     setFilters(filters);
-        //     FilterQueryString(filters);
-        //     setTrimCollapseOpen(false);
-        // }
     }
 
 
@@ -685,6 +690,7 @@ const Filters = (props) => {
                 // Add the zip code into the filters array
                 filters['zipCode'] = doc.results[0].address_components[0].long_name;
                 setFilters(filters);
+                console.log('chalaZIPPP')
                 FilterQueryString(filters);
                 setLoading(false)
             }
@@ -745,15 +751,6 @@ const Filters = (props) => {
                     handleMake2(props.carMake)
                 }
             }
-            // setTimeout(() =>{
-                
-            //     if(props.carMake){
-            //         if(doc.makes.includes(props.carMake)){
-            //             console.log('ye challlaa')
-            //             setModelCollapseOpen(true)
-            //         }
-            //     }
-            // },1500)
             
         })
         .catch(error => {
