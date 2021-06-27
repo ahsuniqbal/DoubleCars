@@ -109,6 +109,33 @@ const Products = (props) => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
       }, [isBottom]);
+
+    const makeFilterStringForQueryParams = (obj) => {
+        var str = "";
+        if(obj.bodyStyle){
+            str += "&bodyStyle=" + obj.bodyStyle
+        }
+        if(obj.carMake){
+            str += "&carMake=" + obj.carMake
+        }
+        if(obj.carModel){
+            str += "&carModel=" + obj.carModel
+        }
+        if(obj.minPrice && obj.maxPrice){
+            str += "&minPrice=" + obj.minPrice
+            str += "&maxPrice=" + obj.maxPrice
+        }
+        if(obj.yearCar){
+            str += "&yearCar=" + obj.yearCar
+        }
+        return str
+// bodyStyle={locationSearch.bodyStyle}
+        //                 carMake={locationSearch.carMake}
+        //                 carModel={locationSearch.carModel}
+        //                 minPrice={locationSearch.minPrice}
+        //                 maxPrice={locationSearch.maxPrice}
+        //                 yearCar={locationSearch.yearCar}
+    }
     
     useEffect(() => {
         var tempStr = ""
@@ -117,10 +144,13 @@ const Products = (props) => {
         //carModel=ACX
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         console.log('searchLocation',locationSearch)
+        var queryParams = ""
+        queryParams = makeFilterStringForQueryParams(locationSearch)
+        console.log('queryParams',queryParams)
         if(locationSearch.search){
-            tempStr += `search=${locationSearch.search}&page=${pageNumber}&${globalQuery}`
+            tempStr += `search=${locationSearch.search}&page=${pageNumber}${queryParams}&${globalQuery}`
         }else{
-            tempStr += `page=${pageNumber}&${globalQuery}`
+            tempStr += `page=${pageNumber}${queryParams}&${globalQuery}`
         }
         tempStr += `&id=${userId}`
         console.log('tempStr',tempStr)
@@ -158,6 +188,7 @@ const Products = (props) => {
     }, [isBottom]);
 
     const filterQueryChange = (queryStr) => {
+        console.log("QURYSTR",queryStr)
         setGloableQuery(queryStr)
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1

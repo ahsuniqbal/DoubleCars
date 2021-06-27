@@ -1,7 +1,7 @@
 // Heroku base url connection string
 
-const connectionString = "https://doublecarsnode.herokuapp.com/";
-// const connectionString = "http://localhost:3002/";
+// const connectionString = "https://doublecarsnode.herokuapp.com/";
+const connectionString = "http://localhost:3002/";
 
 // Vinaudit base url
 const vinAuditBaseUrl = "https://specifications.vinaudit.com/v3/selections?format=json&key=";

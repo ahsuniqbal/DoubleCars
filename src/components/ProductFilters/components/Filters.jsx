@@ -216,7 +216,7 @@ const Filters = (props) => {
         if(make){
             GetModelFromMake(make).then(doc => {
                 setModelList(doc.makes[0].models);
-                console.log("MODEL",props.carModel,doc.makes[0].models)
+                // console.log("MODEL",props.carModel,doc.makes[0].models)
                 if(props.carMake){
                     if(props.carModel){
                         if(doc.makes[0].models.findIndex(a => a.name === props.carModel) !== -1){
@@ -238,19 +238,20 @@ const Filters = (props) => {
                 setLoading(false);
             });
         }else{
-            setModelList([]);
-            delete filters['carModel']
-            setTrimList([]);
-            delete filters['trim']
-            delete filters['carMake']
-            setFilters(filters);
-            FilterQueryString(filters);
-            setLoading(false);
+            // setModelList([]);
+            // delete filters['carModel']
+            // setTrimList([]);
+            // delete filters['trim']
+            // delete filters['carMake']
+            // setFilters(filters);
+            // FilterQueryString(filters);
+            // setLoading(false);
         }
         
     }
 
     const handleMake = (make) => {
+        // console.log("ONCANVEEEEEEEEEs")
         setLoading(true);
         setSelectedMake(make);
         setModelList([]);
