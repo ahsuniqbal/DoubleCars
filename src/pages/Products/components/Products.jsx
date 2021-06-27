@@ -3,7 +3,7 @@ import { Row, Col, Label, Input, Container, Button } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
-import { GetSearchResult } from '../api/GetRequests';
+import { GetSearchResult,GetAllMakes,GetZipCodesList } from '../api/GetRequests';
 import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
 import adProducts from '../../../assets/ad_products.png';
 import { ProductSkeleton } from '../../../components/Skeletons';
@@ -85,7 +85,7 @@ const Products = (props) => {
     const [globalQuery,setGloableQuery] = useState("")
     const [savedSearchObj,setSavedSearchObj] = useState({})
     const [totalCount, setTotalCount] = useState(0)
-
+    const [makeAndZips,setMakeAndZips] = useState(null)
 
     const handleScroll = () => {
         const scrollTop = (document.documentElement
@@ -142,6 +142,13 @@ const Products = (props) => {
         //bodyStyle=Sedan
         //carMake=Audi
         //carModel=ACX
+//         Promise.all([GetAllMakes(),GetZipCodesList()])
+//         .then(doc => {
+// setMakeAndZips
+//         })
+//         .catch(e => {
+//             console.log(e.message)
+//         })
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         console.log('searchLocation',locationSearch)
         var queryParams = ""
