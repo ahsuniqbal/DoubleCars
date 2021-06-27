@@ -158,25 +158,19 @@
   }
 }
 @media screen and (max-width: 500px) {
-  .h-100{
-     /* padding: 4% !important; */
-  } 
+ 
   .learn-more-button-class{
     padding-left:0 !important
   }
 }
 @media screen and (max-width: 900px) {
-  .learn-more-button-class{
-    /* padding-left:15% !important */
-  }
+
   .footer-contact {
     font-size: 12px !important;
   }
 }
 @media screen and (max-width: 768px) {
-  .learn-more-button-class{
-    /* padding-left:15% !important */
-  }
+
 
   .learn-more-button-cover {
     text-align: center;
@@ -189,12 +183,7 @@
   }
 }
 @media screen and (max-width: 420px) {
-  .lower-footer-columns {
-    /* padding-left: 10% !important; */
-  }  
-  /* .car-dealer-class{
-    padding-left: 36px;
-  } */
+ 
   .learn-more-button-class{
     padding-top: 10%;
     display: flex;
@@ -217,9 +206,7 @@
   
 }
 @media screen and (max-width: 375px) {
-  .h-100{
-    /* padding-left: 10% !important; */
- }
+ 
  /* .car-dealer-class{
   padding-left: 25px;
 } */
