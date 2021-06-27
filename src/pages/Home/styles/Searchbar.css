@@ -7,6 +7,27 @@
     height: auto;
 
 }
+
+.searchbar .nav {
+    justify-content: flex-end;
+}
+
+.searchbar .nav-link.active {
+    color: #1C67CE;
+    font-weight: 500;
+}
+
+.searchbar .nav-link {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 15px;
+    border: none;
+}
+
+.searchbar .nav-link:hover {
+    border: none;
+    cursor: pointer;
+}
+
 .search-bar-padding{
     padding: 0;
 }
