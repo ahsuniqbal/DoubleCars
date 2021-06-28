@@ -397,6 +397,7 @@ const Filters = (props) => {
     }
 
     const handlePrice = (price) => {
+        console.log('handlePriceFilter')
         setPrice(price);
         filters['minPrice'] = price[0];
         filters['maxPrice'] = price[1];
@@ -409,7 +410,7 @@ const Filters = (props) => {
         document.getElementById("toYear").disabled = false;
         setSelectedFromYear(fromYear);
         filters['minYear'] = fromYear;
-
+        console.log('handlePriceFilter')
         delete filters['maxYear'];
         setFilters(filters);
         FilterQueryString(filters);
@@ -420,6 +421,7 @@ const Filters = (props) => {
         setLoading(true)
         filters['maxYear'] = toYear;
         setFilters(filters);
+        console.log('handlePriceFilter')
         FilterQueryString(filters);
         setLoading(false)
     }
@@ -441,6 +443,7 @@ const Filters = (props) => {
             delete filters['isUsed'];
         }
         setFilters(filters);
+        console.log('handlePriceFilter')
         FilterQueryString(filters);
         setLoading(false)
     }
@@ -450,6 +453,7 @@ const Filters = (props) => {
         filters['minMileage'] = mileage[0];
         filters['maxMileage'] = mileage[1]
         setFilters(filters);
+        console.log('handlePriceFilter')
         FilterQueryString(filters);
     }
 
@@ -471,6 +475,7 @@ const Filters = (props) => {
             delete filters['userType'];
         }
         setFilters(filters);
+        console.log('handlePriceFilter')
         FilterQueryString(filters);
         setLoading(false)
     }
@@ -497,6 +502,7 @@ const Filters = (props) => {
         }
         filters['bodyStyle'] = concatinateCommaToFilters(bodyList);
         setFilters(filters);
+        console.log('handlePriceFilter')
         FilterQueryString(filters);
         basicColorSet(index)
         setLoading(false)
@@ -744,6 +750,7 @@ const Filters = (props) => {
                 basicColorSet(index)
             }
         }
+        
         GetAllMakes().then(doc => {
            setMakeList(doc.makes);
             //console.log('chala',doc.makes)
@@ -763,7 +770,7 @@ const Filters = (props) => {
         GetFiltersList().then(doc => {
             setFiltersList(doc.listRanges);
             setPrice([0, doc.listRanges.ranges[0].maxPrice]);
-            handleCondition();
+            //handleCondition();
         }).catch(error => {
             console.log(error.message);
         })
@@ -855,6 +862,7 @@ const Filters = (props) => {
             tempArr.splice(tempArr.indexOf(elId), 1)
         }
         filters['exteriorColor'] = concatinateCommaToFilters(tempArr);
+        console.log('handlePriceFilter')
         setFilters(filters);
         FilterQueryString(filters);
         setExtColors(tempArr);
@@ -871,6 +879,7 @@ const Filters = (props) => {
             tempArr.splice(tempArr.indexOf(elId), 1)
         }
         filters['interiorColor'] = concatinateCommaToFilters(tempArr);
+        console.log('handlePriceFilter')
         setFilters(filters);
         FilterQueryString(filters);
         setIntColors(tempArr);

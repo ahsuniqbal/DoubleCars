@@ -128,6 +128,9 @@ const Products = (props) => {
         if(obj.yearCar){
             str += "&yearCar=" + obj.yearCar
         }
+        if(obj.isUsed){
+            str += "&isUsed=" + obj.isUsed
+        }
         return str
 // bodyStyle={locationSearch.bodyStyle}
         //                 carMake={locationSearch.carMake}
