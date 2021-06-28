@@ -185,6 +185,7 @@ const Filters = (props) => {
                 filters['zipCode'] = doc.results[0]+"-"+doc.results[doc.results.length - 1]
                // console.log(doc.results[0]+"-"+doc.results[doc.results.length - 1])
                 setFilters(filters);
+                console.log('YE HOA CALLED zip')
                 FilterQueryString(filters);
             }
             else {
@@ -264,6 +265,7 @@ const Filters = (props) => {
                 setModelList(doc.makes[0].models);
                 filters['carMake'] = make;
                 setFilters(filters);
+                console.log('YE HOA CALLED - model-make')
                FilterQueryString(filters);
                 setLoading(false);
             })
@@ -278,7 +280,8 @@ const Filters = (props) => {
             delete filters['trim']
             delete filters['carMake']
             setFilters(filters);
-            FilterQueryString(filters);
+            console.log('YE HOA CALLED - model-make')
+            //FilterQueryString(filters);
             setLoading(false);
         }
         
