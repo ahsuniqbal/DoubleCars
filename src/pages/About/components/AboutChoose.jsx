@@ -12,7 +12,7 @@ const AboutChoose = () => {
            <Col xs = "12" md = "4" className = "about-choose-col">
                 <img src = {AboutChooseDummy} className = "img-fluid about-dummy-img" alt = "demo Image"/>
            </Col>
-           <Col md = "1" className = "about-choose-col"></Col>
+           <Col md = "1" className = "about-choose-col v-line"></Col>
            {/* <Col xs = "12" md = "7" className = "about-choose-col">
                 <h2 className = "choose-heading">Why choose us?</h2>
                 <p className = "choose-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci lorem, mattis at porta vitae, accumsan vel libero. In sit amet magna nunc. Curabitur at purus iaculis, rutrum neque sit amet.</p>
