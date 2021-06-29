@@ -161,3 +161,14 @@
         margin-top: 5rem;
     }
 }
+
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .profile-card {
+        border: none !important;
+    }
+
+}
+ 
+ 

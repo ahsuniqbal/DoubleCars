@@ -204,7 +204,7 @@ const Profile = (props) => {
                     <Col md='1'></Col>
                    
                     <Col xs = "12" md = "3" className = "profile-pic-column text-center">
-                    <Card className='py-3'>
+                    <Card className='py-3 profile-card'>
                         
                         <CardBody>
                              <img src = {user ? user.profilePic ? user.profilePic : profileImage : profileImage}
