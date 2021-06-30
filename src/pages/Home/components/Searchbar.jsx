@@ -19,7 +19,7 @@ import {
 
 } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
-import { GetAllMakes, GetModelFromMake } from '../../../components/ProductFilters/api/GetRequests';
+import { GetAllMakes, GetFiltersList, GetModelFromMake } from '../../../components/ProductFilters/api/GetRequests';
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Search } from 'react-feather';
@@ -51,9 +51,15 @@ const Searchbar = () => {
     const [makeList, setMakeList] = useState([]);
     const [modelList, setModelList] = useState([]);
 
+    // Filters list
+    const [bodyStyleList, setBodyStyleList] = useState([]);
+
 
     const [selectedMake, setSelectedMake] = useState(null);
     const [selectedModel, setSelectedModel] = useState(null);
+
+    const [minPrice, setMinPrice] = useState("");
+    const [maxPrice, setMaxPrice] = useState("");
 
     const [activeTab, setActiveTab] = useState('model');
 
@@ -63,21 +69,55 @@ const Searchbar = () => {
     }
 
 
-    const Search = (e) => {
+    const SearchMake = (e) => {
         e.preventDefault();
-        var searchInput = document.getElementById('search-box').value;
+        // var searchInput = document.getElementById('search-box').value;
         var condition = document.getElementById('condition').value;
 
-        sessionStorage.setItem('searchInput', searchInput);
+        // console.log(condition);
+
+        // sessionStorage.setItem('searchInput', searchInput);
+        // history.push({
+        //     pathname: '/products',
+        //     search: '?search=' + searchInput + '&isUsed=' + condition,
+        // })
+
         history.push({
             pathname: '/products',
-            search: '?search=' + searchInput + '&isUsed=' + condition,
+            search: '?carMake=' + selectedMake + '&carModel=' + selectedModel + '&isUsed=' + condition,
         })
     };
 
+
+    const SearchBodyStyle = (e) => {
+        e.preventDefault();
+        var condition = document.getElementById('condition-body').value;
+        var bodyStyle = document.getElementById('body-style').value;
+
+        history.push({
+            pathname: '/products',
+            search: '?bodyStyle=' + bodyStyle + '&isUsed=' + condition,
+        })
+    };
+
+
+    const SearchPrice = (e) => {
+        e.preventDefault();
+        var condition = document.getElementById('condition-price').value;
+
+        history.push({
+            pathname: '/products',
+            search: '?minPrice=' + minPrice + '&maxPrice=' + maxPrice + '&isUsed=' + condition,
+        })
+    };
+    
+
     useEffect(() => {
-        GetAllMakes().then(doc => {
-            setMakeList(doc.makes);
+        Promise.all([GetAllMakes(), GetFiltersList()]).then(doc => {
+            setMakeList(doc[0].makes);
+
+            setBodyStyleList(doc[1].listRanges.bodyStyleList);
+            console.log(doc)
         })
         .catch(error => {
             alert(error.message);
@@ -96,6 +136,18 @@ const Searchbar = () => {
             });
         }
     }
+
+
+    const handleModel = (model) => {
+        if(model){
+            setSelectedModel(model);
+        }
+    }
+
+
+    // const NumbersOnly = (e) => {
+    //     setMinPrice(e.target.value.replace(/[^0-9]/ig, ''));
+    // }
 
     return(
         <div className="searchbar-container">
@@ -141,9 +193,10 @@ const Searchbar = () => {
                     </Col>
                 </Row>
  
-                <Form onSubmit={(e) => Search(e)}>
-                    <TabContent activeTab={activeTab}>
-                        <TabPane tabId="model">
+                
+                <TabContent activeTab={activeTab}>
+                    <TabPane tabId="model">
+                        <Form onSubmit={(e) => SearchMake(e)}>
                             <Row>
                                 {/* <Col xs="12" md="8" className='my-1'>
                                     <InputGroup>
@@ -158,7 +211,7 @@ const Searchbar = () => {
                                 </Col> */}
 
                                 <Col xs="12" sm="6" md="3" className='my-1' >
-                                    <Input id="condition" type="select" required className="condition-dropdown"
+                                    <Input type="select" required className="condition-dropdown"
                                         onChange={(e) => handleMake(e.target.value)}
                                     >
                                         <option value="" disabled selected>Make</option>
@@ -171,7 +224,9 @@ const Searchbar = () => {
                                 </Col>
 
                                 <Col xs="12" sm="6" md="3" className='my-1'>
-                                    <Input id="condition" type="select" required className="condition-dropdown" disabled={selectedMake ? false : true}>
+                                    <Input type="select" required className="condition-dropdown" disabled={selectedMake ? false : true}
+                                        onChange={(e) => handleModel(e.target.value)}
+                                    >
                                         <option value="" disabled selected>Model</option>
                                         {
                                             modelList && modelList.map((model, index) => {
@@ -193,20 +248,25 @@ const Searchbar = () => {
                                     <Button type="submit" className = "search-button">Search</Button>
                                 </Col>
                             </Row>
-                        </TabPane>
+                        </Form>
+                    </TabPane>
 
-                        <TabPane tabId="style">
+                    <TabPane tabId="style">
+                        <Form onSubmit={(e) => SearchBodyStyle(e)}>
                             <Row>
                                 <Col xs="12" md="6" className='my-1'>
-                                    <Input id="condition" type="select" required className="condition-dropdown">
+                                    <Input id="body-style" type="select" required className="condition-dropdown">
                                         <option value="" disabled selected>Body Style</option>
-                                        <option value="false">New</option>
-                                        <option value="true">Used</option>
+                                        {
+                                            bodyStyleList.length > 0 && bodyStyleList.map((bodyStyle) => {
+                                                return <option value={bodyStyle}>{bodyStyle}</option>
+                                            })
+                                        }
                                     </Input>
                                 </Col>
                             
                                 <Col xs="12" sm="6" md="3" className='my-1'>
-                                    <Input id="condition" type="select" required className="condition-dropdown">
+                                    <Input id="condition-body" type="select" required className="condition-dropdown">
                                         <option value="" disabled selected>Condition</option>
                                         <option value="false">New</option>
                                         <option value="true">Used</option>
@@ -217,28 +277,28 @@ const Searchbar = () => {
                                     <Button type="submit" className = "search-button">Search</Button>
                                 </Col>
                             </Row>
-                        </TabPane>
+                        </Form>
+                    </TabPane>
 
-                        <TabPane tabId="budget">
+                    <TabPane tabId="budget">
+                        <Form onSubmit={(e) => SearchPrice(e)}>
                             <Row>
                                 <Col xs="12" md="3" className='my-1'>
-                                    <Input id="condition" type="select" required className="condition-dropdown">
-                                        <option value="" disabled selected>Min Price</option>
-                                        <option value="false">New</option>
-                                        <option value="true">Used</option>
-                                    </Input>
+                                    <Input id="min-price" type="text" placeholder="Min Price" required className="price-box condition-dropdown" 
+                                        value={minPrice}
+                                        onChange={(e) => setMinPrice(e.target.value.replace(/[^0-9]/ig, ''))}
+                                    />
                                 </Col>
 
                                 <Col xs="12" sm="6" md="3" className='my-1' >
-                                    <Input id="condition" type="select" required className="condition-dropdown">
-                                        <option value="" disabled selected>Max Price</option>
-                                        <option value="false">New</option>
-                                        <option value="true">Used</option>
-                                    </Input>
+                                    <Input id="max-price" type="text" placeholder="Max Price" required className="price-box condition-dropdown"
+                                        value={maxPrice}
+                                        onChange={(e) => setMaxPrice(e.target.value.replace(/[^0-9]/ig, ''))}
+                                    />
                                 </Col>
                             
                                 <Col xs="12" sm="6" md="3" className='my-1' >
-                                    <Input id="condition" type="select" required className="condition-dropdown">
+                                    <Input id="condition-price" type="select" required className="condition-dropdown">
                                         <option value="" disabled selected>Condition</option>
                                         <option value="false">New</option>
                                         <option value="true">Used</option>
@@ -249,9 +309,9 @@ const Searchbar = () => {
                                     <Button type="submit" className = "search-button">Search</Button>
                                 </Col>
                             </Row>
-                        </TabPane>
-                    </TabContent>
-                </Form>
+                        </Form>
+                    </TabPane>
+                </TabContent>
             </CardBody>
         </Card>
         </div>

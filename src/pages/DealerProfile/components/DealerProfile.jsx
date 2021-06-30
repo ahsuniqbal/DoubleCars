@@ -215,11 +215,17 @@ const DealerProfile = ({match}) => {
     } 
     function scrollFunction() {
         const mybutton = document.getElementById("myBtn");
-        if (document.body.scrollTop > 1280 || document.documentElement.scrollTop > 1280) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
+        if (mybutton) {
+            if (document.body.scrollTop > 1280 || document.documentElement.scrollTop > 1280) {
+                mybutton.style.display = "block";
+              } else {
+                mybutton.style.display = "none";
+              }
         }
+        else {
+            return;
+        }
+        
     }
 
     return(
