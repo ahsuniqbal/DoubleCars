@@ -742,18 +742,32 @@ const Filters = (props) => {
 
     // This use effect will run only on first render
     useEffect(() => {
+        console.log('it is woring')
         // Get the list of makes from vin audit api and store it in the makes state variable
         console.log('Filters',props.carMake)
         if(props.bodyStyle){
+            filters['bodyStyle'] = props.bodyStyle
             var index = basicBodyStyle.findIndex(a => a === props.bodyStyle)
             if(index !== -1){
                 basicColorSet(index)
             }
         }
+        if(props.carMake){
+            filters['carMake'] = props.carMake
+        }
+        if(props.carModel){
+            filters['carModel'] = props.carModel
+        }
+        if(props.minPrice){
+            filters['minPrice'] = props.minPrice
+        }
+        if(props.yearCar){
+            filters['yearCar'] = props.yearCar
+        }
         
         GetAllMakes().then(doc => {
            setMakeList(doc.makes);
-            //console.log('chala',doc.makes)
+            console.log('chala',doc.makes)
             if(props.carMake){
                 if(doc.makes.findIndex(a => a.name === props.carMake) !== -1){
                     console.log('ye challlaa')
