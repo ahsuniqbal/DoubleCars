@@ -214,6 +214,27 @@
     }
   }
 
+  
+  @media (max-width: 768px) {
+    .second-condition-dealer-profile-coloumn {
+      margin-left: 0rem;
+    }
+    .Dealer-Profile-image {
+      margin-bottom: 1rem;
+    }
+
+    .seller-card {
+      text-align: center !important;
+      border: none;
+    }
+
+
+    .private-seller{
+      text-align: center;
+      float: none;
+    }
+  }
+
 
   
 

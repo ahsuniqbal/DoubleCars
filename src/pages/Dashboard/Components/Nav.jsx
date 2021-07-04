@@ -60,7 +60,7 @@ function Nav (){
                                 </DropdownToggle>
                                      
                                 <DropdownMenu right className='dashboard-dropdown-menu'>
-                                    <DropdownItem className='dashboard-nav-dropdown-arrow' disabled><img src={AppbarDropdown} alt='' className='dashboard-nav-arrow-pic'/> </DropdownItem>
+                                    <DropdownItem className='dashboard-nav-dropdown-arrow d-none d-md-block' disabled><img src={AppbarDropdown} alt='' className='dashboard-nav-arrow-pic'/> </DropdownItem>
                                     <DropdownItem disabled className='dashboard-nav-profile-name'>{userName}</DropdownItem>
                                     <DropdownItem onClick={() => history.push('/profile')} className='dashboard-nav-profile-item'>Edit Profile</DropdownItem>
                                     <DropdownItem divider />

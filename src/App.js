@@ -10,6 +10,7 @@ import Lottie from 'react-lottie';
 import dclogo from './assets/animations/DDCar.json'
 
 import { PrivateRoute } from './navigation/RouteTypes';
+import { Col, Row } from 'reactstrap';
 
 library.add(faUser, faStar, faBookmark, faMapPin, faPhone, faSearch, faEnvelope, faPlus, faMinus, faCheck, faCheckCircle);
 
@@ -51,7 +52,12 @@ function App() {
     // return <div className="preloader">
     //     <img src={logo} alt="Double Cars preloader" className="img-fluid" />
     //   </div>
-    return <Lottie options={defaultOptions}width={100} height={100}/>
+    return <Row>
+      <Col xs="12">
+        <Lottie options={defaultOptions} width={330} height={200}/>
+      </Col>
+    </Row>
+    
   }
  
 
@@ -59,9 +65,14 @@ function App() {
     <div>
     {/* Hello Ji :)  */}
     <div className = "container" ref = {container}> </div> 
-    <Router forceRefresh>
+    <Router basename="/" forceRefresh>
       <React.Suspense fallback={loading()}>
         <Switch>
+          {/* <Row>
+            <Col xs="12">
+              <Lottie options={defaultOptions} width={330} height={200}/>
+            </Col>
+          </Row> */}
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={SignUp}/>
           <Route path='/reset-password' component={ResetPassword}/>

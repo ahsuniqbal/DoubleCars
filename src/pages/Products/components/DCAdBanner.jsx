@@ -12,26 +12,31 @@ const DCAdBanner = () => {
         height: '384px',
         marginTop: '3rem',
         borderRadius: '8px',
-        
+    };
 
-      };
     return(
         <Container>
-            <Row className=''>
-                <Col className = "banner" md = "12" xs = "12" style={mystyle}>
-                    <Row className = "">
-                        <Col xs = "12" md = "12" className = "text-center">
-                            <Row className = "justify-content-left">
-                                <Col xs = "12" md = "5">
+            <Row>
+                <Col md = "12" xs = "12" style={mystyle}>
+                    {/* <Row>
+                        <Col xs="12" md="12"> */}
+                            <Row>
+                                <Col xs = "12" md = "5" className="content-col">
                                     <h1 className = "banner-heading">The perfect vehicle for a grand entrance.</h1>
                                     <Link to='https://play.google.com/store/apps'>
-                                        <Button  className = "buynow-button float-left">Buy Now</Button>
+                                        <Button  className = "buynow-button">Buy Now</Button>
                                     </Link>
                                 </Col>
+
+                                {/* <Col xs="12" md="5">
+                                    <Link to='https://play.google.com/store/apps'>
+                                        <Button  className = "buynow-button">Buy Now</Button>
+                                    </Link>
+                                </Col> */}
                             </Row>
                             
-                        </Col>
-                    </Row>
+                        {/* </Col>
+                    </Row> */}
                 </Col>
             </Row>
            
