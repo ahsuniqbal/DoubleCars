@@ -289,3 +289,15 @@
     margin-top: 16px;
     margin-bottom: 16px;    
 } */
+
+
+
+
+
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .nav-link {
+        text-align: left !important;
+    }
+  }

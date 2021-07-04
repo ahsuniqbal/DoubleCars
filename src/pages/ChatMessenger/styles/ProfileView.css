@@ -2,6 +2,8 @@
     border-radius: 0px 6px 6px 0px;
     height: 100%; 
     border: 1px solid #E9E9E9;
+    max-height: calc(100vh - 125px);
+    overflow-y: scroll;
     /* border-right: 1px solid #E9E9E9;
     border-top: 1px solid #E9E9E9;
     border-bottom: 1px solid #E9E9E9;

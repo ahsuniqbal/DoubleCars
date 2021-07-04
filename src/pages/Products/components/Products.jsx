@@ -3,7 +3,7 @@ import { Row, Col, Label, Input, Container, Button } from 'reactstrap';
 import Filters from '../../../components/ProductFilters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
-import { GetSearchResult } from '../api/GetRequests';
+import { GetSearchResult,GetAllMakes,GetZipCodesList } from '../api/GetRequests';
 import { SortByRelevance, SortByPrice } from '../../../utils/Sorting.jsx';
 import adProducts from '../../../assets/ad_products.png';
 import { ProductSkeleton } from '../../../components/Skeletons';
@@ -11,16 +11,16 @@ import queryString from 'query-string';
 import { Frown, Repeat } from 'react-feather';
 import '../styles/Products.css';
 import { ArrowUp } from "react-feather";
-import logo from '../../../assets/DCNewLogo.png';
 import DCAdBanner from './DCAdBanner';
 
 
 const ShowSearchResults = (products) => {
     var table = [];
     var adPlacement = 5;
+    var flag = false;
 
     for (let i = 0; i < products.length; i++) {
-        if(i !== 0 && i % adPlacement === 0) {
+        if(i !== 0 && i % adPlacement === 0 && !flag) {
             table.push(
                 <>
                 <Col key={products[i].productId} xs="12" sm="6" lg="4"style={{padding: '0 7px'}}>
@@ -28,8 +28,11 @@ const ShowSearchResults = (products) => {
                 </Col>
                 </>
             );
+            i--
+            flag = true;
         }
         else {
+            flag = false
             table.push(
                 <Col key={products[i].productId} xs="12" sm="6" lg="4" style={{padding: '0 7px'}}>
                     <ProductCard
@@ -39,7 +42,7 @@ const ShowSearchResults = (products) => {
                         productText={"$" + AddCommaToNumber(products[i].price)}
                         productImg={products[i].coverPic}
                         productName={products[i].carName}
-                        productBadge={"TRENDING"}
+                        // productBadge={"TRENDING"}
                         userId={products[i].userId}
                         dealerPic={products[i].userPic}
                         dealer={products[i].userRole}
@@ -82,7 +85,7 @@ const Products = (props) => {
     const [globalQuery,setGloableQuery] = useState("")
     const [savedSearchObj,setSavedSearchObj] = useState({})
     const [totalCount, setTotalCount] = useState(0)
-
+    const [makeAndZips,setMakeAndZips] = useState(null)
 
     const handleScroll = () => {
         const scrollTop = (document.documentElement
@@ -106,17 +109,61 @@ const Products = (props) => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
       }, [isBottom]);
+
+    const makeFilterStringForQueryParams = (obj) => {
+        var str = "";
+        if(obj.bodyStyle){
+            str += "&bodyStyle=" + obj.bodyStyle
+        }
+        if(obj.carMake){
+            str += "&carMake=" + obj.carMake
+        }
+        if(obj.carModel){
+            str += "&carModel=" + obj.carModel
+        }
+        if(obj.minPrice && obj.maxPrice){
+            str += "&minPrice=" + obj.minPrice
+            str += "&maxPrice=" + obj.maxPrice
+        }
+        if(obj.yearCar){
+            str += "&yearCar=" + obj.yearCar
+        }
+        if(obj.isUsed){
+            str += "&isUsed=" + obj.isUsed
+        }
+        return str
+// bodyStyle={locationSearch.bodyStyle}
+        //                 carMake={locationSearch.carMake}
+        //                 carModel={locationSearch.carModel}
+        //                 minPrice={locationSearch.minPrice}
+        //                 maxPrice={locationSearch.maxPrice}
+        //                 yearCar={locationSearch.yearCar}
+    }
     
     useEffect(() => {
         var tempStr = ""
+        //bodyStyle=Sedan
+        //carMake=Audi
+        //carModel=ACX
+//         Promise.all([GetAllMakes(),GetZipCodesList()])
+//         .then(doc => {
+// setMakeAndZips
+//         })
+//         .catch(e => {
+//             console.log(e.message)
+//         })
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
+        console.log('searchLocation',locationSearch)
+        var queryParams = ""
+        queryParams = makeFilterStringForQueryParams(locationSearch)
+        console.log('queryParams',queryParams)
         if(locationSearch.search){
-            tempStr += `search=${locationSearch.search}&page=${pageNumber}&${globalQuery}`
+            tempStr += `search=${locationSearch.search}&page=${pageNumber}${queryParams}&${globalQuery}`
         }else{
-            tempStr += `page=${pageNumber}&${globalQuery}`
+            tempStr += `page=${pageNumber}${queryParams}&${globalQuery}`
         }
         tempStr += `&id=${userId}`
-
+        console.log('tempStr',tempStr)
         setPageNumber(pageNumber + 1)
         GetSearchResult(tempStr).then(doc1 => {
             setTotalCount(doc1.totalCount)
@@ -151,6 +198,7 @@ const Products = (props) => {
     }, [isBottom]);
 
     const filterQueryChange = (queryStr) => {
+        console.log("QURYSTR",queryStr)
         setGloableQuery(queryStr)
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
@@ -211,11 +259,17 @@ const Products = (props) => {
     } 
     function scrollFunction() {
         const mybutton = document.getElementById("myBtn");
-        if (document.body.scrollTop > 1280 || document.documentElement.scrollTop > 1280) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
+        if (mybutton) {
+            if (document.body.scrollTop > 1280 || document.documentElement.scrollTop > 1280) {
+                mybutton.style.display = "block";
+            } else {
+            mybutton.style.display = "none";
+            }
         }
+        else {
+            return;
+        }
+        
     }
 
     return(
@@ -232,6 +286,12 @@ const Products = (props) => {
                     <Filters
                         onFilterChange={filterQueryChange}
                         isUsed={locationSearch.isUsed}
+                        bodyStyle={locationSearch.bodyStyle}
+                        carMake={locationSearch.carMake}
+                        carModel={locationSearch.carModel}
+                        minPrice={locationSearch.minPrice}
+                        maxPrice={locationSearch.maxPrice}
+                        yearCar={locationSearch.yearCar}
                         search={locationSearch.search}
                         savedSearch={savedSearchObj}
                     />

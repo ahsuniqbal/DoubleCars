@@ -103,7 +103,8 @@
     -webkit-flex-shrink: 0;
     max-width:100%;
     max-height:100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: black;
 }
 
 /* .seller-column {

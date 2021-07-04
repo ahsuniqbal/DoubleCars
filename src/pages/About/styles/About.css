@@ -154,8 +154,9 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 40vh;
+        height: 20vh;
         margin-top: 6rem; 
+        padding: 2%;
     }
     .about-header-content {
         position: absolute;
@@ -164,7 +165,7 @@
         bottom: 0;
         right: 0;
         z-index: 1;
-        height: 40vh;
+        height: 20vh;
         max-width: 100%;
         background: #0B54B8;
         mix-blend-mode: normal;
@@ -176,11 +177,40 @@
         font-size: 28px;
         line-height: 140%;
         color: #FFFFFF;
-        margin-top: 28%;
-        text-align: center;
+        text-align: center !important;
+        /* text-align: center; */
         
     }
     
 
 }
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+   .about-detail-col{
+       
+    text-align: center !important;
+   }
+  .vertical-line-col{
+      display: none !important;
+  }
+  .about-header-heading {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 140%;    
+    text-align: center !important;
+    margin-left: 0rem !important;
+    margin-top: 2.3rem !important;
+  }
+
+  .aboutus-row {
+    padding: 7% 5%!important;
+  }
+
+  .about-detail-contact-btn {
+      text-align: center !important;
+      margin-bottom: 2rem;
+  }
+  
+  }
 

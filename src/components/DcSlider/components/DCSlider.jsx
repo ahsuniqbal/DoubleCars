@@ -17,7 +17,7 @@ const NextIcon=(props)=>{
     <div>
       {activeSlide>=0 && activeSlide!==length-5 &&
             <div className={className} onClick={onClick}>
-            <img src={nextIcon} className='icon-image' id='show-sliders'/>
+            <img src={nextIcon} alt="" className='icon-image' id='show-sliders'/>
           </div>
         }
     </div>
@@ -50,7 +50,7 @@ const DCSlider = (props) => {
         dots: false,
         beforeChange: (current, next) => setActiveSlide(next),
         draggable: false,
-        slidesToScroll: 1,
+        slidesToScroll: 1.15,
         slidesToShow: 5,
         autoplay: false,
         infinite: false,
@@ -58,7 +58,7 @@ const DCSlider = (props) => {
           {
             breakpoint: 576,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 1.15,
             },
           },
           {

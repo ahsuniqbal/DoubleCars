@@ -67,7 +67,7 @@ export const getChatEnquires = (senderId,receiverId) => {
   const key = [senderId, receiverId].sort().join('-')
   return new Promise((resolve, reject) => {
     firestore.collection("Chats").doc(key).collection('Enquiries')
-    .orderBy('messageAt','desc')
+    .orderBy('messagedAt','desc')
     .onSnapshot((snapshot) => {
       let updatedData = snapshot.docs.map(doc => doc.data())
       resolve(updatedData)
@@ -95,6 +95,22 @@ export const postCreateChat = (senderId,receiverId) => {
     .onSnapshot((snapshot) => {
       let updatedData = snapshot.docs.map(doc => doc.data())
       resolve(updatedData)
+    })
+  })
+}
+
+
+export const postReadCount = (senderId,receiverId,obj) => {
+  const key = [senderId, receiverId].sort().join('-')
+  console.log('asharKey',key)
+  return new Promise((resolve, reject) => {
+    firestore.collection("Chats").doc(key)
+    .update(obj)
+    .then(doc => {
+      resolve(true)
+    })
+    .catch(e => {
+      reject(e)
     })
   })
 }

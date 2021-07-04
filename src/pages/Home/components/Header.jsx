@@ -1,7 +1,7 @@
 import React,{ useState } from 'react';
 import { Button, Label} from 'reactstrap';
 import '../styles/Header.css';
-import Cover from '../../../assets/LandingPageHeaderImage.png';
+import Cover from '../../../assets/HomeHeaderImage.jpeg';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {useHistory} from 'react-router-dom'
 import LoginSignupModal from '../../Authentication/LoginSignupModal/LoginSignupModal'
@@ -34,11 +34,11 @@ const Header = () => {
                                     <h1 className = "cover-left-heading ml-3">
                                         Find the most desireable car
                                     </h1>
-                                    <h5 className = "my-3 header-sub-head ml-3">
+                                    <h5 className = "my-3 header-sub-head d-md-ml-3">
                                         Buy and sell cars with ease using our app!
                                     </h5>
                                     <div>
-                                        <div className = "col-md-12" className = "">
+                                        <div className = "col-md-12" className = "mb-4">
                                             <Button className="ml-3 mt-4 download-button-cover" to="" onClick={()=>window.location.href='https://play.google.com/store/apps'}>Download App</Button>
                                             
                                 
@@ -54,8 +54,6 @@ const Header = () => {
                                            <Button size = "lg" block className = "ml-3 mt-4 download-button-cover" onClick={popupToggle}>Temporary Button</Button> 
                                             <LoginSignupModal isOpen={popupModal} toggle={popupToggle} /> </>: null
                                         } */}
-                                           
-                                
                                         </div>
                                     </div>
                                 </div>
@@ -66,7 +64,7 @@ const Header = () => {
                                 // style={{padding: '0'}}
                                 >
                                     <LazyLoadImage  data-aos="fade-down" src={Cover} effect='blur' className=' right-cover-section' width="100%" />
-                                    <Label className = "header-right-car-label float-right">Toyota Supra</Label>
+                                    {/* <Label className = "header-right-car-label float-right">Toyota Supra</Label> */}
                                     {/* <video width="100%" controls autoPlay loop>
                                         <source src={headerVideo} type="video/mp4" />
                                     </video> */}

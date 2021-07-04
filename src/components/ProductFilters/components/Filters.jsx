@@ -75,6 +75,7 @@ const Filters = (props) => {
 
     //basicColor for BodyList svg
     const [basicColor, setBasicColors] = useState(['#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959'])
+    const [basicBodyStyle,setBodyStyle] = useState(['Sedan','Hatchback','SUV','Coupe','Convertible','Pickup Truck','Wagon','Minivan'])
     const basicColorSet = (index) => {
         var modelTemp = basicColor.slice();
         modelTemp[index] = basicColor[index] === '#595959' ? '#1C67CE' : '#595959'
@@ -99,7 +100,7 @@ const Filters = (props) => {
     const [isModelCollapseOpen, setModelCollapseOpen] = useState(false);
     const [isTrimCollapseOpen, setTrimCollapseOpen] = useState(false);
 
-    const [radius, setRadius] = useState(0);
+    const [radius, setRadius] = useState(200);
     const [bodyList,setBodyList] = useState([])
 
     const [price, setPrice] = useState([0, 99999]);
@@ -116,6 +117,11 @@ const Filters = (props) => {
 
     //Map Popup
     const [mapPopup, setMapPopup] = useState(false);
+
+    // Selected Exterior colors
+    const [extColors, setExtColors] = useState([]);
+    // Selected Interior colors
+    const [intColors, setIntColors] = useState([]);
 
 
     const [loading, setLoading] = useState(false);
@@ -156,21 +162,30 @@ const Filters = (props) => {
 
     /////////////// Handle changes in filters ///////////////
     const handleRadius = (radius) => {
+        console.log('chalaaa')
+        if(!zipCode) {
+            alert("Please allow the location first");
+            return;
+        }
         const zip = zipCode.split('- ')
+        setRadius(radius);
 
         const obj = {
             zip: zip[zip.length - 1],
             radius: radius,
         }
+        console.log(obj)
         // console.log(convertIntoQueryParams(obj))
         GetZipCodesList(convertIntoQueryParams(obj)).then(doc => {
-            console.log(doc);
+            console.log(doc)
             if(doc.results.length > 0) {
                 setRadius(radius);            
                 filters['radius'] = radius;
                 console.log(doc)
-                filters['zipCode'] = doc.results.toString()
+                filters['zipCode'] = doc.results[0]+"-"+doc.results[doc.results.length - 1]
+               // console.log(doc.results[0]+"-"+doc.results[doc.results.length - 1])
                 setFilters(filters);
+                console.log('YE HOA CALLED zip')
                 FilterQueryString(filters);
             }
             else {
@@ -186,7 +201,58 @@ const Filters = (props) => {
         // FilterQueryString(filters);    
     }
 
+    // This function is to handle the radius value only
+    const handleRadiusValue = (radius) => {
+        setRadius(radius);
+    }
+
+    const handleMake2 = (make) => {
+        setLoading(true);
+        setSelectedMake(make);
+        setModelList([]);
+        delete filters['carModel']
+        setTrimList([]);
+        delete filters['trim']
+
+        if(make){
+            GetModelFromMake(make).then(doc => {
+                setModelList(doc.makes[0].models);
+                // console.log("MODEL",props.carModel,doc.makes[0].models)
+                if(props.carMake){
+                    if(props.carModel){
+                        if(doc.makes[0].models.findIndex(a => a.name === props.carModel) !== -1){
+                            // filters['carMake'] = make;
+                            handleModel2(props.carModel)
+                        // setFilters(filters);
+                        //FilterQueryString(filters);
+                        setLoading(false);
+                        }
+                    }
+                }
+                // filters['carMake'] = make;
+                // setFilters(filters);
+                // FilterQueryString(filters);
+                // setLoading(false);
+            })
+            .catch(error => {
+                console.log(error.message)
+                setLoading(false);
+            });
+        }else{
+            // setModelList([]);
+            // delete filters['carModel']
+            // setTrimList([]);
+            // delete filters['trim']
+            // delete filters['carMake']
+            // setFilters(filters);
+            // FilterQueryString(filters);
+            // setLoading(false);
+        }
+        
+    }
+
     const handleMake = (make) => {
+        console.log("MAKEMAKE",make)
         setLoading(true);
         setSelectedMake(make);
         setModelList([]);
@@ -199,7 +265,8 @@ const Filters = (props) => {
                 setModelList(doc.makes[0].models);
                 filters['carMake'] = make;
                 setFilters(filters);
-                FilterQueryString(filters);
+                console.log('YE HOA CALLED - model-make')
+               FilterQueryString(filters);
                 setLoading(false);
             })
             .catch(error => {
@@ -213,10 +280,42 @@ const Filters = (props) => {
             delete filters['trim']
             delete filters['carMake']
             setFilters(filters);
-            FilterQueryString(filters);
+            console.log('YE HOA CALLED - model-make')
+            //FilterQueryString(filters);
             setLoading(false);
         }
         
+    }
+    const handleModel2 = (select) => {
+        setLoading(true)
+        setSelectedModel(select);
+
+        setTrimList([]);
+        delete filters['trim']
+        if(select){
+            GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
+                // trimList.push(doc.makes[0].models[0].trims)
+                setTrimCollapseOpen(true);
+                setTrimList(doc.makes[0].models[0].trims)
+                // filters['carModel'] = select;
+                // setFilters(filters);
+                // FilterQueryString(filters);
+                setLoading(false)
+            }).catch(error => {
+                console.log(error.message)
+                setLoading(false)
+            });
+        }else{
+            // console.log('filters1',filters)
+            // setTrimList([]);
+            // delete filters['trim']
+            // delete filters['carModel']
+            // // console.log('filters2',filters)
+            // setFilters(filters);
+            // FilterQueryString(filters);
+            // setTrimCollapseOpen(false);
+            // setLoading(false)
+        }
     }
 
     const handleModel = (select) => {
@@ -249,31 +348,6 @@ const Filters = (props) => {
             setTrimCollapseOpen(false);
             setLoading(false)
         }
-
-
-
-
-        // setSelectedModels(select);
-        // if(select.length > 0){
-        // setTrimCollapseOpen(true);
-        
-        // GetTrimFromMakeAndModel(selectedMake, select[select.length - 1]).then(doc => {
-        //     // trimList.push(doc.makes[0].models[0].trims)
-        //     setTrimList(doc.makes[0].models[0].trims)
-        // }).catch(error => {
-        //     console.log(error.message)
-        // });
-        // filters['carModel'] = concatinateCommaToFilters(select);
-        // setFilters(filters);
-        // FilterQueryString(filters);
-        // }else{
-        //     // console.log('filters1',filters)
-        //     delete filters['carModel']
-        //     // console.log('filters2',filters)
-        //     setFilters(filters);
-        //     FilterQueryString(filters);
-        //     setTrimCollapseOpen(false);
-        // }
     }
 
 
@@ -323,6 +397,7 @@ const Filters = (props) => {
     }
 
     const handlePrice = (price) => {
+        console.log('handlePriceFilter')
         setPrice(price);
         filters['minPrice'] = price[0];
         filters['maxPrice'] = price[1];
@@ -335,7 +410,7 @@ const Filters = (props) => {
         document.getElementById("toYear").disabled = false;
         setSelectedFromYear(fromYear);
         filters['minYear'] = fromYear;
-
+        console.log('handlePriceFilter')
         delete filters['maxYear'];
         setFilters(filters);
         FilterQueryString(filters);
@@ -346,6 +421,7 @@ const Filters = (props) => {
         setLoading(true)
         filters['maxYear'] = toYear;
         setFilters(filters);
+        console.log('handlePriceFilter')
         FilterQueryString(filters);
         setLoading(false)
     }
@@ -367,6 +443,7 @@ const Filters = (props) => {
             delete filters['isUsed'];
         }
         setFilters(filters);
+        console.log('handlePriceFilter')
         FilterQueryString(filters);
         setLoading(false)
     }
@@ -376,6 +453,7 @@ const Filters = (props) => {
         filters['minMileage'] = mileage[0];
         filters['maxMileage'] = mileage[1]
         setFilters(filters);
+        console.log('handlePriceFilter')
         FilterQueryString(filters);
     }
 
@@ -397,6 +475,7 @@ const Filters = (props) => {
             delete filters['userType'];
         }
         setFilters(filters);
+        console.log('handlePriceFilter')
         FilterQueryString(filters);
         setLoading(false)
     }
@@ -407,7 +486,7 @@ const Filters = (props) => {
 
         for(let i = 0; i < 4; i++) {
             table.push(
-                <FiltersSkeleton />
+                <FiltersSkeleton index={i}/>
             );
         }
         return table;
@@ -423,6 +502,7 @@ const Filters = (props) => {
         }
         filters['bodyStyle'] = concatinateCommaToFilters(bodyList);
         setFilters(filters);
+        console.log('handlePriceFilter')
         FilterQueryString(filters);
         basicColorSet(index)
         setLoading(false)
@@ -606,7 +686,7 @@ const Filters = (props) => {
     
     // Get location using HTML 5 Browser Geo Location
     function ShowPosition(position){
-        setLoading(true)
+        setLoading(true);
         var latLong = position.coords.latitude + "," + position.coords.longitude;
         // Save the lattitude and longitude fetched from the browsers
         // Geo Location into the state variable of current location
@@ -619,6 +699,7 @@ const Filters = (props) => {
                 // Add the zip code into the filters array
                 filters['zipCode'] = doc.results[0].address_components[0].long_name;
                 setFilters(filters);
+                console.log('chalaZIPPP')
                 FilterQueryString(filters);
                 setLoading(false)
             }
@@ -661,9 +742,40 @@ const Filters = (props) => {
 
     // This use effect will run only on first render
     useEffect(() => {
+        console.log('it is woring')
         // Get the list of makes from vin audit api and store it in the makes state variable
+        console.log('Filters',props.carMake)
+        if(props.bodyStyle){
+            filters['bodyStyle'] = props.bodyStyle
+            var index = basicBodyStyle.findIndex(a => a === props.bodyStyle)
+            if(index !== -1){
+                basicColorSet(index)
+            }
+        }
+        if(props.carMake){
+            filters['carMake'] = props.carMake
+        }
+        if(props.carModel){
+            filters['carModel'] = props.carModel
+        }
+        if(props.minPrice){
+            filters['minPrice'] = props.minPrice
+        }
+        if(props.yearCar){
+            filters['yearCar'] = props.yearCar
+        }
+        
         GetAllMakes().then(doc => {
-            setMakeList(doc.makes);
+           setMakeList(doc.makes);
+            console.log('chala',doc.makes)
+            if(props.carMake){
+                if(doc.makes.findIndex(a => a.name === props.carMake) !== -1){
+                    console.log('ye challlaa')
+                    setModelCollapseOpen(true)
+                    handleMake2(props.carMake)
+                }
+            }
+            
         })
         .catch(error => {
             alert(error.message);
@@ -672,7 +784,7 @@ const Filters = (props) => {
         GetFiltersList().then(doc => {
             setFiltersList(doc.listRanges);
             setPrice([0, doc.listRanges.ranges[0].maxPrice]);
-            handleCondition();
+            //handleCondition();
         }).catch(error => {
             console.log(error.message);
         })
@@ -696,6 +808,7 @@ const Filters = (props) => {
                     filters['zipCode'] = doc.results[0].address_components[0].long_name;
                     setFilters(filters);
                     FilterQueryString(filters);
+
                     setLoading(false)
                 }
                 // If the zip code is not available
@@ -751,6 +864,41 @@ const Filters = (props) => {
         })
     }
 
+
+    const handleExtColors = (elId) => {
+        let tempArr = [...extColors];
+        let indexOfItem = tempArr.indexOf(elId);
+
+        if (indexOfItem === -1) {
+            tempArr.push(elId);
+        }
+        else {
+            tempArr.splice(tempArr.indexOf(elId), 1)
+        }
+        filters['exteriorColor'] = concatinateCommaToFilters(tempArr);
+        console.log('handlePriceFilter')
+        setFilters(filters);
+        FilterQueryString(filters);
+        setExtColors(tempArr);
+    }
+
+    const handleInteriorColors = (elId) => {
+        let tempArr = [...intColors];
+        let indexOfItem = tempArr.indexOf(elId);
+
+        if (indexOfItem === -1) {
+            tempArr.push(elId);
+        }
+        else {
+            tempArr.splice(tempArr.indexOf(elId), 1)
+        }
+        filters['interiorColor'] = concatinateCommaToFilters(tempArr);
+        console.log('handlePriceFilter')
+        setFilters(filters);
+        FilterQueryString(filters);
+        setIntColors(tempArr);
+    }
+
     return(
         <Card className="filters">
             <CardBody>
@@ -803,6 +951,7 @@ const Filters = (props) => {
                                             min={0}
                                             max={200}
                                             onHandleRadius={handleRadius}
+                                            onHandleRadiusValue={handleRadiusValue}
                                             disabled={loading}
                                             // onHandleRadius={() => console.log("radius")}
                                         />
@@ -822,7 +971,7 @@ const Filters = (props) => {
                             {/* Make list will be fetched from vinaudit api
                             On changing the make, modal will be visible  */}
                             {
-                                makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }} disabled={loading} >
+                                makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }} disabled={loading} defaultValue={props.carMake ? props.carMake : ""}>
                                 <option value="">Make</option>
                                 {
                                     makeList.map((option, index) => {
@@ -840,7 +989,7 @@ const Filters = (props) => {
                             <Collapse isOpen={isModelCollapseOpen}>
                                 <h6>Model</h6>
 
-                                <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)} disabled={loading}>
+                                <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)} disabled={loading} defaultValue={props.carModel ? props.carModel : ""}>
                                 <option value="">Model</option>
                                 {
                                     modelList.map((option, index) => {
@@ -895,8 +1044,8 @@ const Filters = (props) => {
                                     max={filtersList.ranges[0].maxPrice}
                                     minLabel={price[0]}
                                     maxLabel={price[1]}
-                                    step={1000}
-                                    defaultValue={[0, filtersList.ranges[0].maxPrice]}
+                                    step={5000}
+                                    defaultValue={[props.minPrice ? props.minPrice : 0, props.maxPrice ? props.maxPrice :filtersList.ranges[0].maxPrice]}
                                     onHandlePrice={handlePrice} 
                                     disabled={loading}
                                 />
@@ -909,7 +1058,7 @@ const Filters = (props) => {
                             <Row>
                                 <Col xs="6">
                                     {/* On selecting from year, to year will be enabled */}
-                                    <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading}>
+                                    <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading} defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
                                         <option disabled selected hidden>From</option>
                                         {
                                             // Populate from year
@@ -921,7 +1070,7 @@ const Filters = (props) => {
                                 </Col>
                                 <Col xs="6">
                                     {/* Disabled by default, will be enabled after from year is selected */}
-                                    <Input id="toYear" type="select" onChange={(e) => handleToYear(e.target.value)} disabled>
+                                    <Input id="toYear" type="select" onChange={(e) => handleToYear(e.target.value)} disabled defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
                                         <option disabled selected hidden>To</option>
                                         {
                                             // Populate to year
@@ -940,7 +1089,7 @@ const Filters = (props) => {
 
                             <Row className="body-types text-center">
                                 {
-                                    filtersList ? DrawBodyStyles(filtersList.bodyStyleList) :null
+                                    filtersList ? DrawBodyStyles(filtersList.bodyStyleList) : null
                                 }
                             </Row>
                             
@@ -1005,23 +1154,14 @@ const Filters = (props) => {
 
                             <Collapse isOpen={advancedFiltersShown}>    
                                 <h6>Transmission</h6>
-                                <FormGroup check>
-                                    <Input type="checkbox" id="manual" name="transmission" />
-                                    <Label check htmlFor="manual">Manual</Label>
-                                </FormGroup>
-                                <FormGroup check>
-                                    <Input type="checkbox" id="automatic" name="transmission" />
-                                    <Label check htmlFor="automatic">Automatic</Label>
-                                </FormGroup>
-                                <FormGroup check>
-                                    <Input type="checkbox" id="electric" name="transmission" />
-                                    <Label check htmlFor="electric">Electric</Label>
-                                </FormGroup>
-                                <FormGroup check>
-                                    <Input type="checkbox" id="random" name="transmission" />
-                                    <Label check htmlFor="random">Random</Label>
-                                </FormGroup>
-
+                                {
+                                    filtersList && filtersList.transmission.map((transmission, index) => {
+                                        return <FormGroup check key={index}>
+                                            <Input type="checkbox" id="manual" name="transmission" />
+                                            <Label check htmlFor="manual">{transmission}</Label>
+                                        </FormGroup>
+                                    })
+                                }
 
                                 <hr />
 
@@ -1042,32 +1182,18 @@ const Filters = (props) => {
 
                                 <h6>Exterior Color</h6>
                                 <Row className="exterior-color text-center">
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'black'}}>
-                                            <Check />
-                                        </div>
-                                        <p>Black</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'white'}}></div>
-                                        <p>White</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'gray'}}></div>
-                                        <p>Gray</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'red'}}></div>
-                                        <p>Red</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'orange'}}></div>
-                                        <p>Orange</p>
-                                    </Col>
+                                    {
+                                        filtersList && filtersList.colors.map((extColorFilter, index) => {
+                                            return <Col xs="4" sm="2" md="4" key={index}>
+                                                <div className="color-swatch" id={extColorFilter.name} style={{backgroundColor: extColorFilter.color}} onClick={() => handleExtColors(extColorFilter.name)}>
+                                                    {
+                                                        extColors.length > 0 && extColors.includes(extColorFilter.name) ? <Check /> : null
+                                                    }
+                                                </div>
+                                                <p>{extColorFilter.name}</p>
+                                            </Col>
+                                        })
+                                    }
                                 </Row>
 
 
@@ -1078,37 +1204,18 @@ const Filters = (props) => {
 
                                 <h6>Interior Color</h6>
                                 <Row className="exterior-color text-center">
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'black'}}>
-                                            <Check />
-                                        </div>
-                                        <p>Black</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'white'}}></div>
-                                        <p>White</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'gray'}}></div>
-                                        <p>Gray</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'red'}}></div>
-                                        <p>Red</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'orange'}}></div>
-                                        <p>Orange</p>
-                                    </Col>
-
-                                    <Col xs="4" sm="2" md="4">
-                                        <div className="color-swatch" style={{backgroundColor: 'yellow'}}></div>
-                                        <p>Yellow</p>
-                                    </Col>
+                                    {
+                                        filtersList && filtersList.colors.map((extColorFilter, index) => {
+                                            return <Col xs="4" sm="2" md="4" key={index}>
+                                                <div className="color-swatch" id={extColorFilter.name} style={{backgroundColor: extColorFilter.color}} onClick={() => handleInteriorColors(extColorFilter.name)}>
+                                                    {
+                                                        intColors.length > 0 && intColors.includes(extColorFilter.name) ? <Check /> : null
+                                                    }
+                                                </div>
+                                                <p>{extColorFilter.name}</p>
+                                            </Col>
+                                        })
+                                    }
                                 </Row>
                             </Collapse>
                         </div>

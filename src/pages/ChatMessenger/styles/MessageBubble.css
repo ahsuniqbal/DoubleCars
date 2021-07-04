@@ -9,7 +9,7 @@
 }
 
 .chatview-dashboard{
-    height: 69vh;
+    height: 56vh;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -84,36 +84,22 @@
     object-fit: cover;
 }
 
-.chat-view {
-    border-radius: 0px 6px 6px 0px;
-    height: 100%; 
-    border: 1px solid #E9E9E9;
-    ;
-    /* border-right: 1px solid #E9E9E9;
-    border-top: 1px solid #E9E9E9;
-    border-bottom: 1px solid #E9E9E9;
-    border-left: 1px solid#E9E9E9; */
-}
-
-.chat-view h6 {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 20px;
-    color: rgba(0, 0, 0, 0.85);
+.inquiring-chat-view {
+    border: none;
 }
 
 
-.chat-view .inquiring-container {
-    border-bottom: 1px solid #E9E9E9;
+
+.inquiring-chat-view .inquiring-container {
+    border-bottom: none;
     padding-bottom: 2rem;
-    padding-right: 1.25rem;
+    padding-right: 0.75rem;
     padding-left: 1.25rem;
     margin-bottom: 2rem;
-
 }
 
-.chat-view .inquaring-for-card {
+
+.inquiring-chat-view .inquaring-for-card {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 9px;
     padding: 15px;
@@ -121,22 +107,23 @@
     margin-left: 0;
     margin-top: 2rem;
     width: 50%;
-    height: 10px;
+    height: 100px;
+    background-color: white;
     
 }
 
-.chat-view .inquaring-for-card .card-img {
+.inquiring-chat-view .inquaring-for-card .card-img {
     border-radius: 6px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     width: 100px;
-    object-fit: fill;
+    object-fit: cover;
     margin-right: 10px;
-    height: 70%;
+    height: 95%;
 }
 
 
 
-.chat-view .inquaring-for-card .card-title {
+.inquiring-chat-view .inquaring-for-card .card-title {
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -147,7 +134,7 @@
     white-space: nowrap;
 }
 
-.chat-view .inquaring-for-card .card-subtitle {
+.inquiring-chat-view .inquaring-for-card .card-subtitle {
     font-size: 12px;
     font-weight: normal;
     line-height: 14px;
@@ -157,7 +144,7 @@
     white-space: nowrap;
 }
 
-.chat-view .inquaring-for-card .card-text {
+.inquiring-chat-view .inquaring-for-card .card-text {
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -199,4 +186,67 @@
 
 .chat-view button:focus, .chat-view button:active {
     box-shadow: none !important;
+}
+
+
+
+.img-container {
+    clear: both;
+    padding: 10px;
+}
+
+
+.img-container .single-img {
+    width: 324px;
+    height: 210px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+}
+
+
+.multiple-img-container {
+    width: 88px;
+    padding: 5px;
+}
+
+.multiple-img-container .multiple-image {
+    width: 100%;
+    height: 88px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+
+
+
+
+
+
+
+.modal-img {
+    height: 30rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.modal-content {
+    background-color: transparent;
+    border: none;
+}
+
+.modal-body {
+    background-color: transparent;
+}
+
+.close-btn {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    font-size: 20px;
+    color: white;
 }
