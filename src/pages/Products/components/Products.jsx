@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Label, Input, Container, Button } from 'reactstrap';
-import Filters from '../../../components/ProductFilters';
+import Filters from '../../../components/ProductFilters/components_new/Filters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import { GetSearchResult,GetAllMakes,GetZipCodesList } from '../api/GetRequests';

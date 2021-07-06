@@ -50,7 +50,6 @@ const options = {
 
 
 const Chart = (props) => {
-
     const { xAxis, data } = props.data;
 
     const line = {

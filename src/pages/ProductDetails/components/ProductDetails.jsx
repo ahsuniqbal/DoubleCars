@@ -36,7 +36,6 @@ const ProductResults = ({match}) => {
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
-            console.log(doc);
             GetTopDealers(doc.details[0].carMake, doc.details[0].carModel).then(doc => {
                 setTopDealers(doc.topDealers);
                 setTableData(doc.tableData);
