@@ -732,9 +732,27 @@ const Filters = (props) => {
         if(props.bodyStyle){
             var index = basicBodyStyle.findIndex(a => a === props.bodyStyle)
             if(index !== -1){
+                filters['bodyStyle'] = props.bodyStyle
                 basicColorSet(index)
             }
         }
+        if(props.carMake){
+            filters['carMake'] = props.carMake
+        }
+        if(props.carModel){
+            filters['carModel'] = props.carModel
+        }
+        if(props.minPrice){
+            filters['minPrice'] = props.minPrice
+        }
+        if(props.maxPrice){
+            filters['maxPrice'] = props.maxPrice
+        }
+        if(props.yearCar){
+            filters['yearCar'] = props.yearCar
+        }
+        setFilters(filters);
+        FilterQueryString(filters);
         GetAllMakes().then(doc => {
            setMakeList(doc.makes);
             //console.log('chala',doc.makes)
