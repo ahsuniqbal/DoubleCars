@@ -9,6 +9,7 @@ import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders
 import '../styles/Filters.css';
 import { FiltersSkeleton } from '../../Skeletons/components/Skeleton';
 
+//Checkpoint - 1
 
 const Filters = (props) => {
     /////////////// Filters ///////////////
