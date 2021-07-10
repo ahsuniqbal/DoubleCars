@@ -199,6 +199,7 @@ const Products = (props) => {
 
     const filterQueryChange = (queryStr) => {
         console.log("QURYSTR",queryStr)
+        setBooleanFlag(false)
         setGloableQuery(queryStr)
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
@@ -209,6 +210,7 @@ const Products = (props) => {
         }
         str += `&id=${userId}`
         GetSearchResult(str).then(doc1 => {
+            setBooleanFlag(true)
             setTotalCount(doc1.totalCount)
             console.log(doc1)
             const doc = doc1.results;
@@ -233,6 +235,7 @@ const Products = (props) => {
             
         })
         .catch(error => {
+            setBooleanFlag(true)
             console.log(error.message);
         });
     }

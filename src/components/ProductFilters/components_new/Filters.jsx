@@ -31,6 +31,8 @@ const Filters = (props) => {
     //Map Popup
     const [mapPopup, setMapPopup] = useState(false);
 
+
+
     // Selected Exterior colors
     const [extColors, setExtColors] = useState([]);
     // Selected Interior colors
@@ -90,6 +92,14 @@ const Filters = (props) => {
             );
         }
         return table;
+    }
+
+    const handleToYear = (toYear) => {
+        setLoading(true)
+        filters['maxYear'] = toYear;
+        setFilters(filters);
+        FilterQueryString(filters);
+        setLoading(false)
     }
 
     // Body Styles render from API
@@ -269,6 +279,18 @@ const Filters = (props) => {
         //setGlobalFilterQuery(str)
         // This function will be called from the parent class i.e products page
         props.onFilterChange(str);
+    }
+
+    const handleFromYear = (fromYear) => {
+        setLoading(true);
+        document.getElementById("toYear").disabled = false;
+        setSelectedFromYear(fromYear);
+        filters['minYear'] = fromYear;
+        console.log('handlePriceFilter')
+        delete filters['maxYear'];
+        setFilters(filters);
+        FilterQueryString(filters);
+        setLoading(false)
     }
 
     const handleModel2 = (select) => {
@@ -464,6 +486,19 @@ const Filters = (props) => {
 
     }
 
+    const handleMileage = (mileage) => {
+        setMileage(mileage);
+        filters['minMileage'] = mileage[0];
+        filters['maxMileage'] = mileage[1]
+        setFilters(filters);
+        console.log('handlePriceFilter')
+        FilterQueryString(filters);
+    }
+
+    const onTransmissionChange = (val) => {
+        console.log("Transmission", val)
+    }
+
     // This use effect will run only on first render
     useEffect(() => {
         if(props.bodyStyle){
@@ -500,6 +535,30 @@ const Filters = (props) => {
             alert(error.message);
         });
     }, []);
+
+
+    const handleSellerType = () => {
+        setLoading(true)
+        var dealer = document.getElementById('dealer');
+        var privateSeller = document.getElementById('private-seller');
+
+        if(dealer.checked === true && privateSeller.checked === true) {
+            delete filters['userType'];
+        }
+        else if (dealer.checked === true) {
+            filters['userType'] = 2;
+        }
+        else if (privateSeller.checked === true) {
+            filters['userType'] = 1;
+        }
+        else {
+            delete filters['userType'];
+        }
+        setFilters(filters);
+        console.log('handlePriceFilter')
+        FilterQueryString(filters);
+        setLoading(false)
+    }
 
     const handleCondition = () => {
         setLoading(true)
@@ -662,7 +721,7 @@ const Filters = (props) => {
                             <Row>
                                 <Col xs="6">
                                     {/* On selecting from year, to year will be enabled */}
-                                    <Input type="select">
+                                    <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading} defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
                                         <option disabled selected hidden>From</option>
                                         {
                                             // Populate from year
@@ -674,7 +733,7 @@ const Filters = (props) => {
                                 </Col>
                                 <Col xs="6">
                                     {/* Disabled by default, will be enabled after from year is selected */}
-                                    <Input id="toYear" type="select">
+                                    <Input id="toYear" type="select" onChange={(e) => handleToYear(e.target.value)} disabled defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
                                         <option disabled selected hidden>To</option>
                                         {
                                             // Populate to year
@@ -717,11 +776,11 @@ const Filters = (props) => {
                             {/******** Seller type filter ************/}
                             <h6>Seller Type</h6>
                             <FormGroup check>
-                                <Input type="checkbox" id="dealer" name="seller-type" />
+                                <Input type="checkbox" id="dealer" name="seller-type" onChange={() => handleSellerType()} disabled={loading} />
                                 <Label check htmlFor="dealer">Dealer</Label>
                             </FormGroup>
                             <FormGroup check>
-                                <Input type="checkbox" id="private-seller" name="seller-type" />
+                                <Input type="checkbox" id="private-seller" name="seller-type" onChange={() => handleSellerType()} disabled={loading} />
                                 <Label check htmlFor="private-seller">Private Seller</Label>
                             </FormGroup>
                             {/******** Basic filters end here ************/}
@@ -758,14 +817,14 @@ const Filters = (props) => {
 
                             <Collapse isOpen={advancedFiltersShown}>    
                                 <h6>Transmission</h6>
-                                {
-                                    filtersList && filtersList.transmission.map((transmission, index) => {
-                                        return <FormGroup check key={index}>
-                                            <Input type="checkbox" id="manual" name="transmission" />
-                                            <Label check htmlFor="manual">{transmission}</Label>
-                                        </FormGroup>
-                                    })
-                                }
+                                <FormGroup check>
+                                    <Input onChange={e => onTransmissionChange('automatic')} type="checkbox" id="Automatic" name="Automatic" />
+                                    <Label check htmlFor="Automatic">{"Automatic"}</Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Input onChange={e => onTransmissionChange('manual')} type="checkbox" id="Manual" name="Manual" />
+                                    <Label check htmlFor="Manual">{"Manual"}</Label>
+                                </FormGroup>
 
                                 <hr />
 
@@ -778,7 +837,8 @@ const Filters = (props) => {
                                         minLabel={mileage[0]}
                                         maxLabel={mileage[1]}
                                         step={1000}
-                                        defaultValue={[0, 99999]} />
+                                        defaultValue={[0, 99999]}
+                                        onHandleMileage={handleMileage} />
                                 </div>
 
                                 <hr />
