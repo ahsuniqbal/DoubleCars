@@ -140,62 +140,62 @@ const Products = (props) => {
         //                 yearCar={locationSearch.yearCar}
     }
     
-    useEffect(() => {
-        var tempStr = ""
-        //bodyStyle=Sedan
-        //carMake=Audi
-        //carModel=ACX
-//         Promise.all([GetAllMakes(),GetZipCodesList()])
-//         .then(doc => {
-// setMakeAndZips
-//         })
-//         .catch(e => {
-//             console.log(e.message)
-//         })
-        const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
-        console.log('searchLocation',locationSearch)
-        var queryParams = ""
-        queryParams = makeFilterStringForQueryParams(locationSearch)
-        console.log('queryParams',queryParams)
-        if(locationSearch.search){
-            tempStr += `search=${locationSearch.search}&page=${pageNumber}${queryParams}&${globalQuery}`
-        }else{
-            tempStr += `page=${pageNumber}${queryParams}&${globalQuery}`
-        }
-        tempStr += `&id=${userId}`
-        console.log('tempStr',tempStr)
-        setPageNumber(pageNumber + 1)
-        GetSearchResult(tempStr).then(doc1 => {
-            setTotalCount(doc1.totalCount)
-            const doc = doc1.results;
-            if(doc.length > 0){
-                var tempObj = {
-                    title : doc[0].carName,
-                    image_one : doc[0].coverPic,
-                    image_two : doc[1].coverPic ? doc[1].coverPic : null,
-                    image_three : doc[2].coverPic ? doc[2].coverPic : null,
-                }
-                setSavedSearchObj(tempObj)
-            }
+//     useEffect(() => {
+//         var tempStr = ""
+//         //bodyStyle=Sedan
+//         //carMake=Audi
+//         //carModel=ACX
+// //         Promise.all([GetAllMakes(),GetZipCodesList()])
+// //         .then(doc => {
+// // setMakeAndZips
+// //         })
+// //         .catch(e => {
+// //             console.log(e.message)
+// //         })
+//         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
+//         console.log('searchLocation',locationSearch)
+//         var queryParams = ""
+//         queryParams = makeFilterStringForQueryParams(locationSearch)
+//         console.log('queryParams',queryParams)
+//         if(locationSearch.search){
+//             tempStr += `search=${locationSearch.search}&page=${pageNumber}${queryParams}&${globalQuery}`
+//         }else{
+//             tempStr += `page=${pageNumber}${queryParams}&${globalQuery}`
+//         }
+//         tempStr += `&id=${userId}`
+//         console.log('tempStr',tempStr)
+//         setPageNumber(pageNumber + 1)
+//         GetSearchResult(tempStr).then(doc1 => {
+//             setTotalCount(doc1.totalCount)
+//             const doc = doc1.results;
+//             if(doc.length > 0){
+//                 var tempObj = {
+//                     title : doc[0].carName,
+//                     image_one : doc[0].coverPic,
+//                     image_two : doc[1].coverPic ? doc[1].coverPic : null,
+//                     image_three : doc[2].coverPic ? doc[2].coverPic : null,
+//                 }
+//                 setSavedSearchObj(tempObj)
+//             }
             
-            if(products.length > 0){
-                setBooleanFlag(false);
-                var temp = products
-                for(let i = 0; i < doc.length; i++){
-                    temp.push(doc[i])
-                }
-                setProducts(temp);
-            }else{
-                setProducts(doc);
-                setBooleanFlag(true);
-            }
-            setFlag(!flag)
-        })
-        .catch(error => {
-            console.log(error.message);
-        });
+//             if(products.length > 0){
+//                 setBooleanFlag(false);
+//                 var temp = products
+//                 for(let i = 0; i < doc.length; i++){
+//                     temp.push(doc[i])
+//                 }
+//                 setProducts(temp);
+//             }else{
+//                 setProducts(doc);
+//                 setBooleanFlag(true);
+//             }
+//             setFlag(!flag)
+//         })
+//         .catch(error => {
+//             console.log(error.message);
+//         });
     
-    }, [isBottom]);
+//     }, [isBottom]);
 
     const filterQueryChange = (queryStr) => {
         console.log("QURYSTR",queryStr)

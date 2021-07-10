@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Check } from 'react-feather';
-import { GetFiltersList } from '../api/GetRequests';
+import { GetFiltersList, GetAllMakes, GetModelFromMake, GetTrimFromMakeAndModel, GetZipFromLatLong, GetZipCodesList } from '../api/GetRequests';
 import MapPopup from './MapPopup';
 import gps from '../../../assets/gps.svg';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
@@ -10,7 +10,7 @@ import '../styles/Filters.css';
 import { FiltersSkeleton } from '../../Skeletons/components/Skeleton';
 
 
-const Filters = () => {
+const Filters = (props) => {
     /////////////// Filters ///////////////
     // Filters Object
     const [filters, setFilters] = useState({});
@@ -18,9 +18,8 @@ const Filters = () => {
     // Filters list to be rendered dynamically
     const [filtersList, setFiltersList] = useState(null);
 
-
-    //basicColor for BodyList svg
-    const [basicColor, setBasicColors] = useState(['#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959'])
+    const [radius, setRadius] = useState(200);
+    const [bodyList,setBodyList] = useState([])
     
     const [mileage, setMileage] = useState([0, 99999]);
 
@@ -36,6 +35,34 @@ const Filters = () => {
     const [extColors, setExtColors] = useState([]);
     // Selected Interior colors
     const [intColors, setIntColors] = useState([]);
+
+    // Zip Code
+    const [zipCode, setZipCode] = useState(null);
+
+    //Price Range 
+    const [price, setPrice] = useState([0, 99999]);
+
+    // Model and trim collapses
+    const [isModelCollapseOpen, setModelCollapseOpen] = useState(false);
+    const [isTrimCollapseOpen, setTrimCollapseOpen] = useState(false);
+
+    //basicColor for BodyList svg
+    const [basicColor, setBasicColors] = useState(['#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959'])
+    const [basicBodyStyle,setBodyStyle] = useState(['Sedan','Hatchback','SUV','Coupe','Convertible','Pickup Truck','Wagon','Minivan'])
+    const basicColorSet = (index) => {
+        var modelTemp = basicColor.slice();
+        modelTemp[index] = basicColor[index] === '#595959' ? '#1C67CE' : '#595959'
+        setBasicColors(modelTemp)
+    }
+    const [makeList, setMakeList] = useState([]);
+    const [selectedMake, setSelectedMake] = useState(null);
+    const [modelList, setModelList] = useState([]);
+    const [selectedModel, setSelectedModel] = useState(null);
+
+    const [loading, setLoading] = useState(false);
+    
+    const [trimList, setTrimList] = useState([]);
+    const [selectedTrim, setSelectedTrim] = useState(null);
 
     // Toggle open or close map popup
     const toggleMapPopup = () => setMapPopup(!mapPopup);
@@ -231,15 +258,270 @@ const Filters = () => {
         return table;
     }
 
+    function FilterQueryString(obj){
+        var str = "";
+        for(let i = 0; i < Object.keys(obj).length; i++){
+            str += Object.keys(obj)[i] + "=" + obj[Object.keys(obj)[i]];
+            if(i !== Object.keys(obj).length - 1){
+                str += "&";
+            }
+        }
+        //setGlobalFilterQuery(str)
+        // This function will be called from the parent class i.e products page
+        props.onFilterChange(str);
+    }
+
+    const handleModel2 = (select) => {
+        setLoading(true)
+        setSelectedModel(select);
+        setTrimList([]);
+        delete filters['trim']
+        if(select){
+            GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
+                setTrimCollapseOpen(true);
+                setTrimList(doc.makes[0].models[0].trims)
+                setLoading(false)
+            }).catch(error => {
+                console.log(error.message)
+                setLoading(false)
+            });
+        }
+    }
+
+    const handleMake2 = (make) => {
+        setLoading(true);
+        setSelectedMake(make);
+        setModelList([]);
+        delete filters['carModel']
+        setTrimList([]);
+        delete filters['trim']
+
+        if(make){
+            GetModelFromMake(make).then(doc => {
+                setModelList(doc.makes[0].models);
+                if(props.carMake){
+                    if(props.carModel){
+                        if(doc.makes[0].models.findIndex(a => a.name === props.carModel) !== -1){
+                            handleModel2(props.carModel)
+                        setLoading(false);
+                        }
+                    }
+                }
+            })
+            .catch(error => {
+                console.log(error.message)
+                setLoading(false);
+            });
+        }
+        
+    }
+
+    const handleMake = (make) => {
+        setLoading(true);
+        setSelectedMake(make);
+        setModelList([]);
+        delete filters['carModel']
+        setTrimList([]);
+        delete filters['trim']
+
+        if(make){
+            GetModelFromMake(make).then(doc => {
+                setModelList(doc.makes[0].models);
+                filters['carMake'] = make;
+                setFilters(filters);
+                FilterQueryString(filters);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.log(error.message)
+                setLoading(false);
+            });
+        }else{
+            setModelList([]);
+            delete filters['carModel']
+            setTrimList([]);
+            delete filters['trim']
+            delete filters['carMake']
+            setFilters(filters);
+            FilterQueryString(filters);
+            setLoading(false);
+        }
+        
+    }
+
+    /////////////// Handle changes in filters ///////////////
+    const handleRadius = (radius) => {
+        console.log('chalaaa')
+        if(!zipCode) {
+            alert("Please allow the location first");
+            return;
+        }
+        const zip = zipCode.split('- ')
+        setRadius(radius);
+
+        const obj = {
+            zip: zip[zip.length - 1],
+            radius: radius,
+        }
+        console.log(obj)
+        
+        // console.log(convertIntoQueryParams(obj))
+        GetZipCodesList(convertIntoQueryParams(obj)).then(doc => {
+            console.log(doc)
+            if(doc.results.length > 0) {
+                setRadius(radius);            
+                filters['radius'] = radius;
+                console.log(doc)
+                filters['zipCode'] = doc.results[0]+"-"+doc.results[doc.results.length - 1]
+               // console.log(doc.results[0]+"-"+doc.results[doc.results.length - 1])
+                setFilters(filters);
+                console.log('YE HOA CALLED zip')
+                FilterQueryString(filters);
+            }
+            else {
+                // If zip code is not available then do nothing
+            }
+            
+        }).catch(error => {
+            console.log(error)
+        })
+        // setRadius(radius);
+        // filters['radius'] = radius;
+        // setFilters(filters);
+        // FilterQueryString(filters);    
+    }
+
+    // This function is to handle the radius value only
+    const handleRadiusValue = (radius) => {
+        setRadius(radius);
+    }
+    const convertIntoQueryParams = (obj) => {
+        var str = "";
+        for(let i = 0; i < Object.keys(obj).length; i++){
+            str += Object.keys(obj)[i] + "=" + obj[Object.keys(obj)[i]];
+            if(i !== Object.keys(obj).length - 1){
+                str += "&";
+            }
+        }
+        return str;
+    }
+
+    const handleModel = (select) => {
+        setLoading(true)
+        setSelectedModel(select);
+
+        setTrimList([]);
+        delete filters['trim']
+        if(select){
+            GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
+                // trimList.push(doc.makes[0].models[0].trims)
+                setTrimCollapseOpen(true);
+                setTrimList(doc.makes[0].models[0].trims)
+                filters['carModel'] = select;
+                setFilters(filters);
+                FilterQueryString(filters);
+                setLoading(false)
+            }).catch(error => {
+                console.log(error.message)
+                setLoading(false)
+            });
+        }else{
+            // console.log('filters1',filters)
+            setTrimList([]);
+            delete filters['trim']
+            delete filters['carModel']
+            // console.log('filters2',filters)
+            setFilters(filters);
+            FilterQueryString(filters);
+            setTrimCollapseOpen(false);
+            setLoading(false)
+        }
+    }
+    const handlePrice = (price) => {
+        console.log('handlePriceFilter')
+        setPrice(price);
+        filters['minPrice'] = price[0];
+        filters['maxPrice'] = price[1];
+        setFilters(filters);
+        FilterQueryString(filters);
+    }
+
+
+    const handleTrim = (selected) => {
+        setLoading(true)
+        setSelectedTrim(selected);
+        if(selected){
+                filters['trim'] = selected;
+                setFilters(filters);
+                FilterQueryString(filters);
+                setLoading(false)
+        }else{
+            delete filters['trim']
+            setFilters(filters);
+            FilterQueryString(filters);
+            setLoading(false)
+        }
+
+    }
 
     // This use effect will run only on first render
     useEffect(() => {
-        GetFiltersList().then(doc => {
-            setFiltersList(doc.listRanges);
-        }).catch(error => {
-            console.log(error.message);
+        if(props.bodyStyle){
+            filters['bodyStyle'] = props.bodyStyle
+            var index = basicBodyStyle.findIndex(a => a === props.bodyStyle)
+            if(index !== -1){
+                filters['bodyStyle'] = props.bodyStyle
+                basicColorSet(index)
+            }
+        }
+        if(props.carMake){
+            filters['carMake'] = props.carMake
+            handleMake2(props.carMake)
+            setModelCollapseOpen(true)
+        }
+        if(props.carModel){
+            filters['carModel'] = props.carModel
+            setTrimCollapseOpen(true)
+        }
+        if(props.minPrice){
+            filters['minPrice'] = props.minPrice
+        }
+        if(props.yearCar){
+            filters['yearCar'] = props.yearCar
+        }
+        Promise.all([GetAllMakes(),GetFiltersList()])
+        .then(values => {
+            setMakeList(values[0].makes);
+            setFiltersList(values[1].listRanges);
+            setPrice([0, values[1].listRanges.ranges[0].maxPrice]);
+            FilterQueryString(filters)
         })
+        .catch(error => {
+            alert(error.message);
+        });
     }, []);
+
+    const handleCondition = () => {
+        setLoading(true)
+        var conditionNew = document.getElementById('condition-new');
+        var conditionUsed = document.getElementById('condition-used');
+        if(conditionNew.checked === true && conditionUsed.checked === true) {
+            delete filters['isUsed'];
+        }
+        else if (conditionNew.checked === true) {
+            filters['isUsed'] = 0;
+        }
+        else if (conditionUsed.checked === true) {
+            filters['isUsed'] = 1;
+        }
+        else {
+            delete filters['isUsed'];
+        }
+        setFilters(filters);
+        console.log('handlePriceFilter')
+        FilterQueryString(filters);
+        setLoading(false)
+    }
 
     return(
         <Card className="filters">
@@ -309,38 +591,49 @@ const Filters = () => {
                             {/* Make list will be fetched from vinaudit api
                             On changing the make, modal will be visible  */}
                             {
-                                <Input id="make-list" type="select" className="mb-4">
-                                    <option value="">Make</option>
-                                    <option>Hona</option>
-                                    <option>Subaru</option>
-                                </Input>
+                                 makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }} disabled={loading} defaultValue={props.carMake ? props.carMake : ""}>
+                                 <option value="">Make</option>
+                                 {
+                                     makeList.map((option, index) => {
+                                         return <option value={option.name}>{option.name}</option>
+                                     })
+                                     // Make list will be populated using the results from vinaudit API
+                                     // concatMakeList(makeList)
+                                 }
+                                 </Input> : null
                             }
                             
                             
                             {/******** Model filter, model list will be 
                              * populated and visible once the make is selected ************/}
-                            <Collapse isOpen={true}>
+                            <Collapse isOpen={isModelCollapseOpen}>
                                 <h6>Model</h6>
+                                {
+                                    modelList.length > 0 ? <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)} disabled={loading} defaultValue={props.carModel ? props.carModel : ""}>
+                                    <option value="">Model</option>
+                                    {
+                                        modelList.map((option, index) => {
+                                            return <option value={option.name}>{option.name}</option>
+                                        })
+                                    }
+                                    </Input>: null
+                                }
 
-                                <Input id="model-list" type="select" className="mb-4">
-                                    <option value="">Model</option>
-                                    <option value="">Model</option>
-                                    <option value="">Model</option>
-                                    <option value="">Model</option>    
-                                </Input>
+                                
                                 
 
                                 {/******** Trim filter, trim list will be 
                                  * populated and visible once the model is selected ************/}
-                                <Collapse isOpen={true}>
+                                <Collapse isOpen={isTrimCollapseOpen}>
                                     <h6>Trim</h6>
 
-                                    <Input id="trim-list" type="select" className="mb-4">
-                                        <option value="">Trim</option>
-                                        <option value="">Trim</option>
-                                        <option value="">Trim</option>
-                                        <option value="">Trim</option>
-                                        <option value="">Trim</option>
+                                    <Input id="trim-list" type="select" className="mb-4" onChange={(e) => handleTrim(e.target.value)} disabled={loading}>
+                                    <option value="">Trim</option>
+                                    {
+                                        trimList.map((option, index) => {
+                                            return <option value={option.name}>{option.name}</option>
+                                        })
+                                    }
                                     </Input>
                                 </Collapse>
                             </Collapse>
@@ -350,12 +643,15 @@ const Filters = () => {
                             {/******** Price filter ************/}
                             <h6>Price</h6>
                             <div className="px-2">
-                                <PriceRangeSlider
+                            <PriceRangeSlider
                                     min={0}
-                                    max={2000}
-                                    minLabel={0}
-                                    maxLabel={2000}
-                                    step={100}
+                                    max={filtersList.ranges[0].maxPrice}
+                                    minLabel={price[0]}
+                                    maxLabel={price[1]}
+                                    step={5000}
+                                    defaultValue={[props.minPrice ? Number(props.minPrice) : 0, props.maxPrice ? Number(props.maxPrice) : filtersList.ranges[0].maxPrice]}
+                                    onHandlePrice={handlePrice} 
+                                    disabled={loading}
                                 />
                             </div>
                             
@@ -406,11 +702,13 @@ const Filters = () => {
                             {/******** Condition filter ************/}
                             <h6>Condition</h6>
                             <FormGroup check>
-                                <Input type="checkbox" id="condition-new" name="condition" />
+                                <Input type="checkbox" id="condition-new" name="condition" onChange={() => handleCondition()} 
+                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? false : true : false}  disabled={loading}/>
                                 <Label check htmlFor="condition-new">New</Label>
                             </FormGroup>
                             <FormGroup check>
-                                <Input type="checkbox" id="condition-used" name="condition" />
+                                <Input type="checkbox" id="condition-used" name="condition" onChange={() => handleCondition()} 
+                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? true : false : false} disabled={loading} />
                                 <Label check htmlFor="condition-used">Used</Label>
                             </FormGroup>
 
