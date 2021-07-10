@@ -93,7 +93,7 @@ const CarsLogo = () => {
                                         <LazyLoadImage effect="blur" src={logo.img} className='img-fluid mx-auto'/>
                                     </CardBody>
                                     <CardFooter>
-                                        <Link>{getCount(logo.name) ? getCount(logo.name) : "76"} Listings<ChevronRight color="#1C67CE" size={15} /></Link>
+                                        <Link to={`/products?carMake=${logo.name}`}>{getCount(logo.name) ? getCount(logo.name) : "76"} Listings<ChevronRight color="#1C67CE" size={15} /></Link>
                                     </CardFooter>
                                 </Card>
                             </Col>

@@ -42,7 +42,9 @@ const StatsTable = (props) => {
                                 props.tableData.map((data, index) => {
                                     return (
                                         <tr key={index}>
-                                            <td className = "table-year-label">{data.yearCar}</td>
+                                            <td className = "table-year-label">
+                                                <Link to={`/products?minYear=${data.yearCar}`}>{data.yearCar}</Link>
+                                            </td>
                                             <td className = "table-label">${AddCommaToNumber(data.price)}</td>
                                             <td className = "table-label">{data.availableCount ? data.availableCount : 5}</td>
                                         </tr>
@@ -52,7 +54,7 @@ const StatsTable = (props) => {
                         </tbody>
                     </table>
                     <Col className = "text-left" md = "12" >
-                        <Link to={"/products/"}>
+                        <Link to={`/products?carMake=${props.carMake}&carModel=${props.carModel}`}>
                             <Button className="mb-3 view-all-cars-stats-button" id = "forward">View all {AddCommaToNumber(props.totalCount)} Cars<ChevronRight color="#1C67CE" size={20} className = "mr-1"/></Button>
                         </Link>
                     </Col>

@@ -199,11 +199,17 @@
 }
 
 .dropdown-item.active, .dropdown-item:active {
-    color: #fff !important;
+    color: #212529 !important;
     text-decoration: none !important;
-    background-color: rgba(0, 0, 0, 0.65) !important;
-    border-color: rgba(0, 0, 0, 0.65) !important;
+    background-color: #f8f9fa !important;
+    border-color: #f8f9fa !important;
 }
+
+.dropdown-item:focus {
+    outline: none;
+}
+
+
 .navigation-profile-name{
     font-family: Ubuntu;
     font-style: normal;
@@ -240,13 +246,11 @@
     /* box-shadow: 0px 0px 20px 0px #F4F4F4;     */
     border-radius: 4px;
     filter: drop-shadow(0px 4px 30px rgba(0, 0, 0, 0.08));
-}
-
-.dropdown-menu{
     padding:65% 50% 35% 40%;
     border-radius: 8px;
     margin-top: 18%;
 }
+
 .dropdown-arrow{
     margin: -48px 0px 0px 0px;
     padding-left: 84%;
@@ -289,3 +293,23 @@
     margin-top: 16px;
     margin-bottom: 16px;    
 } */
+
+
+
+
+
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .nav-link {
+        text-align: left !important;
+    }
+
+
+    .dropdown-menu {
+        padding: 0%;
+        margin-top: 5%;
+        /* padding-top: 15px; */
+        padding-bottom: 15px;
+    }
+  }

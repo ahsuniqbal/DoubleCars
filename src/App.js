@@ -1,4 +1,4 @@
-import React,{useEffect, useRef} from 'react';
+import React, { useRef } from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
@@ -7,22 +7,13 @@ import { faUser, faStar, faMapPin, faPhone, faSearch, faEnvelope, faPlus, faMinu
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import logo from './assets/DCloader.gif';
 import Lottie from 'react-lottie';
-// import * as lottie from 'lottie-web';
 import dclogo from './assets/animations/DDCar.json'
 
 import { PrivateRoute } from './navigation/RouteTypes';
+import { Col, Row } from 'reactstrap';
 
 library.add(faUser, faStar, faBookmark, faMapPin, faPhone, faSearch, faEnvelope, faPlus, faMinus, faCheck, faCheckCircle);
 
-
-
-
-//fallback loading
-// const loading = () => <div className="preloader">
-
-  
-//   <img src={logo} alt="Double Cars preloader" className="img-fluid" />
-// </div>
 
 const DefaultLayout = React.lazy(() => import('./components/DefaultLayout'));
 const Login = React.lazy(() => import('./pages/Authentication/Login'))
@@ -35,16 +26,6 @@ const Chat = React.lazy(() => import('./pages/ChatMessenger'));
 function App() {
   const container = useRef(null)
 
-// useEffect(()=> {
-//   lottie.loaadanimation({
-//     container: container.current,
-//     renderer: 'svg',
-//     loop: true,
-//     autoplay: true,
-//     animationData: require('./assets/DDCar.json')
-//   })
-
-// },[])
 
   // to detect mobile screens 
 
@@ -67,22 +48,15 @@ function App() {
   };
 
   const loading = () => {
-  //   return lottie.loadAnimation({
-  //     container: document.getElementById('main-div'), // the dom element that will contain the animation
-  //     renderer: 'svg',
-  //     loop: true,
-  //     autoplay: true,
-  //     path: dclogo // the path to the animation json
-  //   });
 
-    return <div className="preloader">
-        <img src={logo} alt="Double Cars preloader" className="img-fluid" />
-      </div>
-
-
-    // return <Lottie 
-    // options={defaultOptions}
-    // />
+    // return <div className="preloader">
+    //     <img src={logo} alt="Double Cars preloader" className="img-fluid" />
+    //   </div>
+    return <Row>
+      <Col xs="12">
+        <Lottie options={defaultOptions} width={330} height={200}/>
+      </Col>
+    </Row>
     
   }
  
@@ -91,9 +65,14 @@ function App() {
     <div>
     {/* Hello Ji :)  */}
     <div className = "container" ref = {container}> </div> 
-    <Router forceRefresh>
+    <Router basename="/beta" forceRefresh>
       <React.Suspense fallback={loading()}>
         <Switch>
+          {/* <Row>
+            <Col xs="12">
+              <Lottie options={defaultOptions} width={330} height={200}/>
+            </Col>
+          </Row> */}
           <Route path="/login" component={Login}/>
           <Route path="/signup" component={SignUp}/>
           <Route path='/reset-password' component={ResetPassword}/>

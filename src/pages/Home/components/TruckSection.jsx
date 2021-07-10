@@ -44,7 +44,7 @@ const TruckSection = () => {
                             <div className='truck-cars-div'>  
                                 <span className='trucks-images-gradient'>
                                     <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
-                                    <Link to={`/products?${vehicle.category}`}>
+                                    <Link to={`/products?bodyStyle=Pickup Truck`}>
                                         <h1 className='trucks-head'>{vehicle.category}</h1>
                                     </Link>
                                     <Label className='trucks-label'>Starting from ${AddCommaToNumber(vehicle.price) }<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
@@ -56,12 +56,12 @@ const TruckSection = () => {
                 <Container>
                 <Row className = "mt-5">
                     <Col md="6">
-                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "mb-4"/>
-                        <Skeleton variant="rect" width={600} height={240} animation="wave" />
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "mb-4 skeleton-feature-car-2" />
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "skeleton-feature-car-2" />
                     </Col>
                     <Col md="6">
-                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "mb-4"/>
-                        <Skeleton variant="rect" width={600} height={240} animation="wave" />
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "mb-4 skeleton-feature-car-2"/>
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "skeleton-feature-car-2"/>
                     </Col>
                     
             </Row>

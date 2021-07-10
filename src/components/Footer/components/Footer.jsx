@@ -53,7 +53,7 @@ const Footer = () => {
                             </Nav>
                         </Col>
 
-                        <Col xs="12" md="2" className = "footer-columns">
+                        <Col xs="6" md="2" className = "footer-columns">
                             <Nav vertical>
                                 <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" href='/products?isUsed=false'>
@@ -75,7 +75,7 @@ const Footer = () => {
                             </Nav>
                         </Col>
 
-                        <Col xs="12" md="2" className = "footer-columns">
+                        <Col xs="6" md="2" className = "footer-columns">
                             <Nav vertical>
                                 <Link to={'/products?cars=certified'}>
                                     <NavLink className = "nav-text-color" to = "">Certified Cars</NavLink>

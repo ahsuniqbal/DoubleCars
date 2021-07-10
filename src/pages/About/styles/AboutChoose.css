@@ -26,3 +26,12 @@
 .about-check-icon {
     margin-right: 1.3rem;
 }
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+   .v-line {
+       display: none;
+   }
+   
+   }
+

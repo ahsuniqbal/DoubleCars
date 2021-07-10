@@ -104,7 +104,7 @@ const Gallery = (props) => {
                     showPlayButton={false}
                     showThumbnails={matched}
                     showNav={matched}
-                    autoPlay={matched}
+                    autoPlay={false}
                     showFullscreenButton={matched}
                 />
             </div>
