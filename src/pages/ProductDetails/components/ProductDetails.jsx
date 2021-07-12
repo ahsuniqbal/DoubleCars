@@ -36,7 +36,6 @@ const ProductResults = ({match}) => {
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
-            console.log(doc);
             GetTopDealers(doc.details[0].carMake, doc.details[0].carModel).then(doc => {
                 setTopDealers(doc.topDealers);
                 setTableData(doc.tableData);
@@ -150,7 +149,7 @@ const ProductResults = ({match}) => {
 
                             <Col xs="12" md="8">
                                 {
-                                    graphData && <Chart data={graphData} />
+                                    graphData && <Chart newData={"a"} data={graphData} />
                                 }
                                 
                             </Col>

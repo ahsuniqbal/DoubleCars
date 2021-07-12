@@ -287,9 +287,6 @@ const Information = (props) => {
                 </Col>
             </Row> */}
             {/* <hr  className = "info-bottom-line mb-5"/> */}
-
-            
-            <Chart />
             
             {/* THIS IS COMMENTED UNTILL THE BACKEND IS IMPLEMENTED */}
             {/* <Row>

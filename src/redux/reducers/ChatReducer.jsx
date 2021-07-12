@@ -9,7 +9,6 @@ const chatInitMsg = {
 }
 
 const ChatReducer = (state = initState, action) => {
-    console.log("action",action.chat)
     if(action.type === "SELECT_CHAT"){
         state = action.chat
     }
@@ -18,8 +17,6 @@ const ChatReducer = (state = initState, action) => {
 }
 
 const MessageReducer = (state = chatInitMsg, action) => {
-    console.log("action",action);
-
     if(action.type === "NEW_MSG") {
         state = action;
     }

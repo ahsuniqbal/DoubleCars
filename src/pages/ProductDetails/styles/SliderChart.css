@@ -1,0 +1,8 @@
+span.MuiSlider-markLabel[data-index="1"] {
+    left: auto !important;
+    right: -10% !important;
+}
+
+span.MuiSlider-markLabel[data-index="0"] {
+    left: 10% !important;
+}
