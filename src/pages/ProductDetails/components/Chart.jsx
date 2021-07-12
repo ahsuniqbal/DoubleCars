@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, CardBody, Col, Label, Row } from 'reactstrap';
+
+import { Card, CardBody, Col, Label, Row, Progress } from 'reactstrap';
 import { Line } from 'react-chartjs-2';
 import '../styles/Chart.css';
 

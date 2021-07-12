@@ -72,6 +72,7 @@ const ProductResults = ({match}) => {
         })
         .catch(error => {
             console.log(error.message);
+            
         });
 
 
