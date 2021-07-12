@@ -487,16 +487,33 @@ const Filters = (props) => {
     }
 
     const handleMileage = (mileage) => {
+        console.log("MILEAGE",mileage)
         setMileage(mileage);
         filters['minMileage'] = mileage[0];
         filters['maxMileage'] = mileage[1]
         setFilters(filters);
-        console.log('handlePriceFilter')
         FilterQueryString(filters);
     }
 
     const onTransmissionChange = (val) => {
-        console.log("Transmission", val)
+        setLoading(true)
+        var automatic = document.getElementById('Automatic');
+        var manual = document.getElementById('Manual');
+        if(automatic.checked === true && manual.checked === true) {
+            delete filters['transmission'];
+        }
+        else if (automatic.checked === true) {
+            filters['transmission'] = "automatic";
+        }
+        else if (manual.checked === true) {
+            filters['transmission'] = "manual";
+        }
+        else {
+            delete filters['transmission'];
+        }
+        setFilters(filters);
+        FilterQueryString(filters);
+        setLoading(false)
     }
 
     // This use effect will run only on first render
@@ -831,7 +848,7 @@ const Filters = (props) => {
 
                                 <h6>Mileage</h6>
                                 <div className="px-2">
-                                    <MileageSlider
+                                <MileageSlider
                                         min={0}
                                         max={99999}
                                         minLabel={mileage[0]}

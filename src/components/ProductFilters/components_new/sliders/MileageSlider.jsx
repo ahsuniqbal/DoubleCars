@@ -25,7 +25,8 @@ const MileageSlider = (props) => {
       step={props.step}
       defaultValue={props.defaultValue}
       className="price-range-slider" 
-      marks={marks(props.min, props.max, props.minLabel, props.maxLabel)} />
+      marks={marks(props.min, props.max, props.minLabel, props.maxLabel)}
+      onChangeCommitted={handleChange} />
   );
 };
 
