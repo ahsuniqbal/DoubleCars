@@ -12,7 +12,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Slider from "react-slick";
 import RightArrow from '../../../assets/RightArrow.png';
-import {useHistory} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 
 
@@ -106,7 +106,7 @@ const LowerCar = (props) => {
           prevArrow:<PrevoiusIcon activeSlide={activeSlide} />,
           dots: false,
           beforeChange: (current, next) => setActiveSlide(next),
-          swipeToSlide: true,
+          draggable: false,
           slidesToScroll: 1,
           slidesToShow: 4,
           autoplay: false,
@@ -133,7 +133,7 @@ const LowerCar = (props) => {
             {
               breakpoint: 480,
               settings: {
-                slidesToShow: 1,
+                slidesToShow: 1.15,
                 slidesToScroll: 1
               }
             }
@@ -149,10 +149,14 @@ const LowerCar = (props) => {
              {lowerCar ?
                lowerCar.map((item,index)=>{
                  return(
-                    <div className = "lower-section-car" key={index} onClick={()=>history.push('/carousal-products')}>
-                          <LazyLoadImage width="100%" alt="demo image" effect="blur" src={item.image} className='img-fluid lower-cars-carousel-images'/>
-                          <p className='text'>{item.text}</p>
-                    </div>
+                   <Link to={`/products?bodyStyle=${item.text}`}>
+                      <div className = "lower-section-car" key={index}
+                      //  onClick={()=>history.push('/carousal-products')}
+                       >
+                            <LazyLoadImage width="100%" alt="demo image" effect="blur" src={item.image} className='img-fluid lower-cars-carousel-images'/>
+                            <p className='text'>{item.text}</p>
+                      </div>
+                    </Link>
                  )
                }) : null
              }

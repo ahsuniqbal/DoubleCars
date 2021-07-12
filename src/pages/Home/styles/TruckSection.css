@@ -1,7 +1,17 @@
 .truck-cars-col{
     position: relative;
-    margin: 1rem 0rem;
+    margin: 17px 0px;
+    /* padding: 0px 0px !important; */
 }
+.card-img {
+    height: 274px;
+}
+
+
+.lazy-load-image-background img.card-img {
+    object-fit: cover;
+}
+
 .truck-cars-div{
     position: absolute;
     padding: 22% 2rem 10%;
@@ -11,14 +21,8 @@
     bottom: 0;
     background: linear-gradient( 90deg , #233856 0%, rgba(33, 52, 80, 0) 100%);
 }
-.truck-cars-col{
-    transition: transform 500ms !important;
 
-}
-.truck-cars-col:hover {
-    transform: scale(1.01) !important;  
-    
-}
+
 .truck-car-badge{
     font-family: Ubuntu;
     font-style: normal;
@@ -72,5 +76,18 @@
     }
     .truck-cars-div{
         padding-top: 12%;
+    }
+}
+
+
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .card-img {
+        height: 180px;
+    }
+
+    .truck-cars-div {
+        padding: 25% 1rem 10%;
     }
 }

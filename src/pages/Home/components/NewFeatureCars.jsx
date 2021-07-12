@@ -30,7 +30,7 @@ const NewFeaturedCars = (props) => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        height: '70vh',
+        height: '481px',
         border:'5px solid white'
         
       };
@@ -40,7 +40,7 @@ const NewFeaturedCars = (props) => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        height: '35vh',
+        height: '240px',
         border:'5px solid white'
        
       };
@@ -50,7 +50,7 @@ const NewFeaturedCars = (props) => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        height: '35vh',
+        height: '240px',
         border:'5px solid white'
        
       };
@@ -59,7 +59,7 @@ const NewFeaturedCars = (props) => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        height: '35vh',
+        height: '240px',
         borderRight:'10px solid white',
         border:'5px solid white'  
       };
@@ -68,13 +68,13 @@ const NewFeaturedCars = (props) => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        height: '35vh',
+        height: '240px',
         border:'5px solid white'
             };
 
       
     return(
-      <Container>
+      <Container className="new-feature">
 
      
         <Row className='main-feature'>

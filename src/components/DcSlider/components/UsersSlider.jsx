@@ -50,7 +50,7 @@ const UsersSlider = (props) => {
         prevArrow:<PrevoiusIcon activeSlide={activeSlide}/>,
         dots: false,
         beforeChange: (current, next) => setActiveSlide(next),
-        swipeToSlide: true,
+        draggable: false,
         slidesToScroll: 1,
         slidesToShow: 5,
         autoplay: false,
@@ -94,8 +94,9 @@ const UsersSlider = (props) => {
                         <UserCard 
                             key={index}
                             productId={item.productId}
-                            productTitle={item.carName}
-                            
+                            productTitle={item.fullName}
+                            productImg={item.coverPic}
+                            userId={item.userId}
                         />      
                     ))
                 : null

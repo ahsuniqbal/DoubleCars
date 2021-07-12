@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react"
-import {Row ,Col,Badge ,Label} from 'reactstrap'
+import {Row ,Col,Badge ,Label, Container} from 'reactstrap'
 import HeavyTruck from '../../../assets/HeavyTruck.png';
 import BoxTruck from '../../../assets/BoxTruck.png';
 import ForkLifter from '../../../assets/ForkLifter.png';
@@ -13,7 +13,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { GetCommercialVehicles } from '../api/GetRequests';
 import { AddCommaToNumber } from "../../../utils/NumberManipulation";
+import { Link } from 'react-router-dom';
 
+import Skeleton from '@material-ui/lab/Skeleton';
 
 AOS.init();
 
@@ -42,13 +44,28 @@ const TruckSection = () => {
                             <div className='truck-cars-div'>  
                                 <span className='trucks-images-gradient'>
                                     <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
-                                    <h1 className='trucks-head'>{vehicle.category}</h1>
+                                    <Link to={`/products?bodyStyle=Pickup Truck`}>
+                                        <h1 className='trucks-head'>{vehicle.category}</h1>
+                                    </Link>
                                     <Label className='trucks-label'>Starting from ${AddCommaToNumber(vehicle.price) }<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
                                 </span> 
                             </div>
                         </Col>
                     )
-                }) : null
+                }) : 
+                <Container>
+                <Row className = "mt-5">
+                    <Col md="6">
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "mb-4 skeleton-feature-car-2" />
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "skeleton-feature-car-2" />
+                    </Col>
+                    <Col md="6">
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "mb-4 skeleton-feature-car-2"/>
+                        <Skeleton variant="rect" width={600} height={240} animation="wave" className = "skeleton-feature-car-2"/>
+                    </Col>
+                    
+            </Row>
+        </Container>
             } 
             </Row>
         {/* <Row>

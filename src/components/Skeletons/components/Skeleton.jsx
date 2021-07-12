@@ -22,9 +22,10 @@ export const ProductSkeleton = () => {
     );
 };
 
-export const FiltersSkeleton = () => {
+export const FiltersSkeleton = (props) => {
+    console.log('props',props)
     return(
-        <div className="filters-skeleton">
+        <div key={props.index ? props.index : 1} className="filters-skeleton">
             <Skeleton variant="text" animation="wave" />
             <Skeleton variant="text" animation="wave" />
             <Skeleton variant="text" animation="wave" />

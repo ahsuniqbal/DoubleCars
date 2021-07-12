@@ -7,9 +7,8 @@
 .contactus-column {
     margin-top: 16%;
 }
-.contactus-image:hover{
-    transform: scale(1.01);
-}
+
+
 .contactus-head {
     font-weight: 500;
     font-size: 32px;
@@ -128,7 +127,8 @@ select:required:invalid {
     transition: transform 500ms !important;
 }
 .contact-us-image-column {
-    margin-left: 2rem;
+    margin-left: -1rem;
+    margin: -11px;
 }
 .about-dc-head {
     font-size: 18px;
@@ -192,4 +192,36 @@ overflow: hidden;
         display: none;
     }
 
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .contactus-head {
+        margin-top: 5rem;
+    }
+   .send-button {
+    width: 100% !important;
+   }
+   
+   .contactus-image {
+    margin: 0px;
+   }
+
+   .v-line {
+       display: none !important;
+   }
+
+   .lower-outer-col {
+       margin-top:0rem;
+       margin-bottom: 0rem;
+   }
+   .icons-row-mobile {
+       text-align: center !important;
+       justify-content: center !important;
+       margin-bottom: 1rem;
+   }
+
+   .contact-detail {
+       margin-bottom: 2rem;
+   }
 }

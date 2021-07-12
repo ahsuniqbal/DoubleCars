@@ -17,7 +17,7 @@ const ShowSearchResults = (inventory) => {
                 <ProductCard
                     productId={inventory[i].productId}
                     productTitle={inventory[i].carName}
-                    productSubtitle={AddCommaToNumber(inventory[i].mileage) + " mileage · " + inventory[i].zipCode}
+                    productSubtitle={inventory[i].mileage === "" || inventory[i].mileage === null ? "NEW · " + inventory[i].zipCode : AddCommaToNumber(inventory[i].mileage) + " mileage · " + inventory[i].zipCode}
                     productText={"$" + AddCommaToNumber(inventory[i].price)}
                     productImg={inventory[i].coverPic}
                     productName={inventory[i].carName}
@@ -215,11 +215,17 @@ const DealerProfile = ({match}) => {
     } 
     function scrollFunction() {
         const mybutton = document.getElementById("myBtn");
-        if (document.body.scrollTop > 1280 || document.documentElement.scrollTop > 1280) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
+        if (mybutton) {
+            if (document.body.scrollTop > 1280 || document.documentElement.scrollTop > 1280) {
+                mybutton.style.display = "block";
+              } else {
+                mybutton.style.display = "none";
+              }
         }
+        else {
+            return;
+        }
+        
     }
 
     return(

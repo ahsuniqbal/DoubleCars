@@ -1,10 +1,13 @@
 .profile-view {
     border-radius: 0px 6px 6px 0px;
     height: 100%; 
-    border-right: 1px solid #E9E9E9;
+    border: 1px solid #E9E9E9;
+    max-height: calc(100vh - 125px);
+    overflow-y: scroll;
+    /* border-right: 1px solid #E9E9E9;
     border-top: 1px solid #E9E9E9;
     border-bottom: 1px solid #E9E9E9;
-    border-left: 1px solid#E9E9E9;
+    border-left: 1px solid#E9E9E9; */
 }
 
 .profile-view h6 {
@@ -15,12 +18,23 @@
     color: rgba(0, 0, 0, 0.85);
 }
 
+
+.profile-view .inquiring-container {
+    border-bottom: 1px solid #E9E9E9;
+    padding-bottom: 2rem;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+    margin-bottom: 2rem;
+
+}
+
 .profile-view .inquaring-for-card {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 9px;
     padding: 15px;
     margin-right: 0;
     margin-left: 0;
+    margin-top: 2rem;
 }
 
 .profile-view .inquaring-for-card .card-img {
@@ -49,6 +63,9 @@
     font-weight: normal;
     line-height: 14px;
     color: rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .profile-view .inquaring-for-card .card-text {
@@ -62,8 +79,10 @@
 
 .profile-view .profile-details .card-img {
     width: 87px;
-    height: auto;
-    object-fit: fill;
+    height: 87px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 24px;
 }
 
 .profile-view .profile-details .rating-number {

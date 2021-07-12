@@ -39,6 +39,7 @@ const TrendingBodyTypes = (props) => {
 
     const DrawCarouselCols = (list, index) => {
         var table = [];
+        console.log("Trend", list);
         for(let i = index; i < index + 4; i++){
             if(i > list.length - 1){
                 return table;

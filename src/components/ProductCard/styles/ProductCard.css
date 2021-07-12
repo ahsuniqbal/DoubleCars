@@ -5,7 +5,7 @@
 }
 .product-card:hover{
    
-    transform:scale(1.01);
+    /* transform:scale(1.01); */
 }
 /* Name of the car */
 .product-card .card-title{
@@ -119,7 +119,10 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     margin-top: 3px;
-    /* width: 100%; */
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    background-color: black;
 }
 
 /* The label saying "Private Seller" */
@@ -129,6 +132,9 @@
     line-height: 16px;
     color: rgba(0, 0, 0, 0.45);
     margin-top: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* Rating div */

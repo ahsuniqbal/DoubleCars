@@ -13,7 +13,8 @@ const Footer = () => {
         <div  style={{display:window.location.pathname=='/dashboard' && 'none'}}> 
             {/* Upper Footer starts here */}
             <section className ="bottom-footer ">
-                <div className = "container-fluid">
+                <div className = "container-fluid footer-image">
+                    <Container>
                     <Row>
                         <Col className = "footer-image">
                             <Row className = "h-100">
@@ -25,15 +26,14 @@ const Footer = () => {
                               
                                 <Col md = "6" xs = "12" className = "learn-more-button-class my-auto">
                                     <Link to = {'/fullviewheader'}>
-                                    <Button className="learn-more-button-cover"
-                                       
-                                    >Learn More</Button>
+                                        <Button className="learn-more-button-cover float-right">Learn More</Button>
                                     </Link>
                                     
                                 </Col>
                             </Row>
                         </Col>
                     </Row>
+                    </Container>
                 </div>
             </section>
             
@@ -53,7 +53,7 @@ const Footer = () => {
                             </Nav>
                         </Col>
 
-                        <Col xs="12" md="2" className = "footer-columns">
+                        <Col xs="6" md="2" className = "footer-columns">
                             <Nav vertical>
                                 <Link to={'/products/'}>
                                     <NavLink className = "nav-text-color" href='/products?isUsed=false'>
@@ -62,7 +62,7 @@ const Footer = () => {
                                     <span >New Cars</span>}
                                     </NavLink>
                                 </Link>
-                                <Link to={'/products/'}>
+                                <Link to={'/products?cars=popular'}>
                                     <NavLink className = "nav-text-color" to = "">Popular Cars</NavLink>
                                 </Link>
                                 <Link to={'/products/'}>
@@ -75,15 +75,15 @@ const Footer = () => {
                             </Nav>
                         </Col>
 
-                        <Col xs="12" md="2" className = "footer-columns">
+                        <Col xs="6" md="2" className = "footer-columns">
                             <Nav vertical>
-                                <Link to={'/products/'}>
+                                <Link to={'/products?cars=certified'}>
                                     <NavLink className = "nav-text-color" to = "">Certified Cars</NavLink>
                                 </Link>
-                                <Link to={'/products/'}>
+                                <Link to={'/products?cars=recommended'}>
                                     <NavLink className = "nav-text-color" to = "">Recommended</NavLink>
                                 </Link>
-                                <Link to={'/products/'}>
+                                <Link to={'/products?cars=trending'}>
                                     <NavLink className = "nav-text-color" to = "">Trending</NavLink>
                                 </Link>
                             </Nav>
@@ -104,7 +104,7 @@ const Footer = () => {
                         <Col xs="12" md="3" className = "footer-columns">
                             <Nav vertical>
                                 <NavItem>
-                                <Label className = "nav-text-color footer-contact-information" style = {{marginLeft: '1rem'}} to="">Contact Information</Label>
+                                <Label className = "nav-text-color footer-contact-information" style = {window.screen.width > 768 ? {marginLeft: '1rem'} : null } to="">Contact Information</Label>
                                 </NavItem>
                                 <NavItem>
                                     <a href="mailto:support@doublecars.com" className = "footer-contact nav-link">support@doublecars.com</a>

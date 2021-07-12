@@ -52,10 +52,7 @@
     margin: 23px -20px 30px;
     padding-right: -20%;
 }
-.upcoming-car-hover:hover{
-    transform: scale(1.01);
-    transition: transform 500ms !important;    
-}
+
 @media screen and (max-width:600px){
     .upcoming-img{
         margin-left: 0 !important;

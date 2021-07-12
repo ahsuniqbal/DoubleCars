@@ -1,8 +1,12 @@
 import React from 'react';
 import '../styles/StatsTable.css'
 import { ChevronRight } from 'react-feather';
+import { Link } from 'react-router-dom';
 import {Row, Col, Card, CardBody, Label, Input, Button} from 'reactstrap'
-const StatsTable = () => {
+import { AddCommaToNumber } from '../../../utils/NumberManipulation';
+
+
+const StatsTable = (props) => {
     return(
        
         <div>
@@ -10,11 +14,11 @@ const StatsTable = () => {
                 <CardBody>
                     <Row>
                         <Col md = "7" xs = "12">
-                            <h4 className = "table-heading">More Acura MDX </h4>
+                            <h4 className = "table-heading">More {props.carMake} {props.carModel} </h4>
                         </Col>
 
                         
-                        <Col md="1">
+                        {/* <Col md="1">
                             <Label className="by-label">by</Label>
                         </Col>
                         <Col md="2">
@@ -22,7 +26,7 @@ const StatsTable = () => {
                                 <option value="year">Year</option>
                                 <option value="year">2020</option>
                             </Input>
-                        </Col>
+                        </Col> */}
                         
                     </Row>
                     <table class="table">
@@ -34,35 +38,25 @@ const StatsTable = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td className = "table-year-label">2020</td>
-                                <td className = "table-label">$5,000</td>
-                                <td className = "table-label">22,671</td>
-                            </tr>
-                            <tr>
-                                <td className = "table-year-label">2019</td>
-                                <td className = "table-label">$5,000</td>
-                                <td className = "table-label">22,671</td>
-                            </tr>
-                            <tr>
-                                <td className = "table-year-label">2018</td>
-                                <td className = "table-label">$5,000</td>
-                                <td className = "table-label">22,671</td>
-                            </tr>
-                            <tr>
-                                <td className = "table-year-label">2017</td>
-                                <td className = "table-label">$5,000</td>
-                                <td className = "table-label">22,671</td>
-                            </tr>
-                            <tr>
-                                <td className = "table-year-label">2016</td>
-                                <td className = "table-label">$5,000</td>
-                                <td className = "table-label">22,671</td>
-                            </tr>
+                            {
+                                props.tableData.map((data, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td className = "table-year-label">
+                                                <Link to={`/products?minYear=${data.yearCar}`}>{data.yearCar}</Link>
+                                            </td>
+                                            <td className = "table-label">${AddCommaToNumber(data.price)}</td>
+                                            <td className = "table-label">{data.availableCount ? data.availableCount : 5}</td>
+                                        </tr>
+                                    )
+                                })
+                            }
                         </tbody>
                     </table>
                     <Col className = "text-left" md = "12" >
-                        <Button className="mb-3 view-all-cars-stats-button" id = "forward">View all 5,250 Cars<ChevronRight color="#1C67CE" size={20} className = "mr-1"/></Button>
+                        <Link to={`/products?carMake=${props.carMake}&carModel=${props.carModel}`}>
+                            <Button className="mb-3 view-all-cars-stats-button" id = "forward">View all {AddCommaToNumber(props.totalCount)} Cars<ChevronRight color="#1C67CE" size={20} className = "mr-1"/></Button>
+                        </Link>
                     </Col>
 
                        

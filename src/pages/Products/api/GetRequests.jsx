@@ -1,4 +1,4 @@
-import { connectionString } from '../../../config/ConnectionString';
+import { connectionString, vinAuditString } from '../../../config/ConnectionString';
 const axios = require('axios');
 
 export const GetSearchResult = (queryParams) => {
@@ -37,3 +37,34 @@ export const GetSearchResult = (queryParams) => {
 //         })
 //     })
 // };
+
+
+export const GetAllMakes = () => {
+    return new Promise((resolve, reject) => {
+        var url = vinAuditString + "&list=make";
+        axios.get(url).then(function(response){
+            const data = response.data.selections;
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            console.log(error.message);
+        })
+    })
+};
+
+export const GetZipCodesList = (queryParam) => {
+    return new Promise((resolve, reject) => {
+        var url = connectionString + "products/zip-code?" + queryParam;
+        axios.get(url).then(function(response){
+            const data = response.data;
+            resolve(data);
+        })
+        .catch(function(error){
+            let updatedData = false;
+            resolve(updatedData);
+            console.log(error.message);
+        })
+    })
+};

@@ -156,10 +156,10 @@ const NavigationBar = () => {
                                     <span >Used Cars</span>}
                             </a>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink className={window.location.pathname!=='/fullviewheader' ? "nav-link navigation-items" : 'nav-link white-navigation-item'}
                              id='nav-link-id' to= {'/blogs'}>Blog</NavLink>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <NavLink className={window.location.pathname!=='/fullviewheader' ? "nav-link navigation-items" : 'nav-link white-navigation-item'}
                              id='nav-link-id' to= {'/about'}>About</NavLink>
@@ -206,7 +206,7 @@ const NavigationBar = () => {
                                 </DropdownToggle>
                                      
                                 <DropdownMenu right className='dropdown-menu'>
-                                    <DropdownItem className='dropdown-arrow' disabled><img src={AppbarDropdown} alt='' className='dropdown-arrow-pic'/> </DropdownItem>
+                                    <DropdownItem className='dropdown-arrow d-none d-md-block' disabled><img src={AppbarDropdown} alt='' className='dropdown-arrow-pic'/> </DropdownItem>
                                     <DropdownItem disabled className='navigation-profile-name'>{userName}</DropdownItem>
                                     <DropdownItem onClick={() => history.push('/profile')} className='navigation-profile-item'>Edit Profile</DropdownItem>
                                     <DropdownItem divider />

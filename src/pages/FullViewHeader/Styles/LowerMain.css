@@ -23,18 +23,14 @@
     margin: 1rem;
     transition: transform 500ms !important;
  }
- .chart-design-img-div:hover{
-    transform: scale(1.01);
- }
+ 
  .dealership-lower-img1{
     position: relative;
     top: 0;
     left: 0;
     transition: transform 500ms !important;
  }
- .dealership-lower-img1:hover{
-     transform: scale(1.01);
- }
+
 .dealership-lower-img2{
     position: absolute;
     left: 1rem;

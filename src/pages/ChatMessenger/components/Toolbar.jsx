@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import { Card, CardBody, CardImg, Row, Col, Label,Badge } from 'reactstrap';
 // import companyLogo from '../../../assets/company-logo.png';
 import { Star, Trash2 } from 'react-feather';
+import profileChat from '../../../assets/dummyAvatar.jpg';
 // import { selectChat } from '../../../redux/actions/ChatActions.jsx';
 import '../styles/Toolbar.css';
 const firebase = require('firebase').default
@@ -33,14 +34,18 @@ const Toolbar = (props) => {
             var snap = snapshot.data()
             if(snap.receiverId == props.user.userId){
                 if(snap.recieverTypeStatus){
+                    document.getElementById('typing').classList.remove('d-none')
                     document.getElementById('typing').textContent = "Typing..."
                 }else{
+                    document.getElementById('typing').classList.add('d-none')
                     document.getElementById('typing').textContent = ""
                 }
             }else{
                 if(snap.senderTypeStatus){
+                    document.getElementById('typing').classList.remove('d-none')
                     document.getElementById('typing').textContent = "Typing..."
                 }else{
+                    document.getElementById('typing').classList.add('d-none')
                     document.getElementById('typing').textContent = ""
                 }
             }
@@ -86,18 +91,18 @@ const Toolbar = (props) => {
             <CardBody>
                 <Row>
                     <Col xs="1">
-                        <CardImg src={props.user.profilePic} />
+                        <CardImg src={props.user.profilePic ? props.user.profilePic : profileChat} />
                     </Col>
                     <Col xs="9">
                         <h6>{props.user.fullName}</h6>
                         <Label>{props.user.onlineStatus == 1 ? <Badge color="success">Online</Badge> : lastMsgAt(props.user.lastSeen)}</Label>
                         <br/>
-                        <Label id="typing"></Label>
+                        <Label id="typing" className="d-none"></Label>
                     </Col>
 
                     <Col xs="2">
-                        <Star color="rgba(0, 0, 0, 0.25)" size={20} />
-                        {/* <Trash2 color="#E84D4D" size={20} /> */}
+                        <Star color="rgba(0, 0, 0, 0.25)" className="invisible" size={20} />
+                        <Trash2 color="#E84D4D" className="invisible" size={20} />
                     </Col>
                 </Row>
             </CardBody>

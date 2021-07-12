@@ -8,9 +8,9 @@ const ContactAbout = () => {
             {/* <div >
                 
             </div> */}
-            <Row xs = "12" md = "12" sm = "12" className = "contact-image-div ">
-                <Col xs = "12" md = "12" className = "contact-us-image-column">
-                    <img className = "contactus-image" alt = "contactUSImage" src = {ContactusDemo}/>
+            <Row xs = "12" md = "12" sm = "12" className = "contact-image-div text-center">
+                <Col xs = "12" md = "12" className = "contact-us-image-column ">
+                    <img className = "contactus-image float-center" alt = "contactUSImage" src = {ContactusDemo}/>
                 </Col>
             </Row>
 
@@ -21,7 +21,7 @@ const ContactAbout = () => {
             viverr is in, egestas tincidunt nulla. Aliquam
             mi lectus.</Label>
             <Row>
-                <Col xs = "6" md = "12" sm = "6">
+                <Col xs = "12" md = "12" sm = "6">
                     <ContactMap/>
                 </Col>
             </Row>

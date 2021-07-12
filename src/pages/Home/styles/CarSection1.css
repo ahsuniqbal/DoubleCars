@@ -16,13 +16,11 @@
     transition: transform 500ms !important;
     display: block !important;
 }
-.car-section-coloumn:hover{
-    transform: scale(1.01);
-}
+
 .car-badge {
     position: absolute;
     left: 3%;
-    bottom: 30%;
+    bottom: 25.5%;
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
@@ -56,4 +54,12 @@
     line-height: 17px;
     font-size: 14px;
     font-weight: 500;
+}
+
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .car-badge {
+        bottom: 33.5%;
+    }
 }

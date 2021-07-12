@@ -105,7 +105,7 @@ const DrawCarouselCols = (list, index) => {
                     productImg={list[i].coverPic}
                     productName={list[i].name}
                     productTitle={list[i].name}
-                    productSubtitle={AddCommaToNumber(list[i].mileage) + " mileage · " + list[i].zipCode}
+                    productSubtitle={list[i].mileage === "" || list[i].mileage === null ? "NEW · " + list[i].zipCode : AddCommaToNumber(list[i].mileage) + " mileage · " + list[i].zipCode}
                     productText={"$" + AddCommaToNumber(list[i].price)}
                 />
                  : null
@@ -146,17 +146,17 @@ const Home = () => {
     const history=useHistory()
 
 
-    useEffect(() => {
-        const password = prompt('To visit Double Cars, you need to enter the magic key here.');
+    // useEffect(() => {
+    //     const password = prompt('To visit Double Cars, you need to enter the magic key here.');
 
-        if(password === "easypeasy") {
-            alert("Congratulations! You have unlocked the secret chamber");
-        }
-        else {
-            alert("Panicc!!!! Intruder Spotted!!!");
-            window.location.reload();
-        }
-    }, [])
+    //     if(password === "easypeasy") {
+    //         alert("Congratulations! You have unlocked the secret chamber");
+    //     }
+    //     else {
+    //         alert("Panicc!!!! Intruder Spotted!!!");
+    //         window.location.reload();
+    //     }
+    // }, [])
 
 
 
@@ -169,7 +169,7 @@ const Home = () => {
 
         GetRecommendationsTrendings(isLogin() ? getLogin() : -1).then(doc => {
             if(doc){
-                console.log("recomm",doc)
+                console.log("recomm", doc);
                 setHomeData(doc)
             }
             
@@ -189,6 +189,7 @@ const Home = () => {
 
         // Featured cars
         GetFeaturedCars().then(doc => {
+            console.log(doc)
             setFeaturedCars(doc);
         }).catch(error => {
             alert(error.message);
@@ -200,8 +201,8 @@ const Home = () => {
             <Header/>
                 <Container fluid className = "home-container">
                     <Row>
-                        <Col xs="2"></Col>
-                        <Col xs="8" style={{padding: '0'}}> 
+                        <Col xs="2" md="2"></Col>
+                        <Col xs="12" md="8" style={{padding: '0'}}> 
                             <Searchbar />
                         </Col>
                         <Col xs="2"></Col>
@@ -210,7 +211,6 @@ const Home = () => {
                     {
                         featuredCars  ? 
 
-                    // {/* <Tabs defaultTab="new-feature-tab"> */}
                     <>
                       <Container>
                         <Row className='features-row'>
@@ -227,23 +227,41 @@ const Home = () => {
                                 </Col>
                         </Row>
                       </Container>
+                      <div  className="Feature ">
                         <Row>
                             <Col className='featured-main-coloumn'>
-                               
-                                {/* <TabPanel tabId="new-feature-tab"> */}
                                     <NewFeaturedCars
                                         featuredCars={featuredCars}
                                     />
-                                {/* </TabPanel> */}
-                                {/* <TabPanel tabId="old-feature-tab">
-                                    <OldFeaturedCars/>
-                                </TabPanel> */}
-
                             </Col>
+                        </Row> 
+                      </div>
+                        </> : 
+                        <Container>
+                            <Row className = "mt-5">
+                                <Col  md="6">
+                                    <Skeleton variant="rect" width={680} height={415} animation="wave" className = "skeleton-feature-car" />
+                                </Col>
+                                <Col md="6">
+                                    <Row>
+                                        <Col md = "6" xs = "12">
+                                        <Skeleton variant="rect" width={300} height={200} animation="wave" className = "mb-3 skeleton-feature-car-2"/>
+                                        <Skeleton variant="rect" width={300} height={200} animation="wave" className = "skeleton-feature-car-2"/>
+                                        </Col>
+                                        <Col md = "6">
+                                        <Skeleton variant="rect" width={300} height={200} animation="wave" className = "mb-3 "/>
+                                        <Skeleton variant="rect" width={300} height={200} animation="wave" />
+                                        </Col>
+                                        
+                                    </Row>
+                                    
+                                   
+                                </Col>
                         </Row>
-                        </> : null
-                    // {/* </Tabs> */}
+                    </Container>
                     }
+
+                    
                    {/* recomended trending and others sections */}
                    <Container>
                     {homeData ? 
@@ -257,12 +275,12 @@ const Home = () => {
                                                     <h2 className = "recommended-trending-cars-head">{item.title}</h2>
                                                 </Col>
         
-                                                {item.data.length>=5 ?
+                                                {/* {item.data.length>=5 ?
                                                 <Col md = "6" xs = "12" className = "recomended-coloumn text-right">
                                                     <Link className = "view-all" to="/products">View All</Link>
                                                 </Col>
                                                 :null
-                                                }
+                                                } */}
                                             </Row>                            
                                     </Col>
                                 </Row>
@@ -274,7 +292,30 @@ const Home = () => {
                                 />
                             </div>) 
                         })
-                        :null
+                        :
+                        <Container>
+                        <Row className = "mt-5">
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
+                            </Col>
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
+                            </Col>
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
+                            </Col>
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
+                            </Col>
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
+                            </Col>
+                            <Col md="2">
+                                <Skeleton variant="rect" width={200} height={200} animation="wave" className = "skeleton-feature-car-2"/>
+                            </Col>
+                            
+                    </Row>
+                </Container>
                     }
                     </Container>
                         {/* <Container>
@@ -341,16 +382,16 @@ const Home = () => {
                 
                 <Container>
                 <Row style={{margin:'0'}}>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
+                    <Col xs = "12" md = "3" style={window.screen.width > 768 ? { padding:'1.5rem' } : { padding: '1rem'} } onClick={()=>history.push('/blogs')}>
                         <ArticleCard />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
+                    <Col xs = "12" md = "3" style={window.screen.width > 768 ? { padding:'1.5rem' } : { padding: '1rem'} } onClick={()=>history.push('/blogs')}>
                         <ArticleCard1 />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
+                    <Col xs = "12" md = "3" style={window.screen.width > 768 ? { padding:'1.5rem' } : { padding: '1rem'} } onClick={()=>history.push('/blogs')}>
                         <ArticleCard2 />
                     </Col>
-                    <Col xs = "12" md = "3" style={{padding:'1.5rem'}} onClick={()=>history.push('/blogs')}>
+                    <Col xs = "12" md = "3" style={window.screen.width > 768 ? { padding:'1.5rem' } : { padding: '1rem'} } onClick={()=>history.push('/blogs')}>
                         <ArticleCard4 />
                     </Col>
                 </Row>

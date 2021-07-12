@@ -5,7 +5,7 @@
 
 .main-coloumn:hover{
     cursor: pointer;
-    transform: scale(1.01);
+   
 
 }
 .content-first{
@@ -117,5 +117,9 @@ line-height: 25px;
     .feature-car-badge1 , .feature-car-badge2{
         left: 82% !important;
     }
+  
    
 }
+
+
+

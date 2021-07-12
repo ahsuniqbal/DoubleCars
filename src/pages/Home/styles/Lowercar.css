@@ -85,3 +85,11 @@
     margin-left: 1.8rem !important;
     transform: rotate(180deg);
 }
+
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .text {
+        padding-left: 28px;
+    }
+}

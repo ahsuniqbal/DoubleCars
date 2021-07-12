@@ -9,7 +9,7 @@ const About = () => {
   return (
     <body className = "about-body">
       <Container>
-        <Row>
+        <Row className = "aboutus-row">
           <Col md = "12" xs = "12" sm = "12" className = "aboutus-header">
             <Row>
               <Col xs = "6" md = "4" className = "about-header-content">

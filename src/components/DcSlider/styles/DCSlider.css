@@ -15,9 +15,15 @@
     left: -20px !important;
     top: 40% !important;
 }
+
   .slick-next{
     right: 10px !important;
     top: 40% !important;
+  }
+
+
+  .icon-image ,.prev-icon-image:hover {
+    transition: 1.3s;
   }
  
 .icon-image ,.prev-icon-image {
@@ -33,7 +39,9 @@
 
 .silder-class:hover .prev-icon-image {
  display: block;
+ /* transition: 1.3s !important; */
 }
 .silder-class:hover .icon-image {
   display: block;
+ 
  }

@@ -47,7 +47,7 @@ const PrdouctSlider = (props) => {
         prevArrow:<PrevoiusIcon activeSlide={activeSlide}/>,
         dots: false,
         beforeChange: (current, next) => setActiveSlide(next),
-        swipeToSlide: true,
+        draggable: false,
         slidesToScroll: 1,
         slidesToShow: 4,
         autoplay: false,
@@ -95,7 +95,7 @@ const PrdouctSlider = (props) => {
                             productImg={item.coverPic}
                             productName={item.productName}
                             productTitle={item.carName}
-                            productSubtitle={AddCommaToNumber(item.mileage) + " mileage · " + item.zipCode}
+                            productSubtitle={item.mileage === "" || item.mileage === null ? "NEW · " + item.zipCode : AddCommaToNumber(item.mileage) + " mileage · " + item.zipCode}
                             productText={"$" + AddCommaToNumber(item.price)}
                             // allowBookmark={props.allowBookmark}                            
                         />      

@@ -17,7 +17,7 @@ const NextIcon=(props)=>{
     <div>
       {activeSlide>=0 && activeSlide!==length-5 &&
             <div className={className} onClick={onClick}>
-            <img src={nextIcon} className='icon-image' id='show-sliders'/>
+            <img src={nextIcon} alt="" className='icon-image' id='show-sliders'/>
           </div>
         }
     </div>
@@ -45,11 +45,11 @@ const DCSlider = (props) => {
     let settings = {
         adaptiveHeight: true,
         speed:800,
-        nextArrow: <NextIcon activeSlide={activeSlide} length={props.items.length}/>,
+        nextArrow: <NextIcon  activeSlide={activeSlide} length={props.items.length}/>,
         prevArrow:<PrevoiusIcon activeSlide={activeSlide}/>,
         dots: false,
         beforeChange: (current, next) => setActiveSlide(next),
-        swipeToSlide: true,
+        draggable: false,
         slidesToScroll: 1,
         slidesToShow: 5,
         autoplay: false,
@@ -58,7 +58,8 @@ const DCSlider = (props) => {
           {
             breakpoint: 576,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 1.15,
+              slidesToScroll: 1,
             },
           },
           {
@@ -97,7 +98,7 @@ const DCSlider = (props) => {
                             productImg={item.coverPic}
                             productName={item.productName}
                             productTitle={item.carName}
-                            productSubtitle={AddCommaToNumber(item.mileage) + " mileage · " + item.zipCode}
+                            productSubtitle={item.mileage === "" || item.mileage === null ? "NEW · " + item.zipCode : AddCommaToNumber(item.mileage) + " mileage · " + item.zipCode}
                             productText={"$" + AddCommaToNumber(item.price)}
                             allowBookmark={props.allowBookmark}
                            
