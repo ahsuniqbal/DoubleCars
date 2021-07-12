@@ -1,5 +1,7 @@
 // Heroku base url connection string
 
+
+//Checkpoint 2
 const connectionString = "https://doublecarsnode.herokuapp.com/";
 // const connectionString = "http://localhost:3002/";
 
