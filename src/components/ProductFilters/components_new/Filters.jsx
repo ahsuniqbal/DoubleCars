@@ -572,7 +572,6 @@ const Filters = (props) => {
             delete filters['userType'];
         }
         setFilters(filters);
-        console.log('handlePriceFilter')
         FilterQueryString(filters);
         setLoading(false)
     }
