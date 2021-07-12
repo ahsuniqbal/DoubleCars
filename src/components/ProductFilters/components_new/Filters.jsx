@@ -650,6 +650,10 @@ const Filters = (props) => {
                                         <RadiusSlider 
                                             min={0}
                                             max={200}
+                                            onHandleRadius={handleRadius}
+                                            onHandleRadiusValue={handleRadiusValue}
+                                            disabled={loading}
+                                            // onHandleRadius={() => console.log("radius")}
                                         />
                                     </Col>
                                     {/* Changing the value of Radius on handle changing */}
