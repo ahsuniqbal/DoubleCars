@@ -14,7 +14,11 @@ import Slider from "react-slick";
 import RightArrow from '../../../assets/RightArrow.png';
 import {Link, useHistory} from 'react-router-dom';
 
+
+
 const NextIcon=(props)=>{
+
+
      const { className, onClick,activeSlide ,length} = props;
     console.log('next',activeSlide)
      return (

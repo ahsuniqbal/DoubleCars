@@ -4,6 +4,8 @@ import Chart from './Chart'
 import { AddCommaToNumber, TrimText } from '../../../utils/NumberManipulation';
 import '../styles/Information.css';
 
+import Chart from './Chart'
+
 import CertifiedCarsCard from './CertifiedCarCard';
 const Information = (props) => {
 

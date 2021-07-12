@@ -17,6 +17,7 @@ library.add(faUser, faStar, faBookmark, faMapPin, faPhone, faSearch, faEnvelope,
 
 const DefaultLayout = React.lazy(() => import('./components/DefaultLayout'));
 const Login = React.lazy(() => import('./pages/Authentication/Login'))
+const EmailVerify = React.lazy(() => import('./pages/Authentication/Login/components/emailVerify'))
 const SignUp = React.lazy(() => import('./pages/Authentication/Signup'))
 const ResetPassword=React.lazy(()=>import('./pages/Authentication/ResetPassword'))
 const ChangePassword=React.lazy(()=>import('./pages/Authentication/ResetPassword/components/ChangePassword'))
@@ -74,6 +75,7 @@ function App() {
             </Col>
           </Row> */}
           <Route path="/login" component={Login}/>
+          <Route path="/emailVerify" component={EmailVerify}/>
           <Route path="/signup" component={SignUp}/>
           <Route path='/reset-password' component={ResetPassword}/>
           <Route path='/change-password/:id' component={ChangePassword}/>
