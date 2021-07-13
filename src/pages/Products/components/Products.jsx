@@ -201,6 +201,8 @@ const Products = (props) => {
         console.log("QURYSTR",queryStr)
         setBooleanFlag(false)
         setGloableQuery(queryStr)
+        //window.location.href = `?${"carMake=Acura"}`
+        //props.history.push(`/products?${queryStr}`)
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         if(locationSearch.search){

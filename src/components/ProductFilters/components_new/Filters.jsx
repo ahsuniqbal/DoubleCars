@@ -313,8 +313,8 @@ const Filters = (props) => {
         document.getElementById("toYear").disabled = false;
         setSelectedFromYear(fromYear);
         filters['minYear'] = fromYear;
-        console.log('handlePriceFilter')
-        delete filters['maxYear'];
+        filters['maxYear'] = document.getElementById("toYear").value ? document.getElementById("toYear").value : new Date().getFullYear(); 
+        //delete filters['maxYear'];
         setFilters(filters);
         FilterQueryString(filters);
         setLoading(false)
@@ -366,6 +366,7 @@ const Filters = (props) => {
     }
 
     const handleMake = (make) => {
+        
         setLoading(true);
         setSelectedMake(make);
         setModelList([]);
@@ -393,6 +394,8 @@ const Filters = (props) => {
             delete filters['carMake']
             setFilters(filters);
             FilterQueryString(filters);
+            setModelCollapseOpen(false)
+            setTrimCollapseOpen(false)
             setLoading(false);
         }
         
@@ -770,7 +773,7 @@ const Filters = (props) => {
                                 <Col xs="6">
                                     {/* On selecting from year, to year will be enabled */}
                                     <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading} defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
-                                        <option disabled selected hidden>From</option>
+                                        <option value="" disabled selected hidden>From</option>
                                         {
                                             // Populate from year
                                             dropdownYears.map((year, index) => {
@@ -782,7 +785,7 @@ const Filters = (props) => {
                                 <Col xs="6">
                                     {/* Disabled by default, will be enabled after from year is selected */}
                                     <Input id="toYear" type="select" onChange={(e) => handleToYear(e.target.value)} disabled defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
-                                        <option disabled selected hidden>To</option>
+                                        <option value="" disabled selected hidden>To</option>
                                         {
                                             // Populate to year
                                             dropdownToYears.map((year, index) => {
