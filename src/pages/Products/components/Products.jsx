@@ -203,6 +203,7 @@ const Products = (props) => {
         setGloableQuery(queryStr)
         //window.location.href = `?${"carMake=Acura"}`
         //props.history.push(`/products?${queryStr}`)
+        window.history.replaceState(null,"title",`/products?${queryStr}`)
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         if(locationSearch.search){
