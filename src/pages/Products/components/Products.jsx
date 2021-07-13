@@ -197,6 +197,8 @@ const Products = (props) => {
     
 //     }, [isBottom]);
 
+//new build 
+
     const filterQueryChange = (queryStr) => {
         console.log("QURYSTR",queryStr)
         setBooleanFlag(false)
