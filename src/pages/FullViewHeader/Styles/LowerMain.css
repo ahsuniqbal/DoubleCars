@@ -22,6 +22,7 @@
 .chart-design-img-div{
     margin: 1rem;
     transition: transform 500ms !important;
+    
  }
  
  .dealership-lower-img1{
@@ -38,7 +39,7 @@
 }
 .productCard-img-div{
     text-align: center;
-    padding: 3rem 3rem 5rem;
+   /* padding: 3rem 3rem 5rem;*/
 }
 
 @media screen and (max-width:425px){

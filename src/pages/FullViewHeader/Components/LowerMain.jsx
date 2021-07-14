@@ -11,18 +11,18 @@ import '../Styles/LowerMain.css'
 
 function LowerMain(){
     return(
-        <Container style = {{marginTop: '6rem'}}>
+        <Container style = {{marginTop: '6rem'}} >
             <div className='lower-sec-dealership'>
                 <Row style={{marginRight:'0'}}>
-                    <Col md='6'>
-                        <div style={{padding:' 12% 8% 0 19%'}}>
-                            <img src = {DealershipChart}/>
+                    <Col md='6' sm='12'>
+                        <div >
+                            <img src = {DealershipChart} style={{width:"80%"}}/>
                             {/* <img src={Chart} alt='chart-display' className='dealership-lower-img1'/>
                             <img src={Views} alt='views' className='dealership-lower-img2'/> */}
                         </div>
                         
                     </Col>
-                    <Col md='6'>
+                    <Col md='6' sm='12'>
                         <div className='chart-design-div'>
                             <h1 className='analysis-chart-head'>
                                 Indepth Analysis of Everything You Need to Know
@@ -36,7 +36,7 @@ function LowerMain(){
                 </Row>
 
                 <Row style={{marginRight:'0'}}>
-                    <Col md='6'>
+                    <Col md='6' sm='12'>
                         <div className='chart-design-div'>
                             <h1 className='analysis-chart-head'>Get Your Car on Top Using our Ads Tools </h1>
                             <p className='analysis-chart-text'>
@@ -44,7 +44,7 @@ function LowerMain(){
                                 Real time market data and accurate statistics.</p>
                         </div>
                     </Col>
-                    <Col  md='6' >
+                    <Col  md='6' sm='12' >
                         <div className='productCard-img-div'>
                             <img src={ProductTypeCard} alt='Product' className='chart-design-img-div'/>
                         </div>
