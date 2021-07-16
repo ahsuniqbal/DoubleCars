@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useCallback } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Check } from 'react-feather';
@@ -44,6 +44,9 @@ const Filters = (props) => {
     //Price Range 
     const [price, setPrice] = useState([0, 99999]);
 
+    //Current Lat Long
+    const [currentLatLng, setCurrentLatLng] = useState(null);
+
     // Model and trim collapses
     const [isModelCollapseOpen, setModelCollapseOpen] = useState(false);
     const [isTrimCollapseOpen, setTrimCollapseOpen] = useState(false);
@@ -79,6 +82,75 @@ const Filters = (props) => {
     dropdownToYears.unshift(todayYear)
     if (dropdownToYears.length==0) {
         dropdownToYears = [...dropdownToYears,Number(selectedFromYear)]
+    }
+
+    // Callback function to save the selected location from map to current location
+    const GetLocationFromMap = useCallback((mapLocation) => {
+        setCurrentLatLng(mapLocation);
+    }, []);
+
+    // Get location using HTML 5 Browser Geo Location
+    function GetLocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(ShowPosition, ShowError);
+        }
+        else{
+            console.log("Geo location is not supported");
+        }
+    }
+
+    // Get location using HTML 5 Browser Geo Location
+    function ShowPosition(position){
+        setLoading(true);
+        var latLong = position.coords.latitude + "," + position.coords.longitude;
+        // Save the lattitude and longitude fetched from the browsers
+        // Geo Location into the state variable of current location
+        setCurrentLatLng({ lat: position.coords.latitude, lng: position.coords.longitude });
+        // Get zip code from the Google's API using the current lattitude and longitude
+        GetZipFromLatLong(latLong).then(doc => {
+            if(doc.results.length > 0){
+                // Set the fetched zip code into the state variable
+                setZipCode(doc.results[0].address_components[1].long_name + ", " + doc.results[0].address_components[3].short_name + " - " + doc.results[0].address_components[0].long_name);
+                // Add the zip code into the filters array
+                filters['zipCode'] = doc.results[0].address_components[0].long_name;
+                setFilters(filters);
+                console.log('chalaZIPPP')
+                FilterQueryString(filters);
+                setLoading(false)
+            }
+            // If the zip code is not available
+            else{
+                var split = doc.plus_code.compound_code.split(" ");
+                setZipCode(split[1] + " " + split[2] + " " + split[3])
+                // console.log(split, "asdadadadadad")
+                // setZipCode(doc.plus_code.compound_code);
+                // setZipCode("N/A");
+            }
+        })
+        .catch(error => {
+            console.log(error.message);
+            setLoading(false)
+        });
+    }
+    
+    // If there is an error getting browsers location
+    function ShowError(error){
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                console.log("User denied the request for Geolocation");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                console.log("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                console.log("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                console.log("An unknown error occurred.");
+                break;
+            default:
+                console.log("An unknown error occurred.");
+        }
     }
     
 
@@ -583,6 +655,37 @@ const Filters = (props) => {
         });
     }, []);
 
+    useEffect(() => {
+        setLoading(true)
+        if(currentLatLng) {
+            var latLong = currentLatLng.lat + "," + currentLatLng.lng;
+            // Get zip code from the Google's API using the current lattitude and longitude
+            GetZipFromLatLong(latLong).then(doc => {
+                if(doc.results.length > 0){
+                    // Set the fetched zip code into the state variable
+                    setZipCode(doc.results[0].address_components[1].long_name + ", " + doc.results[0].address_components[3].short_name + " - " + doc.results[0].address_components[0].long_name);
+                    // Add the zip code into the filters array
+                    filters['zipCode'] = doc.results[0].address_components[0].long_name;
+                    setFilters(filters);
+                    FilterQueryString(filters);
+
+                    setLoading(false)
+                }
+                // If the zip code is not available
+                else{
+                    var split = doc.plus_code.compound_code.split(" ");
+                    setZipCode(split[1] + " " + split[2] + " " + split[3])
+                    setLoading(false)
+                    // setZipCode(doc.plus_code.compound_code);
+                    // setZipCode("N/A");
+                }
+            })
+            .catch(error => {
+                console.log(error.message);
+                setLoading(false)
+            });
+        }
+    }, [currentLatLng]);
 
     const handleSellerType = () => {
         setLoading(true)
@@ -657,15 +760,15 @@ const Filters = (props) => {
                                 <InputGroup>
                                     {/* Zip code will be visible in this text box
                                     on clicking this text box a map will appear to get the location manually */}
-                                    <Input type="text" className="location-box" onClick={() => toggleMapPopup()} readOnly />
+                                    <Input type="text" className="location-box" defaultValue={zipCode} value={zipCode} onClick={() => toggleMapPopup()} readOnly />
                                     {/* Google map popup to select the location manually from map
                                     the center of the map will be current Lattitude and Longitude */}
-                                    <MapPopup toggle={toggleMapPopup} isOpen={mapPopup} />
+                                    <MapPopup toggle={toggleMapPopup} isOpen={mapPopup} GetLocationFromMap={GetLocationFromMap} center={currentLatLng} />
                                     <InputGroupAddon addonType="append">
                                         <InputGroupText>
                                             {/* On clicking the gps location will take you back to the current location
                                             if the location is changed using the map */}
-                                            <img src={gps} alt="Gps Icon" className="img-fluid" />            
+                                            <img src={gps} alt="Gps Icon" className="img-fluid" onClick={() => GetLocation()} />            
                                         </InputGroupText>
                                     </InputGroupAddon>
                                 </InputGroup>
