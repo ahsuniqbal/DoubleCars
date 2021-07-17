@@ -116,7 +116,7 @@ const Filters = (props) => {
                 setFilters(filters);
                 console.log('chalaZIPPP')
                 FilterQueryString(filters);
-                setLoading(false)
+                //setLoading(false)
             }
             // If the zip code is not available
             else{
@@ -129,7 +129,7 @@ const Filters = (props) => {
         })
         .catch(error => {
             console.log(error.message);
-            setLoading(false)
+            //setLoading(false)
         });
     }
     
@@ -656,7 +656,7 @@ const Filters = (props) => {
     }, []);
 
     useEffect(() => {
-        setLoading(true)
+        //setLoading(true)
         if(currentLatLng) {
             var latLong = currentLatLng.lat + "," + currentLatLng.lng;
             // Get zip code from the Google's API using the current lattitude and longitude
