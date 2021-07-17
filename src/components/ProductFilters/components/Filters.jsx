@@ -749,6 +749,7 @@ const Filters = (props) => {
             filters['bodyStyle'] = props.bodyStyle
             var index = basicBodyStyle.findIndex(a => a === props.bodyStyle)
             if(index !== -1){
+                filters['bodyStyle'] = props.bodyStyle
                 basicColorSet(index)
             }
         }

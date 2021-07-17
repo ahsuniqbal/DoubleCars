@@ -142,26 +142,13 @@ const Products = (props) => {
     
     useEffect(() => {
         var tempStr = ""
-        //bodyStyle=Sedan
-        //carMake=Audi
-        //carModel=ACX
-//         Promise.all([GetAllMakes(),GetZipCodesList()])
-//         .then(doc => {
-// setMakeAndZips
-//         })
-//         .catch(e => {
-//             console.log(e.message)
-//         })
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
-        console.log('searchLocation',locationSearch)
-        var queryParams = ""
-        queryParams = makeFilterStringForQueryParams(locationSearch)
-        console.log('queryParams',queryParams)
-        if(locationSearch.search){
-            tempStr += `search=${locationSearch.search}&page=${pageNumber}${queryParams}&${globalQuery}`
-        }else{
-            tempStr += `page=${pageNumber}${queryParams}&${globalQuery}`
-        }
+        // console.log('searchLocation',locationSearch)
+        // var queryParams = ""
+        // queryParams = makeFilterStringForQueryParams(locationSearch)
+        // console.log('queryParams',queryParams)
+        tempStr += `page=${pageNumber}&${globalQuery}`
+
         tempStr += `&id=${userId}`
         console.log('tempStr',tempStr)
         setPageNumber(pageNumber + 1)
@@ -199,7 +186,11 @@ const Products = (props) => {
 
     const filterQueryChange = (queryStr) => {
         console.log("QURYSTR",queryStr)
+        setBooleanFlag(false)
         setGloableQuery(queryStr)
+        //window.location.href = `?${"carMake=Acura"}`
+        //props.history.push(`/products?${queryStr}`)
+        window.history.replaceState(null,"title",`/products?${queryStr}`)
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         if(locationSearch.search){
@@ -209,6 +200,7 @@ const Products = (props) => {
         }
         str += `&id=${userId}`
         GetSearchResult(str).then(doc1 => {
+            setBooleanFlag(true)
             setTotalCount(doc1.totalCount)
             console.log(doc1)
             const doc = doc1.results;
@@ -233,6 +225,7 @@ const Products = (props) => {
             
         })
         .catch(error => {
+            setBooleanFlag(true)
             console.log(error.message);
         });
     }
