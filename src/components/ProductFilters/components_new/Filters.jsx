@@ -485,43 +485,7 @@ const Filters = () => {
 
                                 <hr />
 
-                                <h6>Exterior Color</h6>
-                                <Row className="exterior-color text-center">
-                                    {
-                                        filtersList && filtersList.colors.map((extColorFilter, index) => {
-                                            return <Col xs="4" sm="2" md="4" key={index}>
-                                                <div className="color-swatch" id={extColorFilter.name} style={{backgroundColor: extColorFilter.color}}>
-                                                    {
-                                                        extColors.length > 0 && extColors.includes(extColorFilter.name) ? <Check /> : null
-                                                    }
-                                                </div>
-                                                <p>{extColorFilter.name}</p>
-                                            </Col>
-                                        })
-                                    }
-                                </Row>
-
-
-
-
-                                {/* Interior Color */}
-                                <hr />
-
-                                <h6>Interior Color</h6>
-                                <Row className="exterior-color text-center">
-                                    {
-                                        filtersList && filtersList.colors.map((extColorFilter, index) => {
-                                            return <Col xs="4" sm="2" md="4" key={index}>
-                                                <div className="color-swatch" id={extColorFilter.name} style={{backgroundColor: extColorFilter.color}}>
-                                                    {
-                                                        intColors.length > 0 && intColors.includes(extColorFilter.name) ? <Check /> : null
-                                                    }
-                                                </div>
-                                                <p>{extColorFilter.name}</p>
-                                            </Col>
-                                        })
-                                    }
-                                </Row>
+                                
                             </Collapse>
                         </div>
                     : DrawFiltersSkeleton()
