@@ -66,7 +66,7 @@ function App() {
     <div>
     {/* Hello Ji :)  */}
     <div className = "container" ref = {container}> </div> 
-    <Router basename="/" forceRefresh>
+    <Router basename="/beta" forceRefresh>
       <React.Suspense fallback={loading()}>
         <Switch>
           {/* <Row>
