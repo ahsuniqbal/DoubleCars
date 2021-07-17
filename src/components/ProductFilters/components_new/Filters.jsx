@@ -1000,7 +1000,7 @@ const Filters = (props) => {
                                 <h6>Exterior Color</h6>
                                 <Row className="exterior-color text-center">
                                     {
-                                        filtersList && filtersList.colors.map((extColorFilter, index) => {
+                                        filtersList && filtersList.exteriorColors.map((extColorFilter, index) => {
                                             return <Col xs="4" sm="2" md="4" key={index}>
                                                 <div className="color-swatch" id={extColorFilter.name} style={{backgroundColor: extColorFilter.color}}>
                                                     {
@@ -1022,7 +1022,7 @@ const Filters = (props) => {
                                 <h6>Interior Color</h6>
                                 <Row className="exterior-color text-center">
                                     {
-                                        filtersList && filtersList.colors.map((extColorFilter, index) => {
+                                        filtersList && filtersList.interiorColors.map((extColorFilter, index) => {
                                             return <Col xs="4" sm="2" md="4" key={index}>
                                                 <div className="color-swatch" id={extColorFilter.name} style={{backgroundColor: extColorFilter.color}}>
                                                     {

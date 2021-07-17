@@ -1,7 +1,7 @@
 {
   "name": "doublecars",
   "version": "0.1.0",
-  "homepage": "https://double-cars.com/beta",
+  "homepage": "https://double-cars.com",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
