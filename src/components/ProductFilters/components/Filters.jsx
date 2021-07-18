@@ -430,6 +430,8 @@ const Filters = (props) => {
         setLoading(true)
         var conditionNew = document.getElementById('condition-new');
         var conditionUsed = document.getElementById('condition-used');
+
+        console.log("CHECKING",conditionNew.checked,conditionUsed.checked)
         if(conditionNew.checked === true && conditionUsed.checked === true) {
             delete filters['isUsed'];
         }
@@ -765,6 +767,11 @@ const Filters = (props) => {
         if(props.yearCar){
             filters['yearCar'] = props.yearCar
         }
+        if(props.isUsed){
+            filters['isUsed'] = props.isUsed
+        }
+
+        console.log("Filters",filters)
         
         GetAllMakes().then(doc => {
            setMakeList(doc.makes);
