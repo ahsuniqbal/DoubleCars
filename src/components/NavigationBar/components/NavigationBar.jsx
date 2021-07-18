@@ -169,21 +169,21 @@ const NavigationBar = () => {
                             id='nav-link-id' to={'/contactus'}>Contact</NavLink>
                         </li>
                        
-                        <li className="nav-item">
+                        {/* <li className="nav-item"> */}
                             {/* <NavLink className="nav-link download-button" to="">Download App</NavLink> */}
-                            <Form onSubmit={(e) => TopSearch(e)}>
+                            {/* <Form onSubmit={(e) => TopSearch(e)}>
                             <InputGroup className="search-group">
                                 <img src = {NavbarSearchIcon} alt='seach-bar' className = "search-icon-image"/>
                                 <Input className="search-box" type="text" placeholder="Search" id='top-search-box' />
-                            </InputGroup>
+                            </InputGroup> */}
                                 {/* <InputGroup className="search-group">
                                     <InputGroupText className = "search-navigation-icon">
                                         <img src = {NavbarSearchIcon} className = "img-fluid"/>
                                     </InputGroupText>
                                 <Input className="search-box" type="text" placeholder="Search" id='top-search-box' />
                                 </InputGroup> */}
-                            </Form>
-                            </li>
+                            {/* </Form>
+                            </li> */}
                             {
                                 localStorage.getItem("userId") ? null : <li className="nav-item">
                                 <NavLink className="nav-link navigation-items login-button" to="/login" >Log in</NavLink>
