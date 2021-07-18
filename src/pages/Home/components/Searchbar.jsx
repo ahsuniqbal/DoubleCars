@@ -82,9 +82,18 @@ const Searchbar = () => {
         //     search: '?search=' + searchInput + '&isUsed=' + condition,
         // })
 
+        var queryStr = "";
+
+        if (selectedMake)
+            queryStr += "&carMake=" + selectedMake
+        if (selectedModel) 
+            queryStr += "&carModel=" + selectedModel
+        if (condition)
+            queryStr += "&isUsed" + condition
+
         history.push({
             pathname: '/products',
-            search: '?carMake=' + selectedMake + '&carModel=' + selectedModel + '&isUsed=' + condition,
+            search: queryStr,
         })
     };
 
@@ -94,9 +103,16 @@ const Searchbar = () => {
         var condition = document.getElementById('condition-body').value;
         var bodyStyle = document.getElementById('body-style').value;
 
+        var queryStr = "";
+
+        if (bodyStyle)
+            queryStr += "&bodyStyle=" + bodyStyle
+        if (condition)
+            queryStr += "&isUsed=" + condition
+
         history.push({
             pathname: '/products',
-            search: '?bodyStyle=' + bodyStyle + '&isUsed=' + condition,
+            search: queryStr,
         })
     };
 
@@ -105,9 +121,18 @@ const Searchbar = () => {
         e.preventDefault();
         var condition = document.getElementById('condition-price').value;
 
+        var queryStr = "";
+
+        if (minPrice)
+            queryStr += "&minPrice=" + minPrice
+        if (maxPrice)
+            queryStr += "&maxPrice=" + maxPrice
+        if (condition)
+            queryStr += "&isUsed=" + condition
+
         history.push({
             pathname: '/products',
-            search: '?minPrice=' + minPrice + '&maxPrice=' + maxPrice + '&isUsed=' + condition,
+            search: queryStr,
         })
     };
     
@@ -117,7 +142,6 @@ const Searchbar = () => {
             setMakeList(doc[0].makes);
 
             setBodyStyleList(doc[1].listRanges.bodyStyleList);
-            console.log(doc)
         })
         .catch(error => {
             alert(error.message);
@@ -142,6 +166,19 @@ const Searchbar = () => {
         if(model){
             setSelectedModel(model);
         }
+    }
+
+
+    function FilterQueryString(obj){
+        var str = "";
+        for(let i = 0; i < Object.keys(obj).length; i++){
+            str += Object.keys(obj)[i] + "=" + obj[Object.keys(obj)[i]];
+            if(i !== Object.keys(obj).length - 1){
+                str += "&";
+            }
+        }
+
+        console.log(str);
     }
 
 
@@ -211,7 +248,7 @@ const Searchbar = () => {
                                 </Col> */}
 
                                 <Col xs="12" sm="6" md="3" className='my-1' >
-                                    <Input type="select" required className="condition-dropdown"
+                                    <Input type="select" className="condition-dropdown"
                                         onChange={(e) => handleMake(e.target.value)}
                                     >
                                         <option value="" disabled selected>Make</option>
@@ -224,7 +261,7 @@ const Searchbar = () => {
                                 </Col>
 
                                 <Col xs="12" sm="6" md="3" className='my-1'>
-                                    <Input type="select" required className="condition-dropdown" disabled={selectedMake ? false : true}
+                                    <Input type="select" className="condition-dropdown" disabled={selectedMake ? false : true}
                                         onChange={(e) => handleModel(e.target.value)}
                                     >
                                         <option value="" disabled selected>Model</option>
@@ -237,7 +274,7 @@ const Searchbar = () => {
                                 </Col>
                             
                                 <Col xs="12" sm="6" md="3" className='my-1' >
-                                    <Input id="condition" type="select" required className="condition-dropdown">
+                                    <Input id="condition" type="select" className="condition-dropdown">
                                         <option value="" disabled selected>Condition</option>
                                         <option value="false">New</option>
                                         <option value="true">Used</option>
@@ -255,7 +292,7 @@ const Searchbar = () => {
                         <Form onSubmit={(e) => SearchBodyStyle(e)}>
                             <Row>
                                 <Col xs="12" md="6" className='my-1'>
-                                    <Input id="body-style" type="select" required className="condition-dropdown">
+                                    <Input id="body-style" type="select" className="condition-dropdown">
                                         <option value="" disabled selected>Body Style</option>
                                         {
                                             bodyStyleList.length > 0 && bodyStyleList.map((bodyStyle) => {
@@ -266,7 +303,7 @@ const Searchbar = () => {
                                 </Col>
                             
                                 <Col xs="12" sm="6" md="3" className='my-1'>
-                                    <Input id="condition-body" type="select" required className="condition-dropdown">
+                                    <Input id="condition-body" type="select" className="condition-dropdown">
                                         <option value="" disabled selected>Condition</option>
                                         <option value="false">New</option>
                                         <option value="true">Used</option>
@@ -284,21 +321,21 @@ const Searchbar = () => {
                         <Form onSubmit={(e) => SearchPrice(e)}>
                             <Row>
                                 <Col xs="12" md="3" className='my-1'>
-                                    <Input id="min-price" type="text" placeholder="Min Price" required className="price-box condition-dropdown" 
+                                    <Input id="min-price" type="text" placeholder="Min Price" className="price-box condition-dropdown" 
                                         value={minPrice}
                                         onChange={(e) => setMinPrice(e.target.value.replace(/[^0-9]/ig, ''))}
                                     />
                                 </Col>
 
                                 <Col xs="12" sm="6" md="3" className='my-1' >
-                                    <Input id="max-price" type="text" placeholder="Max Price" required className="price-box condition-dropdown"
+                                    <Input id="max-price" type="text" placeholder="Max Price" className="price-box condition-dropdown"
                                         value={maxPrice}
                                         onChange={(e) => setMaxPrice(e.target.value.replace(/[^0-9]/ig, ''))}
                                     />
                                 </Col>
                             
                                 <Col xs="12" sm="6" md="3" className='my-1' >
-                                    <Input id="condition-price" type="select" required className="condition-dropdown">
+                                    <Input id="condition-price" type="select" className="condition-dropdown">
                                         <option value="" disabled selected>Condition</option>
                                         <option value="false">New</option>
                                         <option value="true">Used</option>

@@ -727,7 +727,7 @@ const Filters = (props) => {
             delete filters['isUsed'];
         }
         setFilters(filters);
-        console.log('handlePriceFilter')
+        console.log('filterssIsUsed',filters)
         FilterQueryString(filters);
         setLoading(false)
     }
@@ -916,12 +916,12 @@ const Filters = (props) => {
                             <h6>Condition</h6>
                             <FormGroup check>
                                 <Input type="checkbox" id="condition-new" name="condition" onChange={() => handleCondition()} 
-                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? false : true : false}  disabled={loading}/>
+                                    defaultChecked={props.isUsed ? props.isUsed === "0" ? false : true : false}  disabled={loading}/>
                                 <Label check htmlFor="condition-new">New</Label>
                             </FormGroup>
                             <FormGroup check>
                                 <Input type="checkbox" id="condition-used" name="condition" onChange={() => handleCondition()} 
-                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? true : false : false} disabled={loading} />
+                                    defaultChecked={props.isUsed ? props.isUsed === "1" ? true : false : false} disabled={loading} />
                                 <Label check htmlFor="condition-used">Used</Label>
                             </FormGroup>
 
