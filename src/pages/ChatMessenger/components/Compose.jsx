@@ -130,6 +130,7 @@ const Compose = (props) => {
                 }
                 firebase.firestore().collection("Chats").doc(strId)
                 .update(updateObj)
+                
             }
         }
     }
@@ -186,6 +187,8 @@ const Compose = (props) => {
             const strId = [userId, props.otherId].sort().join('-')
             firebase.firestore().collection("Chats").doc(strId).collection('Messages')
             .doc().set(obj)
+            setIsImageSelected(false)
+            setImages([])
             document.getElementById('chatMessage').value = ""
             var updateObj = {
                 lastMessage : url,
@@ -194,9 +197,12 @@ const Compose = (props) => {
             }
             firebase.firestore().collection("Chats").doc(strId)
             .update(updateObj)
+
+            
         })
         .catch(e => {
             console.log("urlError",e.message)
+            
         })
         }else if(images.length > 1){
             console.log(typeof images)
@@ -234,6 +240,7 @@ const Compose = (props) => {
             }
             firebase.firestore().collection("Chats").doc(strId)
             .update(updateObj)
+            
         }
     }
 
@@ -339,9 +346,9 @@ const Compose = (props) => {
             tab.push(
                 <div className="img-send">
                     <div className="cross-image">
-                        <img src={cross} onClick={e => removeImage(i)} alt="Cross image" className="img-fluid" />
+                        <img src={cross} onClick={e => removeImage(i)} alt="" className="img-fluid" />
                     </div>
-                    <img src={URL.createObjectURL(images[i])} alt="Chat image" className="img-fluid" />
+                    <img src={URL.createObjectURL(images[i])} alt="" style={{objectFit: 'cover', height: '100%'}} className="img-fluid" />
                 </div>
             )
         }
@@ -355,7 +362,7 @@ const Compose = (props) => {
             <Paperclip color="#1C67CE" size={30}/>
             </Input> */}
             <Row>
-                <Col xs="1">
+                <Col xs="1" className="pt-1">
                     <input accept="image/*" onChange={e => onChangeImage(e)} className={classes.input} id="icon-button-file" type="file" multiple/>
                     <label htmlFor="icon-button-file" className="mb-0">
                         <IconButton color="primary" aria-label="upload picture" component="span">
@@ -379,8 +386,8 @@ const Compose = (props) => {
                     
                 </Col>
             
-                <Col xs="2" className="text-center">
-                    <ion-icon className="cursor-pointer" onClick={e => sendMessage()} name="send"></ion-icon>
+                <Col xs="2" className="text-center pt-3">
+                    <ion-icon className="cursor-pointer" onClick={e => sendMessage()} style={{cursor: 'pointer'}} name="send"></ion-icon>
                 </Col>
             </Row>
         </div>
