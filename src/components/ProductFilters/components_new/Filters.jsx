@@ -643,6 +643,10 @@ const Filters = (props) => {
         if(props.yearCar){
             filters['yearCar'] = props.yearCar
         }
+        if(props.isUsed){
+            filters['isUsed'] = props.isUsed
+        }
+        
         Promise.all([GetAllMakes(),GetFiltersList()])
         .then(values => {
             setMakeList(values[0].makes);
@@ -916,7 +920,7 @@ const Filters = (props) => {
                             <h6>Condition</h6>
                             <FormGroup check>
                                 <Input type="checkbox" id="condition-new" name="condition" onChange={() => handleCondition()} 
-                                    defaultChecked={props.isUsed ? props.isUsed === "0" ? false : true : false}  disabled={loading}/>
+                                    defaultChecked={props.isUsed ? props.isUsed === "1" ? false : true : false}  disabled={loading}/>
                                 <Label check htmlFor="condition-new">New</Label>
                             </FormGroup>
                             <FormGroup check>

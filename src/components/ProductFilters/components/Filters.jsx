@@ -778,7 +778,7 @@ const Filters = (props) => {
             console.log('chala',doc.makes)
             if(props.carMake){
                 if(doc.makes.findIndex(a => a.name === props.carMake) !== -1){
-                    console.log('ye challlaa')
+                    console.log('ye challlaa')  
                     setModelCollapseOpen(true)
                     handleMake2(props.carMake)
                 }
@@ -1107,12 +1107,12 @@ const Filters = (props) => {
                             <h6>Condition</h6>
                             <FormGroup check>
                                 <Input type="checkbox" id="condition-new" name="condition" onChange={() => handleCondition()} 
-                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? false : true : false}  disabled={loading}/>
+                                    defaultChecked={props.isUsed ? props.isUsed === "1" ? false : true : false}  disabled={loading}/>
                                 <Label check htmlFor="condition-new">New</Label>
                             </FormGroup>
                             <FormGroup check>
                                 <Input type="checkbox" id="condition-used" name="condition" onChange={() => handleCondition()} 
-                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? true : false : false} disabled={loading} />
+                                    defaultChecked={props.isUsed ? props.isUsed === "1" ? true : false : false} disabled={loading} />
                                 <Label check htmlFor="condition-used">Used</Label>
                             </FormGroup>
 
