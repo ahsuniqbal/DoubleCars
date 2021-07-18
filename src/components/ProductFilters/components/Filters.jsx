@@ -430,6 +430,8 @@ const Filters = (props) => {
         setLoading(true)
         var conditionNew = document.getElementById('condition-new');
         var conditionUsed = document.getElementById('condition-used');
+
+        console.log("CHECKING",conditionNew.checked,conditionUsed.checked)
         if(conditionNew.checked === true && conditionUsed.checked === true) {
             delete filters['isUsed'];
         }
@@ -765,13 +767,18 @@ const Filters = (props) => {
         if(props.yearCar){
             filters['yearCar'] = props.yearCar
         }
+        if(props.isUsed){
+            filters['isUsed'] = props.isUsed
+        }
+
+        console.log("Filters",filters)
         
         GetAllMakes().then(doc => {
            setMakeList(doc.makes);
             console.log('chala',doc.makes)
             if(props.carMake){
                 if(doc.makes.findIndex(a => a.name === props.carMake) !== -1){
-                    console.log('ye challlaa')
+                    console.log('ye challlaa')  
                     setModelCollapseOpen(true)
                     handleMake2(props.carMake)
                 }
@@ -1100,12 +1107,12 @@ const Filters = (props) => {
                             <h6>Condition</h6>
                             <FormGroup check>
                                 <Input type="checkbox" id="condition-new" name="condition" onChange={() => handleCondition()} 
-                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? false : true : false}  disabled={loading}/>
+                                    defaultChecked={props.isUsed ? props.isUsed === "1" ? false : true : false}  disabled={loading}/>
                                 <Label check htmlFor="condition-new">New</Label>
                             </FormGroup>
                             <FormGroup check>
                                 <Input type="checkbox" id="condition-used" name="condition" onChange={() => handleCondition()} 
-                                    defaultChecked={props.isUsed ? props.isUsed === "true" ? true : false : false} disabled={loading} />
+                                    defaultChecked={props.isUsed ? props.isUsed === "1" ? true : false : false} disabled={loading} />
                                 <Label check htmlFor="condition-used">Used</Label>
                             </FormGroup>
 

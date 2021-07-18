@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Row, Col, Label, Input, Container, Button } from 'reactstrap';
 import Filters from '../../../components/ProductFilters/components_new/Filters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
@@ -74,7 +74,7 @@ const Products = (props) => {
 
     
     let locationSearch = queryString.parse(props.location.search);
-
+   // console.log("LS",locationSearch)
 
     const [sortFlag, setSortFlag] = useState(false);
     const [products, setProducts] = useState([]);
@@ -143,10 +143,6 @@ const Products = (props) => {
     // useEffect(() => {
     //     var tempStr = ""
     //     const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
-    //     // console.log('searchLocation',locationSearch)
-    //     // var queryParams = ""
-    //     // queryParams = makeFilterStringForQueryParams(locationSearch)
-    //     // console.log('queryParams',queryParams)
     //     tempStr += `page=${pageNumber}&${globalQuery}`
 
     //     tempStr += `&id=${userId}`
