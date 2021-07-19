@@ -32,3 +32,11 @@
     color: #2d2d2d !important;
     border: none !important;
 }
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .buynow-button {
+        text-align: center !important;
+    }
+
+}
