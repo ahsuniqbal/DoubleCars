@@ -31,7 +31,7 @@ const Header = () => {
                  
                             <div className = "col-12 col-md-5 col-sm-6 left-cover-section width-1050">
                                 <div className='left-cover-header-div'>
-                                    <h1 className = "cover-left-heading ml-3">
+                                    <h1 className = "cover-left-heading ml-2">
                                         Find the most desireable car
                                     </h1>
                                     <h5 className = "my-3 header-sub-head d-md-ml-3">

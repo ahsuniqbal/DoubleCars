@@ -13,7 +13,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 95vh;
+  height: 90vh;
   padding-left: 3rem;
   padding-right: 3rem;
 }
@@ -25,6 +25,7 @@
   font-size: 60px;
   line-height: 110%;
   color: #FFFFFF;
+  margin-left: 0rem !important;
 }
 .left-cover-header-div{
   position: relative;
@@ -55,6 +56,7 @@
   font-weight: bold;
   box-shadow: none;
   border: transparent !important;
+  margin-left: 0rem !important;
 }
 .download-button-cover:focus{
   box-shadow: none !important;
@@ -72,7 +74,7 @@
     background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 95vh;
+    height: 90vh;
     width: 100%;   
 
 }

@@ -1,5 +1,5 @@
 .searchbar{
-    margin-top: -5rem;
+    margin-top: -5rem !important;
     box-shadow: 0px 4px 20px rgba(44, 44, 44, 0.08);
     border-radius: 8px;
     border-color: white ;
