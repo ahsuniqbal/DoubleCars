@@ -25,7 +25,7 @@ function Dealership(){
             <div className='dealership-center-main'>
                 <Row >
                     {/* first coloumn */}
-                    <Col md='4' className='dealership-center-col'>
+                    <Col md='4' sm='12' className='dealership-center-col'>
                         <div className='dealership-image-text-main'>
                             <div className='dealership-image-text'>
                                 <img src={NoContract} className='contract-img'/>
@@ -52,7 +52,7 @@ function Dealership(){
                     </Col>
 
                     {/* second column */}
-                    <Col md='4'>
+                    <Col md='4' sm='12'>
                         <div className='dealership-images-div'>
                             <LazyLoadImage alt='background image'  src={LightBlue} className='light-blue-dealership'/>
                             <LazyLoadImage alt='background image'  src={DarkBlue} className='dark-blue-dealership'/>
@@ -61,7 +61,7 @@ function Dealership(){
                     </Col>
 
                     {/* third coloumn */}
-                    <Col md='4' className='dealership-center-col-third'>
+                    <Col md='4' sm='12' xs='12' className='dealership-center-col-third'>
                     <div className='dealership-image-text-main'>
                             <div className='dealership-image-text'>
                                 <img src={Organize} className='contract-img'/>
@@ -87,7 +87,8 @@ function Dealership(){
                                     In the office, on the go, or at the auction.
                                     Manage your business anywhere, anytime.</p>
                         </div>
-                    </Col>
+    </Col>
+     
                 </Row>
             </div>
         </div>

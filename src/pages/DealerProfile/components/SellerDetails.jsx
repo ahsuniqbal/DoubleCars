@@ -21,7 +21,7 @@ const SellerDetails = (props) => {
                     <Row className='dealer-profile-row'>
                         <Col md = "8">
                             <Row>
-                                <Col md = "2">
+                                <Col md = "2" xs = "12">
                                     {
                                         props.profilePic ?
                                         <CardImg className = "Dealer-Profile-image" src={props.profilePic} alt="Company logo" />
@@ -86,7 +86,7 @@ const SellerDetails = (props) => {
                         </Row>  
                 </CardBody>
             :
-                 <CardBody>
+                 <CardBody >
                      <Row className='dealer-profile-row'>
                          <Col md = "12">
                              <Row>

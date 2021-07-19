@@ -59,4 +59,6 @@ ion-icon {
     overflow: hidden;
     object-fit: cover;
     object-position: center;
+    border-radius: 6px;
+    margin-right: 5px;
 }

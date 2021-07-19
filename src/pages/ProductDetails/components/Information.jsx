@@ -2,7 +2,6 @@ import React, { useState ,useEffect} from 'react';
 import { Row, Col,Label, Collapse } from 'reactstrap';
 import { AddCommaToNumber, TrimText } from '../../../utils/NumberManipulation';
 import '../styles/Information.css';
-
 import CertifiedCarsCard from './CertifiedCarCard';
 const Information = (props) => {
 
@@ -286,9 +285,6 @@ const Information = (props) => {
                 </Col>
             </Row> */}
             {/* <hr  className = "info-bottom-line mb-5"/> */}
-
-            
-            {/* <Chart /> */}
             
             {/* THIS IS COMMENTED UNTILL THE BACKEND IS IMPLEMENTED */}
             {/* <Row>

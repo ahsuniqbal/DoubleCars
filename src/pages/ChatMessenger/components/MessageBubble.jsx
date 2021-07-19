@@ -146,13 +146,15 @@ const MessageBubble = (props) => {
                     table.push(
                         // If you want to show the multiple images on right side add classname float-right
                         // If you want to show the multiple images on left side then remove float classname
-                        <Col xs="12">
-                            <div className="grid-chat float-right">
-                            {
-                                multipleImagesRows(list[i].multipleImagesList)
-                            }
-                            </div>
-                        </Col>
+                        <Row className="float-right">
+                            <Col xs="12">
+                                <div className="grid-chat float-right">
+                                {
+                                    multipleImagesRows(list[i].multipleImagesList)
+                                }
+                                </div>
+                            </Col>
+                        </Row>
 
                     )
                 }

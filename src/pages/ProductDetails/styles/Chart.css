@@ -1,5 +1,9 @@
 .chart-wrapper {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
     height: 309px;
+}
+
+.chart-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
 }

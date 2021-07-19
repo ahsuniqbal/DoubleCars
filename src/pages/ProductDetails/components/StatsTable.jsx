@@ -46,7 +46,7 @@ const StatsTable = (props) => {
                                                 <Link to={`/products?minYear=${data.yearCar}`}>{data.yearCar}</Link>
                                             </td>
                                             <td className = "table-label">${AddCommaToNumber(data.price)}</td>
-                                            <td className = "table-label">{data.availableCount ? data.availableCount : 5}</td>
+                                            <td className = "table-label">{data.availableCount ? data.availableCount : 0}</td>
                                         </tr>
                                     )
                                 })

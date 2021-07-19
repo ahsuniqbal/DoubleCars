@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Row, Col, Label, Input, Container, Button } from 'reactstrap';
-import Filters from '../../../components/ProductFilters';
+import Filters from '../../../components/ProductFilters/components_new/Filters';
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 import { GetSearchResult,GetAllMakes,GetZipCodesList } from '../api/GetRequests';
@@ -74,7 +74,7 @@ const Products = (props) => {
 
     
     let locationSearch = queryString.parse(props.location.search);
-
+   // console.log("LS",locationSearch)
 
     const [sortFlag, setSortFlag] = useState(false);
     const [products, setProducts] = useState([]);
@@ -140,66 +140,53 @@ const Products = (props) => {
         //                 yearCar={locationSearch.yearCar}
     }
     
-    useEffect(() => {
-        var tempStr = ""
-        //bodyStyle=Sedan
-        //carMake=Audi
-        //carModel=ACX
-//         Promise.all([GetAllMakes(),GetZipCodesList()])
-//         .then(doc => {
-// setMakeAndZips
-//         })
-//         .catch(e => {
-//             console.log(e.message)
-//         })
-        const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
-        console.log('searchLocation',locationSearch)
-        var queryParams = ""
-        queryParams = makeFilterStringForQueryParams(locationSearch)
-        console.log('queryParams',queryParams)
-        if(locationSearch.search){
-            tempStr += `search=${locationSearch.search}&page=${pageNumber}${queryParams}&${globalQuery}`
-        }else{
-            tempStr += `page=${pageNumber}${queryParams}&${globalQuery}`
-        }
-        tempStr += `&id=${userId}`
-        console.log('tempStr',tempStr)
-        setPageNumber(pageNumber + 1)
-        GetSearchResult(tempStr).then(doc1 => {
-            setTotalCount(doc1.totalCount)
-            const doc = doc1.results;
-            if(doc.length > 0){
-                var tempObj = {
-                    title : doc[0].carName,
-                    image_one : doc[0].coverPic,
-                    image_two : doc[1].coverPic ? doc[1].coverPic : null,
-                    image_three : doc[2].coverPic ? doc[2].coverPic : null,
-                }
-                setSavedSearchObj(tempObj)
-            }
+    // useEffect(() => {
+    //     var tempStr = ""
+    //     const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
+    //     tempStr += `page=${pageNumber}&${globalQuery}`
+
+    //     tempStr += `&id=${userId}`
+    //     console.log('tempStr',tempStr)
+    //     setPageNumber(pageNumber + 1)
+    //     GetSearchResult(tempStr).then(doc1 => {
+    //         setTotalCount(doc1.totalCount)
+    //         const doc = doc1.results;
+    //         if(doc.length > 0){
+    //             var tempObj = {
+    //                 title : doc[0].carName,
+    //                 image_one : doc[0].coverPic,
+    //                 image_two : doc[1].coverPic ? doc[1].coverPic : null,
+    //                 image_three : doc[2].coverPic ? doc[2].coverPic : null,
+    //             }
+    //             setSavedSearchObj(tempObj)
+    //         }
             
-            if(products.length > 0){
-                setBooleanFlag(false);
-                var temp = products
-                for(let i = 0; i < doc.length; i++){
-                    temp.push(doc[i])
-                }
-                setProducts(temp);
-            }else{
-                setProducts(doc);
-                setBooleanFlag(true);
-            }
-            setFlag(!flag)
-        })
-        .catch(error => {
-            console.log(error.message);
-        });
+    //         if(products.length > 0){
+    //             setBooleanFlag(false);
+    //             var temp = products
+    //             for(let i = 0; i < doc.length; i++){
+    //                 temp.push(doc[i])
+    //             }
+    //             setProducts(temp);
+    //         }else{
+    //             setProducts(doc);
+    //             setBooleanFlag(true);
+    //         }
+    //         setFlag(!flag)
+    //     })
+    //     .catch(error => {
+    //         console.log(error.message);
+    //     });
     
-    }, [isBottom]);
+    // }, [isBottom]);
 
     const filterQueryChange = (queryStr) => {
         console.log("QURYSTR",queryStr)
+        setBooleanFlag(false)
         setGloableQuery(queryStr)
+        //window.location.href = `?${"carMake=Acura"}`
+        //props.history.push(`/products?${queryStr}`)
+        window.history.replaceState(null,"title",`/products?${queryStr}`)
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         if(locationSearch.search){
@@ -209,6 +196,7 @@ const Products = (props) => {
         }
         str += `&id=${userId}`
         GetSearchResult(str).then(doc1 => {
+            setBooleanFlag(true)
             setTotalCount(doc1.totalCount)
             console.log(doc1)
             const doc = doc1.results;
@@ -233,6 +221,7 @@ const Products = (props) => {
             
         })
         .catch(error => {
+            setBooleanFlag(true)
             console.log(error.message);
         });
     }
@@ -259,11 +248,17 @@ const Products = (props) => {
     } 
     function scrollFunction() {
         const mybutton = document.getElementById("myBtn");
-        if (document.body.scrollTop > 1280 || document.documentElement.scrollTop > 1280) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
+        if (mybutton) {
+            if (document.body.scrollTop > 1280 || document.documentElement.scrollTop > 1280) {
+                mybutton.style.display = "block";
+            } else {
+            mybutton.style.display = "none";
+            }
         }
+        else {
+            return;
+        }
+        
     }
 
     return(

@@ -50,7 +50,7 @@ const DCSlider = (props) => {
         dots: false,
         beforeChange: (current, next) => setActiveSlide(next),
         draggable: false,
-        slidesToScroll: 1.15,
+        slidesToScroll: 1,
         slidesToShow: 5,
         autoplay: false,
         infinite: false,
@@ -59,6 +59,7 @@ const DCSlider = (props) => {
             breakpoint: 576,
             settings: {
               slidesToShow: 1.15,
+              slidesToScroll: 1,
             },
           },
           {

@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect,useCallback } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
-import MultiSelect from "@khanacademy/react-multi-select";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Check } from 'react-feather';
 import { GetFiltersList, GetAllMakes, GetModelFromMake, GetTrimFromMakeAndModel, GetZipFromLatLong, GetZipCodesList } from '../api/GetRequests';
@@ -9,57 +8,7 @@ import gps from '../../../assets/gps.svg';
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
 import '../styles/Filters.css';
 import { FiltersSkeleton } from '../../Skeletons/components/Skeleton';
-import {postSavedSearch} from '../api/PostRequest'
 
-
-// Prepare the make list to show on the dropdown
-// function concatMakeList(makeList){
-//     var makeSelectBox = document.getElementById('make-list');
-
-//     for(let i = 0; i < makeList.length; i++){
-//         var option = makeList[i];
-//         makeSelectBox.options.add(new Option(option.name, option.name));
-//     }
-// }
-
-
-// Concatinate model list to show on the dropdown
-function concatModelList(modelList){
-    var options = [];
-    for(let i = 0; i < modelList.length; i++){
-        var tempObj = {
-            label: modelList[i].name,
-            value: modelList[i].name,
-        };
-        options.push(tempObj);   
-    }
-    return options;
-}
-
-// Concatinate model list to show on the dropdown
-function concatTrimList(trimList){
-    var options = [];
-    for(let i = 0; i < trimList.length; i++){
-        var tempObj = {
-            label: trimList[i].name,
-            value: trimList[i].name,
-        };
-        options.push(tempObj);   
-    }
-    return options;
-}
-
-// Concatinate comma to those filters who are multi select
-function concatinateCommaToFilters(list) {
-    var str = ""
-    for(let i = 0; i < list.length; i++){
-        str += list[i]
-        if(i !== list.length - 1){
-            str += ","
-        }
-    }
-    return str;
-}
 
 const Filters = (props) => {
     /////////////// Filters ///////////////
@@ -69,9 +18,38 @@ const Filters = (props) => {
     // Filters list to be rendered dynamically
     const [filtersList, setFiltersList] = useState(null);
 
+    const [radius, setRadius] = useState(200);
+    const [bodyList,setBodyList] = useState([])
+    
+    const [mileage, setMileage] = useState([0, 99999]);
+
+    const [selectedFromYear, setSelectedFromYear] = useState(null);
+
+    // Show advance filters
+    const [advancedFiltersShown, setAdvancedFiltersShown] = useState(false);
+
+    //Map Popup
+    const [mapPopup, setMapPopup] = useState(false);
+
+
+
+    // Selected Exterior colors
+    const [extColors, setExtColors] = useState([]);
+    // Selected Interior colors
+    const [intColors, setIntColors] = useState([]);
 
     // Zip Code
     const [zipCode, setZipCode] = useState(null);
+
+    //Price Range 
+    const [price, setPrice] = useState([0, 99999]);
+
+    //Current Lat Long
+    const [currentLatLng, setCurrentLatLng] = useState(null);
+
+    // Model and trim collapses
+    const [isModelCollapseOpen, setModelCollapseOpen] = useState(false);
+    const [isTrimCollapseOpen, setTrimCollapseOpen] = useState(false);
 
     //basicColor for BodyList svg
     const [basicColor, setBasicColors] = useState(['#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959','#595959'])
@@ -81,50 +59,15 @@ const Filters = (props) => {
         modelTemp[index] = basicColor[index] === '#595959' ? '#1C67CE' : '#595959'
         setBasicColors(modelTemp)
     }
-    // Make, Model and trim list fetched from Vin audit API
     const [makeList, setMakeList] = useState([]);
     const [selectedMake, setSelectedMake] = useState(null);
     const [modelList, setModelList] = useState([]);
     const [selectedModel, setSelectedModel] = useState(null);
+
+    const [loading, setLoading] = useState(false);
     
     const [trimList, setTrimList] = useState([]);
     const [selectedTrim, setSelectedTrim] = useState(null);
-
-    // const [selectedModels, setSelectedModels] = useState([]);
-    // const [trimList, setTrimList] = useState([]);
-    // const [selectedTrims, setSelectedTrims] = useState([]);
-
-    
-
-    // Model and trim collapses
-    const [isModelCollapseOpen, setModelCollapseOpen] = useState(false);
-    const [isTrimCollapseOpen, setTrimCollapseOpen] = useState(false);
-
-    const [radius, setRadius] = useState(200);
-    const [bodyList,setBodyList] = useState([])
-
-    const [price, setPrice] = useState([0, 99999]);
-    const [globalFilterQuery,setGlobalFilterQuery] = useState("")
-    const [mileage, setMileage] = useState([0, 99999]);
-
-    const [selectedFromYear, setSelectedFromYear] = useState(null);
-
-    // Show advance filters
-    const [advancedFiltersShown, setAdvancedFiltersShown] = useState(false);
-
-    //Current Lat Long
-    const [currentLatLng, setCurrentLatLng] = useState(null);
-
-    //Map Popup
-    const [mapPopup, setMapPopup] = useState(false);
-
-    // Selected Exterior colors
-    const [extColors, setExtColors] = useState([]);
-    // Selected Interior colors
-    const [intColors, setIntColors] = useState([]);
-
-
-    const [loading, setLoading] = useState(false);
 
     // Toggle open or close map popup
     const toggleMapPopup = () => setMapPopup(!mapPopup);
@@ -140,347 +83,76 @@ const Filters = (props) => {
     if (dropdownToYears.length==0) {
         dropdownToYears = [...dropdownToYears,Number(selectedFromYear)]
     }
-    
 
     // Callback function to save the selected location from map to current location
     const GetLocationFromMap = useCallback((mapLocation) => {
         setCurrentLatLng(mapLocation);
     }, []);
 
-
-    const convertIntoQueryParams = (obj) => {
-        var str = "";
-        for(let i = 0; i < Object.keys(obj).length; i++){
-            str += Object.keys(obj)[i] + "=" + obj[Object.keys(obj)[i]];
-            if(i !== Object.keys(obj).length - 1){
-                str += "&";
-            }
+    // Get location using HTML 5 Browser Geo Location
+    function GetLocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(ShowPosition, ShowError);
         }
-        return str;
+        else{
+            console.log("Geo location is not supported");
+        }
     }
 
-
-    /////////////// Handle changes in filters ///////////////
-    const handleRadius = (radius) => {
-        console.log('chalaaa')
-        if(!zipCode) {
-            alert("Please allow the location first");
-            return;
-        }
-        const zip = zipCode.split('- ')
-        setRadius(radius);
-
-        const obj = {
-            zip: zip[zip.length - 1],
-            radius: radius,
-        }
-        console.log(obj)
-        // console.log(convertIntoQueryParams(obj))
-        GetZipCodesList(convertIntoQueryParams(obj)).then(doc => {
-            console.log(doc)
-            if(doc.results.length > 0) {
-                setRadius(radius);            
-                filters['radius'] = radius;
-                console.log(doc)
-                filters['zipCode'] = doc.results[0]+"-"+doc.results[doc.results.length - 1]
-               // console.log(doc.results[0]+"-"+doc.results[doc.results.length - 1])
+    // Get location using HTML 5 Browser Geo Location
+    function ShowPosition(position){
+        setLoading(true);
+        var latLong = position.coords.latitude + "," + position.coords.longitude;
+        // Save the lattitude and longitude fetched from the browsers
+        // Geo Location into the state variable of current location
+        setCurrentLatLng({ lat: position.coords.latitude, lng: position.coords.longitude });
+        // Get zip code from the Google's API using the current lattitude and longitude
+        GetZipFromLatLong(latLong).then(doc => {
+            if(doc.results.length > 0){
+                // Set the fetched zip code into the state variable
+                setZipCode(doc.results[0].address_components[1].long_name + ", " + doc.results[0].address_components[3].short_name + " - " + doc.results[0].address_components[0].long_name);
+                // Add the zip code into the filters array
+                filters['zipCode'] = doc.results[0].address_components[0].long_name;
                 setFilters(filters);
-                console.log('YE HOA CALLED zip')
+                console.log('chalaZIPPP')
                 FilterQueryString(filters);
+                //setLoading(false)
             }
-            else {
-                // If zip code is not available then do nothing
+            // If the zip code is not available
+            else{
+                var split = doc.plus_code.compound_code.split(" ");
+                setZipCode(split[1] + " " + split[2] + " " + split[3])
+                // console.log(split, "asdadadadadad")
+                // setZipCode(doc.plus_code.compound_code);
+                // setZipCode("N/A");
             }
-            
-        }).catch(error => {
-            console.log(error)
         })
-        // setRadius(radius);
-        // filters['radius'] = radius;
-        // setFilters(filters);
-        // FilterQueryString(filters);    
+        .catch(error => {
+            console.log(error.message);
+            //setLoading(false)
+        });
     }
-
-    // This function is to handle the radius value only
-    const handleRadiusValue = (radius) => {
-        setRadius(radius);
-    }
-
-    const handleMake2 = (make) => {
-        setLoading(true);
-        setSelectedMake(make);
-        setModelList([]);
-        delete filters['carModel']
-        setTrimList([]);
-        delete filters['trim']
-
-        if(make){
-            GetModelFromMake(make).then(doc => {
-                setModelList(doc.makes[0].models);
-                // console.log("MODEL",props.carModel,doc.makes[0].models)
-                if(props.carMake){
-                    if(props.carModel){
-                        if(doc.makes[0].models.findIndex(a => a.name === props.carModel) !== -1){
-                            // filters['carMake'] = make;
-                            handleModel2(props.carModel)
-                        // setFilters(filters);
-                        //FilterQueryString(filters);
-                        setLoading(false);
-                        }
-                    }
-                }
-                // filters['carMake'] = make;
-                // setFilters(filters);
-                // FilterQueryString(filters);
-                // setLoading(false);
-            })
-            .catch(error => {
-                console.log(error.message)
-                setLoading(false);
-            });
-        }else{
-            // setModelList([]);
-            // delete filters['carModel']
-            // setTrimList([]);
-            // delete filters['trim']
-            // delete filters['carMake']
-            // setFilters(filters);
-            // FilterQueryString(filters);
-            // setLoading(false);
-        }
-        
-    }
-
-    const handleMake = (make) => {
-        console.log("MAKEMAKE",make)
-        setLoading(true);
-        setSelectedMake(make);
-        setModelList([]);
-        delete filters['carModel']
-        setTrimList([]);
-        delete filters['trim']
-
-        if(make){
-            GetModelFromMake(make).then(doc => {
-                setModelList(doc.makes[0].models);
-                filters['carMake'] = make;
-                setFilters(filters);
-                console.log('YE HOA CALLED - model-make')
-               FilterQueryString(filters);
-                setLoading(false);
-            })
-            .catch(error => {
-                console.log(error.message)
-                setLoading(false);
-            });
-        }else{
-            setModelList([]);
-            delete filters['carModel']
-            setTrimList([]);
-            delete filters['trim']
-            delete filters['carMake']
-            setFilters(filters);
-            console.log('YE HOA CALLED - model-make')
-            //FilterQueryString(filters);
-            setLoading(false);
-        }
-        
-    }
-    const handleModel2 = (select) => {
-        setLoading(true)
-        setSelectedModel(select);
-
-        setTrimList([]);
-        delete filters['trim']
-        if(select){
-            GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
-                // trimList.push(doc.makes[0].models[0].trims)
-                setTrimCollapseOpen(true);
-                setTrimList(doc.makes[0].models[0].trims)
-                // filters['carModel'] = select;
-                // setFilters(filters);
-                // FilterQueryString(filters);
-                setLoading(false)
-            }).catch(error => {
-                console.log(error.message)
-                setLoading(false)
-            });
-        }else{
-            // console.log('filters1',filters)
-            // setTrimList([]);
-            // delete filters['trim']
-            // delete filters['carModel']
-            // // console.log('filters2',filters)
-            // setFilters(filters);
-            // FilterQueryString(filters);
-            // setTrimCollapseOpen(false);
-            // setLoading(false)
+    
+    // If there is an error getting browsers location
+    function ShowError(error){
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                console.log("User denied the request for Geolocation");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                console.log("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                console.log("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                console.log("An unknown error occurred.");
+                break;
+            default:
+                console.log("An unknown error occurred.");
         }
     }
-
-    const handleModel = (select) => {
-        setLoading(true)
-        setSelectedModel(select);
-
-        setTrimList([]);
-        delete filters['trim']
-        if(select){
-            GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
-                // trimList.push(doc.makes[0].models[0].trims)
-                setTrimCollapseOpen(true);
-                setTrimList(doc.makes[0].models[0].trims)
-                filters['carModel'] = select;
-                setFilters(filters);
-                FilterQueryString(filters);
-                setLoading(false)
-            }).catch(error => {
-                console.log(error.message)
-                setLoading(false)
-            });
-        }else{
-            // console.log('filters1',filters)
-            setTrimList([]);
-            delete filters['trim']
-            delete filters['carModel']
-            // console.log('filters2',filters)
-            setFilters(filters);
-            FilterQueryString(filters);
-            setTrimCollapseOpen(false);
-            setLoading(false)
-        }
-    }
-
-
-    const handleTrim = (selected) => {
-        setLoading(true)
-        setSelectedTrim(selected);
-        if(selected){
-            // GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
-            //     // trimList.push(doc.makes[0].models[0].trims)
-            //     setTrimCollapseOpen(true);
-            //     setTrimList(doc.makes[0].models[0].trims)
-                filters['trim'] = selected;
-                setFilters(filters);
-                FilterQueryString(filters);
-                setLoading(false)
-            // }).catch(error => {
-            //     console.log(error.message)
-            // });
-        }else{
-            // console.log('filters1',filters)
-            delete filters['trim']
-            // console.log('filters2',filters)
-            setFilters(filters);
-            FilterQueryString(filters);
-            setLoading(false)
-            // setTrimCollapseOpen(false);
-        }
-
-
-
-
-
-
-        // console.log(selected)
-        // setSelectedTrims(selected);
-        // if(selected.length > 0){            
-        //     filters['trim'] = concatinateCommaToFilters(selected);
-        //     setFilters(filters);
-        //     FilterQueryString(filters);
-        // }
-        // else {
-        //     delete filters['trim']
-        //     setFilters(filters);
-        //     FilterQueryString(filters);
-        // }
-
-    }
-
-    const handlePrice = (price) => {
-        console.log('handlePriceFilter')
-        setPrice(price);
-        filters['minPrice'] = price[0];
-        filters['maxPrice'] = price[1];
-        setFilters(filters);
-        FilterQueryString(filters);
-    }
-
-    const handleFromYear = (fromYear) => {
-        setLoading(true);
-        document.getElementById("toYear").disabled = false;
-        setSelectedFromYear(fromYear);
-        filters['minYear'] = fromYear;
-        console.log('handlePriceFilter')
-        delete filters['maxYear'];
-        setFilters(filters);
-        FilterQueryString(filters);
-        setLoading(false)
-    }
-
-    const handleToYear = (toYear) => {
-        setLoading(true)
-        filters['maxYear'] = toYear;
-        setFilters(filters);
-        console.log('handlePriceFilter')
-        FilterQueryString(filters);
-        setLoading(false)
-    }
-
-    const handleCondition = () => {
-        setLoading(true)
-        var conditionNew = document.getElementById('condition-new');
-        var conditionUsed = document.getElementById('condition-used');
-
-        console.log("CHECKING",conditionNew.checked,conditionUsed.checked)
-        if(conditionNew.checked === true && conditionUsed.checked === true) {
-            delete filters['isUsed'];
-        }
-        else if (conditionNew.checked === true) {
-            filters['isUsed'] = 0;
-        }
-        else if (conditionUsed.checked === true) {
-            filters['isUsed'] = 1;
-        }
-        else {
-            delete filters['isUsed'];
-        }
-        setFilters(filters);
-        console.log('handlePriceFilter')
-        FilterQueryString(filters);
-        setLoading(false)
-    }
-
-    const handleMileage = (mileage) => {
-        setMileage(mileage);
-        filters['minMileage'] = mileage[0];
-        filters['maxMileage'] = mileage[1]
-        setFilters(filters);
-        console.log('handlePriceFilter')
-        FilterQueryString(filters);
-    }
-
-    const handleSellerType = () => {
-        setLoading(true)
-        var dealer = document.getElementById('dealer');
-        var privateSeller = document.getElementById('private-seller');
-
-        if(dealer.checked === true && privateSeller.checked === true) {
-            delete filters['userType'];
-        }
-        else if (dealer.checked === true) {
-            filters['userType'] = 2;
-        }
-        else if (privateSeller.checked === true) {
-            filters['userType'] = 1;
-        }
-        else {
-            delete filters['userType'];
-        }
-        setFilters(filters);
-        console.log('handlePriceFilter')
-        FilterQueryString(filters);
-        setLoading(false)
-    }
+    
 
     // Draw Skeleton if filters list in loading
     function DrawFiltersSkeleton() {
@@ -494,19 +166,11 @@ const Filters = (props) => {
         return table;
     }
 
-    const bodyListFunc = (bodyStyle,index) => {
+    const handleToYear = (toYear) => {
         setLoading(true)
-        if(bodyList.includes(bodyStyle)) {
-            bodyList.splice(bodyList.indexOf(bodyStyle), 1)
-        }
-        else {
-            bodyList.push(bodyStyle)
-        }
-        filters['bodyStyle'] = concatinateCommaToFilters(bodyList);
+        filters['maxYear'] = toYear;
         setFilters(filters);
-        console.log('handlePriceFilter')
         FilterQueryString(filters);
-        basicColorSet(index)
         setLoading(false)
     }
 
@@ -674,79 +338,288 @@ const Filters = (props) => {
             );
         }
         return table;
-    }    
+    } 
 
-    // Get location using HTML 5 Browser Geo Location
-    function GetLocation(){
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(ShowPosition, ShowError);
+    function FilterQueryString(obj){
+        var str = "";
+        for(let i = 0; i < Object.keys(obj).length; i++){
+            str += Object.keys(obj)[i] + "=" + obj[Object.keys(obj)[i]];
+            if(i !== Object.keys(obj).length - 1){
+                str += "&";
+            }
         }
-        else{
-            console.log("Geo location is not supported");
+        //setGlobalFilterQuery(str)
+        // This function will be called from the parent class i.e products page
+        props.onFilterChange(str);
+    }
+
+    const bodyListFunc = (bodyStyle,index) => {
+        setLoading(true)
+        if(bodyList.includes(bodyStyle)) {
+            bodyList.splice(bodyList.indexOf(bodyStyle), 1)
+        }
+        else {
+            bodyList.push(bodyStyle)
+        }
+        filters['bodyStyle'] = concatinateCommaToFilters(bodyList);
+        setFilters(filters);
+        FilterQueryString(filters);
+        basicColorSet(index)
+        setLoading(false)
+    }
+
+    // Concatinate comma to those filters who are multi select
+    function concatinateCommaToFilters(list) {
+        var str = ""
+        for(let i = 0; i < list.length; i++){
+            str += list[i]
+            if(i !== list.length - 1){
+                str += ","
+            }
+        }
+        return str;
+    }
+
+    const handleFromYear = (fromYear) => {
+        setLoading(true);
+        document.getElementById("toYear").disabled = false;
+        setSelectedFromYear(fromYear);
+        filters['minYear'] = fromYear;
+        filters['maxYear'] = document.getElementById("toYear").value ? document.getElementById("toYear").value : new Date().getFullYear(); 
+        //delete filters['maxYear'];
+        setFilters(filters);
+        FilterQueryString(filters);
+        setLoading(false)
+    }
+
+    const handleModel2 = (select) => {
+        setLoading(true)
+        setSelectedModel(select);
+        setTrimList([]);
+        delete filters['trim']
+        if(select){
+            GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
+                setTrimCollapseOpen(true);
+                setTrimList(doc.makes[0].models[0].trims)
+                setLoading(false)
+            }).catch(error => {
+                console.log(error.message)
+                setLoading(false)
+            });
         }
     }
-    
-    // Get location using HTML 5 Browser Geo Location
-    function ShowPosition(position){
+
+    const handleMake2 = (make) => {
         setLoading(true);
-        var latLong = position.coords.latitude + "," + position.coords.longitude;
-        // Save the lattitude and longitude fetched from the browsers
-        // Geo Location into the state variable of current location
-        setCurrentLatLng({ lat: position.coords.latitude, lng: position.coords.longitude });
-        // Get zip code from the Google's API using the current lattitude and longitude
-        GetZipFromLatLong(latLong).then(doc => {
-            if(doc.results.length > 0){
-                // Set the fetched zip code into the state variable
-                setZipCode(doc.results[0].address_components[1].long_name + ", " + doc.results[0].address_components[3].short_name + " - " + doc.results[0].address_components[0].long_name);
-                // Add the zip code into the filters array
-                filters['zipCode'] = doc.results[0].address_components[0].long_name;
+        setSelectedMake(make);
+        setModelList([]);
+        delete filters['carModel']
+        setTrimList([]);
+        delete filters['trim']
+
+        if(make){
+            GetModelFromMake(make).then(doc => {
+                setModelList(doc.makes[0].models);
+                if(props.carMake){
+                    if(props.carModel){
+                        if(doc.makes[0].models.findIndex(a => a.name === props.carModel) !== -1){
+                            handleModel2(props.carModel)
+                        setLoading(false);
+                        }
+                    }
+                }
+            })
+            .catch(error => {
+                console.log(error.message)
+                setLoading(false);
+            });
+        }
+        
+    }
+
+    const handleMake = (make) => {
+        
+        setLoading(true);
+        setSelectedMake(make);
+        setModelList([]);
+        delete filters['carModel']
+        setTrimList([]);
+        delete filters['trim']
+
+        if(make){
+            GetModelFromMake(make).then(doc => {
+                setModelList(doc.makes[0].models);
+                filters['carMake'] = make;
                 setFilters(filters);
-                console.log('chalaZIPPP')
+                FilterQueryString(filters);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.log(error.message)
+                setLoading(false);
+            });
+        }else{
+            setModelList([]);
+            delete filters['carModel']
+            setTrimList([]);
+            delete filters['trim']
+            delete filters['carMake']
+            setFilters(filters);
+            FilterQueryString(filters);
+            setModelCollapseOpen(false)
+            setTrimCollapseOpen(false)
+            setLoading(false);
+        }
+        
+    }
+
+    /////////////// Handle changes in filters ///////////////
+    const handleRadius = (radius) => {
+        console.log('chalaaa')
+        if(!zipCode) {
+            alert("Please allow the location first");
+            return;
+        }
+        const zip = zipCode.split('- ')
+        setRadius(radius);
+
+        const obj = {
+            zip: zip[zip.length - 1],
+            radius: radius,
+        }
+        console.log(obj)
+        
+        // console.log(convertIntoQueryParams(obj))
+        GetZipCodesList(convertIntoQueryParams(obj)).then(doc => {
+            console.log(doc)
+            if(doc.results.length > 0) {
+                setRadius(radius);            
+                filters['radius'] = radius;
+                console.log(doc)
+                filters['zipCode'] = doc.results[0]+"-"+doc.results[doc.results.length - 1]
+               // console.log(doc.results[0]+"-"+doc.results[doc.results.length - 1])
+                setFilters(filters);
+                console.log('YE HOA CALLED zip')
+                FilterQueryString(filters);
+            }
+            else {
+                // If zip code is not available then do nothing
+            }
+            
+        }).catch(error => {
+            console.log(error)
+        })
+        // setRadius(radius);
+        // filters['radius'] = radius;
+        // setFilters(filters);
+        // FilterQueryString(filters);    
+    }
+
+    // This function is to handle the radius value only
+    const handleRadiusValue = (radius) => {
+        setRadius(radius);
+    }
+    const convertIntoQueryParams = (obj) => {
+        var str = "";
+        for(let i = 0; i < Object.keys(obj).length; i++){
+            str += Object.keys(obj)[i] + "=" + obj[Object.keys(obj)[i]];
+            if(i !== Object.keys(obj).length - 1){
+                str += "&";
+            }
+        }
+        return str;
+    }
+
+    const handleModel = (select) => {
+        setLoading(true)
+        setSelectedModel(select);
+
+        setTrimList([]);
+        delete filters['trim']
+        if(select){
+            GetTrimFromMakeAndModel(selectedMake, select).then(doc => {
+                // trimList.push(doc.makes[0].models[0].trims)
+                setTrimCollapseOpen(true);
+                setTrimList(doc.makes[0].models[0].trims)
+                filters['carModel'] = select;
+                setFilters(filters);
                 FilterQueryString(filters);
                 setLoading(false)
-            }
-            // If the zip code is not available
-            else{
-                var split = doc.plus_code.compound_code.split(" ");
-                setZipCode(split[1] + " " + split[2] + " " + split[3])
-                // console.log(split, "asdadadadadad")
-                // setZipCode(doc.plus_code.compound_code);
-                // setZipCode("N/A");
-            }
-        })
-        .catch(error => {
-            console.log(error.message);
+            }).catch(error => {
+                console.log(error.message)
+                setLoading(false)
+            });
+        }else{
+            // console.log('filters1',filters)
+            setTrimList([]);
+            delete filters['trim']
+            delete filters['carModel']
+            // console.log('filters2',filters)
+            setFilters(filters);
+            FilterQueryString(filters);
+            setTrimCollapseOpen(false);
             setLoading(false)
-        });
-    }
-    
-    // If there is an error getting browsers location
-    function ShowError(error){
-        switch(error.code) {
-            case error.PERMISSION_DENIED:
-                console.log("User denied the request for Geolocation");
-                break;
-            case error.POSITION_UNAVAILABLE:
-                console.log("Location information is unavailable.");
-                break;
-            case error.TIMEOUT:
-                console.log("The request to get user location timed out.");
-                break;
-            case error.UNKNOWN_ERROR:
-                console.log("An unknown error occurred.");
-                break;
-            default:
-                console.log("An unknown error occurred.");
         }
     }
+    const handlePrice = (price) => {
+        console.log('handlePriceFilter')
+        setPrice(price);
+        filters['minPrice'] = price[0];
+        filters['maxPrice'] = price[1];
+        setFilters(filters);
+        FilterQueryString(filters);
+    }
 
 
+    const handleTrim = (selected) => {
+        setLoading(true)
+        setSelectedTrim(selected);
+        if(selected){
+                filters['trim'] = selected;
+                setFilters(filters);
+                FilterQueryString(filters);
+                setLoading(false)
+        }else{
+            delete filters['trim']
+            setFilters(filters);
+            FilterQueryString(filters);
+            setLoading(false)
+        }
+
+    }
+
+    const handleMileage = (mileage) => {
+        console.log("MILEAGE",mileage)
+        setMileage(mileage);
+        filters['minMileage'] = mileage[0];
+        filters['maxMileage'] = mileage[1]
+        setFilters(filters);
+        FilterQueryString(filters);
+    }
+
+    const onTransmissionChange = (val) => {
+        setLoading(true)
+        var automatic = document.getElementById('Automatic');
+        var manual = document.getElementById('Manual');
+        if(automatic.checked === true && manual.checked === true) {
+            delete filters['transmission'];
+        }
+        else if (automatic.checked === true) {
+            filters['transmission'] = "automatic";
+        }
+        else if (manual.checked === true) {
+            filters['transmission'] = "manual";
+        }
+        else {
+            delete filters['transmission'];
+        }
+        setFilters(filters);
+        FilterQueryString(filters);
+        setLoading(false)
+    }
 
     // This use effect will run only on first render
     useEffect(() => {
-        console.log('it is woring')
-        // Get the list of makes from vin audit api and store it in the makes state variable
-        console.log('Filters',props.carMake)
         if(props.bodyStyle){
             filters['bodyStyle'] = props.bodyStyle
             var index = basicBodyStyle.findIndex(a => a === props.bodyStyle)
@@ -757,9 +630,12 @@ const Filters = (props) => {
         }
         if(props.carMake){
             filters['carMake'] = props.carMake
+            handleMake2(props.carMake)
+            setModelCollapseOpen(true)
         }
         if(props.carModel){
             filters['carModel'] = props.carModel
+            setTrimCollapseOpen(true)
         }
         if(props.minPrice){
             filters['minPrice'] = props.minPrice
@@ -770,41 +646,21 @@ const Filters = (props) => {
         if(props.isUsed){
             filters['isUsed'] = props.isUsed
         }
-
-        console.log("Filters",filters)
         
-        GetAllMakes().then(doc => {
-           setMakeList(doc.makes);
-            console.log('chala',doc.makes)
-            if(props.carMake){
-                if(doc.makes.findIndex(a => a.name === props.carMake) !== -1){
-                    console.log('ye challlaa')  
-                    setModelCollapseOpen(true)
-                    handleMake2(props.carMake)
-                }
-            }
-            
+        Promise.all([GetAllMakes(),GetFiltersList()])
+        .then(values => {
+            setMakeList(values[0].makes);
+            setFiltersList(values[1].listRanges);
+            setPrice([0, values[1].listRanges.ranges[0].maxPrice]);
+            FilterQueryString(filters)
         })
         .catch(error => {
             alert(error.message);
         });
-
-        GetFiltersList().then(doc => {
-            setFiltersList(doc.listRanges);
-            setPrice([0, doc.listRanges.ranges[0].maxPrice]);
-            //handleCondition();
-        }).catch(error => {
-            console.log(error.message);
-        })
-
-        // Get the current location using HTML Geo location
-        GetLocation();
     }, []);
 
-
-    // This use effect will run every time the value of current Latitude and Longitude change
     useEffect(() => {
-        setLoading(true)
+        //setLoading(true)
         if(currentLatLng) {
             var latLong = currentLatLng.lat + "," + currentLatLng.lng;
             // Get zip code from the Google's API using the current lattitude and longitude
@@ -835,76 +691,49 @@ const Filters = (props) => {
         }
     }, [currentLatLng]);
 
+    const handleSellerType = () => {
+        setLoading(true)
+        var dealer = document.getElementById('dealer');
+        var privateSeller = document.getElementById('private-seller');
 
-    // Change the object into string and return it to parent class i.e Products page
-    // so the product page could ask API to fetch the results
-    function FilterQueryString(obj){
-        var str = "";
-        for(let i = 0; i < Object.keys(obj).length; i++){
-            str += Object.keys(obj)[i] + "=" + obj[Object.keys(obj)[i]];
-            if(i !== Object.keys(obj).length - 1){
-                str += "&";
-            }
+        if(dealer.checked === true && privateSeller.checked === true) {
+            delete filters['userType'];
         }
-        setGlobalFilterQuery(str)
-        // This function will be called from the parent class i.e products page
-        props.onFilterChange(str);
-    }
-
-    const saveFilters = () => {
-        var count = Object.keys(filters).length
-        const obj = {
-            count,
-            filter_query : globalFilterQuery,
-            userId : localStorage.getItem('userId'),
-            image_one : props.savedSearch.image_one,
-            image_two : props.savedSearch.image_two,
-            image_three : props.savedSearch.image_three,
-            title : props.savedSearch.title,
+        else if (dealer.checked === true) {
+            filters['userType'] = 2;
         }
-        postSavedSearch(obj)
-        .then(doc => {
-            // console.log(doc.message)
-            alert(doc.message)
-        })
-        .catch(e => {
-            console.log(e.message)
-        })
-    }
-
-
-    const handleExtColors = (elId) => {
-        let tempArr = [...extColors];
-        let indexOfItem = tempArr.indexOf(elId);
-
-        if (indexOfItem === -1) {
-            tempArr.push(elId);
+        else if (privateSeller.checked === true) {
+            filters['userType'] = 1;
         }
         else {
-            tempArr.splice(tempArr.indexOf(elId), 1)
+            delete filters['userType'];
         }
-        filters['exteriorColor'] = concatinateCommaToFilters(tempArr);
-        console.log('handlePriceFilter')
         setFilters(filters);
+        console.log('handlePriceFilter')
         FilterQueryString(filters);
-        setExtColors(tempArr);
+        setLoading(false)
     }
 
-    const handleInteriorColors = (elId) => {
-        let tempArr = [...intColors];
-        let indexOfItem = tempArr.indexOf(elId);
-
-        if (indexOfItem === -1) {
-            tempArr.push(elId);
+    const handleCondition = () => {
+        setLoading(true)
+        var conditionNew = document.getElementById('condition-new');
+        var conditionUsed = document.getElementById('condition-used');
+        if(conditionNew.checked === true && conditionUsed.checked === true) {
+            delete filters['isUsed'];
+        }
+        else if (conditionNew.checked === true) {
+            filters['isUsed'] = 0;
+        }
+        else if (conditionUsed.checked === true) {
+            filters['isUsed'] = 1;
         }
         else {
-            tempArr.splice(tempArr.indexOf(elId), 1)
+            delete filters['isUsed'];
         }
-        filters['interiorColor'] = concatinateCommaToFilters(tempArr);
-        console.log('handlePriceFilter')
         setFilters(filters);
+        console.log('filterssIsUsed',filters)
         FilterQueryString(filters);
-        setIntColors(tempArr);
+        setLoading(false)
     }
 
     return(
@@ -919,7 +748,7 @@ const Filters = (props) => {
                 }
                 {/* Clear all button */}
                 {/* <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => window.location.reload()}>Clear</Button> */}
-                <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => saveFilters()}>Save Filters</Button>
+                <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm">Save Filters</Button>
                 
                 {/******** Basic filters start here ************/}
 
@@ -966,7 +795,7 @@ const Filters = (props) => {
                                     </Col>
                                     {/* Changing the value of Radius on handle changing */}
                                     <Col xs="2" sm="1" md="3" lg="2" className="px-0">
-                                        <Label>{radius + " mi"}</Label>
+                                        <Label>20 mi</Label>
                                     </Col>
                                 </Row>
                             </div>
@@ -979,16 +808,16 @@ const Filters = (props) => {
                             {/* Make list will be fetched from vinaudit api
                             On changing the make, modal will be visible  */}
                             {
-                                makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }} disabled={loading} defaultValue={props.carMake ? props.carMake : ""}>
-                                <option value="">Make</option>
-                                {
-                                    makeList.map((option, index) => {
-                                        return <option value={option.name}>{option.name}</option>
-                                    })
-                                    // Make list will be populated using the results from vinaudit API
-                                    // concatMakeList(makeList)
-                                }
-                                </Input> : null
+                                 makeList.length > 1 ? <Input id="make-list" type="select" className="mb-4" onChange={(e) => { setModelCollapseOpen(true); handleMake(e.target.value) }} disabled={loading} defaultValue={props.carMake ? props.carMake : ""}>
+                                 <option value="">Make</option>
+                                 {
+                                     makeList.map((option, index) => {
+                                         return <option value={option.name}>{option.name}</option>
+                                     })
+                                     // Make list will be populated using the results from vinaudit API
+                                     // concatMakeList(makeList)
+                                 }
+                                 </Input> : null
                             }
                             
                             
@@ -996,29 +825,24 @@ const Filters = (props) => {
                              * populated and visible once the make is selected ************/}
                             <Collapse isOpen={isModelCollapseOpen}>
                                 <h6>Model</h6>
-
-                                <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)} disabled={loading} defaultValue={props.carModel ? props.carModel : ""}>
-                                <option value="">Model</option>
                                 {
-                                    modelList.map((option, index) => {
-                                        return <option value={option.name}>{option.name}</option>
-                                    })
+                                    modelList.length > 0 ? <Input id="model-list" type="select" className="mb-4" onChange={(e) => handleModel(e.target.value)} disabled={loading} defaultValue={props.carModel ? props.carModel : ""}>
+                                    <option value="">Model</option>
+                                    {
+                                        modelList.map((option, index) => {
+                                            return <option value={option.name}>{option.name}</option>
+                                        })
+                                    }
+                                    </Input>: null
                                 }
-                                </Input>
 
-
-
-                                {/* <MultiSelect
-                                    options={concatModelList(modelList)}
-                                    selected={selectedModels}
-                                    onSelectedChanged={selected => {  handleModel(selected) }} /> */}
+                                
                                 
 
                                 {/******** Trim filter, trim list will be 
                                  * populated and visible once the model is selected ************/}
                                 <Collapse isOpen={isTrimCollapseOpen}>
                                     <h6>Trim</h6>
-
 
                                     <Input id="trim-list" type="select" className="mb-4" onChange={(e) => handleTrim(e.target.value)} disabled={loading}>
                                     <option value="">Trim</option>
@@ -1028,17 +852,6 @@ const Filters = (props) => {
                                         })
                                     }
                                     </Input>
-
-
-
-
-
-
-
-                                    {/* <MultiSelect
-                                        options={concatTrimList(trimList)}
-                                        selected={selectedTrims}
-                                        onSelectedChanged={selected => { handleTrim (selected) }} /> */}
                                 </Collapse>
                             </Collapse>
 
@@ -1047,13 +860,13 @@ const Filters = (props) => {
                             {/******** Price filter ************/}
                             <h6>Price</h6>
                             <div className="px-2">
-                                <PriceRangeSlider
+                            <PriceRangeSlider
                                     min={0}
                                     max={filtersList.ranges[0].maxPrice}
                                     minLabel={price[0]}
                                     maxLabel={price[1]}
                                     step={5000}
-                                    defaultValue={[props.minPrice ? props.minPrice : 0, props.maxPrice ? props.maxPrice :filtersList.ranges[0].maxPrice]}
+                                    defaultValue={[props.minPrice ? Number(props.minPrice) : 0, props.maxPrice ? Number(props.maxPrice) : filtersList.ranges[0].maxPrice]}
                                     onHandlePrice={handlePrice} 
                                     disabled={loading}
                                 />
@@ -1067,7 +880,7 @@ const Filters = (props) => {
                                 <Col xs="6">
                                     {/* On selecting from year, to year will be enabled */}
                                     <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading} defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
-                                        <option disabled selected hidden>From</option>
+                                        <option value="" disabled selected hidden>From</option>
                                         {
                                             // Populate from year
                                             dropdownYears.map((year, index) => {
@@ -1079,7 +892,7 @@ const Filters = (props) => {
                                 <Col xs="6">
                                     {/* Disabled by default, will be enabled after from year is selected */}
                                     <Input id="toYear" type="select" onChange={(e) => handleToYear(e.target.value)} disabled defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
-                                        <option disabled selected hidden>To</option>
+                                        <option value="" disabled selected hidden>To</option>
                                         {
                                             // Populate to year
                                             dropdownToYears.map((year, index) => {
@@ -1162,21 +975,21 @@ const Filters = (props) => {
 
                             <Collapse isOpen={advancedFiltersShown}>    
                                 <h6>Transmission</h6>
-                                {
-                                    filtersList && filtersList.transmission.map((transmission, index) => {
-                                        return <FormGroup check key={index}>
-                                            <Input type="checkbox" id="manual" name="transmission" />
-                                            <Label check htmlFor="manual">{transmission}</Label>
-                                        </FormGroup>
-                                    })
-                                }
+                                <FormGroup check>
+                                    <Input onChange={e => onTransmissionChange('automatic')} type="checkbox" id="Automatic" name="Automatic" />
+                                    <Label check htmlFor="Automatic">{"Automatic"}</Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                    <Input onChange={e => onTransmissionChange('manual')} type="checkbox" id="Manual" name="Manual" />
+                                    <Label check htmlFor="Manual">{"Manual"}</Label>
+                                </FormGroup>
 
                                 <hr />
 
 
                                 <h6>Mileage</h6>
                                 <div className="px-2">
-                                    <MileageSlider
+                                <MileageSlider
                                         min={0}
                                         max={99999}
                                         minLabel={mileage[0]}
@@ -1188,43 +1001,7 @@ const Filters = (props) => {
 
                                 <hr />
 
-                                <h6>Exterior Color</h6>
-                                <Row className="exterior-color text-center">
-                                    {
-                                        filtersList && filtersList.colors.map((extColorFilter, index) => {
-                                            return <Col xs="4" sm="2" md="4" key={index}>
-                                                <div className="color-swatch" id={extColorFilter.name} style={{backgroundColor: extColorFilter.color}} onClick={() => handleExtColors(extColorFilter.name)}>
-                                                    {
-                                                        extColors.length > 0 && extColors.includes(extColorFilter.name) ? <Check /> : null
-                                                    }
-                                                </div>
-                                                <p>{extColorFilter.name}</p>
-                                            </Col>
-                                        })
-                                    }
-                                </Row>
-
-
-
-
-                                {/* Interior Color */}
-                                <hr />
-
-                                <h6>Interior Color</h6>
-                                <Row className="exterior-color text-center">
-                                    {
-                                        filtersList && filtersList.colors.map((extColorFilter, index) => {
-                                            return <Col xs="4" sm="2" md="4" key={index}>
-                                                <div className="color-swatch" id={extColorFilter.name} style={{backgroundColor: extColorFilter.color}} onClick={() => handleInteriorColors(extColorFilter.name)}>
-                                                    {
-                                                        intColors.length > 0 && intColors.includes(extColorFilter.name) ? <Check /> : null
-                                                    }
-                                                </div>
-                                                <p>{extColorFilter.name}</p>
-                                            </Col>
-                                        })
-                                    }
-                                </Row>
+                                
                             </Collapse>
                         </div>
                     : DrawFiltersSkeleton()

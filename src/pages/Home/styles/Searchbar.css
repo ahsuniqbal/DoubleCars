@@ -133,6 +133,13 @@ select:required:invalid {
 .condition-dropdown select{
     display:none
 }
+
+
+.price-box::placeholder {
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 14px;
+}
+
 /* media */
  
 @media screen and (max-width:425px){
