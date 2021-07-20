@@ -10,23 +10,31 @@ import LoginSignupModal from '../../Authentication/LoginSignupModal/LoginSignupM
 import { getLogin, isLogin } from '../../../config/LoginAuth';
 import Lottie from 'react-lottie';
 import saveAnimation from '../../../assets/animations/save.json';
+import unSaveAnimation from '../../../assets/animations/unsave.json';
 
 const Gallery = (props) => {
 
     const [saveId, setSaveId] = useState(null);
     const [popupModal, setPopupModal] = useState(false);
     const [matched,setMatched] = useState(true)
-
-    const [isSaveStopped, setIsSaveStopped] = useState(false);
     
     const popupToggle = () => setPopupModal(!popupModal);
 
 
 
     const defaultOptions = {
-        loop: true,
-        autoplay: true,
+        loop: false,
+        autoplay: false,
         animationData: saveAnimation,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice"
+        }
+    };
+
+    const defaultUnSaveOptions = {
+        loop: false,
+        autoplay: false,
+        animationData: unSaveAnimation,
         rendererSettings: {
           preserveAspectRatio: "xMidYMid slice"
         }
@@ -34,41 +42,27 @@ const Gallery = (props) => {
 
 
     useEffect(() => {
-       
-
         GetIfSaved(props.productId, getLogin()).then(doc => {
-            console.log(doc)
             setSaveId(doc.details[0].saveId);
         }).catch(error => {
             console.log(error)
         })
 
         function handleResize() {
-            console.log('resized to: ', window.innerWidth, 'x', window.innerHeight)
             if(window.innerWidth<=Number(768)){
-                console.log('matched')
                 setMatched(false)
             }else{
                 setMatched(true)
-
-                console.log("Not matched")
             }
-        }   
-
-       
-        
+        } 
 
         window.addEventListener('resize', handleResize)
         if(window.innerWidth<=Number(768)){
-            console.log('matched')
             setMatched(false)
         }else{
-            console.log("Not matched")
             setMatched(true)
 
         }
-
-
     }, [])
 
 
@@ -112,14 +106,11 @@ const Gallery = (props) => {
                 <LoginSignupModal isOpen={popupModal} toggle={popupToggle} />
                 {
                     saveId ? 
-                    // <>
-                    // <Lottie 
-                    //     options={defaultOptions}
-                    // />
-                    <FontAwesomeIcon icon={faBookmark} className = "save-gallery-icon" onClick={() => handleClick(props.productId, getLogin())} />
-                    // </>
+                    // <Lottie options={defaultOptions} />
+                    <FontAwesomeIcon icon={faBookmark} className = "save-gallery-icon" />
                     :
-                    <Bookmark color="#000000" size={20} className = "un-save-gallery-icon" onClick={() => isLogin() ? handleClick(props.productId, getLogin()) : popupToggle() } />
+                    <Bookmark color="#000000" size={20} className = "un-save-gallery-icon" />
+                    // <Lottie options={defaultUnSaveOptions} />
                 }
             </div>
         </div>    

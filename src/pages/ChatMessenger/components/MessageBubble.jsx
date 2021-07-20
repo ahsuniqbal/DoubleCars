@@ -126,7 +126,7 @@ const MessageBubble = (props) => {
                                     <Col xs="7" className="px-0">
                                         <CardTitle title={list[i].vehicleTitle ? list[i].vehicleTitle : ""}>{list[i].vehicleTitle ? list[i].vehicleTitle : ""}</CardTitle>
                                         <CardSubtitle title={list[i].vehicleSubTitle ? list[i].vehicleSubTitle : ""}>{list[i].vehicleSubTitle ? list[i].vehicleSubTitle : ""}</CardSubtitle>
-                                        <CardText>${AddCommaToNumber(list[i].vehiclePrice ? list[i].vehiclePrice : "")}</CardText>
+                                        <CardText>{AddCommaToNumber(list[i].vehiclePrice ? list[i].vehiclePrice : "")}</CardText>
                                     </Col>
                                 </Row>
                             </div>
@@ -207,7 +207,7 @@ const MessageBubble = (props) => {
                                     <Col xs="7" className="px-0">
                                         <CardTitle title={list[i].vehicleTitle ? list[i].vehicleTitle : ""}>{list[i].vehicleTitle ? list[i].vehicleTitle : ""}</CardTitle>
                                         <CardSubtitle title={list[i].vehicleSubTitle ? list[i].vehicleSubTitle : ""}>{list[i].vehicleSubTitle ? list[i].vehicleSubTitle : ""}</CardSubtitle>
-                                        <CardText>${AddCommaToNumber(list[i].vehiclePrice ? list[i].vehiclePrice : "")}</CardText>
+                                        <CardText>{AddCommaToNumber(list[i].vehiclePrice ? list[i].vehiclePrice : "")}</CardText>
                                     </Col>
                                 </Row>
                             </div>

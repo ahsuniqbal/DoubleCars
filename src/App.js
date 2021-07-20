@@ -55,7 +55,7 @@ function App() {
     //   </div>
     return <Row>
       <Col xs="12">
-        <Lottie options={defaultOptions} width={330} height={200}/>
+        <Lottie options={defaultOptions} width={330} height={200} style={{marginTop: '6rem'}} />
       </Col>
     </Row>
     
@@ -71,7 +71,7 @@ function App() {
         <Switch>
           {/* <Row>
             <Col xs="12">
-              <Lottie options={defaultOptions} width={330} height={200}/>
+              <Lottie options={defaultOptions} width={330} height={200} style={{marginTop: '6rem'}} />
             </Col>
           </Row> */}
           <Route path="/login" component={Login}/>

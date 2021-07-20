@@ -1,5 +1,5 @@
 import React,{ useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import { Card, CardBody, CardImg, CardTitle, CardSubtitle, CardText, Row, Col, Label, Button } from 'reactstrap';
 import BlogPageImage4 from '../../../assets/BlogPageImage4.png';
 import profileChat from '../../../assets/dummyAvatar.jpg';
@@ -20,6 +20,8 @@ const mapStateToProps = (state) => {
 }
 
 const ProfileView = (props) => {
+    const history = useHistory();
+
     const [user,setUser] = useState(null);
     const [enquiry,setEnquiry] = useState([])
 
@@ -29,20 +31,14 @@ const ProfileView = (props) => {
     
 
     useEffect(() => {
-
-        
-
-        console.log('props....',props)
         if(props.chats.user){
             getChatEnquires(props.chats.chat.receiverId,props.chats.chat.senderId)
         .then(doc => {
-            console.log('enquiry',doc)
             setEnquiry(doc)
         })
         .catch(e => {
             console.log(e.message)
         })
-            console.log('props.chats',props.chats)
             getUser(props.chats.user.userId)
             .then(doc => {
                 console.log("dd",doc)
@@ -64,14 +60,16 @@ const ProfileView = (props) => {
                     <div className="inquiring-container" >
                         <h6>Inquiring For</h6>
 
-                        <Row className="inquaring-for-card">
+                        <Row className="inquaring-for-card" 
+                            // onClick={() => history.push(`/product/${enquiry[0].productId}`)}
+                        >
                             <Col xs="5" className="px-0">
                                 <CardImg loading="lazy" src={enquiry[0].vehicleImage ? enquiry[0].vehicleImage : dummyAvatar} />
                             </Col>
                             <Col xs="7" className="pr-0">
                                 <CardTitle title={enquiry[0].enquiryText}>{enquiry[0].enquiryText}</CardTitle>
                                 <CardSubtitle title={enquiry[0].vehicleSubTitle}>{enquiry[0].vehicleSubTitle}</CardSubtitle>
-                                <CardText>${AddCommaToNumber(enquiry[0].vehiclePrice)}</CardText>
+                                <CardText>{AddCommaToNumber(enquiry[0].vehiclePrice)}</CardText>
                             </Col>
                         </Row>
                     </div> : null
