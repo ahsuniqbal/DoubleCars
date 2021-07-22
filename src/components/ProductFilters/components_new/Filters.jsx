@@ -9,6 +9,7 @@ import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders
 import '../styles/Filters.css';
 import { FiltersSkeleton } from '../../Skeletons/components/Skeleton';
 
+//fitlers freeze
 
 const Filters = (props) => {
     /////////////// Filters ///////////////
