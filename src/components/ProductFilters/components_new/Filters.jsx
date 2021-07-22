@@ -571,6 +571,11 @@ const Filters = (props) => {
     }
 
 
+    const hadlePriceChange = (price) => {
+        setPrice(price)
+    }
+
+
     const handleTrim = (selected) => {
         setLoading(true)
         setSelectedTrim(selected);
@@ -886,6 +891,7 @@ const Filters = (props) => {
                                     defaultValue={[props.minPrice ? Number(props.minPrice) : 0, props.maxPrice ? Number(props.maxPrice) : filtersList.ranges[0].maxPrice]}
                                     onHandlePrice={handlePrice} 
                                     disabled={loading}
+                                    onHandlePriceChange={hadlePriceChange}
                                 />
                             </div>
                             

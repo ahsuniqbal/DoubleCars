@@ -89,7 +89,7 @@ const Searchbar = () => {
         if (selectedModel) 
             queryStr += "&carModel=" + selectedModel
         if (condition)
-            queryStr += "&isUsed" + condition
+            queryStr += "&isUsed=" + condition
 
         history.push({
             pathname: '/products',
@@ -276,8 +276,8 @@ const Searchbar = () => {
                                 <Col xs="12" sm="6" md="3" className='my-1' >
                                     <Input id="condition" type="select" className="condition-dropdown">
                                         <option value="" disabled selected>Condition</option>
-                                        <option value="false">New</option>
-                                        <option value="true">Used</option>
+                                        <option value={0}>New</option>
+                                        <option value={1}>Used</option>
                                     </Input>
                                 </Col>
 
@@ -305,8 +305,8 @@ const Searchbar = () => {
                                 <Col xs="12" sm="6" md="3" className='my-1'>
                                     <Input id="condition-body" type="select" className="condition-dropdown">
                                         <option value="" disabled selected>Condition</option>
-                                        <option value="false">New</option>
-                                        <option value="true">Used</option>
+                                        <option value={0}>New</option>
+                                        <option value={1}>Used</option>
                                     </Input>
                                 </Col>
 
@@ -337,8 +337,8 @@ const Searchbar = () => {
                                 <Col xs="12" sm="6" md="3" className='my-1' >
                                     <Input id="condition-price" type="select" className="condition-dropdown">
                                         <option value="" disabled selected>Condition</option>
-                                        <option value="false">New</option>
-                                        <option value="true">Used</option>
+                                        <option value={0}>New</option>
+                                        <option value={1}>Used</option>
                                     </Input>
                                 </Col>
 

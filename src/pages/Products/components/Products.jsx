@@ -12,6 +12,9 @@ import { Frown, Repeat } from 'react-feather';
 import '../styles/Products.css';
 import { ArrowUp } from "react-feather";
 import DCAdBanner from './DCAdBanner';
+import {
+    CPagination
+} from '@coreui/react'
 
 
 const ShowSearchResults = (products) => {
@@ -329,6 +332,12 @@ const Products = (props) => {
                                 }
                             })
                         } */}
+                    </Row>
+
+                    <Row>
+                        <Col xs="12">
+                            <CPagination />
+                        </Col>
                     </Row>
                 </Col>
             </Row>
