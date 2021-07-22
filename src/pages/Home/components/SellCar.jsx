@@ -21,12 +21,12 @@ const SellCar = () => {
                     <Row>
                         <Col xs={12} sm={12} md={8} >
                             <div className='app-container'>
-                                <h2 className='blue-head mb-5'>
-                                    Sell Your Car on Our Platform <br id="break" /> With Ease.
+                                <h2 className='blue-head mb-3'>
+                                Sell your car quickly<br id="break" /> Get the app now
                                 </h2>
                                 <p className='blue-text'> 
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.Impedit laborum blanditiis repellat sapiente harum veniam labore,
-                                    numquam illo provident distinctio voluptatem perferendis possimus est quaerat!
+                                Download the app now to access a wide range of features to sell your car faster. Dealerships, private sellers, or 1st time selling. We got you covered.
+
                                 </p>
                                 {/* <button className='google-play '> */}
                                     <div id="app-buttons">

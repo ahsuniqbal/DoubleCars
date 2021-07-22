@@ -51,3 +51,19 @@
 .service-col{
     padding: 3% 3% 6%;
 }
+.learn-more-service-button {
+    background-color: #1C67CE !important;
+    border-radius: 6px;
+    color: #ffffff ;
+    font-size: 15px;
+    height: 56px;
+    width: 165px;
+    font-weight: 500;
+    border-color: #1C67CE;
+    display: inline;
+    margin-right: 5%;
+
+}
+.learn-more-service-button:focus, .learn-more-service-button:active:focus {
+    box-shadow: none !important;
+}
