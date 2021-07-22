@@ -136,8 +136,11 @@ const ProductResults = ({match}) => {
                     </Row>
                     {
                         productDetails ?
-                        <Row >
-                            <Col className="react-image" sm="12" md = "12">
+                    <Row>
+
+                        
+                      
+                        <Col className="react-image" sm="12" md = "8">
                                 {
                                     productDetails.images > 0 ?
                                         productDetails.images[0].image !== "" ? 
@@ -146,26 +149,16 @@ const ProductResults = ({match}) => {
                                     : productDetails.details[0].coverPic ? <Gallery items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)} productId={productDetails.details[0].productId} /> :
                                     <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
                                 }
-                            </Col>
-
-                            <Col xs="12" md="8">
                                 {
                                     graphData && <Chart newData={"a"} data={graphData} />
                                 }
-                                
-                            </Col>
-
-                            <Col md = "8">
-                           
-                                <Information
+                                 <Information
                                     details={productDetails.details[0]}
                                     attributes={productDetails.attributes}
                                     saveCount={productDetails.totalSaves[0]}
                                 />
-                                
-                            </Col>
-
-                            <Col md = "4">
+                        </Col>
+                            <Col md = "4" sm = "12">
                                 <AboutSeller
                                     userId={productDetails.details[0].userId}
                                     details={productDetails.details[0]}
@@ -180,11 +173,22 @@ const ProductResults = ({match}) => {
                                     />
                                 }
                             </Col>
+                        
                             
-                            {/* <Col md = "4">
+
+                            <Col xs="12" md="8">
                                 
-                            </Col> */}
-                        </Row> :
+                                
+                            </Col>
+
+                            <Col md = "8">
+                           
+                               
+                                
+                            </Col>
+
+                          
+                    </Row> :
                         <Row>
                             <Col md="8">
                                 <Skeleton variant="rect" width={800} height={378} animation="wave" />
@@ -230,9 +234,10 @@ const ProductResults = ({match}) => {
                                 <Skeleton variant="text" animation="wave" /> */}
                             </Col>
                         </Row>
+                      
                     
                     }
-                   
+                    
                         
                             <Row>
                                 <Col md = "6" xs = "12">

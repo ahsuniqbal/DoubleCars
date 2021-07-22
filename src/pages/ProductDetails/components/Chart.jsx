@@ -53,7 +53,7 @@ const Chart = (props) => {
 
 
     return (
-        <Card>
+        <Card  style={{marginTop: '4rem'}}>
             <CardBody>
                 <Row>
                     <Col xs="6">
