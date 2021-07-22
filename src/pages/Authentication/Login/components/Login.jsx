@@ -160,16 +160,16 @@ const Login = (props) => {
                             <h2 className = "login-or-label"><span>or continue with</span></h2>
 
                             <div className = "icons">
-                                {/* <SocialButton
+                                <SocialButton
                                     provider='google'
                                     appId='864485035255-voh1e1n1jr71rmk1kjmhonnplgg6el5g.apps.googleusercontent.com'
                                     onLoginSuccess={GLoginSuccess}
                                     onLoginFailure={GLoginFailure}
-                                > */}
+                                >
                                     <div className="google-button">
                                         <span className=""></span>
                                     </div>
-                                {/* </SocialButton> */}
+                                </SocialButton>
                                 
                                 <SocialButton
                                     provider='facebook'

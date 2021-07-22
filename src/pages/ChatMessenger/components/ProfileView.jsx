@@ -67,7 +67,7 @@ const ProfileView = (props) => {
                                 <CardImg loading="lazy" src={enquiry[0].vehicleImage ? enquiry[0].vehicleImage : dummyAvatar} />
                             </Col>
                             <Col xs="7" className="pr-0">
-                                <CardTitle title={enquiry[0].enquiryText}>{enquiry[0].enquiryText}</CardTitle>
+                                <CardTitle title={enquiry[0].vehicleTitle}>{enquiry[0].vehicleTitle}</CardTitle>
                                 <CardSubtitle title={enquiry[0].vehicleSubTitle}>{enquiry[0].vehicleSubTitle}</CardSubtitle>
                                 <CardText>{AddCommaToNumber(enquiry[0].vehiclePrice)}</CardText>
                             </Col>
