@@ -142,16 +142,16 @@ const NavigationBar = () => {
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <a className={window.location.pathname!=='/fullviewheader' ? "nav-link navigation-items" : 'nav-link white-navigation-item'}
-                              href='/products?isUsed=false'>
-                                    {window.location.search==='?isUsed=false' ?
+                              href='/products?isUsed=0'>
+                                    {window.location.search==='?isUsed=0' ?
                                     <span style={styleDiv}>New Cars</span>:
                                     <span >New Cars</span>}
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className={window.location.pathname!=='/fullviewheader' ? "nav-link navigation-items" : 'nav-link white-navigation-item'}
-                                     href='/products?isUsed=true'>
-                                     {window.location.search==='?isUsed=true' ?
+                                     href='/products?isUsed=1'>
+                                     {window.location.search==='?isUsed=1' ?
                                     <span style={styleDiv}>Used Cars</span>:
                                     <span >Used Cars</span>}
                             </a>

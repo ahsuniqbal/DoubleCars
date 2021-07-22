@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Col ,Row, Label, Input, Container, Button} from 'reactstrap';
 import { SortByRelevance, SortByPrice } from '../../../utils/Sorting';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation'
-import Filters from '../../../components/ProductFilters/components/Filters';
+import Filters from '../../../components/ProductFilters/components_new/Filters';
 import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
+import queryString from 'query-string';
+
 import { GetSellerDetails, GetSellerInventory, GetSearchResult } from '../api/GetRequests';
 import { ArrowUp } from "react-feather";
 
@@ -30,7 +32,10 @@ const ShowSearchResults = (inventory) => {
     return table;
 }
 
-const DealerProfile = ({match}) => {
+const DealerProfile = (props) => {
+
+    let locationSearch = queryString.parse(props.location.search);
+
     const [dealer, setDealer] = useState(null);
     const [inventory, setInventory] = useState([]);
     const [sortFlag, setSortFlag] = useState(false);
@@ -72,74 +77,74 @@ const DealerProfile = ({match}) => {
 
 
     var firstFlag = false
-    useEffect(() => {
-        var tempStr = ""
-        const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
-        // if(locationSearch.search){
-        //     tempStr += `search=${locationSearch.search}&page=${pageNumber}&${globalQuery}`
-        // }else{
-            tempStr += `page=${pageNumber}&${globalQuery}&id=${userId}&dealerId=${match.params.id}`
-        // }
-        // tempStr += `&id=${userId}`
-        // tempStr += `&dealerId=${match.params.id}`
-        console.log("QQUERY",tempStr)
-        setPageNumber(pageNumber + 1);
-        GetSearchResult(tempStr).then(doc1 => {
-            setTotalCount(doc1.totalCount);
-            const doc = doc1.results;
-            console.log(doc)
+    // useEffect(() => {
+    //     var tempStr = ""
+    //     const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
+    //     // if(locationSearch.search){
+    //     //     tempStr += `search=${locationSearch.search}&page=${pageNumber}&${globalQuery}`
+    //     // }else{
+    //         tempStr += `page=${pageNumber}&${globalQuery}&id=${userId}&dealerId=${props.match.params.id}`
+    //     // }
+    //     // tempStr += `&id=${userId}`
+    //     // tempStr += `&dealerId=${props.match.params.id}`
+    //     console.log("QQUERY",tempStr)
+    //     setPageNumber(pageNumber + 1);
+    //     GetSearchResult(tempStr).then(doc1 => {
+    //         setTotalCount(doc1.totalCount);
+    //         const doc = doc1.results;
+    //         console.log(doc)
 
-            // This was the condition that was written previously
-            // I changed this condition copying products page
-            // if(inventory.length > 0)
-            if(doc.length > 0){
-                var tempObj = {
-                    title : doc[0].carName,
-                    image_one : doc[0].coverPic,
-                    image_two : doc[1] ? doc[1].coverPic ? doc[1].coverPic : null : null,
-                    image_three : doc[2] ? doc[2].coverPic ? doc[2].coverPic : null : null
-                }
-                setSavedSearchObj(tempObj)
-            }
+    //         // This was the condition that was written previously
+    //         // I changed this condition copying products page
+    //         // if(inventory.length > 0)
+    //         if(doc.length > 0){
+    //             var tempObj = {
+    //                 title : doc[0].carName,
+    //                 image_one : doc[0].coverPic,
+    //                 image_two : doc[1] ? doc[1].coverPic ? doc[1].coverPic : null : null,
+    //                 image_three : doc[2] ? doc[2].coverPic ? doc[2].coverPic : null : null
+    //             }
+    //             setSavedSearchObj(tempObj)
+    //         }
             
-            if(inventory.length > 0) {
-                setBooleanFlag(false);
-                var temp = inventory
-                for(let i = 0; i < doc.length; i++){
-                    temp.push(doc[i])
-                }
-                setInventory(temp);
-            }
+    //         if(inventory.length > 0) {
+    //             setBooleanFlag(false);
+    //             var temp = inventory
+    //             for(let i = 0; i < doc.length; i++){
+    //                 temp.push(doc[i])
+    //             }
+    //             setInventory(temp);
+    //         }
 
-                // setPageNumber(pageNumber + 1)
-                // setBooleanFlag(false);
-                // var temp = inventory
-                // for(let i = 0; i < doc.length; i++){
-                //     temp.push(doc[i])
-                // }
-                // setInventory(temp);
-            // }
-            else{
-                setInventory(doc);
-                setBooleanFlag(true);
-            }
-            setFlag(!flag)
-        })
-        .catch(error => {
-            console.log(error.message);
-        });
+    //             // setPageNumber(pageNumber + 1)
+    //             // setBooleanFlag(false);
+    //             // var temp = inventory
+    //             // for(let i = 0; i < doc.length; i++){
+    //             //     temp.push(doc[i])
+    //             // }
+    //             // setInventory(temp);
+    //         // }
+    //         else{
+    //             setInventory(doc);
+    //             setBooleanFlag(true);
+    //         }
+    //         setFlag(!flag)
+    //     })
+    //     .catch(error => {
+    //         console.log(error.message);
+    //     });
     
-    }, [isBottom]);
+    // }, [isBottom]);
 
 
     useEffect(() => {
-        GetSellerDetails(match.params.id).then(doc => {
+        GetSellerDetails(props.match.params.id).then(doc => {
             setDealer(doc[0]);
         })
         .catch(error => {
             console.log(error.message);
         });
-        // GetSellerInventory(match.params.id).then(doc => {
+        // GetSellerInventory(props.match.params.id).then(doc => {
         //     setInventory(doc.inventory);
         // })
         // .catch(error => {
@@ -155,11 +160,13 @@ const DealerProfile = ({match}) => {
         // if(locationSearch.search){
         //     str = `search=${locationSearch.search}&page=${pageNumber}&${queryStr}`
         // }else{
-            str = `page=${pageNumber}${queryStr ? "&"+queryStr : ""}&id=${userId}&dealerId=${match.params.id}`
+            str = `page=${pageNumber}${queryStr ? "&"+queryStr : ""}&id=${userId}&dealerId=${props.match.params.id}`
         // }
         // str += `&id=${userId}`
-        // str += `&dealerId=${match.params.id}`
+        // str += `&dealerId=${props.match.params.id}`
         console.log("QQUERY",str)
+        window.history.replaceState(null,"dealerProfile",`/dealer/${props.match.params.id}?${queryStr}`)
+
         GetSearchResult(str).then(doc1 => {
             console.log(doc1)
             setTotalCount(doc1.totalCount)
@@ -236,6 +243,14 @@ const DealerProfile = ({match}) => {
                 <Col md = "3" style = {{marginTop: '6rem'}}>
                     <Filters
                         onFilterChange={filterQueryChange}
+                        isUsed={locationSearch.isUsed}
+                        bodyStyle={locationSearch.bodyStyle}
+                        carMake={locationSearch.carMake}
+                        carModel={locationSearch.carModel}
+                        minPrice={locationSearch.minPrice}
+                        maxPrice={locationSearch.maxPrice}
+                        yearCar={locationSearch.yearCar}
+                        isDealer={false}
                         savedSearch={savedSearchObj}
                         // search={"audi"}
                     />

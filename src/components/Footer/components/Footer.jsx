@@ -56,8 +56,8 @@ const Footer = () => {
                         <Col xs="6" md="2" className = "footer-columns">
                             <Nav vertical>
                                 <Link to={'/products/'}>
-                                    <NavLink className = "nav-text-color" href='/products?isUsed=false'>
-                                    {window.location.search=='?isUsed=false' ?
+                                    <NavLink className = "nav-text-color" href='/products?isUsed=0'>
+                                    {window.location.search=='?isUsed=0' ?
                                     <span >New Cars</span>:
                                     <span >New Cars</span>}
                                     </NavLink>
@@ -66,8 +66,8 @@ const Footer = () => {
                                     <NavLink className = "nav-text-color" to = "">Popular Cars</NavLink>
                                 </Link>
                                 <Link to={'/products/'}>
-                                    <NavLink className = "nav-text-color" href='/products?isUsed=true'>
-                                    {window.location.search=='?isUsed=true' ?
+                                    <NavLink className = "nav-text-color" href='/products?isUsed=1'>
+                                    {window.location.search=='?isUsed=1' ?
                                     <span >Used Cars</span>:
                                     <span >Used Cars</span>}
                                     </NavLink>
