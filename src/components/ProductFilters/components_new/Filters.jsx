@@ -736,6 +736,23 @@ const Filters = (props) => {
         setLoading(false)
     }
 
+    const handleExtColors = (elId) => {
+        let tempArr = [...extColors];
+        let indexOfItem = tempArr.indexOf(elId);
+
+        if (indexOfItem === -1) {
+            tempArr.push(elId);
+        }
+        else {
+            tempArr.splice(tempArr.indexOf(elId), 1)
+        }
+        filters['exteriorColor'] = concatinateCommaToFilters(tempArr);
+        console.log('handlePriceFilter')
+        setFilters(filters);
+        FilterQueryString(filters);
+        setExtColors(tempArr);
+    }
+
     return(
         <Card className="filters">
             <CardBody>
@@ -1000,6 +1017,22 @@ const Filters = (props) => {
                                 </div>
 
                                 <hr />
+
+                                <h6>Exterior Color</h6>
+                                <Row className="exterior-color text-center">
+                                    {
+                                        filtersList && filtersList.exteriorColors.map((extColorFilter, index) => {
+                                            return <Col xs="4" sm="2" md="4" key={index}>
+                                                <div className="color-swatch" id={extColorFilter.name} style={{backgroundColor: extColorFilter.color}} onClick={() => handleExtColors(extColorFilter.name)}>
+                                                    {
+                                                        extColors.length > 0 && extColors.includes(extColorFilter.name) ? <Check /> : null
+                                                    }
+                                                </div>
+                                                <p>{extColorFilter.name}</p>
+                                            </Col>
+                                        })
+                                    }
+                                </Row>
 
                                 
                             </Collapse>
