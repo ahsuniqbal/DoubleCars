@@ -595,7 +595,7 @@ const Filters = (props) => {
         }
     }
     const handlePrice = (price) => {
-        console.log('handlePriceFilter')
+        console.log('handlePriceFilter',price)
         setPrice(price);
         filters['minPrice'] = price[0];
         filters['maxPrice'] = price[1];
@@ -672,9 +672,7 @@ const Filters = (props) => {
             filters['carModel'] = props.carModel
             setTrimCollapseOpen(true)
         }
-        if(props.minPrice){
-            filters['minPrice'] = props.minPrice
-        }
+        
         if(props.yearCar){
             filters['yearCar'] = props.yearCar
         }
@@ -686,7 +684,13 @@ const Filters = (props) => {
         .then(values => {
             setMakeList(values[0].makes);
             setFiltersList(values[1].listRanges);
-            setPrice([0, values[1].listRanges.ranges[0].maxPrice]);
+            if(props.minPrice){
+                setPrice([props.minPrice,props.maxPrice ? props.maxPrice : 9999999]);
+                filters['minPrice'] = props.minPrice
+                filters['maxPrice'] = props.maxPrice ? props.maxPrice : 9999999
+            }else{
+                setPrice([0, values[1].listRanges.ranges[0].maxPrice]);
+            }
             FilterQueryString(filters)
         })
         .catch(error => {
@@ -744,7 +748,6 @@ const Filters = (props) => {
             delete filters['userType'];
         }
         setFilters(filters);
-        console.log('handlePriceFilter')
         FilterQueryString(filters);
         setLoading(false)
     }
@@ -782,7 +785,6 @@ const Filters = (props) => {
             tempArr.splice(tempArr.indexOf(elId), 1)
         }
         filters['exteriorColor'] = concatinateCommaToFilters(tempArr);
-        console.log('handlePriceFilter')
         setFilters(filters);
         FilterQueryString(filters);
         setExtColors(tempArr);
