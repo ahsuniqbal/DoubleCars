@@ -250,6 +250,7 @@ const DealerProfile = (props) => {
                         minPrice={locationSearch.minPrice}
                         maxPrice={locationSearch.maxPrice}
                         yearCar={locationSearch.yearCar}
+                        isDealer={false}
                         savedSearch={savedSearchObj}
                         // search={"audi"}
                     />

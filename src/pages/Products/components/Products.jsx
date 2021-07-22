@@ -285,6 +285,7 @@ const Products = (props) => {
                         maxPrice={locationSearch.maxPrice}
                         yearCar={locationSearch.yearCar}
                         search={locationSearch.search}
+                        isDealer={true}
                         savedSearch={savedSearchObj}
                     />
                 </Col>
