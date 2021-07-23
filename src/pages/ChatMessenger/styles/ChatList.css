@@ -58,5 +58,5 @@
 }
 
 .chat-list .scrollable::-webkit-scrollbar {
-    visibility: hidden;
+    display: none;
 }
