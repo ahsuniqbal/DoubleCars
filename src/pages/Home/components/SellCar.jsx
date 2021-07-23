@@ -2,11 +2,14 @@ import React from 'react';
 import { Col, Row, Button, Container } from 'reactstrap';
 import '../styles/SellCar.css';
 import GooglePlayImg from '../../../assets/GooglePlayButton.png'
+
+import AppStore from '../../../assets/AppStore.png'
 import Mobile from '../../../assets/mobile Image.png'
 import Upload from '../../../assets/upload.png'
 import Chat from '../../../assets/message-square.png'
 import Checkbox from '../../../assets/check-square.png'
 import { Link } from 'react-router-dom';
+
 
 const SellCar = () => {
    
@@ -31,11 +34,11 @@ const SellCar = () => {
                                 {/* <button className='google-play '> */}
                                     <div id="app-buttons">
                                         <Link to='https://play.google.com/store/apps'>
-                                            <img src={GooglePlayImg} alt='get it on google play' className='google-play '/>
+                                            <img src={GooglePlayImg} alt='get it on google play' className='google-play mr-4'/>
                                         </Link>
                                         {/* </button> */}
                                         <Link to = {'/about/'}>
-                                            <Button outline className='learn-button '>iOS Coming Soon</Button>
+                                            <img src={AppStore} alt='get it on AppStore' className='google-play'/>
                                         </Link>
                                     </div>
                                 

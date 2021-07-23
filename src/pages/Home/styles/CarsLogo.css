@@ -33,6 +33,7 @@
     font-size: 28px;
     line-height: 120%;
     color: #080B30;
+    margin-bottom: 4rem !important;
 }
 .giving-margin{
     padding: 0;
@@ -42,17 +43,6 @@
     margin: 0 !important;
 }
 
-
-
-
-.carslogo-text{
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 120%;
-    color: rgba(8, 11, 48, 0.65);
-}
 .cardslogo-main{
     
     width: 85%;

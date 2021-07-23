@@ -79,7 +79,6 @@ const CarsLogo = () => {
                <Row className='popular-make' > 
                    <Col md='12' xs='12' className='card-main-head text-center'>
                        <h2 className='carslogo-head'>Popular Make</h2>
-                       <p className='carslogo-text'>Download app and upload your car in few steps</p>
                    </Col>
                 </Row>
 

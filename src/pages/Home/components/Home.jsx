@@ -372,7 +372,7 @@ const Home = () => {
             <CarsLogo/>
             </Container>
             
-            <div style={{backgroundColor:'white '}}>
+            {/* <div style={{backgroundColor:'white '}}>
                  <Row style={{margin:'0'}}>
                     <Col xs = "12" md = "12" sm = "12" className = "top-stories-main text-center">
                             <h2 className = "top-stories-heading">Top Stories</h2>
@@ -398,7 +398,7 @@ const Home = () => {
                 </Container>
                 
                
-            </div>
+            </div> */}
          
             
         </div>
