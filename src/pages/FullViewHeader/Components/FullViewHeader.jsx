@@ -10,7 +10,7 @@ function FullViewHeader(){
          
             <HeaderMain/>
             <Dealership/>
-            <LowerMain/>
+            {/* <LowerMain/> */}
            
         </div>
     )
