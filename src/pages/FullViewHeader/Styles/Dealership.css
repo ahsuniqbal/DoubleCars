@@ -100,9 +100,10 @@
         height: 445px;
     }
 }
-@media screen and (max-width:1024px){
+@media screen and (min-width:2224px){
     .dealership-images-div{
         margin-left: 0;
-        height: 645px;
+        height: 960px ;
     }
 }
+
