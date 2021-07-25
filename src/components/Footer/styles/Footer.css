@@ -10,8 +10,9 @@
 
 .car-dealer-head {
   color: #ffffff;
-  font-size: 40px;
+  font-size: 36px;
   font-weight: bold;
+  margin-top: -1rem;
 }
 
 .car-dealer-subhead{

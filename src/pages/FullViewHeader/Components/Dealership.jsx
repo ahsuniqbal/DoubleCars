@@ -18,7 +18,7 @@ function Dealership(){
         <div  className='dealership-main-div'>
             
             <div className='dealership-main-top-div'>
-                <h1 className='dealership-heading'>DoubleCars Dealership+</h1>
+                <h1 className='dealership-heading'>DoubleCars</h1>
                 <p className='dealership-text'>Designed, Built for Dealership and Sellers.<br/> Advanced features to maximize your business potential.</p>
             </div>
 

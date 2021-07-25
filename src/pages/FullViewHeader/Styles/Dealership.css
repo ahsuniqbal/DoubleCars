@@ -67,6 +67,7 @@
     height: 645px;
     margin-left: -2rem;
     padding-top: 5%;
+    margin-bottom: 10rem;
 }
 .light-blue-dealership{
     position: absolute;
@@ -82,7 +83,8 @@
     width: 84%;
     position: absolute;
     margin: -12% 12% 0;
-    transition: transform 500ms !important;
+    margin-bottom: 50rem !important;
+    
 }
 
 /* third section */
@@ -98,3 +100,10 @@
         height: 445px;
     }
 }
+@media screen and (min-width:2224px){
+    .dealership-images-div{
+        margin-left: 0;
+        height: 960px ;
+    }
+}
+

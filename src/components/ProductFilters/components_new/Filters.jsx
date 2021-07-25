@@ -854,7 +854,7 @@ const Filters = (props) => {
                                     </Col>
                                     {/* Changing the value of Radius on handle changing */}
                                     <Col xs="2" sm="1" md="3" lg="2" className="px-0">
-                                        <Label>20 mi</Label>
+                                    <Label>{radius + " mi"}</Label>
                                     </Col>
                                 </Row>
                             </div>

@@ -1,13 +1,9 @@
 import React ,{useState} from 'react';
 import '../styles/Lowercar.css'
-import LowerCarsImage1 from '../../../assets/LowerCarsImage1.png';
-import LowerCarsImage2 from '../../../assets/LowerCarsImage2.png';
-import LowerCarsImage3 from '../../../assets/LowerCarsImage3.png';
-import LowerCarsImage4 from '../../../assets/LowerCarsImage4.png';
-import LowerCarsImage5 from '../../../assets/LowerCarsImage5.png';
-import LowerCarsImage6 from '../../../assets/LC2.png';
-import LowerCarsImage7 from '../../../assets/LowerSectionDummyImage.png';
-import LowerCarsImage8 from '../../../assets/TopStoriesCardDemoImage.png';
+import ElectricLower from '../../../assets/ElectricLower.png';
+import TruckLower from '../../../assets/TruckLower.png';
+import SedanLower from '../../../assets/SedanLower.png';
+import SUVLower from '../../../assets/SUVLower.png';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Slider from "react-slick";
@@ -64,36 +60,36 @@ const LowerCar = (props) => {
   const [activeSlide1,setActiveSlide1]=useState(0)
   const [lowerCar,setCars]=useState([
     {
-    image:LowerCarsImage1,
-    text:'Sedan'
+    image:ElectricLower,
+    text:'ELECTRIC/HYBRID'
   },
   {
-    image:LowerCarsImage2,
-    text:'Hatchback'
+    image:TruckLower,
+    text:'TRUCKS'
   },
   {
-    image:LowerCarsImage3,
-    text:'Coupe'
+    image:SedanLower,
+    text:'SEDAN'
   },
   {
-    image:LowerCarsImage4,
+    image:SUVLower,
     text:'SUV'
   },
   {
-    image:LowerCarsImage5,
-    text:'Pickup Truck'
+    image:ElectricLower,
+    text:'COUPE'
   },
   {
-    image:LowerCarsImage6,
-    text:'Wagon'
+    image:TruckLower,
+    text:'WAGON'
   },
   {
-    image:LowerCarsImage7,
-    text:'Convertible'
+    image:SedanLower,
+    text:'PICKUP TRUCK'
   },
   {
-    image:LowerCarsImage8,
-    text:'Minivan'
+    image:SUVLower,
+    text:'MINIVAN'
   },
   
   ])

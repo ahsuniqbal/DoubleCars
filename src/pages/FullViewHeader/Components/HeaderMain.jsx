@@ -1,6 +1,7 @@
 import React from'react'
 import {Container,Row,Col,Button} from 'reactstrap'
 import GooglePlay from '../../../assets/GooglePlay.png'
+import AppStore from '../../../assets/AppStore.png'
 import FullViewHeaderImage from '../../../assets/fullviewheader.png'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -15,14 +16,14 @@ function HeaderMain(){
 
                     <Col lg='6' md='12' className='fullview-header-left'>
                         <h1 className='fullview-header-text'>
-                            Powerful Tools to Quickly Sell and Manage Your Inventory
+                            Quicky Sell and Manage your Inventory. Lists for free now.
                         </h1>
                         <div className='fullview-header-bttn-div'>
                         <Link to='https://play.google.com/store/apps'>
                                 <img src={GooglePlay} alt='get it on google play' className='fullview-header-googleplay'/>
                         </Link>
                          
-                            <Button className='ios-coming-soon-btn'><span className='ios-coming-soon-text'>iOS Coming Soon</span></Button>
+                        <img src={AppStore} alt='get it on App Store' className='fullview-header-googleplay'/>
                         </div>
                     </Col>
 

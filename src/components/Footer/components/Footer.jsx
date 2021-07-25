@@ -19,12 +19,12 @@ const Footer = () => {
                         <Col className = "footer-image">
                             <Row className = "h-100">
                                 
-                                <Col md  = "6" xs = "12" className = "car-dealer-class my-auto">
-                                    <h1 className = "car-dealer-head ml-4">Are you a car dealer?</h1>
-                                    <h5 className = "car-dealer-subhead ml-4">Create your own virtural showroom and boost sales</h5>
+                                <Col md  = "7" xs = "12" className = "car-dealer-class my-auto">
+                                    <h1 className = "car-dealer-head ml-4">Seller or Dealership Register Now</h1>
+                                    <h5 className = "car-dealer-subhead ml-4">List your car for free with us. Import your inventory instantly . No Contracts, No commitments.</h5>
                                 </Col>
                               
-                                <Col md = "6" xs = "12" className = "learn-more-button-class my-auto">
+                                <Col md = "5" xs = "12" className = "learn-more-button-class my-auto">
                                     <Link to = {'/fullviewheader'}>
                                         <Button className="learn-more-button-cover float-right">Learn More</Button>
                                     </Link>

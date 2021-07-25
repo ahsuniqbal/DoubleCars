@@ -1,10 +1,6 @@
 import React,{useState,useEffect} from "react"
 import {Row ,Col,Badge ,Label, Container} from 'reactstrap'
-import HeavyTruck from '../../../assets/HeavyTruck.png';
-import BoxTruck from '../../../assets/BoxTruck.png';
-import ForkLifter from '../../../assets/ForkLifter.png';
-import WorkVan from '../../../assets/WorkVan.png';
-// import dummyAvatar from '../../../assets/dummyAvatar.jpg';
+import HeavyTruck from '../../../assets/MediumTruck.png';
 import { ChevronRight } from 'react-feather';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -25,7 +21,6 @@ const TruckSection = () => {
     useEffect(() => {
         GetCommercialVehicles().then(doc => {
             setVehicles(doc);
-            console.log(doc)
         }).catch(error => {
             alert(error.message);
         })
@@ -43,7 +38,7 @@ const TruckSection = () => {
                     
                             <div className='truck-cars-div'>  
                                 <span className='trucks-images-gradient'>
-                                    <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
+                                    {/* <Badge color="primary" className = "truck-car-badge">Commercial</Badge> */}
                                     <Link to={`/products?bodyStyle=Pickup Truck`}>
                                         <h1 className='trucks-head'>{vehicle.category}</h1>
                                     </Link>

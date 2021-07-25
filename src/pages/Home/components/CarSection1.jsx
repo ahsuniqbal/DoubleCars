@@ -12,7 +12,7 @@ const CarSection1 = () => {
 
     const history=useHistory()
     const CarSection1DemoImage1 = {
-        backgroundImage: `url(${require("../../../assets/CarSection1Image.png")})`,
+        backgroundImage: `url(${require("../../../assets/ElectricCV.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -23,7 +23,7 @@ const CarSection1 = () => {
 
       };
       const CarSection1DemoImage2 = {
-        backgroundImage: `url(${require("../../../assets/FeaturedDemo3.png")})`,
+        backgroundImage: `url(${require("../../../assets/Hybrid.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         borderRadius: '4px',
@@ -35,7 +35,7 @@ const CarSection1 = () => {
       };
 
       const CarSection1DemoImage3 = {
-        backgroundImage: `url(${require("../../../assets/FeaturedDemo4.png")})`,
+        backgroundImage: `url(${require("../../../assets/Plugin.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         borderRadius: '4px',
@@ -46,7 +46,7 @@ const CarSection1 = () => {
 
       };
       const CarSection1DemoImage4 = {
-        backgroundImage: `url(${require("../../../assets/FeaturedDemo5.png")})`,
+        backgroundImage: `url(${require("../../../assets/Hydrogen.png")})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         borderRadius: '4px',
