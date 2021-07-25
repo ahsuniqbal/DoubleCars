@@ -99,6 +99,7 @@ const Products = (props) => {
     const [globalQuery,setGloableQuery] = useState("")
     const [savedSearchObj,setSavedSearchObj] = useState({})
     const [totalCount, setTotalCount] = useState(0)
+    const [totalPages, setTotalPages] = useState(0)
     const [makeAndZips,setMakeAndZips] = useState(null)
 
     const handleScroll = () => {
@@ -231,6 +232,7 @@ const Products = (props) => {
         GetSearchResult(str).then(doc1 => {
             setBooleanFlag(true)
             setTotalCount(doc1.totalCount)
+            setTotalPages(doc1.totalPages)
             console.log(doc1)
             const doc = doc1.results;
             
@@ -389,7 +391,7 @@ const Products = (props) => {
                     <Row>
                         <Col xs="12">
                         <div className={classes.root}>
-                            <Pagination count={totalCount} page={pageNumber} onChange={pageChange} color="primary" />
+                            <Pagination count={totalPages} page={pageNumber} onChange={pageChange} color="primary" />
                         </div>
                         </Col>
                     </Row>
