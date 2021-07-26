@@ -41,3 +41,13 @@
         margin-top: 2rem;
     }
 } */
+
+
+.MuiPaginationItem-page:focus {
+    outline: none;
+    margin-left: 0;
+}
+
+.MuiPaginationItem-textPrimary.Mui-selected {
+    background-color: #1C67CE !important;
+}

@@ -220,6 +220,7 @@ const Products = (props) => {
         //window.location.href = `?${"carMake=Acura"}`
         //props.history.push(`/products?${queryStr}`)
         window.history.replaceState(null,"title",`/products?${queryStr}`)
+        setProducts([])
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         if(locationSearch.search){
@@ -312,7 +313,7 @@ const Products = (props) => {
     }
 
     const pageChange = (event, value) => {
-        console.log("value",value)
+        window.scrollTo(0, 400)
         setPageNumber(value)
         filterQueryChange(globalQuery,value - 1)
       };
@@ -389,10 +390,10 @@ const Products = (props) => {
                     </Row>
 
                     <Row>
-                        <Col xs="12">
-                        <div className={classes.root}>
-                            <Pagination count={totalPages} page={pageNumber} onChange={pageChange} color="primary" />
-                        </div>
+                        <Col xs="12" className="pl-0">
+                            <div className={classes.root}>
+                                <Pagination count={totalPages} page={pageNumber} onChange={pageChange} color="primary" />
+                            </div>
                         </Col>
                     </Row>
                 </Col>

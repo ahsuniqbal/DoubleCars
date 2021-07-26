@@ -722,6 +722,7 @@ const Filters = (props) => {
                 // If the zip code is not available
                 else{
                     var split = doc.plus_code.compound_code.split(" ");
+                    console.log(doc)
                     setZipCode(split[1] + " " + split[2] + " " + split[3])
                     setLoading(false)
                     // setZipCode(doc.plus_code.compound_code);
