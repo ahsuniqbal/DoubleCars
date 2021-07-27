@@ -1,6 +1,11 @@
 import React,{useState,useEffect} from "react"
 import {Row ,Col,Badge ,Label, Container} from 'reactstrap'
 import HeavyTruck from '../../../assets/MediumTruck.png';
+import PickupTruck from '../../../assets/PickupTruck.png';
+import FullSizeVan from '../../../assets/FullSizeVan.png';
+import CargoVan from '../../../assets/CargoVan.png';
+
+
 import { ChevronRight } from 'react-feather';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -69,17 +74,17 @@ const TruckSection = () => {
            
                 <div className='truck-cars-div'>  
                     <span className='trucks-images-gradient'>
-                        <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
+                        {/* <Badge color="primary" className = "truck-car-badge">Commercial</Badge> */}
                         <h1 className='trucks-head'>Heavy Duty Trucks</h1>
                         <Label className='trucks-label'>Starting from $5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
                     </span> 
                 </div>
             </Col>
             <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'>
-            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={HeavyTruck} alt='Box Trucks'/>
+            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={PickupTruck} alt='Box Trucks'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
-                        <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
+                        {/* <Badge color="primary" className = "truck-car-badge">Commercial</Badge> */}
                         <h1 className='trucks-head'>Box Trucks</h1>
                         <Label className='trucks-label'>Starting from $5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
                     </span>
@@ -89,20 +94,22 @@ const TruckSection = () => {
 
         <Row>
             <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'>
-            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={HeavyTruck} alt='Fork Lifter'/>
+            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={FullSizeVan} alt='Fork Lifter'/>
+            
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
-                        <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
-                        <h1 className='trucks-head'>Fork Lifter</h1>
-                        <Label className='trucks-label'>Starting from $5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
+                    <h1 className = "truck-name">2022 FORD F-350</h1>
+                        {/* <Badge color="primary" className = "truck-car-badge">Commercial</Badge> */}
+                        {/* <h1 className='trucks-head'>Fork Lifter</h1>
+                        <Label className='trucks-label'>Starting from $5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label> */}
                     </span>
                 </div>
             </Col>
             <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'>
-            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={HeavyTruck} alt='Work Van'/>
+            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={CargoVan} alt='Work Van'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
-                        <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
+                        {/* <Badge color="primary" className = "truck-car-badge">Commercial</Badge> */}
                         <h1 className='trucks-head'>Work Van</h1>
                         <Label className='trucks-label'>Starting from $5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
                     </span>
