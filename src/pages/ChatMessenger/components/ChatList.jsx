@@ -91,12 +91,23 @@ const ChatList = (props) => {
     // },[props.chats])
 
 
+    const handleClick = (e, index, list) => {
+        e.preventDefault();
+
+        for (let i = 0; i < list.length; i++) {
+            document.getElementById(`chat-list-item${i}`).classList.remove('active');
+        }
+
+        document.getElementById(`chat-list-item${index}`).classList.add('active')
+    }
 
     const renderChatList = (list) => {
         var table = [];
         for(let i = 0; i < list.length; i++){
             table.push(
-                <ChatListItem chat={list[i]}/>
+                <div id={`chat-list-item${i}`} onClick={(e) => handleClick(e, i, list)}>
+                    <ChatListItem chat={list[i]}/>
+                </div>
             )
         }
         return table;

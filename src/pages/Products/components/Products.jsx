@@ -12,10 +12,20 @@ import { Frown, Repeat } from 'react-feather';
 import '../styles/Products.css';
 import { ArrowUp } from "react-feather";
 import DCAdBanner from './DCAdBanner';
+
+import { makeStyles } from '@material-ui/core/styles';
+import Pagination from '@material-ui/lab/Pagination';
 import {
     CPagination
 } from '@coreui/react'
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        marginTop: theme.spacing(2),
+      },
+    },
+  }));
 
 const ShowSearchResults = (products) => {
     var table = [];
@@ -75,12 +85,13 @@ function DrawSkeleton(){
 
 const Products = (props) => {
 
-    
+    const classes = useStyles();
     let locationSearch = queryString.parse(props.location.search);
    // console.log("LS",locationSearch)
 
     const [sortFlag, setSortFlag] = useState(false);
     const [products, setProducts] = useState([]);
+    const [showProducts, setShowProducts] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
     const [isBottom, setIsBottom] = useState(false);
     const [flag, setFlag] = useState(false)
@@ -88,6 +99,7 @@ const Products = (props) => {
     const [globalQuery,setGloableQuery] = useState("")
     const [savedSearchObj,setSavedSearchObj] = useState({})
     const [totalCount, setTotalCount] = useState(0)
+    const [totalPages, setTotalPages] = useState(0)
     const [makeAndZips,setMakeAndZips] = useState(null)
 
     const handleScroll = () => {
@@ -183,34 +195,70 @@ const Products = (props) => {
     
     // }, [isBottom]);
 
-    const filterQueryChange = (queryStr) => {
+    const filterQueryChange = (queryStr,page) => {
         console.log("QURYSTR",queryStr)
         setBooleanFlag(false)
         setGloableQuery(queryStr)
+        var pageBool = true
+        if(page){
+            if(page <= pageNumber){
+                //pageBool = false
+                setPageNumber(page+1);
+                var tempProd = []
+                for(let i = (page*10); i < (page*10) + 10; i++){
+                    if(i < products.length){
+                        tempProd.push(products[i])
+                    }
+                    
+                }
+                setShowProducts(tempProd)
+                //yahan per wo array of products show hogi jo uss page per dhikani hogi
+            }
+        }else{
+            setPageNumber(1)
+        }
         //window.location.href = `?${"carMake=Acura"}`
         //props.history.push(`/products?${queryStr}`)
         window.history.replaceState(null,"title",`/products?${queryStr}`)
+        setProducts([])
         var str = ""
         const userId = localStorage.getItem('userId') ? localStorage.getItem('userId') : -1
         if(locationSearch.search){
             str = `search=${locationSearch.search}&page=${0}&${queryStr}`
         }else{
-            str = `page=${0}&${queryStr}`
+            str = `page=${page ? page : 0}&${queryStr}`
         }
         str += `&id=${userId}`
+        console.log("STRRR",str)
         GetSearchResult(str).then(doc1 => {
             setBooleanFlag(true)
             setTotalCount(doc1.totalCount)
+            setTotalPages(doc1.totalPages)
             console.log(doc1)
             const doc = doc1.results;
             
             if(doc.length > 0){
-                setProducts(doc)
+                if(pageBool){
+                    setProducts(doc)
+                    setShowProducts(doc)
+                }else{
+                    if(products.length > 0){
+                        var temp = products
+                        for(let i = 0; i < doc.length; i++){
+                            temp.push(doc[i])
+                        }
+                        setProducts(temp);
+                    }else{
+                        setProducts(doc);
+                        setShowProducts(doc)
+                    }
+                }
                 var tempObj = {
                     title : doc[0].carName,
                     image_one : doc[0].coverPic,
                     image_two : doc[1].coverPic ? doc[1].coverPic : null,
                     image_three : doc[2].coverPic ? doc[2].coverPic : null,
+                    
                 }
                 setSavedSearchObj(tempObj)
             }else{
@@ -263,6 +311,12 @@ const Products = (props) => {
         }
         
     }
+
+    const pageChange = (event, value) => {
+        window.scrollTo(0, 400)
+        setPageNumber(value)
+        filterQueryChange(globalQuery,value - 1)
+      };
 
     return(
                     
@@ -336,13 +390,15 @@ const Products = (props) => {
                     </Row>
 
                     <Row>
-                        <Col xs="12">
-                            <CPagination />
+                        <Col xs="12" className="pl-0">
+                            <div className={classes.root}>
+                                <Pagination count={totalPages} page={pageNumber} onChange={pageChange} color="primary" />
+                            </div>
                         </Col>
                     </Row>
                 </Col>
             </Row>
-            <button onClick={(e) => topFunction(e)} id="myBtn" title="Go to top"><ArrowUp size={16} /> </button>
+            <button onClick={(e) => topFunction(e)} id="myBtn"  title="Go to top"><ArrowUp size={16} /> </button>
             </Container>
          
         

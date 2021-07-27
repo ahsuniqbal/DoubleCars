@@ -462,7 +462,7 @@ const Information = (props) => {
                     details.engine_size ?
                     <Col xs = "6" md = "3">
                         <Label className = "info-sub-head margin-heading">Engine Size</Label> <br/>
-                        <Label className = "car-detail">{details.engine_size}</Label>
+                        <Label className = "car-detail">{details.engine_size}L</Label>
                     </Col>
                     : null
                 }

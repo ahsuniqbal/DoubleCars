@@ -722,6 +722,7 @@ const Filters = (props) => {
                 // If the zip code is not available
                 else{
                     var split = doc.plus_code.compound_code.split(" ");
+                    console.log(doc)
                     setZipCode(split[1] + " " + split[2] + " " + split[3])
                     setLoading(false)
                     // setZipCode(doc.plus_code.compound_code);
@@ -854,7 +855,7 @@ const Filters = (props) => {
                                     </Col>
                                     {/* Changing the value of Radius on handle changing */}
                                     <Col xs="2" sm="1" md="3" lg="2" className="px-0">
-                                        <Label>20 mi</Label>
+                                    <Label>{radius + " mi"}</Label>
                                     </Col>
                                 </Row>
                             </div>
@@ -990,20 +991,15 @@ const Filters = (props) => {
                             </FormGroup>
 
                             <hr />
-                            {/******** Seller type filter ************/}
-                            {
-                                props.isDealer ? <>
-                                <h6>Seller Type</h6>
+                            <h6>Transmission</h6>
                             <FormGroup check>
-                                <Input type="checkbox" id="dealer" name="seller-type" onChange={() => handleSellerType()} disabled={loading} />
-                                <Label check htmlFor="dealer">Dealer</Label>
+                                <Input onChange={e => onTransmissionChange('automatic')} type="checkbox" id="Automatic" name="Automatic" />
+                                <Label check htmlFor="Automatic">{"Automatic"}</Label>
                             </FormGroup>
                             <FormGroup check>
-                                <Input type="checkbox" id="private-seller" name="seller-type" onChange={() => handleSellerType()} disabled={loading} />
-                                <Label check htmlFor="private-seller">Private Seller</Label>
+                                <Input onChange={e => onTransmissionChange('manual')} type="checkbox" id="Manual" name="Manual" />
+                                <Label check htmlFor="Manual">{"Manual"}</Label>
                             </FormGroup>
-                            </> : null
-                            }
                             
                             
                             {/******** Basic filters end here ************/}
@@ -1038,16 +1034,22 @@ const Filters = (props) => {
 
                             {/* Advanced filters start here */}
 
-                            <Collapse isOpen={advancedFiltersShown}>    
-                                <h6>Transmission</h6>
+                            <Collapse isOpen={advancedFiltersShown}>   
+                            {/******** Seller type filter ************/}
+                            {
+                                props.isDealer ? <>
+                                <h6>Seller Type</h6>
                                 <FormGroup check>
-                                    <Input onChange={e => onTransmissionChange('automatic')} type="checkbox" id="Automatic" name="Automatic" />
-                                    <Label check htmlFor="Automatic">{"Automatic"}</Label>
+                                    <Input type="checkbox" id="dealer" name="seller-type" onChange={() => handleSellerType()} disabled={loading} />
+                                    <Label check htmlFor="dealer">Dealer</Label>
                                 </FormGroup>
                                 <FormGroup check>
-                                    <Input onChange={e => onTransmissionChange('manual')} type="checkbox" id="Manual" name="Manual" />
-                                    <Label check htmlFor="Manual">{"Manual"}</Label>
+                                    <Input type="checkbox" id="private-seller" name="seller-type" onChange={() => handleSellerType()} disabled={loading} />
+                                    <Label check htmlFor="private-seller">Private Seller</Label>
                                 </FormGroup>
+                                </> : null
+                            } 
+                                
 
                                 <hr />
 

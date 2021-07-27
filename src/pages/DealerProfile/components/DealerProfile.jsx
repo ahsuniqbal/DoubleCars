@@ -10,6 +10,7 @@ import queryString from 'query-string';
 
 import { GetSellerDetails, GetSellerInventory, GetSearchResult } from '../api/GetRequests';
 import { ArrowUp } from "react-feather";
+import { CPagination } from "@coreui/react";
 
 const ShowSearchResults = (inventory) => {
     var table = [];
@@ -300,6 +301,12 @@ const DealerProfile = (props) => {
                             inventory.length > 0 ? ShowSearchResults(inventory) : 
                             booleanFlag ? <h2 className="text-center">No result found</h2> : "loading..."
                         }
+                    </Row>
+
+                    <Row>
+                        <Col xs="12">
+                            <CPagination />
+                        </Col>
                     </Row>
                 </Col>
             </Row>
