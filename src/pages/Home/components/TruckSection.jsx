@@ -75,8 +75,9 @@ const TruckSection = () => {
                 <div className='truck-cars-div'>  
                     <span className='trucks-images-gradient'>
                         {/* <Badge color="primary" className = "truck-car-badge">Commercial</Badge> */}
-                        <h1 className='trucks-head'>Heavy Duty Trucks</h1>
-                        <Label className='trucks-label'>Starting from $5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
+                        <h1 className='trucks-head'>MEDIUM TRUCKS</h1>
+                        <Label className='trucks-label'>STARTING FROM <br/>$5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
+                        <h1 className = "truck-name">2022 FORD F-350</h1>
                     </span> 
                 </div>
             </Col>
@@ -85,8 +86,9 @@ const TruckSection = () => {
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
                         {/* <Badge color="primary" className = "truck-car-badge">Commercial</Badge> */}
-                        <h1 className='trucks-head'>Box Trucks</h1>
-                        <Label className='trucks-label'>Starting from $5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
+                        <h1 className='trucks-head'>PICK UP TRUCKS</h1>
+                        <Label className='trucks-label'>STARTING FROM <br/>$5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
+                        <h1 className = "truck-name">2021 SILVERADO</h1>
                     </span>
                 </div>
             </Col>
@@ -98,10 +100,11 @@ const TruckSection = () => {
             
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
-                    <h1 className = "truck-name">2022 FORD F-350</h1>
+                    
                         {/* <Badge color="primary" className = "truck-car-badge">Commercial</Badge> */}
-                        {/* <h1 className='trucks-head'>Fork Lifter</h1>
-                        <Label className='trucks-label'>Starting from $5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label> */}
+                        <h1 className='trucks-head'>FULL SIZE VANS</h1>
+                        <Label className='trucks-label'>STARTING FROM <br/>$5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
+                        <h1 className = "truck-name">2021 ODYSSEY</h1>
                     </span>
                 </div>
             </Col>
@@ -110,8 +113,9 @@ const TruckSection = () => {
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
                         {/* <Badge color="primary" className = "truck-car-badge">Commercial</Badge> */}
-                        <h1 className='trucks-head'>Work Van</h1>
-                        <Label className='trucks-label'>Starting from $5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
+                        <h1 className='trucks-head'>CARGO VANS</h1>
+                        <Label className='trucks-label'>STARTING FROM <br/>$5000<ChevronRight color="#ffffff" size={15} className = "truck-chevron-icon"/></Label>
+                        <h1 className = "truck-name">2022 NV200</h1>
                     </span>
                 </div>
             </Col>
