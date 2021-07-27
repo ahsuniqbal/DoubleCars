@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SocialLogin from 'react-social-login';
-import { Button } from 'reactstrap';
 
 class SocialButton extends Component {
 

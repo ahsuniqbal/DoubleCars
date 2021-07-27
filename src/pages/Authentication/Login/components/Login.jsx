@@ -57,8 +57,6 @@ const Login = (props) => {
                     .catch(e => {
                         console.log(e.message)
                     })
-                    
-                    
                 }
                 else {
                     document.getElementById("error-label").textContent = doc.Message
@@ -75,19 +73,31 @@ const Login = (props) => {
 
 
     const FBLoginSuccess = (user) => {
-        console.log(user)
+        console.log(user.profile);
+        Promise.all([localStorage.setItem('userId', 699),localStorage.setItem('userToken', "Random")]).then(doc => {
+            props.history.push('/');
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
     }
 
     const FBLoginFailure = (error) => {
-        console.log(error)
+        alert(error);
     }
 
     const GLoginSuccess = (user) => {
-        console.log(user)
+        console.log(user.profile)
+        Promise.all([localStorage.setItem('userId', 699),localStorage.setItem('userToken', "Random")]).then(doc => {
+            props.history.push('/');
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
     }
 
     const GLoginFailure = (error) => {
-        console.log(error)
+        alert(error);
     }
    
     return(
