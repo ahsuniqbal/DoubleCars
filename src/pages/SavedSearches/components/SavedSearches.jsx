@@ -5,12 +5,14 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {getUserSavedSearches} from '../api/GetRequest'
 import {removeUserSearch} from '../api/PatchRequest'
 import { getLogin } from '../../../config/LoginAuth';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 const SavedSearches = () => {
 
     const [saved,setSaved] = useState(null)
+
+    const history = useHistory()
 
     useEffect(() => {
         getUserSavedSearches(getLogin())
@@ -47,7 +49,7 @@ const SavedSearches = () => {
                     <div className="grid-parent">
                         <Row>
                             <Col xs="7" style={{paddingRight: '3px'}}>
-                                <LazyLoadImage effect="blur" src={list[i].image_one} className="img-fluid first-img" alt="Car 1" />
+                                <LazyLoadImage effect="blur" src={list[i].image_one} className="img-fluid first-img" height={'100%'} alt="Car 1" />
                             </Col>
 
                             <Col xs="5" style={{paddingLeft: '3px'}}>
@@ -59,8 +61,8 @@ const SavedSearches = () => {
                         
                         <Row style={{marginTop: '20px', marginBottom: '17px'}}>
                             <Col xs="12">
-                                <Link to="/products">
-                                    <h6 className="cursor-pointer" onClick={() => console.log(list[i].filter_query)}>{list[i].title}</h6>
+                                <Link to={"/products?" + list[i].filter_query}>
+                                    <h6 className="cursor-pointer">{list[i].title}</h6>
                                 </Link>
                             </Col>
                             <Col xs="12">

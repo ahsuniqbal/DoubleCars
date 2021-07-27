@@ -389,13 +389,16 @@ const Products = (props) => {
                         } */}
                     </Row>
 
-                    <Row>
-                        <Col xs="12" className="pl-0">
-                            <div className={classes.root}>
-                                <Pagination count={totalPages} page={pageNumber} onChange={pageChange} color="primary" />
-                            </div>
-                        </Col>
-                    </Row>
+                    {
+                        totalPages > 1 &&
+                        <Row>
+                            <Col xs="12" className="pl-0">
+                                <div className={classes.root}>
+                                    <Pagination count={totalPages} page={pageNumber} onChange={pageChange} color="primary" />
+                                </div>
+                            </Col>
+                        </Row>
+                    }
                 </Col>
             </Row>
             <button onClick={(e) => topFunction(e)} id="myBtn"  title="Go to top"><ArrowUp size={16} /> </button>

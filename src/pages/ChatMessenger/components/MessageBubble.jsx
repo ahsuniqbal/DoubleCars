@@ -146,9 +146,9 @@ const MessageBubble = (props) => {
                     table.push(
                         // If you want to show the multiple images on right side add classname float-right
                         // If you want to show the multiple images on left side then remove float classname
-                        <Row className="float-right">
+                        <Row>
                             <Col xs="12">
-                                <div className="grid-chat float-right">
+                                <div className="grid-chat ml-auto">
                                 {
                                     multipleImagesRows(list[i].multipleImagesList)
                                 }
@@ -168,9 +168,15 @@ const MessageBubble = (props) => {
 
                         // If you want to show this single image on right then add the classname float-right
                         // If you want to show the image on left then remove float class
-                        <div className="img-container float-right">
-                            <LazyLoadImage onClick={(e) => openImgPreview(e, list[i].imageUrl)} effect="blur" src={list[i].imageUrl} className="single-img img-fluid" alt="Car 1" />
-                        </div>
+                        <Row>
+                            <Col xs="12">
+                                <div className="img-container float-right">
+                                    <LazyLoadImage onClick={(e) => openImgPreview(e, list[i].imageUrl)} effect="blur" src={list[i].imageUrl} className="single-img img-fluid" alt="Car 1" />
+                                </div>
+                            </Col>
+                        </Row>
+
+                        
                     )
                 }else{
                     table.push(
