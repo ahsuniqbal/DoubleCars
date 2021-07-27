@@ -29,7 +29,7 @@ const TruckSection = () => {
  
     return (
       <div className='my-5'>
-           <Row>
+           {/* <Row>
             {
                 vehicles ?  vehicles.map((vehicle, index) => {
                     return (
@@ -38,7 +38,7 @@ const TruckSection = () => {
                     
                             <div className='truck-cars-div'>  
                                 <span className='trucks-images-gradient'>
-                                    {/* <Badge color="primary" className = "truck-car-badge">Commercial</Badge> */}
+                                    <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
                                     <Link to={`/products?bodyStyle=Pickup Truck`}>
                                         <h1 className='trucks-head'>{vehicle.category}</h1>
                                     </Link>
@@ -62,8 +62,8 @@ const TruckSection = () => {
             </Row>
         </Container>
             } 
-            </Row>
-        {/* <Row>
+            </Row> */}
+        <Row>
             <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'>
             <LazyLoadImage className="card-img img-fluid"  effect="blur" src={HeavyTruck} alt='Heavy Duty Trucks'/>
            
@@ -76,7 +76,7 @@ const TruckSection = () => {
                 </div>
             </Col>
             <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'>
-            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={BoxTruck} alt='Box Trucks'/>
+            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={HeavyTruck} alt='Box Trucks'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
                         <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
@@ -89,7 +89,7 @@ const TruckSection = () => {
 
         <Row>
             <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'>
-            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={ForkLifter} alt='Fork Lifter'/>
+            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={HeavyTruck} alt='Fork Lifter'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
                         <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
@@ -99,7 +99,7 @@ const TruckSection = () => {
                 </div>
             </Col>
             <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'>
-            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={WorkVan} alt='Work Van'/>
+            <LazyLoadImage className="card-img img-fluid"  effect="blur" src={HeavyTruck} alt='Work Van'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
                         <Badge color="primary" className = "truck-car-badge">Commercial</Badge>
@@ -108,7 +108,7 @@ const TruckSection = () => {
                     </span>
                 </div>
             </Col>
-        </Row> */}
+        </Row>
       </div>
     );
   }
