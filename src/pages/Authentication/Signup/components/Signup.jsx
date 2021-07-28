@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import '../styles/Signup.css'
 import {Row, Col, Input, Button, Container, Label, FormGroup, Form} from 'reactstrap'
 import { Link } from "react-router-dom";
-import {userSignUp} from '../../api/Post'
+import {SocialLogin, userSignUp} from '../../api/Post'
 import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
 import googleIcon from '../../../../assets//icons/google-icon.svg'
 import FbIcon from '../../../../assets//icons/fb-icon.svg'
@@ -141,16 +141,50 @@ const Signup = (props) => {
         }    
     }
 
+    const handleSocialLogin = (loginObj) => {
+        SocialLogin(loginObj).then(doc => {
+            console.log(doc)
+            Promise.all([localStorage.setItem('userId', doc.id),localStorage.setItem('userToken', doc.Token)]).then(doc => {
+                props.history.push('/');
+            })
+            .catch(e => {
+                alert(e.message)
+            })
+        }).catch(error => {
+            alert(error)
+        })
+    }
 
+    const FBLoginSuccess = (user) => {
+        console.log(user.profile);
+
+        const obj = {
+            firstName: user.profile.firstName,
+            lastName: user.profile.lastName,
+            phNum: "",
+            email: user.profile.email,
+            password: "socialLoginPassword",
+        }
+        
+        handleSocialLogin(obj);
+    }
+
+    const FBLoginFailure = (error) => {
+        alert(error);
+    }
 
     const GLoginSuccess = (user) => {
-        console.log(user.profile)
-        Promise.all([localStorage.setItem('userId', 699),localStorage.setItem('userToken', "Random")]).then(doc => {
-            props.history.push('/');
-        })
-        .catch(e => {
-            console.log(e.message)
-        })
+        console.log(user.profile);
+
+        const obj = {
+            firstName: user.profile.firstName,
+            lastName: user.profile.lastName,
+            phNum: "",
+            email: user.profile.email,
+            password: "socialLoginPassword",
+        }
+
+        handleSocialLogin(obj);
     }
 
     const GLoginFailure = (error) => {
@@ -249,27 +283,37 @@ const Signup = (props) => {
                             </Row> */}
                             <div className='signup-icon'>
 
-                                {/* <SocialButton
+                                <SocialButton
                                     provider='google'
                                     appId='864485035255-voh1e1n1jr71rmk1kjmhonnplgg6el5g.apps.googleusercontent.com'
                                     onLoginSuccess={GLoginSuccess}
                                     onLoginFailure={GLoginFailure}
+                                    className="google-signup-button"
                                 >
-                                    <button className="google-signup-button ">
-                                        <img src={googleIcon} alt = "loading..." className='google-icon'/>
-                                        <span className="icon-text">Sigup with Google</span>
-                                    </button>
-                                </SocialButton> */}
-                                
-                                <button className="google-signup-button ">
                                     <img src={googleIcon} alt = "loading..." className='google-icon'/>
                                     <span className="icon-text">Sigup with Google</span>
-                                </button>
+                                </SocialButton>
+
+                                <SocialButton
+                                    provider='facebook'
+                                    appId='259221362572154'
+                                    onLoginSuccess={FBLoginSuccess}
+                                    onLoginFailure={FBLoginFailure}
+                                    className="facebook-signup-button"
+                                >
+                                    <img alt = "loading..." src={FbIcon} className='fb-icon'/>
+                                    <span className="icon-text">Signup with Facebook</span>
+                                </SocialButton>
+                                
+                                {/* <button className="google-signup-button ">
+                                    <img src={googleIcon} alt = "loading..." className='google-icon'/>
+                                    <span className="icon-text">Sigup with Google</span>
+                                </button> */}
                                
-                                <button className="facebook-signup-button">
+                                {/* <button className="facebook-signup-button">
                                     <img alt = "loading..." src={FbIcon} className='fb-icon'/>
                                 <span className="icon-text">Signup with Facebook</span>
-                                </button>
+                                </button> */}
                                 
                             </div>
                             </Form>

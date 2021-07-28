@@ -105,7 +105,7 @@ const ChatList = (props) => {
         var table = [];
         for(let i = 0; i < list.length; i++){
             table.push(
-                <div id={`chat-list-item${i}`} onClick={(e) => handleClick(e, i, list)}>
+                <div id={`chat-list-item${i}`} className={i === 0 && 'active'} onClick={(e) => handleClick(e, i, list)}>
                     <ChatListItem chat={list[i]}/>
                 </div>
             )
