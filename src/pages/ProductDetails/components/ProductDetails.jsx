@@ -16,7 +16,7 @@ import { Share2 } from 'react-feather';
 import UsersSlider from '../../../components/DcSlider/components/UsersSlider';
 import StatsTable from './StatsTable';
 import Chart from './Chart';
-import { ProductGraph } from '../api/PostRequest';
+import { DealGraph, ProductGraph } from '../api/PostRequest';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
@@ -36,6 +36,17 @@ const ProductResults = ({match}) => {
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
+
+            const dealObj = {
+                vin: doc.details[0].vin,
+                mileage: "average"
+            }
+            DealGraph(dealObj).then(docDeal => {
+                console.log(docDeal);
+            }).catch(error => {
+                console.log(error)
+            })
+
             GetTopDealers(doc.details[0].carMake, doc.details[0].carModel).then(doc => {
                 setTopDealers(doc.topDealers);
                 setTableData(doc.tableData);

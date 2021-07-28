@@ -13,6 +13,7 @@ import { useHistory } from "react-router-dom";
 import Eyepiece from '../../../../assets/eyepiece.png'
 import Eye from '../../../../assets/eye.svg'
 import { emailValidation, nameValidation, passwordValidation,mobileValidation } from '../../../../utils/Validation';
+import SocialButton from '../../SocialLogin';
 
 
 const Signup = (props) => {
@@ -137,14 +138,24 @@ const Signup = (props) => {
         else {
             // Name is wrong
             document.getElementById('name-error-label').textContent = "Please enter a valid name";
-        }
-        
-
-        
-
-              
+        }    
     }
 
+
+
+    const GLoginSuccess = (user) => {
+        console.log(user.profile)
+        Promise.all([localStorage.setItem('userId', 699),localStorage.setItem('userToken', "Random")]).then(doc => {
+            props.history.push('/');
+        })
+        .catch(e => {
+            console.log(e.message)
+        })
+    }
+
+    const GLoginFailure = (error) => {
+        alert(error);
+    }
  
 
     return(
@@ -237,6 +248,18 @@ const Signup = (props) => {
                                 
                             </Row> */}
                             <div className='signup-icon'>
+
+                                {/* <SocialButton
+                                    provider='google'
+                                    appId='864485035255-voh1e1n1jr71rmk1kjmhonnplgg6el5g.apps.googleusercontent.com'
+                                    onLoginSuccess={GLoginSuccess}
+                                    onLoginFailure={GLoginFailure}
+                                >
+                                    <button className="google-signup-button ">
+                                        <img src={googleIcon} alt = "loading..." className='google-icon'/>
+                                        <span className="icon-text">Sigup with Google</span>
+                                    </button>
+                                </SocialButton> */}
                                 
                                 <button className="google-signup-button ">
                                     <img src={googleIcon} alt = "loading..." className='google-icon'/>

@@ -701,6 +701,9 @@ const Filters = (props) => {
         .catch(error => {
             alert(error.message);
         });
+
+        // Get the current location using HTML Geo location
+        GetLocation();
     }, []);
 
     useEffect(() => {
