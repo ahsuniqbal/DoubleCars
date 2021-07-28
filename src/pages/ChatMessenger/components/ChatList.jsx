@@ -59,7 +59,7 @@ const ChatList = (props) => {
                     props.selectChat(newList[0])
                     setFlag(false)
                 }
-                
+                console.log("NEWLIST", newList)
                setChats(newList)
                setConstantChats(newList)
             })
@@ -68,7 +68,7 @@ const ChatList = (props) => {
             })
             }
         })
-    },[props.up])
+    },[])
 
 
 

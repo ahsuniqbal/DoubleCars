@@ -13,16 +13,25 @@ const MessageBubble = (props) => {
     const modalImageRef = useRef();
     const [imgPreviewModal, setImgPreviewModal] = useState(false);
     const [message,setMessage] = useState([])
-    
+    const [chat,setChat] = useState(null)
     useEffect(() => {
-        const key = [props.chat.senderId, props.chat.receiverId].sort().join('-')
+        let key = [props.chat.senderId, props.chat.receiverId].sort().join('-')
+        console.log("KEYs",props.chat);
+        console.log("CHATTI",chat,props.chat)
+        setChat(props.chat)
+        
         if(props.chat){
-            firebase.firestore().collection("Chats").doc(key).collection('Messages')
+             firebase.firestore().collection("Chats").doc(key).collection('Messages')
             .orderBy('messagedAt','asc')
             .onSnapshot((snapshot) => {
-            let updatedData = snapshot.docs.map(doc => doc.data())
-            setMessage(updatedData)
-            
+                console.log("KEY",props.chat);
+                const key_new = [props.chat.senderId, props.chat.receiverId].sort().join('-')
+                console.log("KEY_NEW",key_new,key);
+                if(key_new === key){
+                    let updatedData = snapshot.docs.map(doc => doc.data())
+                    console.log('UpdatedDate',updatedData)
+                    setMessage(updatedData)
+                }
             })
         }
     },[props.chat])

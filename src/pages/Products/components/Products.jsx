@@ -337,7 +337,7 @@ const Products = (props) => {
                         carModel={locationSearch.carModel}
                         minPrice={locationSearch.minPrice}
                         maxPrice={locationSearch.maxPrice}
-                        yearCar={locationSearch.yearCar}
+                        minYear={locationSearch.minYear}
                         search={locationSearch.search}
                         isDealer={true}
                         savedSearch={savedSearchObj}
