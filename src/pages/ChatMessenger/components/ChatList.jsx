@@ -28,7 +28,6 @@ const mapStateToProps = (state) => {
 const ChatList = (props) => {
     const [chats,setChats] = useState([])
     const [constChats,setConstantChats] = useState([])
-    const [updateView,setViewUpdate] = useState(null)
     const [flag,setFlag] = useState(true)
     useEffect(() => {
         console.log("chala")
@@ -45,30 +44,30 @@ const ChatList = (props) => {
         .then(snap => {
             if(snap.userIds.length > 0){
                 getChatUserPics(snap.userIds.toString())
-            .then(doc => {
-            var newList = []
-            for(let i = 0; i < doc.length; i++){
-                var obj = {
-                    user : doc[i],
-                    chat : snap.chats[i],
-                    username : doc[i].fullName.toLowerCase()
+                .then(doc => {
+                var newList = []
+                for(let i = 0; i < doc.length; i++){
+                    var obj = {
+                        user : doc[i],
+                        chat : snap.chats[i],
+                        username : doc[i].fullName.toLowerCase()
+                    }
+                    newList.push(obj)
                 }
-                newList.push(obj)
-            }
                 if(flag){
                     props.selectChat(newList[0])
                     setFlag(false)
                 }
                 console.log("NEWLIST", newList)
-               setChats(newList)
-               setConstantChats(newList)
+                setChats(newList)
+                setConstantChats(newList)
             })
             .catch(e => {
                 console.log(e.message)
             })
             }
         })
-    },[])
+    },[props.up])
 
 
 
