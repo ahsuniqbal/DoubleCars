@@ -26,6 +26,7 @@ const ProductResults = ({match}) => {
     const [tableData, setTableData] = useState(null);
     const [shareTipOpen, setShareTipOpen] = useState(false);
     const [graphData, setGraphData] = useState(null);
+    const [goodDeal, setGoodDeal] = useState(null);
 
     const history = useHistory();
 
@@ -41,8 +42,10 @@ const ProductResults = ({match}) => {
                 vin: doc.details[0].vin,
                 mileage: "average"
             }
+            console.log("dealObj",dealObj)
             DealGraph(dealObj).then(docDeal => {
                 console.log(docDeal);
+                setGoodDeal(docDeal)
             }).catch(error => {
                 console.log(error)
             })
@@ -161,7 +164,7 @@ const ProductResults = ({match}) => {
                                     <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
                                 }
                                 {
-                                    graphData && <Chart newData={"a"} data={graphData} />
+                                    graphData && <Chart goodDeal={goodDeal} newData={"a"} data={graphData} />
                                 }
                                  <Information
                                     details={productDetails.details[0]}

@@ -60,7 +60,9 @@ const Chart = (props) => {
                         <Label>The similar cars in this marketplace typcially range between $12000-16000.</Label>
                     </Col>
                     <Col xs="6">
-                        <SliderChart />
+                        {
+                            props.goodDeal ? <SliderChart goodDeal={props.goodDeal} /> : null
+                        }
                     </Col>
                 </Row>
 

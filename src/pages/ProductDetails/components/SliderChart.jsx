@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 import '../styles/SliderChart.css';
 
-export default function SliderChart() {
+export default function SliderChart(props) {
     const [value, setValue] = useState(30);
+
+    useEffect(() => {
+      console.log("GOODEAL",props.goodDeal)
+    },[])
 
     const useStyles = makeStyles(theme => ({
         root: {
-          width: 200,
+          width: 300,
           float: 'right'
         },
         margin: {
@@ -17,7 +21,7 @@ export default function SliderChart() {
         thumb: {
           background: "white",
           marginTop: '-3px',
-          border: '3px solid ' + thumbColor(value),
+          border: '3px solid ' + thumbColor(props.goodDeal.ranges.fairDeal),
           '&:focus, &:hover, &$active': {
             boxShadow: 'none',
           },
@@ -30,7 +34,7 @@ export default function SliderChart() {
             color: 'rgba(0, 0, 0, 0.65);'
         },
         rail: {
-          background: "linear-gradient(to right, #EA4335 20%, #FFA336, 20%, #FFA336 80%, #47B959 20%);",
+          background: "linear-gradient(to right, #47B959  20%, #FFA336, 20%, #FFA336 80%, #EA4335 20%);",
           height: '6px;',
           opacity: 1,
           borderRadius: '6px'
@@ -49,6 +53,7 @@ export default function SliderChart() {
     
 
     function thumbColor(val) {
+      return '#FFA336'
         if (val <= 20) {
             return '#EA4335';
         }
@@ -71,20 +76,28 @@ export default function SliderChart() {
                 mark: classes.mark,
                 markLabel: classes.markLabel
             }}
-            value={value}
+            value={props.goodDeal.ranges.fairDeal}
             step={10}
             marks={[
-                {
-                    value: 0,
-                    label: '$12,000'
-                },
-                {
-                    value: 100,
-                    label: '$16,000'
-                },
+              { 
+                value: props.goodDeal.ranges.goodDealRange,
+                label: `$${props.goodDeal.ranges.goodDealRange}`
+              },
+              { 
+                value: props.goodDeal.ranges.fairDeal,
+                label: `$${props.goodDeal.ranges.fairDeal}`
+              },
+              
+              {
+                  value: props.goodDeal.ranges.badDealRange,
+                  label: `$${props.goodDeal.ranges.badDealRange}`
+              },
+                
+                
+                
             ]}
-            min={0}
-            max={100}
+            min={props.goodDeal.ranges.badDealRange}
+            max={props.goodDeal.ranges.goodDealRange}
         />
         </div>
     );
