@@ -39,6 +39,7 @@ const ChatList = (props) => {
         
         var user = localStorage.getItem("userId")
         console.log("USER",user)
+
         // var user = 73
         getUserChats(user)
         .then(snap => {
@@ -67,6 +68,54 @@ const ChatList = (props) => {
             })
             }
         })
+
+        // firebase.firestore().collection("Chats").orderBy('lastMessageAt','desc').onSnapshot((snapshot) => {
+        //     var arr = []
+        //     var userArray = []
+        //     snapshot.docs.map(doc => {
+        //         if(doc.data().receiverId == user || doc.data().senderId == user){
+        //           arr.push(doc.data())
+        //           userArray.push(doc.data().receiverId == user ? doc.data().senderId : doc.data().receiverId)
+        //         }
+        //     })
+        //     const snap = {
+        //         chats : arr,
+        //         userIds : userArray
+        //     }
+        //     // var user = 73
+        //         if(snap.userIds.length > 0){
+        //             getChatUserPics(snap.userIds.toString())
+        //             .then(doc => {
+        //             var newList = []
+        //             for(let i = 0; i < doc.length; i++){
+        //                 var obj = {
+        //                     user : doc[i],
+        //                     chat : snap.chats[i],
+        //                     username : doc[i].fullName.toLowerCase()
+        //                 }
+        //                 newList.push(obj)
+        //             }
+        //             if(flag){
+        //                 props.selectChat(newList[0])
+        //                 setFlag(false)
+        //             }
+        //             console.log("NEWLIST", newList)
+        //             setChats(newList)
+        //             setConstantChats(newList)
+        //         })
+        //         .catch(e => {
+        //             console.log(e.message)
+        //         })
+        //         }
+        // })
+
+
+
+
+
+
+
+
     },[props.up])
 
 

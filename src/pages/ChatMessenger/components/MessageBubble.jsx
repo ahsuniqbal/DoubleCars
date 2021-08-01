@@ -31,6 +31,23 @@ const MessageBubble = (props) => {
             return () => listen();
         }
     },[props.chat])
+
+
+    useEffect(() => {
+        let key = [props.chat.senderId, props.chat.receiverId].sort().join('-')
+        console.log('key',key)
+        if(props.chat){
+            
+            firebase.firestore().collection("Chats").doc(key).collection('Messages')
+            .orderBy('messagedAt','asc')
+            .onSnapshot((snapshot) => {
+                console.log("keysss",key)
+                let updatedData = snapshot.docs.map(doc => doc.data())
+                props.updateFunc(true)
+                //setMessage(updatedData)
+            })
+        }
+    },[props.chat])
     
 
     useEffect(() => {
