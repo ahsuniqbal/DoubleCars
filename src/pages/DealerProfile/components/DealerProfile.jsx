@@ -24,7 +24,7 @@ const ShowSearchResults = (inventory) => {
                     productText={"$" + AddCommaToNumber(inventory[i].price)}
                     productImg={inventory[i].coverPic}
                     productName={inventory[i].carName}
-                    productBadge={"TRENDING"}
+                    productBadge={inventory[i].isFeatured ? "FEATURED" : null}
                     userId={inventory[i].userId}
                     allowBookmark={true} />
             </Col>

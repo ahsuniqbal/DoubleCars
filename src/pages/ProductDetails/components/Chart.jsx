@@ -5,6 +5,7 @@ import { Line } from 'react-chartjs-2';
 import SliderChart from './SliderChart';
 import '../styles/Chart.css';
 import { AlertCircle } from 'react-feather';
+import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 
 const options = {
     scales : {
@@ -57,11 +58,11 @@ const Chart = (props) => {
             <CardBody>
                 <Row>
                     <Col xs="6">
-                        <Label>The similar cars in this marketplace typcially range between $12000-16000.</Label>
+                        {props.goodDeal && <Label>The similar cars in this marketplace typcially range between ${AddCommaToNumber(props.goodDeal.carInfo.minMax.min)}-{AddCommaToNumber(props.goodDeal.carInfo.minMax.max)}.</Label>}
                     </Col>
                     <Col xs="6">
                         {
-                            props.goodDeal ? <SliderChart goodDeal={props.goodDeal} /> : null
+                            props.goodDeal ? <SliderChart price={props.price} goodDeal={props.goodDeal} /> : null
                         }
                     </Col>
                 </Row>

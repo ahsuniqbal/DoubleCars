@@ -30,21 +30,16 @@ const ProductResults = ({match}) => {
 
     const history = useHistory();
 
-    const toggleShareTip = () => {
-        setShareTipOpen(!shareTipOpen);
-    }
-
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
 
             const dealObj = {
                 vin: doc.details[0].vin,
-                mileage: "average"
+                mileage: doc.details[0].mileage ? doc.details[0].mileage : "average"
             }
-            console.log("dealObj",dealObj)
+            
             DealGraph(dealObj).then(docDeal => {
-                console.log(docDeal);
                 setGoodDeal(docDeal)
             }).catch(error => {
                 console.log(error)
@@ -164,7 +159,7 @@ const ProductResults = ({match}) => {
                                     <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
                                 }
                                 {
-                                    graphData && <Chart goodDeal={goodDeal} newData={"a"} data={graphData} />
+                                    graphData && <Chart price={productDetails.details[0].price} goodDeal={goodDeal} data={graphData} />
                                 }
                                  <Information
                                     details={productDetails.details[0]}

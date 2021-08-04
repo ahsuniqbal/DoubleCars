@@ -39,7 +39,6 @@ const PrevoiusIcon=(props)=>{
   );
 }
 const DCSlider = (props) => {
-
   const [activeSlide,setActiveSlide]=useState(0)
 
     let settings = {

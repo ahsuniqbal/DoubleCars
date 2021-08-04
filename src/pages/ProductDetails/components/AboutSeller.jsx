@@ -274,7 +274,7 @@ const SellerDetails = (props) => {
 
             {
                 dealer ?
-                    <Card className="mt-5 about-seller-card">
+                    <Card className="about-seller-card">
                         <CardBody>
                             <Row>
                                 <Col style={{ display: 'flex', justifyContent: 'center' }}>
