@@ -60,13 +60,13 @@ export default function SliderChart(props) {
 
     function thumbColor(val) {
         if (getPerc(badDealRange, val, goodDealRange) <= 20) {
-            return '#EA4335';
+            return '#47B959';
         }
         if (getPerc(badDealRange, val, goodDealRange) <= 80) {
             return '#FFA336';
         }
         if (getPerc(badDealRange, val, goodDealRange) <= 100) {
-            return '#47B959';
+            return '#EA4335';
         }
     }
 
