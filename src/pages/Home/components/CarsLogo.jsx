@@ -47,7 +47,7 @@ const CarsLogo = () => {
     const logos = [
         { img: subaru, name: 'Subaru' },
         { img: mitsubishi, name: 'Mitsubishi' },
-        { img: volkswagen, name: 'volkswagen' },
+        { img: volkswagen, name: 'Volkswagen' },
         { img: ford, name: 'FORD' },
         { img: toyota, name: 'Toyota' },
         { img: chevrolet, name: 'Chevrolet' },
@@ -86,13 +86,18 @@ const CarsLogo = () => {
                 <Row className="popular-makes-logos">
                     {
                         popularMakes && logos.map((logo, index) => {
+                            console.log(popularMakes)
                             return <Col xs="6" sm="6" md="12" lg="2" style={window.screen.width < 768 ? { paddingLeft: '8px', paddingRight: '8px' } : null } className="md-my-3 my-2" key={index}>
                                 <Card>
                                     <CardBody>
                                         <LazyLoadImage effect="blur" src={logo.img} className='img-fluid mx-auto'/>
                                     </CardBody>
                                     <CardFooter>
-                                        <Link to={`/products?carMake=${logo.name}`}>{getCount(logo.name) ? getCount(logo.name) : "76"} Listings<ChevronRight color="#1C67CE" size={15} /></Link>
+                                        {
+                                            getCount(logo.name) ? 
+                                                <Link to={`/products?carMake=${logo.name}`}>{getCount(logo.name) ? getCount(logo.name) : "76"} Listings<ChevronRight color="#1C67CE" size={15} /></Link>
+                                            : <a disabled>Coming Soon</a>
+                                        }
                                     </CardFooter>
                                 </Card>
                             </Col>
