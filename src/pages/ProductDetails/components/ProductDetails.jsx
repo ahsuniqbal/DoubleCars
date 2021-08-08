@@ -62,7 +62,7 @@ const ProductResults = ({match}) => {
             })
 
 
-            getSimilarCars(doc.details[0].carMake).then(doc => {
+            getSimilarCars(doc.details[0].bodyStyle).then(doc => {
                 setSimilarCars(doc)
             })
             .catch(e => {

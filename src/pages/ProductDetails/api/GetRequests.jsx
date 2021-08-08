@@ -16,9 +16,9 @@ export const GetProductDetails = (id) => {
     })
 };
 
-export const getSimilarCars = (make) => {
+export const getSimilarCars = (bodyStyle) => {
     return new Promise((resolve, reject) => {
-        var url = connectionString + "products/similar-cars?make=" + make;
+        var url = connectionString + "products/similar-cars?bodyStyle=" + bodyStyle;
         axios.get(url).then(function(response){
             const data = response.data.results;
             resolve(data);
