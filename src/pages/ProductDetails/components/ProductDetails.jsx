@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Row, Col, Button, Container, CardBody, Tooltip } from 'reactstrap';
+import { NavLink, Row, Col, Button, Container, CardBody, Tooltip} from 'reactstrap';
 import dummyAvatar from '../../../assets/dummyAvatar.jpg';
 import Gallery from './Gallery';
 import Information from './Information';
@@ -27,7 +27,9 @@ const ProductResults = ({match}) => {
     const [shareTipOpen, setShareTipOpen] = useState(false);
     const [graphData, setGraphData] = useState(null);
     const [goodDeal, setGoodDeal] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
 
+    const toggle = () => setIsOpen(!isOpen);
     const history = useHistory();
 
     useEffect(() => {
@@ -142,6 +144,7 @@ const ProductResults = ({match}) => {
                             </div>
                             
                         </Col>
+                        
                     </Row>
                     {
                         productDetails ?

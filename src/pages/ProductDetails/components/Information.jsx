@@ -1,5 +1,5 @@
 import React, { useState ,useEffect} from 'react';
-import { Row, Col,Label, Collapse } from 'reactstrap';
+import { Row, Col,Label, Collapse, Card , Button, CardBody} from 'reactstrap';
 import { AddCommaToNumber, TrimText } from '../../../utils/NumberManipulation';
 import '../styles/Information.css';
 import CertifiedCarsCard from './CertifiedCarCard';
@@ -8,6 +8,8 @@ const Information = (props) => {
     // read more state
     const [readMore, setReadMore] = useState(false);
     const [matched,setMatched]  = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
     
     useEffect(() => {
        
@@ -264,7 +266,18 @@ const Information = (props) => {
                     }
                 </Col>
                 <Col className = "text-md-right mt-5" md = "4">
-                    <h2 className = "car-price">{details.price ? ("$" + AddCommaToNumber(details.price)) : null}</h2>
+                    {/* <h2 className = "car-price">{details.price ? ("$" + AddCommaToNumber(details.price)) : null}</h2> */}
+                    <h2 className = "car-price" onClick={toggle} style={{ marginBottom: '1rem' }}>{details.price ? ("$" + AddCommaToNumber(details.price)) : null}</h2>
+                    <Collapse isOpen={isOpen}>
+                        <Card>
+                        <CardBody>
+                        Anim pariatur cliche reprehenderit,
+                        enim eiusmod high life accusamus terry richardson ad squid. Nihil
+                        anim keffiyeh helvetica, craft beer labore wes anderson cred
+                        nesciunt sapiente ea proident.
+                        </CardBody>
+                        </Card>
+                    </Collapse>
                 </Col>
             </Row>
             <Row>
