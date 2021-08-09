@@ -7,6 +7,7 @@ import TwitterFooter from '../../../assets/twitter-icon.png'
 import { Link } from 'react-router-dom';
 import {useHistory} from 'react-router-dom';
 
+import DCLogo from '../../../assets/DCNewlogo.svg'
 const Footer = () => {
 
     return (
@@ -44,7 +45,11 @@ const Footer = () => {
                         <Col xs="12" md="3" className = "footer-columns">
                             <Nav vertical>
                                 <NavItem>
-                                    <h1 className = "footer-dc">Double Cars</h1>
+                                    {/* <h1 className = "footer-dc">Double Cars</h1> */}
+                                    <Link to="/">
+                                    <img  src = {DCLogo} alt = "Logo" className = "dc-logo-footer" width = "144px" height = "28px" />
+                                    </Link>
+                                    
                                 </NavItem>
                                 <NavItem >
                                     <p className = "discription-dc-footer">Maecenas ante lacus, viverra is in, egestas tincidunt nulla. Aliquam mi lectus, eleifend eget felis eget</p>
