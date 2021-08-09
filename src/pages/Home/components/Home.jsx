@@ -189,7 +189,6 @@ const Home = () => {
 
         // Featured cars
         GetFeaturedCars().then(doc => {
-            console.log(doc)
             setFeaturedCars(doc);
         }).catch(error => {
             alert(error.message);

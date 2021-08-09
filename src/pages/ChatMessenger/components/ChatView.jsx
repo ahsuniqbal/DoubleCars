@@ -5,6 +5,7 @@ import Toolbar from './Toolbar';
 import MessageBubble from './MessageBubble';
 import Compose from './Compose';
 import '../styles/ChatView.css';
+const firebase = require('firebase').default
 
 const mapStateToProps = (state) => {
     return {
@@ -14,7 +15,7 @@ const mapStateToProps = (state) => {
 
 const ChatView = (props) => {
     const [otherId,setOtherId] = useState(null)
-
+    
     useEffect(() => {
         console.log("props.chats",props.chats)
         var userId = localStorage.getItem('userId')

@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 import '../styles/SliderChart.css';
+import { AddCommaToNumber } from "../../../utils/NumberManipulation";
 
-export default function SliderChart() {
-    const [value, setValue] = useState(30);
+export default function SliderChart(props) {
+  
+  const minMax = props.goodDeal.carInfo.minMax;
+  const goodDealRange = props.goodDeal.ranges.goodDealRange;
+  const badDealRange = props.goodDeal.ranges.badDealRange;
+  const price = props.price;
 
     const useStyles = makeStyles(theme => ({
         root: {
-          width: 200,
+          width: 300,
           float: 'right'
         },
         margin: {
@@ -17,7 +22,7 @@ export default function SliderChart() {
         thumb: {
           background: "white",
           marginTop: '-3px',
-          border: '3px solid ' + thumbColor(value),
+          border: '3px solid ' + thumbColor(price),
           '&:focus, &:hover, &$active': {
             boxShadow: 'none',
           },
@@ -30,7 +35,7 @@ export default function SliderChart() {
             color: 'rgba(0, 0, 0, 0.65);'
         },
         rail: {
-          background: "linear-gradient(to right, #EA4335 20%, #FFA336, 20%, #FFA336 80%, #47B959 20%);",
+          background: `linear-gradient(to right, #47B959 20%, #FFA336, 20%, #FFA336 80%, #EA4335 20%);`,
           height: '6px;',
           opacity: 1,
           borderRadius: '6px'
@@ -46,17 +51,22 @@ export default function SliderChart() {
     }));
   
     const classes = useStyles();
-    
+
+    function getPerc(badDeal, fairDeal, goodDeal) {
+      const sum = badDeal + goodDeal;
+      console.log(((fairDeal/sum) * 100))
+      return ((fairDeal/sum) * 100)
+    }
 
     function thumbColor(val) {
-        if (val <= 20) {
-            return '#EA4335';
+        if (getPerc(badDealRange, val, goodDealRange) <= 20) {
+            return '#47B959';
         }
-        if (val <= 80) {
+        if (getPerc(badDealRange, val, goodDealRange) <= 80) {
             return '#FFA336';
         }
-        if (val <= 100) {
-            return '#47B959';
+        if (getPerc(badDealRange, val, goodDealRange) <= 100) {
+            return '#EA4335';
         }
     }
 
@@ -71,17 +81,16 @@ export default function SliderChart() {
                 mark: classes.mark,
                 markLabel: classes.markLabel
             }}
-            value={value}
-            step={10}
+            value={getPerc(badDealRange, price, goodDealRange)}
             marks={[
-                {
-                    value: 0,
-                    label: '$12,000'
-                },
-                {
-                    value: 100,
-                    label: '$16,000'
-                },
+              { 
+                value: 0,
+                label: `$${AddCommaToNumber(minMax.min)}`
+              },
+              {
+                  value: 100,
+                  label: `$${AddCommaToNumber(minMax.max)}`
+              },
             ]}
             min={0}
             max={100}

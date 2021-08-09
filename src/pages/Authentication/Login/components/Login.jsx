@@ -2,7 +2,7 @@ import React,{ useState ,useEffect} from 'react';
 import '../styles/Login.css'
 import {Row, Col, Button,Input, Container, Label, FormGroup, Form} from 'reactstrap'
 import { Link } from "react-router-dom";
-import {userLogin} from '../../api/Post'
+import {SocialLogin, userLogin} from '../../api/Post'
 import { useHistory } from "react-router-dom";
 import DCWhiteLogo from '../../../../assets/DCWhiteLogo.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -57,8 +57,6 @@ const Login = (props) => {
                     .catch(e => {
                         console.log(e.message)
                     })
-                    
-                    
                 }
                 else {
                     document.getElementById("error-label").textContent = doc.Message
@@ -74,20 +72,51 @@ const Login = (props) => {
     }
 
 
+    const handleSocialLogin = (loginObj) => {
+        SocialLogin(loginObj).then(doc => {
+            console.log(doc)
+            Promise.all([localStorage.setItem('userId', doc.id),localStorage.setItem('userToken', doc.Token)]).then(doc => {
+                props.history.push('/');
+            })
+            .catch(e => {
+                alert(e.message)
+            })
+        }).catch(error => {
+            alert(error)
+        })
+    }
+
     const FBLoginSuccess = (user) => {
-        console.log(user)
+        console.log(user.profile);
+        const obj = {
+            firstName: user.profile.firstName,
+            lastName: user.profile.lastName,
+            phNum: "",
+            email: user.profile.email,
+            password: "socialLoginPassword",
+        }
+        
+        handleSocialLogin(obj);
     }
 
     const FBLoginFailure = (error) => {
-        console.log(error)
+        alert(error);
     }
 
     const GLoginSuccess = (user) => {
-        console.log(user)
+        const obj = {
+            firstName: user.profile.firstName,
+            lastName: user.profile.lastName,
+            phNum: "",
+            email: user.profile.email,
+            password: "socialLoginPassword",
+        }
+
+        handleSocialLogin(obj);
     }
 
     const GLoginFailure = (error) => {
-        console.log(error)
+        alert(error);
     }
    
     return(

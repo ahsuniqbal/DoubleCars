@@ -30,7 +30,7 @@ export const getChats = () => {
 
 export const getUserChats = (userId) => {
   return new Promise((resolve, reject) => {
-      firestore.collection("Chats").orderBy('lastMessageAt','desc').get().then((snapshot) => {
+      firestore.collection("Chats").orderBy('lastMessageAt','desc').onSnapshot((snapshot) => {
       //console.log('onSnapshot Called!',snapshot.data())
       var arr = []
       var userArray = []

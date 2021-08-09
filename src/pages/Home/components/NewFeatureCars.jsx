@@ -79,7 +79,10 @@ const NewFeaturedCars = (props) => {
      
         <Row className='main-feature'>
             <Col data-aos="" data-aos-duration="1500" data-aos-easing="ease-in-sine" md = "6" xs = "12" style = {FeaturedDemoImage1} className='main-coloumn' onClick={()=>history.push('/product/'+ productId[0].productId)}>
-                <Badge color="primary" className = "feature-car-badge1">New</Badge>
+                <Badge color="primary" className = "feature-car-badge1">
+                  {/* {props.featuredCars[0].isFeatured ? "Featured" : null} */}
+                  NEW
+                </Badge>
                 <div className="content-first">
                   <h2 className='content-header1'>${AddCommaToNumber(props.featuredCars[0].price)}</h2>
                   <Label className="content-text1">{props.featuredCars[0].carName}</Label>
@@ -88,14 +91,20 @@ const NewFeaturedCars = (props) => {
             <Col md = "6" xs = "12">
                 <Row>
                     <Col  data-aos="" data-aos-duration="1500" data-aos-easing="ease-in-sine"  md = "6" xs = "12" style = {FeaturedDemoImage2} className='main-coloumn' onClick={()=>history.push('/product/'+ productId[1].productId)}>
-                    <Badge color="primary" className = "feature-car-badge2">New</Badge>
+                    <Badge color="primary" className = "feature-car-badge2">
+                      {/* {props.featuredCars[0].isFeatured ? "Featured" : null} */}
+                      NEW
+                    </Badge>
                       <div className="content">
                         <h2 className='content-header2'>${AddCommaToNumber(props.featuredCars[1].price)}</h2>
                         <Label className="content-text2">{props.featuredCars[1].carName}</Label>
                       </div>
                     </Col>
                     <Col data-aos="" data-aos-duration="1500" data-aos-easing="ease-in-sine"  md = "6" xs = "12" style = {FeaturedDemoImage3} className='main-coloumn'  onClick={()=>history.push('/product/'+ productId[2].productId)}>
-                      <Badge color="primary" className = "feature-car-badge2">New</Badge>
+                      <Badge color="primary" className = "feature-car-badge2">
+                        {/* {props.featuredCars[0].isFeatured ? "Featured" : null} */}
+                        NEW
+                      </Badge>
                       <div className="content">
                         <h2 className='content-header2'>${AddCommaToNumber(props.featuredCars[2].price)}</h2>
                         <Label className="content-text2">{props.featuredCars[2].carName}</Label>
@@ -104,14 +113,20 @@ const NewFeaturedCars = (props) => {
                 </Row>
                 <Row>
                     <Col data-aos="" data-aos-duration="1500" data-aos-easing="ease-in-sine"  md = "6" xs = "12" style = {FeaturedDemoImage4} className='main-coloumn'  onClick={()=>history.push('/product/'+ productId[3].productId)}>
-                    <Badge color="primary" className = "feature-car-badge2">New</Badge>
+                    <Badge color="primary" className = "feature-car-badge2">
+                      {/* {props.featuredCars[0].isFeatured ? "Featured" : null} */}
+                      NEW
+                    </Badge>
                       <div className="content">
                         <h2 className='content-header2'>${AddCommaToNumber(props.featuredCars[3].price)}</h2>
                         <Label className="content-text2">{props.featuredCars[3].carName}</Label>
                       </div>
                     </Col>
                     <Col data-aos="" data-aos-duration="1500" data-aos-easing="ease-in-sine" md = "6" xs = "12" style = {FeaturedDemoImage5} className='main-coloumn'  onClick={()=>history.push('/product/'+ productId[4].productId)}>
-                     <Badge color="primary" className = "feature-car-badge2">New</Badge>
+                     <Badge color="primary" className = "feature-car-badge2">
+                       {/* {props.featuredCars[0].isFeatured ? "Featured" : null} */}
+                       NEW
+                      </Badge>
                       <div className="content">
                         <h2 className='content-header2'>${AddCommaToNumber(props.featuredCars[4].price)}</h2>
                         <Label className="content-text2">{props.featuredCars[4].carName}</Label>

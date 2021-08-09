@@ -13,16 +13,38 @@ const MessageBubble = (props) => {
     const modalImageRef = useRef();
     const [imgPreviewModal, setImgPreviewModal] = useState(false);
     const [message,setMessage] = useState([])
+    const [chat,setChat] = useState(null)
     
     useEffect(() => {
-        const key = [props.chat.senderId, props.chat.receiverId].sort().join('-')
+        let listen = null
+        let key = [props.chat.senderId, props.chat.receiverId].sort().join('-')
+        console.log('key',key)
         if(props.chat){
+            
+            listen = firebase.firestore().collection("Chats").doc(key).collection('Messages')
+            .orderBy('messagedAt','asc')
+            .onSnapshot((snapshot) => {
+                console.log("keysss",key)
+                let updatedData = snapshot.docs.map(doc => doc.data())
+                setMessage(updatedData)
+            })
+            return () => listen();
+        }
+    },[props.chat])
+
+
+    useEffect(() => {
+        let key = [props.chat.senderId, props.chat.receiverId].sort().join('-')
+        console.log('key',key)
+        if(props.chat){
+            
             firebase.firestore().collection("Chats").doc(key).collection('Messages')
             .orderBy('messagedAt','asc')
             .onSnapshot((snapshot) => {
-            let updatedData = snapshot.docs.map(doc => doc.data())
-            setMessage(updatedData)
-            
+                console.log("keysss",key)
+                let updatedData = snapshot.docs.map(doc => doc.data())
+                props.updateFunc(true)
+                //setMessage(updatedData)
             })
         }
     },[props.chat])
@@ -146,9 +168,9 @@ const MessageBubble = (props) => {
                     table.push(
                         // If you want to show the multiple images on right side add classname float-right
                         // If you want to show the multiple images on left side then remove float classname
-                        <Row className="float-right">
+                        <Row>
                             <Col xs="12">
-                                <div className="grid-chat float-right">
+                                <div className="grid-chat ml-auto">
                                 {
                                     multipleImagesRows(list[i].multipleImagesList)
                                 }
@@ -168,9 +190,15 @@ const MessageBubble = (props) => {
 
                         // If you want to show this single image on right then add the classname float-right
                         // If you want to show the image on left then remove float class
-                        <div className="img-container float-right">
-                            <LazyLoadImage onClick={(e) => openImgPreview(e, list[i].imageUrl)} effect="blur" src={list[i].imageUrl} className="single-img img-fluid" alt="Car 1" />
-                        </div>
+                        <Row>
+                            <Col xs="12">
+                                <div className="img-container float-right">
+                                    <LazyLoadImage onClick={(e) => openImgPreview(e, list[i].imageUrl)} effect="blur" src={list[i].imageUrl} className="single-img img-fluid" alt="Car 1" />
+                                </div>
+                            </Col>
+                        </Row>
+
+                        
                     )
                 }else{
                     table.push(

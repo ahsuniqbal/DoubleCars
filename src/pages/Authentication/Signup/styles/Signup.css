@@ -144,6 +144,8 @@
     box-sizing: border-box;
     border-radius: 6px;
     margin-bottom: 2%;
+    text-align: center;
+    cursor: pointer;
 
 }
 .fb-icon{
@@ -164,6 +166,8 @@
     padding: 9px 0px;
     margin-right: 0 !important;
     margin-bottom: 2%;
+    text-align: center;
+    cursor: pointer;
 }
 .icon-text{
     font-family: Ubuntu;

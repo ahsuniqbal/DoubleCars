@@ -144,7 +144,7 @@ const ChatListItem = (props) => {
             <Col xs="3" className="text-center">
                 <Label className="time">{lastMsgAt(props.chat.chat.lastMessageAt)}</Label>
                 {
-                    getNotify(props.chat.chat).status ? <div className="unread-number">{getNotify(props.chat.chat).count}</div> : null
+                    getNotify(props.chat.chat).status && getNotify(props.chat.chat).count !== 0 ? <div className="unread-number">{getNotify(props.chat.chat).count}</div> : null
                 }
                 
             </Col>

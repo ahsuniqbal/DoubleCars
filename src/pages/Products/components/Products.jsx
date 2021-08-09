@@ -55,7 +55,7 @@ const ShowSearchResults = (products) => {
                         productText={"$" + AddCommaToNumber(products[i].price)}
                         productImg={products[i].coverPic}
                         productName={products[i].carName}
-                        // productBadge={"TRENDING"}
+                        productBadge={products[i].isFeatured ? "FEATURED" : null}
                         userId={products[i].userId}
                         dealerPic={products[i].userPic}
                         dealer={products[i].userRole}
@@ -337,7 +337,7 @@ const Products = (props) => {
                         carModel={locationSearch.carModel}
                         minPrice={locationSearch.minPrice}
                         maxPrice={locationSearch.maxPrice}
-                        yearCar={locationSearch.yearCar}
+                        minYear={locationSearch.minYear}
                         search={locationSearch.search}
                         isDealer={true}
                         savedSearch={savedSearchObj}
@@ -389,13 +389,16 @@ const Products = (props) => {
                         } */}
                     </Row>
 
-                    <Row>
-                        <Col xs="12" className="pl-0">
-                            <div className={classes.root}>
-                                <Pagination count={totalPages} page={pageNumber} onChange={pageChange} color="primary" />
-                            </div>
-                        </Col>
-                    </Row>
+                    {
+                        totalPages > 1 &&
+                        <Row>
+                            <Col xs="12" className="pl-0">
+                                <div className={classes.root}>
+                                    <Pagination count={totalPages} page={pageNumber} onChange={pageChange} color="primary" />
+                                </div>
+                            </Col>
+                        </Row>
+                    }
                 </Col>
             </Row>
             <button onClick={(e) => topFunction(e)} id="myBtn"  title="Go to top"><ArrowUp size={16} /> </button>

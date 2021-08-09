@@ -28,7 +28,6 @@ const mapStateToProps = (state) => {
 const ChatList = (props) => {
     const [chats,setChats] = useState([])
     const [constChats,setConstantChats] = useState([])
-    const [updateView,setViewUpdate] = useState(null)
     const [flag,setFlag] = useState(true)
     useEffect(() => {
         console.log("chala")
@@ -40,34 +39,83 @@ const ChatList = (props) => {
         
         var user = localStorage.getItem("userId")
         console.log("USER",user)
+
         // var user = 73
         getUserChats(user)
         .then(snap => {
             if(snap.userIds.length > 0){
                 getChatUserPics(snap.userIds.toString())
-            .then(doc => {
-            var newList = []
-            for(let i = 0; i < doc.length; i++){
-                var obj = {
-                    user : doc[i],
-                    chat : snap.chats[i],
-                    username : doc[i].fullName.toLowerCase()
+                .then(doc => {
+                var newList = []
+                for(let i = 0; i < doc.length; i++){
+                    var obj = {
+                        user : doc[i],
+                        chat : snap.chats[i],
+                        username : doc[i].fullName.toLowerCase()
+                    }
+                    newList.push(obj)
                 }
-                newList.push(obj)
-            }
                 if(flag){
                     props.selectChat(newList[0])
                     setFlag(false)
                 }
-                
-               setChats(newList)
-               setConstantChats(newList)
+                console.log("NEWLIST", newList)
+                setChats(newList)
+                setConstantChats(newList)
             })
             .catch(e => {
                 console.log(e.message)
             })
             }
         })
+
+        // firebase.firestore().collection("Chats").orderBy('lastMessageAt','desc').onSnapshot((snapshot) => {
+        //     var arr = []
+        //     var userArray = []
+        //     snapshot.docs.map(doc => {
+        //         if(doc.data().receiverId == user || doc.data().senderId == user){
+        //           arr.push(doc.data())
+        //           userArray.push(doc.data().receiverId == user ? doc.data().senderId : doc.data().receiverId)
+        //         }
+        //     })
+        //     const snap = {
+        //         chats : arr,
+        //         userIds : userArray
+        //     }
+        //     // var user = 73
+        //         if(snap.userIds.length > 0){
+        //             getChatUserPics(snap.userIds.toString())
+        //             .then(doc => {
+        //             var newList = []
+        //             for(let i = 0; i < doc.length; i++){
+        //                 var obj = {
+        //                     user : doc[i],
+        //                     chat : snap.chats[i],
+        //                     username : doc[i].fullName.toLowerCase()
+        //                 }
+        //                 newList.push(obj)
+        //             }
+        //             if(flag){
+        //                 props.selectChat(newList[0])
+        //                 setFlag(false)
+        //             }
+        //             console.log("NEWLIST", newList)
+        //             setChats(newList)
+        //             setConstantChats(newList)
+        //         })
+        //         .catch(e => {
+        //             console.log(e.message)
+        //         })
+        //         }
+        // })
+
+
+
+
+
+
+
+
     },[props.up])
 
 
@@ -105,7 +153,7 @@ const ChatList = (props) => {
         var table = [];
         for(let i = 0; i < list.length; i++){
             table.push(
-                <div id={`chat-list-item${i}`} onClick={(e) => handleClick(e, i, list)}>
+                <div id={`chat-list-item${i}`} className={i === 0 && 'active'} onClick={(e) => handleClick(e, i, list)}>
                     <ChatListItem chat={list[i]}/>
                 </div>
             )

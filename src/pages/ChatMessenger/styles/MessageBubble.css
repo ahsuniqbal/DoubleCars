@@ -211,7 +211,7 @@
 }
 
 .multiple-img-container .multiple-image {
-    width: 100%;
+    width: 100px;
     height: 88px;
     border-radius: 8px;
     object-fit: cover;

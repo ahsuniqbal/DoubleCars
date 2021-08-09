@@ -16,7 +16,7 @@ import { Share2 } from 'react-feather';
 import UsersSlider from '../../../components/DcSlider/components/UsersSlider';
 import StatsTable from './StatsTable';
 import Chart from './Chart';
-import { ProductGraph } from '../api/PostRequest';
+import { DealGraph, ProductGraph } from '../api/PostRequest';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
@@ -26,16 +26,25 @@ const ProductResults = ({match}) => {
     const [tableData, setTableData] = useState(null);
     const [shareTipOpen, setShareTipOpen] = useState(false);
     const [graphData, setGraphData] = useState(null);
+    const [goodDeal, setGoodDeal] = useState(null);
 
     const history = useHistory();
-
-    const toggleShareTip = () => {
-        setShareTipOpen(!shareTipOpen);
-    }
 
     useEffect(() => {
         GetProductDetails(match.params.id).then(doc => {
             setProductDetails(doc);
+
+            const dealObj = {
+                vin: doc.details[0].vin,
+                mileage: doc.details[0].mileage ? doc.details[0].mileage : "average"
+            }
+            
+            DealGraph(dealObj).then(docDeal => {
+                setGoodDeal(docDeal)
+            }).catch(error => {
+                console.log(error)
+            })
+
             GetTopDealers(doc.details[0].carMake, doc.details[0].carModel).then(doc => {
                 setTopDealers(doc.topDealers);
                 setTableData(doc.tableData);
@@ -53,7 +62,7 @@ const ProductResults = ({match}) => {
             })
 
 
-            getSimilarCars(doc.details[0].carMake).then(doc => {
+            getSimilarCars(doc.details[0].bodyStyle).then(doc => {
                 setSimilarCars(doc)
             })
             .catch(e => {
@@ -150,7 +159,7 @@ const ProductResults = ({match}) => {
                                     <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
                                 }
                                 {
-                                    graphData && <Chart newData={"a"} data={graphData} />
+                                    graphData && <Chart price={productDetails.details[0].price} goodDeal={goodDeal} data={graphData} />
                                 }
                                  <Information
                                     details={productDetails.details[0]}

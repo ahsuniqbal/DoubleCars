@@ -678,8 +678,11 @@ const Filters = (props) => {
             setTrimCollapseOpen(true)
         }
         
-        if(props.yearCar){
-            filters['yearCar'] = props.yearCar
+        if(props.minYear){
+            filters['minYear'] = props.minYear
+        }
+        if(props.maxYear){
+            filters['maxYear'] = props.maxYear
         }
         if(props.isUsed){
             filters['isUsed'] = props.isUsed
@@ -694,13 +697,22 @@ const Filters = (props) => {
                 filters['minPrice'] = props.minPrice
                 filters['maxPrice'] = props.maxPrice ? props.maxPrice : 9999999
             }else{
-                setPrice([0, values[1].listRanges.ranges[0].maxPrice]);
+                if(props.maxPrice){
+                    filters['maxPrice'] = props.maxPrice
+                    setPrice([0, props.maxPrice]);
+                }else{
+                    setPrice([0, values[1].listRanges.ranges[0].maxPrice]);
+                }
+                
             }
             FilterQueryString(filters)
         })
         .catch(error => {
             alert(error.message);
         });
+
+        // Get the current location using HTML Geo location
+        GetLocation();
     }, []);
 
     useEffect(() => {
@@ -940,7 +952,7 @@ const Filters = (props) => {
                             <Row>
                                 <Col xs="6">
                                     {/* On selecting from year, to year will be enabled */}
-                                    <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading} defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
+                                    <Input type="select" onChange={(e) => handleFromYear(e.target.value)} disabled={loading} defaultValue={props.minYear ? Number(props.minYear) : ""}>
                                         <option value="" disabled selected hidden>From</option>
                                         {
                                             // Populate from year
@@ -952,7 +964,7 @@ const Filters = (props) => {
                                 </Col>
                                 <Col xs="6">
                                     {/* Disabled by default, will be enabled after from year is selected */}
-                                    <Input id="toYear" type="select" onChange={(e) => handleToYear(e.target.value)} disabled defaultValue={props.yearCar ? Number(props.yearCar) : ""}>
+                                    <Input id="toYear" type="select" onChange={(e) => handleToYear(e.target.value)} disabled defaultValue={props.maxYear ? Number(props.maxYear) : ""}>
                                         <option value="" disabled selected hidden>To</option>
                                         {
                                             // Populate to year

@@ -251,7 +251,7 @@ const SellerDetails = (props) => {
 
                         <span className="or-divider">or</span>
 
-                        <Input type="email" id='email-id' className="interested-textfield" placeholder="Your email address or Phone number"></Input>
+                        <Input type="text" id='email-id' className="interested-textfield" placeholder="Your email address or Phone number"></Input>
                         <div id="email-error-label" className="sellerPage-error-label"></div>
 
 
@@ -274,7 +274,7 @@ const SellerDetails = (props) => {
 
             {
                 dealer ?
-                    <Card className="mt-5 about-seller-card">
+                    <Card className="about-seller-card">
                         <CardBody>
                             <Row>
                                 <Col style={{ display: 'flex', justifyContent: 'center' }}>

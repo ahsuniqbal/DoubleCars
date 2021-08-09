@@ -39,7 +39,6 @@ const PrevoiusIcon=(props)=>{
   );
 }
 const DCSlider = (props) => {
-
   const [activeSlide,setActiveSlide]=useState(0)
 
     let settings = {
@@ -94,7 +93,7 @@ const DCSlider = (props) => {
                         <ProductCard 
                             key={index}
                             productId={item.productId}
-                            productBadge={props.productBadge}
+                            productBadge={item.isFeatured ? "FEATURED" : null}
                             productImg={item.coverPic}
                             productName={item.productName}
                             productTitle={item.carName}
