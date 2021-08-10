@@ -228,4 +228,8 @@ select:required:invalid {
     .search-search-box {
         padding-left: 21px !important;
     }
+
+    .searchbar .nav {
+        justify-content: center;
+    }
 }

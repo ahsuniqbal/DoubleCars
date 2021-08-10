@@ -8,6 +8,18 @@ export const emailValidation = (email) => {
     }
 };
 
+
+export const mobileRegexForDealerContact = (mobileNumber) => {
+    var regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
+    if(regex.test(mobileNumber)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 export const mobileValidation = (mobileNumber) => {
     // var regex = /^\+\d{1,3}-\d{9,10}$/; previous code
     var regex=/\(\d{3}\)\d{3}[-]\d{3}/ //(123)123-123 format

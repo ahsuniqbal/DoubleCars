@@ -16,7 +16,7 @@ import SellerCheckMark from '../../../assets/seller-check-icon.png';
 import PhoneIcon from '../../../assets/phone-icon.png'
 import MessageIcon from '../../../assets/message-icon.png'
 // import DealerProfileImage from '../../../assets/DealerProfileImage.png'
-import { emailValidation } from '../../../utils/Validation';
+import { emailValidation, mobileRegexForDealerContact } from '../../../utils/Validation';
 import LoginSignupModal from '../../Authentication/LoginSignupModal/LoginSignupModal'
 import { getLogin } from '../../../config/LoginAuth';
 import { AddCommaToNumber } from '../../../utils/NumberManipulation'
@@ -55,9 +55,7 @@ const SellerDetails = (props) => {
         const msg = document.getElementById('message').value;
 
 
-        console.log(props.details);
-
-        if (emailValidation(email)) {
+        if (emailValidation(email) || mobileRegexForDealerContact(email)) {
             // mail is okay
             document.getElementById('email-error-label').textContent = "";
 
@@ -77,7 +75,7 @@ const SellerDetails = (props) => {
         }
         else {
             // mail is wrong
-            document.getElementById('email-error-label').textContent = "Please enter a valid email address";
+            document.getElementById('email-error-label').textContent = "Please enter a valid email address or mobile number";
         }
     }
     const chatMsg = (dealerId) => {
