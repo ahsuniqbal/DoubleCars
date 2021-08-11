@@ -68,8 +68,10 @@ const TruckSection = () => {
         </Container>
             } 
             </Row> */}
-        <Row>
-            <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'>
+        <Row className="trucks">
+            <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'
+           >
+            
             <LazyLoadImage className="card-img img-fluid"  effect="blur" src={HeavyTruck} alt='Heavy Duty Trucks'/>
            
                 <div className='truck-cars-div'>  
@@ -81,7 +83,7 @@ const TruckSection = () => {
                     </span> 
                 </div>
             </Col>
-            <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'>
+            <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col truck2'  >
             <LazyLoadImage className="card-img img-fluid"  effect="blur" src={PickupTruck} alt='Box Trucks'/>
                 <div className='truck-cars-div'>   
                     <span className='trucks-images-gradient'>
@@ -94,7 +96,7 @@ const TruckSection = () => {
             </Col>
         </Row>
 
-        <Row>
+        <Row className="trucks">
             <Col data-aos="fade-right" data-aos-duration="1000" md='6' className='truck-cars-col'>
             <LazyLoadImage className="card-img img-fluid"  effect="blur" src={FullSizeVan} alt='Fork Lifter'/>
             

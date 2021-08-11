@@ -30,7 +30,7 @@ const Information = (props) => {
                 console.log("Not matched")
             }
         }   
-
+console.log(props.data)
        
         
 

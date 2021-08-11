@@ -9,10 +9,22 @@ import { AddCommaToNumber } from '../../../utils/NumberManipulation';
 
 const options = {
     scales : {
-        xAxes : [ {
-            gridLines : {
-                display : false
-            }
+        xAxes:[{
+        ticks: {
+            //fontSize: 18,
+            //fontFamily: 'Gotham-Medium',
+           // fontColor: colorMap['primaryBlue'],
+            maxRotation: 0.00001,
+          padding:10,
+            
+          },
+          gridLines: {
+            
+            display:false,
+         
+          },
+    
+            
         } ]
     },
     tooltips: {
@@ -48,6 +60,7 @@ const Chart = (props) => {
                 pointRadius: 1,
                 pointHitRadius: 10,
                 data: data,
+                
             },
         ],
     }

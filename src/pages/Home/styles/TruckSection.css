@@ -1,13 +1,16 @@
 .truck-cars-col{
     position: relative;
-    margin: 17px 0px;
+    margin: 17px 00px;
     /* padding: 0px 0px !important; */
 }
 .card-img {
     height: 274px;
     border-radius: 7px;
 }
-
+.trucks{
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
 .lazy-load-image-background img.card-img {
     object-fit: cover;
