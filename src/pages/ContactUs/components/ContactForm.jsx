@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/Contact.css';
-import {Row, Col,Button, Input, Label,Form} from 'reactstrap'
+import {Row, Col,Button, Input, Label,Form,FormGroup} from 'reactstrap'
 import { nameValidation ,emailValidation} from '../../../utils/Validation';
 import { ContactSupportSharp } from '@material-ui/icons';
+import { CInput } from '@coreui/react';
 
 const ContactForm = () => {
     
@@ -48,12 +49,14 @@ const ContactForm = () => {
             <Label className = "contact-label">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci lorem, mattis at porta vitae, accumsan vel libero. In sit amet magna nunc. Curabitur at purus iaculis, rutrum neque sit amet, ornare lorem. Donec est metus, sagittis a nunc suscipit, varius facilisis est. In hac habitasse platea dictumst.
                 Donec laoreet ac ex eget rhoncus. Proin vel diam luctus, finibus mi ac.</Label>
                 <Form onSubmit={(e)=>ContactUs(e)} >
-                    <Input type="select" required className="contact-dropdown" id='dropdown-id'>
+                   
+                    <Input type="select" required name="select" className="contact-dropdown" id='dropdown-id'>
                         <option value=""disabled selected>Select Purpose</option>
                         <option value="Option-1">Car Information</option>
                         <option value="Option-2">Beta Version Complain</option>
                         <option value="Option-3">Payment issues</option>
                     </Input>
+                   
                     <Input type = "text" id='name-id' className = "fullname-textfield" placeholder = "Full Name" required></Input>
                     <div id="name-error-label" className="contact-error-label"></div>
                     <Input type = "email" id='email-id' className = "email-textfield" placeholder = "Your Email" required></Input>
