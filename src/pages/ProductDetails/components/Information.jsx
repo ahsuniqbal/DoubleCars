@@ -3,6 +3,11 @@ import { Row, Col,Label, Collapse, Card , Button, CardBody} from 'reactstrap';
 import { AddCommaToNumber, TrimText } from '../../../utils/NumberManipulation';
 import '../styles/Information.css';
 import CertifiedCarsCard from './CertifiedCarCard';
+
+import { ChevronDown } from 'react-feather';
+
+import Chart from './Chart';
+import SellerNote from './SellerNote';
 const Information = (props) => {
 
     // read more state
@@ -267,21 +272,12 @@ const Information = (props) => {
                 </Col>
                 <Col className = "text-md-right mt-5" md = "4">
                     {/* <h2 className = "car-price">{details.price ? ("$" + AddCommaToNumber(details.price)) : null}</h2> */}
-                    <h2 className = "car-price" onClick={toggle} style={{ marginBottom: '1rem' }}>{details.price ? ("$" + AddCommaToNumber(details.price)) : null}</h2>
-                    <Collapse isOpen={isOpen}>
-                        <Card>
-                        <CardBody>
-                        Anim pariatur cliche reprehenderit,
-                        enim eiusmod high life accusamus terry richardson ad squid. Nihil
-                        anim keffiyeh helvetica, craft beer labore wes anderson cred
-                        nesciunt sapiente ea proident.
-                        </CardBody>
-                        </Card>
-                    </Collapse>
+                    <h2 className = "car-price" onClick={toggle} style={{ marginBottom: '1rem', cursor: 'pointer' }}>{details.price ? ("$" + AddCommaToNumber(details.price)) : null}<ChevronDown color="#000000" size={20} className = "mr-1"/></h2>
+                    
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col md = "12" xs = "12">
                     {
                         matched ==false ?
                         <h4 className = "car-info mb-4">
@@ -291,7 +287,53 @@ const Information = (props) => {
                         null
                     }
                 </Col>
+                <Col md = "12" xs = "12">
+                {details.description ? 
+
+                    // If description is greater than this length then show read more thing
+                    // Other wise show full text
+                    details.description.length > 400 ?
+                        <>
+                            {/* If read more is false then short text and read more button is shown */}
+                            {!readMore && <Label className="car-info">{TrimText(details.description, 400)}...</Label>}
+                            {!readMore && <a style={{textDecoration: 'underline', cursor: 'pointer', color: '#007bff'}} onClick={() => toggleReadMore()}>Read More</a>}
+
+                            
+                            <Collapse isOpen={readMore}>
+                                <Label className="car-info">{details.description}</Label>
+                                {/* If read more is true then long text and read less button is shown */}
+                                {readMore && <a style={{textDecoration: 'underline', cursor: 'pointer', color: '#007bff'}} onClick={() => toggleReadMore()}>Read Less</a>}
+                            </Collapse>
+                        </>
+
+                    // If description is greater than the length defined show read more thing
+                    // Other wise show full text
+                    : <Label className="car-info">{details.description}</Label>
+
+                    // If description exists than show other wise null
+                    : null}
+                </Col>
             </Row>
+
+            <Row>
+                <Col xs="12">
+                <Collapse isOpen={isOpen}>
+                        <Card>
+                        <CardBody>
+                        <Chart price={props.price} goodDeal={props.goodDeal} data={props.data} />
+                        </CardBody>
+                        </Card>
+                    </Collapse>
+                </Col>
+            </Row>
+           {/* Itna Ganda lag raha hai is lye comment krdya hai  */}
+            {/* <Row>
+                <Col xs = "12" md = "12">
+                    <SellerNote/>
+                </Col>
+            </Row> */}
+
+           
             {/* <Row>
                 <Col>
                     <h4 className = "car-info mb-4">{details.mileage ? details.mileage : null}</h4>
@@ -307,30 +349,7 @@ const Information = (props) => {
             </Row> */}
 
             {/* If description exists than show other wise null */}
-            {details.description ? 
-
-                // If description is greater than this length then show read more thing
-                // Other wise show full text
-                details.description.length > 400 ?
-                    <>
-                        {/* If read more is false then short text and read more button is shown */}
-                        {!readMore && <Label className="car-info">{TrimText(details.description, 400)}...</Label>}
-                        {!readMore && <a style={{textDecoration: 'underline', cursor: 'pointer', color: '#007bff'}} onClick={() => toggleReadMore()}>Read More</a>}
-
-                        
-                        <Collapse isOpen={readMore}>
-                            <Label className="car-info">{details.description}</Label>
-                            {/* If read more is true then long text and read less button is shown */}
-                            {readMore && <a style={{textDecoration: 'underline', cursor: 'pointer', color: '#007bff'}} onClick={() => toggleReadMore()}>Read Less</a>}
-                        </Collapse>
-                    </>
-
-                // If description is greater than the length defined show read more thing
-                // Other wise show full text
-                : <Label className="car-info">{details.description}</Label>
-
-            // If description exists than show other wise null
-            : null}
+            
             
             
             

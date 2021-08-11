@@ -19,9 +19,9 @@
     /* border-top-left-radius: 6px;
     border-bottom-left-radius: 6px; */
     top: 0%;
-    bottom: 0%;
+    bottom: 2% !important;
     padding-left: 2rem;
-    width: 95%;
+    /* width: 95%; */
     /* background: linear-gradient( 90deg , #233856 0%, rgba(33, 52, 80, 0) 100%); */
 }
 

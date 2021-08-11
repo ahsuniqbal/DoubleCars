@@ -75,7 +75,7 @@ const ResetPassword = () => {
                                 <Col xs = "12" md = "12" className = "text-center">
                                     <h2 className = "login-now-head">Reset Password</h2>
                                     <Label className = "login-label">
-                                    Please Enter you email and we will send you a link to reset password </Label>
+                                    Please Enter you email and we will send you a link to reset password. </Label>
                                 </Col>
                             </Row>
                             <Form onSubmit={e => handleLogin(e)}>

@@ -17,6 +17,7 @@ import UsersSlider from '../../../components/DcSlider/components/UsersSlider';
 import StatsTable from './StatsTable';
 import Chart from './Chart';
 import { DealGraph, ProductGraph } from '../api/PostRequest';
+import SellerNote from './SellerNote';
 
 const ProductResults = ({match}) => {
     const [productDetails, setProductDetails] = useState(null);
@@ -150,7 +151,7 @@ const ProductResults = ({match}) => {
                         productDetails ?
                     <Row>
 
-                        
+                       
                       
                         <Col className="react-image" sm="12" md = "8">
                                 {
@@ -161,15 +162,22 @@ const ProductResults = ({match}) => {
                                     : productDetails.details[0].coverPic ? <Gallery items={DrawGallery(productDetails.images, productDetails.details[0].coverPic, productDetails.details[0].saves)} productId={productDetails.details[0].productId} /> :
                                     <Gallery items={[{original: dummyAvatar, thumbnail: dummyAvatar}]} productId={productDetails.details[0].productId} />
                                 }
-                                {
+                                {/* {
                                     graphData && <Chart price={productDetails.details[0].price} goodDeal={goodDeal} data={graphData} />
+                                } */}
+                               
+                                { graphData &&
+                                    <Information
+                                        details={productDetails.details[0]}
+                                        attributes={productDetails.attributes}
+                                        saveCount={productDetails.totalSaves[0]}
+                                        price={productDetails.details[0].price}
+                                        goodDeal={goodDeal} 
+                                        data={graphData}
+                                    />
                                 }
-                                 <Information
-                                    details={productDetails.details[0]}
-                                    attributes={productDetails.attributes}
-                                    saveCount={productDetails.totalSaves[0]}
-                                />
                         </Col>
+                       
                             <Col md = "4" sm = "12">
                                 <AboutSeller
                                     userId={productDetails.details[0].userId}
