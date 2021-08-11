@@ -7,12 +7,21 @@ import SellerDetails from './SellerDetails'
 import '../styles/DealerProfile.css'
 import ProductCard from '../../../components/ProductCard/components/ProductCard';
 import queryString from 'query-string';
-
+import Pagination from '@material-ui/lab/Pagination';
 import { GetSellerDetails, GetSellerInventory, GetSearchResult } from '../api/GetRequests';
 import { ArrowUp } from "react-feather";
-import { CPagination } from "@coreui/react";
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        marginTop: theme.spacing(2),
+      },
+    },
+  }));
 
 const ShowSearchResults = (inventory) => {
+    
     var table = [];
     for (let i = 0; i < inventory.length; i++) {
         table.push(
@@ -34,7 +43,7 @@ const ShowSearchResults = (inventory) => {
 }
 
 const DealerProfile = (props) => {
-
+    const classes = useStyles();
     let locationSearch = queryString.parse(props.location.search);
 
     const [dealer, setDealer] = useState(null);
@@ -42,7 +51,7 @@ const DealerProfile = (props) => {
     const [sortFlag, setSortFlag] = useState(false);
     const [totalCount, setTotalCount] = useState(0)
 
-
+    const [totalPages, setTotalPages] = useState(0)
     // Copying from products page
     const [pageNumber, setPageNumber] = useState(0);
     const [isBottom, setIsBottom] = useState(false);
@@ -69,6 +78,12 @@ const DealerProfile = (props) => {
             setIsBottom(!isBottom);
         }
     }
+
+    const pageChange = (event, value) => {
+        window.scrollTo(0, 400)
+        setPageNumber(value)
+        filterQueryChange(globalQuery,value - 1)
+      };
 
 
     useEffect(() => {
@@ -171,6 +186,7 @@ const DealerProfile = (props) => {
         GetSearchResult(str).then(doc1 => {
             console.log(doc1)
             setTotalCount(doc1.totalCount)
+            setTotalPages(doc1.totalPages)
             const doc = doc1.results;
             if(doc.length > 0) {
                 // setBooleanFlag(false);
@@ -303,11 +319,16 @@ const DealerProfile = (props) => {
                         }
                     </Row>
 
-                    <Row>
-                        <Col xs="12">
-                            <CPagination />
-                        </Col>
-                    </Row>
+                    {
+                        totalPages > 1 &&
+                        <Row>
+                            <Col xs="12" className="pl-0">
+                                <div className={classes.root}>
+                                    <Pagination count={totalPages} page={pageNumber} onChange={pageChange} color="primary" />
+                                </div>
+                            </Col>
+                        </Row>
+                    }
                 </Col>
             </Row>
             <button onClick={(e) => topFunction(e)} id="myBtn" title="Go to top"><ArrowUp size={16} /> </button>

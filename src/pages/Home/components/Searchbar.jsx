@@ -192,7 +192,7 @@ const Searchbar = () => {
             <CardBody>
 
                 <Row>
-                    <Col xs="8" style={{marginTop:'10px', marginBottom: '4px' }} >
+                    <Col xs="12" md="8" style={{marginTop:'10px', marginBottom: '4px' }} >
                         
                         <CardTitle>Search for your dream car
                             
@@ -200,7 +200,7 @@ const Searchbar = () => {
                         </CardTitle>
                     </Col>
 
-                    <Col xs="4">
+                    <Col xs="12" md="4">
                         <Nav tabs color="link">
                             <NavItem>
                                 <NavLink 

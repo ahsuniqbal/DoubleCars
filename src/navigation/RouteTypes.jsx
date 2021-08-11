@@ -13,7 +13,6 @@ const PrivateRoute = ({component: Component, ...rest}) => {
 };
 
 const PublicRoute = ({component: Component, restricted, ...rest}) => {
-    console.log("ye chala", Component)
     return(
         // restricted = false meaning public route
         // restricted = true meaning restricted route
