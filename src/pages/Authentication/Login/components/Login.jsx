@@ -75,7 +75,7 @@ const Login = (props) => {
     const handleSocialLogin = (loginObj) => {
         SocialLogin(loginObj).then(doc => {
             console.log(doc)
-            Promise.all([localStorage.setItem('userId', doc.id),localStorage.setItem('userToken', doc.Token)]).then(doc => {
+            Promise.all([localStorage.setItem('userId', doc.ID),localStorage.setItem('userToken', doc.Token)]).then(doc => {
                 props.history.push('/');
             })
             .catch(e => {
