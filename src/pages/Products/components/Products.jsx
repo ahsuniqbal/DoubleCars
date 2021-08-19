@@ -329,7 +329,8 @@ const Products = (props) => {
             </Row>      
             <Row>
                 <Col xs="12" md="3" style = {{marginTop: '5rem'}}>
-                    <Filters
+               
+                    <Filters 
                         onFilterChange={filterQueryChange}
                         isUsed={locationSearch.isUsed}
                         bodyStyle={locationSearch.bodyStyle}

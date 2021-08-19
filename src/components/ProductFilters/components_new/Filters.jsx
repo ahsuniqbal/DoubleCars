@@ -1,10 +1,11 @@
 import React, { useState, useEffect,useCallback } from 'react';
 import { Button, Card, CardBody, Col, Input, InputGroup, InputGroupAddon, InputGroupText, Label, Row, FormGroup, Collapse } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Check } from 'react-feather';
+import { Check, X } from 'react-feather';
 import { GetFiltersList, GetAllMakes, GetModelFromMake, GetTrimFromMakeAndModel, GetZipFromLatLong, GetZipCodesList } from '../api/GetRequests';
 import MapPopup from './MapPopup';
 import gps from '../../../assets/gps.svg';
+import filter from '../../../assets/filters.png'
 import { RadiusSlider, PriceRangeSlider, MileageSlider } from './sliders/Sliders';
 import '../styles/Filters.css';
 import { FiltersSkeleton } from '../../Skeletons/components/Skeleton';
@@ -13,6 +14,7 @@ import { FiltersSkeleton } from '../../Skeletons/components/Skeleton';
 const Filters = (props) => {
     /////////////// Filters ///////////////
     // Filters Object
+    
     const [filters, setFilters] = useState({});
 
     // Filters list to be rendered dynamically
@@ -807,10 +809,19 @@ const Filters = (props) => {
         FilterQueryString(filters);
         setExtColors(tempArr);
     }
+    
+
+
 
     return(
-        <Card className="filters">
-            <CardBody>
+       <div>
+          
+          <button  type="button " className="menu-icon d-lg-none"  data-target="#menu-bar"  data-toggle="collapse">
+             <img src={filter} width="50px" height="50px" />
+            </button>
+        <Card  className="filters collapse d-lg-block" id="menu-bar" >
+        
+            <CardBody >
                 {/* Filters heading with number of active filters */}
                 {
                     // Every time the filters are updated change the heading number
@@ -818,6 +829,7 @@ const Filters = (props) => {
                     ? <Label style={{marginBottom: '0'}}><b>Filter</b> ({Object.keys(filters).length})</Label>
                     : <Label style={{marginBottom: '0'}}><b>Filter</b></Label>
                 }
+                
                 {/* Clear all button */}
                 {/* <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm" onClick={() => window.location.reload()}>Clear</Button> */}
                 <Button style={{fontWeight: '500'}} color="link" className="float-right" size="sm">Save Filters</Button>
@@ -830,7 +842,7 @@ const Filters = (props) => {
                 {/******** Location filter ************/}
                 {
                     filtersList ? 
-                        <div>
+                        <div >
                             <div className="location">
                                 <h6>Location</h6>
                                 <InputGroup>
@@ -1103,6 +1115,7 @@ const Filters = (props) => {
                 }
             </CardBody>
         </Card>
+        </div>
     );
 }
 

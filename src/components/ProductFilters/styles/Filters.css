@@ -192,3 +192,20 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
+ .menu-icon{
+     display: none; 
+    
+} 
+@media (max-width: 768px){
+    .menu-icon{
+        display: block;
+        background-color: white;
+        border-radius: 10px;
+       float: right;
+       border:1px solid rgb(235, 232, 232);
+   }
+   .menu-icon img{
+       padding: 5px;
+   }
+   
+}
