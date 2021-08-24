@@ -1,7 +1,7 @@
 {
   "name": "doublecars",
   "version": "0.1.0",
-  "homepage": "https://mobile.double-cars.com",
+  "homepage": "https://double-cars.com",
   "private": true,
   "dependencies": {
     "@coreui/react": "^3.4.6",
